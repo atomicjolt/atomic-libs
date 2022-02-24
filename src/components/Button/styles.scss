@@ -1,0 +1,15 @@
+.aj-button {
+  border: none;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  font-size: 1.2em;
+  color: white;
+
+  &.primary {
+    background-color: #00bcd4;
+  }
+
+  &.secondary {
+    background-color: #f44336;
+  }
+}
