@@ -1,15 +1,24 @@
-.aj-button {
+@import "../defines.scss";
+
+.aj-btn {
   border: none;
   padding: 0.5em 1em;
   border-radius: 5px;
-  font-size: 1.2em;
-  color: white;
+  font-size: 1.6em;
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  @include bold;
 
-  &.primary {
-    background-color: #00bcd4;
+  &--primary {
+    @extend .aj-btn;
+    color: $text-inverted;
+    background-color: $clr-primary;
   }
 
-  &.secondary {
-    background-color: #f44336;
+  &--secondary {
+    @extend .aj-btn;
+    color: $text;
+    background-color: $clr-secondary;
   }
 }

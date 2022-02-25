@@ -1,20 +1,18 @@
 import React from "react";
 import "./styles.scss";
-
-type ButtonType = "primary" | "secondary";
-
 export interface Props {
   /** What to render within the Button */
   children: React.ReactNode;
-  /***/
-  type?: ButtonType;
+  type?: 'submit' | 'reset' | 'button';
+  ariaLabel?: string;
+  className?: 'primary' | 'secondary';
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 /** Button Component */
-export default function Button({ children, type = "primary", onClick }: Props) {
+export default function Button({ type = "button", ariaLabel, children, className = "primary", onClick }: Props) {
   return (
-    <button className={`aj-button ${type}`} onClick={onClick}>
+    <button aria-label={ariaLabel} type={type} className={`aj-btn--${className}`} onClick={onClick}>
       {children}
     </button>
   );

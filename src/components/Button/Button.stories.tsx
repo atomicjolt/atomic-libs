@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Button, { Props } from ".";
 
 export default {
-  title: "Button",
+  title: "Inputs/Button",
   component: Button,
 } as ComponentMeta<typeof Button>;
 
@@ -14,11 +14,13 @@ const Template: ComponentStory<typeof Button> = (args: Props) => (
 export const Primary = Template.bind({});
 Primary.args = {
   children: "Primary",
-  type: "primary",
+  className: "primary",
+  type: "button",
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
   children: "Secondary",
-  type: "secondary",
+  className: "secondary",
+  type: "button",
 };

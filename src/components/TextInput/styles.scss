@@ -1,0 +1,52 @@
+@import "../defines.scss";
+
+.aj-input {
+  &__message,
+  &__error {
+    margin: 3px 0 0;
+    @include bold;
+    font-size: 1.3rem;
+    color: $gray5;
+  }
+
+  &__message {
+    @include regular;
+  }
+
+  &__error {
+    color: red;
+  }
+
+  input[type="text"] {
+    border: 1px solid $gray7;
+    border-radius: 5px;
+    min-height: 40px;
+    padding: 0 12px;
+    @include regular;
+    font-size: 1.6rem;
+    color: $gray3;
+
+    &:focus {
+      border-color: $gray5;
+      outline: 1px solid $gray5;
+    }
+  }
+
+  &.has-error {
+    input[type="text"] {
+      border-color: red;
+
+      &:focus {
+        outline-color: red;
+      }
+    }
+  }
+}
+
+.aj-label {
+  display: block;
+  padding-bottom: 5px;
+  @include bold;
+  font-size: 1.3rem;
+  color: $gray3;
+}

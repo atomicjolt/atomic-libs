@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+
+$white: #ffffff;
+
+$gray3: #333333;
+$gray5: #555555;
+$gray7: #777777;
+$grayC: #cccccc;
+$grayF: #f5f5f5;
+
+$text: $gray3;
+$text-inverted: $white;
+$clr-primary: blue;
+$clr-secondary: $grayF;
+$border-primary: $grayC;
+
+@mixin regular {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+}
+@mixin bold {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+}
+
+html {
+  font-size: 10px;
+}
+
+html,
+html a {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+  vertical-align: top;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
