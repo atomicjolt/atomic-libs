@@ -1,0 +1,33 @@
+@import "../../defines.scss";
+
+.aj-input {
+  textarea {
+    --textarea-height-sm: 80px;
+    --textarea-height-md: 140px;
+    --textarea-height-lg: 200px;
+
+    border: 1px solid var(--gray7);
+    border-radius: 5px;
+    min-height: 200px;
+    width: 100%;
+    padding: 8px 12px;
+    @include regular;
+    font-size: 1.6rem;
+    color: var(--text-clr);
+    resize: none;
+
+    &:focus {
+      border-color: var(--outline-clr-primary);
+      outline: var(--input-outline);
+    }
+
+    &:read-only {
+      border: none;
+      background-color: var(--grayF);
+    }
+  }
+
+  &.can-resize textarea {
+    resize: both;
+  }
+}

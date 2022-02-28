@@ -1,0 +1,102 @@
+@import "../../defines.scss";
+
+.aj-btn {
+  --btn-height: 40px;
+  --btn-padding: 0.5em; /* Half the button's font size, 8px currently */
+
+  border: none;
+  padding: var(--btn-padding) calc(var(--btn-padding) * 2);
+  border-radius: 5px;
+  font-size: 1.6em;
+  min-height: var(--btn-height);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  @include bold;
+  transition: background 100ms ease, color 100ms ease, transform 100ms ease;
+  color: var(--btn-text-clr);
+  background-color: var(--btn-bg-clr);
+  border: var(--btn-border);
+
+  &:hover {
+    cursor: pointer;
+    color: var(--btn-hover-text-clr);
+    background-color: var(--btn-hover-bg-clr);
+  }
+  &:active {
+    transform: translateY(1px);
+  }
+  &:focus-visible {
+    outline: var(--outline);
+    outline-offset: 2px;
+  }
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  &.is-loading {
+    position: relative;
+    color: transparent;
+
+    &::after {
+      content: "\e863";
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      font-size: 2rem;
+      font-family: "Material Icons";
+      color: var(--btn-text-clr);
+      animation: rotate 1s linear infinite;
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  }
+
+  i {
+    color: inherit;
+    font-size: 2.4rem;
+    margin-left: calc(var(--btn-padding) / -2);
+  }
+
+  &--primary {
+    --btn-text-clr: var(--text-clr-inverted);
+    --btn-bg-clr: var(--clr-primary);
+    --btn-hover-text-clr: var(--text-clr-inverted);
+    --btn-hover-bg-clr: var(--clr-primary2);
+    --btn-border: none;
+    @extend .aj-btn;
+  }
+
+  &--secondary {
+    --btn-text-clr: var(--text-clr-alt);
+    --btn-bg-clr: var(--clr-secondary);
+    --btn-hover-text-clr: var(--text-clr);
+    --btn-hover-bg-clr: var(--clr-secondary2);
+    --btn-border: var(--border);
+    @extend .aj-btn;
+  }
+
+  &--icon {
+    --btn-text-clr: var(--text-clr-alt);
+    --btn-bg-clr: var(--white);
+    --btn-hover-text-clr: var(--text-clr);
+    --btn-hover-bg-clr: var(--grayF);
+    --btn-border: var(--border);
+    width: var(--btn-height);
+    padding: var(--btn-padding);
+    i {
+      margin-left: 0;
+    }
+    @extend .aj-btn;
+  }
+}

@@ -1,18 +1,32 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Material+Icons");
 
-$white: #ffffff;
+:root {
+  --gray3: hsl(214, 10%, 20%);
+  --gray5: hsl(214, 13%, 30%);
+  --gray7: hsl(214, 16%, 45%);
+  --grayC: hsl(214, 18%, 80%);
+  --grayE: hsl(214, 19%, 92%);
+  --grayF: hsl(214, 20%, 96%);
+  --white: hsl(214, 0%, 100%);
 
-$gray3: #333333;
-$gray5: #555555;
-$gray7: #777777;
-$grayC: #cccccc;
-$grayF: #f5f5f5;
+  --clr-error: hsl(0, 60%, 49%);
+  --clr-error2: hsl(0, 60%, 44%);
+  --clr-primary: hsl(150, 49%, 35%);
+  --clr-primary2: hsl(150, 49%, 30%);
+  --clr-secondary: var(--grayF);
+  --clr-secondary2: var(--grayE);
 
-$text: $gray3;
-$text-inverted: $white;
-$clr-primary: blue;
-$clr-secondary: $grayF;
-$border-primary: $grayC;
+  --text-clr: var(--gray3);
+  --text-clr-alt: var(--gray5);
+  --text-clr-inverted: var(--white);
+  --border-clr-primary: var(--grayC);
+  --border: 1px solid var(--border-clr-primary);
+  --input-border-clr: var(--gray7);
+  --outline-clr-primary: var(--gray5);
+  --outline: 2px solid var(--outline-clr-primary);
+  --input-outline: 1px solid var(--outline-clr-primary);
+}
 
 @mixin regular {
   font-family: "Lato", sans-serif;
@@ -21,25 +35,4 @@ $border-primary: $grayC;
 @mixin bold {
   font-family: "Lato", sans-serif;
   font-weight: 700;
-}
-
-html {
-  font-size: 10px;
-}
-
-html,
-html a {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
-  text-rendering: optimizeLegibility;
-}
-
-* {
-  box-sizing: border-box;
-  vertical-align: top;
-}
-
-:focus:not(:focus-visible) {
-  outline: none;
 }
