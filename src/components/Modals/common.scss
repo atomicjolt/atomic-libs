@@ -1,0 +1,96 @@
+@import "../defines.scss";
+
+.aj-modal-background {
+  //position: fixed;
+  min-height: 300px;
+  inset: 0;
+  background-color: hsla(0, 0%, 100%, 0.75);
+  overflow: auto;
+  display: grid;
+  place-items: center;
+}
+
+.aj-modal {
+  width: 90%;
+  max-width: 800px;
+  border-radius: 10px;
+  background-color: var(--white);
+  padding: 24px;
+  box-shadow: 0 10px 40px hsla(0, 0%, 0%, 0.25);
+
+  &--confirmation,
+  &--error {
+    @extend .aj-modal;
+    max-width: 400px;
+  }
+
+  &--error {
+    .aj-modal__top > i {
+      color: var(--clr-error);
+    }
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__close {
+    border: none;
+    background: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 2.4rem;
+    color: var(--text-clr-alt);
+    display: grid;
+    place-items: center;
+    transition: background 100ms ease;
+
+    i {
+      transition: color 100ms ease;
+    }
+
+    &:hover {
+      color: var(--text-clr);
+      background-color: var(--grayF);
+      cursor: pointer;
+    }
+    &:active {
+      background-color: var(--grayE);
+    }
+    &:focus-visible {
+      outline: var(--outline);
+      outline-offset: 2px;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 2rem;
+    @include bold;
+    flex: 1;
+    line-height: 1;
+    color: var(--text-clr);
+  }
+
+  &__main {
+    padding: 16px 0 24px;
+    @include regular;
+    font-size: 1.6rem;
+    color: var(--text-clr);
+    line-height: 1.5;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+}

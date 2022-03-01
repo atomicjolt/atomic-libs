@@ -36,12 +36,12 @@ export default function TimeInput({
     
   const inputID = 'timeInput';
   const errorID = 'errorText';
-  let hasError = error ? ' has-error' : '';
-  let isSize = `is-${size}`;
-  let isDisabled = disabled ? ' is-disabled' : '';
+  /* Add a space before the added class rather than inside the className attr on the tag. Looks cleaner. */
+  let errorClass = error ? ' has-error' : '';
+  let disabledClass = disabled ? ' is-disabled' : '';
 
   return (
-    <div className={`aj-input ${isSize}${hasError}${isDisabled}`}>
+    <div className={`aj-input is-${size}${errorClass}${disabledClass}`}>
       <label className="aj-label" htmlFor={inputID}>
         {label}
         {message ?

@@ -23,6 +23,18 @@ Secondary.args = {
   className: "secondary",
 };
 
+export const Error = Template.bind({});
+Error.args = {
+  children: "Error",
+  className: "error",
+};
+
+export const Success = Template.bind({});
+Success.args = {
+  children: "Success",
+  className: "success",
+};
+
 export const Icon = Template.bind({});
 Icon.args = {
   className: "icon",

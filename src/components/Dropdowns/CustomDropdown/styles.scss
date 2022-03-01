@@ -1,19 +1,34 @@
 @import "../../defines.scss";
 
 .aj-dropdown {
+  margin-bottom: 200px;
+
   .aj-combobox {
+    position: relative;
+    max-width: var(--combobox-width, auto);
+    color: var(--text-clr);
+
     &__input {
       position: relative;
       border: 1px solid var(--input-border-clr);
       border-radius: 5px;
-      min-height: 40px;
-      padding: 8px 40px 8px 12px;
+      height: 40px;
+      padding: 6px 40px 6px 12px;
       @include regular;
       color: var(--text-clr);
       font-size: 1.6rem;
-      display: inline-block;
+      line-height: 1.5;
+      color: inherit;
+      display: inline-flex;
+      align-items: center;
       width: 100%;
-      max-width: var(--combobox-width, auto);
+      cursor: pointer;
+
+      span {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
 
       &::after {
         content: "\E5C5";
@@ -25,6 +40,88 @@
         line-height: 1;
         color: var(--gray7);
         pointer-events: none;
+      }
+
+      &:focus {
+        outline: var(--input-outline);
+        border-color: var(--outline-clr-primary);
+      }
+
+      &[aria-expanded="true"] + .aj-combobox__menu {
+        visibility: visible;
+        opacity: 1;
+        transform: scaleY(1);
+      }
+    }
+
+    &__menu {
+      visibility: hidden;
+      overflow-y: auto;
+      max-height: 300px;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      border-radius: 5px;
+      box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.5);
+      min-width: 100%;
+      background-color: var(--white);
+      padding: 4px 0;
+      z-index: 100;
+      opacity: 0;
+      transform: scaleY(0.9);
+      transform-origin: top;
+      transition: transform 200ms ease, opacity 200ms;
+    }
+
+    &__option {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      min-height: 40px;
+      @include regular;
+      line-height: 1;
+      color: var(--option-text-clr, inherit);
+      font-size: 1.6rem;
+      background-color: var(--option-bg-clr);
+
+      --option-icon-clr: var(--gray7);
+      i {
+        font-size: 2.4rem;
+        color: var(--option-icon-clr);
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-family: "Material Icons";
+        font-size: 2.4rem;
+        color: var(--option-selected-clr);
+      }
+
+      &:hover {
+        --option-bg-clr: var(--grayF);
+        cursor: pointer;
+      }
+      &:active {
+        --option-bg-clr: var(--grayE);
+      }
+      &[aria-selected="true"] {
+        --option-selected-clr: var(--clr-primary);
+        padding-right: 40px;
+
+        &::after {
+          content: "\e5ca";
+        }
+      }
+      &.is-focused {
+        --option-bg-clr: var(--clr-primary);
+        --option-text-clr: var(--text-clr-inverted);
+        --option-icon-clr: var(--text-clr-inverted);
+        --option-selected-clr: var(--text-clr-inverted);
       }
     }
   }
@@ -43,6 +140,9 @@
   }
   &.is-auto {
     --combobox-width: none;
+    .aj-combobox {
+      display: inline-block;
+    }
     .aj-combobox__input {
       width: auto;
     }

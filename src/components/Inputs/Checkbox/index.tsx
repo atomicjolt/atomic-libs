@@ -24,10 +24,10 @@ export default function Checkbox({
   }: Props) {
 
   const inputID = 'checkbox';
-  let hasError = error ? ' has-error' : '';
+  let errorClass = error ? ' has-error' : '';
 
   return (
-    <label className={`aj-checkbox ${hasError}`} htmlFor={inputID}>
+    <label className={`aj-checkbox ${errorClass}`} htmlFor={inputID}>
       <input
         id={inputID}
         type="checkbox"

@@ -26,11 +26,12 @@ export default function FileInput({
 
   const inputID = 'textInput';
   const errorID = 'errorText';
-  let hasError = error ? ' has-error' : '';
-  let isDisabled = disabled ? ' is-disabled' : '';
+  /* Add a space before the added class rather than inside the className attr on the tag. Looks cleaner. */
+  let errorClass = error ? ' has-error' : '';
+  let disabledClass = disabled ? ' is-disabled' : '';
 
   return (
-    <div className={`aj-input--file ${hasError}${isDisabled}`}>
+    <div className={`aj-input--file ${errorClass}${disabledClass}`}>
       <input
         id={inputID}
         aria-describedby={error ? errorID : ""}

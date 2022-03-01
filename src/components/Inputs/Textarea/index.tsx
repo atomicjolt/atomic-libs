@@ -37,13 +37,13 @@ export default function Textarea({
 
   const inputID = 'textarea';
   const errorID = 'errorText';
-  let hasError = error ? ' has-error' : '';
-  let isHeight = `is-${height}`;
-  let isDisabled = disabled ? ' is-disabled' : '';
-  let canResize = resize ? ' can-resize' : '';
+  /* Add a space before the added class rather than inside the className attr on the tag. Looks cleaner. */
+  let errorClass = error ? ' has-error' : '';
+  let disabledClass = disabled ? ' is-disabled' : '';
+  let resizeClass = resize ? ' can-resize' : '';
 
   return (
-    <div className={`aj-input ${isHeight}${canResize}${hasError}${isDisabled}`}>
+    <div className={`aj-input is-${height}${resizeClass}${errorClass}${disabledClass}`}>
       <label className="aj-label" htmlFor={inputID}>
         {label}
         {message ?

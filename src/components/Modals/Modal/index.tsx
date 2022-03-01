@@ -15,11 +15,11 @@ export interface Props {
 }
 
 /** 
- * Confirmation Modal Component
+ * Modal Component
  * 
- * For when you need a small modal to confirm an action, show a loading/exporting/etc process, or other small things that don't require a large modal. 
+ * For when you need a large modal with somewhat complex actions. 
  * */
-export default function ConfirmationModal({ 
+export default function Modal({ 
     title, 
     content, 
     primaryButton, 
@@ -28,12 +28,15 @@ export default function ConfirmationModal({
 
   return (
     <div className="aj-modal-background">
-      <div className="aj-modal--confirmation">
+      <div className="aj-modal">
         <div className="aj-modal__top">
           <h2 className="aj-modal__title">{title}</h2>
+          <button className="aj-modal__close" aria-label="close modal">
+            <i className="material-icons" aria-hidden>close</i>
+          </button>
         </div>
         <div className="aj-modal__main">
-          <p>{content}</p>
+          {content}
         </div>
         <div className="aj-modal__bottom">
           {secondaryButton ?

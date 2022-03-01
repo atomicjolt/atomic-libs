@@ -15,9 +15,9 @@
   gap: 8px;
   @include bold;
   transition: background 100ms ease, color 100ms ease, transform 100ms ease;
-  color: var(--btn-text-clr);
-  background-color: var(--btn-bg-clr);
-  border: var(--btn-border);
+  color: var(--btn-text-clr, #333);
+  background-color: var(--btn-bg-clr, white);
+  border: var(--btn-border, gray);
 
   &:hover {
     cursor: pointer;
@@ -40,24 +40,9 @@
     position: relative;
     color: transparent;
 
-    &::after {
-      content: "\e863";
-      position: absolute;
-      inset: 0;
-      display: grid;
-      place-items: center;
-      font-size: 2rem;
-      font-family: "Material Icons";
-      color: var(--btn-text-clr);
-      animation: rotate 1s linear infinite;
-    }
-
-    @keyframes rotate {
-      0% {
-        transform: rotate(0);
-      }
-      100% {
-        transform: rotate(360deg);
+    .aj-spinner {
+      .loader-path {
+        stroke: var(--btn-text-clr);
       }
     }
   }
@@ -83,6 +68,24 @@
     --btn-hover-text-clr: var(--text-clr);
     --btn-hover-bg-clr: var(--clr-secondary2);
     --btn-border: var(--border);
+    @extend .aj-btn;
+  }
+
+  &--error {
+    --btn-text-clr: var(--text-clr-inverted);
+    --btn-bg-clr: var(--clr-error);
+    --btn-hover-text-clr: var(--text-clr-inverted);
+    --btn-hover-bg-clr: var(--clr-error2);
+    --btn-border: none;
+    @extend .aj-btn;
+  }
+
+  &--success {
+    --btn-text-clr: var(--text-clr-inverted);
+    --btn-bg-clr: var(--clr-success);
+    --btn-hover-text-clr: var(--text-clr-inverted);
+    --btn-hover-bg-clr: var(--clr-success2);
+    --btn-border: none;
     @extend .aj-btn;
   }
 

@@ -1,6 +1,7 @@
 import React from "react";
 import '../../general.scss';
 import "./styles.scss";
+import Spinner from '../../Loaders/Spinner';
 interface CommonProps {
   /** What to render within the Button */
   children?: React.ReactNode;
@@ -11,7 +12,7 @@ interface CommonProps {
 
 type ClassNameProps =
   | { 
-    className?: 'primary' | 'secondary'; 
+    className?: 'primary' | 'secondary' | 'success' | 'error'; 
     icon?: string; 
     ariaLabel?: never;
   }
@@ -40,7 +41,7 @@ type Props =
 export default function Button({ 
     children, 
     type = "button", 
-    className = "primary", 
+    className, 
     icon,
     ariaLabel, 
     disabled = false,
@@ -49,19 +50,23 @@ export default function Button({
     onClick 
   }: Props) {
 
-  let isLoading = loading ? ' is-loading' : '';
+  let loadingClass = loading ? ' is-loading' : '';
   let loadingText = loading ? loadingLabel : '';
     
   return (
     <button
       aria-label={`${ariaLabel}${loadingText}`}
       type={type}
-      className={`aj-btn--${className}${isLoading}`}
+      className={`aj-btn--${className}${loadingClass}`}
       onClick={onClick}
       disabled={disabled}
     >
       {icon ?
         <i className="material-icons" aria-hidden>{icon}</i>
+        : null
+      }
+      {loading ?
+        <Spinner />
         : null
       }
       {children}

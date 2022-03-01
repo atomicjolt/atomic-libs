@@ -1,0 +1,41 @@
+@import "../../defines.scss";
+
+.aj-spinner {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+
+  .circular-loader {
+    width: 1.25em;
+    animation: rotate 2s linear infinite;
+  }
+  .loader-path {
+    fill: none;
+    stroke: var(--text-clr);
+    stroke-width: 8px;
+    stroke-linecap: round;
+    animation: animate-stroke 1.5s ease-in-out infinite;
+  }
+
+  @keyframes rotate {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes animate-stroke {
+    0% {
+      stroke-dasharray: 1, 200;
+      stroke-dashoffset: 0;
+    }
+    50% {
+      stroke-dasharray: 89, 200;
+      stroke-dashoffset: -35;
+    }
+    100% {
+      stroke-dasharray: 89, 200;
+      stroke-dashoffset: -124;
+    }
+  }
+}

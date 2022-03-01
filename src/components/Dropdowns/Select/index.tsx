@@ -32,14 +32,14 @@ export default function Select({
 
   const inputID = 'select';
   const errorID = 'errorText';
-  let hasError = error ? ' has-error' : '';
-  let isSize = `is-${size}`;
-  let isDisabled = disabled ? ' is-disabled' : '';
-  let labelHidden = hideLabel ? ' aj-hidden' : '';
+  /* Add a space before the added class rather than inside the className attr on the tag. Looks cleaner. */
+  let errorClass = error ? ' has-error' : '';
+  let disabledClass = disabled ? ' is-disabled' : '';
+  let hiddenClass = hideLabel ? ' aj-hidden' : '';
 
   return (
-    <div className={`aj-input ${isSize}${hasError}${isDisabled}`}>
-      <label className={`aj-label${labelHidden}`} htmlFor={inputID}>
+    <div className={`aj-input is-${size}${errorClass}${disabledClass}`}>
+      <label className={`aj-label${hiddenClass}`} htmlFor={inputID}>
         {label}
         {message ?
           <p className="aj-label--message">{message}</p>

@@ -35,10 +35,10 @@ export default function Radio({
   }: Props) {
 
   const inputID = 'radio';
-  let hasError = error ? ' has-error' : '';
+  let errorClass = error ? ' has-error' : '';
 
   return (
-    <label className={`aj-radio ${hasError}`} htmlFor={inputID}>
+    <label className={`aj-radio ${errorClass}`} htmlFor={inputID}>
       <input
         id={inputID}
         type="radio"
