@@ -1,6 +1,5 @@
 import React from 'react'
 import '../../general.scss'
-import '../common.scss'
 import './styles.scss'
 import Button from '../../Buttons/Button'
 

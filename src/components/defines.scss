@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Material+Icons");
 
 :root {
+  color-scheme: base;
   --gray3: hsl(214, 10%, 20%);
   --gray5: hsl(214, 13%, 30%);
   --gray7: hsl(214, 16%, 45%);
@@ -10,12 +11,26 @@
   --grayF: hsl(214, 20%, 96%);
   --white: hsl(214, 0%, 100%);
 
+  --error-hue: 0;
+  --error-saturation: 60%;
+  --lightness: 49%;
   --clr-error: hsl(0, 60%, 49%);
   --clr-error2: hsl(0, 60%, 44%);
+  --clr-error3: hsl(0, 60%, 39%);
+  --clr-warning-1: hsl(45, 83%, 94%);
+  --clr-warning-2: hsl(45, 83%, 89%);
+  --clr-warning-3: hsl(45, 83%, 84%);
+  --clr-warning: hsl(45, 83%, 42%);
+  --clr-warning2: hsl(45, 83%, 37%);
+  --clr-warning3: hsl(45, 83%, 32%);
   --clr-success: hsl(115, 64%, 35%);
   --clr-success2: hsl(115, 64%, 30%);
+  --clr-success3: hsl(115, 64%, 25%);
+  --clr-primary-1: hsl(194, 70%, 94%);
+  --clr-primary-2: hsl(194, 70%, 89%);
   --clr-primary: hsl(194, 70%, 33%);
   --clr-primary2: hsl(194, 70%, 28%);
+  --clr-primary3: hsl(194, 70%, 23%);
   --clr-secondary: var(--grayF);
   --clr-secondary2: var(--grayE);
 

@@ -1,0 +1,13 @@
+@import "../../defines.scss";
+@import "../common.scss";
+
+.aj-banner {
+  &--error {
+    --banner-bg-clr: var(--clr-error);
+    --banner-text-clr: var(--text-clr-inverted);
+    --banner-icon-clr: var(--text-clr-inverted);
+    --banner-btn-hover-clr: var(--clr-error2);
+    --banner-btn-active-clr: var(--clr-error3);
+    @extend .aj-banner;
+  }
+}

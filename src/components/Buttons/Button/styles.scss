@@ -1,58 +1,7 @@
 @import "../../defines.scss";
+@import "../common.scss";
 
 .aj-btn {
-  --btn-height: 40px;
-  --btn-padding: 0.5em; /* Half the button's font size, 8px currently */
-
-  border: none;
-  padding: var(--btn-padding) calc(var(--btn-padding) * 2);
-  border-radius: 5px;
-  font-size: 1.6em;
-  min-height: var(--btn-height);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  @include bold;
-  transition: background 100ms ease, color 100ms ease, transform 100ms ease;
-  color: var(--btn-text-clr, #333);
-  background-color: var(--btn-bg-clr, white);
-  border: var(--btn-border, gray);
-
-  &:hover {
-    cursor: pointer;
-    color: var(--btn-hover-text-clr);
-    background-color: var(--btn-hover-bg-clr);
-  }
-  &:active {
-    transform: translateY(1px);
-  }
-  &:focus-visible {
-    outline: var(--outline);
-    outline-offset: 2px;
-  }
-  &:disabled {
-    opacity: 0.5;
-    pointer-events: none;
-  }
-
-  &.is-loading {
-    position: relative;
-    color: transparent;
-
-    .aj-spinner {
-      .loader-path {
-        stroke: var(--btn-text-clr);
-      }
-    }
-  }
-
-  i {
-    color: inherit;
-    font-size: 2.4rem;
-    margin-left: calc(var(--btn-padding) / -2);
-  }
-
   &--primary {
     --btn-text-clr: var(--text-clr-inverted);
     --btn-bg-clr: var(--clr-primary);
@@ -89,17 +38,12 @@
     @extend .aj-btn;
   }
 
-  &--icon {
-    --btn-text-clr: var(--text-clr-alt);
+  &--inverted {
+    --btn-text-clr: var(--text-clr);
     --btn-bg-clr: var(--white);
     --btn-hover-text-clr: var(--text-clr);
-    --btn-hover-bg-clr: var(--grayF);
-    --btn-border: var(--border);
-    width: var(--btn-height);
-    padding: var(--btn-padding);
-    i {
-      margin-left: 0;
-    }
+    --btn-hover-bg-clr: var(--clr-primary-2);
+    --btn-border: none;
     @extend .aj-btn;
   }
 }

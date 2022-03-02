@@ -1,5 +1,4 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-
 import Button, { Props } from ".";
 
 export default {
@@ -35,9 +34,8 @@ Success.args = {
   className: "success",
 };
 
-export const Icon = Template.bind({});
-Icon.args = {
-  className: "icon",
-  icon: "more_vert",
-  ariaLabel: "More options"
+export const Inverted = Template.bind({});
+Success.args = {
+  children: "Inverted",
+  className: "inverted",
 };

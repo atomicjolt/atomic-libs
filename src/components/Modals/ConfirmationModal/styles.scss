@@ -1,1 +1,9 @@
+@import "../../defines.scss";
+@import "../common.scss";
 
+.aj-modal {
+  &--confirmation {
+    @extend .aj-modal;
+    max-width: 400px;
+  }
+}

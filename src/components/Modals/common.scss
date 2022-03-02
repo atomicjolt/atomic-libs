@@ -18,18 +18,6 @@
   padding: 24px;
   box-shadow: 0 10px 40px hsla(0, 0%, 0%, 0.25);
 
-  &--confirmation,
-  &--error {
-    @extend .aj-modal;
-    max-width: 400px;
-  }
-
-  &--error {
-    .aj-modal__top > i {
-      color: var(--clr-error);
-    }
-  }
-
   &__top {
     display: flex;
     align-items: center;

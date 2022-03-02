@@ -1,0 +1,55 @@
+@import "../defines.scss";
+
+.aj-btn {
+  --btn-height: 40px;
+  --btn-padding: 0.5em; /* Half the button's font size, 8px currently */
+
+  border: none;
+  padding: var(--btn-padding) calc(var(--btn-padding) * 2);
+  border-radius: 5px;
+  font-size: 1.6rem;
+  min-height: var(--btn-height);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  @include bold;
+  transition: background 100ms ease, color 100ms ease, transform 100ms ease;
+  color: var(--btn-text-clr, #333);
+  background-color: var(--btn-bg-clr, white);
+  border: var(--btn-border, gray);
+
+  &:hover {
+    cursor: pointer;
+    color: var(--btn-hover-text-clr);
+    background-color: var(--btn-hover-bg-clr);
+  }
+  &:active {
+    transform: translateY(1px);
+  }
+  &:focus-visible {
+    outline: var(--outline);
+    outline-offset: 2px;
+  }
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  &.is-loading {
+    position: relative;
+    color: transparent;
+
+    .aj-spinner,
+    .aj-three-dot-loader {
+      --loader-clr: var(--btn-text-clr);
+      --loader-size: 1em;
+    }
+  }
+
+  & > i {
+    color: inherit;
+    font-size: 2.4rem;
+    margin-left: calc(var(--btn-padding) / -2);
+  }
+}

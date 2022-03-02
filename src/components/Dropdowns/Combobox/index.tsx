@@ -4,7 +4,6 @@ import './styles.scss'
 
 export interface Props {
   children: React.ReactNode;
-  inputContent?: React.ReactNode;
   /** Must include a label. Labels are always Sentence case. */
   label: string;
   /** Error text should be descriptive and explicit in meaning. */
@@ -20,13 +19,12 @@ export interface Props {
 }
 
 /** 
- * Custom Dropdown
+ * Combobox
  * 
  * https://www.w3.org/TR/wai-aria-practices/examples/combobox/combobox-select-only.html for accessibility implementation.
  * */
-export default function CustomDropdown({ 
+export default function Combobox({ 
     children,
-    inputContent = "- Select an option -",
     size = 'medium', 
     label, 
     error, 
@@ -73,33 +71,35 @@ export default function CustomDropdown({
       </label>
       <div className="aj-combobox">
         <div 
-          className="aj-combobox__input"
-          aria-controls="listboxID"
+          className="aj-combobox__input is-searchable"
+          aria-owns="listboxID"
           aria-expanded={menuActive}
           aria-haspopup="listbox"
-          aria-labelledby="comboLabel"
-          aria-describedby={error ? errorID : ''}
           id="comboID"
           role="combobox"
-          tabIndex={0}
           onClick={handleOpen}
         >
-          <span>{inputContent}</span>
+          <input
+            type="text"
+            aria-autocomplete='both'
+            aria-controls='listboxID'
+            aria-labelledby='comboLabel'
+            aria-describedby={error ? errorID : ''}
+            id="comboInputID"
+          />
         </div>
         <ul
           className="aj-combobox__menu"
           role="listbox"
           id="lisboxID"
           aria-labelledby="comboLabel"
-          tabIndex={-1}
         >
           <li
             className="aj-combobox__option is-focused"
             role="option"
             id="op1"
-            aria-selected="true"
           >
-            - Select an Option -
+            Option
           </li>
           <li
             className="aj-combobox__option"

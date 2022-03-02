@@ -14,7 +14,6 @@ export const Default = Template.bind({});
 Default.args = {
   title: "Error",
   content: "Something went wrong",
-  primaryButton: "Delete",
 }
 
 // Additional stories go here

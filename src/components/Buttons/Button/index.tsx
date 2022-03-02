@@ -5,48 +5,35 @@ import Spinner from '../../Loaders/Spinner';
 interface CommonProps {
   /** What to render within the Button */
   children?: React.ReactNode;
+  className?: 'primary' | 'secondary' | 'success' | 'error' | 'inverted';
   type?: 'submit' | 'reset' | 'button';
   disabled?: boolean;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-type ClassNameProps =
-  | { 
-    className?: 'primary' | 'secondary' | 'success' | 'error'; 
-    icon?: string; 
-    ariaLabel?: never;
-  }
-  | { 
-    className: 'icon'; 
-    icon: string;
-    ariaLabel: string;
-  }
-
 type LoadingProps =
   | { 
     loading?: false; 
     loadingLabel?: never;
+    loadingComplete?: never;
   }
   | { 
     loading: true; 
     loadingLabel?: string;
+    loadingComplete?: boolean;
   }
 
-type Props = 
-  CommonProps & 
-  ClassNameProps & 
-  LoadingProps;
+export type Props = CommonProps & LoadingProps;
 
 /** Button Component */
 export default function Button({ 
     children, 
     type = "button", 
     className, 
-    icon,
-    ariaLabel, 
-    disabled = false,
+    disabled,
     loading,
     loadingLabel = 'loading',
+    loadingComplete,
     onClick 
   }: Props) {
 
@@ -55,18 +42,14 @@ export default function Button({
     
   return (
     <button
-      aria-label={`${ariaLabel}${loadingText}`}
+      aria-label={loadingText}
       type={type}
       className={`aj-btn--${className}${loadingClass}`}
       onClick={onClick}
       disabled={disabled}
     >
-      {icon ?
-        <i className="material-icons" aria-hidden>{icon}</i>
-        : null
-      }
       {loading ?
-        <Spinner />
+        <Spinner loading={!loadingComplete} />
         : null
       }
       {children}

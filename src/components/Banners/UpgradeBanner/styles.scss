@@ -1,0 +1,11 @@
+@import "../../defines.scss";
+@import "../common.scss";
+
+.aj-banner {
+  &--upgrade {
+    --banner-bg-clr: var(--clr-primary-1);
+    --banner-text-clr: var(--text-clr);
+    --banner-icon-clr: var(--clr-primary);
+    @extend .aj-banner;
+  }
+}

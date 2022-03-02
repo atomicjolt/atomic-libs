@@ -1,2 +1,15 @@
+@import "../../defines.scss";
+@import "../common.scss";
 
+.aj-modal {
+  &--error {
+    @extend .aj-modal;
+    max-width: 400px;
+  }
 
+  &--error {
+    .aj-modal__top > i {
+      color: var(--clr-error);
+    }
+  }
+}
