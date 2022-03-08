@@ -1,0 +1,172 @@
+@import "../../defines.scss";
+
+.aj-toggle-switch {
+  --unchecked: var(--neutral400);
+  --checked: var(--primary700);
+  --toggle-size: 24px;
+  --toggle-travel: calc(var(--toggle-size) * 0.666);
+
+  &__label {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    position: relative;
+    @include bold;
+    font-size: 1.3rem;
+    line-height: 1.5;
+    color: var(--text-clr);
+
+    div {
+      position: relative;
+      width: calc(var(--toggle-size) * 1.666);
+      height: var(--toggle-size);
+      border-radius: calc(var(--toggle-size) / 2);
+      background-color: var(--unchecked);
+      transition: background-color 200ms linear;
+      overflow: hidden;
+
+      i {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: var(--toggle-size);
+        height: var(--toggle-size);
+        border-radius: 50%;
+        box-sizing: border-box;
+        background-color: var(--neutral50);
+        border: 3px solid var(--unchecked);
+        transform-origin: left center;
+        transition: border-color 200ms linear;
+
+        &::before {
+          content: "\e5cd";
+          position: absolute;
+          top: 5px;
+          left: 5px;
+          font-size: 1.4rem;
+          font-family: "Material Icons";
+          font-style: normal;
+          line-height: 1;
+          color: var(--text-clr-alt);
+          z-index: 2;
+        }
+      }
+    }
+    &.check-animation div {
+      background-color: var(--checked);
+      i {
+        animation: squishy 200ms linear forwards;
+        border-color: var(--checked);
+
+        &::before {
+          animation: squishyIcon 200ms linear forwards;
+          color: var(--checked);
+        }
+      }
+    }
+    &.uncheck-animation i {
+      background-color: var(--unchecked);
+      i {
+        animation: squishyBack 200ms linear forwards;
+        border-color: var(--unchecked);
+
+        &::before {
+          animation: squishyIconBack 200ms linear forwards;
+          color: var(--text-clr-alt);
+        }
+      }
+    }
+  }
+
+  @keyframes squishy {
+    0% {
+      transform: translateX(0) scale(1, 1);
+    }
+
+    50% {
+      transform: translateX(8px) scale(1.25, 0.8);
+    }
+
+    100% {
+      transform: translateX(16px) scale(1, 1);
+    }
+  }
+  @keyframes squishyBack {
+    0% {
+      transform: translateX(16px) scale(1, 1);
+    }
+
+    50% {
+      transform: translateX(8px) scale(1.25, 0.8);
+    }
+
+    100% {
+      transform: translateX(0) scale(1, 1);
+    }
+  }
+  @keyframes squishyIcon {
+    0% {
+      transform: translateX(0) scale(1);
+      content: "\e5cd";
+    }
+
+    50% {
+      transform: translateX(8px) scale(0.5);
+      content: "\e15b";
+    }
+
+    100% {
+      transform: translateX(16px) scale(1);
+      content: "\e5ca";
+    }
+  }
+  @keyframes squishyIconBack {
+    0% {
+      transform: translateX(16px) scale(1);
+      content: "\e5ca";
+    }
+
+    50% {
+      transform: translateX(8px) scale(0.5);
+      content: "\e15b";
+    }
+
+    100% {
+      transform: translateX(0) scale(1);
+      content: "\e5cd";
+    }
+  }
+
+  //Disabled states
+  input[type="checkbox"]:disabled ~ .aj-toggle-switch__label {
+    cursor: auto;
+    opacity: 0.5;
+  }
+
+  :is(input):focus-visible ~ .aj-toggle-switch__label::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: calc(var(--toggle-size) * 2);
+    height: var(--toggle-size);
+    border-radius: calc(var(--toggle-size) / 2);
+    background-color: transparent;
+    outline: var(--outline);
+    outline-offset: 2px;
+  }
+
+  :is(input):focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  input {
+    opacity: 0;
+    margin: 0;
+    height: 0.01rem;
+    width: 0.01rem;
+    position: absolute;
+  }
+}

@@ -1,16 +1,16 @@
 @import "../defines.scss";
 
 .aj-banner {
-  --banner-bg-clr: var(--grayF);
+  --banner-bg-clr: var(--neutral100);
   --banner-text-clr: var(--text-clr);
-  --banner-icon-clr: var(--clr-primary);
-  --banner-btn-hover-clr: var(--grayF);
-  --banner-btn-active-clr: var(--grayE);
+  --banner-icon-clr: var(--primary700);
+  --banner-btn-hover-clr: var(--neutral200);
+  --banner-btn-active-clr: var(--neutral300);
 
   border-radius: 5px;
   background-color: var(--banner-bg-clr);
   padding: 4px;
-  margin: 4px 0;
+  margin-bottom: 4px;
   @include bold;
   font-size: 1.4rem;
   color: var(--banner-text-clr);

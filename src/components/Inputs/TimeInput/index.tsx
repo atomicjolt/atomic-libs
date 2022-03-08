@@ -49,17 +49,19 @@ export default function TimeInput({
           : null
         }
       </label>
-      <input
-        id={inputID}
-        aria-describedby={error ? errorID : ""}
-        type="time"
-        min={min}
-        max={max}
-        value={value}
-        readOnly={readonly}
-        disabled={disabled}
-        required={required}
-      />
+      <div className="aj-input__time">
+        <input
+          id={inputID}
+          aria-describedby={error ? errorID : ""}
+          type="time"
+          min={min}
+          max={max}
+          value={value}
+          readOnly={readonly}
+          disabled={disabled}
+          required={required}
+        />
+      </div>
       {error ?
         <p id={errorID} className="aj-label--error">{error}</p>
         : null

@@ -5,7 +5,7 @@ import Button from '../../Buttons/Button'
 
 export interface Props {
   time: string;
-  app: 'search' | 'assessments' | 'polls' | 'journals' | 'discussions';
+  app: 'Search' | 'Assessments' | 'Polls' | 'Journals' | 'Discussions';
 }
 
 /** Upgrade Banner Component */
@@ -14,7 +14,7 @@ export default function UpgradeBanner({ time, app }: Props) {
     <div className="aj-banner--upgrade">
       <i className="material-icons" aria-hidden>new_releases</i>
       <div className="aj-banner__main">
-        Your trial expires in {time}. Upgrade now to adopt Atomic {app} in your Canvas.
+        Your trial expires in {time}. Upgrade now to re-enable Atomic {app}.
       </div>
       <Button className="inverted">Upgrade Now</Button>
     </div>

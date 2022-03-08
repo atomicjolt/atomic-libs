@@ -1,0 +1,14 @@
+@import "../../defines.scss";
+
+.aj-radio-group {
+  padding: 0;
+  border: none;
+
+  & > .aj-label {
+    padding-bottom: 12px;
+  }
+
+  .aj-radio + .aj-radio {
+    margin-top: 12px;
+  }
+}

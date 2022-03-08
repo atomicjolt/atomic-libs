@@ -10,7 +10,7 @@
     z-index: -1;
 
     & + label {
-      --border-clr: #777;
+      --border-clr: var(--neutral600);
 
       font-size: 1.6rem;
       @include regular;
@@ -39,7 +39,7 @@
       }
 
       strong {
-        background-color: var(--clr-secondary);
+        background-color: var(--neutral100);
         @include bold;
         color: var(--text-clr-alt);
         min-height: 38px;
@@ -52,7 +52,7 @@
       &:hover {
         strong {
           color: var(--text-clr);
-          background-color: var(--clr-secondary2);
+          background-color: var(--neutral200);
         }
       }
     }

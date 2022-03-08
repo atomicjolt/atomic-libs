@@ -1,8 +1,8 @@
 @import "../../defines.scss";
 
 .aj-radio {
-  --unchecked: var(--gray7);
-  --checked: var(--clr-primary);
+  --unchecked: var(--neutral600);
+  --checked: var(--primary700);
 
   input[type="radio"] + .aj-checkbox__label:before {
     border-radius: 50%;

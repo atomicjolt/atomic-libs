@@ -13,6 +13,7 @@ const Template: ComponentStory<typeof DateTimeInput> = (args: Props) => (
 export const Default = Template.bind({});
 Default.args = {
   label: "Date time input label",
+  message: "MM/DD/YYYY, hh:mm AM/PM",
 }
 
 // Additional stories go here

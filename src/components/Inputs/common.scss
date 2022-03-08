@@ -11,15 +11,39 @@
     font-size: 1.6rem;
     color: var(--text-clr);
 
+    &:read-only {
+      border-color: var(--neutral100);
+      background-color: var(--neutral100);
+    }
     &:focus {
       border-color: var(--outline-clr-primary);
       outline: var(--input-outline);
     }
+  }
 
-    &:read-only {
-      border: none;
-      background-color: var(--grayF);
+  &__date,
+  &__time {
+    position: relative;
+    display: inline-block;
+
+    &::after {
+      font-family: "Material Icons";
+      position: absolute;
+      right: 14px;
+      bottom: 8px;
+      font-size: 2.4rem;
+      line-height: 1;
+      color: var(--neutral500);
+      background-color: var(--neutral50);
+      pointer-events: none;
     }
+  }
+
+  &__date::after {
+    content: "\e8df";
+  }
+  &__time::after {
+    content: "\e8b5";
   }
 
   &.is-small {
@@ -65,10 +89,10 @@
   &.has-error {
     input,
     select {
-      border-color: var(--clr-error);
+      border-color: var(--error700);
 
       &:focus {
-        outline-color: var(--clr-error);
+        outline-color: var(--error700);
       }
     }
   }
@@ -80,10 +104,10 @@
 
 .aj-checkbox,
 .aj-radio {
-  --unchecked: var(--gray7);
-  --checked: var(--clr-primary);
+  --unchecked: var(--neutral500);
+  --checked: var(--primary700);
 
-  display: inline-block;
+  display: block;
 
   &__label {
     display: inline-block;
@@ -130,6 +154,6 @@
   }
 
   &.has-error .aj-checkbox__label::before {
-    border-color: var(--clr-error);
+    border-color: var(--error700);
   }
 }

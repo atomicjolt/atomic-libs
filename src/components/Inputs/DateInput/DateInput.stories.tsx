@@ -13,6 +13,7 @@ const Template: ComponentStory<typeof DateInput> = (args: Props) => (
 export const Default = Template.bind({});
 Default.args = {
   label: "Date input label",
+  message: "MM/DD/YYYY",
 }
 
 // Additional stories go here

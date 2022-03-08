@@ -6,7 +6,7 @@
     --textarea-height-md: 140px;
     --textarea-height-lg: 200px;
 
-    border: 1px solid var(--gray7);
+    border: 1px solid var(--neutral600);
     border-radius: 5px;
     min-height: 200px;
     width: 100%;
@@ -23,7 +23,7 @@
 
     &:read-only {
       border: none;
-      background-color: var(--grayF);
+      background-color: var(--neutral100);
     }
   }
 

@@ -35,7 +35,7 @@ Success.args = {
 };
 
 export const Inverted = Template.bind({});
-Success.args = {
+Inverted.args = {
   children: "Inverted",
   className: "inverted",
 };

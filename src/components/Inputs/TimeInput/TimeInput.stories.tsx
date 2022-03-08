@@ -13,6 +13,7 @@ const Template: ComponentStory<typeof TimeInput> = (args: Props) => (
 export const Default = Template.bind({});
 Default.args = {
   label: "Time input label",
+  message: "hh:mm AM/PM",
 }
 
 // Additional stories go here

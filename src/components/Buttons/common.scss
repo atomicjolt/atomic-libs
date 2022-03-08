@@ -4,7 +4,6 @@
   --btn-height: 40px;
   --btn-padding: 0.5em; /* Half the button's font size, 8px currently */
 
-  border: none;
   padding: var(--btn-padding) calc(var(--btn-padding) * 2);
   border-radius: 5px;
   font-size: 1.6rem;
@@ -14,15 +13,18 @@
   justify-content: center;
   gap: 8px;
   @include bold;
-  transition: background 100ms ease, color 100ms ease, transform 100ms ease;
-  color: var(--btn-text-clr, #333);
-  background-color: var(--btn-bg-clr, white);
-  border: var(--btn-border, gray);
+  transition: background 100ms ease, color 100ms ease, transform 100ms ease,
+    box-shadow 100ms ease;
+  color: var(--btn-text-clr);
+  background-color: var(--btn-bg-clr);
+  border: var(--btn-border, none);
+  box-shadow: var(--btn-shadow, none);
 
   &:hover {
     cursor: pointer;
     color: var(--btn-hover-text-clr);
     background-color: var(--btn-hover-bg-clr);
+    box-shadow: var(--btn-hover-shadow);
   }
   &:active {
     transform: translateY(1px);

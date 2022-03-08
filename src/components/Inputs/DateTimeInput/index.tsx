@@ -49,17 +49,19 @@ export default function DateTimeInput({
           : null
         }
       </label>
-      <input
-        id={inputID}
-        aria-describedby={error ? errorID : ""}
-        type="datetime-local"
-        min={min}
-        max={max}
-        value={value}
-        readOnly={readonly}
-        disabled={disabled}
-        required={required}
-      />
+      <div className="aj-input__date">
+        <input
+          id={inputID}
+          aria-describedby={error ? errorID : ""}
+          type="datetime-local"
+          min={min}
+          max={max}
+          value={value}
+          readOnly={readonly}
+          disabled={disabled}
+          required={required}
+        />
+      </div>
       {error ?
         <p id={errorID} className="aj-label--error">{error}</p>
         : null

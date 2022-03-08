@@ -13,7 +13,7 @@ const Template: ComponentStory<typeof UpgradeBanner> = (args: Props) => (
 export const Default = Template.bind({});
 Default.args = {
   time: "30 days",
-  app: "search",
+  app: "Search",
 }
 
 // Additional stories go here

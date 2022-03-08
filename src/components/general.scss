@@ -13,6 +13,7 @@ html a {
 }
 
 * {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   vertical-align: top;
 }
@@ -35,6 +36,7 @@ html a {
   padding-bottom: 5px;
   @include bold;
   font-size: 1.3rem;
+  line-height: 1.1;
   color: var(--text-clr);
 
   &--message,
@@ -42,15 +44,15 @@ html a {
     margin: 3px 0 0;
     @include bold;
     font-size: 1.3rem;
-    color: var(--text-clr-alt);
   }
 
   &--message {
-    margin: 1px 0 0;
+    margin: 2px 0 0;
     @include regular;
+    color: var(--text-clr-alt);
   }
 
   &--error {
-    color: var(--clr-error);
+    color: var(--error700);
   }
 }
