@@ -11,7 +11,11 @@ export default function Spinner({ loading = true }: Props) {
   return (
     <div className="aj-spinner">
       {loading ? (
-        <svg className="circular-loader" viewBox="25 25 50 50">
+        <svg
+          className="circular-loader"
+          viewBox="25 25 50 50"
+          data-testid="spinner-svg"
+        >
           <circle
             className="loader-path"
             cx="50"
