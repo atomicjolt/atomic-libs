@@ -14,8 +14,12 @@ interface CommonProps {
 
 type LoadingProps =
   | {
+      /** When loading is true, the content will be replaced with a spinner.
+       * When it is false, the content will be shown normally */
       loading?: false;
+      /** aria accessiblity label to inform screen-readers that it is loading */
       loadingLabel?: never;
+      /** Transitions the loading spinner to a checkmark */
       loadingComplete?: never;
     }
   | {
@@ -26,29 +30,28 @@ type LoadingProps =
 
 export type Props = CommonProps & LoadingProps;
 
-/** Button Component */
 export default function Button({
   children,
   type = "button",
   className,
-  disabled,
-  loading,
+  disabled = false,
+  loading = false,
   loadingLabel = "loading",
-  loadingComplete,
+  loadingComplete = false,
   onClick,
 }: Props) {
-  let loadingClass = loading ? " is-loading" : "";
+  let loadingClass = loading ? "is-loading" : "";
   let loadingText = loading ? loadingLabel : "";
 
   return (
     <button
       aria-label={loadingText}
       type={type}
-      className={`aj-btn--${className}${loadingClass}`}
+      className={`aj-btn--${className} ${loadingClass}`}
       onClick={onClick}
       disabled={disabled}
     >
-      {loading ? <Spinner loading={!loadingComplete} /> : null}
+      {loading && <Spinner loading={!loadingComplete} />}
       {children}
     </button>
   );
