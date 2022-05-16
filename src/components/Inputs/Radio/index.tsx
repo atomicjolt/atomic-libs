@@ -4,6 +4,7 @@ import "../common.scss";
 import "./styles.scss";
 
 export interface Props {
+  id?: string;
   /** Radio inputs are never alone, so giving them a name connects them to their related radio inputs as a radio group. */
   name: string;
   /** Must include a label. Labels are always Sentence case. */
@@ -27,19 +28,19 @@ export interface Props {
  * */
 export default function Radio({
   name,
+  id,
   label,
   error,
   message,
   checked,
   disabled = false,
 }: Props) {
-  const inputID = "radio";
   let errorClass = error ? " has-error" : "";
 
   return (
-    <label className={`aj-radio ${errorClass}`} htmlFor={inputID}>
+    <label className={`aj-radio ${errorClass}`} htmlFor={id}>
       <input
-        id={inputID}
+        id={id}
         type="radio"
         name={name}
         checked={checked}

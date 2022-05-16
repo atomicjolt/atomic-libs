@@ -1,7 +1,7 @@
 import React from "react";
 import "../../general.scss";
 import "./styles.scss";
-import Radio from "../Radio";
+import Radio, { Props as RadioProps } from "../Radio";
 
 export interface Props {
   /** Must include a label. Labels are always Sentence case. */
@@ -10,6 +10,10 @@ export interface Props {
   message?: string;
   /** Error text should be descriptive and explicit in meaning. */
   error?: string;
+  /** The name associated with the group. */
+  name: string;
+  /**[Data for each individual radio button see](/?path=/docs/inputs-radio--default) */
+  options: Omit<RadioProps, "name">[];
 }
 
 /**
@@ -21,7 +25,13 @@ export interface Props {
  *
  * For more than 5 options, use a select.
  * */
-export default function RadioGroup({ label, message, error }: Props) {
+export default function RadioGroup({
+  label,
+  message,
+  error,
+  options,
+  name,
+}: Props) {
   const radioName = "radio";
 
   return (
@@ -31,9 +41,9 @@ export default function RadioGroup({ label, message, error }: Props) {
         {message ? <p className="aj-label--message">{message}</p> : null}
         {error ? <p className="aj-label--error">{error}</p> : null}
       </legend>
-      <Radio label="Radio one" name={radioName} />
-      <Radio label="Radio two" name={radioName} />
-      <Radio label="Radio three" name={radioName} />
+      {options.map((o) => (
+        <Radio {...o} name={name} />
+      ))}
     </fieldset>
   );
 }
