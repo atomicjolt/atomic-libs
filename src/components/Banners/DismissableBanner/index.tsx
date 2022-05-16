@@ -59,6 +59,7 @@ export default function DismissableBanner({
 }
 
 export interface BannerWrapperProps {
+  /** Content to render in the banner */
   readonly children: React.ReactNode;
 }
 

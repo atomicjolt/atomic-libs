@@ -9,6 +9,7 @@ export interface Props {
   readonly className: string;
   readonly icon?: MaterialIcon;
   readonly children: React.ReactNode;
+  readonly buttonText: string;
   readonly onClick: () => void;
 }
 
@@ -17,6 +18,7 @@ export default function ActionBanner({
   className,
   children,
   icon,
+  buttonText,
   onClick,
 }: Props) {
   return (
@@ -28,21 +30,28 @@ export default function ActionBanner({
       )}
       <div className="aj-banner__main">{children}</div>
       <Button className="inverted" onClick={onClick}>
-        Upgrade Now
+        {buttonText}
       </Button>
     </div>
   );
 }
 
 export interface UpgradeBannerProps {
+  /** The ammount of time left on their trial */
   time: string;
+  /** The name of the Atomic-App that this applies to */
   app: string;
   onClick: () => void;
 }
 
 export function UpgradeBanner({ time, app, onClick }: UpgradeBannerProps) {
   return (
-    <ActionBanner icon="new_releases" className="upgrade" onClick={onClick}>
+    <ActionBanner
+      icon="new_releases"
+      className="upgrade"
+      onClick={onClick}
+      buttonText="Upgrade Now"
+    >
       Your trial expires in {time}. Upgrade now to re-enable Atomic {app}.
     </ActionBanner>
   );

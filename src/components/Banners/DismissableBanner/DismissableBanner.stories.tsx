@@ -1,9 +1,17 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import DismissableBanner, { Props } from ".";
+import DismissableBanner, {
+  Props,
+  ErrorBanner as ErrorBannerWrapper,
+  WarningBanner as WarningBannerWrapper,
+} from ".";
 
 export default {
   title: "Banners/DismissableBanner",
   component: DismissableBanner,
+  subcomponents: {
+    ErrorBanner: ErrorBannerWrapper,
+    WarningBanner: WarningBannerWrapper,
+  },
 } as ComponentMeta<typeof DismissableBanner>;
 
 const Template: ComponentStory<typeof DismissableBanner> = (args: Props) => (
