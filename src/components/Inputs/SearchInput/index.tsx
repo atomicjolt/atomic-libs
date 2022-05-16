@@ -1,7 +1,7 @@
-import React from 'react'
-import '../../general.scss'
-import '../common.scss'
-import './styles.scss'
+import React from "react";
+import "../../general.scss";
+import "../common.scss";
+import "./styles.scss";
 
 export interface Props {
   /** Must include a label. Labels are always Sentence case. */
@@ -13,26 +13,25 @@ export interface Props {
   /** Adds a button to submit the search. Replaces hitting enter in the input to submit. */
   submitButton?: boolean;
   /** The input size should reflect the expected size of its content. */
-  size?: 'small' | 'medium' | 'large' | 'auto' | 'full';
+  size?: "small" | "medium" | "large" | "auto" | "full";
   value?: string;
   disabled?: boolean;
 }
 
 /** Search Input Component */
-export default function SearchInput({ 
-    size = 'medium', 
-    label, 
-    placeholder, 
-    hideLabel = false,
-    submitButton,
-    value,
-    disabled = false,
-  }: Props) {
-
-  const inputID = 'searchInput';
+export default function SearchInput({
+  size = "medium",
+  label,
+  placeholder,
+  hideLabel = false,
+  submitButton,
+  value,
+  disabled = false,
+}: Props) {
+  const inputID = "searchInput";
   /* Add a space before the added class rather than inside the className attr on the tag. Looks cleaner. */
-  let disabledClass = disabled ? ' is-disabled' : '';
-  let hiddenClass = hideLabel ? ' aj-hidden' : '';
+  let disabledClass = disabled ? " is-disabled" : "";
+  let hiddenClass = hideLabel ? " aj-hidden" : "";
 
   return (
     <form className={`aj-input is-${size}${disabledClass}`}>
@@ -46,12 +45,11 @@ export default function SearchInput({
         value={value}
         disabled={disabled}
       />
-      {submitButton ?
+      {submitButton ? (
         <button type="submit" aria-label="submit search">
           <i className="material-icons">search</i>
         </button>
-        : null
-      }
+      ) : null}
     </form>
-  )
+  );
 }

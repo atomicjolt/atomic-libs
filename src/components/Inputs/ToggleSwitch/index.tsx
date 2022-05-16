@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
-import '../../general.scss'
-import '../common.scss'
-import './styles.scss'
+import React, { useState, useEffect } from "react";
+import "../../general.scss";
+import "../common.scss";
+import "./styles.scss";
 
 export interface Props {
   /** Must include a label. Labels are always Sentence case. */
@@ -11,25 +11,21 @@ export interface Props {
 }
 
 /** Toggle Switch Component */
-export default function ToggleSwitch({ 
-    label, 
-    checked,
-    disabled = false,
-  }: Props) {
+export default function ToggleSwitch({
+  label,
+  checked,
+  disabled = false,
+}: Props) {
+  const inputID = "toggleSwitch";
 
-  const inputID = 'toggleSwitch';
+  const [uncheckedAnimation, setUncheckedAnimation] = useState(false);
+  const [checkedAnimation, setCheckedAnimation] = useState(false);
+  const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
 
-  const [ uncheckedAnimation, setUncheckedAnimation ] = 
-    useState(false);
-  const [ checkedAnimation, setCheckedAnimation ] = 
-    useState(false);
-  const [ timeoutId, setTimeoutId ] = 
-    useState<NodeJS.Timeout | null>(null);
-
-  const checkedAnimationClass = 
-    checkedAnimation ? ' check-animation' : '';
-  const uncheckedAnimationClass = 
-    uncheckedAnimation ? ' uncheck-animation' : '';
+  const checkedAnimationClass = checkedAnimation ? " check-animation" : "";
+  const uncheckedAnimationClass = uncheckedAnimation
+    ? " uncheck-animation"
+    : "";
 
   const animationHandler = (e) => {
     if (e.target.checked) {
@@ -61,12 +57,14 @@ export default function ToggleSwitch({
         disabled={disabled}
         onChange={animationHandler}
       />
-      <span className={`aj-toggle-switch__label${checkedAnimationClass}${uncheckedAnimationClass}`}>
+      <span
+        className={`aj-toggle-switch__label${checkedAnimationClass}${uncheckedAnimationClass}`}
+      >
         {label}
         <div>
-          <i/>
+          <i />
         </div>
       </span>
     </label>
-  )
+  );
 }

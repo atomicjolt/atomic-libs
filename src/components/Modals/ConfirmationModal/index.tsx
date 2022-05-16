@@ -1,7 +1,7 @@
-import React from 'react'
-import '../../general.scss'
-import './styles.scss'
-import Button from '../../Buttons/Button'
+import React from "react";
+import "../../general.scss";
+import "./styles.scss";
+import Button from "../../Buttons/Button";
 
 export interface Props {
   /** Must include a title. Titles are always in Title case. */
@@ -13,18 +13,17 @@ export interface Props {
   secondaryButton?: string;
 }
 
-/** 
+/**
  * Confirmation Modal Component
- * 
- * For when you need a small modal to confirm an action, show a loading/exporting/etc process, or other small things that don't require a large modal. 
+ *
+ * For when you need a small modal to confirm an action, show a loading/exporting/etc process, or other small things that don't require a large modal.
  * */
-export default function ConfirmationModal({ 
-    title, 
-    content, 
-    primaryButton, 
-    secondaryButton = 'Cancel',
-  }: Props) {
-
+export default function ConfirmationModal({
+  title,
+  content,
+  primaryButton,
+  secondaryButton = "Cancel",
+}: Props) {
   return (
     <div className="aj-modal-background">
       <div className="aj-modal--confirmation">
@@ -35,20 +34,18 @@ export default function ConfirmationModal({
           <p>{content}</p>
         </div>
         <div className="aj-modal__bottom">
-          {secondaryButton ?
-            <Button className="secondary" type="button">  
+          {secondaryButton ? (
+            <Button className="secondary" type="button">
               {secondaryButton}
             </Button>
-            : null
-          }
-          {primaryButton ?
-            <Button className="primary" type="button">  
+          ) : null}
+          {primaryButton ? (
+            <Button className="primary" type="button">
               {primaryButton}
             </Button>
-            : null
-          }
+          ) : null}
         </div>
       </div>
     </div>
-  )
+  );
 }

@@ -1,7 +1,7 @@
-import React from 'react'
-import '../../general.scss'
-import './styles.scss'
-import Radio from '../Radio'
+import React from "react";
+import "../../general.scss";
+import "./styles.scss";
+import Radio from "../Radio";
 
 export interface Props {
   /** Must include a label. Labels are always Sentence case. */
@@ -12,39 +12,28 @@ export interface Props {
   error?: string;
 }
 
-/** 
- * Radio Group 
- * 
+/**
+ * Radio Group
+ *
  * For a choice selection of 3-5 options. There may be a few cases where you can use these for more than 5, but it isn't common.
- * 
+ *
  * For 2 choices, use a checkbox instead.
- * 
+ *
  * For more than 5 options, use a select.
  * */
-export default function RadioGroup({ 
-    label, 
-    message, 
-    error, 
-  }: Props) {
-
-  const radioName = 'radio';
+export default function RadioGroup({ label, message, error }: Props) {
+  const radioName = "radio";
 
   return (
     <fieldset className="aj-radio-group">
       <legend className="aj-label">
         {label}
-        {message ?
-          <p className="aj-label--message">{message}</p>
-          : null
-        }
-        {error ?
-          <p className="aj-label--error">{error}</p>
-          : null
-        }
+        {message ? <p className="aj-label--message">{message}</p> : null}
+        {error ? <p className="aj-label--error">{error}</p> : null}
       </legend>
-      <Radio label="Radio one" name={radioName}/>
-      <Radio label="Radio two" name={radioName}/>
-      <Radio label="Radio three" name={radioName}/>
+      <Radio label="Radio one" name={radioName} />
+      <Radio label="Radio two" name={radioName} />
+      <Radio label="Radio three" name={radioName} />
     </fieldset>
-  )
+  );
 }

@@ -1,7 +1,7 @@
-import React from 'react'
-import '../../general.scss'
-import './styles.scss'
-import TableHeader from '../TableHeader'
+import React from "react";
+import "../../general.scss";
+import "./styles.scss";
+import TableHeader from "../TableHeader";
 
 export interface Props {
   /** Must include a title to label the table. */
@@ -15,15 +15,14 @@ export interface Props {
 }
 
 /** Table Component */
-export default function Table({ 
-    title, 
-    sticky = false,
-    verticalBorders = false,
-    sortable = false,
-  }: Props) {
-
-  const stickyClass = sticky ? ' is-sticky' : '';
-  const verticalBordersClass = verticalBorders ? ' has-vertical-borders' : '';
+export default function Table({
+  title,
+  sticky = false,
+  verticalBorders = false,
+  sortable = false,
+}: Props) {
+  const stickyClass = sticky ? " is-sticky" : "";
+  const verticalBordersClass = verticalBorders ? " has-vertical-borders" : "";
 
   /* Add functionality to remove sort order from other headers if you click on other ones. */
 
@@ -32,20 +31,19 @@ export default function Table({
       <table className={`aj-table${stickyClass}${verticalBordersClass}`}>
         <caption className="aj-hidden">
           {title}
-          {sortable ?
+          {sortable ? (
             <span>, column headers with buttons are sortable.</span>
-            : null
-          }
+          ) : null}
         </caption>
         <thead>
           <tr>
-            <TableHeader label="Monday" sortable sortDefault="ascending"/>
-            <TableHeader label="Tuesday" sortable width="300px"/>
-            <TableHeader label="Wednesday" sortable/>
-            <TableHeader label="Thursday" sortable/>
-            <TableHeader label="Friday"/>
-            <TableHeader label="Saturday"/>
-            <TableHeader label="Sunday" sortable/>
+            <TableHeader label="Monday" sortable sortDefault="ascending" />
+            <TableHeader label="Tuesday" sortable width="300px" />
+            <TableHeader label="Wednesday" sortable />
+            <TableHeader label="Thursday" sortable />
+            <TableHeader label="Friday" />
+            <TableHeader label="Saturday" />
+            <TableHeader label="Sunday" sortable />
           </tr>
         </thead>
         <tbody>
@@ -61,5 +59,5 @@ export default function Table({
         </tbody>
       </table>
     </div>
-  )
+  );
 }

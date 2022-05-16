@@ -1,10 +1,10 @@
-import React from 'react'
-import '../../general.scss'
-import '../common.scss'
-import './styles.scss'
+import React from "react";
+import "../../general.scss";
+import "../common.scss";
+import "./styles.scss";
 
 export interface Props {
-  type?: 'text' | 'password' | 'email' | 'tel';
+  type?: "text" | "password" | "email" | "tel";
   /** Must include a label. Labels are always Sentence case. */
   label: string;
   /** Error text should be descriptive and explicit in meaning. */
@@ -16,7 +16,7 @@ export interface Props {
   /** Only use in very specific circumstances. This hides the label from view, but still allows screen readers to read the label. (A search input might have 'Search...' as a placeholder and no room for a full label so you can hide it.) */
   hideLabel?: boolean;
   /** The input size should reflect the expected size of its content. */
-  size?: 'small' | 'medium' | 'large' | 'auto' | 'full';
+  size?: "small" | "medium" | "large" | "auto" | "full";
   value?: string;
   readonly?: boolean;
   disabled?: boolean;
@@ -24,35 +24,31 @@ export interface Props {
 }
 
 /** Text Input Component */
-export default function TextInput({ 
-    type = 'text',
-    size = 'medium', 
-    label, 
-    error, 
-    message, 
-    placeholder, 
-    hideLabel = false,
-    value,
-    readonly = false,
-    disabled = false,
-    required = false,
-  }: Props) {
-
-  const inputID = 'textInput';
-  const errorID = 'errorText';
+export default function TextInput({
+  type = "text",
+  size = "medium",
+  label,
+  error,
+  message,
+  placeholder,
+  hideLabel = false,
+  value,
+  readonly = false,
+  disabled = false,
+  required = false,
+}: Props) {
+  const inputID = "textInput";
+  const errorID = "errorText";
   /* Add a space before the added class rather than inside the className attr on the tag. Looks cleaner. */
-  let errorClass = error ? ' has-error' : '';
-  let disabledClass = disabled ? ' is-disabled' : '';
-  let hiddenClass = hideLabel ? ' aj-hidden' : '';
+  let errorClass = error ? " has-error" : "";
+  let disabledClass = disabled ? " is-disabled" : "";
+  let hiddenClass = hideLabel ? " aj-hidden" : "";
 
   return (
     <div className={`aj-input is-${size}${errorClass}${disabledClass}`}>
       <label className={`aj-label${hiddenClass}`} htmlFor={inputID}>
         {label}
-        {message ?
-          <p className="aj-label--message">{message}</p>
-          : null
-        }
+        {message ? <p className="aj-label--message">{message}</p> : null}
       </label>
       <input
         id={inputID}
@@ -64,10 +60,11 @@ export default function TextInput({
         disabled={disabled}
         required={required}
       />
-      {error ?
-        <p id={errorID} className="aj-label--error">{error}</p>
-        : null
-      }
+      {error ? (
+        <p id={errorID} className="aj-label--error">
+          {error}
+        </p>
+      ) : null}
     </div>
-  )
+  );
 }

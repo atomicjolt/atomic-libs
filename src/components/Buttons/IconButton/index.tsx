@@ -1,7 +1,7 @@
 import React from "react";
-import '../../general.scss';
+import "../../general.scss";
 import "./styles.scss";
-import Spinner from '../../Loaders/Spinner';
+import Spinner from "../../Loaders/Spinner";
 
 export interface Props {
   /** What to render within the Button */
@@ -17,17 +17,16 @@ export interface Props {
 }
 
 /** Icon Button Component */
-export default function IconButton({ 
-    icon,
-    id,
-    ariaLabel, 
-    ariaExpanded,
-    ariaHasPopup,
-    ariaControls,
-    disabled,
-    onClick 
-  }: Props) {
-    
+export default function IconButton({
+  icon,
+  id,
+  ariaLabel,
+  ariaExpanded,
+  ariaHasPopup,
+  ariaControls,
+  disabled,
+  onClick,
+}: Props) {
   return (
     <button
       id={id}
@@ -40,7 +39,9 @@ export default function IconButton({
       aria-haspopup={ariaHasPopup}
       aria-expanded={ariaExpanded}
     >
-      <i className="material-icons" aria-hidden>{icon}</i>
+      <i className="material-icons" aria-hidden>
+        {icon}
+      </i>
     </button>
   );
 }

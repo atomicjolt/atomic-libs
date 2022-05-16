@@ -1,7 +1,7 @@
-import React from 'react'
-import '../../general.scss'
-import '../common.scss'
-import './styles.scss'
+import React from "react";
+import "../../general.scss";
+import "../common.scss";
+import "./styles.scss";
 
 export interface Props {
   /** Must include a label. Labels are always Sentence case. */
@@ -13,7 +13,7 @@ export interface Props {
   /** Placeholders aren't common, you should use the message instead for most placeholders so the user doesn't lose the information after entering text in the input. */
   placeholder?: string;
   /** The input size should reflect the expected size of its content. */
-  height?: 'small' | 'medium' | 'large';
+  height?: "small" | "medium" | "large";
   resize?: boolean;
   value?: string;
   readonly?: boolean;
@@ -22,34 +22,32 @@ export interface Props {
 }
 
 /** Textarea Component */
-export default function Textarea({ 
-    height = 'small', 
-    resize = true,
-    label, 
-    error, 
-    message, 
-    placeholder, 
-    value,
-    readonly = false,
-    disabled = false,
-    required = false,
-  }: Props) {
-
-  const inputID = 'textarea';
-  const errorID = 'errorText';
+export default function Textarea({
+  height = "small",
+  resize = true,
+  label,
+  error,
+  message,
+  placeholder,
+  value,
+  readonly = false,
+  disabled = false,
+  required = false,
+}: Props) {
+  const inputID = "textarea";
+  const errorID = "errorText";
   /* Add a space before the added class rather than inside the className attr on the tag. Looks cleaner. */
-  let errorClass = error ? ' has-error' : '';
-  let disabledClass = disabled ? ' is-disabled' : '';
-  let resizeClass = resize ? ' can-resize' : '';
+  let errorClass = error ? " has-error" : "";
+  let disabledClass = disabled ? " is-disabled" : "";
+  let resizeClass = resize ? " can-resize" : "";
 
   return (
-    <div className={`aj-input is-${height}${resizeClass}${errorClass}${disabledClass}`}>
+    <div
+      className={`aj-input is-${height}${resizeClass}${errorClass}${disabledClass}`}
+    >
       <label className="aj-label" htmlFor={inputID}>
         {label}
-        {message ?
-          <p className="aj-label--message">{message}</p>
-          : null
-        }
+        {message ? <p className="aj-label--message">{message}</p> : null}
       </label>
       <textarea
         id={inputID}
@@ -60,10 +58,11 @@ export default function Textarea({
         disabled={disabled}
         required={required}
       />
-      {error ?
-        <p id={errorID} className="aj-label--error">{error}</p>
-        : null
-      }
+      {error ? (
+        <p id={errorID} className="aj-label--error">
+          {error}
+        </p>
+      ) : null}
     </div>
-  )
+  );
 }

@@ -1,7 +1,7 @@
-import React from 'react'
-import '../../general.scss'
-import '../common.scss'
-import './styles.scss'
+import React from "react";
+import "../../general.scss";
+import "../common.scss";
+import "./styles.scss";
 
 export interface Props {
   /** Must include a label. Labels are always Sentence case. */
@@ -11,7 +11,7 @@ export interface Props {
   /** For additional information (ex. date format mm/dd/yy) */
   message?: string;
   /** The input size should reflect the expected size of its content. */
-  size?: 'small' | 'medium' | 'large' | 'auto' | 'full';
+  size?: "small" | "medium" | "large" | "auto" | "full";
   min?: string;
   max?: string;
   value?: string;
@@ -21,33 +21,29 @@ export interface Props {
 }
 
 /** Number Input Component */
-export default function NumberInput({ 
-    label, 
-    error, 
-    message, 
-    size = 'small',
-    min,
-    max,
-    value,
-    readonly = false,
-    disabled = false,
-    required = false,
-  }: Props) {
-
-  const inputID = 'numberInput';
-  const errorID = 'errorText';
+export default function NumberInput({
+  label,
+  error,
+  message,
+  size = "small",
+  min,
+  max,
+  value,
+  readonly = false,
+  disabled = false,
+  required = false,
+}: Props) {
+  const inputID = "numberInput";
+  const errorID = "errorText";
   /* Add a space before the added class rather than inside the className attr on the tag. Looks cleaner. */
-  let errorClass = error ? ' has-error' : '';
-  let disabledClass = disabled ? ' is-disabled' : '';
+  let errorClass = error ? " has-error" : "";
+  let disabledClass = disabled ? " is-disabled" : "";
 
   return (
     <div className={`aj-input is-${size}${errorClass}${disabledClass}`}>
       <label className="aj-label" htmlFor={inputID}>
         {label}
-        {message ?
-          <p className="aj-label--message">{message}</p>
-          : null
-        }
+        {message ? <p className="aj-label--message">{message}</p> : null}
       </label>
       <input
         id={inputID}
@@ -60,10 +56,11 @@ export default function NumberInput({
         disabled={disabled}
         required={required}
       />
-      {error ?
-        <p id={errorID} className="aj-label--error">{error}</p>
-        : null
-      }
+      {error ? (
+        <p id={errorID} className="aj-label--error">
+          {error}
+        </p>
+      ) : null}
     </div>
-  )
+  );
 }

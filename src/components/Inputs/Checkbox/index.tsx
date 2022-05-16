@@ -1,7 +1,7 @@
-import React from 'react'
-import '../../general.scss'
-import '../common.scss'
-import './styles.scss'
+import React from "react";
+import "../../general.scss";
+import "../common.scss";
+import "./styles.scss";
 
 export interface Props {
   /** Must include a label. Labels are always Sentence case. */
@@ -15,16 +15,15 @@ export interface Props {
 }
 
 /** Checkbox Component */
-export default function Checkbox({ 
-    label, 
-    error, 
-    message, 
-    checked,
-    disabled = false,
-  }: Props) {
-
-  const inputID = 'checkbox';
-  let errorClass = error ? ' has-error' : '';
+export default function Checkbox({
+  label,
+  error,
+  message,
+  checked,
+  disabled = false,
+}: Props) {
+  const inputID = "checkbox";
+  let errorClass = error ? " has-error" : "";
 
   return (
     <label className={`aj-checkbox ${errorClass}`} htmlFor={inputID}>
@@ -36,15 +35,9 @@ export default function Checkbox({
       />
       <span className="aj-checkbox__label">
         {label}
-        {message ?
-          <p className="aj-label--message">{message}</p>
-          : null
-        }
-        {error ?
-          <p className="aj-label--error">{error}</p>
-          : null
-        }
+        {message ? <p className="aj-label--message">{message}</p> : null}
+        {error ? <p className="aj-label--error">{error}</p> : null}
       </span>
     </label>
-  )
+  );
 }

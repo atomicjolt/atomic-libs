@@ -1,7 +1,7 @@
-import React from 'react'
-import '../../general.scss'
-import '../common.scss'
-import './styles.scss'
+import React from "react";
+import "../../general.scss";
+import "../common.scss";
+import "./styles.scss";
 
 export interface Props {
   /** Radio inputs are never alone, so giving them a name connects them to their related radio inputs as a radio group. */
@@ -16,26 +16,25 @@ export interface Props {
   disabled?: boolean;
 }
 
-/** 
- * Radio Component 
- * 
+/**
+ * Radio Component
+ *
  * For a choice selection of 3-5 options. There may be a few cases where you can use these for more than 5, but it isn't common.
- * 
+ *
  * For 2 choices, use a checkbox instead.
- * 
+ *
  * For more than 5 options, use a select.
  * */
-export default function Radio({ 
-    name,
-    label, 
-    error, 
-    message, 
-    checked,
-    disabled = false,
-  }: Props) {
-
-  const inputID = 'radio';
-  let errorClass = error ? ' has-error' : '';
+export default function Radio({
+  name,
+  label,
+  error,
+  message,
+  checked,
+  disabled = false,
+}: Props) {
+  const inputID = "radio";
+  let errorClass = error ? " has-error" : "";
 
   return (
     <label className={`aj-radio ${errorClass}`} htmlFor={inputID}>
@@ -48,15 +47,9 @@ export default function Radio({
       />
       <span className="aj-checkbox__label">
         {label}
-        {message ?
-          <p className="aj-label--message">{message}</p>
-          : null
-        }
-        {error ?
-          <p className="aj-label--error">{error}</p>
-          : null
-        }
+        {message ? <p className="aj-label--message">{message}</p> : null}
+        {error ? <p className="aj-label--error">{error}</p> : null}
       </span>
     </label>
-  )
+  );
 }

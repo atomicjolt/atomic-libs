@@ -2,9 +2,9 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Table, { Props } from ".";
 
 export default {
-title: "Tables/Table",
-component: Table
-} as ComponentMeta<typeof Table>
+  title: "Tables/Table",
+  component: Table,
+} as ComponentMeta<typeof Table>;
 
 const Template: ComponentStory<typeof Table> = (args: Props) => (
   <Table {...args} />
@@ -13,6 +13,6 @@ const Template: ComponentStory<typeof Table> = (args: Props) => (
 export const Default = Template.bind({});
 Default.args = {
   title: "Assessments in the course",
-}
+};
 
 // Additional stories go here

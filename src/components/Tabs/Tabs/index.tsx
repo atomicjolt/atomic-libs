@@ -1,6 +1,6 @@
-import React from 'react'
-import '../../general.scss'
-import './styles.scss'
+import React from "react";
+import "../../general.scss";
+import "./styles.scss";
 
 export interface Props {
   /** Must include a label for the tab. */
@@ -10,16 +10,11 @@ export interface Props {
 }
 
 /** Tabs Component */
-export default function Tabs({ 
-    label,
-    linkTarget,
-    content,
-  }: Props) {
-
-  const tabID = label + 'Tab';
-  const tabContentID = label + 'Content';
+export default function Tabs({ label, linkTarget, content }: Props) {
+  const tabID = label + "Tab";
+  const tabContentID = label + "Content";
   const selected = false;
-  const current = selected ? 'page' : undefined;
+  const current = selected ? "page" : undefined;
 
   return (
     <>
@@ -58,5 +53,5 @@ export default function Tabs({
         {content}
       </div>
     </>
-  )
+  );
 }

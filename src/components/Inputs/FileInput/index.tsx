@@ -1,7 +1,7 @@
-import React from 'react'
-import '../../general.scss'
-import '../common.scss'
-import './styles.scss'
+import React from "react";
+import "../../general.scss";
+import "../common.scss";
+import "./styles.scss";
 
 export interface Props {
   /** Labels are always Sentence case. */
@@ -15,20 +15,19 @@ export interface Props {
 }
 
 /** File Input Component */
-export default function FileInput({ 
-    label = 'Choose a file...', 
-    error,  
-    value,
-    readonly = false,
-    disabled = false,
-    required = false,
-  }: Props) {
-
-  const inputID = 'textInput';
-  const errorID = 'errorText';
+export default function FileInput({
+  label = "Choose a file...",
+  error,
+  value,
+  readonly = false,
+  disabled = false,
+  required = false,
+}: Props) {
+  const inputID = "textInput";
+  const errorID = "errorText";
   /* Add a space before the added class rather than inside the className attr on the tag. Looks cleaner. */
-  let errorClass = error ? ' has-error' : '';
-  let disabledClass = disabled ? ' is-disabled' : '';
+  let errorClass = error ? " has-error" : "";
+  let disabledClass = disabled ? " is-disabled" : "";
 
   return (
     <div className={`aj-input--file ${errorClass}${disabledClass}`}>
@@ -46,10 +45,11 @@ export default function FileInput({
         <span></span>
         <strong>{label}</strong>
       </label>
-      {error ?
-        <p id={errorID} className="aj-label--error">{error}</p>
-        : null
-      }
+      {error ? (
+        <p id={errorID} className="aj-label--error">
+          {error}
+        </p>
+      ) : null}
     </div>
-  )
+  );
 }

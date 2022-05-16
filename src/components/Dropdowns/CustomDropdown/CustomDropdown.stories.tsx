@@ -2,9 +2,9 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import CustomDropdown, { Props } from ".";
 
 export default {
-title: "Dropdowns/CustomDropdown",
-component: CustomDropdown
-} as ComponentMeta<typeof CustomDropdown>
+  title: "Dropdowns/CustomDropdown",
+  component: CustomDropdown,
+} as ComponentMeta<typeof CustomDropdown>;
 
 const Template: ComponentStory<typeof CustomDropdown> = (args: Props) => (
   <CustomDropdown {...args}>
@@ -15,6 +15,6 @@ const Template: ComponentStory<typeof CustomDropdown> = (args: Props) => (
 export const Default = Template.bind({});
 Default.args = {
   label: "Custom dropdown label",
-}
+};
 
 // Additional stories go here
