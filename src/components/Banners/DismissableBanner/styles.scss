@@ -10,4 +10,13 @@
     --banner-btn-active-clr: var(--error900);
     @extend .aj-banner;
   }
+
+  &--warning {
+    --banner-bg-clr: var(--warning100);
+    --banner-text-clr: var(--text-clr);
+    --banner-icon-clr: var(--warning600);
+    --banner-btn-hover-clr: var(--warning200);
+    --banner-btn-active-clr: var(--warning300);
+    @extend .aj-banner;
+  }
 }

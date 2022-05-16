@@ -1,24 +1,23 @@
 import React from "react";
 import "../../general.scss";
 import "./styles.scss";
-import Spinner from "../../Loaders/Spinner";
+import { AriaHasPopUp, MaterialIcon } from "../../../types";
 
 export interface Props {
-  /** What to render within the Button */
-  icon: string;
+  /** Material Icon to render */
+  children: MaterialIcon;
   id?: string;
   ariaLabel: string;
   ariaExpanded?: boolean;
-  ariaHasPopup?: string;
+  ariaHasPopup?: AriaHasPopUp;
   ariaControls?: string;
   disabled?: boolean;
-  role?: string;
-  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 /** Icon Button Component */
 export default function IconButton({
-  icon,
+  children,
   id,
   ariaLabel,
   ariaExpanded,
@@ -40,7 +39,7 @@ export default function IconButton({
       aria-expanded={ariaExpanded}
     >
       <i className="material-icons" aria-hidden>
-        {icon}
+        {children}
       </i>
     </button>
   );

@@ -12,6 +12,6 @@ const Template: ComponentStory<typeof IconButton> = (args: Props) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  icon: "more_vert",
+  children: "more_vert",
   ariaLabel: "More options",
 };

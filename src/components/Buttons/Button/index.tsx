@@ -9,7 +9,7 @@ interface CommonProps {
   className?: "primary" | "secondary" | "success" | "error" | "inverted";
   type?: "submit" | "reset" | "button";
   disabled?: boolean;
-  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 type LoadingProps =
