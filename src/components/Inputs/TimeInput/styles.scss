@@ -1,4 +1,4 @@
-@import "../../defines.scss";
+@use "../../defines" as *;
 
 .aj-input [type="time"] {
   --input-width-md: 145px;

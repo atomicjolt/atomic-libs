@@ -60,6 +60,7 @@
   --outline-clr-primary: var(--neutral600);
   --outline: 2px solid var(--outline-clr-primary);
   --input-outline: 1px solid var(--outline-clr-primary);
+  --radius: 5px;
 }
 
 @mixin regular {

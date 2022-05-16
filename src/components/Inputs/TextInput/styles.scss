@@ -1,4 +1,4 @@
-@import "../../defines.scss";
+@use "../../defines" as *;
 
 .aj-input {
   input[type="text"],

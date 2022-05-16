@@ -1,4 +1,4 @@
-@import "../../defines.scss";
+@use "../../defines" as *;
 
 .aj-toggle-switch {
   --unchecked: var(--neutral400);
@@ -42,8 +42,8 @@
         &::before {
           content: "\e5cd";
           position: absolute;
-          top: 5px;
-          left: 5px;
+          top: 2px;
+          left: 2px;
           font-size: 1.4rem;
           font-family: "Material Icons";
           font-style: normal;
@@ -65,7 +65,7 @@
         }
       }
     }
-    &.uncheck-animation i {
+    &.uncheck-animation div {
       background-color: var(--unchecked);
       i {
         animation: squishyBack 200ms linear forwards;
@@ -83,57 +83,43 @@
     0% {
       transform: translateX(0) scale(1, 1);
     }
-
     50% {
-      transform: translateX(8px) scale(1.25, 0.8);
+      transform: translateX(calc(var(--toggle-travel) / 2)) scale(1.25, 0.8);
     }
-
     100% {
-      transform: translateX(16px) scale(1, 1);
+      transform: translateX(var(--toggle-travel)) scale(1, 1);
     }
   }
   @keyframes squishyBack {
     0% {
-      transform: translateX(16px) scale(1, 1);
+      transform: translateX(var(--toggle-travel)) scale(1, 1);
     }
-
     50% {
-      transform: translateX(8px) scale(1.25, 0.8);
+      transform: translateX(calc(var(--toggle-travel) / 2)) scale(1.25, 0.8);
     }
-
     100% {
       transform: translateX(0) scale(1, 1);
     }
   }
   @keyframes squishyIcon {
     0% {
-      transform: translateX(0) scale(1);
       content: "\e5cd";
     }
-
     50% {
-      transform: translateX(8px) scale(0.5);
       content: "\e15b";
     }
-
     100% {
-      transform: translateX(16px) scale(1);
       content: "\e5ca";
     }
   }
   @keyframes squishyIconBack {
     0% {
-      transform: translateX(16px) scale(1);
       content: "\e5ca";
     }
-
     50% {
-      transform: translateX(8px) scale(0.5);
       content: "\e15b";
     }
-
     100% {
-      transform: translateX(0) scale(1);
       content: "\e5cd";
     }
   }
@@ -150,7 +136,7 @@
     right: 0;
     top: 50%;
     transform: translateY(-50%);
-    width: calc(var(--toggle-size) * 2);
+    width: calc(var(--toggle-size) * 1.666);
     height: var(--toggle-size);
     border-radius: calc(var(--toggle-size) / 2);
     background-color: transparent;

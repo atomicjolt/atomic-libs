@@ -1,4 +1,4 @@
-@import "../defines.scss";
+@use "../defines" as *;
 
 .aj-btn {
   --btn-height: 40px;

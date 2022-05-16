@@ -1,4 +1,4 @@
-@import "./defines.scss";
+@use "./defines" as *;
 
 html {
   font-size: 10px;

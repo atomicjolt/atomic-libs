@@ -1,4 +1,4 @@
-@import "../../defines.scss";
+@use "../../defines" as *;
 
 .aj-three-dot-loader {
   --loader-clr: var(--neutral500);
