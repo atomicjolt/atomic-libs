@@ -1,0 +1,18 @@
+@use "../../defines" as *;
+@use "../common.scss";
+
+.aj-btn {
+  &--icon {
+    --btn-text-clr: var(--text-clr-alt);
+    --btn-bg-clr: var(--neutral50);
+    --btn-hover-text-clr: var(--text-clr);
+    --btn-hover-bg-clr: var(--neutral100);
+    --btn-border: var(--border);
+    width: var(--btn-height);
+    padding: var(--btn-padding);
+    i {
+      margin-left: 0;
+    }
+    @extend .aj-btn;
+  }
+}

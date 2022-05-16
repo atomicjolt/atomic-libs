@@ -1,0 +1,11 @@
+@use "../../defines" as *;
+@use "../common.scss";
+
+.aj-banner {
+  &--upgrade {
+    --banner-bg-clr: var(--primary100);
+    --banner-text-clr: var(--text-clr);
+    --banner-icon-clr: var(--primary700);
+    @extend .aj-banner;
+  }
+}

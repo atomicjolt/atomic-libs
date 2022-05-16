@@ -1,0 +1,187 @@
+@use "../defines" as *;
+
+.aj-dropdown {
+  .aj-combobox {
+    position: relative;
+    max-width: var(--combobox-width, auto);
+    color: var(--text-clr);
+
+    &__input {
+      position: relative;
+      border: 1px solid var(--input-border-clr);
+      border-radius: 5px;
+      height: 40px;
+      padding: 6px 40px 6px 12px;
+      @include regular;
+      color: var(--text-clr);
+      font-size: 1.6rem;
+      line-height: 1.5;
+      color: inherit;
+      display: inline-flex;
+      align-items: center;
+      width: 100%;
+      cursor: pointer;
+
+      span {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+
+      input {
+        border: none;
+        min-height: 38px;
+        padding: 0 40px 0 12px;
+        @include regular;
+        color: inherit;
+        font-size: inherit;
+        width: 100%;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      &::after {
+        content: "\E5C5";
+        font-family: "Material Icons";
+        position: absolute;
+        right: 8px;
+        top: 8px;
+        font-size: 2.4rem;
+        line-height: 1;
+        color: var(--neutral600);
+        pointer-events: none;
+      }
+
+      &:focus,
+      &:focus-within {
+        outline: var(--input-outline);
+        border-color: var(--outline-clr-primary);
+      }
+
+      &[aria-expanded="true"] + .aj-combobox__menu {
+        visibility: visible;
+        opacity: 1;
+        transform: scaleY(1);
+      }
+
+      &.is-searchable {
+        padding: 0;
+        overflow: hidden;
+
+        &::after {
+          content: "\e8b6";
+        }
+      }
+    }
+
+    &__menu {
+      visibility: hidden;
+      overflow-y: auto;
+      max-height: 300px;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      border-radius: 5px;
+      box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.5);
+      min-width: 100%;
+      background-color: var(--neutral50);
+      padding: 4px 0;
+      margin: 0;
+      z-index: 100;
+      opacity: 0;
+      transform: scaleY(0.9);
+      transform-origin: top;
+      transition: transform 200ms ease, opacity 200ms;
+    }
+
+    &__option {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      min-height: 32px;
+      @include regular;
+      line-height: 1;
+      color: var(--option-text-clr, inherit);
+      font-size: 1.6rem;
+      background-color: var(--option-bg-clr);
+
+      --option-icon-clr: var(--neutral600);
+      i {
+        font-size: 2.4rem;
+        color: var(--option-icon-clr);
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-family: "Material Icons";
+        font-size: 2.4rem;
+        color: var(--option-selected-clr);
+      }
+
+      &:hover {
+        --option-bg-clr: var(--neutral100);
+        cursor: pointer;
+      }
+      &:active {
+        --option-bg-clr: var(--neutral200);
+      }
+      &[aria-selected="true"] {
+        --option-selected-clr: var(--primary700);
+        padding-right: 40px;
+
+        &::after {
+          content: "\e5ca";
+        }
+      }
+      &.is-focused {
+        --option-bg-clr: var(--primary700);
+        --option-text-clr: var(--text-clr-inverted);
+        --option-icon-clr: var(--text-clr-inverted);
+        --option-selected-clr: var(--text-clr-inverted);
+      }
+    }
+  }
+
+  &.is-small {
+    --combobox-width: 100px;
+  }
+  &.is-medium {
+    --combobox-width: 200px;
+  }
+  &.is-large {
+    --combobox-width: 300px;
+  }
+  &.is-full {
+    --combobox-width: 100%;
+  }
+  &.is-auto {
+    --combobox-width: none;
+    .aj-combobox {
+      display: inline-block;
+    }
+    .aj-combobox__input {
+      width: auto;
+    }
+  }
+
+  &.has-error {
+    .aj-combobox__input {
+      border-color: var(--error700);
+
+      &:focus {
+        outline-color: var(--error700);
+      }
+    }
+  }
+
+  &.is-disabled {
+    opacity: 0.5;
+  }
+}

@@ -1,0 +1,159 @@
+@use "../defines" as *;
+
+.aj-input {
+  input {
+    border: 1px solid var(--input-border-clr);
+    border-radius: 5px;
+    min-height: 40px;
+    width: 100%;
+    padding: 0 12px;
+    @include regular;
+    font-size: 1.6rem;
+    color: var(--text-clr);
+
+    &:read-only {
+      border-color: var(--neutral100);
+      background-color: var(--neutral100);
+    }
+    &:focus {
+      border-color: var(--outline-clr-primary);
+      outline: var(--input-outline);
+    }
+  }
+
+  &__date,
+  &__time {
+    position: relative;
+    display: inline-block;
+
+    &::after {
+      font-family: "Material Icons";
+      position: absolute;
+      right: 14px;
+      bottom: 8px;
+      font-size: 2.4rem;
+      line-height: 1;
+      color: var(--neutral500);
+      background-color: var(--neutral50);
+      pointer-events: none;
+    }
+  }
+
+  &__date::after {
+    content: "\e8df";
+  }
+  &__time::after {
+    content: "\e8b5";
+  }
+
+  &.is-small {
+    input,
+    select {
+      width: var(--input-width-sm, 100px);
+    }
+    textarea {
+      min-height: var(--textarea-height-sm);
+    }
+  }
+  &.is-medium {
+    input,
+    select {
+      width: var(--input-width-md, 200px);
+    }
+    textarea {
+      min-height: var(--textarea-height-md);
+    }
+  }
+  &.is-large {
+    input,
+    select {
+      width: var(--input-width-lg, 300px);
+    }
+    textarea {
+      min-height: var(--textarea-height-lg);
+    }
+  }
+  &.is-full {
+    .aj-input__select {
+      width: 100%;
+    }
+  }
+  &.is-auto {
+    input,
+    select {
+      max-width: none;
+      width: auto;
+    }
+  }
+
+  &.has-error {
+    input,
+    select {
+      border-color: var(--error700);
+
+      &:focus {
+        outline-color: var(--error700);
+      }
+    }
+  }
+
+  &.is-disabled {
+    opacity: 0.5;
+  }
+}
+
+.aj-checkbox,
+.aj-radio {
+  --unchecked: var(--neutral500);
+  --checked: var(--primary700);
+
+  display: block;
+
+  &__label {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    @include regular;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    color: var(--text-clr);
+    padding-left: 32px;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 20px;
+      height: 20px;
+      box-sizing: border-box;
+      border: 2px solid var(--unchecked);
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      display: none;
+    }
+  }
+
+  :is(input):focus-visible ~ .aj-checkbox__label:before {
+    outline: var(--outline);
+    outline-offset: 2px;
+  }
+
+  :is(input):focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  input {
+    opacity: 0;
+    margin: 0;
+    height: 0.01rem;
+    width: 0.01rem;
+    position: absolute;
+  }
+
+  &.has-error .aj-checkbox__label::before {
+    border-color: var(--error700);
+  }
+}

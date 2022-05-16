@@ -1,0 +1,6 @@
+@use "../../defines" as *;
+
+.aj-input input[type="datetime-local"] {
+  --input-width-md: 260px;
+  --input-width-lg: 360px;
+}
