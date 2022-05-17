@@ -3,8 +3,14 @@ import cn from "classnames";
 import "../../general.scss";
 import "./styles.scss";
 import { levenshtein, makeIds } from "../../../utils";
+import InputLabel from "../../shared/InputLabel";
 
 export interface Props<T> {
+  /** Uniquley identifies the combo-box on the page. Is required for accessability purposes.
+   * The provided ID only needs to be unique within the subset of any combo-boxes used on the screen,
+   * not of all elements
+   */
+  id: string;
   /** The possible values.
    * - value: the actual value used, should match with `selected`
    * - title: What to display in the dropdown field
@@ -15,11 +21,7 @@ export interface Props<T> {
   }[];
   selected: T | null;
   onSelect: (value: T | null) => void;
-  /** Uniquley identifies the combo-box on the page. Is required for accessability purposes.
-   * The provided ID only needs to be unique within the subset of any combo-boxes used on the screen,
-   * not of all elements
-   */
-  id: string;
+
   /** Must include a label. Labels are always Sentence case. */
   label: string;
   /** Error text should be descriptive and explicit in meaning. */
@@ -36,6 +38,10 @@ export interface Props<T> {
   required?: boolean;
 }
 
+// TODO: get with Brandon do discuss how exactly this should function
+// - Enforce or suggest from the options?
+// - Are nulls allowed?
+// - Keyboard interaction?
 /**
  * Combobox
  *
@@ -53,7 +59,6 @@ export default function Combobox<T>({
   hideLabel = false,
   disabled = false,
 }: Props<T>) {
-  const errorID = "errorText";
   const [menuActive, setMenuActive] = useState(false);
   const [inputValue, setInputValue] = useState<string>("");
 
@@ -97,13 +102,9 @@ export default function Combobox<T>({
         "is-disabled": disabled,
       })}
     >
-      <label
-        className={cn("aj-label", { "aj-hidden": hideLabel })}
-        id={labelId}
-      >
+      <InputLabel message={message} htmlFor={labelId} hidden={hideLabel}>
         {label}
-        {message && <p className="aj-label--message">{message}</p>}
-      </label>
+      </InputLabel>
       <div className="aj-combobox">
         <div
           className="aj-combobox__input is-searchable"
@@ -119,7 +120,7 @@ export default function Combobox<T>({
             aria-autocomplete="both"
             aria-controls={listBoxId}
             aria-labelledby={labelId}
-            aria-describedby={error ? errorID : ""}
+            aria-describedby={error ? errorId : ""}
             id={inputId}
             value={inputValue || ""}
             onChange={(e) => setInputValue(e.target.value)}
@@ -153,7 +154,7 @@ export default function Combobox<T>({
         </ul>
       </div>
       {error && (
-        <p id={errorID} className="aj-label--error">
+        <p id={errorId} className="aj-label--error">
           {error}
         </p>
       )}

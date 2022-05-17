@@ -1,9 +1,17 @@
 import React from "react";
+import cn from "classnames";
 import "../../general.scss";
+import InputLabel from "../../shared/InputLabel";
 import "../common.scss";
 import "./styles.scss";
+import { makeIds } from "../../../utils";
 
 export interface Props {
+  /** Uniquley identifies the input on the page. Is required for accessability purposes.
+   * The provided ID only needs to be unique within the subset of any `TextInput`s used on the screen,
+   * not of all elements
+   */
+  id: string;
   type?: "text" | "password" | "email" | "tel";
   /** Must include a label. Labels are always Sentence case. */
   label: string;
@@ -25,6 +33,7 @@ export interface Props {
 
 /** Text Input Component */
 export default function TextInput({
+  id,
   type = "text",
   size = "medium",
   label,
@@ -37,22 +46,21 @@ export default function TextInput({
   disabled = false,
   required = false,
 }: Props) {
-  const inputID = "textInput";
-  const errorID = "errorText";
-  /* Add a space before the added class rather than inside the className attr on the tag. Looks cleaner. */
-  let errorClass = error ? " has-error" : "";
-  let disabledClass = disabled ? " is-disabled" : "";
-  let hiddenClass = hideLabel ? " aj-hidden" : "";
+  const [inputId, errorId] = makeIds(`${id}-input`, ["input", "error"]);
 
   return (
-    <div className={`aj-input is-${size}${errorClass}${disabledClass}`}>
-      <label className={`aj-label${hiddenClass}`} htmlFor={inputID}>
+    <div
+      className={cn("aj-input", `is-${size}`, {
+        "has-error": error,
+        "is-disabled": disabled,
+      })}
+    >
+      <InputLabel message={message} hidden={hideLabel} htmlFor={inputId}>
         {label}
-        {message ? <p className="aj-label--message">{message}</p> : null}
-      </label>
+      </InputLabel>
       <input
-        id={inputID}
-        aria-describedby={error ? errorID : ""}
+        id={inputId}
+        aria-describedby={error ? errorId : ""}
         type={type}
         placeholder={placeholder}
         value={value}
@@ -60,11 +68,11 @@ export default function TextInput({
         disabled={disabled}
         required={required}
       />
-      {error ? (
-        <p id={errorID} className="aj-label--error">
+      {error && (
+        <p id={errorId} className="aj-label--error">
           {error}
         </p>
-      ) : null}
+      )}
     </div>
   );
 }
