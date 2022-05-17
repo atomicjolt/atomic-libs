@@ -5,7 +5,9 @@ import Button from "../../Buttons/Button";
 import { MaterialIcon } from "../../../types";
 
 export interface Props {
-  /** `aj-banner--${className}` */
+  /** `aj-banner--${className}` pre-defined styles for:
+   * - `upgrade`
+   */
   readonly className: string;
   readonly icon?: MaterialIcon;
   readonly children: React.ReactNode;
