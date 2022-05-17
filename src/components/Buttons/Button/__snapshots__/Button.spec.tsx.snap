@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshots changes className 1`] = `
+<DocumentFragment>
+  <button
+    aria-label=""
+    class="aj-btn--secondary "
+    type="button"
+  >
+    Click Me
+  </button>
+</DocumentFragment>
+`;
+
+exports[`matches snapshots loading completed state 1`] = `
+<DocumentFragment>
+  <button
+    aria-label="loading"
+    class="aj-btn--undefined is-loading"
+    type="button"
+  >
+    <div
+      class="aj-spinner"
+    >
+      <span />
+    </div>
+    Click Me
+  </button>
+</DocumentFragment>
+`;
+
+exports[`matches snapshots loading state 1`] = `
+<DocumentFragment>
+  <button
+    aria-label="loading"
+    class="aj-btn--undefined is-loading"
+    type="button"
+  >
+    <div
+      class="aj-spinner"
+    >
+      <svg
+        class="circular-loader"
+        data-testid="spinner-svg"
+        viewBox="25 25 50 50"
+      >
+        <circle
+          class="loader-path"
+          cx="50"
+          cy="50"
+          fill="none"
+          r="20"
+        />
+      </svg>
+    </div>
+    Click Me
+  </button>
+</DocumentFragment>
+`;
+
+exports[`matches snapshots normal display 1`] = `
+<DocumentFragment>
+  <button
+    aria-label=""
+    class="aj-btn--undefined "
+    type="button"
+  >
+    Click Me
+  </button>
+</DocumentFragment>
+`;
