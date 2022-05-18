@@ -22,8 +22,12 @@ export interface HasChildren {
   children: React.ReactNode;
 }
 
-export interface HasIcon<Icons = MaterialIcon> {
-  icon: Icons;
+export interface RequireIcon {
+  icon: MaterialIcon;
+}
+
+export interface CanHaveIcon {
+  icon?: MaterialIcon;
 }
 
 export type Setter<T> = (value: T) => void;
