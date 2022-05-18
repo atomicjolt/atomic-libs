@@ -23,5 +23,6 @@ export function makeIds<T extends string>(
   base: T,
   args: readonly string[]
 ): string[] {
-  return args.map((a) => `${base}-${a}`);
+  const random = String(Math.floor(Math.random() * 10 ** 20));
+  return args.map((a) => `${base}-${a}-${random}`);
 }

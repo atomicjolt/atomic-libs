@@ -6,6 +6,7 @@ export interface Props {
   message?: string;
   htmlFor: string;
   hidden?: boolean;
+  id?: string;
 }
 
 export default function InputLabel({
@@ -13,11 +14,12 @@ export default function InputLabel({
   message,
   htmlFor,
   hidden,
+  id,
 }: Props) {
   const classes = cn("aj-label", { "aj-hidden": hidden });
 
   return (
-    <label className={classes} htmlFor={htmlFor}>
+    <label className={classes} htmlFor={htmlFor} id={id}>
       {children}
       {message && <p className="aj-label--message">{message}</p>}
     </label>

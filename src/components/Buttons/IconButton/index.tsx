@@ -5,7 +5,7 @@ import { AriaHasPopUp, MaterialIcon } from "../../../types";
 
 export interface Props {
   /** Material Icon to render */
-  children: MaterialIcon;
+  icon: MaterialIcon;
   id?: string;
   ariaLabel: string;
   ariaExpanded?: boolean;
@@ -17,7 +17,7 @@ export interface Props {
 
 /** Icon Button Component */
 export default function IconButton({
-  children,
+  icon,
   id,
   ariaLabel,
   ariaExpanded,
@@ -39,7 +39,7 @@ export default function IconButton({
       aria-expanded={ariaExpanded}
     >
       <i className="material-icons" aria-hidden>
-        {children}
+        {icon}
       </i>
     </button>
   );

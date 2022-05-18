@@ -1,115 +1,140 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
+import cn from "classnames";
 import "../../general.scss";
 import "./styles.scss";
+import InputLabel from "../../shared/InputLabel";
+import { useBool, useClick, useIds } from "../../../hooks";
+import { Setter, SharedInputProps } from "../../../types";
 
-export interface Props {
-  children: React.ReactNode;
-  inputContent?: React.ReactNode;
-  /** Must include a label. Labels are always Sentence case. */
-  label: string;
-  /** Error text should be descriptive and explicit in meaning. */
-  error?: string;
-  /** For additional information (ex. date format mm/dd/yy) */
-  message?: string;
-  /** Only use in very specific circumstances. This hides the label from view, but still allows screen readers to read the label. (A filter dropdown with a clear meaning could potentially be a use case.) */
-  hideLabel?: boolean;
-  /** The select size should reflect the size of its content. */
-  size?: "small" | "medium" | "large" | "full" | "auto";
-  disabled?: boolean;
-  required?: boolean;
+interface OptionsObject<T> {
+  value: T;
+  label: React.ReactNode;
 }
+
+export interface CommonProps<T> {
+  /** An array of possbile options to select from*/
+  options: OptionsObject<T>[];
+}
+
+type NullProps<T> =
+  | {
+      /** The currently selected value. Should be one of the values in the `options` object */
+      selected: T | null;
+      onSelect: Setter<T | null>;
+      /** Enables a null-valued selection item. */
+      empty?: true;
+      /** Label for the null-valued item */
+      emptyLabel?: React.ReactNode;
+    }
+  | {
+      selected: T;
+      onSelect: (v: T) => void;
+      empty?: false;
+      emptyLabel?: never;
+    };
+
+export type Props<T> = CommonProps<T> & NullProps<T> & SharedInputProps;
 
 /**
  * Custom Dropdown
  *
  * https://www.w3.org/TR/wai-aria-practices/examples/combobox/combobox-select-only.html for accessibility implementation.
  * */
-export default function CustomDropdown({
-  children,
-  inputContent = "- Select an option -",
+export default function CustomDropdown<T>({
+  options: initialOptions,
+  selected,
+  onSelect,
   size = "medium",
   label,
   error,
   message,
   hideLabel = false,
   disabled = false,
-}: Props) {
-  const errorID = "errorText";
-  /* Add a space before the added class rather than inside the className attr on the tag. Looks cleaner. */
-  let errorClass = error ? " has-error" : "";
-  let disabledClass = disabled ? " is-disabled" : "";
-  let hiddenClass = hideLabel ? " aj-hidden" : "";
+  empty = false,
+  emptyLabel = null,
+}: Props<T>) {
+  const [menuActive, toggleMenu] = useBool(false);
 
-  const [menuActive, setMenuActive] = useState(false);
-
-  const handleOpen = () => {
-    if (menuActive) {
-      setMenuActive(false);
-    } else {
-      setMenuActive(true);
+  const options = useMemo(() => {
+    if (empty) {
+      return [{ value: null, label: emptyLabel }, ...initialOptions];
     }
-  };
+    return initialOptions;
+  }, [initialOptions, empty, emptyLabel]);
 
-  useEffect(() => {
-    const closeMenu = () => {
-      if (!menuActive) return;
-      setMenuActive(false);
-    };
+  const selectedOption = useMemo(
+    () => options.find((o) => o.value === selected),
+    [selected]
+  );
 
-    window.addEventListener("click", closeMenu);
+  const [comboId, listBoxId, errorId, labelId, optionId] = useIds(
+    "custom-dropdown",
+    ["combo", "list", "errors", "label", "option"]
+  );
 
-    return () => window.removeEventListener("click", closeMenu);
+  useClick(() => {
+    if (!menuActive) return;
+    toggleMenu();
   }, [menuActive]);
 
   return (
-    <div className={`aj-dropdown is-${size}${errorClass}${disabledClass}`}>
-      <label className={`aj-label${hiddenClass}`} id="comboLabel">
+    <div
+      className={cn("aj-dropdown", `is-${size}`, {
+        "has-error": error,
+        "is-disabled": disabled,
+      })}
+    >
+      <InputLabel
+        message={message}
+        htmlFor={comboId}
+        id={labelId}
+        hidden={hideLabel}
+      >
         {label}
-        {message ? <p className="aj-label--message">{message}</p> : null}
-      </label>
+      </InputLabel>
       <div className="aj-combobox">
         <div
           className="aj-combobox__input"
-          aria-controls="listboxID"
+          aria-controls={listBoxId}
           aria-expanded={menuActive}
           aria-haspopup="listbox"
-          aria-labelledby="comboLabel"
-          aria-describedby={error ? errorID : ""}
-          id="comboID"
+          aria-labelledby={labelId}
+          aria-describedby={error ? errorId : ""}
+          id={comboId}
           role="combobox"
           tabIndex={0}
-          onClick={handleOpen}
+          onClick={toggleMenu}
         >
-          <span>{inputContent}</span>
+          <span>{selectedOption?.label}</span>
         </div>
         <ul
           className="aj-combobox__menu"
           role="listbox"
-          id="lisboxID"
-          aria-labelledby="comboLabel"
+          id={listBoxId}
+          aria-labelledby={labelId}
           tabIndex={-1}
         >
-          <li
-            className="aj-combobox__option is-focused"
-            role="option"
-            id="op1"
-            aria-selected="true"
-          >
-            - Select an Option -
-          </li>
-          <li className="aj-combobox__option" role="option" id="op2">
-            {children}
-          </li>
-          <li className="aj-combobox__option" role="option" id="op3">
-            {children}
-          </li>
+          {options.map((o, idx) => (
+            <li
+              className={cn("aj-combobox__option", {
+                "is-focused": o.value == selectedOption?.value,
+              })}
+              role="option"
+              id={`${optionId}-${idx}`}
+              key={`${optionId}-${idx}`}
+              aria-selected={o.value == selectedOption?.value}
+              onClick={() => onSelect(o.value!)}
+            >
+              {o.label}
+            </li>
+          ))}
         </ul>
       </div>
-      {error ? (
-        <p id={errorID} className="aj-label--error">
+      {error && (
+        <p id={errorId} className="aj-label--error">
           {error}
         </p>
-      ) : null}
+      )}
     </div>
   );
 }
