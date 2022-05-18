@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { useState } from "react";
 import TextInput, { Props } from ".";
+import { DefaultInputProperties } from "../../../utils";
 
 export default {
   title: "Inputs/TextInput",
@@ -8,15 +8,17 @@ export default {
 } as ComponentMeta<typeof TextInput>;
 
 const Template: ComponentStory<typeof TextInput> = (args: Props) => {
-  const { value: valueInital, ...props } = args;
-  const [value, setValue] = useState(valueInital);
-
-  return <TextInput {...props} value={value} onChange={setValue} />;
+  return <TextInput {...args} />;
 };
 
 export const Default = Template.bind({});
 Default.args = {
+  value: "",
+  type: "text",
+  ...DefaultInputProperties,
   label: "Text input label",
+  placeholder: "",
+  readonly: false,
 };
 
 // Additional stories go here

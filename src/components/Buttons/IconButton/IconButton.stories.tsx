@@ -4,6 +4,11 @@ import IconButton, { Props } from ".";
 export default {
   title: "Buttons/IconButton",
   component: IconButton,
+  argTypes: {
+    onClick: {
+      control: false,
+    },
+  },
 } as ComponentMeta<typeof IconButton>;
 
 const Template: ComponentStory<typeof IconButton> = (args: Props) => (

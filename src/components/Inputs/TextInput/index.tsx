@@ -8,41 +8,20 @@ import { makeIds } from "../../../utils";
 import {
   HTMLInputTypeAttribute,
   HTMLInputValueAttribute,
-  Sizes,
+  SharedInputProps,
 } from "../../../types";
+import { useIds } from "../../../hooks";
 
-export interface Props {
-  /** Uniquley identifies the input on the page. Is required for accessability purposes.
-   * The provided ID only needs to be unique within the subset of any `TextInput`s used on the screen,
-   * not of all elements
-   */
-  readonly id: string;
-  readonly value?: HTMLInputValueAttribute;
+export interface Props extends SharedInputProps {
+  readonly value?: string;
   readonly onChange?: (value: string) => void;
-  readonly type?: HTMLInputTypeAttribute;
-  /** Must include a label. Labels are always Sentence case. */
-  readonly label: string;
-  /** Error text should be descriptive and explicit in meaning. */
-  readonly error?: string;
-  /** For additional information (ex. date format mm/dd/yy) */
-  readonly message?: string;
-  /** Placeholders aren't common, you should use the message instead for most
-   * placeholders so the user doesn't lose the information after entering text in the input. */
-  readonly placeholder?: string;
-  /** Only use in very specific circumstances. This hides the label from view,
-   * but still allows screen readers to read the label. (A search input might have
-   * 'Search...' as a placeholder and no room for a full label so you can hide it.) */
-  readonly hideLabel?: boolean;
-  /** The input size should reflect the expected size of its content. */
-  readonly size?: Sizes;
+  readonly type?: "text" | "email" | "tel" | "search";
   readonly readonly?: boolean;
-  readonly disabled?: boolean;
-  readonly required?: boolean;
+  readonly placeholder?: string;
 }
 
 /** Text Input Component */
 export default function TextInput({
-  id,
   value,
   onChange,
   type = "text",
@@ -56,7 +35,7 @@ export default function TextInput({
   disabled = false,
   required = false,
 }: Props) {
-  const [inputId, errorId] = makeIds(`${id}-input`, ["input", "error"]);
+  const [inputId, errorId] = useIds(`text-input`, ["input", "error"]);
 
   return (
     <div

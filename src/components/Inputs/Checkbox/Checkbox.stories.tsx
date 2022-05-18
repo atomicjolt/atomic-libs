@@ -12,7 +12,12 @@ const Template: ComponentStory<typeof Checkbox> = (args: Props) => (
 
 export const Default = Template.bind({});
 Default.args = {
+  checked: false,
   label: "Checkbox label",
+  error: "",
+  message: "",
+  disabled: false,
+  required: false,
 };
 
 // Additional stories go here

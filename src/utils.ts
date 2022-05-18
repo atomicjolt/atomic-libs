@@ -1,3 +1,5 @@
+import { SharedInputProps } from "./types";
+
 // https://gist.github.com/WimJongeneel/44e8c426ecaf7ca76824b95c8ef36c65#file-levenshtein-ts
 export function levenshtein(a: string, b: string): number {
   const matrix = Array.from({ length: a.length }).map(() =>
@@ -26,3 +28,13 @@ export function makeIds<T extends string>(
   const random = String(Math.floor(Math.random() * 10 ** 20));
   return args.map((a) => `${base}-${a}-${random}`);
 }
+
+export const DefaultInputProperties: SharedInputProps = {
+  label: "",
+  hideLabel: false,
+  error: "",
+  message: "",
+  disabled: false,
+  required: false,
+  size: "medium",
+};

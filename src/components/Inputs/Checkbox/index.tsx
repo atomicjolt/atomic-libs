@@ -1,17 +1,14 @@
 import React from "react";
+import cn from "classnames";
+import { useIds } from "../../../hooks";
+import { SharedInputProps } from "../../../types";
 import "../../general.scss";
 import "../common.scss";
 import "./styles.scss";
 
-export interface Props {
-  /** Must include a label. Labels are always Sentence case. */
-  label: string;
-  /** Error text should be descriptive and explicit in meaning. */
-  error?: string;
-  /** For additional information (ex. date format mm/dd/yy) */
-  message?: string;
-  checked?: boolean;
-  disabled?: boolean;
+export interface Props extends Omit<SharedInputProps, "hideLabel" | "size"> {
+  checked: boolean;
+  onClick: (value: boolean, e: React.MouseEvent<HTMLInputElement>) => void;
 }
 
 /** Checkbox Component */
@@ -20,23 +17,27 @@ export default function Checkbox({
   error,
   message,
   checked,
+  onClick,
   disabled = false,
 }: Props) {
-  const inputID = "checkbox";
-  let errorClass = error ? " has-error" : "";
+  const [inputId] = useIds("checkbox", ["input"]);
 
   return (
-    <label className={`aj-checkbox ${errorClass}`} htmlFor={inputID}>
+    <label
+      className={cn("aj-checkbox", { "has-error": error })}
+      htmlFor={inputId}
+    >
       <input
-        id={inputID}
+        id={inputId}
         type="checkbox"
         checked={checked}
         disabled={disabled}
+        onClick={(e) => onClick((e.target as HTMLInputElement).checked, e)}
       />
       <span className="aj-checkbox__label">
         {label}
-        {message ? <p className="aj-label--message">{message}</p> : null}
-        {error ? <p className="aj-label--error">{error}</p> : null}
+        {message && <p className="aj-label--message">{message}</p>}
+        {error && <p className="aj-label--error">{error}</p>}
       </span>
     </label>
   );

@@ -2,27 +2,27 @@ import React from "react";
 
 export interface SharedInputProps {
   /** Must include a label. Labels are always Sentence case. */
-  label: string;
+  readonly label: string;
   /** Only use in very specific circumstances.
    * This hides the label from view, but still allows
    * screen readers to read the label. (A filter dropdown with a
    * clear meaning could potentially be a use case.) */
-  hideLabel?: boolean;
+  readonly hideLabel?: boolean;
   /** Error text should be descriptive and explicit in meaning. */
-  error?: string;
+  readonly error?: string;
   /** For additional information (ex. date format mm/dd/yy) */
-  message?: string;
-  disabled?: boolean;
-  required?: boolean;
+  readonly message?: string;
+  readonly disabled?: boolean;
+  readonly required?: boolean;
   /** The select size should reflect the size of its content. */
-  size?: Sizes;
+  readonly size?: Sizes;
 }
 
 export interface HasChildren {
   children: React.ReactNode;
 }
 
-export interface RequireIcon {
+export interface RequireIcon<Icons = MaterialIcon> {
   icon: MaterialIcon;
 }
 
