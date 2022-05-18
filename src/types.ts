@@ -1,3 +1,5 @@
+import React from "react";
+
 export interface SharedInputProps {
   /** Must include a label. Labels are always Sentence case. */
   label: string;
@@ -14,6 +16,14 @@ export interface SharedInputProps {
   required?: boolean;
   /** The select size should reflect the size of its content. */
   size?: Sizes;
+}
+
+export interface HasChildren {
+  children: React.ReactNode;
+}
+
+export interface HasIcon<Icons = MaterialIcon> {
+  icon: Icons;
 }
 
 export type Setter<T> = (value: T) => void;

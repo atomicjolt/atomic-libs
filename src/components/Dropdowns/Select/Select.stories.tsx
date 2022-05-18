@@ -8,9 +8,7 @@ export default {
 
 const Template: ComponentStory<typeof Select> = (args: Props) => (
   <Select {...args}>
-    <>
-      <option>- Select an option -</option>
-    </>
+    <option>- Select an option -</option>
   </Select>
 );
 

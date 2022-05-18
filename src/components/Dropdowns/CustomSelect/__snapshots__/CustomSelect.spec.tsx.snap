@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="aj-dropdown is-medium"
+  >
+    <label
+      class="aj-label"
+      for="custom-dropdown-combo-12345678900000000000"
+      id="custom-dropdown-label-12345678900000000000"
+    >
+      Custom dropdown label
+    </label>
+    <div
+      class="aj-combobox"
+    >
+      <div
+        aria-controls="custom-dropdown-list-12345678900000000000"
+        aria-describedby=""
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-labelledby="custom-dropdown-label-12345678900000000000"
+        class="aj-combobox__input"
+        id="custom-dropdown-combo-12345678900000000000"
+        role="combobox"
+        tabindex="0"
+      >
+        <span>
+          Option 1
+        </span>
+      </div>
+      <ul
+        aria-labelledby="custom-dropdown-label-12345678900000000000"
+        class="aj-combobox__menu"
+        id="custom-dropdown-list-12345678900000000000"
+        role="listbox"
+        tabindex="-1"
+      >
+        <li
+          aria-selected="true"
+          class="aj-combobox__option is-focused"
+          id="custom-dropdown-option-12345678900000000000-0"
+          role="option"
+        >
+          Option 1
+        </li>
+        <li
+          aria-selected="false"
+          class="aj-combobox__option"
+          id="custom-dropdown-option-12345678900000000000-1"
+          role="option"
+        >
+          Option 2
+        </li>
+      </ul>
+    </div>
+  </div>
+</DocumentFragment>
+`;
