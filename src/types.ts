@@ -7,6 +7,36 @@ export type AriaHasPopUp =
   | "tree"
   | "grid";
 
+export type HTMLInputValueAttribute =
+  | string
+  | ReadonlyArray<string>
+  | number
+  | undefined;
+
+export type HTMLInputTypeAttribute =
+  | "button"
+  | "checkbox"
+  | "color"
+  | "date"
+  | "datetime-local"
+  | "email"
+  | "file"
+  | "hidden"
+  | "image"
+  | "month"
+  | "number"
+  | "password"
+  | "radio"
+  | "range"
+  | "reset"
+  | "search"
+  | "submit"
+  | "tel"
+  | "text"
+  | "time"
+  | "url"
+  | "week";
+
 export type MaterialIcon =
   | "search"
   | "home"

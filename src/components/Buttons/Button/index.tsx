@@ -1,4 +1,5 @@
 import React from "react";
+import cn from "classnames";
 import "../../general.scss";
 import "./styles.scss";
 import Spinner from "../../Loaders/Spinner";
@@ -40,14 +41,13 @@ export default function Button({
   loadingComplete = false,
   onClick,
 }: Props) {
-  let loadingClass = loading ? "is-loading" : "";
-  let loadingText = loading ? loadingLabel : "";
+  const loadingText = loading ? loadingLabel : "";
 
   return (
     <button
       aria-label={loadingText}
       type={type}
-      className={`aj-btn--${className} ${loadingClass}`}
+      className={cn(`aj-btn--${className}`, { "is-loading": loading })}
       onClick={onClick}
       disabled={disabled}
     >
