@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import cn from "classnames";
 import IconButton from "../../Buttons/IconButton";
 import "../../general.scss";
 import "./styles.scss";
@@ -54,7 +55,7 @@ export default function ThreeDotMenu({
         ariaHasPopup="menu"
         ariaLabel={label}
         disabled={disabled}
-        btnID="comboID"
+        id="comboID"
         onClick={handleOpen}
       />
       <div

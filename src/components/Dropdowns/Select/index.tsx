@@ -1,26 +1,29 @@
 import React from "react";
+import cn from "classnames";
+import {
+  HasChildren,
+  HTMLInputValueAttribute,
+  SharedInputProps,
+} from "../../../types";
 import "../../general.scss";
+import InputLabel from "../../shared/InputLabel";
 import "./styles.scss";
+import { useIds } from "../../../hooks";
 
-export interface Props {
-  children: React.ReactNode;
-  /** Must include a label. Labels are always Sentence case. */
-  label: string;
-  /** Error text should be descriptive and explicit in meaning. */
-  error?: string;
-  /** For additional information (ex. date format mm/dd/yy) */
-  message?: string;
-  /** Only use in very specific circumstances. This hides the label from view, but still allows screen readers to read the label. (A filter dropdown with a clear meaning could potentially be a use case.) */
-  hideLabel?: boolean;
-  /** The select size should reflect the size of its content. */
-  size?: "small" | "medium" | "large" | "full" | "auto";
-  disabled?: boolean;
-  required?: boolean;
-}
+export type Props = HasChildren &
+  SharedInputProps & {
+    value: HTMLInputValueAttribute;
+    onSelect: (
+      value: string,
+      event: React.ChangeEvent<HTMLSelectElement>
+    ) => void;
+  };
 
 /** Select Component */
 export default function Select({
   children,
+  onSelect,
+  value,
   size = "medium",
   label,
   error,
@@ -29,35 +32,35 @@ export default function Select({
   disabled = false,
   required = false,
 }: Props) {
-  const inputID = "select";
-  const errorID = "errorText";
-  /* Add a space before the added class rather than inside the className attr on the tag. Looks cleaner. */
-  let errorClass = error ? " has-error" : "";
-  let disabledClass = disabled ? " is-disabled" : "";
-  let hiddenClass = hideLabel ? " aj-hidden" : "";
+  const [inputId, errorId] = useIds("select", ["select", "error"]);
 
   return (
-    <div className={`aj-input is-${size}${errorClass}${disabledClass}`}>
-      <label className={`aj-label${hiddenClass}`} htmlFor={inputID}>
+    <div
+      className={cn("aj-input", `is-${size}`, {
+        "has-error": error,
+        "is-disabled": disabled,
+      })}
+    >
+      <InputLabel message={message} htmlFor={inputId} hidden={hideLabel}>
         {label}
-        {message ? <p className="aj-label--message">{message}</p> : null}
-      </label>
+      </InputLabel>
       <div className="aj-input__select">
         <select
-          id={inputID}
-          aria-describedby={error ? errorID : ""}
+          id={inputId}
+          aria-describedby={error ? errorId : ""}
           disabled={disabled}
           required={required}
+          onChange={(e) => onSelect(e.target.value, e)}
+          value={value}
         >
-          {/* Options need to be added as either children or some other programming wizardry. */}
           {children}
         </select>
       </div>
-      {error ? (
-        <p id={errorID} className="aj-label--error">
+      {error && (
+        <p id={errorId} className="aj-label--error">
           {error}
         </p>
-      ) : null}
+      )}
     </div>
   );
 }

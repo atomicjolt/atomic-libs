@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="aj-input is-medium"
+  >
+    <label
+      class="aj-label"
+      for="select-select-12345678900000000000"
+    >
+      Label
+    </label>
+    <div
+      class="aj-input__select"
+    >
+      <select
+        aria-describedby=""
+        id="select-select-12345678900000000000"
+      >
+        <option
+          value="none"
+        >
+          - Select an option -
+        </option>
+        <option
+          value="value1"
+        >
+          Option 1
+        </option>
+        <option
+          value="value2"
+        >
+          Option 2
+        </option>
+      </select>
+    </div>
+  </div>
+</DocumentFragment>
+`;
