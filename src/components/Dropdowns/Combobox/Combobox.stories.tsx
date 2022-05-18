@@ -8,30 +8,18 @@ export default {
 } as ComponentMeta<typeof Combobox>;
 
 const Template: ComponentStory<typeof Combobox> = (args: Props<any>) => {
-  const { selected: selectedInital, ...props } = args;
-  const [selected, setSelected] = useState(selectedInital);
+  const { value: valueInital, ...props } = args;
+  const [value, setValue] = useState(valueInital);
 
-  return <Combobox {...props} selected={selected} onSelect={setSelected} />;
+  return <Combobox {...props} value={value} onChange={setValue} />;
 };
 
 export const Default = Template.bind({});
 Default.args = {
   label: "Combobox label",
-  selected: null,
-  options: [
-    {
-      title: "Option 1",
-      value: "opt1",
-    },
-    {
-      title: "Option 2",
-      value: "opt2",
-    },
-    {
-      title: "Option 3",
-      value: "opt3",
-    },
-  ],
+  value: "",
+  options: ["Option 1", "Option 2", "Option 3"],
+  id: "example-comp",
 };
 
 // Additional stories go here

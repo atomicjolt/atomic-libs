@@ -34,7 +34,7 @@ export type Props = CommonProps & LoadingProps;
 export default function Button({
   children,
   type = "button",
-  className,
+  className = "primary",
   disabled = false,
   loading = false,
   loadingLabel = "loading",

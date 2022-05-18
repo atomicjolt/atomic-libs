@@ -8,6 +8,7 @@ import { makeIds } from "../../../utils";
 import {
   HTMLInputTypeAttribute,
   HTMLInputValueAttribute,
+  Sizes,
 } from "../../../types";
 
 export interface Props {
@@ -16,6 +17,8 @@ export interface Props {
    * not of all elements
    */
   readonly id: string;
+  readonly value?: HTMLInputValueAttribute;
+  readonly onChange?: (value: string) => void;
   readonly type?: HTMLInputTypeAttribute;
   /** Must include a label. Labels are always Sentence case. */
   readonly label: string;
@@ -31,9 +34,7 @@ export interface Props {
    * 'Search...' as a placeholder and no room for a full label so you can hide it.) */
   readonly hideLabel?: boolean;
   /** The input size should reflect the expected size of its content. */
-  readonly size?: "small" | "medium" | "large" | "auto" | "full";
-
-  readonly value?: HTMLInputValueAttribute;
+  readonly size?: Sizes;
   readonly readonly?: boolean;
   readonly disabled?: boolean;
   readonly required?: boolean;
@@ -42,6 +43,8 @@ export interface Props {
 /** Text Input Component */
 export default function TextInput({
   id,
+  value,
+  onChange,
   type = "text",
   size = "medium",
   label,
@@ -49,7 +52,6 @@ export default function TextInput({
   message,
   placeholder,
   hideLabel = false,
-  value,
   readonly = false,
   disabled = false,
   required = false,
@@ -75,6 +77,7 @@ export default function TextInput({
         readOnly={readonly}
         disabled={disabled}
         required={required}
+        onChange={(e) => onChange && onChange(e.target.value)}
       />
       {error && (
         <p id={errorId} className="aj-label--error">

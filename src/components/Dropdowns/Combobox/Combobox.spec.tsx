@@ -1,16 +1,16 @@
 import { render } from "@testing-library/react";
-import TextInput from ".";
+import Combobox from ".";
 
 it("matches snapshot", () => {
   const result = render(
-    <TextInput
-      id="input1"
+    <Combobox
+      id="combo1"
       label="Text Label"
       message="message"
       error="some error"
-      placeholder="placeholder"
       value="content"
-      onChange={(value: string) => {}}
+      onChange={(value) => {}}
+      options={["Option 1", "Option 2", "Option 3"]}
     />
   );
   expect(result.asFragment()).toMatchSnapshot();

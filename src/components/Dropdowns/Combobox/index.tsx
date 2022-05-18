@@ -4,23 +4,23 @@ import "../../general.scss";
 import "./styles.scss";
 import { levenshtein, makeIds } from "../../../utils";
 import InputLabel from "../../shared/InputLabel";
+import { HTMLInputValueAttribute, Sizes } from "../../../types";
 
-export interface Props<T> {
+export interface Props<T extends HTMLInputValueAttribute> {
   /** Uniquley identifies the combo-box on the page. Is required for accessability purposes.
    * The provided ID only needs to be unique within the subset of any combo-boxes used on the screen,
    * not of all elements
    */
   id: string;
+
+  value: T;
+  onChange: (value: HTMLInputValueAttribute) => void;
+
   /** The possible values.
    * - value: the actual value used, should match with `selected`
    * - title: What to display in the dropdown field
    */
-  options: {
-    value: T;
-    title: string;
-  }[];
-  selected: T | null;
-  onSelect: (value: T | null) => void;
+  options: T[];
 
   /** Must include a label. Labels are always Sentence case. */
   label: string;
@@ -33,24 +33,43 @@ export interface Props<T> {
    * a clear meaning could potentially be a use case.) */
   hideLabel?: boolean;
   /** The select size should reflect the size of its content. */
-  size?: "small" | "medium" | "large" | "full" | "auto";
+  size?: Sizes;
   disabled?: boolean;
   required?: boolean;
+
+  /** Option function to filter the suggestions for a given value. By default,
+   * the suggestions are compared to the current input value by string value.
+   * Tt checks if the suggestions starts with the current value OR if the
+   * levenshtein distance between them is 2 or less.
+   */
+  filterSuggestions?: (
+    value: HTMLInputValueAttribute,
+    options: HTMLInputValueAttribute[]
+  ) => HTMLInputValueAttribute[];
 }
 
-// TODO: get with Brandon do discuss how exactly this should function
-// - Enforce or suggest from the options?
-// - Are nulls allowed?
-// - Keyboard interaction?
+function defaultFilterSuggestiosn(
+  value: HTMLInputValueAttribute,
+  options: HTMLInputValueAttribute[]
+): HTMLInputValueAttribute[] {
+  const compValue = String(value);
+
+  return options.filter((o) => {
+    if (!value) return true;
+    o = String(o);
+    return o.startsWith(compValue) || levenshtein(o, compValue) <= 2;
+  });
+}
+
 /**
  * Combobox
- *
+ * It is the combination of an input field, with a dropdown of possible suggestions
  * https://www.w3.org/TR/wai-aria-practices/examples/combobox/combobox-select-only.html for accessibility implementation.
  * */
-export default function Combobox<T>({
+export default function Combobox<T extends HTMLInputValueAttribute>({
   options,
-  selected,
-  onSelect,
+  value,
+  onChange,
   id,
   size = "medium",
   label,
@@ -58,32 +77,15 @@ export default function Combobox<T>({
   message,
   hideLabel = false,
   disabled = false,
+  filterSuggestions = defaultFilterSuggestiosn,
 }: Props<T>) {
   const [menuActive, setMenuActive] = useState(false);
-  const [inputValue, setInputValue] = useState<string>("");
-
-  const selectedData = useMemo(
-    () => options.find((o) => o.value == selected),
-    [selected]
-  );
-
-  useEffect(() => {
-    selectedData && setInputValue(selectedData.title);
-  }, [selected]);
 
   useEffect(() => {
     const closeMenu = () => {
       if (!menuActive) return;
       setMenuActive(false);
     };
-
-    if (selectedData && inputValue !== selectedData.title) {
-      if (inputValue === "") {
-        onSelect(null);
-      } else {
-        setInputValue(selectedData.title);
-      }
-    }
 
     window.addEventListener("click", closeMenu);
 
@@ -122,8 +124,8 @@ export default function Combobox<T>({
             aria-labelledby={labelId}
             aria-describedby={error ? errorId : ""}
             id={inputId}
-            value={inputValue || ""}
-            onChange={(e) => setInputValue(e.target.value)}
+            value={value}
+            onChange={(e) => onChange(e.target.value)}
           />
         </div>
         <ul
@@ -132,25 +134,20 @@ export default function Combobox<T>({
           id={listBoxId}
           aria-labelledby={labelId}
         >
-          {options
-            .filter(
-              (o) =>
-                o.title.startsWith(inputValue) ||
-                levenshtein(o.title, inputValue) <= 2
-            )
-            .map((o) => (
-              <li
-                className={cn("aj-combobox__option", {
-                  "is-focused": o.value === selected,
-                })}
-                onClick={() => onSelect(o.value)}
-                role="option"
-                id={String(o.value)}
-                tabIndex={0}
-              >
-                {o.title}
-              </li>
-            ))}
+          {filterSuggestions(value, options).map((o) => (
+            <li
+              className={cn("aj-combobox__option", {
+                "is-focused": o === value,
+              })}
+              onClick={() => onChange(o)}
+              role="option"
+              id={String(o)}
+              key={String(o)}
+              tabIndex={0}
+            >
+              {o}
+            </li>
+          ))}
         </ul>
       </div>
       {error && (

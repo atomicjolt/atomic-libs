@@ -7,11 +7,9 @@ export type AriaHasPopUp =
   | "tree"
   | "grid";
 
-export type HTMLInputValueAttribute =
-  | string
-  | ReadonlyArray<string>
-  | number
-  | undefined;
+export type HTMLInputValueAttribute = string | ReadonlyArray<string> | number;
+
+export type Sizes = "small" | "medium" | "large" | "auto" | "full";
 
 export type HTMLInputTypeAttribute =
   | "button"

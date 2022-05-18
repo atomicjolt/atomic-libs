@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="aj-dropdown is-medium has-error"
+  >
+    <label
+      class="aj-label"
+      for="combo1-combo-label"
+    >
+      Text Label
+      <p
+        class="aj-label--message"
+      >
+        message
+      </p>
+    </label>
+    <div
+      class="aj-combobox"
+    >
+      <div
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-owns="combo1-combo-listbox"
+        class="aj-combobox__input is-searchable"
+        id="combo1-combo-combo"
+        role="combobox"
+      >
+        <input
+          aria-autocomplete="both"
+          aria-controls="combo1-combo-listbox"
+          aria-describedby="combo1-combo-error"
+          aria-labelledby="combo1-combo-label"
+          id="combo1-combo-input"
+          type="text"
+          value="content"
+        />
+      </div>
+      <ul
+        aria-labelledby="combo1-combo-label"
+        class="aj-combobox__menu"
+        id="combo1-combo-listbox"
+        role="listbox"
+      />
+    </div>
+    <p
+      class="aj-label--error"
+      id="combo1-combo-error"
+    >
+      some error
+    </p>
+  </div>
+</DocumentFragment>
+`;
