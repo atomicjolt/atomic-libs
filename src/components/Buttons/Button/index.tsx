@@ -7,7 +7,20 @@ import Spinner from "../../Loaders/Spinner";
 interface CommonProps {
   /** What to render within the Button */
   children?: React.ReactNode;
-  className?: "primary" | "secondary" | "success" | "error" | "inverted";
+  /** Added to the button's className as: `aj-btn--${className}`. Builtin styles for:
+   * - `primary`
+   * - `secondary`
+   * - `success`
+   * - `error`
+   * - `inverted`
+   */
+  className?:
+    | "primary"
+    | "secondary"
+    | "success"
+    | "error"
+    | "inverted"
+    | (string & {});
   type?: "submit" | "reset" | "button";
   disabled?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;

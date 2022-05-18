@@ -39,3 +39,20 @@ Inverted.args = {
   children: "Inverted",
   className: "inverted",
 };
+
+export const LoadingButton = Template.bind({});
+LoadingButton.args = {
+  children: "Primary",
+  className: "primary",
+  loading: true,
+  loadingLabel: "Now Loading",
+};
+
+export const LoadingCompleteButton = Template.bind({});
+LoadingCompleteButton.args = {
+  children: "Primary",
+  className: "primary",
+  loading: true,
+  loadingLabel: "Now Loading",
+  loadingComplete: true,
+};
