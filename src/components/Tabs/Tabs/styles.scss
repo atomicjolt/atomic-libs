@@ -51,6 +51,7 @@
   &:hover {
     --tab-text-clr: var(--text-clr);
     --tab-border-clr: var(--border-clr-primary);
+    cursor: pointer;
   }
   &:focus-visible {
     outline: var(--outline);

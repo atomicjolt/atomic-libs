@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import Tabs, { Props } from ".";
+import Tabs, { Tab, Props } from ".";
 
 export default {
   title: "Tabs/Tabs",
@@ -12,8 +12,18 @@ const Template: ComponentStory<typeof Tabs> = (args: Props) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  label: "Tab Label",
-  linkTarget: "https://www.atomicjolt.com/",
+  children: [
+    <Tab label="Tab One" key="key1">
+      <div style={{ paddingTop: "3em" }}>
+        <h2>First Tab</h2>
+      </div>
+    </Tab>,
+    <Tab label="Tab Two" key="key2">
+      <div style={{ paddingTop: "3em" }}>
+        <h2>Second Tab</h2>
+      </div>
+    </Tab>,
+  ],
 };
 
 // Additional stories go here
