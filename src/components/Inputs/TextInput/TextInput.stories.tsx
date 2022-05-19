@@ -13,7 +13,7 @@ const Template: ComponentStory<typeof TextInput> = (args: Props) => {
 
 export const Default = Template.bind({});
 Default.args = {
-  value: "",
+  value: null!,
   type: "text",
   ...DefaultInputProperties,
   label: "Text input label",

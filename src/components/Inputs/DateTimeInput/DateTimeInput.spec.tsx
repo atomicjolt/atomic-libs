@@ -1,15 +1,14 @@
 import { render } from "@testing-library/react";
-import TextInput from ".";
+import DateTimeInput from ".";
 
 it("matches snapshot", () => {
   const result = render(
-    <TextInput
+    <DateTimeInput
       label="Text Label"
       message="message"
       error="some error"
-      placeholder="placeholder"
-      value="content"
-      onChange={(value: string) => {}}
+      value={new Date("2022-02-18")}
+      onChange={(value) => {}}
     />
   );
   expect(result.asFragment()).toMatchSnapshot();

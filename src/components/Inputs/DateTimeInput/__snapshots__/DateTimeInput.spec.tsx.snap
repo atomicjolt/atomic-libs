@@ -7,7 +7,7 @@ exports[`matches snapshot 1`] = `
   >
     <label
       class="aj-label"
-      for="text-input-input-12345678900000000000"
+      for="date-input-input-12345678900000000000"
     >
       Text Label
       <p
@@ -16,16 +16,21 @@ exports[`matches snapshot 1`] = `
         message
       </p>
     </label>
-    <input
-      aria-describedby="text-input-error-12345678900000000000"
-      id="text-input-input-12345678900000000000"
-      placeholder="placeholder"
-      type="text"
-      value="content"
-    />
+    <div
+      class="aj-input__date"
+    >
+      <input
+        aria-describedby="date-input-error-12345678900000000000"
+        id="date-input-input-12345678900000000000"
+        max=""
+        min=""
+        type="datetime-local"
+        value="2022-02-18T00:00"
+      />
+    </div>
     <p
       class="aj-label--error"
-      id="text-input-error-12345678900000000000"
+      id="date-input-error-12345678900000000000"
     >
       some error
     </p>

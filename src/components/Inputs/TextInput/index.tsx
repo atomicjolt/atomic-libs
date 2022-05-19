@@ -4,12 +4,7 @@ import "../../general.scss";
 import InputLabel from "../../shared/InputLabel";
 import "../common.scss";
 import "./styles.scss";
-import { makeIds } from "../../../utils";
-import {
-  HTMLInputTypeAttribute,
-  HTMLInputValueAttribute,
-  SharedInputProps,
-} from "../../../types";
+import { SharedInputProps } from "../../../types";
 import { useIds } from "../../../hooks";
 
 export interface Props extends SharedInputProps {

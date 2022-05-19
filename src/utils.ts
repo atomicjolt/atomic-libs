@@ -36,5 +36,6 @@ export const DefaultInputProperties: SharedInputProps = {
   message: "",
   disabled: false,
   required: false,
+  readonly: false,
   size: "medium",
 };

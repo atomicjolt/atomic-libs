@@ -12,10 +12,11 @@ export interface SharedInputProps {
   readonly error?: string;
   /** For additional information (ex. date format mm/dd/yy) */
   readonly message?: string;
-  readonly disabled?: boolean;
-  readonly required?: boolean;
   /** The select size should reflect the size of its content. */
   readonly size?: Sizes;
+  readonly disabled?: boolean;
+  readonly required?: boolean;
+  readonly readonly?: boolean;
 }
 
 export interface HasChildren {

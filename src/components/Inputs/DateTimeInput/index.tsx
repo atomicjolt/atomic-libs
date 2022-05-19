@@ -1,54 +1,59 @@
-import React from "react";
+import React, { useMemo } from "react";
+import cn from "classnames";
+import { useIds, useIsoDateString } from "../../../hooks";
+import { SharedInputProps } from "../../../types";
 import "../../general.scss";
+import InputLabel from "../../shared/InputLabel";
 import "../common.scss";
 import "./styles.scss";
 
-export interface Props {
-  /** Must include a label. Labels are always Sentence case. */
-  label: string;
-  /** Error text should be descriptive and explicit in meaning. */
-  error?: string;
-  /** For additional information (ex. date format mm/dd/yy) */
-  message?: string;
-  /** The input size should reflect the expected size of its content. */
-  size?: "medium" | "large" | "auto" | "full";
-  min?: string;
-  max?: string;
-  value?: string;
+export interface Props<T> extends SharedInputProps {
+  value: T;
+  /** Whatever type the value is provided as, the new value will be provided as.
+   * If value is a string, `onChange` will recieve a string, if it is a Date,
+   * `onChange` will recieve a Date
+   */
+  onChange: (value: T) => void;
+  min?: string | Date | number;
+  max?: string | Date | number;
   readonly?: boolean;
-  disabled?: boolean;
-  required?: boolean;
 }
 
-/** Date Time Input Component */
-export default function DateTimeInput({
+/** Date Input Component */
+export default function DateTimeInput<T extends string | Date | number>({
+  value: initialValue,
+  min: initialMin,
+  max: initialMax,
+  onChange,
   label,
   error,
   message,
   size = "medium",
-  min,
-  max,
-  value,
   readonly = false,
   disabled = false,
   required = false,
-}: Props) {
-  const inputID = "dateInput";
-  const errorID = "errorText";
-  /* Add a space before the added class rather than inside the className attr on the tag. Looks cleaner. */
-  let errorClass = error ? " has-error" : "";
-  let disabledClass = disabled ? " is-disabled" : "";
+  hideLabel = false,
+}: Props<T>) {
+  const [inputId, errorId] = useIds("date-input", ["input", "error"]);
+
+  const value = useIsoDateString(initialValue);
+  const min = useIsoDateString(initialMin);
+  const max = useIsoDateString(initialMax);
 
   return (
-    <div className={`aj-input is-${size}${errorClass}${disabledClass}`}>
-      <label className="aj-label" htmlFor={inputID}>
+    <div
+      className={cn("aj-input", `is-${size}`, {
+        "has-error": error,
+        "is-disabled": disabled,
+      })}
+    >
+      <InputLabel message={message} htmlFor={inputId} hidden={hideLabel}>
         {label}
-        {message ? <p className="aj-label--message">{message}</p> : null}
-      </label>
+      </InputLabel>
       <div className="aj-input__date">
         <input
-          id={inputID}
-          aria-describedby={error ? errorID : ""}
+          id={inputId}
+          aria-describedby={error ? errorId : ""}
           type="datetime-local"
           min={min}
           max={max}
@@ -56,13 +61,22 @@ export default function DateTimeInput({
           readOnly={readonly}
           disabled={disabled}
           required={required}
+          onChange={(e) => {
+            if (typeof initialValue === "string") {
+              onChange(e.target.value as T);
+            } else if (typeof initialValue === "number") {
+              onChange(new Date(e.target.value).getTime() as T);
+            } else {
+              onChange(new Date(e.target.value) as T);
+            }
+          }}
         />
       </div>
-      {error ? (
-        <p id={errorID} className="aj-label--error">
+      {error && (
+        <p id={errorId} className="aj-label--error">
           {error}
         </p>
-      ) : null}
+      )}
     </div>
   );
 }
