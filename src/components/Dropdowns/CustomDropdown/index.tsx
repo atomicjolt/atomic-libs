@@ -3,12 +3,7 @@ import cn from "classnames";
 import "../../general.scss";
 import "./styles.scss";
 import { useBool, useClick, useIds } from "../../../hooks";
-import {
-  HasChildren,
-  SharedInputProps,
-  HasIcon,
-  MaterialIcon,
-} from "../../../types";
+import { HasChildren, SharedInputProps } from "../../../types";
 
 export type Props = Omit<SharedInputProps, "message" | "hideLabel"> &
   HasChildren;
@@ -83,7 +78,7 @@ interface ItemProps {
   onClick: () => void;
 }
 
-function CustopmDropdownItem({ children, onClick }: ItemProps) {
+function CustomDropdownItem({ children, onClick }: ItemProps) {
   return (
     <li className="aj-combobox__option" role="option" onClick={onClick}>
       {children}
@@ -91,6 +86,7 @@ function CustopmDropdownItem({ children, onClick }: ItemProps) {
   );
 }
 
-CustomDropdown.Item = CustopmDropdownItem;
+CustomDropdownItem.displayName = "CustomDropdown.Item";
+CustomDropdown.Item = CustomDropdownItem;
 
 export default CustomDropdown;
