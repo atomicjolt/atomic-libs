@@ -1,9 +1,15 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Tabs, { Tab, Props } from ".";
+import Doc from "./Doc.mdx";
 
 export default {
   title: "Tabs/Tabs",
   component: Tabs,
+  parameters: {
+    docs: {
+      page: Doc,
+    },
+  },
 } as ComponentMeta<typeof Tabs>;
 
 const Template: ComponentStory<typeof Tabs> = (args: Props) => (

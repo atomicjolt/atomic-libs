@@ -1,0 +1,53 @@
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  ArgsTable,
+  Stories,
+} from "@storybook/addon-docs";
+
+<Title />
+<Subtitle />
+<Description />
+<Primary />
+<ArgsTable />
+<Stories />
+
+# Uncontrolled vs Controlled Tabs
+
+By default, the `<Tab />` component controlls the current tab internally.
+
+But you can take control of the this using the `currentTab` and `onChange` props.
+This is useful for integrating the Tab component into things like react-router.
+
+```tsx
+import { useMemo } from "react";
+import { useLocation, useHistory } from "react-router-dom";
+import { Tabs, Tab } from "atomic-hooks";
+
+const ROUTES = ["/preview", "/edit", "/reports"];
+
+function ControlledTabs() {
+  const history = useHistory();
+  const { pathname } = useLocation();
+
+  const currentTab = useMemo(() => ROUTES.indexOf(pathname), [pathname]);
+
+  const onChange = (idx: number) => {
+    history.push(ROUTES[idx]);
+  };
+
+  return (
+    <Tabs currentTab={currentTab} onChange={onChange}>
+      <Tab label="Tab One">
+        <div> I'm the first tab</div>
+      </Tab>
+
+      <Tab label="Tab Two">
+        <div> I'm the second tab</div>
+      </Tab>
+    </Tabs>
+  );
+}
+```
