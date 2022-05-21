@@ -1,23 +1,19 @@
+import cn from "classnames";
 import React from "react";
+import { useIds } from "../../../hooks";
+import { EventHandler, SharedInputProps } from "../../../types";
+import { makeEventHandler } from "../../../utils";
 import "../../general.scss";
+import InputError from "../../Utility/InputError";
+import InputLabel from "../../Utility/InputLabel";
 import "../common.scss";
 import "./styles.scss";
 
-export interface Props {
-  /** Must include a label. Labels are always Sentence case. */
-  label: string;
-  /** Error text should be descriptive and explicit in meaning. */
-  error?: string;
-  /** For additional information (ex. date format mm/dd/yy) */
-  message?: string;
-  /** The input size should reflect the expected size of its content. */
-  size?: "medium" | "large" | "auto" | "full";
+export interface Props extends SharedInputProps {
+  value: string;
   min?: string;
   max?: string;
-  value?: string;
-  readonly?: boolean;
-  disabled?: boolean;
-  required?: boolean;
+  onChange: EventHandler<string, React.ChangeEvent<HTMLInputElement>>;
 }
 
 /** Time Input Component */
@@ -29,26 +25,27 @@ export default function TimeInput({
   min,
   max,
   value,
+  onChange,
   readonly = false,
   disabled = false,
   required = false,
 }: Props) {
-  const inputID = "timeInput";
-  const errorID = "errorText";
-  /* Add a space before the added class rather than inside the className attr on the tag. Looks cleaner. */
-  let errorClass = error ? " has-error" : "";
-  let disabledClass = disabled ? " is-disabled" : "";
+  const [inputId, errorId] = useIds("time", ["input", "error"]);
 
   return (
-    <div className={`aj-input is-${size}${errorClass}${disabledClass}`}>
-      <label className="aj-label" htmlFor={inputID}>
+    <div
+      className={cn("aj-input", `is-${size}`, {
+        "has-error": error,
+        "is-disabled": disabled,
+      })}
+    >
+      <InputLabel message={message} htmlFor={inputId}>
         {label}
-        {message ? <p className="aj-label--message">{message}</p> : null}
-      </label>
+      </InputLabel>
       <div className="aj-input__time">
         <input
-          id={inputID}
-          aria-describedby={error ? errorID : ""}
+          id={inputId}
+          aria-describedby={error ? errorId : ""}
           type="time"
           min={min}
           max={max}
@@ -56,13 +53,10 @@ export default function TimeInput({
           readOnly={readonly}
           disabled={disabled}
           required={required}
+          onChange={makeEventHandler(onChange)}
         />
       </div>
-      {error ? (
-        <p id={errorID} className="aj-label--error">
-          {error}
-        </p>
-      ) : null}
+      <InputError error={error} id={errorId} />
     </div>
   );
 }
