@@ -3,7 +3,7 @@ import cn from "classnames";
 import { useIds, useIsoDateString } from "../../../hooks";
 import { SharedInputProps } from "../../../types";
 import "../../general.scss";
-import InputLabel from "../../shared/InputLabel";
+import InputLabel from "../../Utility/InputLabel";
 import "../common.scss";
 import "./styles.scss";
 

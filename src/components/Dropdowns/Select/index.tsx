@@ -6,7 +6,7 @@ import {
   SharedInputProps,
 } from "../../../types";
 import "../../general.scss";
-import InputLabel from "../../shared/InputLabel";
+import InputLabel from "../../Utility/InputLabel";
 import "./styles.scss";
 import { useIds } from "../../../hooks";
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import cn from "classnames";
 import "../../general.scss";
 import "./styles.scss";
-import InputLabel from "../../shared/InputLabel";
+import InputLabel from "../../Utility/InputLabel";
 import { useBool, useClick, useIds } from "../../../hooks";
 import { Setter, SharedInputProps } from "../../../types";
 

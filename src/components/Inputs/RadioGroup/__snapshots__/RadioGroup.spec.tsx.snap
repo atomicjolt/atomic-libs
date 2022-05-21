@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <fieldset
+    class="aj-radio-group"
+  >
+    <legend
+      class="aj-label"
+    >
+      Label
+    </legend>
+    <label
+      class="aj-radio"
+      for="radio-input-12345678900000000000"
+    >
+      <input
+        checked=""
+        id="radio-input-12345678900000000000"
+        name="radiogroup"
+        type="radio"
+        value="opt1"
+      />
+      <span
+        class="aj-checkbox__label"
+      >
+        Option 1
+      </span>
+    </label>
+    <label
+      class="aj-radio"
+      for="radio-input-12345678900000000000"
+    >
+      <input
+        id="radio-input-12345678900000000000"
+        name="radiogroup"
+        type="radio"
+        value="opt2"
+      />
+      <span
+        class="aj-checkbox__label"
+      >
+        Option 2
+      </span>
+    </label>
+    <label
+      class="aj-radio"
+      for="radio-input-12345678900000000000"
+    >
+      <input
+        id="radio-input-12345678900000000000"
+        name="radiogroup"
+        type="radio"
+        value="opt3"
+      />
+      <span
+        class="aj-checkbox__label"
+      >
+        Option 3
+      </span>
+    </label>
+  </fieldset>
+</DocumentFragment>
+`;

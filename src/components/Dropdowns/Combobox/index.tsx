@@ -3,7 +3,7 @@ import cn from "classnames";
 import "../../general.scss";
 import "./styles.scss";
 import { levenshtein, makeIds } from "../../../utils";
-import InputLabel from "../../shared/InputLabel";
+import InputLabel from "../../Utility/InputLabel";
 import { HTMLInputValueAttribute, Sizes } from "../../../types";
 
 export interface Props<T extends HTMLInputValueAttribute> {

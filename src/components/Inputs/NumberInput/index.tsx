@@ -3,7 +3,7 @@ import React from "react";
 import { useIds } from "../../../hooks";
 import { SharedInputProps } from "../../../types";
 import "../../general.scss";
-import InputLabel from "../../shared/InputLabel";
+import InputLabel from "../../Utility/InputLabel";
 import "../common.scss";
 import "./styles.scss";
 
