@@ -17,18 +17,26 @@ export interface SharedInputProps {
   readonly disabled?: boolean;
   readonly required?: boolean;
   readonly readonly?: boolean;
+
+  /** Placeholders aren't common, you should use the message instead for most placeholders so the user doesn't lose the information after entering text in the input. */
+  readonly placeholder?: string;
 }
+
+export type EventHandler<
+  V = string,
+  E extends React.SyntheticEvent = React.SyntheticEvent
+> = (value: V, event: E) => void;
 
 export interface HasChildren {
   children: React.ReactNode;
 }
 
-export interface RequireIcon<Icons = MaterialIcon> {
-  icon: MaterialIcon;
+export interface RequireIcon {
+  icon: MaterialIcons;
 }
 
 export interface CanHaveIcon {
-  icon?: MaterialIcon;
+  icon?: MaterialIcons;
 }
 
 export type Setter<T> = (value: T) => void;
@@ -70,7 +78,7 @@ export type HTMLInputTypeAttribute =
   | "url"
   | "week";
 
-export type MaterialIcon =
+export type MaterialIcons =
   | "search"
   | "home"
   | "menu"

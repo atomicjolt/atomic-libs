@@ -1,55 +1,76 @@
-import React from "react";
+import React, { useState } from "react";
+import cn from "classnames";
+import { useIds } from "../../../hooks";
+import { EventHandler, SharedInputProps } from "../../../types";
 import "../../general.scss";
+import InputError from "../../Utility/InputError";
+import InputLabel from "../../Utility/InputLabel";
+import MaterialIcon from "../../Utility/MaterialIcon";
 import "../common.scss";
 import "./styles.scss";
 
-export interface Props {
-  /** Must include a label. Labels are always Sentence case. */
-  label: string;
-  /** Placeholders aren't common, you should use the message instead for most placeholders so the user doesn't lose the information after entering text in the input. */
-  placeholder?: string;
-  /** This hides the label from view, but still allows screen readers to read the label. (This might have 'Search...' as a placeholder and no room for a full label so you can hide it.) */
-  hideLabel?: boolean;
-  /** Adds a button to submit the search. Replaces hitting enter in the input to submit. */
+export interface Props extends SharedInputProps {
+  /** When the user hits enter, or presses the submit button, this event will fire
+   * with the current value of the input element. */
+  onSubmit: EventHandler<
+    string,
+    React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>
+  >;
+  /** Display a button to click on to search, instead of just hitting enter */
   submitButton?: boolean;
-  /** The input size should reflect the expected size of its content. */
-  size?: "small" | "medium" | "large" | "auto" | "full";
-  value?: string;
-  disabled?: boolean;
 }
 
-/** Search Input Component */
-export default function SearchInput({
-  size = "medium",
-  label,
-  placeholder,
-  hideLabel = false,
-  submitButton,
-  value,
-  disabled = false,
-}: Props) {
-  const inputID = "searchInput";
-  /* Add a space before the added class rather than inside the className attr on the tag. Looks cleaner. */
-  let disabledClass = disabled ? " is-disabled" : "";
-  let hiddenClass = hideLabel ? " aj-hidden" : "";
+/** Search Input Component. Accepts a `ref`*/
+const SearchInput = React.forwardRef<HTMLInputElement, Props>(
+  (
+    {
+      size = "medium",
+      label,
+      placeholder,
+      hideLabel = false,
+      submitButton = false,
+      disabled = false,
+      error,
+      onSubmit,
+    },
+    ref
+  ) => {
+    const [inputValue, setInputValue] = useState("");
+    const [inputId, errorId] = useIds("search", ["input", "error"]);
 
-  return (
-    <form className={`aj-input is-${size}${disabledClass}`}>
-      <label className={`aj-label${hiddenClass}`} htmlFor={inputID}>
-        {label}
-      </label>
-      <input
-        id={inputID}
-        type="search"
-        placeholder={placeholder}
-        value={value}
-        disabled={disabled}
-      />
-      {submitButton ? (
-        <button type="submit" aria-label="submit search">
-          <i className="material-icons">search</i>
-        </button>
-      ) : null}
-    </form>
-  );
-}
+    return (
+      <form
+        className={cn("aj-input", `is-${size}`, {
+          "is-disabled": disabled,
+          "has-error": error,
+        })}
+        onSubmit={(e) => {
+          e.preventDefault();
+          onSubmit(inputValue, e);
+        }}
+      >
+        <InputLabel hidden={hideLabel} htmlFor={inputId}>
+          {label}
+        </InputLabel>
+        <input
+          id={inputId}
+          type="search"
+          role="search"
+          placeholder={placeholder}
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+          disabled={disabled}
+          ref={ref}
+        />
+        {submitButton && (
+          <button type="submit" aria-label="submit search">
+            <MaterialIcon icon="search" />
+          </button>
+        )}
+        <InputError error={error} id={errorId} />
+      </form>
+    );
+  }
+);
+
+export default SearchInput;

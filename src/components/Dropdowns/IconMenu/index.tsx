@@ -4,10 +4,10 @@ import IconButton from "../../Buttons/IconButton";
 import "../../general.scss";
 import "./styles.scss";
 import { useBool, useClick, useIds } from "../../../hooks";
-import { CanHaveIcon, HasChildren, MaterialIcon } from "../../../types";
+import { CanHaveIcon, HasChildren, MaterialIcons } from "../../../types";
 
 export interface Props {
-  icon: MaterialIcon;
+  icon: MaterialIcons;
   children: React.ReactNode;
   /** Must include a label. */
   label: string;

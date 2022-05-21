@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="aj-input is-small can-resize"
+  >
+    <label
+      class="aj-label"
+      for="textarea-textarea-12345678900000000000"
+    >
+      label
+    </label>
+    <textarea
+      aria-describedby=""
+      id="textarea-textarea-12345678900000000000"
+    />
+  </div>
+</DocumentFragment>
+`;

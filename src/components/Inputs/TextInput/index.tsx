@@ -15,7 +15,7 @@ export interface Props extends SharedInputProps {
   readonly placeholder?: string;
 }
 
-/** TextInput Component. Accepts a `ref` that will be fowareded to the internal input element */
+/** TextInput Component. Accepts a `ref` */
 const TextInput = React.forwardRef<HTMLInputElement, Props>(
   (
     {

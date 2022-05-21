@@ -1,11 +1,11 @@
 import React from "react";
 import "../../general.scss";
 import "./styles.scss";
-import { AriaHasPopUp, MaterialIcon } from "../../../types";
+import { AriaHasPopUp, MaterialIcons } from "../../../types";
 
 export interface Props {
   /** Material Icon to render */
-  icon: MaterialIcon;
+  icon: MaterialIcons;
   id?: string;
   ariaLabel: string;
   ariaExpanded?: boolean;

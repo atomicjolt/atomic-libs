@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { MaterialIcon } from "../../../types";
+import { MaterialIcons } from "../../../types";
 import "../../general.scss";
 import "./styles.scss";
 
@@ -13,7 +13,7 @@ export interface Props {
    * - `warning` */
   readonly type: string;
   /** Name of material icon to be displayed */
-  readonly icon?: MaterialIcon;
+  readonly icon?: MaterialIcons;
   /** Callback function for when the user dismisses the banner */
   readonly onDismiss?: () => void;
 }

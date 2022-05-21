@@ -2,14 +2,14 @@ import React from "react";
 import "../../general.scss";
 import "./styles.scss";
 import Button from "../../Buttons/Button";
-import { MaterialIcon } from "../../../types";
+import { MaterialIcons } from "../../../types";
 
 export interface Props {
   /** `aj-banner--${className}` pre-defined styles for:
    * - `upgrade`
    */
   readonly className: string;
-  readonly icon?: MaterialIcon;
+  readonly icon?: MaterialIcons;
   readonly children: React.ReactNode;
   readonly buttonText: string;
   readonly onClick: () => void;

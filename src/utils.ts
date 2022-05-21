@@ -1,4 +1,5 @@
-import { SharedInputProps } from "./types";
+import React from "react";
+import { EventHandler, SharedInputProps } from "./types";
 
 // https://gist.github.com/WimJongeneel/44e8c426ecaf7ca76824b95c8ef36c65#file-levenshtein-ts
 export function levenshtein(a: string, b: string): number {
@@ -29,6 +30,16 @@ export function makeIds<T extends string>(
   return args.map((a) => `${base}-${a}-${random}`);
 }
 
+interface Event<T = Element> extends React.SyntheticEvent<T> {
+  target: EventTarget & T & { value: any };
+}
+
+export function makeEventHandler<T, E extends Event>(
+  handler: EventHandler<T, E>
+) {
+  return (event: E) => handler(event.target.value, event);
+}
+
 export const DefaultInputProperties: SharedInputProps = {
   label: "",
   hideLabel: false,
@@ -37,5 +48,6 @@ export const DefaultInputProperties: SharedInputProps = {
   disabled: false,
   required: false,
   readonly: false,
+  placeholder: "",
   size: "medium",
 };
