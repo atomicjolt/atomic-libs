@@ -1,5 +1,6 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import TimeInput, { Props } from ".";
+import { DefaultInputProperties } from "../../../utils";
 
 export default {
   title: "Inputs/TimeInput",
@@ -12,6 +13,8 @@ const Template: ComponentStory<typeof TimeInput> = (args: Props) => (
 
 export const Default = Template.bind({});
 Default.args = {
+  value: "",
+  ...DefaultInputProperties,
   label: "Time input label",
   message: "hh:mm AM/PM",
 };

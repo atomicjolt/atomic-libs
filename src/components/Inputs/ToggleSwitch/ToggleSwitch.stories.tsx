@@ -13,6 +13,8 @@ const Template: ComponentStory<typeof ToggleSwitch> = (args: Props) => (
 export const Default = Template.bind({});
 Default.args = {
   label: "Toggle switch",
+  checked: false,
+  disabled: false,
 };
 
 // Additional stories go here

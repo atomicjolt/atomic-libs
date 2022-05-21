@@ -1,4 +1,7 @@
-import React, { useState, useEffect } from "react";
+import cn from "classnames";
+import React, { ChangeEvent } from "react";
+import { useIds } from "../../../hooks";
+import { EventHandler } from "../../../types";
 import "../../general.scss";
 import "../common.scss";
 import "./styles.scss";
@@ -8,57 +11,32 @@ export interface Props {
   label: string;
   checked?: boolean;
   disabled?: boolean;
+  onChange: EventHandler<boolean, ChangeEvent<HTMLInputElement>>;
 }
 
 /** Toggle Switch Component */
 export default function ToggleSwitch({
   label,
-  checked,
+  onChange,
+  checked = false,
   disabled = false,
 }: Props) {
-  const inputID = "toggleSwitch";
-
-  const [uncheckedAnimation, setUncheckedAnimation] = useState(false);
-  const [checkedAnimation, setCheckedAnimation] = useState(false);
-  const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
-
-  const checkedAnimationClass = checkedAnimation ? " check-animation" : "";
-  const uncheckedAnimationClass = uncheckedAnimation
-    ? " uncheck-animation"
-    : "";
-
-  const animationHandler = (e) => {
-    if (e.target.checked) {
-      if (timeoutId) {
-        clearTimeout(timeoutId);
-      }
-      setTimeoutId(null);
-      setUncheckedAnimation(false);
-      setCheckedAnimation(true);
-    } else {
-      setUncheckedAnimation(true);
-      if (timeoutId) {
-        clearTimeout(timeoutId);
-      }
-      const newTimeoutId = setTimeout(() => {
-        setCheckedAnimation(false);
-        setUncheckedAnimation(false);
-      }, 200);
-      setTimeoutId(newTimeoutId);
-    }
-  };
+  const [inputId] = useIds("toggle", ["input"]);
 
   return (
-    <label className="aj-toggle-switch" htmlFor={inputID}>
+    <label className="aj-toggle-switch" htmlFor={inputId}>
       <input
-        id={inputID}
+        id={inputId}
         type="checkbox"
         checked={checked}
         disabled={disabled}
-        onChange={animationHandler}
+        onChange={(e) => onChange(e.target.checked, e)}
       />
       <span
-        className={`aj-toggle-switch__label${checkedAnimationClass}${uncheckedAnimationClass}`}
+        className={cn("aj-toggle-switch__label", {
+          "check-animation": checked,
+          "uncheck-animation": !checked,
+        })}
       >
         {label}
         <div>

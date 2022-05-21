@@ -17,46 +17,54 @@ export interface Props extends SharedInputProps {
 }
 
 /** Time Input Component */
-export default function TimeInput({
-  label,
-  error,
-  message,
-  size = "medium",
-  min,
-  max,
-  value,
-  onChange,
-  readonly = false,
-  disabled = false,
-  required = false,
-}: Props) {
-  const [inputId, errorId] = useIds("time", ["input", "error"]);
+const TimeInput = React.forwardRef<HTMLInputElement, Props>(
+  (
+    {
+      label,
+      error,
+      message,
+      size = "medium",
+      min,
+      max,
+      value,
+      onChange,
+      readonly = false,
+      disabled = false,
+      required = false,
+    },
+    ref
+  ) => {
+    const [inputId, errorId] = useIds("time", ["input", "error"]);
 
-  return (
-    <div
-      className={cn("aj-input", `is-${size}`, {
-        "has-error": error,
-        "is-disabled": disabled,
-      })}
-    >
-      <InputLabel message={message} htmlFor={inputId}>
-        {label}
-      </InputLabel>
-      <div className="aj-input__time">
-        <input
-          id={inputId}
-          aria-describedby={error ? errorId : ""}
-          type="time"
-          min={min}
-          max={max}
-          value={value}
-          readOnly={readonly}
-          disabled={disabled}
-          required={required}
-          onChange={makeEventHandler(onChange)}
-        />
+    return (
+      <div
+        className={cn("aj-input", `is-${size}`, {
+          "has-error": error,
+          "is-disabled": disabled,
+        })}
+      >
+        <InputLabel message={message} htmlFor={inputId}>
+          {label}
+        </InputLabel>
+        <div className="aj-input__time">
+          <input
+            id={inputId}
+            ref={ref}
+            aria-describedby={error ? errorId : ""}
+            type="time"
+            min={min}
+            max={max}
+            value={value}
+            readOnly={readonly}
+            disabled={disabled}
+            required={required}
+            onChange={makeEventHandler(onChange)}
+          />
+        </div>
+        <InputError error={error} id={errorId} />
       </div>
-      <InputError error={error} id={errorId} />
-    </div>
-  );
-}
+    );
+  }
+);
+
+export default TimeInput;
