@@ -4,59 +4,32 @@ import "../../general.scss";
 import "./styles.scss";
 import { levenshtein, makeIds } from "../../../utils";
 import InputLabel from "../../Utility/InputLabel";
-import { HTMLInputValueAttribute, Sizes } from "../../../types";
+import { SharedInputProps } from "../../../types";
+import InputError from "../../Utility/InputError";
 
-export interface Props<T extends HTMLInputValueAttribute> {
-  /** Uniquley identifies the combo-box on the page. Is required for accessability purposes.
-   * The provided ID only needs to be unique within the subset of any combo-boxes used on the screen,
-   * not of all elements
-   */
-  id: string;
-
-  value: T;
-  onChange: (value: HTMLInputValueAttribute) => void;
+export interface Props extends SharedInputProps {
+  value: string;
+  onChange: (value: string) => void;
 
   /** The possible values.
    * - value: the actual value used, should match with `selected`
    * - title: What to display in the dropdown field
    */
-  options: T[];
-
-  /** Must include a label. Labels are always Sentence case. */
-  label: string;
-  /** Error text should be descriptive and explicit in meaning. */
-  error?: string;
-  /** For additional information (ex. date format mm/dd/yy) */
-  message?: string;
-  /** Only use in very specific circumstances. This hides the label from view,
-   * but still allows screen readers to read the label. (A filter dropdown with
-   * a clear meaning could potentially be a use case.) */
-  hideLabel?: boolean;
-  /** The select size should reflect the size of its content. */
-  size?: Sizes;
-  disabled?: boolean;
-  required?: boolean;
+  options: string[];
 
   /** Option function to filter the suggestions for a given value. By default,
    * the suggestions are compared to the current input value by string value.
-   * Tt checks if the suggestions starts with the current value OR if the
+   * It checks if the suggestions starts with the current value OR if the
    * levenshtein distance between them is 2 or less.
    */
-  filterSuggestions?: (
-    value: HTMLInputValueAttribute,
-    options: HTMLInputValueAttribute[]
-  ) => HTMLInputValueAttribute[];
+  filterSuggestions?: (value: string, options: string[]) => string[];
 }
 
-function defaultFilterSuggestiosn(
-  value: HTMLInputValueAttribute,
-  options: HTMLInputValueAttribute[]
-): HTMLInputValueAttribute[] {
+function defaultFilterSuggestiosn(value: string, options: string[]): string[] {
   const compValue = String(value);
 
   return options.filter((o) => {
     if (!value) return true;
-    o = String(o);
     return o.startsWith(compValue) || levenshtein(o, compValue) <= 2;
   });
 }
@@ -66,11 +39,10 @@ function defaultFilterSuggestiosn(
  * It is the combination of an input field, with a dropdown of possible suggestions
  * https://www.w3.org/TR/wai-aria-practices/examples/combobox/combobox-select-only.html for accessibility implementation.
  * */
-export default function Combobox<T extends HTMLInputValueAttribute>({
+export default function Combobox({
   options,
   value,
   onChange,
-  id,
   size = "medium",
   label,
   error,
@@ -78,7 +50,7 @@ export default function Combobox<T extends HTMLInputValueAttribute>({
   hideLabel = false,
   disabled = false,
   filterSuggestions = defaultFilterSuggestiosn,
-}: Props<T>) {
+}: Props) {
   const [menuActive, setMenuActive] = useState(false);
 
   useEffect(() => {
@@ -92,10 +64,13 @@ export default function Combobox<T extends HTMLInputValueAttribute>({
     return () => window.removeEventListener("click", closeMenu);
   }, [menuActive]);
 
-  const [labelId, comobId, inputId, listBoxId, errorId] = makeIds(
-    `${id}-combo`,
-    ["label", "combo", "input", "listbox", "error"]
-  );
+  const [labelId, comobId, inputId, listBoxId, errorId] = makeIds(`combo`, [
+    "label",
+    "combo",
+    "input",
+    "listbox",
+    "error",
+  ]);
 
   return (
     <div
@@ -150,11 +125,7 @@ export default function Combobox<T extends HTMLInputValueAttribute>({
           ))}
         </ul>
       </div>
-      {error && (
-        <p id={errorId} className="aj-label--error">
-          {error}
-        </p>
-      )}
+      <InputError error={error} id={errorId} />
     </div>
   );
 }

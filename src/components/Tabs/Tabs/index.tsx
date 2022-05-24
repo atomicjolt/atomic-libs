@@ -14,7 +14,7 @@ type ControlledProps =
     }
   | {
       currentTab?: never;
-      onChange?: never;
+      onChange: never;
     };
 
 export type Props = SharedProps & ControlledProps;

@@ -4,7 +4,6 @@ import Combobox from ".";
 it("matches snapshot", () => {
   const result = render(
     <Combobox
-      id="combo1"
       label="Text Label"
       message="message"
       error="some error"

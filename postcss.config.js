@@ -1,7 +1,12 @@
 module.exports = {
-  // Add your installed PostCSS plugins here:
-  plugins: [
-    // require('autoprefixer'),
-    // require('postcss-color-rebeccapurple'),
-  ],
-};
+  plugins: {
+    // PostCSS Preset Env includes autoprefixer and browsers option will be passed to it automatically.
+    'postcss-preset-env': {
+      stage: 0,
+      browsers: 'last 2 versions'
+      // importFrom: 'path/to/file.css'
+    },
+    'postcss-import': {},
+    'postcss-nested': {}
+  }
+}

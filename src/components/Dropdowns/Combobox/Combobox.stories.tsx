@@ -1,25 +1,23 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import { useState } from "react";
 import Combobox, { Props } from ".";
+import { DefaultInputProperties } from "../../../utils";
 
 export default {
   title: "Dropdowns/Combobox",
   component: Combobox,
 } as ComponentMeta<typeof Combobox>;
 
-const Template: ComponentStory<typeof Combobox> = (args: Props<any>) => {
-  const { value: valueInital, ...props } = args;
-  const [value, setValue] = useState(valueInital);
-
-  return <Combobox {...props} value={value} onChange={setValue} />;
+const Template: ComponentStory<typeof Combobox> = (args: Props) => {
+  return <Combobox {...args} />;
 };
 
 export const Default = Template.bind({});
 Default.args = {
-  label: "Combobox label",
   value: "",
   options: ["Option 1", "Option 2", "Option 3"],
-  id: "example-comp",
+  ...DefaultInputProperties,
+  label: "Combobox label",
 };
 
 // Additional stories go here
