@@ -1,14 +1,18 @@
 {
-  "name": "aj-components",
+  "name": "atomic-elements",
   "version": "0.0.1",
   "sideEffects": false,
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/types/index.d.ts",
   "license": "MIT",
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "classnames": "^2.3.1",
-    "react": "^18.0.0",
-    "react-dom": "^18.1.0"
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",
@@ -45,8 +49,6 @@
     "postcss-preset-env": "^7.6.0",
     "react-docgen-typescript": "^2.2.2",
     "rollup": "^2.74.1",
-    "rollup-plugin-dts": "^4.2.1",
-    "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-scss": "^3.0.0",
     "rollup-plugin-styles": "^4.0.0",
@@ -57,6 +59,7 @@
     "style-loader": "^3.3.1",
     "ts-jest": "^28.0.2",
     "ts-node": "^10.7.0",
+    "typed-scss-modules": "^6.4.1",
     "typescript": "^4.5.5"
   },
   "scripts": {
@@ -64,7 +67,8 @@
     "build:storybook": "build-storybook",
     "build:types": "tsc",
     "build:rollup": "rollup --config rollup.config.ts --configPlugin typescript",
-    "build": "yarn build:types && yarn build:rollup",
+    "build:scss:defines": "sass src/defines.scss dist/defines.css",
+    "build": "yarn build:types && yarn build:rollup && yarn build:scss:defines",
     "test": "jest"
   }
 }
