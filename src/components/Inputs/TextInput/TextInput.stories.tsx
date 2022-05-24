@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import TextInput, { Props } from ".";
+import TextInput, { TextInputProps } from ".";
 import { DefaultInputProperties } from "../../../utils";
 
 export default {
@@ -7,7 +7,7 @@ export default {
   component: TextInput,
 } as ComponentMeta<typeof TextInput>;
 
-const Template: ComponentStory<typeof TextInput> = (args: Props) => {
+const Template: ComponentStory<typeof TextInput> = (args: TextInputProps) => {
   return <TextInput {...args} />;
 };
 

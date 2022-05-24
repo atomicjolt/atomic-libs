@@ -8,15 +8,15 @@ import { SharedInputProps } from "../../../types";
 import { useIds } from "../../../hooks";
 import InputError from "../../Utility/InputError";
 
-export interface Props extends SharedInputProps {
+export interface TextInputProps extends SharedInputProps {
+  /** A value */
   readonly value: string;
   readonly onChange: (value: string) => void;
-  readonly type?: "text" | "email" | "tel" | "search";
-  readonly placeholder?: string;
+  /** Other types like date, time, and number have their own component  */
+  readonly type?: "text" | "email" | "tel";
 }
-
-/** TextInput Component. Accepts a `ref` */
-const TextInput = React.forwardRef<HTMLInputElement, Props>(
+/** TestInput component. Fowards a `ref` to the internal input element */
+const TextInput = React.forwardRef(
   (
     {
       value,
@@ -31,8 +31,8 @@ const TextInput = React.forwardRef<HTMLInputElement, Props>(
       readonly = false,
       disabled = false,
       required = false,
-    },
-    ref
+    }: TextInputProps,
+    ref: React.Ref<HTMLInputElement>
   ) => {
     const [inputId, errorId] = useIds(`text-input`, ["input", "error"]);
 

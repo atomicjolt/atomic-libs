@@ -1,6 +1,6 @@
-import cn from "classnames";
 import React, { ChangeEvent } from "react";
-import { useIds } from "../../../hooks";
+import cn from "classnames";
+import { useIds, useInitialRender } from "../../../hooks";
 import { EventHandler } from "../../../types";
 import "../../general.scss";
 import "../common.scss";
@@ -15,34 +15,36 @@ export interface Props {
 }
 
 /** Toggle Switch Component */
-export default function ToggleSwitch({
-  label,
-  onChange,
-  checked = false,
-  disabled = false,
-}: Props) {
-  const [inputId] = useIds("toggle", ["input"]);
+const ToggleSwitch = React.forwardRef<HTMLInputElement, Props>(
+  ({ label, onChange, checked = false, disabled = false }, ref) => {
+    const [inputId] = useIds("toggle", ["input"]);
 
-  return (
-    <label className="aj-toggle-switch" htmlFor={inputId}>
-      <input
-        id={inputId}
-        type="checkbox"
-        checked={checked}
-        disabled={disabled}
-        onChange={(e) => onChange(e.target.checked, e)}
-      />
-      <span
-        className={cn("aj-toggle-switch__label", {
-          "check-animation": checked,
-          "uncheck-animation": !checked,
-        })}
-      >
-        {label}
-        <div>
-          <i />
-        </div>
-      </span>
-    </label>
-  );
-}
+    const firstRender = useInitialRender();
+
+    return (
+      <label className="aj-toggle-switch" htmlFor={inputId}>
+        <input
+          ref={ref}
+          id={inputId}
+          type="checkbox"
+          checked={checked}
+          disabled={disabled}
+          onChange={(e) => onChange(e.target.checked, e)}
+        />
+        <span
+          className={cn("aj-toggle-switch__label", {
+            "check-animation": checked && !firstRender,
+            "uncheck-animation": !checked && !firstRender,
+          })}
+        >
+          {label}
+          <div>
+            <i />
+          </div>
+        </span>
+      </label>
+    );
+  }
+);
+
+export default ToggleSwitch;

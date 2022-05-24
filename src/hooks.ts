@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { makeIds } from "./utils";
 
 export function useIds(base: string, args: string[], deps: any[] = []) {
@@ -29,4 +29,14 @@ export function useIsoDateString(date?: string | Date | number): string {
 
     return date.toISOString().slice(0, 16);
   }, [date]);
+}
+
+export function useInitialRender() {
+  const isInitialrender = useRef(true);
+
+  useEffect(() => {
+    isInitialrender.current = false;
+  }, []);
+
+  return isInitialrender.current;
 }
