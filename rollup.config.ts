@@ -3,6 +3,7 @@ import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import dts from "rollup-plugin-dts";
 import scss from "rollup-plugin-scss";
+import styles from "rollup-plugin-styles";
 import { babel } from "@rollup/plugin-babel";
 
 const packageJson = require("./package.json");
@@ -34,10 +35,11 @@ export default defineConfig([
         babelHelpers: "runtime",
         extensions: [".js", ".jsx", ".ts", ".tsx"],
       }),
-      scss({
-        sourceMap: true,
-        sass: require("sass"),
-      }),
+      // scss({
+      //   sourceMap: true,
+      //   sass: require("sass"),
+      // }),
+      styles(),
     ],
   },
   {

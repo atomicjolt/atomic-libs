@@ -1,4 +1,4 @@
-@use "../defines" as *;
+@use "../mixins";
 
 .aj-dropdown {
   .aj-combobox {
@@ -12,7 +12,7 @@
       border-radius: 5px;
       height: 40px;
       padding: 6px 40px 6px 12px;
-      @include regular;
+      @include mixins.regular;
       color: var(--text-clr);
       font-size: 1.6rem;
       line-height: 1.5;
@@ -32,7 +32,7 @@
         border: none;
         min-height: 38px;
         padding: 0 40px 0 12px;
-        @include regular;
+        @include mixins.regular;
         color: inherit;
         font-size: inherit;
         width: 100%;
@@ -103,7 +103,7 @@
       gap: 8px;
       padding: 6px 12px;
       min-height: 32px;
-      @include regular;
+      @include mixins.regular;
       line-height: 1;
       color: var(--option-text-clr, inherit);
       font-size: 1.6rem;

@@ -1,4 +1,4 @@
-@use "../defines" as *;
+@use "../mixins";
 
 .aj-banner {
   --banner-bg-clr: var(--neutral100);
@@ -11,7 +11,7 @@
   background-color: var(--banner-bg-clr);
   padding: 4px;
   margin-bottom: 4px;
-  @include bold;
+  @include mixins.bold;
   font-size: 1.4rem;
   color: var(--banner-text-clr);
   display: flex;

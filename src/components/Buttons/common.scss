@@ -1,4 +1,4 @@
-@use "../defines" as *;
+@use "../mixins.scss";
 
 .aj-btn {
   --btn-height: 40px;
@@ -12,7 +12,7 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  @include bold;
+  @include mixins.bold;
   transition: background 100ms ease, color 100ms ease, transform 100ms ease,
     box-shadow 100ms ease;
   color: var(--btn-text-clr);

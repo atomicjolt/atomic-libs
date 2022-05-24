@@ -1,4 +1,4 @@
-@use "../../defines" as *;
+@use "../../mixins";
 
 .aj-table-overflow {
   max-width: 100%;
@@ -24,7 +24,7 @@
   border: solid var(--table-border-clr);
   border-width: 0;
   width: 100%;
-  @include regular;
+  @include mixins.regular;
   font-size: var(--table-font-size);
   color: var(--text-clr);
 
@@ -39,7 +39,7 @@
 
   thead {
     th {
-      @include bold;
+      @include mixins.bold;
       font-size: var(--table-header-font-size);
       color: var(--text-clr-alt);
       text-transform: uppercase;

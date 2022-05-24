@@ -1,4 +1,4 @@
-@use "./defines" as *;
+@use "./mixins";
 
 html {
   font-size: 10px;
@@ -34,7 +34,7 @@ html a {
 .aj-label {
   display: block;
   padding-bottom: 5px;
-  @include bold;
+  @include mixins.bold;
   font-size: 1.3rem;
   line-height: 1.1;
   color: var(--text-clr);
@@ -42,13 +42,13 @@ html a {
   &--message,
   &--error {
     margin: 3px 0 0;
-    @include bold;
+    @include mixins.bold;
     font-size: 1.3rem;
   }
 
   &--message {
     margin: 2px 0 0;
-    @include regular;
+    @include mixins.regular;
     color: var(--text-clr-alt);
   }
 

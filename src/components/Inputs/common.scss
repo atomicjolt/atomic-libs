@@ -1,4 +1,4 @@
-@use "../defines" as *;
+@use "../mixins";
 
 .aj-input {
   input {
@@ -7,7 +7,7 @@
     min-height: 40px;
     width: 100%;
     padding: 0 12px;
-    @include regular;
+    @include mixins.regular;
     font-size: 1.6rem;
     color: var(--text-clr);
 
@@ -113,7 +113,7 @@
     display: inline-block;
     cursor: pointer;
     position: relative;
-    @include regular;
+    @include mixins.regular;
     font-size: 1.6rem;
     line-height: 1.5;
     color: var(--text-clr);

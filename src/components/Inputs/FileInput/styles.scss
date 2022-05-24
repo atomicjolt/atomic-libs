@@ -1,4 +1,4 @@
-@use "../../defines" as *;
+@use "../../mixins";
 
 .aj-input--file {
   input[type="file"] {
@@ -13,7 +13,7 @@
       --border-clr: var(--neutral600);
 
       font-size: 1.6rem;
-      @include regular;
+      @include mixins.regular;
       line-height: 1;
       text-overflow: ellipsis;
       white-space: nowrap;
@@ -40,7 +40,7 @@
 
       strong {
         background-color: var(--neutral100);
-        @include bold;
+        @include mixins.bold;
         color: var(--text-clr-alt);
         min-height: 38px;
         padding: 8px 16px;

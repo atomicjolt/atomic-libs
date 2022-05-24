@@ -1,4 +1,4 @@
-@use "../../defines" as *;
+@use "../../mixins";
 
 .aj-input input[type="number"] {
   --input-width-sm: 80px;

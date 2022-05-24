@@ -1,4 +1,4 @@
-@use "../../defines" as *;
+@use "../../mixins";
 
 .aj-toggle-switch {
   --unchecked: var(--neutral400);
@@ -12,7 +12,7 @@
     gap: 12px;
     cursor: pointer;
     position: relative;
-    @include bold;
+    @include mixins.bold;
     font-size: 1.3rem;
     line-height: 1.5;
     color: var(--text-clr);

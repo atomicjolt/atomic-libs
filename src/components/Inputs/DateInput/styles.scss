@@ -1,4 +1,4 @@
-@use "../../defines" as *;
+@use "../../mixins";
 
 .aj-input input[type="date"] {
   --input-width-md: 170px;

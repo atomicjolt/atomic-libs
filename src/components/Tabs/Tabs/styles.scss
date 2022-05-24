@@ -1,4 +1,4 @@
-@use "../../defines.scss" as *;
+@use "../../mixins";
 
 .aj-tab-list {
   --tab-border-width: 1px;
@@ -26,7 +26,7 @@
   border: var(--tab-border-width) solid;
   border-color: var(--tab-border-clr);
   position: relative;
-  @include regular;
+  @include mixins.regular;
   font-size: 1.6rem;
   text-decoration: none;
   color: var(--tab-text-clr);
