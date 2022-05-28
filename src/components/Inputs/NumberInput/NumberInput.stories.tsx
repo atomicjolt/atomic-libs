@@ -13,7 +13,7 @@ const Template: ComponentStory<typeof NumberInput> = (args: Props) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  value: undefined,
+  value: 10,
   min: 0,
   max: undefined,
   ...DefaultInputProperties,

@@ -1,14 +1,14 @@
 import React from "react";
 import cn from "classnames";
 import { useIds } from "../../../hooks";
-import { SharedInputProps } from "../../../types";
+import { EventHandler, SharedInputProps } from "../../../types";
 import "../../general.scss";
 import "../common.scss";
 import "./styles.scss";
 
 export interface Props extends Omit<SharedInputProps, "hideLabel" | "size"> {
   checked: boolean;
-  onClick: (value: boolean, e: React.MouseEvent<HTMLInputElement>) => void;
+  onClick: EventHandler<boolean, React.MouseEvent<HTMLInputElement>>;
 }
 
 /** Checkbox Component. Accepts a `ref` */

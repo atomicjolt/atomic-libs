@@ -22,6 +22,14 @@ export interface SharedInputProps {
   readonly placeholder?: string;
 }
 
+export interface ControlledInput<
+  T = string,
+  E extends Element = HTMLInputElement
+> {
+  value: T;
+  onChange: EventHandler<T, React.ChangeEvent<E>>;
+}
+
 export type EventHandler<
   V = string,
   E extends React.SyntheticEvent = React.SyntheticEvent

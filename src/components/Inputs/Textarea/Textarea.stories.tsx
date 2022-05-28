@@ -13,6 +13,8 @@ const Template: ComponentStory<typeof Textarea> = (args: Props) => (
 
 export const Default = Template.bind({});
 Default.args = {
+  value: "Text Area content",
+  resize: true,
   ...(DefaultInputProperties as Props),
   label: "Textarea label",
   message: "1000 characters",

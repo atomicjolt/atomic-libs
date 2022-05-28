@@ -4,18 +4,16 @@ import "../../general.scss";
 import "../common.scss";
 import "./styles.scss";
 import InputLabel from "../../Utility/InputLabel";
-import { SharedInputProps } from "../../../types";
+import { ControlledInput, SharedInputProps } from "../../../types";
 import { useIds } from "../../../hooks";
 import InputError from "../../Utility/InputError";
+import { makeEventHandler } from "../../../utils";
 
-export interface TextInputProps extends SharedInputProps {
-  /** A value */
-  readonly value: string;
-  readonly onChange: (value: string) => void;
+export interface TextInputProps extends SharedInputProps, ControlledInput {
   /** Other types like date, time, and number have their own component  */
   readonly type?: "text" | "email" | "tel";
 }
-/** TestInput component. Fowards a `ref` to the internal input element */
+/** TextInput component. Fowards a `ref` to the internal input element */
 const TextInput = React.forwardRef(
   (
     {
@@ -56,9 +54,8 @@ const TextInput = React.forwardRef(
           readOnly={readonly}
           disabled={disabled}
           required={required}
-          onChange={(e) => onChange && onChange(e.target.value)}
+          onChange={makeEventHandler(onChange)}
         />
-
         <InputError error={error} id={errorId} />
       </div>
     );

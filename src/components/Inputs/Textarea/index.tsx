@@ -1,7 +1,7 @@
 import cn from "classnames";
-import React from "react";
+import React, { ChangeEvent } from "react";
 import { useIds } from "../../../hooks";
-import { EventHandler, SharedInputProps } from "../../../types";
+import { ControlledInput, SharedInputProps } from "../../../types";
 import { makeEventHandler } from "../../../utils";
 import "../../general.scss";
 import InputError from "../../Utility/InputError";
@@ -9,11 +9,11 @@ import InputLabel from "../../Utility/InputLabel";
 import "../common.scss";
 import "./styles.scss";
 
-export interface Props extends Omit<SharedInputProps, "size"> {
-  value: string;
+export interface Props
+  extends Omit<SharedInputProps, "size">,
+    ControlledInput<string, HTMLTextAreaElement> {
   size?: "small" | "medium" | "large";
   resize?: boolean;
-  onChange: EventHandler<string, React.ChangeEvent<HTMLTextAreaElement>>;
 }
 
 /** Textarea Component. Accepts a `ref` */
