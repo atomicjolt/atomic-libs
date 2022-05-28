@@ -2,42 +2,41 @@ import React from "react";
 import "../../general.scss";
 import "./styles.scss";
 import Button from "../../Buttons/Button";
+import PopupModal from "../PopupModal";
 
 export interface Props {
+  open?: boolean;
   /** Must include a title. Titles are always in Title case. */
   title: string;
-  content: any;
-  errorButton?: string;
+  children: React.ReactNode;
+  buttonText?: string;
 }
 
 /**
- * Confirmation Modal Component
- *
- * For when you need a small modal to confirm an action, show a loading/exporting/etc process, or other small things that don't require a large modal.
+ * Error Modal Component
  * */
-export default function ConfirmationModal({
+export default function ErrorModal({
+  open = false,
   title,
-  content,
-  errorButton = "Close",
+  children,
+  buttonText = "Close",
 }: Props) {
   return (
-    <div className="aj-modal-background">
-      <div className="aj-modal--error">
-        <div className="aj-modal__top">
+    <PopupModal
+      open={open}
+      title={
+        <>
           <i className="material-icons">error</i>
           <h2 className="aj-modal__title">{title}</h2>
-        </div>
-        <div className="aj-modal__main">
-          <p>{content}</p>
-        </div>
-        <div className="aj-modal__bottom">
-          {errorButton ? (
-            <Button className="error" type="button">
-              {errorButton}
-            </Button>
-          ) : null}
-        </div>
-      </div>
-    </div>
+        </>
+      }
+      actions={[
+        <Button className="error" type="button">
+          {buttonText}
+        </Button>,
+      ]}
+    >
+      {children}
+    </PopupModal>
   );
 }

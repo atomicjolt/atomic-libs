@@ -1,0 +1,9 @@
+@use "../../mixins";
+@use "../common.scss";
+
+.aj-modal {
+  &--popup {
+    @extend .aj-modal;
+    max-width: 400px;
+  }
+}

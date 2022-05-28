@@ -12,9 +12,10 @@ const Template: ComponentStory<typeof ConfirmationModal> = (args: Props) => (
 
 export const Default = Template.bind({});
 Default.args = {
+  open: true,
   title: "Delete Item",
-  content: "Are you sure you want to delete this item?",
-  primaryButton: "Delete",
+  children: "Are you sure you want to delete this item?",
+  confirmText: "Delete",
 };
 
 // Additional stories go here

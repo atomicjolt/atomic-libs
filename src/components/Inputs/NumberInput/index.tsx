@@ -1,17 +1,18 @@
+import React, { ChangeEvent } from "react";
 import cn from "classnames";
-import React from "react";
 import { useIds } from "../../../hooks";
-import { SharedInputProps } from "../../../types";
+import { EventHandler, SharedInputProps } from "../../../types";
 import "../../general.scss";
 import InputLabel from "../../Utility/InputLabel";
 import "../common.scss";
 import "./styles.scss";
+import InputError from "../../Utility/InputError";
 
 export interface Props extends SharedInputProps {
-  value: number;
+  value?: number;
+  onChange?: EventHandler<number, ChangeEvent<HTMLInputElement>>;
   min?: number;
   max?: number;
-  onChange: (value: number) => void;
 }
 
 /** Number Input Component */
@@ -51,13 +52,9 @@ export default function NumberInput({
         readOnly={readonly}
         disabled={disabled}
         required={required}
-        onChange={(e) => onChange(parseInt(e.target.value))}
+        onChange={(e) => onChange && onChange(parseInt(e.target.value), e)}
       />
-      {error && (
-        <p id={errorId} className="aj-label--error">
-          {error}
-        </p>
-      )}
+      <InputError error={error} id={errorId} />
     </div>
   );
 }

@@ -40,6 +40,10 @@ export function makeEventHandler<T, E extends Event>(
   return (event: E) => handler(event.target.value, event);
 }
 
+export function makeOptionaCallback(callback?: () => any) {
+  return () => callback && callback();
+}
+
 export const DefaultInputProperties: SharedInputProps = {
   label: "",
   hideLabel: false,
