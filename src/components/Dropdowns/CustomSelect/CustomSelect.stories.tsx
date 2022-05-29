@@ -1,57 +1,52 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import CustomSelect, { Props } from ".";
+import MaterialIcon from "../../Utility/MaterialIcon";
 
 export default {
   title: "Dropdowns/CustomSelect",
   component: CustomSelect,
+  // subcomponents: {
+  //   "CustomSelect.Item": CustomSelect.Item,
+  //   "CustomSelect.Empty": CustomSelect.Empty,
+  // },
 } as ComponentMeta<typeof CustomSelect>;
 
 const Template: ComponentStory<typeof CustomSelect> = (args: Props<any>) => {
-  const { selected: initial, onSelect: _ignore, ...props } = args;
-  const [selected, setSelected] = useState<string | null>(initial);
-
-  useEffect(() => setSelected(initial), [initial]);
-
-  return (
-    // @ts-ignore
-    <CustomSelect onSelect={setSelected} selected={selected} {...props} />
-  );
+  return <CustomSelect {...args} />;
 };
 
 export const Default = Template.bind({});
 Default.args = {
-  label: "Custom Select label",
-  selected: "opt1",
-  options: [
-    {
-      label: "Option 1",
-      value: "opt1",
-    },
-    {
-      label: "Option 2",
-      value: "opt2",
-    },
+  value: "val1",
+  label: "Custom Select Label",
+  children: [
+    <CustomSelect.Item value="val1" key="1">
+      Option 1
+    </CustomSelect.Item>,
+    <CustomSelect.Item value="val2" key="2">
+      Option 2
+    </CustomSelect.Item>,
   ],
-  empty: false,
 };
 
-export const EmptyAllowed = Template.bind({});
-EmptyAllowed.args = {
-  label: "Custom Select label",
-  selected: null,
-  options: [
-    {
-      label: "Option 1",
-      value: "opt1",
-    },
-    {
-      label: "Option 2",
-      value: "opt2",
-    },
-  ],
-  empty: true,
-  emptyLabel: "-- Select Option --",
+export const WithEmpty = Template.bind({});
+WithEmpty.args = {
+  ...Default.args,
+  children: [<CustomSelect.Empty key="empty" />, ...Default.args.children],
 };
 
-// Additional stories go here
+export const WithIcons = Template.bind({});
+WithIcons.args = {
+  ...Default.args,
+  children: [
+    <CustomSelect.Item value="val1" key="1">
+      <MaterialIcon icon="search" />
+      Option 1
+    </CustomSelect.Item>,
+    <CustomSelect.Item value="val2" key="2">
+      <MaterialIcon icon="u_turn_left" />
+      Option 2
+    </CustomSelect.Item>,
+  ],
+};

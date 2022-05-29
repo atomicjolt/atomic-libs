@@ -1,81 +1,70 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import cn from "classnames";
 import "../../general.scss";
 import "./styles.scss";
 import InputLabel from "../../Utility/InputLabel";
 import { useBool, useClick, useIds } from "../../../hooks";
-import { Setter, SharedInputProps } from "../../../types";
+import { EventHandler, HasChildren, SharedInputProps } from "../../../types";
+import InputError from "../../Utility/InputError";
 
-interface OptionsObject<T> {
+export interface Props<T> extends SharedInputProps, HasChildren {
   value: T;
-  label: React.ReactNode;
+  onChange: EventHandler<T, React.MouseEvent<Element>>;
 }
 
-export interface CommonProps<T> {
-  /** An array of possbile options to select from*/
-  options: OptionsObject<T>[];
+interface CustomSelectContext<T> {
+  currentValue: T;
+  setIntialLabel: (v: React.ReactNode) => void;
+  onClick: (
+    value: T,
+    content: React.ReactNode,
+    event: React.MouseEvent<Element>
+  ) => void;
 }
 
-type NullProps<T> =
-  | {
-      /** The currently selected value. Should be one of the values in the `options` object */
-      selected: T | null;
-      onSelect: Setter<T | null>;
-      /** Enables a null-valued selection item. */
-      empty?: true;
-      /** Label for the null-valued item */
-      emptyLabel?: React.ReactNode;
-    }
-  | {
-      selected: T;
-      onSelect: (v: T) => void;
-      empty?: false;
-      emptyLabel?: never;
-    };
-
-export type Props<T> = CommonProps<T> & NullProps<T> & SharedInputProps;
+const Context = React.createContext<CustomSelectContext<any>>(
+  {} as CustomSelectContext<any>
+);
 
 /**
  * Custom Select
  *
  * https://www.w3.org/TR/wai-aria-practices/examples/combobox/combobox-select-only.html for accessibility implementation.
  * */
-export default function CustomSelect<T>({
-  options: initialOptions,
-  selected,
-  onSelect,
+function CustomSelect<T>({
+  value,
+  onChange,
   size = "medium",
   label,
   error,
   message,
   hideLabel = false,
   disabled = false,
-  empty = false,
-  emptyLabel = null,
+  children,
 }: Props<T>) {
   const [menuActive, toggleMenu] = useBool(false);
-
-  const options = useMemo(() => {
-    if (empty) {
-      return [{ value: null, label: emptyLabel }, ...initialOptions];
-    }
-    return initialOptions;
-  }, [initialOptions, empty, emptyLabel]);
-
-  const selectedOption = useMemo(
-    () => options.find((o) => o.value === selected),
-    [selected]
-  );
-
-  const [comboId, listBoxId, errorId, labelId, optionId] = useIds(
-    "custom-dropdown",
-    ["combo", "list", "errors", "label", "option"]
-  );
+  const [initialContent, setInitialContent] = useState<React.ReactNode>(null);
+  const contentRef = useRef<React.ReactNode>(null);
+  const [comboId, listBoxId, errorId, labelId] = useIds("custom-dropdown", [
+    "combo",
+    "list",
+    "errors",
+    "label",
+  ]);
 
   useClick(() => {
     if (!menuActive) return;
     toggleMenu();
   }, [menuActive]);
+
+  const ctx: CustomSelectContext<T> = {
+    currentValue: value,
+    setIntialLabel: setInitialContent,
+    onClick: (value, content, e) => {
+      onChange(value, e);
+      contentRef.current = content;
+    },
+  };
 
   return (
     <div
@@ -105,7 +94,9 @@ export default function CustomSelect<T>({
           tabIndex={0}
           onClick={toggleMenu}
         >
-          <span>{selectedOption?.label}</span>
+          <span>
+            {contentRef.current ? contentRef.current : initialContent}
+          </span>
         </div>
         <ul
           className="aj-combobox__menu"
@@ -114,27 +105,56 @@ export default function CustomSelect<T>({
           aria-labelledby={labelId}
           tabIndex={-1}
         >
-          {options.map((o, idx) => (
-            <li
-              className={cn("aj-combobox__option", {
-                "is-focused": o.value == selectedOption?.value,
-              })}
-              role="option"
-              id={`${optionId}-${idx}`}
-              key={`${optionId}-${idx}`}
-              aria-selected={o.value == selectedOption?.value}
-              onClick={() => onSelect(o.value!)}
-            >
-              {o.label}
-            </li>
-          ))}
+          <Context.Provider value={ctx}>{children}</Context.Provider>
         </ul>
       </div>
-      {error && (
-        <p id={errorId} className="aj-label--error">
-          {error}
-        </p>
-      )}
+      <InputError error={error} id={errorId} />
     </div>
   );
 }
+
+interface CustomSelectItemProps<T> extends HasChildren {
+  value: T;
+}
+
+/** An Option in the `CustomSelect` */
+CustomSelect.Item = <T,>({ value, children }: CustomSelectItemProps<T>) => {
+  const { currentValue, setIntialLabel, onClick } = useContext(Context);
+
+  useEffect(() => {
+    if (value === currentValue) {
+      setIntialLabel(children);
+    }
+  }, []);
+
+  return (
+    <li
+      className={cn("aj-combobox__option", {
+        "is-focused": value == currentValue,
+      })}
+      role="option"
+      // id={`${optionId}-${idx}`}
+      aria-selected={value == currentValue}
+      onClick={(e) => onClick(value, children, e)}
+    >
+      {children}
+    </li>
+  );
+};
+
+// @ts-ignore
+CustomSelect.Item.displayName = "CustomSelect.Item";
+
+/** A `CustomSelect.Item` item with `null` as the value */
+CustomSelect.Empty = ({
+  children = "-- Select an Option --",
+}: {
+  children?: React.ReactNode;
+}) => {
+  return <CustomSelect.Item value={null}>{children}</CustomSelect.Item>;
+};
+
+// @ts-ignore
+CustomSelect.Empty.displayName = "CustomSelect.Empty";
+
+export default CustomSelect;
