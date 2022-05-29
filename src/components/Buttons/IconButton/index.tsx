@@ -2,6 +2,7 @@ import React from "react";
 import "../../general.scss";
 import "./styles.scss";
 import { AriaHasPopUp, MaterialIcons } from "../../../types";
+import MaterialIcon from "../../Utility/MaterialIcon";
 
 export interface Props {
   /** Material Icon to render */
@@ -38,9 +39,7 @@ export default function IconButton({
       aria-haspopup={ariaHasPopup}
       aria-expanded={ariaExpanded}
     >
-      <i className="material-icons" aria-hidden>
-        {icon}
-      </i>
+      <MaterialIcon icon={icon} aria-hidden />
     </button>
   );
 }
