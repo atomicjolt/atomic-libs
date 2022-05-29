@@ -3,7 +3,7 @@ import DateTimeInput, { Props } from ".";
 import { DefaultInputProperties } from "../../../utils";
 
 export default {
-  title: "Inputs/DateTimeInput",
+  title: "Inputs/Date & Time/DateTimeInput",
   component: DateTimeInput,
 } as ComponentMeta<typeof DateTimeInput>;
 
