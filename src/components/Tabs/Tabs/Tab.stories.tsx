@@ -18,13 +18,14 @@ const Template: ComponentStory<typeof Tabs> = (args: Props) => (
 
 export const Default = Template.bind({});
 Default.args = {
+  tabs: { tab1: "Tab One", tab2: "Tab Two" },
   children: [
-    <Tab label="Tab One" key="key1">
+    <Tab name="tab1" key="key1">
       <div style={{ paddingTop: "3em" }}>
         <h2>First Tab</h2>
       </div>
     </Tab>,
-    <Tab label="Tab Two" key="key2">
+    <Tab name="tab2" key="key2">
       <div style={{ paddingTop: "3em" }}>
         <h2>Second Tab</h2>
       </div>

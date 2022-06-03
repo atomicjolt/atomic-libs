@@ -5,12 +5,15 @@ import "./styles.scss";
 
 export interface SharedProps {
   children: React.ReactElement[] | React.ReactElement;
+  /** Mapping between tabs names and a human-readable
+   * lable that will actually be displayed */
+  tabs: Record<string, string>;
 }
 
 type ControlledProps =
   | {
-      currentTab: number;
-      onChange: (value: number) => void;
+      currentTab: string;
+      onChange: (value: string) => void;
     }
   | {
       currentTab?: never;
@@ -20,23 +23,20 @@ type ControlledProps =
 export type Props = SharedProps & ControlledProps;
 
 interface TabsControlledProps extends SharedProps {
-  currentTab: number;
-  labels: string[];
-  onChange: (value: number) => void;
+  currentTab: string;
+  onChange: (value: string) => void;
 }
 
-interface TabsUncontrolledProps extends SharedProps {
-  labels: string[];
-}
+interface TabsUncontrolledProps extends SharedProps {}
 
 interface TabContextData {
-  currentIndex: number;
+  currentTab: string;
   currentLabel: string;
 }
 
 interface TabProps {
   children: React.ReactNode;
-  label: string;
+  name: string;
 }
 
 const TabContext = React.createContext({} as TabContextData);
@@ -44,61 +44,41 @@ const TabContext = React.createContext({} as TabContextData);
 /** Tabs Component
  *
  */
-export default function Tabs({ children, currentTab, onChange }: Props) {
-  const labels = useMemo(
-    () =>
-      React.Children.map(children, (child) => {
-        if (
-          typeof child === "string" ||
-          typeof child.type == "string" ||
-          // @ts-ignore
-          child.type.displayName !== "Tab"
-        ) {
-          throw new Error(
-            "All direct children ot Tabs must be a Tab component"
-          );
-        }
-        return child.props.label;
-      }),
-    [children]
-  );
-
+export default function Tabs({ children, tabs, currentTab, onChange }: Props) {
   if (currentTab !== undefined) {
     return (
       <TabsControlled
         children={children}
         currentTab={currentTab}
-        labels={labels}
+        tabs={tabs}
         onChange={onChange}
       />
     );
   }
 
-  return <TabsUncontrolled children={children} labels={labels} />;
+  return <TabsUncontrolled children={children} tabs={tabs} />;
 }
 
 function TabsControlled({
   children,
   currentTab,
-  labels,
+  tabs,
   onChange,
 }: TabsControlledProps) {
   return (
-    <TabsShared currentTab={currentTab} labels={labels} onChange={onChange}>
+    <TabsShared currentTab={currentTab} tabs={tabs} onChange={onChange}>
       {children}
     </TabsShared>
   );
 }
 
-function TabsUncontrolled({ children, labels }: TabsUncontrolledProps) {
-  const [currentTab, setCurrentTab] = useState<number>(0);
+function TabsUncontrolled({ children, tabs }: TabsUncontrolledProps) {
+  const [currentTab, setCurrentTab] = useState<string>(
+    () => Object.keys(tabs)[0]
+  );
 
   return (
-    <TabsShared
-      currentTab={currentTab}
-      labels={labels}
-      onChange={setCurrentTab}
-    >
+    <TabsShared currentTab={currentTab} tabs={tabs} onChange={setCurrentTab}>
       {children}
     </TabsShared>
   );
@@ -106,31 +86,31 @@ function TabsUncontrolled({ children, labels }: TabsUncontrolledProps) {
 
 function TabsShared({
   currentTab,
-  labels,
+  tabs,
   onChange,
   children,
 }: TabsControlledProps) {
   const [tabId, tabContentId] = useIds("tabs", ["tab", "content"]);
 
   const ctx: TabContextData = {
-    currentIndex: currentTab,
-    currentLabel: labels[currentTab],
+    currentTab,
+    currentLabel: tabs[currentTab],
   };
 
   return (
     <>
       <div className="aj-tab-list" role="tablist" aria-label="navigation">
-        {labels.map((label, idx) => (
+        {Object.entries(tabs).map(([name, label], idx) => (
           <a
             className="aj-tab"
             id={`${tabId}-${idx}`}
             key={`${tabId}-${idx}`}
             role="tab"
             aria-controls={tabContentId}
-            aria-selected={currentTab == idx}
-            aria-current={currentTab == idx}
+            aria-selected={currentTab === name}
+            aria-current={currentTab === name}
             tabIndex={-1}
-            onClick={() => onChange(idx)}
+            onClick={() => onChange(name)}
           >
             {label}
           </a>
@@ -149,10 +129,10 @@ function TabsShared({
   );
 }
 
-export function Tab({ children, label }: TabProps) {
-  const { currentLabel } = useContext(TabContext);
+export function Tab({ children, name }: TabProps) {
+  const { currentTab } = useContext(TabContext);
 
-  if (label !== currentLabel) return null;
+  if (name !== currentTab) return null;
 
   return <>{children}</>;
 }

@@ -26,25 +26,32 @@ import { useMemo } from "react";
 import { useLocation, useHistory } from "react-router-dom";
 import { Tabs, Tab } from "atomic-hooks";
 
-const ROUTES = ["/preview", "/edit", "/reports"];
+const ROUTES = { "/preview": "tab1", "/edit": "tab2" };
 
 function ControlledTabs() {
   const history = useHistory();
   const { pathname } = useLocation();
 
-  const currentTab = useMemo(() => ROUTES.indexOf(pathname), [pathname]);
+  const currentTab = ROUTES[pathname];
 
-  const onChange = (idx: number) => {
-    history.push(ROUTES[idx]);
+  const onChange = (tab: string) => {
+    const route = Object.entries(ROUTES).find(
+      ([route, tabName]) => tab === tabName
+    )[0];
+    history.push(route);
   };
 
   return (
-    <Tabs currentTab={currentTab} onChange={onChange}>
-      <Tab label="Tab One">
+    <Tabs
+      tabs={{ tab1: "Tab One", tab2: "Tab Two" }}
+      currentTab={currentTab}
+      onChange={onChange}
+    >
+      <Tab name="tab1">
         <div> I'm the first tab</div>
       </Tab>
 
-      <Tab label="Tab Two">
+      <Tab name="tab2">
         <div> I'm the second tab</div>
       </Tab>
     </Tabs>
