@@ -3,6 +3,8 @@
 .aj-tab-list {
   --tab-border-width: 1px;
   --tab-border-clr: var(--border-clr-primary);
+  --tab-padding-hori: 16px;
+  --tab-padding-vert: 8px;
 
   margin-bottom: calc(var(--tab-border-width) * -1);
   display: flex;
@@ -12,8 +14,6 @@
 
 .aj-tab {
   --tab-radius: var(--radius);
-  --tab-padding-hori: 16px;
-  --tab-padding-vert: 8px;
   --tab-bg-clr: var(--neutral100);
   --tab-border-width: 1px;
   --tab-border-clr: transparent;
@@ -75,5 +75,31 @@
   &:focus-visible {
     outline: var(--outline);
     outline-offset: -2px;
+  }
+}
+
+.aj-tab-link {
+  position: relative;
+}
+
+.aj-tab-notification {
+  --tab-notif-error-clr: var(--error600);
+  --tab-notif-info-clr: var(--primary400);
+
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  line-height: 10px;
+  border-radius: 50%;
+  text-align: center;
+  top: var(--tab-padding-vert);
+  right: calc(var(--tab-padding-hori) - 8px);
+
+  &--error {
+    background-color: var(--tab-notif-error-clr);
+  }
+
+  &--info {
+    background-color: var(--tab-notif-into-clr);
   }
 }

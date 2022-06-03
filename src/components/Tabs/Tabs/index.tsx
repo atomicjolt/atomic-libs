@@ -1,13 +1,19 @@
+import cn from "classnames";
 import React, { useContext, useMemo, useState } from "react";
 import { useIds } from "../../../hooks";
 import "../../general.scss";
 import "./styles.scss";
 
+interface TabData {
+  label: string;
+  notification?: "error" | "info";
+}
+
 export interface SharedProps {
   children: React.ReactElement[] | React.ReactElement;
   /** Mapping between tabs names and a human-readable
    * lable that will actually be displayed */
-  tabs: Record<string, string>;
+  tabs: Record<string, string | TabData>;
 }
 
 type ControlledProps =
@@ -84,6 +90,20 @@ function TabsUncontrolled({ children, tabs }: TabsUncontrolledProps) {
   );
 }
 
+function getLabel(data: string | TabData) {
+  if (typeof data === "string") {
+    return data;
+  }
+  return data.label;
+}
+
+function getNotification(data: string | TabData) {
+  if (typeof data === "string") {
+    return null;
+  }
+  return data.notification;
+}
+
 function TabsShared({
   currentTab,
   tabs,
@@ -94,26 +114,34 @@ function TabsShared({
 
   const ctx: TabContextData = {
     currentTab,
-    currentLabel: tabs[currentTab],
+    currentLabel: getLabel(tabs[currentTab]),
   };
 
   return (
     <>
       <div className="aj-tab-list" role="tablist" aria-label="navigation">
-        {Object.entries(tabs).map(([name, label], idx) => (
-          <a
-            className="aj-tab"
-            id={`${tabId}-${idx}`}
-            key={`${tabId}-${idx}`}
-            role="tab"
-            aria-controls={tabContentId}
-            aria-selected={currentTab === name}
-            aria-current={currentTab === name}
-            tabIndex={-1}
-            onClick={() => onChange(name)}
-          >
-            {label}
-          </a>
+        {Object.entries(tabs).map(([name, data], idx) => (
+          <div className="aj-tab-link">
+            <a
+              className="aj-tab"
+              id={`${tabId}-${idx}`}
+              key={`${tabId}-${idx}`}
+              role="tab"
+              aria-controls={tabContentId}
+              aria-selected={currentTab === name}
+              aria-current={currentTab === name}
+              tabIndex={-1}
+              onClick={() => onChange(name)}
+            >
+              {getLabel(data)}
+            </a>
+            <div
+              className={cn("aj-tab-notification", {
+                "aj-tab-notification--error": getNotification(data) == "error",
+                "aj-tab-notification--info": getNotification(data) == "info",
+              })}
+            />
+          </div>
         ))}
       </div>
       <div
