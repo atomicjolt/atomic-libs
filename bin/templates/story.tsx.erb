@@ -1,9 +1,15 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import <%= @name %>, { Props } from ".";
+import Doc from "./<%= @name %>.doc.mdx";
 
 export default {
-title: "<%= @path %>",
-component: <%= @name %>
+  title: "<%= @path %>",
+  component: <%= @name %>,
+  parameters: {
+      docs: {
+        page: Doc,
+      },
+    },
 } as ComponentMeta<typeof <%= @name %>>
 
 const Template: ComponentStory<typeof <%= @name %>> = (args: Props) => (

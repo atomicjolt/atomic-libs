@@ -5,6 +5,7 @@ require 'erb'
 
 class NewComp
   @@root_path = File.expand_path(File.join(__dir__, '..'))
+  @@templates_dir = __dir__ + "/templates"
   @@components_dir = @@root_path + '/src/components'
 
   def initialize(path)
@@ -42,6 +43,7 @@ class NewComp
     File.open("#{full_path}/#{name}.spec.tsx", "w") { |f| f.write(spec) }
 
     FileUtils.touch("#{full_path}/styles.scss")
+    FileUtils.copy("#{@@templates_dir}/doc.mdx.erb", "#{full_path}/#{name}.doc.mdx")
   end
 end
 
