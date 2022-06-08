@@ -9,6 +9,7 @@ module.exports = {
     "@storybook/addon-docs",
     "storybook-addon-sass-postcss",
   ],
+  staticDirs: ["../public"],
   framework: "@storybook/react",
   typescript: {
     check: false,

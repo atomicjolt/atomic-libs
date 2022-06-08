@@ -5,7 +5,7 @@ import { EventHandler, SharedInputProps } from "../../../types";
 import { makeEventHandler } from "../../../utils";
 import "../../general.scss";
 import InputError from "../../Utility/InputError";
-import InputLabel from "../../Utility/InputLabel";
+import Label from "../../Utility/Label";
 import "../common.scss";
 import "./styles.scss";
 
@@ -43,9 +43,9 @@ const TimeInput = React.forwardRef<HTMLInputElement, Props>(
           "is-disabled": disabled,
         })}
       >
-        <InputLabel message={message} htmlFor={inputId}>
+        <Label message={message} htmlFor={inputId}>
           {label}
-        </InputLabel>
+        </Label>
         <div className="aj-input__time">
           <input
             id={inputId}

@@ -3,7 +3,7 @@ import cn from "classnames";
 import "../../general.scss";
 import "./styles.scss";
 import { levenshtein, makeIds } from "../../../utils";
-import InputLabel from "../../Utility/InputLabel";
+import Label from "../../Utility/Label";
 import { SharedInputProps } from "../../../types";
 import InputError from "../../Utility/InputError";
 
@@ -79,9 +79,9 @@ export default function Combobox({
         "is-disabled": disabled,
       })}
     >
-      <InputLabel message={message} htmlFor={labelId} hidden={hideLabel}>
+      <Label message={message} htmlFor={labelId} hidden={hideLabel}>
         {label}
-      </InputLabel>
+      </Label>
       <div className="aj-combobox">
         <div
           className="aj-combobox__input is-searchable"

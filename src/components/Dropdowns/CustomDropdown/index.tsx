@@ -4,6 +4,7 @@ import "../../general.scss";
 import "./styles.scss";
 import { useBool, useClick, useIds } from "../../../hooks";
 import { HasChildren, SharedInputProps } from "../../../types";
+import InputError from "../../Utility/InputError";
 
 export type Props = Omit<SharedInputProps, "message" | "hideLabel"> &
   HasChildren;
@@ -64,11 +65,7 @@ function CustomDropdown({
           {children}
         </ul>
       </div>
-      {error && (
-        <p id={errorId} className="aj-label--error">
-          {error}
-        </p>
-      )}
+      <InputError error={error} id={errorId} />
     </div>
   );
 }

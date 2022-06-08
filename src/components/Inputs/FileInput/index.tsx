@@ -5,6 +5,7 @@ import "../common.scss";
 import "./styles.scss";
 import { useIds } from "../../../hooks";
 import { SharedInputProps } from "../../../types";
+import InputError from "../../Utility/InputError";
 
 export interface Props extends Omit<SharedInputProps, "hideLabel"> {
   file?: File | null;
@@ -45,11 +46,7 @@ export default function FileInput({
         <span>{file?.name}</span>
         <strong>{label}</strong>
       </label>
-      {error && (
-        <p id={errorId} className="aj-label--error">
-          {error}
-        </p>
-      )}
+      <InputError error={error} id={errorId} />
     </div>
   );
 }

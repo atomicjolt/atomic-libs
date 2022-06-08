@@ -3,7 +3,7 @@ import cn from "classnames";
 import { useIds, useIsoDateString } from "../../../hooks";
 import { SharedInputProps } from "../../../types";
 import "../../general.scss";
-import InputLabel from "../../Utility/InputLabel";
+import Label from "../../Utility/Label";
 import "../common.scss";
 import "./styles.scss";
 
@@ -47,9 +47,9 @@ export default function DateInput<T extends string | Date | number>({
         "is-disabled": disabled,
       })}
     >
-      <InputLabel message={message} htmlFor={inputId} hidden={hideLabel}>
+      <Label message={message} htmlFor={inputId} hidden={hideLabel}>
         {label}
-      </InputLabel>
+      </Label>
       <div className="aj-input__date">
         <input
           id={inputId}
@@ -72,11 +72,7 @@ export default function DateInput<T extends string | Date | number>({
           }}
         />
       </div>
-      {error && (
-        <p id={errorId} className="aj-label--error">
-          {error}
-        </p>
-      )}
+      <InputError error={error} id={errorId} />
     </div>
   );
 }

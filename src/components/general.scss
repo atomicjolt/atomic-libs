@@ -30,29 +30,3 @@ html a {
   height: 1px;
   overflow: hidden;
 }
-
-.aj-label {
-  display: block;
-  padding-bottom: 5px;
-  @include mixins.bold;
-  font-size: 1.3rem;
-  line-height: 1.1;
-  color: var(--text-clr);
-
-  &--message,
-  &--error {
-    margin: 3px 0 0;
-    @include mixins.bold;
-    font-size: 1.3rem;
-  }
-
-  &--message {
-    margin: 2px 0 0;
-    @include mixins.regular;
-    color: var(--text-clr-alt);
-  }
-
-  &--error {
-    color: var(--error700);
-  }
-}

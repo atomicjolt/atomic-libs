@@ -4,7 +4,7 @@ import { useIds } from "../../../hooks";
 import { EventHandler, SharedInputProps } from "../../../types";
 import "../../general.scss";
 import InputError from "../../Utility/InputError";
-import InputLabel from "../../Utility/InputLabel";
+import Label from "../../Utility/Label";
 import MaterialIcon from "../../Utility/MaterialIcon";
 import "../common.scss";
 import "./styles.scss";
@@ -49,9 +49,9 @@ const SearchInput = React.forwardRef<HTMLInputElement, Props>(
           onSubmit(inputValue, e);
         }}
       >
-        <InputLabel hidden={hideLabel} htmlFor={inputId}>
+        <Label hidden={hideLabel} htmlFor={inputId}>
           {label}
-        </InputLabel>
+        </Label>
         <input
           id={inputId}
           type="search"

@@ -3,7 +3,7 @@ import cn from "classnames";
 import "../../general.scss";
 import "../common.scss";
 import "./styles.scss";
-import InputLabel from "../../Utility/InputLabel";
+import Label from "../../Utility/Label";
 import { ControlledInput, SharedInputProps } from "../../../types";
 import { useIds } from "../../../hooks";
 import InputError from "../../Utility/InputError";
@@ -41,9 +41,9 @@ const TextInput = React.forwardRef(
           "is-disabled": disabled,
         })}
       >
-        <InputLabel message={message} hidden={hideLabel} htmlFor={inputId}>
+        <Label message={message} hidden={hideLabel} htmlFor={inputId}>
           {label}
-        </InputLabel>
+        </Label>
         <input
           ref={ref}
           id={inputId}

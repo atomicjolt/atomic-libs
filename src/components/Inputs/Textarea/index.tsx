@@ -5,7 +5,7 @@ import { ControlledInput, SharedInputProps } from "../../../types";
 import { makeEventHandler } from "../../../utils";
 import "../../general.scss";
 import InputError from "../../Utility/InputError";
-import InputLabel from "../../Utility/InputLabel";
+import Label from "../../Utility/Label";
 import "../common.scss";
 import "./styles.scss";
 
@@ -45,9 +45,9 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, Props>(
           "is-disabled": disabled,
         })}
       >
-        <InputLabel message={message} hidden={hideLabel} htmlFor={inputId}>
+        <Label message={message} hidden={hideLabel} htmlFor={inputId}>
           {label}
-        </InputLabel>
+        </Label>
         <textarea
           id={inputId}
           ref={ref}

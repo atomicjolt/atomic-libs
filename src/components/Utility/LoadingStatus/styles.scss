@@ -1,0 +1,20 @@
+@use '../../mixins.scss';
+
+.aj-loading-status-loading {
+  --loader-size: 20px;
+
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+
+  .aj-three-dot-loader {
+    position: relative;
+  }
+
+  p {
+    @include mixins.regular;
+    font-size: var(--loader-size);
+    color: var(--text-clr);
+  }
+}

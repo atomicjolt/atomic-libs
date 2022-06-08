@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import cn from "classnames";
 import "../../general.scss";
 import "./styles.scss";
-import InputLabel from "../../Utility/InputLabel";
+import Label from "../../Utility/Label";
 import { useBool, useClick, useIds } from "../../../hooks";
 import { EventHandler, HasChildren, SharedInputProps } from "../../../types";
 import InputError from "../../Utility/InputError";
@@ -73,14 +73,14 @@ function CustomSelect<T>({
         "is-disabled": disabled,
       })}
     >
-      <InputLabel
+      <Label
         message={message}
         htmlFor={comboId}
         id={labelId}
         hidden={hideLabel}
       >
         {label}
-      </InputLabel>
+      </Label>
       <div className="aj-combobox">
         <div
           className="aj-combobox__input"

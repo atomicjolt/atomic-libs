@@ -6,9 +6,10 @@ import {
   SharedInputProps,
 } from "../../../types";
 import "../../general.scss";
-import InputLabel from "../../Utility/InputLabel";
+import Label from "../../Utility/Label";
 import "./styles.scss";
 import { useIds } from "../../../hooks";
+import InputError from "../../Utility/InputError";
 
 export type Props = HasChildren &
   SharedInputProps & {
@@ -41,9 +42,9 @@ export default function Select({
         "is-disabled": disabled,
       })}
     >
-      <InputLabel message={message} htmlFor={inputId} hidden={hideLabel}>
+      <Label message={message} htmlFor={inputId} hidden={hideLabel}>
         {label}
-      </InputLabel>
+      </Label>
       <div className="aj-input__select">
         <select
           id={inputId}
@@ -56,11 +57,7 @@ export default function Select({
           {children}
         </select>
       </div>
-      {error && (
-        <p id={errorId} className="aj-label--error">
-          {error}
-        </p>
-      )}
+      <InputError error={error} id={errorId} />
     </div>
   );
 }

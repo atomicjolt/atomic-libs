@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Tabs, { Tab, Props } from ".";
-import Doc from "./Doc.mdx";
+import Doc from "./Tabs.doc.mdx";
 
 export default {
   title: "Tabs/Tabs",
