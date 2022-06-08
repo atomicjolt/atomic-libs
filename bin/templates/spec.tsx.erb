@@ -1,0 +1,9 @@
+import { render } from "@testing-library/react";
+import <%= @name %> from ".";
+
+it("matches snapshot", () => {
+  const result = render(
+    <<%= @name %> />
+  );
+  expect(result.asFragment()).toMatchSnapshot();
+});
