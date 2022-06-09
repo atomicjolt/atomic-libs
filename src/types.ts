@@ -58,6 +58,8 @@ export type AriaHasPopUp =
   | "tree"
   | "grid";
 
+export type SortDirection = "ascending" | "descending" | undefined;
+
 export type HTMLInputValueAttribute = string | ReadonlyArray<string> | number;
 
 export type Sizes = "small" | "medium" | "large" | "auto" | "full";
