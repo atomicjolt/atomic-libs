@@ -18,30 +18,28 @@ interface BaseProps {
 type SortProps =
   | {
       /** Must include if using sortable headers, adds accessible instructions to the table title. */
-      sortable?: false;
       sortDirection?: never;
       sortPath?: never;
       onSort?: never;
     }
   | {
-      sortable?: true;
       sortDirection: SortDirection;
       sortPath: string;
       onSort: (path: string, direction: SortDirection) => void;
     };
 
-export type Props = BaseProps & SortProps;
+export type Props = BaseProps & SortProps & React.HTMLProps<HTMLTableElement>;
 
 /** Table Component */
 function Table({
   title,
   sticky = false,
   verticalBorders = false,
-  sortable = false,
   sortDirection,
   sortPath,
   onSort = () => {},
   children,
+  ...rest
 }: Props) {
   /* Add functionality to remove sort order from other headers if you click on other ones. */
   return (
@@ -51,10 +49,11 @@ function Table({
           "has-vertical-borders": verticalBorders,
           "is-sticky": sticky,
         })}
+        {...rest}
       >
         <caption className="aj-hidden">
           {title}
-          {sortable ? (
+          {sortPath ? (
             <span>, column headers with buttons are sortable.</span>
           ) : null}
         </caption>
@@ -68,8 +67,8 @@ function Table({
   );
 }
 
-export function TableHead({ children }: HasChildren) {
-  return <thead>{children}</thead>;
+export function TableHead(props: React.HTMLProps<HTMLTableSectionElement>) {
+  return <thead {...props} />;
 }
 
 Table.Head = TableHead;
@@ -77,8 +76,8 @@ TableHead.displayName = "Table.Head";
 
 Table.Header = TableHeader;
 
-export function TableBody({ children }: HasChildren) {
-  return <tbody>{children}</tbody>;
+export function TableBody(props: React.HTMLProps<HTMLTableSectionElement>) {
+  return <tbody {...props} />;
 }
 
 Table.Body = TableBody;
@@ -86,7 +85,7 @@ TableBody.displayName = "Table.Body";
 
 type TableRowProps =
   | {
-      readonly data: (string | number)[];
+      readonly data: React.ReactNode[];
       readonly children?: never;
     }
   | {
@@ -94,14 +93,18 @@ type TableRowProps =
       readonly children: React.ReactNode;
     };
 
-export function TableRow({ data, children }: TableRowProps) {
+export function TableRow({
+  data,
+  children,
+  ...rest
+}: TableRowProps & Omit<React.HTMLProps<HTMLTableRowElement>, "data">) {
   if (children) {
-    return <tr>{children}</tr>;
+    return <tr {...rest}>{children}</tr>;
   }
 
   if (data) {
     return (
-      <tr>
+      <tr {...rest}>
         {data.map((d) => (
           <TableCell>{d}</TableCell>
         ))}

@@ -1,37 +1,37 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { SortDirection } from "../../../types";
 import TableContext from "./tableContext";
 
 interface BaseProps {
-  /** Must include a label for the header. */
-  children: React.ReactNode;
+  /** What renders as the header */
+  children?: React.ReactNode;
   /** For when a column needs width adjustments */
-  width?: string;
+  width?: string | number;
 }
 
 type SortProps =
   | {
-      /** Is the column sortable. */
-      sortable?: false;
       /** Define a default sort for the column */
       defaultSortDirection?: never;
+      /** a key the identifies this column uniquely */
       sortPath?: never;
     }
   | {
-      sortable?: true;
-      defaultSortDirection: SortDirection;
+      defaultSortDirection?: SortDirection;
       sortPath: string;
     };
 
-export type Props = BaseProps & SortProps;
+export type Props = BaseProps &
+  SortProps &
+  React.HTMLProps<HTMLTableCellElement>;
 
 /** Table Header Component */
 function TableHeader({
-  children,
-  sortable,
-  defaultSortDirection,
+  children = "",
+  defaultSortDirection = "ascending",
   sortPath,
   width,
+  ...rest
 }: Props) {
   const {
     onSort,
@@ -46,13 +46,14 @@ function TableHeader({
     width: width,
   };
 
-  if (sortable) {
+  if (sortPath) {
     return (
       <th
         className="is-sortable"
         scope="col"
         aria-sort={colActive}
         style={styleWidth}
+        {...rest}
       >
         <button
           onClick={() => {
@@ -73,7 +74,7 @@ function TableHeader({
   }
 
   return (
-    <th scope="col" style={styleWidth}>
+    <th scope="col" style={styleWidth} {...rest}>
       {children}
     </th>
   );
