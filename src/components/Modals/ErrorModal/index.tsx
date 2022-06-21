@@ -10,6 +10,7 @@ export interface Props {
   title: string;
   children: React.ReactNode;
   buttonText?: string;
+  onClose: () => void;
 }
 
 /**
@@ -20,6 +21,7 @@ export default function ErrorModal({
   title,
   children,
   buttonText = "Close",
+  onClose,
 }: Props) {
   return (
     <PopupModal
@@ -31,7 +33,7 @@ export default function ErrorModal({
         </>
       }
       actions={[
-        <Button className="error" type="button">
+        <Button className="error" type="button" onClick={onClose}>
           {buttonText}
         </Button>,
       ]}
