@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { useIds } from "../../../hooks";
-import { RadioContext } from "../RadioGroup";
+import RadioContext from "./context";
 import "./styles.scss";
 
 export interface RadioProps {

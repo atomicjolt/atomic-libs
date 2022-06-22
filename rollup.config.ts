@@ -9,7 +9,7 @@ const packageJson = require("./package.json");
 
 export default defineConfig([
   {
-    external: ["react", "react/jsx-runtime"],
+    external: ["react", "react/jsx-runtime", "react-dom"],
     input: "src/index.ts",
     output: [
       {
