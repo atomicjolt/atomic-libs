@@ -7,7 +7,7 @@ exports[`matches snapshot 1`] = `
   >
     <label
       class="aj-label"
-      for="combo1-combo-label-12345678900000000000"
+      for="combo-label-12345678900000000000"
     >
       Text Label
       <p
@@ -22,31 +22,31 @@ exports[`matches snapshot 1`] = `
       <div
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-owns="combo1-combo-listbox-12345678900000000000"
+        aria-owns="combo-listbox-12345678900000000000"
         class="aj-combobox__input is-searchable"
-        id="combo1-combo-combo-12345678900000000000"
+        id="combo-combo-12345678900000000000"
         role="combobox"
       >
         <input
           aria-autocomplete="both"
-          aria-controls="combo1-combo-listbox-12345678900000000000"
-          aria-describedby="combo1-combo-error-12345678900000000000"
-          aria-labelledby="combo1-combo-label-12345678900000000000"
-          id="combo1-combo-input-12345678900000000000"
+          aria-controls="combo-listbox-12345678900000000000"
+          aria-describedby="combo-error-12345678900000000000"
+          aria-labelledby="combo-label-12345678900000000000"
+          id="combo-input-12345678900000000000"
           type="text"
           value="content"
         />
       </div>
       <ul
-        aria-labelledby="combo1-combo-label-12345678900000000000"
+        aria-labelledby="combo-label-12345678900000000000"
         class="aj-combobox__menu"
-        id="combo1-combo-listbox-12345678900000000000"
+        id="combo-listbox-12345678900000000000"
         role="listbox"
       />
     </div>
     <p
       class="aj-label--error"
-      id="combo1-combo-error-12345678900000000000"
+      id="combo-error-12345678900000000000"
     >
       some error
     </p>

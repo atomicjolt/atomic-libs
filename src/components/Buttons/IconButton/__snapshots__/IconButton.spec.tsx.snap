@@ -9,7 +9,7 @@ exports[`matches snapshot 1`] = `
   >
     <i
       aria-hidden="true"
-      class="material-icons"
+      class="material-icons is-medium"
     >
       more_vert
     </i>

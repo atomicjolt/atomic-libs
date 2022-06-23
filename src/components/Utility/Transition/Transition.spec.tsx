@@ -1,10 +1,8 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import Textarea from ".";
+import Transition, { TransitionRef } from ".";
 
 it("matches snapshot", () => {
-  const result = render(
-    <Textarea value="" onChange={() => {}} label="label" />
-  );
+  const result = render(<Transition from="1" to="2" render={(v) => v} />);
   expect(result.asFragment()).toMatchSnapshot();
 });

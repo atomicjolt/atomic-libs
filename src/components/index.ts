@@ -26,3 +26,4 @@ export { default as PopupModal } from "./Modals/PopupModal";
 export { default as ConfirmationModal } from "./Modals/ConfirmationModal";
 export { default as ErrorModal } from "./Modals/ErrorModal";
 export { default as MaterialIcon } from "./Utility/MaterialIcon";
+export { default as Transition } from "./Utility/Transition";

@@ -1,6 +1,6 @@
+import React from "react";
 import { render } from "@testing-library/react";
 import CustomDropdown from ".";
-import CustomSelect from ".";
 
 it("matches snapshot", () => {
   const result = render(

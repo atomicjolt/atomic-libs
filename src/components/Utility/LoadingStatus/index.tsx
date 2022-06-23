@@ -16,7 +16,7 @@ export interface Props {
   /** Cutomsize what is rendered when in an error state */
   readonly renderError?: (error: React.ReactNode) => React.ReactNode;
   /** If `loading` is false and `error` is absent, the children will be rendered */
-  readonly children: React.ReactNode;
+  readonly children?: React.ReactNode;
 }
 
 const renderLoadingDefault = (loading: boolean, message: React.ReactNode) => {

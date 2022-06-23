@@ -40,7 +40,6 @@ exports[`matches snapshot 1`] = `
         <li
           aria-selected="true"
           class="aj-combobox__option is-focused"
-          id="custom-dropdown-option-12345678900000000000-0"
           role="option"
         >
           Option 1
@@ -48,7 +47,6 @@ exports[`matches snapshot 1`] = `
         <li
           aria-selected="false"
           class="aj-combobox__option"
-          id="custom-dropdown-option-12345678900000000000-1"
           role="option"
         >
           Option 2
