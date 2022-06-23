@@ -1,7 +1,6 @@
+import React from "react";
 import cn from "classnames";
 import { MaterialIcons } from "../../../types";
-import "./styles.scss";
-
 export interface Props extends Omit<React.HTMLProps<HTMLElement>, "size"> {
   icon: MaterialIcons;
   className?: string;

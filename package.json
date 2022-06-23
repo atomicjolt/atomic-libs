@@ -2,13 +2,13 @@
   "name": "atomic-elements",
   "version": "0.0.1",
   "sideEffects": false,
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/types/index.d.ts",
-  "license": "MIT",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
   "files": [
     "dist"
   ],
+  "types": "./dist/index.d.ts",
+  "license": "MIT",
   "dependencies": {
     "classnames": "^2.3.1",
     "react": "^17.0.0",
@@ -23,7 +23,7 @@
     "@rollup/plugin-babel": "^5.3.1",
     "@rollup/plugin-commonjs": "^22.0.0",
     "@rollup/plugin-node-resolve": "^13.3.0",
-    "@rollup/plugin-typescript": "^8.3.2",
+    "@rollup/plugin-typescript": "^8.3.3",
     "@storybook/addon-actions": "^6.5.5",
     "@storybook/addon-essentials": "^6.5.5",
     "@storybook/addon-interactions": "^6.5.5",
@@ -49,7 +49,8 @@
     "postcss-nested": "^5.0.6",
     "postcss-preset-env": "^7.6.0",
     "react-docgen-typescript": "^2.2.2",
-    "rollup": "^2.74.1",
+    "rollup": "^2.75.7",
+    "rollup-plugin-dts": "^4.2.2",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-scss": "^3.0.0",
     "rollup-plugin-styles": "^4.0.0",
@@ -66,10 +67,9 @@
   "scripts": {
     "storybook": "start-storybook -p 6006",
     "build:storybook": "build-storybook",
-    "build:types": "tsc",
     "build:rollup": "rollup --config rollup.config.ts --configPlugin typescript",
     "build:scss:defines": "sass src/defines.scss dist/defines.css",
-    "build": "yarn build:types && yarn build:rollup && yarn build:scss:defines",
+    "build": "yarn build:rollup && yarn build:scss:defines",
     "test": "jest"
   }
 }

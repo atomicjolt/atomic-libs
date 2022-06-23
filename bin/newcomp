@@ -42,8 +42,10 @@ class NewComp
     spec = Renderer.new('spec.tsx.erb', path: comp_path, name: name).render
     File.open("#{full_path}/#{name}.spec.tsx", "w") { |f| f.write(spec) }
 
-    FileUtils.touch("#{full_path}/styles.scss")
+    FileUtils.touch("#{full_path}/#{name}.scss")
     FileUtils.copy("#{@@templates_dir}/doc.mdx.erb", "#{full_path}/#{name}.doc.mdx")
+    File.open("#{@@components_dir}/index.scss", "a") { |f| f.puts "@use \"./#{comp_path}/#{name}.scss\";"}
+    File.open("#{@@components_dir}/index.ts", "a") { |f| f.puts "export { default as #{name} } from \"./#{comp_path}\";"}
   end
 end
 

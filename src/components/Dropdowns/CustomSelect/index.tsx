@@ -1,7 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import cn from "classnames";
-import "../../general.scss";
-import "./styles.scss";
 import Label from "../../Utility/Label";
 import { useBool, useClick, useIds } from "../../../hooks";
 import { EventHandler, HasChildren, SharedInputProps } from "../../../types";

@@ -1,8 +1,5 @@
 import React from "react";
-import "../../general.scss";
 import { useModal } from "../utils";
-import "./styles.scss";
-
 export interface Props {
   open?: boolean;
   title: React.ReactNode;

@@ -1,8 +1,5 @@
 import React from "react";
 import cn from "classnames";
-import "../../general.scss";
-import "../common.scss";
-import "./styles.scss";
 import { useIds } from "../../../hooks";
 import { SharedInputProps } from "../../../types";
 import InputError from "../../Utility/InputError";

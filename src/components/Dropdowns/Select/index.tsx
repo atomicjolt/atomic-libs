@@ -5,9 +5,7 @@ import {
   HTMLInputValueAttribute,
   SharedInputProps,
 } from "../../../types";
-import "../../general.scss";
 import Label from "../../Utility/Label";
-import "./styles.scss";
 import { useIds } from "../../../hooks";
 import InputError from "../../Utility/InputError";
 

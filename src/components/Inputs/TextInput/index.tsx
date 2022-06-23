@@ -1,8 +1,5 @@
 import React from "react";
 import cn from "classnames";
-import "../../general.scss";
-import "../common.scss";
-import "./styles.scss";
 import Label from "../../Utility/Label";
 import { ControlledInput, SharedInputProps } from "../../../types";
 import { useIds } from "../../../hooks";

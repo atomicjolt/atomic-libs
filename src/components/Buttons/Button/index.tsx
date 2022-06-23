@@ -1,9 +1,6 @@
 import React from "react";
 import cn from "classnames";
 import Spinner from "../../Loaders/Spinner";
-import "../../general.scss";
-import "./styles.scss";
-
 interface CommonProps {
   /** What to render within the Button */
   children?: React.ReactNode;

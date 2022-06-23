@@ -3,12 +3,8 @@ import React from "react";
 import { useIds } from "../../../hooks";
 import { EventHandler, SharedInputProps } from "../../../types";
 import { makeEventHandler } from "../../../utils";
-import "../../general.scss";
 import InputError from "../../Utility/InputError";
 import Label from "../../Utility/Label";
-import "../common.scss";
-import "./styles.scss";
-
 export interface Props extends SharedInputProps {
   value: string;
   min?: string;

@@ -2,10 +2,6 @@ import React, { ChangeEvent } from "react";
 import cn from "classnames";
 import { useIds, useInitialRender } from "../../../hooks";
 import { EventHandler } from "../../../types";
-import "../../general.scss";
-import "../common.scss";
-import "./styles.scss";
-
 export interface Props {
   /** Must include a label. Labels are always Sentence case. */
   label: string;

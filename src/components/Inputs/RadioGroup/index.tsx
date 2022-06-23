@@ -1,9 +1,7 @@
 import cn from "classnames";
 import React from "react";
 import { SharedInputProps } from "../../../types";
-import "../../general.scss";
 import { RadioContextData } from "./context";
-import "./styles.scss";
 import RadioContext from "./context";
 
 export interface Props

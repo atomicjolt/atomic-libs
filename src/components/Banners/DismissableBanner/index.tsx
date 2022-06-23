@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { MaterialIcons } from "../../../types";
-import "../../general.scss";
-import "./styles.scss";
 
 export interface Props {
   readonly children?: React.ReactNode;

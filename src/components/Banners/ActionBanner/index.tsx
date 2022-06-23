@@ -1,6 +1,4 @@
 import React from "react";
-import "../../general.scss";
-import "./styles.scss";
 import Button from "../../Buttons/Button";
 import { MaterialIcons } from "../../../types";
 

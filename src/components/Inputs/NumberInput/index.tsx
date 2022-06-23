@@ -2,10 +2,7 @@ import React, { ChangeEvent } from "react";
 import cn from "classnames";
 import { useIds } from "../../../hooks";
 import { ControlledInput, SharedInputProps } from "../../../types";
-import "../../general.scss";
 import Label from "../../Utility/Label";
-import "../common.scss";
-import "./styles.scss";
 import InputError from "../../Utility/InputError";
 
 export interface Props extends SharedInputProps, ControlledInput<number> {

@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
 import cn from "classnames";
-import "../../general.scss";
-import "./styles.scss";
 import { useBool, useClick, useIds } from "../../../hooks";
 import { HasChildren, SharedInputProps } from "../../../types";
 import InputError from "../../Utility/InputError";

@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 import { modalInitializer, SharedModalData, useModal } from "../utils";
-import "./styles.scss";
 import Button from "../../Buttons/Button";
 
 export interface Props {

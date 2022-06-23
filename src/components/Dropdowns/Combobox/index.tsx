@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
 import cn from "classnames";
-import "../../general.scss";
-import "./styles.scss";
 import { levenshtein, makeIds } from "../../../utils";
 import Label from "../../Utility/Label";
 import { SharedInputProps } from "../../../types";

@@ -3,8 +3,8 @@ import cn from 'classnames';
 
 export interface Props {}
 
-export default function <%= @name %>(props: Props) {
+export default function TestComp(props: Props) {
   return (
-    <div><%= @name %></div>
+    <div>TestComp</div>
   )
 }

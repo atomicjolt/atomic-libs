@@ -1,5 +1,4 @@
 import React, { TdHTMLAttributes, useState } from "react";
-import "./styles.scss";
 import cn from "classnames";
 import { HasChildren, SortDirection } from "../../../types";
 import TableHeader from "./TableHeader";

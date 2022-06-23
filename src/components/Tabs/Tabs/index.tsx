@@ -1,9 +1,6 @@
 import cn from "classnames";
 import React, { useContext, useMemo, useState } from "react";
 import { useIds } from "../../../hooks";
-import "../../general.scss";
-import "./styles.scss";
-
 interface TabData {
   label: string;
   notification?: "error" | "info";

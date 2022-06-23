@@ -1,8 +1,7 @@
+import React from "react";
 import { useContext } from "react";
 import { useIds } from "../../../hooks";
 import RadioContext from "./context";
-import "./styles.scss";
-
 export interface RadioProps {
   value: string;
   children: React.ReactNode;

@@ -1,6 +1,4 @@
 import React from "react";
-import "../../general.scss";
-import "./styles.scss";
 import { AriaHasPopUp, MaterialIcons } from "../../../types";
 import MaterialIcon from "../../Utility/MaterialIcon";
 

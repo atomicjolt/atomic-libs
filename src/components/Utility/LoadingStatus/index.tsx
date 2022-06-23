@@ -1,8 +1,6 @@
 import React from "react";
 import ThreeDotLoader from "../../Loaders/ThreeDotLoader";
 import { ErrorBanner } from "../../Banners/DismissableBanner";
-import "./styles.scss";
-
 export interface Props {
   /** Loading status, when true, a loading animation is displayed  */
   readonly loading?: boolean;

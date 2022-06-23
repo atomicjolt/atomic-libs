@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import cn from "classnames";
 import IconButton from "../../Buttons/IconButton";
-import "../../general.scss";
-import "./styles.scss";
 import { useBool, useClick, useIds } from "../../../hooks";
 import { CanHaveIcon, HasChildren, MaterialIcons } from "../../../types";
 

@@ -3,12 +3,8 @@ import React, { ChangeEvent } from "react";
 import { useIds } from "../../../hooks";
 import { ControlledInput, SharedInputProps } from "../../../types";
 import { makeEventHandler } from "../../../utils";
-import "../../general.scss";
 import InputError from "../../Utility/InputError";
 import Label from "../../Utility/Label";
-import "../common.scss";
-import "./styles.scss";
-
 export interface Props
   extends Omit<SharedInputProps, "size">,
     ControlledInput<string, HTMLTextAreaElement> {

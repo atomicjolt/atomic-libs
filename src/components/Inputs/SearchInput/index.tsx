@@ -2,13 +2,9 @@ import React, { useState } from "react";
 import cn from "classnames";
 import { useIds } from "../../../hooks";
 import { EventHandler, SharedInputProps } from "../../../types";
-import "../../general.scss";
 import InputError from "../../Utility/InputError";
 import Label from "../../Utility/Label";
 import MaterialIcon from "../../Utility/MaterialIcon";
-import "../common.scss";
-import "./styles.scss";
-
 export interface Props extends SharedInputProps {
   /** When the user hits enter, or presses the submit button, this event will fire
    * with the current value of the input element. */
