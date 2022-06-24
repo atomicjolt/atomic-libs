@@ -1,6 +1,41 @@
 @use "../defines" as *;
 
 .aj-dropdown {
+  /* Dropdown variables */
+  --dropdown-border-radius: var(--radius);
+  --dropdown-border: 1px solid var(--input-border-clr);
+  --dropdown-height: 40px;
+  --dropdown-input-height: calc(var(--dropdown-height) - 2px);
+  --dropdown-padding: 6px;
+  --dropdown-padding-left: calc(var(--dropdown-padding) * 2);
+  --dropdown-padding-right: var(--dropdown-height);
+  --dropdown-text-clr: var(--text-clr);
+  --dropdown-text-size: 1.6rem;
+  --dropdown-icon-size: 2.4rem;
+  --dropdown-icon-gap: calc(
+    (var(--dropdown-height) - var(--dropdown-icon-size)) / 2
+  );
+  --dropdown-icon-clr: var(--neutral600);
+
+  /* Menu variables */
+  --menu-box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.5);
+  --menu-bg-clr: var(--neutral50);
+  --menu-border-radius: var(--radius);
+  --menu-max-height: 300px;
+  --menu-padding-top: calc(var(--option-height) / 8);
+
+  /* Option variables */
+  --option-font-size: var(--dropdown-text-size);
+  --option-icon-size: var(--dropdown-icon-size);
+  --option-height: 32px;
+  --option-bg-clr: none;
+  --option-text-clr: inherit;
+  --option-icon-clr: var(--neutral600);
+  --option-selected-clr: var(--text-clr-inverted);
+  --option-padding: var(--dropdown-padding);
+  --option-padding-horizontal: calc(var(--dropdown-padding) * 2);
+  --option-icon-gap: 8px;
+
   .aj-combobox {
     position: relative;
     max-width: var(--combobox-width, auto);
@@ -8,13 +43,14 @@
 
     &__input {
       position: relative;
-      border: 1px solid var(--input-border-clr);
-      border-radius: 5px;
-      height: 40px;
-      padding: 6px 40px 6px 12px;
+      border: var(--dropdown-border);
+      border-radius: var(--dropdown-border-radius);
+      height: var(--dropdown-height);
+      padding: var(--dropdown-padding) var(--dropdown-padding-right)
+        var(--dropdown-padding) var(--dropdown-padding-left);
       @include regular;
-      color: var(--text-clr);
-      font-size: 1.6rem;
+      color: var(--dropdown-text-clr);
+      font-size: var(--dropdown-text-size);
       line-height: 1.5;
       color: inherit;
       display: inline-flex;
@@ -30,8 +66,8 @@
 
       input {
         border: none;
-        min-height: 38px;
-        padding: 0 40px 0 12px;
+        min-height: var(--dropdown-input-height);
+        padding: 0 var(--dropdown-padding-right) 0 var(--dropdown-padding-left);
         @include regular;
         color: inherit;
         font-size: inherit;
@@ -46,11 +82,11 @@
         content: "\E5C5";
         font-family: "Material Icons";
         position: absolute;
-        right: 8px;
-        top: 8px;
-        font-size: 2.4rem;
+        right: var(--dropdown-icon-gap);
+        top: var(--dropdown-icon-gap);
+        font-size: var(--dropdown-icon-size);
         line-height: 1;
-        color: var(--neutral600);
+        color: var(--dropdown-icon-clr);
         pointer-events: none;
       }
 
@@ -79,15 +115,15 @@
     &__menu {
       visibility: hidden;
       overflow-y: auto;
-      max-height: 300px;
+      max-height: var(--menu-max-height);
       position: absolute;
       top: 100%;
       left: 0;
-      border-radius: 5px;
-      box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.5);
+      border-radius: var(--menu-border-radius);
+      box-shadow: var(--menu-box-shadow);
       min-width: 100%;
-      background-color: var(--neutral50);
-      padding: 4px 0;
+      background-color: var(--menu-bg-clr);
+      padding: var(--menu-padding-top) 0;
       margin: 0;
       z-index: 100;
       opacity: 0;
@@ -100,28 +136,28 @@
       position: relative;
       display: flex;
       align-items: center;
-      gap: 8px;
-      padding: 6px 12px;
-      min-height: 32px;
+      gap: var(--option-icon-gap);
+      padding: var(--option-padding) var(--option-padding-horizontal);
+      min-height: var(--option-height);
       @include regular;
       line-height: 1;
-      color: var(--option-text-clr, inherit);
-      font-size: 1.6rem;
+      color: var(--option-text-clr);
+      font-size: var(--option-font-size);
       background-color: var(--option-bg-clr);
 
-      --option-icon-clr: var(--neutral600);
       i {
-        font-size: 2.4rem;
+        font-size: var(--option-icon-size);
         color: var(--option-icon-clr);
       }
+
       &::after {
         content: "";
         position: absolute;
-        right: 12px;
+        right: var(--option-padding-horizontal);
         top: 50%;
         transform: translateY(-50%);
         font-family: "Material Icons";
-        font-size: 2.4rem;
+        font-size: var(--option-icon-size);
         color: var(--option-selected-clr);
       }
 
@@ -134,7 +170,10 @@
       }
       &[aria-selected="true"] {
         --option-selected-clr: var(--primary700);
-        padding-right: 40px;
+        padding-right: calc(
+          var(--option-icon-size) + var(--option-padding-horizontal) +
+            var(--option-padding)
+        );
 
         &::after {
           content: "\e5ca";

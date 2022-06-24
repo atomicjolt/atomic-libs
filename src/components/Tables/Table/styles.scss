@@ -13,7 +13,7 @@
   --table-bg-clr: var(--neutral50);
   --table-font-size: 1.6rem;
   --table-header-font-size: 0.812em;
-  --table-border-radius: 5px;
+  --table-border-radius: var(--radius);
   --table-padding-vert: 8px;
   --table-padding-horz: 12px;
   --sort-icon-clr: var(--text-clr);

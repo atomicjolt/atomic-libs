@@ -1,16 +1,13 @@
 @use "../../defines" as *;
 
 .aj-radio {
-  --unchecked: var(--neutral600);
-  --checked: var(--primary700);
-
   input[type="radio"] + .aj-checkbox__label:before {
     border-radius: 50%;
   }
 
   input[type="radio"]:checked ~ .aj-checkbox__label {
     &:before {
-      border-color: var(--checked);
+      --check-border-clr: var(--checked);
     }
     &:after {
       display: block;

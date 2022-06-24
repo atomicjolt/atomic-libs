@@ -6,8 +6,10 @@
   --banner-icon-clr: var(--primary700);
   --banner-btn-hover-clr: var(--neutral200);
   --banner-btn-active-clr: var(--neutral300);
+  --banner-btn-size: 40px;
+  --banner-border-radius: var(--radius);
 
-  border-radius: 5px;
+  border-radius: var(--banner-border-radius);
   background-color: var(--banner-bg-clr);
   padding: 4px;
   margin-bottom: 4px;
@@ -19,8 +21,8 @@
   gap: 4px;
 
   & > i {
-    height: 40px;
-    width: 40px;
+    height: var(--banner-btn-size);
+    width: var(--banner-btn-size);
     display: grid;
     place-items: center;
     color: var(--banner-icon-clr);
@@ -35,9 +37,9 @@
   &__dismiss {
     border: none;
     background: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 5px;
+    width: var(--banner-btn-size);
+    height: var(--banner-btn-size);
+    border-radius: var(--banner-border-radius);
     font-size: 2.4rem;
     color: var(--banner-text-clr);
     display: grid;

@@ -1,17 +1,27 @@
 @use "../defines" as *;
 
 .aj-btn {
+  --btn-font-size: 1.6rem;
+  --btn-icon-size: 2.4rem;
+  --btn-icon-gap: 8px;
+  --btn-text-clr: var(--text-clr-alt);
+  --btn-bg-clr: var(--neutral50);
+  --btn-hover-text-clr: var(--text-clr);
+  --btn-hover-bg-clr: var(--neutral100);
+  --btn-hover-shadow: none;
+  --btn-border: none;
+  --btn-border-radius: var(--radius);
   --btn-height: 40px;
-  --btn-padding: 0.5em; /* Half the button's font size, 8px currently */
+  --btn-padding: 0.5em;
 
   padding: var(--btn-padding) calc(var(--btn-padding) * 2);
-  border-radius: 5px;
-  font-size: 1.6rem;
+  border-radius: var(--btn-border-radius);
+  font-size: var(--btn-font-size);
   min-height: var(--btn-height);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: var(--btn-icon-gap);
   @include bold;
   transition: background 100ms ease, color 100ms ease, transform 100ms ease,
     box-shadow 100ms ease;
@@ -51,7 +61,7 @@
 
   & > i {
     color: inherit;
-    font-size: 2.4rem;
+    font-size: var(--btn-icon-size);
     margin-left: calc(var(--btn-padding) / -2);
   }
 }
