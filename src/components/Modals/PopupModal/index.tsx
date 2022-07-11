@@ -1,5 +1,6 @@
 import React from "react";
 import { useModal } from "../utils";
+
 export interface Props {
   open?: boolean;
   title: React.ReactNode;
