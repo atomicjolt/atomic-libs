@@ -5,6 +5,7 @@ import { EventHandler, SharedInputProps } from "../../../types";
 import InputError from "../../Utility/InputError";
 import Label from "../../Utility/Label";
 import MaterialIcon from "../../Utility/MaterialIcon";
+
 export interface Props extends SharedInputProps {
   /** When the user hits enter, or presses the submit button, this event will fire
    * with the current value of the input element. */
