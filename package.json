@@ -71,9 +71,7 @@
   "scripts": {
     "storybook": "start-storybook -p 6006",
     "build:storybook": "build-storybook",
-    "build:rollup": "rollup --config rollup.config.ts --configPlugin typescript",
-    "build:scss:defines": "sass src/defines.scss dist/defines.css",
-    "build": "yarn build:rollup && yarn build:scss:defines",
+    "build": "rollup --config rollup.config.ts --configPlugin typescript",
     "test": "jest"
   }
 }

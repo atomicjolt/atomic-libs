@@ -9,7 +9,6 @@ export { default as Button } from "./Buttons/Button";
 export { default as IconButton } from "./Buttons/IconButton";
 export { default as Combobox } from "./Dropdowns/Combobox";
 export { default as CustomDropdown } from "./Dropdowns/CustomDropdown";
-export { default as CustomDropdown } from "./Dropdowns/CustomDropdown";
 export { default as Select } from "./Dropdowns/Select";
 export { default as IconMenu } from "./Dropdowns/IconMenu";
 export { default as CheckBox } from "./Inputs/Checkbox";
