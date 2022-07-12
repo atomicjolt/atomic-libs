@@ -1,21 +1,19 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState } from "react";
 import cn from "classnames";
-import { levenshtein, makeIds } from "../../../utils";
-import Label from "../../Utility/Label";
+import { levenshtein } from "../../../utils";
 import { SharedInputProps } from "../../../types";
+import { useIds } from "../../../hooks";
+import Label from "../../Utility/Label";
 import InputError from "../../Utility/InputError";
 
 export interface Props extends SharedInputProps {
   value: string;
   onChange: (value: string) => void;
 
-  /** The possible values.
-   * - value: the actual value used, should match with `selected`
-   * - title: What to display in the dropdown field
-   */
+  /** Array of possible values to suggest to the user */
   options: string[];
 
-  /** Option function to filter the suggestions for a given value. By default,
+  /** Optional function to override the filtering behavior. By default,
    * the suggestions are compared to the current input value by string value.
    * It checks if the suggestions starts with the current value OR if the
    * levenshtein distance between them is 2 or less.
@@ -35,6 +33,7 @@ function defaultFilterSuggestiosn(value: string, options: string[]): string[] {
 /**
  * Combobox
  * It is the combination of an input field, with a dropdown of possible suggestions
+ *
  * https://www.w3.org/TR/wai-aria-practices/examples/combobox/combobox-select-only.html for accessibility implementation.
  * */
 export default function Combobox({
@@ -51,18 +50,7 @@ export default function Combobox({
 }: Props) {
   const [menuActive, setMenuActive] = useState(false);
 
-  useEffect(() => {
-    const closeMenu = () => {
-      if (!menuActive) return;
-      setMenuActive(false);
-    };
-
-    window.addEventListener("click", closeMenu);
-
-    return () => window.removeEventListener("click", closeMenu);
-  }, [menuActive]);
-
-  const [labelId, comobId, inputId, listBoxId, errorId] = makeIds(`combo`, [
+  const [labelId, comobId, inputId, listBoxId, errorId] = useIds(`combo`, [
     "label",
     "combo",
     "input",
@@ -88,7 +76,6 @@ export default function Combobox({
           aria-haspopup="listbox"
           id={comobId}
           role="combobox"
-          onClick={() => setMenuActive(!menuActive)}
         >
           <input
             type="text"
@@ -99,6 +86,8 @@ export default function Combobox({
             id={inputId}
             value={value}
             onChange={(e) => onChange(e.target.value)}
+            onFocus={() => setMenuActive(true)}
+            onBlur={() => setMenuActive(false)}
           />
         </div>
         <ul
@@ -112,7 +101,7 @@ export default function Combobox({
               className={cn("aj-combobox__option", {
                 "is-focused": o === value,
               })}
-              onClick={() => onChange(o)}
+              onMouseDown={() => onChange(o)}
               role="option"
               id={String(o)}
               key={String(o)}

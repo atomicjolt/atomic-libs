@@ -61,6 +61,7 @@ export interface BannerWrapperProps {
   readonly children: React.ReactNode;
 }
 
+/** Conveneince Wrapper around `DismissableBanner` */
 export function ErrorBanner({ children }: BannerWrapperProps) {
   return (
     <DismissableBanner type="error" icon="error">
@@ -71,7 +72,7 @@ export function ErrorBanner({ children }: BannerWrapperProps) {
 
 export function WarningBanner({ children }: BannerWrapperProps) {
   return (
-    <DismissableBanner type="warning" icon="close">
+    <DismissableBanner type="warning" icon="warning">
       {children}
     </DismissableBanner>
   );

@@ -44,6 +44,7 @@ export interface UpgradeBannerProps {
   onClick: () => void;
 }
 
+/** A wrapper around `ActionBanner` */
 export function UpgradeBanner({ time, app, onClick }: UpgradeBannerProps) {
   return (
     <ActionBanner

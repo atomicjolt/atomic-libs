@@ -34,7 +34,7 @@ interface TabsUncontrolledProps extends SharedProps {}
 
 interface TabContextData {
   currentTab: string;
-  currentLabel: string;
+  currentLabel: string | null;
 }
 
 interface TabProps {
@@ -87,7 +87,9 @@ function TabsUncontrolled({ children, tabs }: TabsUncontrolledProps) {
   );
 }
 
-function getLabel(data: string | TabData) {
+function getLabel(data?: string | TabData) {
+  if (!data) return null;
+
   if (typeof data === "string") {
     return data;
   }

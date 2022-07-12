@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, RefObject } from "react";
 import { makeIds } from "./utils";
 
 export function useIds(base: string, args: string[], deps: any[] = []) {
@@ -39,4 +39,35 @@ export function useInitialRender() {
   }, []);
 
   return isInitialrender.current;
+}
+
+interface UseClickOutsideOptions {
+  enabled: boolean;
+}
+
+const defaultOptions: UseClickOutsideOptions = {
+  enabled: true,
+};
+
+// https://www.30secondsofcode.org/react/s/use-click-outside
+export function useClickOutside(
+  ref: RefObject<HTMLElement>,
+  callback: () => void,
+  options: Partial<UseClickOutsideOptions> = {}
+) {
+  const onClick = (event: MouseEvent) => {
+    if (ref.current && !ref.current.contains(event.target as Node)) {
+      callback();
+    }
+  };
+
+  useEffect(() => {
+    const opts: UseClickOutsideOptions = { ...defaultOptions, ...options };
+    if (opts.enabled) {
+      document.addEventListener("click", onClick);
+      return () => document.removeEventListener("click", onClick);
+    } else {
+      document.removeEventListener("click", onClick);
+    }
+  }, [options]);
 }

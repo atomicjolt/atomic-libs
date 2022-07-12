@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import cn from "classnames";
 import IconButton from "../../Buttons/IconButton";
-import { useBool, useClick, useIds } from "../../../hooks";
+import { useBool, useClick, useClickOutside, useIds } from "../../../hooks";
 import { CanHaveIcon, HasChildren, MaterialIcons } from "../../../types";
 
 export interface Props {
@@ -28,15 +28,21 @@ function IconMenu({
 }: Props) {
   const [menuActive, toggleMenu] = useBool(false);
 
-  const [buttonId, menuId] = useIds("three-dot-menu", ["button", "menu"]);
+  const [buttonId, menuId] = useIds("iconmenu", ["button", "menu"]);
+  const ref = useRef(null);
 
-  useClick(() => {
-    if (!menuActive) return;
-    toggleMenu();
-  }, [menuActive]);
+  useClickOutside(
+    ref,
+    () => {
+      if (menuActive) {
+        toggleMenu();
+      }
+    },
+    { enabled: menuActive }
+  );
 
   return (
-    <div className="aj-menu">
+    <div className="aj-menu" ref={ref}>
       <IconButton
         icon={icon}
         ariaControls={menuId}
@@ -53,6 +59,7 @@ function IconMenu({
         id={menuId}
         aria-labelledby={buttonId}
         tabIndex={-1}
+        onClick={toggleMenu}
       >
         {children}
       </div>
