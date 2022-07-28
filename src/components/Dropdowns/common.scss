@@ -1,7 +1,7 @@
 @use "../mixins";
 
-.aj-dropdown {
-  .aj-combobox {
+.aje-dropdown {
+  .aje-combobox {
     position: relative;
     max-width: var(--combobox-width, auto);
     color: var(--text-clr);
@@ -60,7 +60,7 @@
         border-color: var(--outline-clr-primary);
       }
 
-      &[aria-expanded="true"] + .aj-combobox__menu {
+      &[aria-expanded="true"] + .aje-combobox__menu {
         visibility: visible;
         opacity: 1;
         transform: scaleY(1);
@@ -163,16 +163,16 @@
   }
   &.is-auto {
     --combobox-width: none;
-    .aj-combobox {
+    .aje-combobox {
       display: inline-block;
     }
-    .aj-combobox__input {
+    .aje-combobox__input {
       width: auto;
     }
   }
 
   &.has-error {
-    .aj-combobox__input {
+    .aje-combobox__input {
       border-color: var(--error700);
 
       &:focus {

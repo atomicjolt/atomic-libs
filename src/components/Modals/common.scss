@@ -1,6 +1,6 @@
 @use "../mixins";
 
-.aj-modal-background {
+.aje-modal-background {
   //position: fixed;
   min-height: 300px;
   inset: 0;
@@ -10,7 +10,7 @@
   place-items: center;
 }
 
-.aj-modal {
+.aje-modal {
   width: 90%;
   max-width: 800px;
   border-radius: 10px;

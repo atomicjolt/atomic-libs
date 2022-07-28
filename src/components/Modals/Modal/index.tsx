@@ -43,12 +43,12 @@ function Modal({
   const renderModal = useModal(open);
 
   return renderModal(
-    <div className="aj-modal-background">
-      <div className="aj-modal">
-        <div className="aj-modal__top">
-          <h2 className="aj-modal__title">{title}</h2>
+    <div className="aje-modal-background">
+      <div className="aje-modal">
+        <div className="aje-modal__top">
+          <h2 className="aje-modal__title">{title}</h2>
           <button
-            className="aj-modal__close"
+            className="aje-modal__close"
             aria-label="close modal"
             onClick={() => onClose && onClose()}
           >
@@ -57,8 +57,8 @@ function Modal({
             </i>
           </button>
         </div>
-        <div className="aj-modal__main">{children}</div>
-        <div className="aj-modal__bottom">
+        <div className="aje-modal__main">{children}</div>
+        <div className="aje-modal__bottom">
           {secondaryButton && (
             <Button
               className="secondary"

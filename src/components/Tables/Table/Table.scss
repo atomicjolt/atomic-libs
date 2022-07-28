@@ -1,13 +1,13 @@
 @use "../../mixins";
 
-.aj-table-overflow {
+.aje-table-overflow {
   max-width: 100%;
   overflow-x: auto;
   scrollbar-gutter: stable;
   position: relative;
 }
 
-.aj-table {
+.aje-table {
   --table-border-clr: var(--neutral300);
   --table-border-width: 1px;
   --table-bg-clr: var(--neutral50);

@@ -24,7 +24,7 @@ export default function FileInput({
 
   return (
     <div
-      className={cn("aj-input--file", {
+      className={cn("aje-input--file", {
         "has-error": error,
         "is-disabled": disabled,
       })}

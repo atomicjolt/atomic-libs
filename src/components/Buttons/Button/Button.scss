@@ -1,13 +1,13 @@
 @use "../../mixins";
 @use "../common.scss";
 
-.aj-btn {
+.aje-btn {
   &--primary {
     --btn-text-clr: var(--text-clr-inverted);
     --btn-bg-clr: var(--primary700);
     --btn-hover-text-clr: var(--btn-text-clr);
     --btn-hover-bg-clr: var(--primary800);
-    @extend .aj-btn;
+    @extend .aje-btn;
   }
 
   &--secondary {
@@ -16,7 +16,7 @@
     --btn-hover-text-clr: var(--text-clr);
     --btn-hover-bg-clr: var(--neutral200);
     --btn-border: var(--border);
-    @extend .aj-btn;
+    @extend .aje-btn;
   }
 
   &--error {
@@ -24,7 +24,7 @@
     --btn-bg-clr: var(--error700);
     --btn-hover-text-clr: var(--btn-text-clr);
     --btn-hover-bg-clr: var(--error800);
-    @extend .aj-btn;
+    @extend .aje-btn;
   }
 
   &--success {
@@ -32,7 +32,7 @@
     --btn-bg-clr: var(--success700);
     --btn-hover-text-clr: var(--btn-text-clr);
     --btn-hover-bg-clr: var(--success800);
-    @extend .aj-btn;
+    @extend .aje-btn;
   }
 
   &--inverted {
@@ -41,6 +41,6 @@
     --btn-hover-text-clr: var(--btn-text-clr);
     --btn-hover-bg-clr: var(--btn-bg-clr);
     --btn-hover-shadow: 0 1px 3px hsla(221, 39%, 11%, 0.5);
-    @extend .aj-btn;
+    @extend .aje-btn;
   }
 }

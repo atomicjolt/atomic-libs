@@ -60,7 +60,7 @@ export default function Combobox({
 
   return (
     <div
-      className={cn("aj-dropdown", `is-${size}`, {
+      className={cn("aje-dropdown", `is-${size}`, {
         "has-error": error,
         "is-disabled": disabled,
       })}
@@ -68,9 +68,9 @@ export default function Combobox({
       <Label message={message} htmlFor={labelId} hidden={hideLabel}>
         {label}
       </Label>
-      <div className="aj-combobox">
+      <div className="aje-combobox">
         <div
-          className="aj-combobox__input is-searchable"
+          className="aje-combobox__input is-searchable"
           aria-owns={listBoxId}
           aria-expanded={menuActive}
           aria-haspopup="listbox"
@@ -91,14 +91,14 @@ export default function Combobox({
           />
         </div>
         <ul
-          className="aj-combobox__menu"
+          className="aje-combobox__menu"
           role="listbox"
           id={listBoxId}
           aria-labelledby={labelId}
         >
           {filterSuggestions(value, options).map((o) => (
             <li
-              className={cn("aj-combobox__option", {
+              className={cn("aje-combobox__option", {
                 "is-focused": o === value,
               })}
               onMouseDown={() => onChange(o)}

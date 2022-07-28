@@ -28,7 +28,7 @@ export default function Radio({
   } = useContext(RadioContext);
 
   return (
-    <label className="aj-radio" htmlFor={inputId}>
+    <label className="aje-radio" htmlFor={inputId}>
       <input
         id={inputId}
         type="radio"
@@ -38,10 +38,10 @@ export default function Radio({
         value={value}
         onChange={onChange}
       />
-      <span className="aj-checkbox__label">
+      <span className="aje-checkbox__label">
         {children}
-        {message && <p className="aj-label--message">{message}</p>}
-        {error && <p className="aj-label--error">{error}</p>}
+        {message && <p className="aje-label--message">{message}</p>}
+        {error && <p className="aje-label--error">{error}</p>}
       </span>
     </label>
   );

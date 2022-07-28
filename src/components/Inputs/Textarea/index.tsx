@@ -35,7 +35,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, Props>(
 
     return (
       <div
-        className={cn("aj-input", `is-${size}`, {
+        className={cn("aje-input", `is-${size}`, {
           "can-resize": resize,
           "has-error": error,
           "is-disabled": disabled,

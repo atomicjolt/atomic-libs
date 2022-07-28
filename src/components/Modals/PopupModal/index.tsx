@@ -22,17 +22,17 @@ export default function PopupModal({
   const renderModal = useModal(open);
 
   return renderModal(
-    <div className="aj-modal-background">
-      <div className="aj-modal--popup">
-        <div className="aj-modal__top">
+    <div className="aje-modal-background">
+      <div className="aje-modal--popup">
+        <div className="aje-modal__top">
           {typeof title === "string" ? (
-            <h2 className="aj-modal__title">{title}</h2>
+            <h2 className="aje-modal__title">{title}</h2>
           ) : (
             title
           )}
         </div>
-        <div className="aj-modal__main">{children}</div>
-        <div className="aj-modal__bottom">{actions}</div>
+        <div className="aje-modal__main">{children}</div>
+        <div className="aje-modal__bottom">{actions}</div>
       </div>
     </div>
   );

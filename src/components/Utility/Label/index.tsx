@@ -19,12 +19,12 @@ export default function Label({
   id,
   error,
 }: Props) {
-  const classes = cn("aj-label", { "aj-hidden": hidden });
+  const classes = cn("aje-label", { "aje-hidden": hidden });
 
   return (
     <label className={classes} htmlFor={htmlFor} id={id}>
       {children}
-      {message && <p className="aj-label--message">{message}</p>}
+      {message && <p className="aje-label--message">{message}</p>}
       {error && <ErrorLabel>{error}</ErrorLabel>}
     </label>
   );
@@ -37,7 +37,7 @@ interface ErrorLabelProps {
 
 export function ErrorLabel({ children, id }: ErrorLabelProps) {
   return (
-    <p id={id} className="aj-label--error">
+    <p id={id} className="aje-label--error">
       {children}
     </p>
   );

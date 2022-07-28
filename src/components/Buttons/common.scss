@@ -1,6 +1,6 @@
 @use "../mixins.scss";
 
-.aj-btn {
+.aje-btn {
   --btn-height: 40px;
   --btn-padding: 0.5em; /* Half the button's font size, 8px currently */
 
@@ -42,8 +42,8 @@
     position: relative;
     color: transparent;
 
-    .aj-spinner,
-    .aj-three-dot-loader {
+    .aje-spinner,
+    .aje-three-dot-loader {
       --loader-clr: var(--btn-text-clr);
       --loader-size: 1em;
     }

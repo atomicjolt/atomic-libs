@@ -1,6 +1,6 @@
 @use '../../mixins.scss';
 
-.aj-loading-status-loading {
+.aje-loading-status-loading {
   --loader-size: 20px;
 
   position: absolute;
@@ -8,7 +8,7 @@
   display: grid;
   place-items: center;
 
-  .aj-three-dot-loader {
+  .aje-three-dot-loader {
     position: relative;
   }
 

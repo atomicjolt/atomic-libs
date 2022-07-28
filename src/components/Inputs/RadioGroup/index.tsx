@@ -43,11 +43,11 @@ export default function RadioGroup({
   };
 
   return (
-    <fieldset className="aj-radio-group">
-      <legend className={cn("aj-label", { "aj-hidden": hideLabel })}>
+    <fieldset className="aje-radio-group">
+      <legend className={cn("aje-label", { "aje-hidden": hideLabel })}>
         {label}
-        {message && <p className="aj-label--message">{message}</p>}
-        {error && <p className="aj-label--error">{error}</p>}
+        {message && <p className="aje-label--message">{message}</p>}
+        {error && <p className="aje-label--error">{error}</p>}
       </legend>
       <RadioContext.Provider value={ctx}>{children}</RadioContext.Provider>
     </fieldset>

@@ -4,7 +4,7 @@ import Spinner from "../../Loaders/Spinner";
 interface CommonProps {
   /** What to render within the Button */
   children?: React.ReactNode;
-  /** Added to the button's className as: `aj-btn--${className}`. Builtin styles for:
+  /** Added to the button's className as: `aje-btn--${className}`. Builtin styles for:
    * - `primary`
    * - `secondary`
    * - `success`
@@ -57,7 +57,7 @@ export default function Button({
     <button
       aria-label={loadingText}
       type={type}
-      className={cn(`aj-btn--${className}`, { "is-loading": loading })}
+      className={cn(`aje-btn--${className}`, { "is-loading": loading })}
       onClick={onClick}
       disabled={disabled}
     >

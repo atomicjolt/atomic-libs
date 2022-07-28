@@ -6,7 +6,7 @@ export interface Props {
 /** Spinner Component */
 export default function Spinner({ loading = true }: Props) {
   return (
-    <div className="aj-spinner">
+    <div className="aje-spinner">
       {loading ? (
         <svg
           className="circular-loader"

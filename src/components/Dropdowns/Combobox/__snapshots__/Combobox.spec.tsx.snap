@@ -3,27 +3,27 @@
 exports[`matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="aj-dropdown is-medium has-error"
+    class="aje-dropdown is-medium has-error"
   >
     <label
-      class="aj-label"
+      class="aje-label"
       for="combo-label-12345678900000000000"
     >
       Text Label
       <p
-        class="aj-label--message"
+        class="aje-label--message"
       >
         message
       </p>
     </label>
     <div
-      class="aj-combobox"
+      class="aje-combobox"
     >
       <div
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="combo-listbox-12345678900000000000"
-        class="aj-combobox__input is-searchable"
+        class="aje-combobox__input is-searchable"
         id="combo-combo-12345678900000000000"
         role="combobox"
       >
@@ -39,13 +39,13 @@ exports[`matches snapshot 1`] = `
       </div>
       <ul
         aria-labelledby="combo-label-12345678900000000000"
-        class="aj-combobox__menu"
+        class="aje-combobox__menu"
         id="combo-listbox-12345678900000000000"
         role="listbox"
       />
     </div>
     <p
-      class="aj-label--error"
+      class="aje-label--error"
       id="combo-error-12345678900000000000"
     >
       some error

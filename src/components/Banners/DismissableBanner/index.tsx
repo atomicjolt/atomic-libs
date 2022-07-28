@@ -5,7 +5,7 @@ export interface Props {
   readonly children?: React.ReactNode;
   /** The type of banner to be displayed.
    * Gets added to the top-level classname
-   * as: `aj-banner--${type}`. The component
+   * as: `aje-banner--${type}`. The component
    * comes shipped with styles for these types:
    * - `error`
    * - `warning` */
@@ -33,15 +33,15 @@ export default function DismissableBanner({
   }
 
   return (
-    <div className={`aj-banner--${type}`}>
+    <div className={`aje-banner--${type}`}>
       {icon && (
         <i className="material-icons" aria-hidden>
           {icon}
         </i>
       )}
-      <div className="aj-banner__main">{children}</div>
+      <div className="aje-banner__main">{children}</div>
       <button
-        className="aj-banner__dismiss"
+        className="aje-banner__dismiss"
         aria-label={`dismiss ${type}`}
         onClick={() => {
           setVisible(false);

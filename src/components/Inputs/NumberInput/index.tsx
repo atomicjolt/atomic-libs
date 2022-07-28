@@ -33,7 +33,7 @@ const NumberInput = React.forwardRef<HTMLInputElement, Props>(
 
     return (
       <div
-        className={cn("aj-input", `is-${size}`, {
+        className={cn("aje-input", `is-${size}`, {
           "has-error": error,
           "is-disabled": disabled,
         })}

@@ -1,14 +1,14 @@
 @use "../../mixins";
 @use "../common.scss";
 
-.aj-modal {
+.aje-modal {
   &--error {
-    @extend .aj-modal;
+    @extend .aje-modal;
     max-width: 400px;
   }
 
   &--error {
-    .aj-modal__top > i {
+    .aje-modal__top > i {
       color: var(--error700);
     }
   }

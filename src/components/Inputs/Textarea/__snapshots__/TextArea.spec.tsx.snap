@@ -3,10 +3,10 @@
 exports[`matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="aj-input is-small can-resize"
+    class="aje-input is-small can-resize"
   >
     <label
-      class="aj-label"
+      class="aje-label"
       for="textarea-textarea-12345678900000000000"
     >
       label

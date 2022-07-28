@@ -42,7 +42,7 @@ function IconMenu({
   );
 
   return (
-    <div className="aj-menu" ref={ref}>
+    <div className="aje-menu" ref={ref}>
       <IconButton
         icon={icon}
         ariaControls={menuId}
@@ -54,7 +54,7 @@ function IconMenu({
         onClick={toggleMenu}
       />
       <div
-        className={cn("aj-menu__dropdown", { "drop-right": dropRight })}
+        className={cn("aje-menu__dropdown", { "drop-right": dropRight })}
         role="menu"
         id={menuId}
         aria-labelledby={buttonId}
@@ -75,7 +75,7 @@ type IconMenuItemProps = HasChildren &
 function IconMenuItem({ children, icon, onClick }: IconMenuItemProps) {
   // TODO: Are ids important for these?
   return (
-    <button className="aj-menu__option" onClick={onClick}>
+    <button className="aje-menu__option" onClick={onClick}>
       {icon && (
         <i className="material-icons" aria-hidden>
           {icon}

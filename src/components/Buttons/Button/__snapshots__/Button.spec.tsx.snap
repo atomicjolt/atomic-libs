@@ -4,7 +4,7 @@ exports[`matches snapshots changes className 1`] = `
 <DocumentFragment>
   <button
     aria-label=""
-    class="aj-btn--secondary"
+    class="aje-btn--secondary"
     type="button"
   >
     Click Me
@@ -16,11 +16,11 @@ exports[`matches snapshots loading completed state 1`] = `
 <DocumentFragment>
   <button
     aria-label="loading"
-    class="aj-btn--primary is-loading"
+    class="aje-btn--primary is-loading"
     type="button"
   >
     <div
-      class="aj-spinner"
+      class="aje-spinner"
     >
       <span />
     </div>
@@ -33,11 +33,11 @@ exports[`matches snapshots loading state 1`] = `
 <DocumentFragment>
   <button
     aria-label="loading"
-    class="aj-btn--primary is-loading"
+    class="aje-btn--primary is-loading"
     type="button"
   >
     <div
-      class="aj-spinner"
+      class="aje-spinner"
     >
       <svg
         class="circular-loader"
@@ -62,7 +62,7 @@ exports[`matches snapshots normal display 1`] = `
 <DocumentFragment>
   <button
     aria-label=""
-    class="aj-btn--primary"
+    class="aje-btn--primary"
     type="button"
   >
     Click Me

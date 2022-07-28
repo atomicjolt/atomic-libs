@@ -3,7 +3,7 @@ import Button from "../../Buttons/Button";
 import { MaterialIcons } from "../../../types";
 
 export interface Props {
-  /** `aj-banner--${className}` pre-defined styles for:
+  /** `aje-banner--${className}` pre-defined styles for:
    * - `upgrade`
    */
   readonly className: string;
@@ -22,13 +22,13 @@ export default function ActionBanner({
   onClick,
 }: Props) {
   return (
-    <div className={`aj-banner--${className}`}>
+    <div className={`aje-banner--${className}`}>
       {icon && (
         <i className="material-icons" aria-hidden>
           {icon}
         </i>
       )}
-      <div className="aj-banner__main">{children}</div>
+      <div className="aje-banner__main">{children}</div>
       <Button className="inverted" onClick={onClick}>
         {buttonText}
       </Button>

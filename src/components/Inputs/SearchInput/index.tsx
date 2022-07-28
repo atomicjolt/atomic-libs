@@ -37,7 +37,7 @@ const SearchInput = React.forwardRef<HTMLInputElement, Props>(
 
     return (
       <form
-        className={cn("aj-input", `is-${size}`, {
+        className={cn("aje-input", `is-${size}`, {
           "is-disabled": disabled,
           "has-error": error,
         })}

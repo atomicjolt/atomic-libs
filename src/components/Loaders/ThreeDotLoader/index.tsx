@@ -6,7 +6,7 @@ export interface Props {
 /** Three Dot Loader Component */
 export default function ThreeDotLoader({ loading = true }: Props) {
   return (
-    <div className="aj-three-dot-loader">
+    <div className="aje-three-dot-loader">
       {loading ? (
         <div className="dots-container">
           <span className="dot1"></span>

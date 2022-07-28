@@ -14,7 +14,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, Props>(
 
     return (
       <label
-        className={cn("aj-checkbox", { "has-error": error })}
+        className={cn("aje-checkbox", { "has-error": error })}
         htmlFor={inputId}
       >
         <input
@@ -24,10 +24,10 @@ const Checkbox = React.forwardRef<HTMLInputElement, Props>(
           disabled={disabled}
           onClick={(e) => onClick((e.target as HTMLInputElement).checked, e)}
         />
-        <span className="aj-checkbox__label">
+        <span className="aje-checkbox__label">
           {label}
-          {message && <p className="aj-label--message">{message}</p>}
-          {error && <p className="aj-label--error">{error}</p>}
+          {message && <p className="aje-label--message">{message}</p>}
+          {error && <p className="aje-label--error">{error}</p>}
         </span>
       </label>
     );

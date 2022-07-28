@@ -1,7 +1,7 @@
 @use "../../mixins";
 @use "../common.scss";
 
-.aj-btn {
+.aje-btn {
   &--icon {
     --btn-text-clr: var(--text-clr-alt);
     --btn-bg-clr: var(--neutral50);
@@ -13,6 +13,6 @@
     i {
       margin-left: 0;
     }
-    @extend .aj-btn;
+    @extend .aje-btn;
   }
 }

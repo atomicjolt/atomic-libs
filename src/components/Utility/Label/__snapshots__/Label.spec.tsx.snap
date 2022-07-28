@@ -3,7 +3,7 @@
 exports[`matches snapshot 1`] = `
 <DocumentFragment>
   <label
-    class="aj-label"
+    class="aje-label"
     for="id"
   >
     Label Content

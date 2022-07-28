@@ -3,15 +3,15 @@
 exports[`matches snapshot 1`] = `
 <DocumentFragment>
   <fieldset
-    class="aj-radio-group"
+    class="aje-radio-group"
   >
     <legend
-      class="aj-label"
+      class="aje-label"
     >
       Label
     </legend>
     <label
-      class="aj-radio"
+      class="aje-radio"
       for="radio-input-12345678900000000000"
     >
       <input
@@ -22,13 +22,13 @@ exports[`matches snapshot 1`] = `
         value="opt1"
       />
       <span
-        class="aj-checkbox__label"
+        class="aje-checkbox__label"
       >
         Option 1
       </span>
     </label>
     <label
-      class="aj-radio"
+      class="aje-radio"
       for="radio-input-12345678900000000000"
     >
       <input
@@ -38,13 +38,13 @@ exports[`matches snapshot 1`] = `
         value="opt2"
       />
       <span
-        class="aj-checkbox__label"
+        class="aje-checkbox__label"
       >
         Option 2
       </span>
     </label>
     <label
-      class="aj-radio"
+      class="aje-radio"
       for="radio-input-12345678900000000000"
     >
       <input
@@ -54,7 +54,7 @@ exports[`matches snapshot 1`] = `
         value="opt3"
       />
       <span
-        class="aj-checkbox__label"
+        class="aje-checkbox__label"
       >
         Option 3
       </span>

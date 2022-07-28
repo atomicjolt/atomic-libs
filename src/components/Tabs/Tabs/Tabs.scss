@@ -1,6 +1,6 @@
 @use "../../mixins";
 
-.aj-tab-list {
+.aje-tab-list {
   --tab-border-width: 1px;
   --tab-border-clr: var(--border-clr-primary);
   --tab-padding-hori: 16px;
@@ -12,7 +12,7 @@
   gap: 2px;
 }
 
-.aj-tab {
+.aje-tab {
   --tab-radius: var(--radius);
   --tab-bg-clr: var(--neutral100);
   --tab-border-width: 1px;
@@ -59,7 +59,7 @@
   }
 }
 
-.aj-tab-content {
+.aje-tab-content {
   --tab-bg-clr: var(--neutral50);
   --tab-border-clr: var(--border-clr-primary);
 
@@ -78,11 +78,11 @@
   }
 }
 
-.aj-tab-link {
+.aje-tab-link {
   position: relative;
 }
 
-.aj-tab-notification {
+.aje-tab-notification {
   --tab-notif-error-clr: var(--error600);
   --tab-notif-info-clr: var(--primary400);
 

@@ -35,7 +35,7 @@ export default function Select({
 
   return (
     <div
-      className={cn("aj-input", `is-${size}`, {
+      className={cn("aje-input", `is-${size}`, {
         "has-error": error,
         "is-disabled": disabled,
       })}
@@ -43,7 +43,7 @@ export default function Select({
       <Label message={message} htmlFor={inputId} hidden={hideLabel}>
         {label}
       </Label>
-      <div className="aj-input__select">
+      <div className="aje-input__select">
         <select
           id={inputId}
           aria-describedby={error ? errorId : ""}

@@ -3,10 +3,10 @@
 exports[`matches snapshot displays with search button 1`] = `
 <DocumentFragment>
   <form
-    class="aj-input is-medium"
+    class="aje-input is-medium"
   >
     <label
-      class="aj-label"
+      class="aje-label"
       for="search-input-12345678900000000000"
     >
       search
@@ -34,10 +34,10 @@ exports[`matches snapshot displays with search button 1`] = `
 exports[`matches snapshot displays without button 1`] = `
 <DocumentFragment>
   <form
-    class="aj-input is-medium"
+    class="aje-input is-medium"
   >
     <label
-      class="aj-label"
+      class="aje-label"
       for="search-input-12345678900000000000"
     >
       search

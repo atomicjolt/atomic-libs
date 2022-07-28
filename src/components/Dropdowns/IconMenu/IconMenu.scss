@@ -1,12 +1,12 @@
 @use "../../mixins";
 
-.aj-menu {
+.aje-menu {
   position: relative;
   display: inline-block;
   color: var(--text-clr);
 
   & > button {
-    &[aria-expanded="true"] + .aj-menu__dropdown {
+    &[aria-expanded="true"] + .aje-menu__dropdown {
       visibility: visible;
       opacity: 1;
       transform: scaleY(1);

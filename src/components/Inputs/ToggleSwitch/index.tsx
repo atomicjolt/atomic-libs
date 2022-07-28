@@ -18,7 +18,7 @@ const ToggleSwitch = React.forwardRef<HTMLInputElement, Props>(
     const firstRender = useInitialRender();
 
     return (
-      <label className="aj-toggle-switch" htmlFor={inputId}>
+      <label className="aje-toggle-switch" htmlFor={inputId}>
         <input
           ref={ref}
           id={inputId}
@@ -28,7 +28,7 @@ const ToggleSwitch = React.forwardRef<HTMLInputElement, Props>(
           onChange={(e) => onChange(e.target.checked, e)}
         />
         <span
-          className={cn("aj-toggle-switch__label", {
+          className={cn("aje-toggle-switch__label", {
             "check-animation": checked && !firstRender,
             "uncheck-animation": !checked && !firstRender,
           })}

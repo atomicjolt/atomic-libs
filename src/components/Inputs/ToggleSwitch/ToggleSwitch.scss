@@ -1,6 +1,6 @@
 @use "../../mixins";
 
-.aj-toggle-switch {
+.aje-toggle-switch {
   --unchecked: var(--neutral400);
   --checked: var(--primary700);
   --toggle-size: 24px;
@@ -125,12 +125,12 @@
   }
 
   //Disabled states
-  input[type="checkbox"]:disabled ~ .aj-toggle-switch__label {
+  input[type="checkbox"]:disabled ~ .aje-toggle-switch__label {
     cursor: auto;
     opacity: 0.5;
   }
 
-  :is(input):focus-visible ~ .aj-toggle-switch__label::after {
+  :is(input):focus-visible ~ .aje-toggle-switch__label::after {
     content: "";
     position: absolute;
     right: 0;

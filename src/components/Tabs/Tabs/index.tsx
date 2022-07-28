@@ -118,11 +118,11 @@ function TabsShared({
 
   return (
     <>
-      <div className="aj-tab-list" role="tablist" aria-label="navigation">
+      <div className="aje-tab-list" role="tablist" aria-label="navigation">
         {Object.entries(tabs).map(([name, data], idx) => (
-          <div className="aj-tab-link">
+          <div className="aje-tab-link">
             <a
-              className="aj-tab"
+              className="aje-tab"
               id={`${tabId}-${idx}`}
               key={`${tabId}-${idx}`}
               role="tab"
@@ -135,16 +135,16 @@ function TabsShared({
               {getLabel(data)}
             </a>
             <div
-              className={cn("aj-tab-notification", {
-                "aj-tab-notification--error": getNotification(data) == "error",
-                "aj-tab-notification--info": getNotification(data) == "info",
+              className={cn("aje-tab-notification", {
+                "aje-tab-notification--error": getNotification(data) == "error",
+                "aje-tab-notification--info": getNotification(data) == "info",
               })}
             />
           </div>
         ))}
       </div>
       <div
-        className="aj-tab-content"
+        className="aje-tab-content"
         id={tabContentId}
         tabIndex={0}
         role="tabpanel"

@@ -74,7 +74,7 @@ function CustomDropdown<T>({
 
   return (
     <div
-      className={cn("aj-dropdown", `is-${size}`, {
+      className={cn("aje-dropdown", `is-${size}`, {
         "has-error": error,
         "is-disabled": disabled,
       })}
@@ -87,9 +87,9 @@ function CustomDropdown<T>({
       >
         {label}
       </Label>
-      <div className="aj-combobox">
+      <div className="aje-combobox">
         <div
-          className="aj-combobox__input"
+          className="aje-combobox__input"
           aria-controls={listBoxId}
           aria-expanded={menuActive}
           aria-haspopup="listbox"
@@ -103,7 +103,7 @@ function CustomDropdown<T>({
           <span>{selectedChild?.props?.children}</span>
         </div>
         <ul
-          className="aj-combobox__menu"
+          className="aje-combobox__menu"
           role="listbox"
           id={listBoxId}
           aria-labelledby={labelId}
@@ -131,7 +131,7 @@ function CustomSelectOption<T>({
 
   return (
     <li
-      className={cn("aj-combobox__option", {
+      className={cn("aje-combobox__option", {
         "is-focused": value == currentValue,
       })}
       role="option"

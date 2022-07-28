@@ -21,7 +21,7 @@ export interface Props {
 
 const renderLoadingDefault = (loading: boolean, message: React.ReactNode) => {
   return (
-    <div className="aj-loading-status-loading">
+    <div className="aje-loading-status-loading">
       <div>
         <ThreeDotLoader loading={loading} />
         {message && <p>{message}</p>}

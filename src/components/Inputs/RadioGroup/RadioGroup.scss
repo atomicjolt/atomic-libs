@@ -1,27 +1,27 @@
 @use "../../mixins";
 
-.aj-radio-group {
+.aje-radio-group {
   padding: 0;
   border: none;
 
-  & > .aj-label {
+  & > .aje-label {
     padding-bottom: 12px;
   }
 
-  .aj-radio + .aj-radio {
+  .aje-radio + .aje-radio {
     margin-top: 12px;
   }
 }
 
-.aj-radio {
+.aje-radio {
   --unchecked: var(--neutral600);
   --checked: var(--primary700);
 
-  input[type="radio"] + .aj-checkbox__label:before {
+  input[type="radio"] + .aje-checkbox__label:before {
     border-radius: 50%;
   }
 
-  input[type="radio"]:checked ~ .aj-checkbox__label {
+  input[type="radio"]:checked ~ .aje-checkbox__label {
     &:before {
       border-color: var(--checked);
     }
@@ -37,8 +37,8 @@
   }
 
   //Disabled states
-  input[type="radio"]:disabled ~ .aj-checkbox__label:after,
-  input[type="radio"]:disabled ~ .aj-checkbox__label {
+  input[type="radio"]:disabled ~ .aje-checkbox__label:after,
+  input[type="radio"]:disabled ~ .aje-checkbox__label {
     cursor: auto;
     opacity: 0.5;
   }

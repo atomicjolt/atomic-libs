@@ -28,7 +28,7 @@ export default function IconButton({
   return (
     <button
       id={id}
-      className="aj-btn--icon"
+      className="aje-btn--icon"
       type="button"
       onClick={onClick}
       disabled={disabled}

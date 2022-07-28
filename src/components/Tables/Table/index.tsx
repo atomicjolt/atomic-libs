@@ -42,15 +42,15 @@ function Table({
 }: Props) {
   /* Add functionality to remove sort order from other headers if you click on other ones. */
   return (
-    <div className="aj-table-overflow">
+    <div className="aje-table-overflow">
       <table
-        className={cn("aj-table", {
+        className={cn("aje-table", {
           "has-vertical-borders": verticalBorders,
           "is-sticky": sticky,
         })}
         {...rest}
       >
-        <caption className="aj-hidden">
+        <caption className="aje-hidden">
           {title}
           {sortPath ? (
             <span>, column headers with buttons are sortable.</span>

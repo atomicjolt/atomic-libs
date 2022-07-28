@@ -1,14 +1,14 @@
 @use "../../mixins";
 
-.aj-checkbox {
+.aje-checkbox {
   --unchecked: var(--neutral600);
   --checked: var(--primary700);
 
-  input[type="checkbox"] + .aj-checkbox__label:before {
+  input[type="checkbox"] + .aje-checkbox__label:before {
     border-radius: 5px;
   }
 
-  input[type="checkbox"]:checked ~ .aj-checkbox__label {
+  input[type="checkbox"]:checked ~ .aje-checkbox__label {
     &:before {
       background-color: var(--checked);
       border-color: var(--checked);
@@ -26,8 +26,8 @@
   }
 
   //Disabled states
-  input[type="checkbox"]:disabled ~ .aj-checkbox__label,
-  input[type="checkbox"]:checked:disabled ~ .aj-checkbox__label:before {
+  input[type="checkbox"]:disabled ~ .aje-checkbox__label,
+  input[type="checkbox"]:checked:disabled ~ .aje-checkbox__label:before {
     cursor: auto;
     opacity: 0.5;
   }

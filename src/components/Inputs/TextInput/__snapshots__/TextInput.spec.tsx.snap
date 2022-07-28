@@ -3,15 +3,15 @@
 exports[`matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="aj-input is-medium has-error"
+    class="aje-input is-medium has-error"
   >
     <label
-      class="aj-label"
+      class="aje-label"
       for="text-input-input-12345678900000000000"
     >
       Text Label
       <p
-        class="aj-label--message"
+        class="aje-label--message"
       >
         message
       </p>
@@ -24,7 +24,7 @@ exports[`matches snapshot 1`] = `
       value="content"
     />
     <p
-      class="aj-label--error"
+      class="aje-label--error"
       id="text-input-error-12345678900000000000"
     >
       some error
