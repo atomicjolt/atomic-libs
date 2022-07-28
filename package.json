@@ -72,6 +72,7 @@
     "storybook": "start-storybook -p 6006",
     "build:storybook": "build-storybook",
     "build": "rollup --config rollup.config.ts --configPlugin typescript",
+    "publish": "gh-pages -d storybook-static/",
     "test": "jest"
   }
 }
