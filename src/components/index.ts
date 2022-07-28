@@ -1,4 +1,4 @@
-import "./index.scss";
+// import "./index.scss";
 export { default as ActionBanner, UpgradeBanner } from "./Banners/ActionBanner";
 export {
   default as DismissableBanner,
