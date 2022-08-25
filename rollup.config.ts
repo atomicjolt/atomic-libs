@@ -3,9 +3,22 @@ import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import dts from "rollup-plugin-dts";
-import styles from "rollup-plugin-styles";
 import scss from "rollup-plugin-scss";
 import { terser } from "rollup-plugin-terser";
+
+function styleSheetEntry(input, output) {
+  return {
+    input: input,
+    plugins: [
+      scss({
+        output: output,
+        sourceMap: true,
+        // @ts-ignore
+        outputStyle: "compressed",
+      }),
+    ],
+  };
+}
 
 export default defineConfig([
   {
@@ -26,17 +39,9 @@ export default defineConfig([
       terser(),
     ],
   },
-  {
-    input: "src/components/index.scss",
-    plugins: [
-      scss({
-        output: "dist/styles.css",
-        sourceMap: true,
-        // @ts-ignore
-        outputStyle: "compressed",
-      }),
-    ],
-  },
+  styleSheetEntry("src/components/index.scss", "dist/styles.css"),
+  styleSheetEntry("src/defines/fonts.scss", "dist/fonts.css"),
+  styleSheetEntry("src/defines/variables.scss", "dist/variables.css"),
   {
     input: "dist/types/index.d.ts",
     output: [{ file: "dist/index.d.ts", format: "esm" }],
