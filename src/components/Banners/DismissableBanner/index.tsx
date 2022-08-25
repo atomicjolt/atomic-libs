@@ -8,12 +8,17 @@ export interface DismissableBannerProps {
    * as: `aje-banner--${type}`. The component
    * comes shipped with styles for these types:
    * - `error`
-   * - `warning` */
-  readonly type: string;
+   * - `warning`
+   * - `info` */
+  readonly type?: "error" | "warning" | "info" | (string & {});
   /** Name of material icon to be displayed */
   readonly icon?: MaterialIcons;
   /** Callback function for when the user dismisses the banner */
   readonly onDismiss?: () => void;
+  /** When `autoDismiss` is true, clicking on the `x`
+   * will remove the banner automatically. If it is set to false,
+   * you must manage hidiing it yourself. */
+  readonly autoDismiss?: boolean;
 }
 
 /** A Banner that the user can dismiss by clicking the "x" on the right
@@ -24,6 +29,7 @@ export default function DismissableBanner({
   children,
   type,
   icon,
+  autoDismiss = false,
   onDismiss,
 }: DismissableBannerProps) {
   const [visible, setVisible] = useState(true);
@@ -44,7 +50,7 @@ export default function DismissableBanner({
         className="aje-banner__dismiss"
         aria-label={`dismiss ${type}`}
         onClick={() => {
-          setVisible(false);
+          autoDismiss && setVisible(false);
           onDismiss && onDismiss();
         }}
       >

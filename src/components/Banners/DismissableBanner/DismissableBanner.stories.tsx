@@ -1,6 +1,7 @@
+import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import DismissableBanner, {
-  Props,
+  DismissableBannerProps,
   ErrorBanner as ErrorBannerWrapper,
   WarningBanner as WarningBannerWrapper,
 } from ".";
@@ -14,22 +15,14 @@ export default {
   },
 } as ComponentMeta<typeof DismissableBanner>;
 
-const Template: ComponentStory<typeof DismissableBanner> = (args: Props) => (
-  <DismissableBanner {...args} />
-);
+const Template: ComponentStory<typeof DismissableBanner> = (
+  args: DismissableBannerProps
+) => <DismissableBanner {...args} />;
 
-export const ErrorBanner = Template.bind({});
-ErrorBanner.args = {
-  children: "Error text",
-  type: "error",
-  icon: "error",
+export const Default = Template.bind({});
+Default.args = {
+  children: "Informative Text",
+  type: "info",
+  icon: "info",
+  autoDismiss: false,
 };
-
-export const WarningBanner = Template.bind({});
-WarningBanner.args = {
-  children: "Warning Text",
-  type: "warning",
-  icon: "warning",
-};
-
-// Additional stories go here

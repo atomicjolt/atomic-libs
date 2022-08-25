@@ -1,14 +1,15 @@
+import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import ActionBanner, { Props } from ".";
+import ActionBanner, { ActionBannerProps } from ".";
 
 export default {
   title: "Banners/ActionBanner",
   component: ActionBanner,
 } as ComponentMeta<typeof ActionBanner>;
 
-const Template: ComponentStory<typeof ActionBanner> = (args: Props) => (
-  <ActionBanner {...args} />
-);
+const Template: ComponentStory<typeof ActionBanner> = (
+  args: ActionBannerProps
+) => <ActionBanner {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

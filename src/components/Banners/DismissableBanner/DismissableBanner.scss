@@ -19,4 +19,13 @@
     --banner-btn-active-clr: var(--warning300);
     @extend .aje-banner;
   }
+
+  &--info {
+    --banner-bg-clr: var(--primary100);
+    --banner-text-clr: var(--text-clr);
+    --banner-icon-clr: var(--primary700);
+    --banner-btn-hover-clr: var(--primary200);
+    --banner-btn-active-clr: var(--primary300);
+    @extend .aje-banner;
+  }
 }

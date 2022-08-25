@@ -53,7 +53,7 @@ export function UpgradeBanner({ time, app, onClick }: UpgradeBannerProps) {
       onClick={onClick}
       buttonText="Upgrade Now"
     >
-      Your trial expires in {time}. Upgrade now to re-enable Atomic {app}.
+      Your trial expires in {time}. Upgrade now to re-enable {app}.
     </ActionBanner>
   );
 }
