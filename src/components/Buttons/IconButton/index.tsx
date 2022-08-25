@@ -2,7 +2,7 @@ import React from "react";
 import { AriaHasPopUp, MaterialIcons } from "../../../types";
 import MaterialIcon from "../../Utility/MaterialIcon";
 
-export interface Props {
+export interface IconButtonProps {
   /** Material Icon to render */
   icon: MaterialIcons;
   id?: string;
@@ -24,7 +24,7 @@ export default function IconButton({
   ariaControls,
   disabled,
   onClick,
-}: Props) {
+}: IconButtonProps) {
   return (
     <button
       id={id}

@@ -1,7 +1,8 @@
 import React from "react";
 import ThreeDotLoader from "../../Loaders/ThreeDotLoader";
 import { ErrorBanner } from "../../Banners/DismissableBanner";
-export interface Props {
+
+export interface LoadingStatusProps {
   /** Loading status, when true, a loading animation is displayed  */
   readonly loading?: boolean;
   /** Optinal message to display beneath the loading animation */
@@ -46,7 +47,7 @@ export default function LoadingStatus({
   error = null,
   renderError = renderErrorDefault,
   children = null,
-}: Props) {
+}: LoadingStatusProps) {
   if (error) {
     return <>{renderError(error)}</>;
   }

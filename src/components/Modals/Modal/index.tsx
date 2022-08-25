@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { modalInitializer, SharedModalData, useModal } from "../utils";
 import Button from "../../Buttons/Button";
 
-export interface Props {
+export interface ModalProps {
   /** Whether or not the modal is visible */
   open?: boolean;
   /** Must include a title. Titles are always in Title case. */
@@ -39,7 +39,7 @@ function Modal({
   primaryAction,
   secondaryAction,
   onClose,
-}: Props) {
+}: ModalProps) {
   const renderModal = useModal(open);
 
   return renderModal(

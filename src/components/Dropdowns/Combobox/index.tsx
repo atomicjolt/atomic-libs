@@ -6,7 +6,7 @@ import { useIds } from "../../../hooks";
 import Label from "../../Utility/Label";
 import InputError from "../../Utility/InputError";
 
-export interface Props extends SharedInputProps {
+export interface ComboboxProps extends SharedInputProps {
   value: string;
   onChange: (value: string) => void;
 
@@ -47,7 +47,7 @@ export default function Combobox({
   hideLabel = false,
   disabled = false,
   filterSuggestions = defaultFilterSuggestiosn,
-}: Props) {
+}: ComboboxProps) {
   const [menuActive, setMenuActive] = useState(false);
 
   const [labelId, comobId, inputId, listBoxId, errorId] = useIds(`combo`, [

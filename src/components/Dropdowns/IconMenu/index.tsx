@@ -4,7 +4,7 @@ import IconButton from "../../Buttons/IconButton";
 import { useBool, useClick, useClickOutside, useIds } from "../../../hooks";
 import { CanHaveIcon, HasChildren, MaterialIcons } from "../../../types";
 
-export interface Props {
+export interface IconMenuProps {
   icon: MaterialIcons;
   children: React.ReactNode;
   /** Must include a label. */
@@ -25,7 +25,7 @@ function IconMenu({
   label = "More options",
   dropRight,
   disabled = false,
-}: Props) {
+}: IconMenuProps) {
   const [menuActive, toggleMenu] = useBool(false);
 
   const [buttonId, menuId] = useIds("iconmenu", ["button", "menu"]);

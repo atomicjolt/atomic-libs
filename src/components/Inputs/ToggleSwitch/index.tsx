@@ -2,7 +2,8 @@ import React, { ChangeEvent } from "react";
 import cn from "classnames";
 import { useIds, useInitialRender } from "../../../hooks";
 import { EventHandler } from "../../../types";
-export interface Props {
+
+export interface ToggleSwitchProps {
   /** Must include a label. Labels are always Sentence case. */
   label: string;
   checked?: boolean;
@@ -11,8 +12,8 @@ export interface Props {
 }
 
 /** Toggle Switch Component */
-const ToggleSwitch = React.forwardRef<HTMLInputElement, Props>(
-  ({ label, onChange, checked = false, disabled = false }, ref) => {
+const ToggleSwitch = React.forwardRef<HTMLInputElement, ToggleSwitchProps>(
+  ({ label, onChange, checked, disabled = false }, ref) => {
     const [inputId] = useIds("toggle", ["input"]);
 
     const firstRender = useInitialRender();

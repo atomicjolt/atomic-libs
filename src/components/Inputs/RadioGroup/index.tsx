@@ -4,10 +4,13 @@ import { SharedInputProps } from "../../../types";
 import { RadioContextData } from "./context";
 import RadioContext from "./context";
 
-export interface Props
+export interface RadioGroupsProps
   extends Omit<SharedInputProps, "size" | "required" | "readonly"> {
-  value: string;
-  onChange: (value: string, event: React.ChangeEvent<HTMLInputElement>) => void;
+  value?: string;
+  onChange?: (
+    value: string,
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => void;
   /** The name associated with the radio group. */
   name: string;
   children: React.ReactNode;
@@ -34,10 +37,11 @@ export default function RadioGroup({
   children,
   disabled = false,
   hideLabel,
-}: Props) {
+}: RadioGroupsProps) {
   const ctx: RadioContextData = {
-    onChange: (e) => onChange(e.target.value, e),
+    onChange: (e) => onChange && onChange(e.target.value, e),
     name,
+    // @ts-ignore
     currentValue: value,
     disabled,
   };

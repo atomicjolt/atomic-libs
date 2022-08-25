@@ -1,7 +1,7 @@
 import React from "react";
 import { useModal } from "../utils";
 
-export interface Props {
+export interface PopupModalProps {
   open?: boolean;
   title: React.ReactNode;
   children: React.ReactNode;
@@ -18,7 +18,7 @@ export default function PopupModal({
   title,
   children,
   actions,
-}: Props) {
+}: PopupModalProps) {
   const renderModal = useModal(open);
 
   return renderModal(

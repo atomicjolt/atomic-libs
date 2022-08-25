@@ -2,7 +2,7 @@ import React from "react";
 import cn from "classnames";
 import { HasChildren } from "../../../types";
 
-export interface Props {
+export interface LabelProps {
   children: React.ReactNode;
   message?: string;
   htmlFor: string;
@@ -18,7 +18,7 @@ export default function Label({
   hidden,
   id,
   error,
-}: Props) {
+}: LabelProps) {
   const classes = cn("aje-label", { "aje-hidden": hidden });
 
   return (

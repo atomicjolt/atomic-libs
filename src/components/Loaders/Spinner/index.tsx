@@ -1,10 +1,11 @@
 import React from "react";
-export interface Props {
+
+export interface SpinnerProps {
   loading?: boolean;
 }
 
 /** Spinner Component */
-export default function Spinner({ loading = true }: Props) {
+export default function Spinner({ loading = true }: SpinnerProps) {
   return (
     <div className="aje-spinner">
       {loading ? (

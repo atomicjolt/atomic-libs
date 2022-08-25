@@ -27,7 +27,9 @@ type SortProps =
       onSort: (path: string, direction: SortDirection) => void;
     };
 
-export type Props = BaseProps & SortProps & React.HTMLProps<HTMLTableElement>;
+export type TableProps = BaseProps &
+  SortProps &
+  React.HTMLProps<HTMLTableElement>;
 
 /** Table Component */
 function Table({
@@ -39,7 +41,7 @@ function Table({
   onSort = () => {},
   children,
   ...rest
-}: Props) {
+}: TableProps) {
   /* Add functionality to remove sort order from other headers if you click on other ones. */
   return (
     <div className="aje-table-overflow">

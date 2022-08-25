@@ -1,11 +1,12 @@
 import cn from "classnames";
-import React, { ChangeEvent } from "react";
+import React from "react";
 import { useIds } from "../../../hooks";
 import { ControlledInput, SharedInputProps } from "../../../types";
 import { makeEventHandler } from "../../../utils";
 import InputError from "../../Utility/InputError";
 import Label from "../../Utility/Label";
-export interface Props
+
+export interface TextAreaProps
   extends Omit<SharedInputProps, "size">,
     ControlledInput<string, HTMLTextAreaElement> {
   size?: "small" | "medium" | "large";
@@ -13,7 +14,7 @@ export interface Props
 }
 
 /** Textarea Component. Accepts a `ref` */
-const Textarea = React.forwardRef<HTMLTextAreaElement, Props>(
+const Textarea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
   (
     {
       value,
@@ -53,7 +54,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, Props>(
           readOnly={readonly}
           disabled={disabled}
           required={required}
-          onChange={makeEventHandler(onChange)}
+          onChange={onChange && makeEventHandler(onChange)}
         />
         <InputError error={error} id={errorId} />
       </div>

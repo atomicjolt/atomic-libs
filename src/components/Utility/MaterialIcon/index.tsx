@@ -1,7 +1,9 @@
 import React from "react";
 import cn from "classnames";
 import { MaterialIcons } from "../../../types";
-export interface Props extends Omit<React.HTMLProps<HTMLElement>, "size"> {
+
+export interface MaterialIconProps
+  extends Omit<React.HTMLProps<HTMLElement>, "size"> {
   icon: MaterialIcons;
   className?: string;
   size?: "small" | "medium" | "large";
@@ -16,7 +18,7 @@ export default function MaterialIcon({
   size = "medium",
   disabled = false,
   ...rest
-}: Props) {
+}: MaterialIconProps) {
   return (
     <i
       className={cn("material-icons", className, `is-${size}`, {

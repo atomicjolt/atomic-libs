@@ -2,7 +2,7 @@ import React from "react";
 import Button from "../../Buttons/Button";
 import PopupModal from "../PopupModal";
 
-export interface Props {
+export interface ErrorModalProps {
   open?: boolean;
   /** Must include a title. Titles are always in Title case. */
   title: string;
@@ -20,7 +20,7 @@ export default function ErrorModal({
   children,
   buttonText = "Close",
   onClose,
-}: Props) {
+}: ErrorModalProps) {
   return (
     <PopupModal
       open={open}

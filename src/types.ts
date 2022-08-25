@@ -26,8 +26,8 @@ export interface ControlledInput<
   T = string,
   E extends Element = HTMLInputElement
 > {
-  value: T;
-  onChange: EventHandler<T, React.ChangeEvent<E>>;
+  value?: T;
+  onChange?: EventHandler<T, React.ChangeEvent<E>>;
 }
 
 export type EventHandler<

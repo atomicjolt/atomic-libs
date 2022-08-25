@@ -51,7 +51,7 @@ const TextInput = React.forwardRef(
           readOnly={readonly}
           disabled={disabled}
           required={required}
-          onChange={makeEventHandler(onChange)}
+          onChange={onChange && makeEventHandler(onChange)}
         />
         <InputError error={error} id={errorId} />
       </div>

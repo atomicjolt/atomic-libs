@@ -5,6 +5,7 @@ import typescript from "@rollup/plugin-typescript";
 import dts from "rollup-plugin-dts";
 import scss from "rollup-plugin-scss";
 import { terser } from "rollup-plugin-terser";
+import renameNodeModules from "rollup-plugin-rename-node-modules";
 
 function styleSheetEntry(input, output) {
   return {
@@ -34,6 +35,7 @@ export default defineConfig([
     ],
     plugins: [
       resolve(),
+      renameNodeModules("external"),
       commonjs(),
       typescript({ tsconfig: "./tsconfig.json" }),
       terser(),

@@ -5,13 +5,15 @@ import { ControlledInput, SharedInputProps } from "../../../types";
 import Label from "../../Utility/Label";
 import InputError from "../../Utility/InputError";
 
-export interface Props extends SharedInputProps, ControlledInput<number> {
+export interface NumberInputProps
+  extends SharedInputProps,
+    ControlledInput<number> {
   min?: number;
   max?: number;
 }
 
 /** Number Input Component. Accepts a `ref` */
-const NumberInput = React.forwardRef<HTMLInputElement, Props>(
+const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
   (
     {
       value,
@@ -26,6 +28,7 @@ const NumberInput = React.forwardRef<HTMLInputElement, Props>(
       disabled = false,
       required = false,
       hideLabel = false,
+      placeholder,
     },
     ref
   ) => {
@@ -52,6 +55,7 @@ const NumberInput = React.forwardRef<HTMLInputElement, Props>(
           readOnly={readonly}
           disabled={disabled}
           required={required}
+          placeholder={placeholder}
           onChange={(e) => onChange && onChange(parseInt(e.target.value), e)}
         />
         <InputError error={error} id={errorId} />

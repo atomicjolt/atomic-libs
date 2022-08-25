@@ -23,7 +23,7 @@ type ControlledProps =
       onChange: never;
     };
 
-export type Props = SharedProps & ControlledProps;
+export type TabsProps = SharedProps & ControlledProps;
 
 interface TabsControlledProps extends SharedProps {
   currentTab: string;
@@ -47,7 +47,12 @@ const TabContext = React.createContext({} as TabContextData);
 /** Tabs Component
  *
  */
-export default function Tabs({ children, tabs, currentTab, onChange }: Props) {
+export default function Tabs({
+  children,
+  tabs,
+  currentTab,
+  onChange,
+}: TabsProps) {
   if (currentTab !== undefined) {
     return (
       <TabsControlled

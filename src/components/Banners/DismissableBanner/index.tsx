@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { MaterialIcons } from "../../../types";
 
-export interface Props {
+export interface DismissableBannerProps {
   readonly children?: React.ReactNode;
   /** The type of banner to be displayed.
    * Gets added to the top-level classname
@@ -25,7 +25,7 @@ export default function DismissableBanner({
   type,
   icon,
   onDismiss,
-}: Props) {
+}: DismissableBannerProps) {
   const [visible, setVisible] = useState(true);
 
   if (!visible) {

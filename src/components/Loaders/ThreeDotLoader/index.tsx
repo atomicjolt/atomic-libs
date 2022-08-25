@@ -1,10 +1,13 @@
 import React from "react";
-export interface Props {
+
+export interface ThreeDotLoaderProps {
   loading?: boolean;
 }
 
 /** Three Dot Loader Component */
-export default function ThreeDotLoader({ loading = true }: Props) {
+export default function ThreeDotLoader({
+  loading = true,
+}: ThreeDotLoaderProps) {
   return (
     <div className="aje-three-dot-loader">
       {loading ? (

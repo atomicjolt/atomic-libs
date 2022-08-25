@@ -40,7 +40,7 @@ type LoadingProps =
       loadingComplete?: boolean;
     };
 
-export type Props = CommonProps & LoadingProps;
+export type ButtonProps = CommonProps & LoadingProps;
 
 export default function Button({
   children,
@@ -51,7 +51,7 @@ export default function Button({
   loadingLabel = "loading",
   loadingComplete = false,
   onClick,
-}: Props) {
+}: ButtonProps) {
   const loadingText = loading ? loadingLabel : "";
 
   return (

@@ -1,5 +1,6 @@
+import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import RadioGroup, { Props } from ".";
+import RadioGroup, { RadioGroupsProps } from ".";
 import Radio from "./Radio";
 
 export default {
@@ -18,7 +19,9 @@ export default {
   },
 } as ComponentMeta<typeof RadioGroup>;
 
-const Template: ComponentStory<typeof RadioGroup> = (args: Props) => (
+const Template: ComponentStory<typeof RadioGroup> = (
+  args: RadioGroupsProps
+) => (
   <RadioGroup {...args}>
     <Radio value="opt1">Option 1</Radio>
     <Radio value="opt2">Option 2</Radio>
@@ -27,6 +30,7 @@ const Template: ComponentStory<typeof RadioGroup> = (args: Props) => (
 );
 
 export const Default = Template.bind({});
+
 Default.args = {
   value: "opt1",
   name: "radiogroup",
@@ -37,4 +41,9 @@ Default.args = {
   disabled: false,
 };
 
-// Additional stories go here
+Default.argTypes = {
+  value: {
+    control: "select",
+    options: ["opt1", "opt2", "opt3"],
+  },
+};

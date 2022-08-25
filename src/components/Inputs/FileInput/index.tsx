@@ -4,13 +4,16 @@ import { useIds } from "../../../hooks";
 import { SharedInputProps } from "../../../types";
 import InputError from "../../Utility/InputError";
 
-export interface Props extends Omit<SharedInputProps, "hideLabel"> {
+export interface FileInputProps extends Omit<SharedInputProps, "hideLabel"> {
   file?: File | null;
-  onChange: (file: File | null, e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (
+    file: File | null,
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => void;
 }
 
 /** FileInput component. Used to select singular files */
-const FileInput = React.forwardRef<HTMLInputElement, Props>(
+const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
   (
     {
       file,
@@ -41,7 +44,7 @@ const FileInput = React.forwardRef<HTMLInputElement, Props>(
           disabled={disabled}
           required={required}
           onChange={(e) =>
-            onChange(e.target.files ? e.target.files[0] : null, e)
+            onChange && onChange(e.target.files ? e.target.files[0] : null, e)
           }
         />
         <label htmlFor={inputId}>

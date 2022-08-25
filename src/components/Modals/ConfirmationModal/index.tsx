@@ -3,7 +3,7 @@ import Button from "../../Buttons/Button";
 import PopupModal from "../PopupModal";
 import { makeOptionaCallback } from "../../../utils";
 
-export interface Props {
+export interface ConfirmationModalProps {
   open?: boolean;
   /** Must include a title. Titles are always in Title case. */
   title: string;
@@ -35,7 +35,7 @@ export default function ConfirmationModal({
   rejectText = "Cancel",
   onConfirm,
   onReject,
-}: Props) {
+}: ConfirmationModalProps) {
   return (
     <PopupModal
       open={open}

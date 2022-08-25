@@ -5,7 +5,8 @@ import { useBool, useClickOutside, useIds } from "../../../hooks";
 import { EventHandler, SharedInputProps } from "../../../types";
 import InputError from "../../Utility/InputError";
 
-export interface Props<T> extends Omit<SharedInputProps, "placehodler"> {
+export interface CustomDropdownProps<T>
+  extends Omit<SharedInputProps, "placehodler"> {
   value: T | null;
   onChange: EventHandler<T, React.MouseEvent<Element>>;
   children: React.ReactElement | React.ReactElement[];
@@ -36,7 +37,7 @@ function CustomDropdown<T>({
   hideLabel = false,
   disabled = false,
   children,
-}: Props<T>) {
+}: CustomDropdownProps<T>) {
   const [menuActive, toggleMenu] = useBool(false);
   const ref = useRef(null);
   const [inputId, listBoxId, errorId, labelId] = useIds("custom-dropdown", [

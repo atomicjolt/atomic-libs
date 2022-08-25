@@ -21,7 +21,7 @@ type SortProps =
       sortPath: string;
     };
 
-export type Props = BaseProps &
+export type TableHeaderProps = BaseProps &
   SortProps &
   React.HTMLProps<HTMLTableCellElement>;
 
@@ -32,7 +32,7 @@ function TableHeader({
   sortPath,
   width,
   ...rest
-}: Props) {
+}: TableHeaderProps) {
   const {
     onSort,
     sortDirection,

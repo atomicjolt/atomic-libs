@@ -1,5 +1,6 @@
+import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import Textarea, { Props } from ".";
+import Textarea, { TextAreaProps } from ".";
 import { DefaultInputProperties } from "../../../utils";
 
 export default {
@@ -7,17 +8,30 @@ export default {
   component: Textarea,
 } as ComponentMeta<typeof Textarea>;
 
-const Template: ComponentStory<typeof Textarea> = (args: Props) => (
+const Template: ComponentStory<typeof Textarea> = (args: TextAreaProps) => (
   <Textarea {...args} />
 );
 
-export const Default = Template.bind({});
-Default.args = {
+export const Controlled = Template.bind({});
+Controlled.args = {
   value: "Text Area content",
   resize: true,
-  ...(DefaultInputProperties as Props),
+  ...(DefaultInputProperties as TextAreaProps),
   label: "Textarea label",
   message: "1000 characters",
 };
 
-// Additional stories go here
+export const Uncontrolled = Template.bind({});
+Uncontrolled.args = {
+  ...Controlled.args,
+  value: undefined,
+};
+
+Uncontrolled.argTypes = {
+  value: {
+    control: false,
+  },
+  onChange: {
+    control: false,
+  },
+};

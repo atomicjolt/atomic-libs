@@ -9,7 +9,7 @@ import Label from "../../Utility/Label";
 import { useIds } from "../../../hooks";
 import InputError from "../../Utility/InputError";
 
-export type Props = HasChildren &
+export type SelectProps = HasChildren &
   SharedInputProps & {
     value: HTMLInputValueAttribute;
     onSelect: (
@@ -30,7 +30,7 @@ export default function Select({
   hideLabel = false,
   disabled = false,
   required = false,
-}: Props) {
+}: SelectProps) {
   const [inputId, errorId] = useIds("select", ["select", "error"]);
 
   return (

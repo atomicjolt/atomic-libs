@@ -2,7 +2,7 @@ import React from "react";
 import Button from "../../Buttons/Button";
 import { MaterialIcons } from "../../../types";
 
-export interface Props {
+export interface ActionBannerProps {
   /** `aje-banner--${className}` pre-defined styles for:
    * - `upgrade`
    */
@@ -20,7 +20,7 @@ export default function ActionBanner({
   icon,
   buttonText,
   onClick,
-}: Props) {
+}: ActionBannerProps) {
   return (
     <div className={`aje-banner--${className}`}>
       {icon && (
