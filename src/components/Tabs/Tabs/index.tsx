@@ -20,7 +20,7 @@ type ControlledProps =
     }
   | {
       currentTab?: never;
-      onChange: never;
+      onChange?: never;
     };
 
 export type TabsProps = SharedProps & ControlledProps;
@@ -125,7 +125,7 @@ function TabsShared({
     <>
       <div className="aje-tab-list" role="tablist" aria-label="navigation">
         {Object.entries(tabs).map(([name, data], idx) => (
-          <div className="aje-tab-link">
+          <div className="aje-tab-link" key={name}>
             <a
               className="aje-tab"
               id={`${tabId}-${idx}`}
