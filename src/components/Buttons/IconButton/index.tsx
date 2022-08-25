@@ -6,6 +6,7 @@ import MaterialIcon from "../../Utility/MaterialIcon";
 export interface IconButtonProps {
   /** Material Icon to render */
   icon: MaterialIcons;
+  id?: string;
   ariaLabel: string;
   ariaExpanded?: boolean;
   ariaHasPopup?: AriaHasPopUp;
@@ -17,6 +18,7 @@ export interface IconButtonProps {
 /** Icon Button Component */
 export default function IconButton({
   icon,
+  id,
   ariaLabel,
   ariaExpanded,
   ariaHasPopup,
@@ -24,11 +26,9 @@ export default function IconButton({
   disabled,
   onClick,
 }: IconButtonProps) {
-  const [buttonId] = useIds("icon-button", ["button"]);
-
   return (
     <button
-      id={buttonId}
+      id={id}
       className="aje-btn--icon"
       type="button"
       onClick={onClick}

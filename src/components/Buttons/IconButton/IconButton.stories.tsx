@@ -1,5 +1,6 @@
+import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import IconButton, { Props } from ".";
+import IconButton, { IconButtonProps } from ".";
 
 export default {
   title: "Buttons/IconButton",
@@ -11,7 +12,7 @@ export default {
   },
 } as ComponentMeta<typeof IconButton>;
 
-const Template: ComponentStory<typeof IconButton> = (args: Props) => (
+const Template: ComponentStory<typeof IconButton> = (args: IconButtonProps) => (
   <IconButton {...args} />
 );
 

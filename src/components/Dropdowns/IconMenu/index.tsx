@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import cn from "classnames";
 import IconButton from "../../Buttons/IconButton";
-import { useBool, useClick, useClickOutside, useIds } from "../../../hooks";
+import { useBool, useClickOutside, useIds } from "../../../hooks";
 import { CanHaveIcon, HasChildren, MaterialIcons } from "../../../types";
 
 export interface IconMenuProps {
@@ -28,7 +28,7 @@ function IconMenu({
 }: IconMenuProps) {
   const [menuActive, toggleMenu] = useBool(false);
 
-  const [buttonId, menuId] = useIds("iconmenu", ["button", "menu"]);
+  const [buttonId, menuId] = useIds("iconmenu", ["menu"]);
   const ref = useRef(null);
 
   useClickOutside(
@@ -50,7 +50,6 @@ function IconMenu({
         ariaHasPopup="menu"
         ariaLabel={label}
         disabled={disabled}
-        id={buttonId}
         onClick={toggleMenu}
       />
       <div
