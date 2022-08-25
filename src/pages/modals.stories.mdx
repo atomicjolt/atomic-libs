@@ -1,0 +1,25 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Modals/Modal Initilization" />
+
+# Modal Initilization
+
+To being using the modal components, you first need to intialize the modals. At the root of you application,
+you need to add something like this:
+
+```jsx
+import { Modal } from "atomic-elements";
+
+const root = document.getElementById("app-root");
+
+Modal.init(root);
+
+// Render your application
+```
+
+Where `root` is the insertion point for your React app.
+
+Modal Initilization does two things:
+
+- Creates a new element outside of your app root for the Modals to be rendered into
+- Lets atomic-elements know where the root is, so it can mark it as hidden to screenreaders when a modal is open
