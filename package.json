@@ -1,9 +1,9 @@
 {
   "name": "atomic-elements",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "sideEffects": false,
-  "module": "dist/src/index.js",
-  "main": "dist/src/index.js",
+  "module": "dist/esm/src/index.js",
+  "main": "dist/cjs/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist",
@@ -75,7 +75,8 @@
     "storybook": "start-storybook -p 6006",
     "build:storybook": "build-storybook",
     "publish:storybook": "gh-pages -d storybook-static/",
-    "build": "rollup --config rollup.config.ts --configPlugin typescript",
+    "build": "rollup --config rollup.config.ts --configPlugin typescript && yarn build:cleanup",
+    "build:cleanup": "rm -rf dist/cjs/dist && rm -rf dist/esm/types",
     "test": "jest"
   }
 }

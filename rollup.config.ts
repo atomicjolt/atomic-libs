@@ -27,10 +27,15 @@ export default defineConfig([
     input: "src/index.ts",
     output: [
       {
-        dir: "dist",
+        dir: "dist/esm",
         format: "esm",
         sourcemap: true,
         preserveModules: true,
+      },
+      {
+        file: "dist/cjs/index.js",
+        format: "cjs",
+        sourcemap: true,
       },
     ],
     plugins: [
@@ -45,7 +50,7 @@ export default defineConfig([
   styleSheetEntry("src/defines/fonts.scss", "dist/fonts.css"),
   styleSheetEntry("src/defines/variables.scss", "dist/variables.css"),
   {
-    input: "dist/types/index.d.ts",
+    input: "dist/esm/types/index.d.ts",
     output: [{ file: "dist/index.d.ts", format: "esm" }],
     plugins: [dts()],
     external: [/\.[s]?css$/], // Exclude stylesheets from type compilation
