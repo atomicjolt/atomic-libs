@@ -27,7 +27,7 @@ export type TabsProps = SharedProps & ControlledProps;
 
 interface TabsControlledProps extends SharedProps {
   currentTab: string;
-  onChange: (value: string) => void;
+  onChange?: (value: string) => void;
 }
 
 interface TabsUncontrolledProps extends SharedProps {}
@@ -135,7 +135,7 @@ function TabsShared({
               aria-selected={currentTab === name}
               aria-current={currentTab === name}
               tabIndex={-1}
-              onClick={() => onChange(name)}
+              onClick={() => onChange && onChange(name)}
             >
               {getLabel(data)}
             </a>
