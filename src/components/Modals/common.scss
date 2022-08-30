@@ -1,6 +1,6 @@
-@use "../defines" as *;
+@use "../mixins";
 
-.aj-modal-background {
+.aje-modal-background {
   //position: fixed;
   min-height: 300px;
   inset: 0;
@@ -10,7 +10,7 @@
   place-items: center;
 }
 
-.aj-modal {
+.aje-modal {
   width: 90%;
   max-width: 800px;
   border-radius: 10px;
@@ -57,7 +57,7 @@
   &__title {
     margin: 0;
     font-size: 2rem;
-    @include bold;
+    @include mixins.bold;
     flex: 1;
     line-height: 1;
     color: var(--text-clr);
@@ -65,7 +65,7 @@
 
   &__main {
     padding: 16px 0 24px;
-    @include regular;
+    @include mixins.regular;
     font-size: 1.6rem;
     color: var(--text-clr);
     line-height: 1.5;

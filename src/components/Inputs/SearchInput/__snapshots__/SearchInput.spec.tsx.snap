@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot displays with search button 1`] = `
+<DocumentFragment>
+  <form
+    class="aje-input is-medium"
+  >
+    <label
+      class="aje-label"
+      for="search-input-12345678900000000000"
+    >
+      search
+    </label>
+    <input
+      id="search-input-12345678900000000000"
+      role="search"
+      type="search"
+      value=""
+    />
+    <button
+      aria-label="submit search"
+      type="submit"
+    >
+      <i
+        class="material-icons is-medium"
+      >
+        search
+      </i>
+    </button>
+  </form>
+</DocumentFragment>
+`;
+
+exports[`matches snapshot displays without button 1`] = `
+<DocumentFragment>
+  <form
+    class="aje-input is-medium"
+  >
+    <label
+      class="aje-label"
+      for="search-input-12345678900000000000"
+    >
+      search
+    </label>
+    <input
+      id="search-input-12345678900000000000"
+      role="search"
+      type="search"
+      value=""
+    />
+  </form>
+</DocumentFragment>
+`;

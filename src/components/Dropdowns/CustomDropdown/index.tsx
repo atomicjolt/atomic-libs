@@ -1,115 +1,160 @@
-import React, { useState, useEffect } from "react";
-import "../../general.scss";
-import "./styles.scss";
+import React, { useContext, useEffect, useMemo, useRef, useState } from "react";
+import cn from "classnames";
+import Label from "../../Utility/Label";
+import { useBool, useClickOutside, useIds } from "../../../hooks";
+import { EventHandler, SharedInputProps } from "../../../types";
+import InputError from "../../Utility/InputError";
 
-export interface Props {
-  children: React.ReactNode;
-  inputContent?: React.ReactNode;
-  /** Must include a label. Labels are always Sentence case. */
-  label: string;
-  /** Error text should be descriptive and explicit in meaning. */
-  error?: string;
-  /** For additional information (ex. date format mm/dd/yy) */
-  message?: string;
-  /** Only use in very specific circumstances. This hides the label from view, but still allows screen readers to read the label. (A filter dropdown with a clear meaning could potentially be a use case.) */
-  hideLabel?: boolean;
-  /** The select size should reflect the size of its content. */
-  size?: "small" | "medium" | "large" | "full" | "auto";
-  disabled?: boolean;
-  required?: boolean;
+export interface CustomDropdownProps<T>
+  extends Omit<SharedInputProps, "placehodler"> {
+  value: T | null;
+  onChange: EventHandler<T, React.MouseEvent<Element>>;
+  children: React.ReactElement | React.ReactElement[];
 }
 
+interface CustomSelectContext<T> {
+  currentValue: T | null;
+  onClick: (value: T, event: React.MouseEvent<Element>) => void;
+}
+
+const Context = React.createContext<CustomSelectContext<any>>(
+  {} as CustomSelectContext<any>
+);
+
 /**
- * Custom Dropdown
+ * Custom Select
  *
  * https://www.w3.org/TR/wai-aria-practices/examples/combobox/combobox-select-only.html for accessibility implementation.
+ *
  * */
-export default function CustomDropdown({
-  children,
-  inputContent = "- Select an option -",
+function CustomDropdown<T>({
+  value,
+  onChange,
   size = "medium",
   label,
   error,
   message,
   hideLabel = false,
   disabled = false,
-}: Props) {
-  const errorID = "errorText";
-  /* Add a space before the added class rather than inside the className attr on the tag. Looks cleaner. */
-  let errorClass = error ? " has-error" : "";
-  let disabledClass = disabled ? " is-disabled" : "";
-  let hiddenClass = hideLabel ? " aj-hidden" : "";
+  children,
+}: CustomDropdownProps<T>) {
+  const [menuActive, toggleMenu] = useBool(false);
+  const ref = useRef(null);
+  const [inputId, listBoxId, errorId, labelId] = useIds("custom-dropdown", [
+    "combo",
+    "list",
+    "errors",
+    "label",
+  ]);
 
-  const [menuActive, setMenuActive] = useState(false);
+  const selectedChild = useMemo(() => {
+    const childArray = React.Children.toArray(children) as React.ReactElement[];
+    childArray.forEach((c) => {
+      if (c.type !== CustomDropdown.Option && c.type !== CustomDropdown.Empty) {
+        throw Error(
+          "All children of CustomSelect must be CustomSelect.Option or CustomSelect.Empty"
+        );
+      }
+    });
+    return childArray.find((c) => c.props["value"] == value);
+  }, [value]);
 
-  const handleOpen = () => {
-    if (menuActive) {
-      setMenuActive(false);
-    } else {
-      setMenuActive(true);
-    }
+  console.log(selectedChild);
+  useClickOutside(
+    ref,
+    () => {
+      if (menuActive) toggleMenu();
+    },
+    { enabled: menuActive }
+  );
+
+  const ctx: CustomSelectContext<T> = {
+    currentValue: value,
+    onClick: onChange,
   };
 
-  useEffect(() => {
-    const closeMenu = () => {
-      if (!menuActive) return;
-      setMenuActive(false);
-    };
-
-    window.addEventListener("click", closeMenu);
-
-    return () => window.removeEventListener("click", closeMenu);
-  }, [menuActive]);
-
   return (
-    <div className={`aj-dropdown is-${size}${errorClass}${disabledClass}`}>
-      <label className={`aj-label${hiddenClass}`} id="comboLabel">
+    <div
+      className={cn("aje-dropdown", `is-${size}`, {
+        "has-error": error,
+        "is-disabled": disabled,
+      })}
+    >
+      <Label
+        message={message}
+        htmlFor={inputId}
+        id={labelId}
+        hidden={hideLabel}
+      >
         {label}
-        {message ? <p className="aj-label--message">{message}</p> : null}
-      </label>
-      <div className="aj-combobox">
+      </Label>
+      <div className="aje-combobox">
         <div
-          className="aj-combobox__input"
-          aria-controls="listboxID"
+          className="aje-combobox__input"
+          aria-controls={listBoxId}
           aria-expanded={menuActive}
           aria-haspopup="listbox"
-          aria-labelledby="comboLabel"
-          aria-describedby={error ? errorID : ""}
-          id="comboID"
+          aria-labelledby={labelId}
+          aria-describedby={error ? errorId : ""}
+          id={inputId}
           role="combobox"
           tabIndex={0}
-          onClick={handleOpen}
+          onClick={toggleMenu}
         >
-          <span>{inputContent}</span>
+          <span>{selectedChild?.props?.children}</span>
         </div>
         <ul
-          className="aj-combobox__menu"
+          className="aje-combobox__menu"
           role="listbox"
-          id="lisboxID"
-          aria-labelledby="comboLabel"
+          id={listBoxId}
+          aria-labelledby={labelId}
           tabIndex={-1}
         >
-          <li
-            className="aj-combobox__option is-focused"
-            role="option"
-            id="op1"
-            aria-selected="true"
-          >
-            - Select an Option -
-          </li>
-          <li className="aj-combobox__option" role="option" id="op2">
-            {children}
-          </li>
-          <li className="aj-combobox__option" role="option" id="op3">
-            {children}
-          </li>
+          <Context.Provider value={ctx}>{children}</Context.Provider>
         </ul>
       </div>
-      {error ? (
-        <p id={errorID} className="aj-label--error">
-          {error}
-        </p>
-      ) : null}
+      <InputError error={error} id={errorId} />
     </div>
   );
 }
+
+interface CustomSelectOptionProps<T> {
+  value: T;
+  children: React.ReactNode;
+}
+
+/** An Option in the `CustomSelect` */
+function CustomSelectOption<T>({
+  value,
+  children,
+}: CustomSelectOptionProps<T>) {
+  const { currentValue, onClick } = useContext(Context);
+
+  return (
+    <li
+      className={cn("aje-combobox__option", {
+        "is-focused": value == currentValue,
+      })}
+      role="option"
+      aria-selected={value == currentValue}
+      onClick={(e) => onClick(value, e)}
+    >
+      {children}
+    </li>
+  );
+}
+
+CustomDropdown.Option = CustomSelectOption;
+// @ts-ignore
+CustomDropdown.Option.displayName = "CustomSelect.Option";
+
+/** A `CustomSelect.Option` item with `null` as the value */
+function CustomSelectEmpty({ children }: { children?: React.ReactNode }) {
+  return <CustomDropdown.Option value={null}>{children}</CustomDropdown.Option>;
+}
+
+CustomDropdown.Empty = CustomSelectEmpty;
+// @ts-ignore
+CustomDropdown.Empty.displayName = "CustomSelect.Empty";
+
+export default CustomDropdown;

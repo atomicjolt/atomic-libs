@@ -1,111 +1,118 @@
-import React, { useState, useEffect } from "react";
-import "../../general.scss";
-import "./styles.scss";
+import React, { useState } from "react";
+import cn from "classnames";
+import { levenshtein } from "../../../utils";
+import { SharedInputProps } from "../../../types";
+import { useIds } from "../../../hooks";
+import Label from "../../Utility/Label";
+import InputError from "../../Utility/InputError";
 
-export interface Props {
-  children: React.ReactNode;
-  /** Must include a label. Labels are always Sentence case. */
-  label: string;
-  /** Error text should be descriptive and explicit in meaning. */
-  error?: string;
-  /** For additional information (ex. date format mm/dd/yy) */
-  message?: string;
-  /** Only use in very specific circumstances. This hides the label from view, but still allows screen readers to read the label. (A filter dropdown with a clear meaning could potentially be a use case.) */
-  hideLabel?: boolean;
-  /** The select size should reflect the size of its content. */
-  size?: "small" | "medium" | "large" | "full" | "auto";
-  disabled?: boolean;
-  required?: boolean;
+export interface ComboboxProps extends SharedInputProps {
+  value: string;
+  onChange: (value: string) => void;
+
+  /** Array of possible values to suggest to the user */
+  options: string[];
+
+  /** Optional function to override the filtering behavior. By default,
+   * the suggestions are compared to the current input value by string value.
+   * It checks if the suggestions starts with the current value OR if the
+   * levenshtein distance between them is 2 or less.
+   */
+  filterSuggestions?: (value: string, options: string[]) => string[];
+}
+
+function defaultFilterSuggestiosn(value: string, options: string[]): string[] {
+  const compValue = String(value);
+
+  return options.filter((o) => {
+    if (!value) return true;
+    return o.startsWith(compValue) || levenshtein(o, compValue) <= 2;
+  });
 }
 
 /**
  * Combobox
+ * It is the combination of an input field, with a dropdown of possible suggestions
  *
  * https://www.w3.org/TR/wai-aria-practices/examples/combobox/combobox-select-only.html for accessibility implementation.
  * */
 export default function Combobox({
-  children,
+  options,
+  value,
+  onChange,
   size = "medium",
   label,
   error,
   message,
   hideLabel = false,
   disabled = false,
-}: Props) {
-  const errorID = "errorText";
-  /* Add a space before the added class rather than inside the className attr on the tag. Looks cleaner. */
-  let errorClass = error ? " has-error" : "";
-  let disabledClass = disabled ? " is-disabled" : "";
-  let hiddenClass = hideLabel ? " aj-hidden" : "";
-
+  filterSuggestions = defaultFilterSuggestiosn,
+}: ComboboxProps) {
   const [menuActive, setMenuActive] = useState(false);
 
-  const handleOpen = () => {
-    if (menuActive) {
-      setMenuActive(false);
-    } else {
-      setMenuActive(true);
-    }
-  };
-
-  useEffect(() => {
-    const closeMenu = () => {
-      if (!menuActive) return;
-      setMenuActive(false);
-    };
-
-    window.addEventListener("click", closeMenu);
-
-    return () => window.removeEventListener("click", closeMenu);
-  }, [menuActive]);
+  const [labelId, comobId, inputId, listBoxId, errorId] = useIds(`combo`, [
+    "label",
+    "combo",
+    "input",
+    "listbox",
+    "error",
+  ]);
 
   return (
-    <div className={`aj-dropdown is-${size}${errorClass}${disabledClass}`}>
-      <label className={`aj-label${hiddenClass}`} id="comboLabel">
+    <div
+      className={cn("aje-dropdown", `is-${size}`, {
+        "has-error": error,
+        "is-disabled": disabled,
+      })}
+    >
+      <Label message={message} htmlFor={labelId} hidden={hideLabel}>
         {label}
-        {message ? <p className="aj-label--message">{message}</p> : null}
-      </label>
-      <div className="aj-combobox">
+      </Label>
+      <div className="aje-combobox">
         <div
-          className="aj-combobox__input is-searchable"
-          aria-owns="listboxID"
+          className="aje-combobox__input is-searchable"
+          aria-owns={listBoxId}
           aria-expanded={menuActive}
           aria-haspopup="listbox"
-          id="comboID"
+          id={comobId}
           role="combobox"
-          onClick={handleOpen}
         >
           <input
             type="text"
             aria-autocomplete="both"
-            aria-controls="listboxID"
-            aria-labelledby="comboLabel"
-            aria-describedby={error ? errorID : ""}
-            id="comboInputID"
+            aria-controls={listBoxId}
+            aria-labelledby={labelId}
+            aria-describedby={error ? errorId : ""}
+            id={inputId}
+            value={value}
+            onChange={(e) => onChange(e.target.value)}
+            onFocus={() => setMenuActive(true)}
+            onBlur={() => setMenuActive(false)}
           />
         </div>
         <ul
-          className="aj-combobox__menu"
+          className="aje-combobox__menu"
           role="listbox"
-          id="lisboxID"
-          aria-labelledby="comboLabel"
+          id={listBoxId}
+          aria-labelledby={labelId}
         >
-          <li className="aj-combobox__option is-focused" role="option" id="op1">
-            Option
-          </li>
-          <li className="aj-combobox__option" role="option" id="op2">
-            {children}
-          </li>
-          <li className="aj-combobox__option" role="option" id="op3">
-            {children}
-          </li>
+          {filterSuggestions(value, options).map((o) => (
+            <li
+              className={cn("aje-combobox__option", {
+                "is-focused": o === value,
+              })}
+              onMouseDown={() => onChange(o)}
+              role="option"
+              id={String(o)}
+              key={String(o)}
+              tabIndex={0}
+            >
+              {o}
+            </li>
+          ))}
         </ul>
       </div>
-      {error ? (
-        <p id={errorID} className="aj-label--error">
-          {error}
-        </p>
-      ) : null}
+      <InputError error={error} id={errorId} />
     </div>
   );
 }

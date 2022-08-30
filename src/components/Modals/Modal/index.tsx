@@ -1,16 +1,28 @@
-import React from "react";
-import "../../general.scss";
-import "./styles.scss";
+import React, { useEffect } from "react";
+import ReactDOM from "react-dom";
+import { modalInitializer, SharedModalData, useModal } from "../utils";
 import Button from "../../Buttons/Button";
 
-export interface Props {
+export interface ModalProps {
+  /** Whether or not the modal is visible */
+  open?: boolean;
   /** Must include a title. Titles are always in Title case. */
   title: string;
-  content: any;
-  /** Should be descriptive instead of yes or no. If you're confirming you want to delete something, Delete is an appropriate string to use. */
+  children: React.ReactNode;
+  /** Should be descriptive instead of yes or no.
+   * If you're confirming you want to delete something,
+   * Delete is an appropriate string to use. */
   primaryButton?: string;
-  /** This will replace 'Cancel' as the negative action. Sometimes you might need it to say 'Close' or something instead. */
+  /** This will replace 'Cancel' as the negative action.
+   * Sometimes you might need it to say 'Close' or something instead. */
   secondaryButton?: string;
+
+  /** Callback when the priamry button is pressed */
+  primaryAction?: () => void;
+  /** Callback when the secondary button is pressed */
+  secondaryAction?: () => void;
+  /** Callback when the close button is pressed */
+  onClose?: () => void;
 }
 
 /**
@@ -18,37 +30,59 @@ export interface Props {
  *
  * For when you need a large modal with somewhat complex actions.
  * */
-export default function Modal({
+function Modal({
+  open = false,
   title,
-  content,
+  children,
   primaryButton,
   secondaryButton = "Cancel",
-}: Props) {
-  return (
-    <div className="aj-modal-background">
-      <div className="aj-modal">
-        <div className="aj-modal__top">
-          <h2 className="aj-modal__title">{title}</h2>
-          <button className="aj-modal__close" aria-label="close modal">
+  primaryAction,
+  secondaryAction,
+  onClose,
+}: ModalProps) {
+  const renderModal = useModal(open);
+
+  return renderModal(
+    <div className="aje-modal-background">
+      <div className="aje-modal">
+        <div className="aje-modal__top">
+          <h2 className="aje-modal__title">{title}</h2>
+          <button
+            className="aje-modal__close"
+            aria-label="close modal"
+            onClick={() => onClose && onClose()}
+          >
             <i className="material-icons" aria-hidden>
               close
             </i>
           </button>
         </div>
-        <div className="aj-modal__main">{content}</div>
-        <div className="aj-modal__bottom">
-          {secondaryButton ? (
-            <Button className="secondary" type="button">
+        <div className="aje-modal__main">{children}</div>
+        <div className="aje-modal__bottom">
+          {secondaryButton && (
+            <Button
+              className="secondary"
+              type="button"
+              onClick={() => primaryAction && primaryAction()}
+            >
               {secondaryButton}
             </Button>
-          ) : null}
-          {primaryButton ? (
-            <Button className="primary" type="button">
+          )}
+          {primaryButton && (
+            <Button
+              className="primary"
+              type="button"
+              onClick={() => secondaryAction && secondaryAction()}
+            >
               {primaryButton}
             </Button>
-          ) : null}
+          )}
         </div>
       </div>
     </div>
   );
 }
+
+Modal.init = modalInitializer;
+
+export default Modal;

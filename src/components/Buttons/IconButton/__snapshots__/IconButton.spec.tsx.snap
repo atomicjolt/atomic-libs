@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <button
+    aria-label="More Button"
+    class="aje-btn--icon"
+    type="button"
+  >
+    <i
+      aria-hidden="true"
+      class="material-icons is-medium"
+    >
+      more_vert
+    </i>
+  </button>
+</DocumentFragment>
+`;

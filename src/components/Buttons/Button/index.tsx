@@ -1,15 +1,27 @@
 import React from "react";
-import "../../general.scss";
-import "./styles.scss";
+import cn from "classnames";
 import Spinner from "../../Loaders/Spinner";
 
 interface CommonProps {
   /** What to render within the Button */
   children?: React.ReactNode;
-  className?: "primary" | "secondary" | "success" | "error" | "inverted";
+  /** Added to the button's className as: `aje-btn--${className}`. Builtin styles for:
+   * - `primary`
+   * - `secondary`
+   * - `success`
+   * - `error`
+   * - `inverted`
+   */
+  className?:
+    | "primary"
+    | "secondary"
+    | "success"
+    | "error"
+    | "inverted"
+    | (string & {});
   type?: "submit" | "reset" | "button";
   disabled?: boolean;
-  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 type LoadingProps =
@@ -28,26 +40,25 @@ type LoadingProps =
       loadingComplete?: boolean;
     };
 
-export type Props = CommonProps & LoadingProps;
+export type ButtonProps = CommonProps & LoadingProps;
 
 export default function Button({
   children,
   type = "button",
-  className,
+  className = "primary",
   disabled = false,
   loading = false,
   loadingLabel = "loading",
   loadingComplete = false,
   onClick,
-}: Props) {
-  let loadingClass = loading ? "is-loading" : "";
-  let loadingText = loading ? loadingLabel : "";
+}: ButtonProps) {
+  const loadingText = loading ? loadingLabel : "";
 
   return (
     <button
       aria-label={loadingText}
       type={type}
-      className={`aj-btn--${className} ${loadingClass}`}
+      className={cn(`aje-btn aje-btn--${className}`, { "is-loading": loading })}
       onClick={onClick}
       disabled={disabled}
     >

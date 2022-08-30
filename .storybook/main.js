@@ -6,8 +6,10 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
+    "@storybook/addon-docs",
     "storybook-addon-sass-postcss",
   ],
+  staticDirs: ["../public"],
   framework: "@storybook/react",
   typescript: {
     check: false,
@@ -15,7 +17,7 @@ module.exports = {
     reactDocgen: "react-docgen-typescript",
     reactDocgenTypescriptOptions: {
       compilerOptions: {
-        allowSyntheticDefaultImports: false,
+        allowSyntheticDefaultImports: true,
         esModuleInterop: false,
       },
       shouldExtractLiteralValuesFromEnum: true,

@@ -1,18 +1,41 @@
+import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import TextInput, { Props } from ".";
+import TextInput, { TextInputProps } from ".";
+import { DefaultInputProperties } from "../../../utils";
 
 export default {
   title: "Inputs/TextInput",
   component: TextInput,
 } as ComponentMeta<typeof TextInput>;
 
-const Template: ComponentStory<typeof TextInput> = (args: Props) => (
-  <TextInput {...args} />
-);
-
-export const Default = Template.bind({});
-Default.args = {
-  label: "Text input label",
+const Template: ComponentStory<typeof TextInput> = (args: TextInputProps) => {
+  return <TextInput {...args} />;
 };
 
-// Additional stories go here
+export const Controlled = Template.bind({});
+Controlled.args = {
+  value: "",
+  type: "text",
+  ...DefaultInputProperties,
+  label: "Text input label",
+  placeholder: "",
+  readonly: false,
+};
+
+export const Uncontrolled = Template.bind({});
+Uncontrolled.args = {
+  type: "text",
+  ...DefaultInputProperties,
+  label: "Text input label",
+  placeholder: "",
+  readonly: false,
+};
+
+Uncontrolled.argTypes = {
+  value: {
+    control: false,
+  },
+  onChange: {
+    control: false,
+  },
+};

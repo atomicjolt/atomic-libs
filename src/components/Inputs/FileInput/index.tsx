@@ -1,55 +1,60 @@
 import React from "react";
-import "../../general.scss";
-import "../common.scss";
-import "./styles.scss";
+import cn from "classnames";
+import { useIds } from "../../../hooks";
+import { SharedInputProps } from "../../../types";
+import InputError from "../../Utility/InputError";
 
-export interface Props {
-  /** Labels are always Sentence case. */
-  label?: string;
-  /** Error text should be descriptive and explicit in meaning. */
-  error?: string;
-  value?: string;
-  readonly?: boolean;
-  disabled?: boolean;
-  required?: boolean;
+export interface FileInputProps extends Omit<SharedInputProps, "hideLabel"> {
+  file?: File | null;
+  onChange?: (
+    file: File | null,
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => void;
 }
 
-/** File Input Component */
-export default function FileInput({
-  label = "Choose a file...",
-  error,
-  value,
-  readonly = false,
-  disabled = false,
-  required = false,
-}: Props) {
-  const inputID = "textInput";
-  const errorID = "errorText";
-  /* Add a space before the added class rather than inside the className attr on the tag. Looks cleaner. */
-  let errorClass = error ? " has-error" : "";
-  let disabledClass = disabled ? " is-disabled" : "";
+/** FileInput component. Used to select singular files */
+const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
+  (
+    {
+      file,
+      onChange,
+      label = "Choose a file...",
+      error,
+      readonly = false,
+      disabled = false,
+      required = false,
+    },
+    ref
+  ) => {
+    const [inputId, errorId] = useIds("file-input", ["input", "error"]);
+    console.log(file);
+    return (
+      <div
+        className={cn("aje-input--file", {
+          "has-error": error,
+          "is-disabled": disabled,
+        })}
+      >
+        <input
+          id={inputId}
+          ref={ref}
+          aria-describedby={error ? errorId : ""}
+          type="file"
+          readOnly={readonly}
+          disabled={disabled}
+          required={required}
+          onChange={(e) =>
+            onChange && onChange(e.target.files ? e.target.files[0] : null, e)
+          }
+        />
+        <label htmlFor={inputId}>
+          <span>{file?.name}</span>
+          <strong>{label}</strong>
+        </label>
+        <InputError error={error} id={errorId} />
+      </div>
+    );
+  }
+);
 
-  return (
-    <div className={`aj-input--file ${errorClass}${disabledClass}`}>
-      <input
-        id={inputID}
-        aria-describedby={error ? errorID : ""}
-        type="file"
-        value={value}
-        readOnly={readonly}
-        disabled={disabled}
-        required={required}
-      />
-      <label htmlFor={inputID}>
-        {/* File name needs to be inserted here */}
-        <span></span>
-        <strong>{label}</strong>
-      </label>
-      {error ? (
-        <p id={errorID} className="aj-label--error">
-          {error}
-        </p>
-      ) : null}
-    </div>
-  );
-}
+export default FileInput;

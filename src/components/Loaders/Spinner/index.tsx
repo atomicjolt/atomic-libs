@@ -1,15 +1,13 @@
 import React from "react";
-import "../../general.scss";
-import "./styles.scss";
 
-export interface Props {
+export interface SpinnerProps {
   loading?: boolean;
 }
 
 /** Spinner Component */
-export default function Spinner({ loading = true }: Props) {
+export default function Spinner({ loading = true }: SpinnerProps) {
   return (
-    <div className="aj-spinner">
+    <div className="aje-spinner">
       {loading ? (
         <svg
           className="circular-loader"

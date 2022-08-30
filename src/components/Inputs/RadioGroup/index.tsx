@@ -1,39 +1,61 @@
+import cn from "classnames";
 import React from "react";
-import "../../general.scss";
-import "./styles.scss";
-import Radio from "../Radio";
+import { SharedInputProps } from "../../../types";
+import { RadioContextData } from "./context";
+import RadioContext from "./context";
 
-export interface Props {
-  /** Must include a label. Labels are always Sentence case. */
-  label: string;
-  /** For additional information (ex. date format mm/dd/yy) */
-  message?: string;
-  /** Error text should be descriptive and explicit in meaning. */
-  error?: string;
+export interface RadioGroupsProps
+  extends Omit<SharedInputProps, "size" | "required" | "readonly"> {
+  value?: string;
+  onChange?: (
+    value: string,
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => void;
+  /** The name associated with the radio group. */
+  name: string;
+  children: React.ReactNode;
 }
 
 /**
  * Radio Group
  *
- * For a choice selection of 3-5 options. There may be a few cases where you can use these for more than 5, but it isn't common.
+ * - For a choice selection of 3-5 options. There may be a few cases where you can use these for more than 5, but it isn't common.
+ * - For 2 choices, use a checkbox instead.
+ * - For more than 5 options, use a select.
  *
- * For 2 choices, use a checkbox instead.
- *
- * For more than 5 options, use a select.
+ * Any `<Radio />` element nested under a `<RadioGroup />` will be considered part of that group,
+ * do note that it does not need to nested directly under. As such, you can add additional strucuture
+ * between the over-lying `<RadioGroup />` and it's `<Radio />`s
  * */
-export default function RadioGroup({ label, message, error }: Props) {
-  const radioName = "radio";
+export default function RadioGroup({
+  value,
+  label,
+  message,
+  error,
+  name,
+  onChange,
+  children,
+  disabled = false,
+  hideLabel,
+}: RadioGroupsProps) {
+  const ctx: RadioContextData = {
+    onChange: (e) => onChange && onChange(e.target.value, e),
+    name,
+    // @ts-ignore
+    currentValue: value,
+    disabled,
+  };
 
   return (
-    <fieldset className="aj-radio-group">
-      <legend className="aj-label">
+    <fieldset className="aje-radio-group">
+      <legend className={cn("aje-label", { "aje-hidden": hideLabel })}>
         {label}
-        {message ? <p className="aj-label--message">{message}</p> : null}
-        {error ? <p className="aj-label--error">{error}</p> : null}
+        {message && <p className="aje-label--message">{message}</p>}
+        {error && <p className="aje-label--error">{error}</p>}
       </legend>
-      <Radio label="Radio one" name={radioName} />
-      <Radio label="Radio two" name={radioName} />
-      <Radio label="Radio three" name={radioName} />
+      <RadioContext.Provider value={ctx}>{children}</RadioContext.Provider>
     </fieldset>
   );
 }
+
+export { default as Radio } from "./Radio";

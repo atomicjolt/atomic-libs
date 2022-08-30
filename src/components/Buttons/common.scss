@@ -1,6 +1,6 @@
-@use "../defines" as *;
+@use "../mixins.scss";
 
-.aj-btn {
+.aje-btn {
   --btn-height: 40px;
   --btn-padding: 0.5em; /* Half the button's font size, 8px currently */
 
@@ -12,7 +12,7 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  @include bold;
+  @include mixins.bold;
   transition: background 100ms ease, color 100ms ease, transform 100ms ease,
     box-shadow 100ms ease;
   color: var(--btn-text-clr);
@@ -42,8 +42,8 @@
     position: relative;
     color: transparent;
 
-    .aj-spinner,
-    .aj-three-dot-loader {
+    .aje-spinner,
+    .aje-three-dot-loader {
       --loader-clr: var(--btn-text-clr);
       --loader-size: 1em;
     }

@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="aje-input is-medium has-error"
+  >
+    <label
+      class="aje-label"
+      for="text-input-input-12345678900000000000"
+    >
+      Text Label
+      <p
+        class="aje-label--message"
+      >
+        message
+      </p>
+    </label>
+    <input
+      aria-describedby="text-input-error-12345678900000000000"
+      id="text-input-input-12345678900000000000"
+      placeholder="placeholder"
+      type="text"
+      value="content"
+    />
+    <p
+      class="aje-label--error"
+      id="text-input-error-12345678900000000000"
+    >
+      some error
+    </p>
+  </div>
+</DocumentFragment>
+`;

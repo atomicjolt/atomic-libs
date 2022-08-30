@@ -1,0 +1,9 @@
+@use "../../mixins";
+@use "../common.scss";
+
+.aje-modal {
+  &--confirmation {
+    @extend .aje-modal;
+    max-width: 400px;
+  }
+}

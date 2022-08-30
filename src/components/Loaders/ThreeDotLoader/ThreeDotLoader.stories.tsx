@@ -11,6 +11,8 @@ const Template: ComponentStory<typeof ThreeDotLoader> = (args: Props) => (
 );
 
 export const Default = Template.bind({});
-Default.args = {};
+Default.args = {
+  loading: true,
+};
 
 // Additional stories go here

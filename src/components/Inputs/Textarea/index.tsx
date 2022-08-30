@@ -1,68 +1,65 @@
+import cn from "classnames";
 import React from "react";
-import "../../general.scss";
-import "../common.scss";
-import "./styles.scss";
+import { useIds } from "../../../hooks";
+import { ControlledInput, SharedInputProps } from "../../../types";
+import { makeEventHandler } from "../../../utils";
+import InputError from "../../Utility/InputError";
+import Label from "../../Utility/Label";
 
-export interface Props {
-  /** Must include a label. Labels are always Sentence case. */
-  label: string;
-  /** Error text should be descriptive and explicit in meaning. */
-  error?: string;
-  /** For additional information (ex. date format mm/dd/yy) */
-  message?: string;
-  /** Placeholders aren't common, you should use the message instead for most placeholders so the user doesn't lose the information after entering text in the input. */
-  placeholder?: string;
-  /** The input size should reflect the expected size of its content. */
-  height?: "small" | "medium" | "large";
+export interface TextAreaProps
+  extends Omit<SharedInputProps, "size">,
+    ControlledInput<string, HTMLTextAreaElement> {
+  size?: "small" | "medium" | "large";
   resize?: boolean;
-  value?: string;
-  readonly?: boolean;
-  disabled?: boolean;
-  required?: boolean;
 }
 
-/** Textarea Component */
-export default function Textarea({
-  height = "small",
-  resize = true,
-  label,
-  error,
-  message,
-  placeholder,
-  value,
-  readonly = false,
-  disabled = false,
-  required = false,
-}: Props) {
-  const inputID = "textarea";
-  const errorID = "errorText";
-  /* Add a space before the added class rather than inside the className attr on the tag. Looks cleaner. */
-  let errorClass = error ? " has-error" : "";
-  let disabledClass = disabled ? " is-disabled" : "";
-  let resizeClass = resize ? " can-resize" : "";
+/** Textarea Component. Accepts a `ref` */
+const Textarea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
+  (
+    {
+      value,
+      onChange,
+      size = "small",
+      resize = true,
+      label,
+      error,
+      message,
+      placeholder,
+      readonly = false,
+      disabled = false,
+      required = false,
+      hideLabel = false,
+    },
+    ref
+  ) => {
+    const [inputId, errorId] = useIds("textarea", ["textarea", "error"]);
 
-  return (
-    <div
-      className={`aj-input is-${height}${resizeClass}${errorClass}${disabledClass}`}
-    >
-      <label className="aj-label" htmlFor={inputID}>
-        {label}
-        {message ? <p className="aj-label--message">{message}</p> : null}
-      </label>
-      <textarea
-        id={inputID}
-        aria-describedby={error ? errorID : ""}
-        placeholder={placeholder}
-        value={value}
-        readOnly={readonly}
-        disabled={disabled}
-        required={required}
-      />
-      {error ? (
-        <p id={errorID} className="aj-label--error">
-          {error}
-        </p>
-      ) : null}
-    </div>
-  );
-}
+    return (
+      <div
+        className={cn("aje-input", `is-${size}`, {
+          "can-resize": resize,
+          "has-error": error,
+          "is-disabled": disabled,
+        })}
+      >
+        <Label message={message} hidden={hideLabel} htmlFor={inputId}>
+          {label}
+        </Label>
+        <textarea
+          id={inputId}
+          ref={ref}
+          aria-describedby={error ? errorId : ""}
+          placeholder={placeholder}
+          value={value}
+          readOnly={readonly}
+          disabled={disabled}
+          required={required}
+          onChange={onChange && makeEventHandler(onChange)}
+        />
+        <InputError error={error} id={errorId} />
+      </div>
+    );
+  }
+);
+
+export default Textarea;

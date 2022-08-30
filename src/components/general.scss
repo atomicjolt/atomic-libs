@@ -1,58 +1,8 @@
-@use "./defines" as *;
-
-html {
-  font-size: 10px;
-}
-
-html,
-html a {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
-  text-rendering: optimizeLegibility;
-}
-
-* {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  vertical-align: top;
-}
-
-:focus:not(:focus-visible) {
-  outline: none;
-}
-
-.aj-hidden {
+.aje-hidden {
   position: absolute;
   left: -10000px;
   top: auto;
   width: 1px;
   height: 1px;
   overflow: hidden;
-}
-
-.aj-label {
-  display: block;
-  padding-bottom: 5px;
-  @include bold;
-  font-size: 1.3rem;
-  line-height: 1.1;
-  color: var(--text-clr);
-
-  &--message,
-  &--error {
-    margin: 3px 0 0;
-    @include bold;
-    font-size: 1.3rem;
-  }
-
-  &--message {
-    margin: 2px 0 0;
-    @include regular;
-    color: var(--text-clr-alt);
-  }
-
-  &--error {
-    color: var(--error700);
-  }
 }

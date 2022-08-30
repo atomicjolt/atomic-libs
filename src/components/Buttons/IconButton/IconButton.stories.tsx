@@ -1,12 +1,18 @@
+import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import IconButton, { Props } from ".";
+import IconButton, { IconButtonProps } from ".";
 
 export default {
   title: "Buttons/IconButton",
   component: IconButton,
+  argTypes: {
+    onClick: {
+      control: false,
+    },
+  },
 } as ComponentMeta<typeof IconButton>;
 
-const Template: ComponentStory<typeof IconButton> = (args: Props) => (
+const Template: ComponentStory<typeof IconButton> = (args: IconButtonProps) => (
   <IconButton {...args} />
 );
 
