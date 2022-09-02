@@ -63,7 +63,7 @@
     min-height: 80px;
     width: 100%;
     padding: calc(var(--input-font-size) / 2) var(--input-padding);
-    @include regular;
+    @include mixins.regular;
     font-size: var(--input-font-size);
     color: var(--input-text-clr);
     background-color: var(--input-bg-clr);

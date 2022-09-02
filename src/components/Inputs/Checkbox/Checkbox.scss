@@ -3,7 +3,7 @@
 .aje-checkbox {
   --check-box-radius: var(--radius);
 
-  input[type="checkbox"] + .aj-checkbox__label:before {
+  input[type="checkbox"] + .aje-checkbox__label:before {
     border-radius: var(--check-box-radius);
   }
 
