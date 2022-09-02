@@ -3,8 +3,13 @@
 .aje-input {
   --input-height: 40px;
   --input-padding-horiz: 12px;
-  --input-bg-clr: var(--neutral50);
+  --input-font-size: 1.6rem;
+  --input-icon-size: 2.4rem;
   --input-text-clr: var(--text-clr);
+  --input-border-color: var(--input-border-clr);
+  --input-border: 1px solid var(--input-border-color);
+  --input-border-radius: var(--radius);
+  --input-bg-clr: none;
 
   &--floating {
     @extend .aje-input;
@@ -18,23 +23,22 @@
   }
 
   input {
-    border: 1px solid;
-    border-color: var(--input-border-clr);
-    border-radius: 5px;
-    background-color: var(--input-bg-clr);
+    border: var(--input-border);
+    border-radius: var(--input-border-radius);
     min-height: var(--input-height);
     width: 100%;
     padding: 0 var(--input-padding-horiz);
     @include mixins.regular;
-    font-size: 1.6rem;
+    font-size: var(--input-font-size);
     color: var(--input-text-clr);
+    background-color: var(--input-bg-clr);
 
     &:read-only {
       border-color: var(--neutral100);
-      background-color: var(--neutral100);
+      --input-bg-clr: var(--neutral100);
     }
     &:focus {
-      border-color: var(--outline-clr-primary);
+      --input-border-color: var(--outline-clr-primary);
       outline: var(--input-outline);
     }
   }
@@ -49,7 +53,7 @@
       position: absolute;
       right: 14px;
       bottom: 8px;
-      font-size: 2.4rem;
+      font-size: var(--input-icon-size);
       line-height: 1;
       color: var(--neutral500);
       background-color: var(--neutral50);
@@ -62,6 +66,32 @@
   }
   &__time::after {
     content: "\e8b5";
+  }
+
+  textarea {
+    border: var(--input-border);
+    border-radius: var(--input-border-radius);
+    min-height: 80px;
+    width: 100%;
+    padding: calc(var(--input-font-size) / 2) var(--input-padding-horiz);
+    @include mixins.regular;
+    font-size: var(--input-font-size);
+    color: var(--input-text-clr);
+    background-color: var(--input-bg-clr);
+    resize: none;
+
+    &:read-only {
+      border-color: var(--neutral100);
+      --input-bg-clr: var(--neutral100);
+    }
+    &:focus {
+      --input-border-color: var(--outline-clr-primary);
+      outline: var(--input-outline);
+    }
+  }
+
+  &.can-resize textarea {
+    resize: both;
   }
 
   &.is-small {
@@ -107,7 +137,7 @@
   &.has-error {
     input,
     select {
-      border-color: var(--error700);
+      --input-border-color: var(--error700);
 
       &:focus {
         outline-color: var(--error700);
@@ -122,8 +152,15 @@
 
 .aje-checkbox,
 .aje-radio {
-  --unchecked: var(--neutral500);
+  --unchecked: var(--neutral600);
   --checked: var(--primary700);
+  --check-border-clr: var(--unchecked);
+  --check-bg-clr: none;
+  --check-size: 20px;
+  --label-text-size: 1.6rem;
+  --label-padding-top: 0;
+  --label-padding-left: 32px;
+  --label-height: 24px;
 
   display: block;
 
@@ -132,20 +169,23 @@
     cursor: pointer;
     position: relative;
     @include mixins.regular;
-    font-size: 1.6rem;
+    font-size: var(--label-text-size);
     line-height: 1.5;
     color: var(--text-clr);
-    padding-left: 32px;
+    padding-top: var(--label-padding-top);
+    padding-left: var(--label-padding-left);
+    min-height: var(--label-height);
 
     &:before {
       content: "";
       position: absolute;
       top: 2px;
       left: 2px;
-      width: 20px;
-      height: 20px;
+      width: var(--check-size);
+      height: var(--check-size);
       box-sizing: border-box;
-      border: 2px solid var(--unchecked);
+      background-color: var(--check-bg-clr);
+      border: 2px solid var(--check-border-clr);
     }
     &:after {
       content: "";

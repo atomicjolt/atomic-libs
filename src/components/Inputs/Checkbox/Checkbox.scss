@@ -1,17 +1,16 @@
 @use "../../mixins";
 
 .aje-checkbox {
-  --unchecked: var(--neutral600);
-  --checked: var(--primary700);
+  --check-box-radius: var(--radius);
 
   input[type="checkbox"] + .aje-checkbox__label:before {
-    border-radius: 5px;
+    border-radius: var(--check-box-radius);
   }
 
   input[type="checkbox"]:checked ~ .aje-checkbox__label {
     &:before {
-      background-color: var(--checked);
-      border-color: var(--checked);
+      --check-bg-clr: var(--checked);
+      --check-border-clr: var(--checked);
     }
     &:after {
       display: block;
