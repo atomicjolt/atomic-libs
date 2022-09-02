@@ -10,7 +10,6 @@ export interface CustomDropdownProps<T>
   value: T | null;
   onChange: EventHandler<T, React.MouseEvent<Element>>;
   children: React.ReactElement | React.ReactElement[];
-  className?: string;
 }
 
 interface CustomSelectContext<T> {
@@ -38,7 +37,7 @@ function CustomDropdown<T>({
   hideLabel = false,
   disabled = false,
   children,
-  className = "aje-dropdown",
+  required = false,
 }: CustomDropdownProps<T>) {
   const [menuActive, toggleMenu] = useBool(false);
   const ref = useRef(null);
@@ -76,19 +75,12 @@ function CustomDropdown<T>({
 
   return (
     <div
-      className={cn(className, `is-${size}`, {
+      className={cn("aje-dropdown--floating", `is-${size}`, {
         "has-error": error,
         "is-disabled": disabled,
+        "is-required": required,
       })}
     >
-      <Label
-        message={message}
-        htmlFor={inputId}
-        id={labelId}
-        hidden={hideLabel}
-      >
-        {label}
-      </Label>
       <div className="aje-combobox">
         <div
           className="aje-combobox__input"
@@ -113,7 +105,11 @@ function CustomDropdown<T>({
         >
           <Context.Provider value={ctx}>{children}</Context.Provider>
         </ul>
+        <Label htmlFor={inputId} id={labelId} hidden={hideLabel}>
+          {label}
+        </Label>
       </div>
+      {message && <p className="aje-label--message">{message}</p>}
       <InputError error={error} id={errorId} />
     </div>
   );

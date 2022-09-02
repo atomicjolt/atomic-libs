@@ -28,3 +28,6 @@ export { default as Table } from "./Tables/Table";
 export { default as Tabs, Tab } from "./Tabs/Tabs";
 export { default as LoadingStatus } from "./Utility/LoadingStatus";
 export { default as Label } from "./Utility/Label";
+export { default as TextInputFloating } from "./Inputs/TextInputFloating";
+export { default as CustomDropdownFloating } from "./Dropdowns/CustomDropdownFloating";
+export { default as ComboboxFloating } from "./Dropdowns/ComboboxFloating";

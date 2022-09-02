@@ -9,6 +9,7 @@ export interface LabelProps {
   hidden?: boolean;
   id?: string;
   error?: string;
+  className?: string;
 }
 
 export default function Label({
@@ -18,8 +19,9 @@ export default function Label({
   hidden,
   id,
   error,
+  className = "aje-label",
 }: LabelProps) {
-  const classes = cn("aje-label", { "aje-hidden": hidden });
+  const classes = cn(className, { "aje-hidden": hidden });
 
   return (
     <label className={classes} htmlFor={htmlFor} id={id}>

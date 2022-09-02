@@ -2,7 +2,7 @@
 
 .aje-input {
   --input-height: 40px;
-  --input-padding: 12px;
+  --input-padding-horiz: 12px;
   --input-font-size: 1.6rem;
   --input-icon-size: 2.4rem;
   --input-text-clr: var(--text-clr);
@@ -10,17 +10,19 @@
   --input-border: 1px solid var(--input-border-color);
   --input-border-radius: var(--radius);
   --input-bg-clr: none;
+  --input-transition: none;
 
   input {
     border: var(--input-border);
     border-radius: var(--input-border-radius);
     min-height: var(--input-height);
     width: 100%;
-    padding: 0 var(--input-padding);
+    padding: 0 var(--input-padding-horiz);
     @include mixins.regular;
     font-size: var(--input-font-size);
     color: var(--input-text-clr);
     background-color: var(--input-bg-clr);
+    text-align: left;
 
     &:read-only {
       border-color: var(--neutral100);
@@ -62,7 +64,7 @@
     border-radius: var(--input-border-radius);
     min-height: 80px;
     width: 100%;
-    padding: calc(var(--input-font-size) / 2) var(--input-padding);
+    padding: calc(var(--input-font-size) / 2) var(--input-padding-horiz);
     @include mixins.regular;
     font-size: var(--input-font-size);
     color: var(--input-text-clr);
