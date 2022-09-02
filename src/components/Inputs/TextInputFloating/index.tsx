@@ -23,7 +23,7 @@ const TextInputFloating = React.forwardRef(
       label,
       error,
       message,
-      placeholder,
+      placeholder = "",
       hideLabel = false,
       readonly = false,
       disabled = false,
@@ -53,10 +53,11 @@ const TextInputFloating = React.forwardRef(
             required={required}
             onChange={onChange && makeEventHandler(onChange)}
           />
-          <Label message={message} hidden={hideLabel} htmlFor={inputId}>
+          <Label className="" hidden={hideLabel} htmlFor={inputId}>
             {label}
           </Label>
         </div>
+        {message && <p className="aje-label--message">{message}</p>}
         <InputError error={error} id={errorId} />
       </div>
     );

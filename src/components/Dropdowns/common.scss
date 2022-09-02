@@ -3,13 +3,14 @@
 .aje-dropdown {
   /* Dropdown variables */
   --dropdown-border-radius: var(--radius);
-  --dropdown-border: 1px solid var(--input-border-clr);
+  --dropdown-border-clr: var(--input-border-clr);
   --dropdown-height: 40px;
   --dropdown-input-height: calc(var(--dropdown-height) - 2px);
   --dropdown-padding: 6px;
   --dropdown-padding-left: calc(var(--dropdown-padding) * 2);
   --dropdown-padding-right: var(--dropdown-height);
   --dropdown-text-clr: var(--text-clr);
+  --dropdown-bg-clr: none;
   --dropdown-text-size: 1.6rem;
   --dropdown-icon-size: 2.4rem;
   --dropdown-icon-gap: calc(
@@ -43,13 +44,15 @@
 
     &__input {
       position: relative;
-      border: var(--dropdown-border);
+      border: 1px solid;
+      border-color: var(--dropdown-border-clr);
       border-radius: var(--dropdown-border-radius);
       height: var(--dropdown-height);
       padding: var(--dropdown-padding) var(--dropdown-padding-right)
         var(--dropdown-padding) var(--dropdown-padding-left);
       @include mixins.regular;
       color: var(--dropdown-text-clr);
+      background-color: var(--dropdown-bg-clr);
       font-size: var(--dropdown-text-size);
       line-height: 1.5;
       color: inherit;
@@ -66,6 +69,7 @@
 
       input {
         border: none;
+        background-color: var(--dropdown-bg-clr);
         min-height: var(--dropdown-input-height);
         padding: 0 var(--dropdown-padding-right) 0 var(--dropdown-padding-left);
         @include mixins.regular;
@@ -222,5 +226,74 @@
 
   &.is-disabled {
     opacity: 0.5;
+  }
+
+  &.is-required {
+    label.aje-label {
+      &::after {
+        content: " *";
+      }
+    }
+  }
+}
+
+.aje-dropdown--floating {
+  @extend .aje-dropdown;
+  --dropdown-height: 48px;
+  --dropdown-padding: 8px;
+  --dropdown-bg-clr: var(--neutral50);
+
+  --floating-font-size: 1.6rem;
+  --floating-label-clr: var(--text-clr-alt);
+
+  label {
+    --floating-font-size: 1.3rem;
+    --dropdown-bg-clr: var(--neutral50);
+    --floating-label-clr: var(--text-clr);
+
+    position: absolute;
+    transform: translateY(-50%);
+    background-color: var(--dropdown-bg-clr);
+    color: var(--floating-label-clr);
+    text-align: center;
+    transition: 200ms ease;
+    @include mixins.regular;
+    font-size: var(--floating-font-size);
+    pointer-events: none;
+    padding: 1px 4px;
+    top: 0px;
+    left: 1em;
+  }
+
+  .aje-dropdown__input {
+    box-shadow: 0 0 0 1px var(--dropdown-border-clr);
+    --dropdown-bg-clr: var(--neutral50);
+  }
+
+  .aje-dropdown__input:focus {
+    --dropdown-border-clr: var(--primary700);
+    --dropdown-bg-clr: var(--neutral50);
+    box-shadow: 0 0 0 1px var(--dropdown-border-clr);
+    outline: none;
+  }
+  .aje-dropdown__input:hover {
+    --dropdown-border-clr: var(--neutral500);
+    box-shadow: 0 0 0 1px var(--dropdown-border-clr);
+  }
+  .aje-dropdown__input:focus:hover {
+    --dropdown-border-clr: var(--primary800);
+    box-shadow: 0 0 0 1px var(--dropdown-border-clr);
+  }
+  .aje-dropdown__input:focus ~ label {
+    --floating-label-clr: var(--text-clr);
+  }
+
+  &.has-error {
+    --dropdown-border-clr: var(--error700);
+
+    .aje-dropdown__input ~ label,
+    .aje-dropdown__input:focus ~ label {
+      --floating-label-clr: var(--error800);
+    }
   }
 }

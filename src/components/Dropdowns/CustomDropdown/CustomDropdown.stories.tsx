@@ -1,5 +1,6 @@
+import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import CustomDropdown, { Props } from ".";
+import CustomDropdown, { CustomDropdownProps } from ".";
 import { DefaultInputProperties } from "../../../utils";
 import MaterialIcon from "../../Utility/MaterialIcon";
 
@@ -14,7 +15,9 @@ export default {
   },
 } as ComponentMeta<typeof CustomDropdown>;
 
-const Template: ComponentStory<typeof CustomDropdown> = (args: Props<any>) => {
+const Template: ComponentStory<typeof CustomDropdown> = (
+  args: CustomDropdownProps<any>
+) => {
   return <CustomDropdown {...args} />;
 };
 
