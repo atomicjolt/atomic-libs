@@ -1,0 +1,68 @@
+@use "../../mixins";
+
+.aje-spinner {
+  --loader-clr: var(--neutral500);
+  --loader-size: 16px;
+
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: var(--loader-size);
+
+  .circular-loader {
+    width: 1.25em;
+    animation: rotate 2s linear infinite;
+  }
+  .loader-path {
+    fill: none;
+    stroke: var(--loader-clr);
+    stroke-width: 0.5em;
+    stroke-linecap: round;
+    animation: animate-stroke 1.5s ease-in-out infinite;
+  }
+
+  @keyframes rotate {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes animate-stroke {
+    0% {
+      stroke-dasharray: 1, 200;
+      stroke-dashoffset: 0;
+    }
+    50% {
+      stroke-dasharray: 89, 200;
+      stroke-dashoffset: -35;
+    }
+    100% {
+      stroke-dasharray: 89, 200;
+      stroke-dashoffset: -124;
+    }
+  }
+
+  span {
+    position: relative;
+    font-size: inherit;
+    top: -0.125em;
+    width: 0.5em;
+    height: 1em;
+    border-bottom: 0.2em solid var(--loader-clr);
+    border-right: 0.2em solid var(--loader-clr);
+    transform: rotate(45deg) scale(0);
+    animation: check 300ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
+
+  @keyframes check {
+    0% {
+      opacity: 0;
+      transform: rotate(90deg) scale(0);
+    }
+    100% {
+      opacity: 1;
+      transform: rotate(45deg) scale(1);
+    }
+  }
+}

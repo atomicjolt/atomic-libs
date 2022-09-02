@@ -1,0 +1,13 @@
+name: Deploy Storybook
+on:
+  push:
+    branches: ["main"]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Yarn
+        uses: mskelton/setup-yarn@v1.2.1
+      - run: yarn build:storybook
+      - run: yarn publish:storybook

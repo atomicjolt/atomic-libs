@@ -1,0 +1,9 @@
+@use "../../mixins";
+
+.aje-input {
+  input[type="search"] {
+    --input-width-sm: 100px;
+    --input-width-md: 200px;
+    --input-width-lg: 300px;
+  }
+}

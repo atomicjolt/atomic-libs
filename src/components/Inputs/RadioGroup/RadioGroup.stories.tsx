@@ -1,18 +1,49 @@
+import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import RadioGroup, { Props } from ".";
+import RadioGroup, { RadioGroupsProps } from ".";
+import Radio from "./Radio";
 
 export default {
   title: "Inputs/RadioGroup",
   component: RadioGroup,
+  argTypes: {
+    children: {
+      control: false,
+    },
+    onChange: {
+      control: false,
+    },
+  },
+  subcomponents: {
+    Radio,
+  },
 } as ComponentMeta<typeof RadioGroup>;
 
-const Template: ComponentStory<typeof RadioGroup> = (args: Props) => (
-  <RadioGroup {...args} />
+const Template: ComponentStory<typeof RadioGroup> = (
+  args: RadioGroupsProps
+) => (
+  <RadioGroup {...args}>
+    <Radio value="opt1">Option 1</Radio>
+    <Radio value="opt2">Option 2</Radio>
+    <Radio value="opt3">Option 3</Radio>
+  </RadioGroup>
 );
 
 export const Default = Template.bind({});
+
 Default.args = {
-  label: "Radio Group label",
+  value: "opt1",
+  name: "radiogroup",
+  label: "Radio Group Label",
+  hideLabel: false,
+  error: "",
+  message: "",
+  disabled: false,
 };
 
-// Additional stories go here
+Default.argTypes = {
+  value: {
+    control: "select",
+    options: ["opt1", "opt2", "opt3"],
+  },
+};

@@ -1,6 +1,6 @@
-@use "../defines" as *;
+@use "../mixins";
 
-.aj-dropdown {
+.aje-dropdown {
   /* Dropdown variables */
   --dropdown-border-radius: var(--radius);
   --dropdown-border: 1px solid var(--input-border-clr);
@@ -36,7 +36,7 @@
   --option-padding-horizontal: calc(var(--dropdown-padding) * 2);
   --option-icon-gap: 8px;
 
-  .aj-combobox {
+  .aje-combobox {
     position: relative;
     max-width: var(--combobox-width, auto);
     color: var(--text-clr);
@@ -48,7 +48,7 @@
       height: var(--dropdown-height);
       padding: var(--dropdown-padding) var(--dropdown-padding-right)
         var(--dropdown-padding) var(--dropdown-padding-left);
-      @include regular;
+      @include mixins.regular;
       color: var(--dropdown-text-clr);
       font-size: var(--dropdown-text-size);
       line-height: 1.5;
@@ -68,7 +68,7 @@
         border: none;
         min-height: var(--dropdown-input-height);
         padding: 0 var(--dropdown-padding-right) 0 var(--dropdown-padding-left);
-        @include regular;
+        @include mixins.regular;
         color: inherit;
         font-size: inherit;
         width: 100%;
@@ -96,7 +96,7 @@
         border-color: var(--outline-clr-primary);
       }
 
-      &[aria-expanded="true"] + .aj-combobox__menu {
+      &[aria-expanded="true"] + .aje-combobox__menu {
         visibility: visible;
         opacity: 1;
         transform: scaleY(1);
@@ -139,7 +139,7 @@
       gap: var(--option-icon-gap);
       padding: var(--option-padding) var(--option-padding-horizontal);
       min-height: var(--option-height);
-      @include regular;
+      @include mixins.regular;
       line-height: 1;
       color: var(--option-text-clr);
       font-size: var(--option-font-size);
@@ -202,16 +202,16 @@
   }
   &.is-auto {
     --combobox-width: none;
-    .aj-combobox {
+    .aje-combobox {
       display: inline-block;
     }
-    .aj-combobox__input {
+    .aje-combobox__input {
       width: auto;
     }
   }
 
   &.has-error {
-    .aj-combobox__input {
+    .aje-combobox__input {
       border-color: var(--error700);
 
       &:focus {

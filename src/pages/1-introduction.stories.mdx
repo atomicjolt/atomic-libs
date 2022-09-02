@@ -1,0 +1,32 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Introduction" />
+
+# Introduction
+
+## Goals
+
+### Consistency
+
+Each of our apps are going to need to use the same basic components (inputs, buttons, modals, etc...).
+As a result, each of these apps have implementations for components for each of these purposes, all
+with slightly different implementations and goals. atomic-elements aims to replace these common components with generalized alternatives that should
+be workable in any situations. This should make transferring from application to application a smoother
+process for developers.
+
+Additionally, these docs will serve as a "single source of truth" for how to use each of these components
+in any of the applications that they end up in.
+
+### Efficiency
+
+Since many components are replciated in several apps, some work has been doubled to produce that. Even if
+the component was originally copied from one app to the other, if updates are required to be made
+to the component, the hassle of updating it in multiple locations is a huge annoyance. By moving the
+components into a library, the update needs to be made only once, then each app can pull in the
+updated dependancy when needed.
+
+### Accessiblity
+
+atomic-elements aims to have _every_ one of it's components completly accessible, while also allowing
+the developer using the components to not have to worry about ensuring accessiblity. Whenever the
+component requires a property for accessiblity purposes, this will be documented in the component's docs.

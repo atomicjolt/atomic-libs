@@ -1,19 +1,18 @@
 import React from "react";
-import "../../general.scss";
-import "./styles.scss";
-import Spinner from "../../Loaders/Spinner";
+import { useIds } from "../../../hooks";
+import { AriaHasPopUp, MaterialIcons } from "../../../types";
+import MaterialIcon from "../../Utility/MaterialIcon";
 
-export interface Props {
-  /** What to render within the Button */
-  icon: string;
+export interface IconButtonProps {
+  /** Material Icon to render */
+  icon: MaterialIcons;
   id?: string;
   ariaLabel: string;
   ariaExpanded?: boolean;
-  ariaHasPopup?: string;
+  ariaHasPopup?: AriaHasPopUp;
   ariaControls?: string;
   disabled?: boolean;
-  role?: string;
-  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 /** Icon Button Component */
@@ -26,11 +25,11 @@ export default function IconButton({
   ariaControls,
   disabled,
   onClick,
-}: Props) {
+}: IconButtonProps) {
   return (
     <button
       id={id}
-      className="aj-btn--icon"
+      className="aje-btn--icon"
       type="button"
       onClick={onClick}
       disabled={disabled}
@@ -39,9 +38,7 @@ export default function IconButton({
       aria-haspopup={ariaHasPopup}
       aria-expanded={ariaExpanded}
     >
-      <i className="material-icons" aria-hidden>
-        {icon}
-      </i>
+      <MaterialIcon icon={icon} aria-hidden />
     </button>
   );
 }

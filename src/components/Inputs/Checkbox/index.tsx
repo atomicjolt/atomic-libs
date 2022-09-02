@@ -1,43 +1,41 @@
 import React from "react";
-import "../../general.scss";
-import "../common.scss";
-import "./styles.scss";
+import cn from "classnames";
+import { useIds } from "../../../hooks";
+import { EventHandler, SharedInputProps } from "../../../types";
 
-export interface Props {
-  /** Must include a label. Labels are always Sentence case. */
-  label: string;
-  /** Error text should be descriptive and explicit in meaning. */
-  error?: string;
-  /** For additional information (ex. date format mm/dd/yy) */
-  message?: string;
+export interface CheckboxProps
+  extends Omit<SharedInputProps, "hideLabel" | "size"> {
   checked?: boolean;
-  disabled?: boolean;
+  onClick?: EventHandler<boolean, React.MouseEvent<HTMLInputElement>>;
 }
 
-/** Checkbox Component */
-export default function Checkbox({
-  label,
-  error,
-  message,
-  checked,
-  disabled = false,
-}: Props) {
-  const inputID = "checkbox";
-  let errorClass = error ? " has-error" : "";
+/** Checkbox Component. Accepts a `ref` */
+const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
+  ({ label, error, message, checked, onClick, disabled = false }, ref) => {
+    const [inputId] = useIds("checkbox", ["input"]);
 
-  return (
-    <label className={`aj-checkbox ${errorClass}`} htmlFor={inputID}>
-      <input
-        id={inputID}
-        type="checkbox"
-        checked={checked}
-        disabled={disabled}
-      />
-      <span className="aj-checkbox__label">
-        {label}
-        {message ? <p className="aj-label--message">{message}</p> : null}
-        {error ? <p className="aj-label--error">{error}</p> : null}
-      </span>
-    </label>
-  );
-}
+    return (
+      <label
+        className={cn("aje-checkbox", { "has-error": error })}
+        htmlFor={inputId}
+      >
+        <input
+          id={inputId}
+          type="checkbox"
+          checked={checked}
+          disabled={disabled}
+          onClick={(e) =>
+            onClick && onClick((e.target as HTMLInputElement).checked, e)
+          }
+        />
+        <span className="aje-checkbox__label">
+          {label}
+          {message && <p className="aje-label--message">{message}</p>}
+          {error && <p className="aje-label--error">{error}</p>}
+        </span>
+      </label>
+    );
+  }
+);
+
+export default Checkbox;

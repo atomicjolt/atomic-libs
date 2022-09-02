@@ -1,0 +1,64 @@
+@use "../../mixins";
+
+.aje-input--file {
+  input[type="file"] {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+
+    & + label {
+      --border-clr: var(--neutral600);
+
+      font-size: 1.6rem;
+      @include mixins.regular;
+      line-height: 1;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      overflow: hidden;
+      border: 1px solid var(--border-clr);
+      border-radius: 5px;
+      overflow: hidden;
+      background-color: none;
+      padding: 0;
+      color: var(--text-clr);
+
+      span {
+        width: 200px;
+        min-height: 38px;
+        display: inline-block;
+        padding: 11px 12px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+
+      strong {
+        background-color: var(--neutral100);
+        @include mixins.bold;
+        color: var(--text-clr-alt);
+        min-height: 38px;
+        padding: 8px 16px;
+        display: flex;
+        align-items: center;
+        border-left: 1px solid var(--border-clr);
+      }
+
+      &:hover {
+        strong {
+          color: var(--text-clr);
+          background-color: var(--neutral200);
+        }
+      }
+    }
+    &:focus + label {
+      --border-clr: var(--outline-clr-primary);
+      outline: var(--input-outline);
+    }
+  }
+}

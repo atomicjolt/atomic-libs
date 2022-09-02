@@ -12,8 +12,9 @@ const Template: ComponentStory<typeof ErrorModal> = (args: Props) => (
 
 export const Default = Template.bind({});
 Default.args = {
+  open: true,
   title: "Error",
-  content: "Something went wrong",
+  children: "Something went wrong",
 };
 
 // Additional stories go here

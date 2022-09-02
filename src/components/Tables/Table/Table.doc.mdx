@@ -1,0 +1,67 @@
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  ArgsTable,
+  Stories,
+  Story,
+  Canvas,
+} from "@storybook/addon-docs";
+
+<Title />
+<Subtitle />
+<Description />
+<Primary />
+<ArgsTable />
+
+# Sub Components
+
+---
+
+The `Table` component comes with a suite of sub-components to defines the differents parts of a table's structure.
+Some of these, are merely semantic sugar ontop of builtin JSX components, while others provide additional functionality.
+
+## `<Table.Head />`
+
+Defines the head of the table. Equivelant to `<thead />`
+
+## `<Table.Header />`
+
+Defines the individual headers of the table. The headers can be made [sortable](#sorting)
+
+## `<Table.Body />`
+
+Defines the body of the table. Equivelant to `<tbody />`
+
+## `<Table.Row />`
+
+Defines an individual Row of the table.
+
+`Table.Row` may be used in two ways. If you don't need control over the individual cells you can use the `data` prop:
+
+```jsx
+<Table.Row data={[1, 2, 3, 4]} />
+```
+
+If more control is desired, `Table.Cell` may be passed as children instead.
+
+<Canvas>
+  <Story id="tables-table--custom-cells" />
+</Canvas>
+
+## `<Table.Cell />`
+
+Defines an individual table cell. Equivelant to `<td />`
+
+# Sorting
+
+---
+
+The Table optionally supports limited sorting functionality.
+
+<Canvas>
+  <Story id="tables-table--sortable-headers" />
+</Canvas>
+
+**NOTE**: You still must manage the actual sorting / arrangement of rows.

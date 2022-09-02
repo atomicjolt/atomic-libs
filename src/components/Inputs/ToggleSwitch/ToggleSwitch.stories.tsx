@@ -1,18 +1,26 @@
+import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import ToggleSwitch, { Props } from ".";
+import ToggleSwitch, { ToggleSwitchProps } from ".";
 
 export default {
   title: "Inputs/ToggleSwitch",
   component: ToggleSwitch,
+  parameters: {
+    argTypes: {
+      onChange: {
+        control: false,
+      },
+    },
+  },
 } as ComponentMeta<typeof ToggleSwitch>;
 
-const Template: ComponentStory<typeof ToggleSwitch> = (args: Props) => (
-  <ToggleSwitch {...args} />
-);
+const Template: ComponentStory<typeof ToggleSwitch> = (
+  args: ToggleSwitchProps
+) => <ToggleSwitch {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
+  checked: false,
   label: "Toggle switch",
+  disabled: false,
 };
-
-// Additional stories go here

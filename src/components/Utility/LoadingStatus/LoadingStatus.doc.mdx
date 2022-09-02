@@ -1,0 +1,35 @@
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  ArgsTable,
+  Stories,
+} from "@storybook/addon-docs";
+
+<Title />
+<Subtitle />
+<Description />
+<Primary />
+<ArgsTable />
+<Stories />
+
+# Example
+
+`LoadingStatus` works very well with things like Apollo
+
+```tsx
+import React from "react";
+import { useQuery } from "@apollo/client";
+import { LoadingStatus } from "atomic-elements";
+
+export default function PageLoader() {
+  const { loading, error, data } = useQuery(SOME_QUERY);
+
+  return (
+    <LoadingStatus loading={loading} error={error.message}>
+      <Page data={data} />
+    </LoadingStatus>
+  );
+}
+```

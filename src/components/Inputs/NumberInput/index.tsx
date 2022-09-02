@@ -1,66 +1,67 @@
-import React from "react";
-import "../../general.scss";
-import "../common.scss";
-import "./styles.scss";
+import React, { ChangeEvent } from "react";
+import cn from "classnames";
+import { useIds } from "../../../hooks";
+import { ControlledInput, SharedInputProps } from "../../../types";
+import Label from "../../Utility/Label";
+import InputError from "../../Utility/InputError";
 
-export interface Props {
-  /** Must include a label. Labels are always Sentence case. */
-  label: string;
-  /** Error text should be descriptive and explicit in meaning. */
-  error?: string;
-  /** For additional information (ex. date format mm/dd/yy) */
-  message?: string;
-  /** The input size should reflect the expected size of its content. */
-  size?: "small" | "medium" | "large" | "auto" | "full";
-  min?: string;
-  max?: string;
-  value?: string;
-  readonly?: boolean;
-  disabled?: boolean;
-  required?: boolean;
+export interface NumberInputProps
+  extends SharedInputProps,
+    ControlledInput<number> {
+  min?: number;
+  max?: number;
 }
 
-/** Number Input Component */
-export default function NumberInput({
-  label,
-  error,
-  message,
-  size = "small",
-  min,
-  max,
-  value,
-  readonly = false,
-  disabled = false,
-  required = false,
-}: Props) {
-  const inputID = "numberInput";
-  const errorID = "errorText";
-  /* Add a space before the added class rather than inside the className attr on the tag. Looks cleaner. */
-  let errorClass = error ? " has-error" : "";
-  let disabledClass = disabled ? " is-disabled" : "";
+/** Number Input Component. Accepts a `ref` */
+const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
+  (
+    {
+      value,
+      min,
+      max,
+      onChange,
+      label,
+      error,
+      message,
+      size = "small",
+      readonly = false,
+      disabled = false,
+      required = false,
+      hideLabel = false,
+      placeholder,
+    },
+    ref
+  ) => {
+    const [inputId, errorId] = useIds("number-input", ["input", "error"]);
 
-  return (
-    <div className={`aj-input is-${size}${errorClass}${disabledClass}`}>
-      <label className="aj-label" htmlFor={inputID}>
-        {label}
-        {message ? <p className="aj-label--message">{message}</p> : null}
-      </label>
-      <input
-        id={inputID}
-        aria-describedby={error ? errorID : ""}
-        type="number"
-        min={min}
-        max={max}
-        value={value}
-        readOnly={readonly}
-        disabled={disabled}
-        required={required}
-      />
-      {error ? (
-        <p id={errorID} className="aj-label--error">
-          {error}
-        </p>
-      ) : null}
-    </div>
-  );
-}
+    return (
+      <div
+        className={cn("aje-input", `is-${size}`, {
+          "has-error": error,
+          "is-disabled": disabled,
+        })}
+      >
+        <Label message={message} htmlFor={inputId} hidden={hideLabel}>
+          {label}
+        </Label>
+        <input
+          id={inputId}
+          ref={ref}
+          aria-describedby={error ? errorId : ""}
+          type="number"
+          min={min}
+          max={max}
+          value={value}
+          readOnly={readonly}
+          disabled={disabled}
+          required={required}
+          placeholder={placeholder}
+          onChange={(e) => onChange && onChange(parseInt(e.target.value), e)}
+        />
+        <InputError error={error} id={errorId} />
+      </div>
+    );
+  }
+);
+
+export default NumberInput;

@@ -1,0 +1,12 @@
+@use "../../mixins";
+
+.aje-input {
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  input[type="tel"] {
+    --input-width-sm: 100px;
+    --input-width-md: 200px;
+    --input-width-lg: 300px;
+  }
+}

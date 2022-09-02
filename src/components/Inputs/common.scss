@@ -1,6 +1,6 @@
-@use "../defines" as *;
+@use "../mixins";
 
-.aj-input {
+.aje-input {
   --input-height: 40px;
   --input-padding: 12px;
   --input-font-size: 1.6rem;
@@ -17,7 +17,7 @@
     min-height: var(--input-height);
     width: 100%;
     padding: 0 var(--input-padding);
-    @include regular;
+    @include mixins.regular;
     font-size: var(--input-font-size);
     color: var(--input-text-clr);
     background-color: var(--input-bg-clr);
@@ -111,7 +111,7 @@
     }
   }
   &.is-full {
-    .aj-input__select {
+    .aje-input__select {
       width: 100%;
     }
   }
@@ -139,8 +139,8 @@
   }
 }
 
-.aj-checkbox,
-.aj-radio {
+.aje-checkbox,
+.aje-radio {
   --unchecked: var(--neutral600);
   --checked: var(--primary700);
   --check-border-clr: var(--unchecked);
@@ -157,7 +157,7 @@
     display: inline-block;
     cursor: pointer;
     position: relative;
-    @include regular;
+    @include mixins.regular;
     font-size: var(--label-text-size);
     line-height: 1.5;
     color: var(--text-clr);
@@ -183,7 +183,7 @@
     }
   }
 
-  :is(input):focus-visible ~ .aj-checkbox__label:before {
+  :is(input):focus-visible ~ .aje-checkbox__label:before {
     outline: var(--outline);
     outline-offset: 2px;
   }
@@ -200,7 +200,7 @@
     position: absolute;
   }
 
-  &.has-error .aj-checkbox__label::before {
+  &.has-error .aje-checkbox__label::before {
     border-color: var(--error700);
   }
 }

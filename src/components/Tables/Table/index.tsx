@@ -1,63 +1,131 @@
-import React from "react";
-import "../../general.scss";
-import "./styles.scss";
-import TableHeader from "../TableHeader";
+import React, { TdHTMLAttributes, useState } from "react";
+import cn from "classnames";
+import { HasChildren, SortDirection } from "../../../types";
+import TableHeader from "./TableHeader";
+import TableContext from "./tableContext";
 
-export interface Props {
+interface BaseProps {
   /** Must include a title to label the table. */
   title: string;
   /** Adds sticky first column when a horizontal scrollbar is present. Reccommended to use with vertical borders on. */
   sticky?: boolean;
   /** Adds vertical borders between columns. */
   verticalBorders?: boolean;
-  /** Must include if using sortable headers, adds accessible instructions to the table title. */
-  sortable?: boolean;
+  children: React.ReactNode;
 }
 
+type SortProps =
+  | {
+      /** Must include if using sortable headers, adds accessible instructions to the table title. */
+      sortDirection?: never;
+      sortPath?: never;
+      onSort?: never;
+    }
+  | {
+      sortDirection: SortDirection;
+      sortPath: string;
+      onSort: (path: string, direction: SortDirection) => void;
+    };
+
+export type TableProps = BaseProps &
+  SortProps &
+  React.HTMLProps<HTMLTableElement>;
+
 /** Table Component */
-export default function Table({
+function Table({
   title,
   sticky = false,
   verticalBorders = false,
-  sortable = false,
-}: Props) {
-  const stickyClass = sticky ? " is-sticky" : "";
-  const verticalBordersClass = verticalBorders ? " has-vertical-borders" : "";
-
+  sortDirection,
+  sortPath,
+  onSort = () => {},
+  children,
+  ...rest
+}: TableProps) {
   /* Add functionality to remove sort order from other headers if you click on other ones. */
-
   return (
-    <div className="aj-table-overflow">
-      <table className={`aj-table${stickyClass}${verticalBordersClass}`}>
-        <caption className="aj-hidden">
+    <div className="aje-table-overflow">
+      <table
+        className={cn("aje-table", {
+          "has-vertical-borders": verticalBorders,
+          "is-sticky": sticky,
+        })}
+        {...rest}
+      >
+        <caption className="aje-hidden">
           {title}
-          {sortable ? (
+          {sortPath ? (
             <span>, column headers with buttons are sortable.</span>
           ) : null}
         </caption>
-        <thead>
-          <tr>
-            <TableHeader label="Monday" sortable sortDefault="ascending" />
-            <TableHeader label="Tuesday" sortable width="300px" />
-            <TableHeader label="Wednesday" sortable />
-            <TableHeader label="Thursday" sortable />
-            <TableHeader label="Friday" />
-            <TableHeader label="Saturday" />
-            <TableHeader label="Sunday" sortable />
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">Other</th>
-            <td>Other</td>
-            <td>Other</td>
-            <td>Other</td>
-            <td>Other</td>
-            <td>Other</td>
-            <td>Other</td>
-          </tr>
-        </tbody>
+        <TableContext.Provider
+          value={{ sortDirection, sortPath, onSort: onSort }}
+        >
+          {children}
+        </TableContext.Provider>
       </table>
     </div>
   );
 }
+
+export function TableHead(props: React.HTMLProps<HTMLTableSectionElement>) {
+  return <thead {...props} />;
+}
+
+Table.Head = TableHead;
+TableHead.displayName = "Table.Head";
+
+Table.Header = TableHeader;
+
+export function TableBody(props: React.HTMLProps<HTMLTableSectionElement>) {
+  return <tbody {...props} />;
+}
+
+Table.Body = TableBody;
+TableBody.displayName = "Table.Body";
+
+type TableRowProps =
+  | {
+      readonly data: React.ReactNode[];
+      readonly children?: never;
+    }
+  | {
+      readonly data?: never;
+      readonly children: React.ReactNode;
+    };
+
+export function TableRow({
+  data,
+  children,
+  ...rest
+}: TableRowProps & Omit<React.HTMLProps<HTMLTableRowElement>, "data">) {
+  if (children) {
+    return <tr {...rest}>{children}</tr>;
+  }
+
+  if (data) {
+    return (
+      <tr {...rest}>
+        {data.map((d) => (
+          <TableCell>{d}</TableCell>
+        ))}
+      </tr>
+    );
+  }
+
+  return null;
+}
+
+Table.Row = TableRow;
+TableRow.displayName = "Table.Row";
+
+interface TableCellProps extends React.HTMLProps<HTMLTableCellElement> {}
+
+export function TableCell(props: TableCellProps) {
+  return <td {...props} />;
+}
+
+Table.Cell = TableCell;
+TableCell.displayName = "Table.Cell";
+
+export default Table;

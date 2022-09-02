@@ -1,3 +1,4 @@
+import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Modal, { Props } from ".";
 
@@ -12,8 +13,9 @@ const Template: ComponentStory<typeof Modal> = (args: Props) => (
 
 export const Default = Template.bind({});
 Default.args = {
+  open: true,
   title: "Modal Title",
-  content: "Complex stuff",
+  children: "Complex stuff",
   primaryButton: "Save",
 };
 

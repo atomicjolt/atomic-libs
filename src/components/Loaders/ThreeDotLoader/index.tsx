@@ -1,15 +1,15 @@
 import React from "react";
-import "../../general.scss";
-import "./styles.scss";
 
-export interface Props {
+export interface ThreeDotLoaderProps {
   loading?: boolean;
 }
 
 /** Three Dot Loader Component */
-export default function ThreeDotLoader({ loading = true }: Props) {
+export default function ThreeDotLoader({
+  loading = true,
+}: ThreeDotLoaderProps) {
   return (
-    <div className="aj-three-dot-loader">
+    <div className="aje-three-dot-loader">
       {loading ? (
         <div className="dots-container">
           <span className="dot1"></span>
