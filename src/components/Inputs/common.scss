@@ -1,15 +1,33 @@
 @use "../mixins";
 
 .aje-input {
+  --input-height: 40px;
+  --input-padding-horiz: 12px;
+  --input-bg-clr: var(--neutral50);
+  --input-text-clr: var(--text-clr);
+
+  &--floating {
+    @extend .aje-input;
+    --input-height: 48px;
+    --input-padding-horiz: 1em;
+    --input-bg-clr: var(--neutral100);
+
+    .aje-input__container {
+      position: relative;
+    }
+  }
+
   input {
-    border: 1px solid var(--input-border-clr);
+    border: 1px solid;
+    border-color: var(--input-border-clr);
     border-radius: 5px;
-    min-height: 40px;
+    background-color: var(--input-bg-clr);
+    min-height: var(--input-height);
     width: 100%;
-    padding: 0 12px;
+    padding: 0 var(--input-padding-horiz);
     @include mixins.regular;
     font-size: 1.6rem;
-    color: var(--text-clr);
+    color: var(--input-text-clr);
 
     &:read-only {
       border-color: var(--neutral100);
