@@ -3,17 +3,17 @@
 exports[`matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="aje-input is-small can-resize"
+    class="aje-input can-resize is-small"
   >
     <label
       class="aje-label"
-      for="textarea-textarea-12345678900000000000"
+      for="textarea-375422359394717"
     >
       label
     </label>
     <textarea
       aria-describedby=""
-      id="textarea-textarea-12345678900000000000"
+      id="textarea-375422359394717"
     />
   </div>
 </DocumentFragment>

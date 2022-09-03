@@ -3,6 +3,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import CustomDropdown, { CustomDropdownProps } from ".";
 import { DefaultInputProperties } from "../../../utils";
 import MaterialIcon from "../../Utility/MaterialIcon";
+import { Option, EmptyOption } from "./Option";
 
 export default {
   title: "Dropdowns/CustomDropdown",
@@ -24,25 +25,26 @@ const Template: ComponentStory<typeof CustomDropdown> = (
 export const Default = Template.bind({});
 Default.args = {
   value: "val1",
+  variant: "default",
   ...DefaultInputProperties,
+  placeholder: undefined,
   label: "Custom Select Label",
   children: [
-    <CustomDropdown.Option value="val1" key="1">
+    <Option value="val1" key="1">
       Option 1
-    </CustomDropdown.Option>,
-    <CustomDropdown.Option value="val2" key="2">
+    </Option>,
+    <Option value="val2" key="2">
       Option 2
-    </CustomDropdown.Option>,
+    </Option>,
   ],
 };
 
 export const WithEmpty = Template.bind({});
 WithEmpty.args = {
+  ...Default.args,
   value: null,
   children: [
-    <CustomDropdown.Empty key="empty">
-      -- Select an Option --
-    </CustomDropdown.Empty>,
+    <EmptyOption key="empty">-- Select an Option --</EmptyOption>,
     ...Default.args.children,
   ],
 };
@@ -51,13 +53,13 @@ export const WithIcons = Template.bind({});
 WithIcons.args = {
   ...Default.args,
   children: [
-    <CustomDropdown.Option value="val1" key="1">
+    <Option value="val1" key="1">
       <MaterialIcon icon="search" />
       Option 1
-    </CustomDropdown.Option>,
-    <CustomDropdown.Option value="val2" key="2">
+    </Option>,
+    <Option value="val2" key="2">
       <MaterialIcon icon="u_turn_left" />
       Option 2
-    </CustomDropdown.Option>,
+    </Option>,
   ],
 };

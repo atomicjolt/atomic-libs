@@ -35,6 +35,11 @@ export type EventHandler<
   E extends React.SyntheticEvent = React.SyntheticEvent
 > = (value: V, event: E) => void;
 
+export type VariantRecord<Variants extends string, ComponentProps> = Record<
+  Variants,
+  React.ComponentType<ComponentProps>
+> & { default: React.ComponentType<ComponentProps> };
+
 export interface HasChildren {
   children: React.ReactNode;
 }
@@ -45,6 +50,11 @@ export interface RequireIcon {
 
 export interface CanHaveIcon {
   icon?: MaterialIcons;
+}
+
+export interface HasVariant<T = string> {
+  /** Variants modify the overall stucture or design of the component */
+  variant?: T;
 }
 
 export type Setter<T> = (value: T) => void;

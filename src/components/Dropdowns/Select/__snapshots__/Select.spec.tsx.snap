@@ -7,7 +7,7 @@ exports[`matches snapshot 1`] = `
   >
     <label
       class="aje-label"
-      for="select-select-12345678900000000000"
+      for="select-6009295216160224"
     >
       Label
     </label>
@@ -16,7 +16,7 @@ exports[`matches snapshot 1`] = `
     >
       <select
         aria-describedby=""
-        id="select-select-12345678900000000000"
+        id="select-6009295216160224"
       >
         <option
           value="none"

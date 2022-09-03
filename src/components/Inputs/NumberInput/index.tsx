@@ -4,6 +4,7 @@ import { useIds } from "../../../hooks";
 import { ControlledInput, SharedInputProps } from "../../../types";
 import Label from "../../Utility/Label";
 import InputError from "../../Utility/InputError";
+import ComponentWrapper from "../../Utility/ComponentWrapper";
 
 export interface NumberInputProps
   extends SharedInputProps,
@@ -32,34 +33,35 @@ const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
     },
     ref
   ) => {
-    const [inputId, errorId] = useIds("number-input", ["input", "error"]);
+    const [inputId, errorId] = useIds("NumberInput", ["input", "error"]);
 
     return (
-      <div
-        className={cn("aje-input", `is-${size}`, {
-          "has-error": error,
-          "is-disabled": disabled,
-        })}
+      <ComponentWrapper
+        className="aje-input"
+        size={size}
+        disabled={disabled}
+        required={required}
+        error={error}
       >
         <Label message={message} htmlFor={inputId} hidden={hideLabel}>
           {label}
         </Label>
         <input
+          type="number"
           id={inputId}
           ref={ref}
           aria-describedby={error ? errorId : ""}
-          type="number"
           min={min}
           max={max}
-          value={value}
           readOnly={readonly}
           disabled={disabled}
           required={required}
           placeholder={placeholder}
+          value={value}
           onChange={(e) => onChange && onChange(parseInt(e.target.value), e)}
         />
         <InputError error={error} id={errorId} />
-      </div>
+      </ComponentWrapper>
     );
   }
 );

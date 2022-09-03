@@ -1,6 +1,7 @@
+import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import { useState } from "react";
-import Combobox, { Props } from ".";
+import Combobox, { ComboboxProps } from ".";
 import { DefaultInputProperties } from "../../../utils";
 
 export default {
@@ -8,16 +9,15 @@ export default {
   component: Combobox,
 } as ComponentMeta<typeof Combobox>;
 
-const Template: ComponentStory<typeof Combobox> = (args: Props) => {
+const Template: ComponentStory<typeof Combobox> = (args: ComboboxProps) => {
   return <Combobox {...args} />;
 };
 
 export const Default = Template.bind({});
 Default.args = {
   value: "",
+  variant: "default",
   options: ["Option 1", "Option 2", "Option 3"],
   ...DefaultInputProperties,
   label: "Combobox label",
 };
-
-// Additional stories go here

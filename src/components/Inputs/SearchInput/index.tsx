@@ -38,7 +38,7 @@ const SearchInput = React.forwardRef<HTMLInputElement, SearchInputProps>(
     ref
   ) => {
     const [inputValue, setInputValue] = useState("");
-    const [inputId, errorId] = useIds("search", ["input", "error"]);
+    const [inputId, errorId] = useIds("SearchInput", ["input", "error"]);
 
     return (
       <form

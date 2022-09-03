@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`matches snapshot 1`] = `
+exports[`matches snapshots matches default variant 1`] = `
 <DocumentFragment>
   <div
     class="aje-dropdown is-medium has-error"
   >
     <label
       class="aje-label"
-      for="combo-label-12345678900000000000"
+      for="combo-1420588877822268"
     >
       Text Label
       <p
@@ -22,31 +22,85 @@ exports[`matches snapshot 1`] = `
       <div
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-owns="combo-listbox-12345678900000000000"
+        aria-owns="combo-5917885038043704"
         class="aje-combobox__input is-searchable"
-        id="combo-combo-12345678900000000000"
+        id="combo-4950968905633624"
         role="combobox"
       >
         <input
           aria-autocomplete="both"
-          aria-controls="combo-listbox-12345678900000000000"
-          aria-describedby="combo-error-12345678900000000000"
-          aria-labelledby="combo-label-12345678900000000000"
-          id="combo-input-12345678900000000000"
+          aria-controls="combo-5917885038043704"
+          aria-describedby="combo-4517779127655240"
+          aria-labelledby="combo-1420588877822268"
+          id="combo-396327168702984"
           type="text"
           value="content"
         />
       </div>
       <ul
-        aria-labelledby="combo-label-12345678900000000000"
+        aria-labelledby="combo-1420588877822268"
         class="aje-combobox__menu"
-        id="combo-listbox-12345678900000000000"
+        id="combo-5917885038043704"
         role="listbox"
       />
     </div>
     <p
       class="aje-label--error"
-      id="combo-error-12345678900000000000"
+      id="combo-4517779127655240"
+    >
+      some error
+    </p>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`matches snapshots matches floating variant 1`] = `
+<DocumentFragment>
+  <div
+    class="aje-dropdown--floating is-medium has-error"
+  >
+    <div
+      class="aje-combobox"
+    >
+      <div
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-owns="combo-5917885038043704"
+        class="aje-combobox__input is-searchable"
+        id="combo-4950968905633624"
+        role="combobox"
+      >
+        <input
+          aria-autocomplete="both"
+          aria-controls="combo-5917885038043704"
+          aria-describedby="combo-4517779127655240"
+          aria-labelledby="combo-1420588877822268"
+          id="combo-396327168702984"
+          type="text"
+          value="content"
+        />
+      </div>
+      <ul
+        aria-labelledby="combo-1420588877822268"
+        class="aje-combobox__menu"
+        id="combo-5917885038043704"
+        role="listbox"
+      />
+      <label
+        class="aje-label"
+        for="combo-1420588877822268"
+      >
+        Text Label
+      </label>
+    </div>
+    <p
+      class="aje-label--message"
+    >
+      message
+    </p>
+    <p
+      class="aje-label--error"
+      id="combo-4517779127655240"
     >
       some error
     </p>

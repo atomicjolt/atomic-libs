@@ -1,7 +1,8 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import TextInput, { TextInputProps } from ".";
+import TextInput from ".";
 import { DefaultInputProperties } from "../../../utils";
+import { TextInputProps } from "./TextInput.types";
 
 export default {
   title: "Inputs/TextInput",
@@ -15,6 +16,7 @@ const Template: ComponentStory<typeof TextInput> = (args: TextInputProps) => {
 export const Controlled = Template.bind({});
 Controlled.args = {
   value: "",
+  variant: "default",
   type: "text",
   ...DefaultInputProperties,
   label: "Text input label",
@@ -24,6 +26,7 @@ Controlled.args = {
 
 export const Uncontrolled = Template.bind({});
 Uncontrolled.args = {
+  variant: "default",
   type: "text",
   ...DefaultInputProperties,
   label: "Text input label",

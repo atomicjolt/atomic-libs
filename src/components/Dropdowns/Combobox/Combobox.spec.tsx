@@ -2,16 +2,23 @@ import React from "react";
 import { render } from "@testing-library/react";
 import Combobox from ".";
 
-it("matches snapshot", () => {
-  const result = render(
-    <Combobox
-      label="Text Label"
-      message="message"
-      error="some error"
-      value="content"
-      onChange={(value) => {}}
-      options={["Option 1", "Option 2", "Option 3"]}
-    />
-  );
-  expect(result.asFragment()).toMatchSnapshot();
+describe("matches snapshots", () => {
+  const shared = {
+    label: "Text Label",
+    message: "message",
+    error: "some error",
+    value: "content",
+    onChange: (value: any) => {},
+    options: ["Option 1", "Option 2", "Option 3"],
+  };
+
+  it("matches default variant", () => {
+    const result = render(<Combobox variant="default" {...shared} />);
+    expect(result.asFragment()).toMatchSnapshot();
+  });
+
+  it("matches floating variant", () => {
+    const result = render(<Combobox variant="floating" {...shared} />);
+    expect(result.asFragment()).toMatchSnapshot();
+  });
 });

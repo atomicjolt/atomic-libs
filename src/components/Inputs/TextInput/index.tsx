@@ -1,61 +1,30 @@
 import React from "react";
-import cn from "classnames";
-import Label from "../../Utility/Label";
-import { ControlledInput, SharedInputProps } from "../../../types";
-import { useIds } from "../../../hooks";
-import InputError from "../../Utility/InputError";
-import { makeEventHandler } from "../../../utils";
+import { HasVariant, VariantRecord } from "../../../types";
+import { TextInputProps as SharedInputProps } from "./TextInput.types";
+import DefaultTextInput from "./variants/DefaultTextInput";
+import FloatingTextInput from "./variants/FloatingTextInput";
 
-export interface TextInputProps extends SharedInputProps, ControlledInput {
-  /** Other types like date, time, and number have their own component  */
-  readonly type?: "text" | "email" | "tel";
-}
+type TextInputVariants = "default" | "floating";
+
+const variants: VariantRecord<
+  TextInputVariants,
+  SharedInputProps & React.RefAttributes<HTMLInputElement>
+> = {
+  default: DefaultTextInput,
+  floating: FloatingTextInput,
+};
+
+type TextInputProps = SharedInputProps & HasVariant<TextInputVariants>;
+
 /** TextInput component. Fowards a `ref` to the internal input element */
 const TextInput = React.forwardRef(
   (
-    {
-      value,
-      onChange,
-      type = "text",
-      size = "medium",
-      label,
-      error,
-      message,
-      placeholder,
-      hideLabel = false,
-      readonly = false,
-      disabled = false,
-      required = false,
-    }: TextInputProps,
+    { variant = "default", ...rest }: TextInputProps,
     ref: React.Ref<HTMLInputElement>
   ) => {
-    const [inputId, errorId] = useIds(`text-input`, ["input", "error"]);
+    const Component = variants[variant];
 
-    return (
-      <div
-        className={cn("aje-input", `is-${size}`, {
-          "has-error": error,
-          "is-disabled": disabled,
-        })}
-      >
-        <Label message={message} hidden={hideLabel} htmlFor={inputId}>
-          {label}
-        </Label>
-        <input
-          ref={ref}
-          id={inputId}
-          aria-describedby={error ? errorId : ""}
-          type={type}
-          placeholder={placeholder}
-          value={value}
-          readOnly={readonly}
-          disabled={disabled}
-          required={required}
-          onChange={onChange && makeEventHandler(onChange)}
-        />
-        <InputError error={error} id={errorId} />
-      </div>
-    );
+    return <Component {...rest} ref={ref} />;
   }
 );
 
