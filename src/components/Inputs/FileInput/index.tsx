@@ -3,6 +3,7 @@ import cn from "classnames";
 import { useIds } from "../../../hooks";
 import { SharedInputProps } from "../../../types";
 import InputError from "../../Utility/InputError";
+import ComponentWrapper from "../../Utility/ComponentWrapper";
 
 export interface FileInputProps extends Omit<SharedInputProps, "hideLabel"> {
   file?: File | null;
@@ -23,17 +24,18 @@ const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
       readonly = false,
       disabled = false,
       required = false,
+      size = "medium",
     },
     ref
   ) => {
-    const [inputId, errorId] = useIds("file-input", ["input", "error"]);
-    console.log(file);
+    const [inputId, errorId] = useIds("FileInput", ["input", "error"]);
+
     return (
-      <div
-        className={cn("aje-input--file", {
-          "has-error": error,
-          "is-disabled": disabled,
-        })}
+      <ComponentWrapper
+        className="aje-input--file"
+        disabled={disabled}
+        required={required}
+        size={size}
       >
         <input
           id={inputId}
@@ -52,7 +54,7 @@ const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
           <strong>{label}</strong>
         </label>
         <InputError error={error} id={errorId} />
-      </div>
+      </ComponentWrapper>
     );
   }
 );

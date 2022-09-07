@@ -1,17 +1,18 @@
+import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { UpgradeBanner, UpgradeBannerProps } from ".";
+import { UpgradeBanner as UpgradeBannerComponent, UpgradeBannerProps } from ".";
 
 export default {
   title: "Banners/ActionBanner/UpgradeBanner",
-  component: UpgradeBanner,
-} as ComponentMeta<typeof UpgradeBanner>;
+  component: UpgradeBannerComponent,
+} as ComponentMeta<typeof UpgradeBannerComponent>;
 
-const Template: ComponentStory<typeof UpgradeBanner> = (
+const Template: ComponentStory<typeof UpgradeBannerComponent> = (
   args: UpgradeBannerProps
-) => <UpgradeBanner {...args} />;
+) => <UpgradeBannerComponent {...args} />;
 
-export const Default = Template.bind({});
-Default.args = {
+export const UpgradeBanner = Template.bind({});
+UpgradeBanner.args = {
   time: "30 Days",
   app: "Atomic Assessments",
 };

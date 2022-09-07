@@ -1,18 +1,34 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import CustomDropdown from ".";
+import CustomDropdown, { FloatingCustomDropdown } from ".";
+import { Option } from "./Option";
 
-it("matches snapshot", () => {
-  const result = render(
-    <CustomDropdown
-      label="Custom dropdown label"
-      value="opt1"
-      onChange={() => {}}
-    >
-      <CustomDropdown.Option value="opt1">Option 1</CustomDropdown.Option>
-      <CustomDropdown.Option value="opt2">Option 2</CustomDropdown.Option>
-    </CustomDropdown>
-  );
+describe("matches snapshots", () => {
+  const shared = {
+    label: "Custom dropdown label",
+    value: "opt1",
+    onChange: () => {},
+  };
 
-  expect(result.asFragment()).toMatchSnapshot();
+  it("matches default variant", () => {
+    const result = render(
+      <CustomDropdown {...shared}>
+        <Option value="opt1">Option 1</Option>
+        <Option value="opt2">Option 2</Option>
+      </CustomDropdown>
+    );
+
+    expect(result.asFragment()).toMatchSnapshot();
+  });
+
+  it("matches floating variant", () => {
+    const result = render(
+      <FloatingCustomDropdown {...shared}>
+        <Option value="opt1">Option 1</Option>
+        <Option value="opt2">Option 2</Option>
+      </FloatingCustomDropdown>
+    );
+
+    expect(result.asFragment()).toMatchSnapshot();
+  });
 });

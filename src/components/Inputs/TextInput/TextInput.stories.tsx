@@ -1,7 +1,8 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import TextInput, { TextInputProps } from ".";
+import TextInput, { FloatingTextInput } from ".";
 import { DefaultInputProperties } from "../../../utils";
+import { TextInputProps } from "./TextInput.types";
 
 export default {
   title: "Inputs/TextInput",
@@ -39,3 +40,12 @@ Uncontrolled.argTypes = {
     control: false,
   },
 };
+
+const FloatingTemplate: ComponentStory<typeof TextInput> = (
+  args: TextInputProps
+) => {
+  return <FloatingTextInput {...args} />;
+};
+
+export const Floating = FloatingTemplate.bind({});
+Floating.args = Controlled.args;

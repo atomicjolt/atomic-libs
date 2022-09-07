@@ -139,6 +139,14 @@
   &.is-disabled {
     opacity: 0.5;
   }
+
+  &.is-required {
+    label {
+      &::after {
+        content: " *";
+      }
+    }
+  }
 }
 
 .aje-checkbox,

@@ -1,31 +1,32 @@
+import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import IconMenu, { Props } from ".";
+import IconMenuComponent, { IconMenuProps } from ".";
 
 export default {
   title: "Dropdowns/IconMenu",
-  component: IconMenu,
-} as ComponentMeta<typeof IconMenu>;
+  component: IconMenuComponent,
+} as ComponentMeta<typeof IconMenuComponent>;
 
-const Template: ComponentStory<typeof IconMenu> = (args: Props) => (
-  <IconMenu {...args}>
-    <IconMenu.Item icon="add_alert" onClick={() => {}}>
+const Template: ComponentStory<typeof IconMenuComponent> = (
+  args: IconMenuProps
+) => (
+  <IconMenuComponent {...args}>
+    <IconMenuComponent.Item icon="add_alert" onClick={() => {}}>
       Option 1
-    </IconMenu.Item>
-    <IconMenu.Item icon="info" onClick={() => {}}>
+    </IconMenuComponent.Item>
+    <IconMenuComponent.Item icon="info" onClick={() => {}}>
       Option 2
-    </IconMenu.Item>
-    <IconMenu.Item icon="alarm_on" onClick={() => {}}>
+    </IconMenuComponent.Item>
+    <IconMenuComponent.Item icon="alarm_on" onClick={() => {}}>
       Option 3
-    </IconMenu.Item>
-  </IconMenu>
+    </IconMenuComponent.Item>
+  </IconMenuComponent>
 );
 
-export const Default = Template.bind({});
-Default.args = {
+export const IconMenu = Template.bind({});
+IconMenu.args = {
   icon: "more_vert",
   label: "Custom dropdown label",
   dropRight: true,
   disabled: false,
 };
-
-// Additional stories go here

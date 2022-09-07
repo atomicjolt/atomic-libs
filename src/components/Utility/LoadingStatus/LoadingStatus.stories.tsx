@@ -1,10 +1,11 @@
+import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import LoadingStatus, { Props } from ".";
+import LoadingStatusComp, { LoadingStatusProps } from ".";
 import Doc from "./LoadingStatus.doc.mdx";
 
 export default {
   title: "Utility/LoadingStatus",
-  component: LoadingStatus,
+  component: LoadingStatusComp,
   parameters: {
     docs: { page: Doc },
   },
@@ -23,16 +24,18 @@ export default {
       control: false,
     },
   },
-} as ComponentMeta<typeof LoadingStatus>;
+} as ComponentMeta<typeof LoadingStatusComp>;
 
-const Template: ComponentStory<typeof LoadingStatus> = (args: Props) => (
-  <LoadingStatus {...args}>
+const Template: ComponentStory<typeof LoadingStatusComp> = (
+  args: LoadingStatusProps
+) => (
+  <LoadingStatusComp {...args}>
     <div>Here's some Content that will render when loading completes</div>
-  </LoadingStatus>
+  </LoadingStatusComp>
 );
 
-export const Default = Template.bind({});
-Default.args = {
+export const LoadingStatus = Template.bind({});
+LoadingStatus.args = {
   loading: true,
   loadingMessage: "Loading, please wait...",
   error: "",

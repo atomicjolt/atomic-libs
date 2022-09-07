@@ -3,6 +3,7 @@ import React from "react";
 import { useIds } from "../../../hooks";
 import { ControlledInput, SharedInputProps } from "../../../types";
 import { makeEventHandler } from "../../../utils";
+import ComponentWrapper from "../../Utility/ComponentWrapper";
 import InputError from "../../Utility/InputError";
 import Label from "../../Utility/Label";
 
@@ -35,12 +36,12 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
     const [inputId, errorId] = useIds("textarea", ["textarea", "error"]);
 
     return (
-      <div
-        className={cn("aje-input", `is-${size}`, {
-          "can-resize": resize,
-          "has-error": error,
-          "is-disabled": disabled,
-        })}
+      <ComponentWrapper
+        className={cn("aje-input", { "can-resize": resize })}
+        size={size}
+        disabled={disabled}
+        required={required}
+        error={error}
       >
         <Label message={message} hidden={hideLabel} htmlFor={inputId}>
           {label}
@@ -57,7 +58,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
           onChange={onChange && makeEventHandler(onChange)}
         />
         <InputError error={error} id={errorId} />
-      </div>
+      </ComponentWrapper>
     );
   }
 );

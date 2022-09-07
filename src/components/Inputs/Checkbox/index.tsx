@@ -12,7 +12,7 @@ export interface CheckboxProps
 /** Checkbox Component. Accepts a `ref` */
 const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
   ({ label, error, message, checked, onClick, disabled = false }, ref) => {
-    const [inputId] = useIds("checkbox", ["input"]);
+    const [inputId] = useIds("Checkbox", ["input"]);
 
     return (
       <label

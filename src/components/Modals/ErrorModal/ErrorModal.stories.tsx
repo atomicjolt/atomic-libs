@@ -1,17 +1,18 @@
+import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import ErrorModal, { Props } from ".";
+import ErrorModalComponent, { ErrorModalProps } from ".";
 
 export default {
   title: "Modals/ErrorModal",
-  component: ErrorModal,
-} as ComponentMeta<typeof ErrorModal>;
+  component: ErrorModalComponent,
+} as ComponentMeta<typeof ErrorModalComponent>;
 
-const Template: ComponentStory<typeof ErrorModal> = (args: Props) => (
-  <ErrorModal {...args} />
-);
+const Template: ComponentStory<typeof ErrorModalComponent> = (
+  args: ErrorModalProps
+) => <ErrorModalComponent {...args} />;
 
-export const Default = Template.bind({});
-Default.args = {
+export const ErrorModal = Template.bind({});
+ErrorModal.args = {
   open: true,
   title: "Error",
   children: "Something went wrong",

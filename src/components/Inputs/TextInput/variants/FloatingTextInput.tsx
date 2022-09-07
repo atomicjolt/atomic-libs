@@ -1,19 +1,14 @@
 import React from "react";
 import cn from "classnames";
-import Label from "../../Utility/Label";
-import { ControlledInput, SharedInputProps } from "../../../types";
-import { useIds } from "../../../hooks";
-import InputError from "../../Utility/InputError";
-import { makeEventHandler } from "../../../utils";
+import Label from "../../../Utility/Label";
+import { useIds } from "../../../../hooks";
+import InputError from "../../../Utility/InputError";
+import { makeEventHandler } from "../../../../utils";
+import { TextInputProps } from "../TextInput.types";
+import ComponentWrapper from "../../../Utility/ComponentWrapper";
 
-export interface TextInputFloatingProps
-  extends SharedInputProps,
-    ControlledInput {
-  /** Other types like date, time, and number have their own component  */
-  readonly type?: "text" | "email" | "tel";
-}
 /** TextInput component. Fowards a `ref` to the internal input element */
-const TextInputFloating = React.forwardRef(
+const FloatingTextInput = React.forwardRef(
   (
     {
       value,
@@ -28,17 +23,18 @@ const TextInputFloating = React.forwardRef(
       readonly = false,
       disabled = false,
       required = false,
-    }: TextInputFloatingProps,
+    }: TextInputProps,
     ref: React.Ref<HTMLInputElement>
   ) => {
-    const [inputId, errorId] = useIds(`text-input`, ["input", "error"]);
+    const [inputId, errorId] = useIds("TextInput", ["input", "error"]);
 
     return (
-      <div
-        className={cn("aje-input--floating", `is-${size}`, {
-          "has-error": error,
-          "is-disabled": disabled,
-        })}
+      <ComponentWrapper
+        className="aje-input--floating"
+        size={size}
+        disabled={disabled}
+        required={required}
+        error={error}
       >
         <div className="aje-input__container">
           <input
@@ -59,9 +55,9 @@ const TextInputFloating = React.forwardRef(
         </div>
         {message && <p className="aje-label--message">{message}</p>}
         <InputError error={error} id={errorId} />
-      </div>
+      </ComponentWrapper>
     );
   }
 );
 
-export default TextInputFloating;
+export default FloatingTextInput;

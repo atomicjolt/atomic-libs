@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`matches snapshot 1`] = `
+exports[`matches snapshot default variant 1`] = `
 <DocumentFragment>
   <div
     class="aje-input is-medium has-error"
   >
     <label
       class="aje-label"
-      for="text-input-input-12345678900000000000"
+      for="TextInput-3892280160776712"
     >
       Text Label
       <p
@@ -17,15 +17,52 @@ exports[`matches snapshot 1`] = `
       </p>
     </label>
     <input
-      aria-describedby="text-input-error-12345678900000000000"
-      id="text-input-input-12345678900000000000"
+      aria-describedby="TextInput-2911453357077744"
+      id="TextInput-3892280160776712"
       placeholder="placeholder"
       type="text"
       value="content"
     />
     <p
       class="aje-label--error"
-      id="text-input-error-12345678900000000000"
+      id="TextInput-2911453357077744"
+    >
+      some error
+    </p>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`matches snapshot floating variant 1`] = `
+<DocumentFragment>
+  <div
+    class="aje-input--floating is-medium has-error"
+  >
+    <div
+      class="aje-input__container"
+    >
+      <input
+        aria-describedby="TextInput-2911453357077744"
+        id="TextInput-3892280160776712"
+        placeholder="placeholder"
+        type="text"
+        value="content"
+      />
+      <label
+        class=""
+        for="TextInput-3892280160776712"
+      >
+        Text Label
+      </label>
+    </div>
+    <p
+      class="aje-label--message"
+    >
+      message
+    </p>
+    <p
+      class="aje-label--error"
+      id="TextInput-2911453357077744"
     >
       some error
     </p>

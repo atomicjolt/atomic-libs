@@ -1,17 +1,24 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import TextInput from ".";
+import TextInput, { FloatingTextInput } from ".";
 
-it("matches snapshot", () => {
-  const result = render(
-    <TextInput
-      label="Text Label"
-      message="message"
-      error="some error"
-      placeholder="placeholder"
-      value="content"
-      onChange={(value: string) => {}}
-    />
-  );
-  expect(result.asFragment()).toMatchSnapshot();
+describe("matches snapshot", () => {
+  const shared = {
+    label: "Text Label",
+    message: "message",
+    error: "some error",
+    placeholder: "placeholder",
+    value: "content",
+    onChange: (value: string) => {},
+  };
+
+  it("default variant", () => {
+    const result = render(<TextInput {...shared} />);
+    expect(result.asFragment()).toMatchSnapshot();
+  });
+
+  it("floating variant", () => {
+    const result = render(<FloatingTextInput {...shared} />);
+    expect(result.asFragment()).toMatchSnapshot();
+  });
 });

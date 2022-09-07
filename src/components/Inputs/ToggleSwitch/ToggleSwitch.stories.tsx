@@ -1,10 +1,10 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import ToggleSwitch, { ToggleSwitchProps } from ".";
+import ToggleSwitchComponent, { ToggleSwitchProps } from ".";
 
 export default {
   title: "Inputs/ToggleSwitch",
-  component: ToggleSwitch,
+  component: ToggleSwitchComponent,
   parameters: {
     argTypes: {
       onChange: {
@@ -12,14 +12,14 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof ToggleSwitch>;
+} as ComponentMeta<typeof ToggleSwitchComponent>;
 
-const Template: ComponentStory<typeof ToggleSwitch> = (
+const Template: ComponentStory<typeof ToggleSwitchComponent> = (
   args: ToggleSwitchProps
-) => <ToggleSwitch {...args} />;
+) => <ToggleSwitchComponent {...args} />;
 
-export const Default = Template.bind({});
-Default.args = {
+export const ToggleSwitch = Template.bind({});
+ToggleSwitch.args = {
   checked: false,
   label: "Toggle switch",
   disabled: false,

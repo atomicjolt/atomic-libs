@@ -64,10 +64,10 @@ export function useClickOutside(
   useEffect(() => {
     const opts: UseClickOutsideOptions = { ...defaultOptions, ...options };
     if (opts.enabled) {
-      document.addEventListener("click", onClick);
-      return () => document.removeEventListener("click", onClick);
+      window.addEventListener("click", onClick);
+      return () => window.removeEventListener("click", onClick);
     } else {
-      document.removeEventListener("click", onClick);
+      window.removeEventListener("click", onClick);
     }
-  }, [options]);
+  }, [options, ref.current]);
 }

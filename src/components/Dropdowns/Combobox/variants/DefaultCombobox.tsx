@@ -1,44 +1,15 @@
 import React, { useState } from "react";
 import cn from "classnames";
-import { levenshtein } from "../../../utils";
-import { SharedInputProps } from "../../../types";
-import { useIds } from "../../../hooks";
-import Label from "../../Utility/Label";
-import InputError from "../../Utility/InputError";
+import { useIds } from "../../../../hooks";
+import Label from "../../../Utility/Label";
+import InputError from "../../../Utility/InputError";
+import { ComboboxProps } from "../Combobox.types";
+import { defaultFilterSuggestions } from "../utils";
 
-export interface ComboboxProps extends SharedInputProps {
-  value: string;
-  onChange: (value: string) => void;
-
-  /** Array of possible values to suggest to the user */
-  options: string[];
-
-  /** Optional function to override the filtering behavior. By default,
-   * the suggestions are compared to the current input value by string value.
-   * It checks if the suggestions starts with the current value OR if the
-   * levenshtein distance between them is 2 or less.
-   */
-  filterSuggestions?: (value: string, options: string[]) => string[];
-}
-
-function defaultFilterSuggestiosn(value: string, options: string[]): string[] {
-  const compValue = String(value);
-
-  return options.filter((o) => {
-    if (!value) return true;
-    return o.startsWith(compValue) || levenshtein(o, compValue) <= 2;
-  });
-}
-
-/**
- * Combobox
- * It is the combination of an input field, with a dropdown of possible suggestions
- *
- * https://www.w3.org/TR/wai-aria-practices/examples/combobox/combobox-select-only.html for accessibility implementation.
- * */
+/** A combobox is a combination of a dropdown, with a searchable text field. */
 export default function Combobox({
   options,
-  value,
+  value = "",
   onChange,
   size = "medium",
   label,
@@ -46,7 +17,7 @@ export default function Combobox({
   message,
   hideLabel = false,
   disabled = false,
-  filterSuggestions = defaultFilterSuggestiosn,
+  filterSuggestions = defaultFilterSuggestions,
 }: ComboboxProps) {
   const [menuActive, setMenuActive] = useState(false);
 
@@ -60,11 +31,14 @@ export default function Combobox({
 
   return (
     <div
-      className={cn("aje-dropdown--floating", `is-${size}`, {
+      className={cn("aje-dropdown", `is-${size}`, {
         "has-error": error,
         "is-disabled": disabled,
       })}
     >
+      <Label message={message} htmlFor={labelId} hidden={hideLabel}>
+        {label}
+      </Label>
       <div className="aje-combobox">
         <div
           className="aje-combobox__input is-searchable"
@@ -82,7 +56,7 @@ export default function Combobox({
             aria-describedby={error ? errorId : ""}
             id={inputId}
             value={value}
-            onChange={(e) => onChange(e.target.value)}
+            onChange={(e) => onChange && onChange(e.target.value)}
             onFocus={() => setMenuActive(true)}
             onBlur={() => setMenuActive(false)}
           />
@@ -98,7 +72,7 @@ export default function Combobox({
               className={cn("aje-combobox__option", {
                 "is-focused": o === value,
               })}
-              onMouseDown={() => onChange(o)}
+              onMouseDown={() => onChange && onChange(o)}
               role="option"
               id={String(o)}
               key={String(o)}
@@ -108,11 +82,7 @@ export default function Combobox({
             </li>
           ))}
         </ul>
-        <Label htmlFor={labelId} hidden={hideLabel}>
-          {label}
-        </Label>
       </div>
-      {message && <p className="aje-label--message">{message}</p>}
       <InputError error={error} id={errorId} />
     </div>
   );
