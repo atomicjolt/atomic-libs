@@ -7,7 +7,7 @@ exports[`matches snapshot default variant 1`] = `
   >
     <label
       class="aje-label"
-      for="TextInput-3167682099403161"
+      for="TextInput-3892280160776712"
     >
       Text Label
       <p
@@ -17,15 +17,15 @@ exports[`matches snapshot default variant 1`] = `
       </p>
     </label>
     <input
-      aria-describedby="TextInput-7418578274664415"
-      id="TextInput-3167682099403161"
+      aria-describedby="TextInput-2911453357077744"
+      id="TextInput-3892280160776712"
       placeholder="placeholder"
       type="text"
       value="content"
     />
     <p
       class="aje-label--error"
-      id="TextInput-7418578274664415"
+      id="TextInput-2911453357077744"
     >
       some error
     </p>
@@ -42,15 +42,15 @@ exports[`matches snapshot floating variant 1`] = `
       class="aje-input__container"
     >
       <input
-        aria-describedby="TextInput-7418578274664415"
-        id="TextInput-3167682099403161"
+        aria-describedby="TextInput-2911453357077744"
+        id="TextInput-3892280160776712"
         placeholder="placeholder"
         type="text"
         value="content"
       />
       <label
         class=""
-        for="TextInput-3167682099403161"
+        for="TextInput-3892280160776712"
       >
         Text Label
       </label>
@@ -62,7 +62,7 @@ exports[`matches snapshot floating variant 1`] = `
     </p>
     <p
       class="aje-label--error"
-      id="TextInput-7418578274664415"
+      id="TextInput-2911453357077744"
     >
       some error
     </p>

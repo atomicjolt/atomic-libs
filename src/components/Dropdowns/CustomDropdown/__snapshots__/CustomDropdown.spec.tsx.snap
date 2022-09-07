@@ -7,8 +7,8 @@ exports[`matches snapshots matches default variant 1`] = `
   >
     <label
       class="aje-label"
-      for="CustomDropdown-4355539176316202"
-      id="CustomDropdown-7895530930895169"
+      for="CustomDropdown-3519441858017239"
+      id="CustomDropdown-1036107267185307"
     >
       Custom dropdown label
     </label>
@@ -16,13 +16,13 @@ exports[`matches snapshots matches default variant 1`] = `
       class="aje-combobox"
     >
       <div
-        aria-controls="CustomDropdown-6752519095198874"
+        aria-controls="CustomDropdown-1039096923599330"
         aria-describedby=""
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-labelledby="CustomDropdown-7895530930895169"
+        aria-labelledby="CustomDropdown-1036107267185307"
         class="aje-combobox__input"
-        id="CustomDropdown-4355539176316202"
+        id="CustomDropdown-3519441858017239"
         role="combobox"
         tabindex="0"
       >
@@ -31,9 +31,9 @@ exports[`matches snapshots matches default variant 1`] = `
         </span>
       </div>
       <ul
-        aria-labelledby="CustomDropdown-7895530930895169"
+        aria-labelledby="CustomDropdown-1036107267185307"
         class="aje-combobox__menu"
-        id="CustomDropdown-6752519095198874"
+        id="CustomDropdown-1039096923599330"
         role="listbox"
         tabindex="-1"
       >
@@ -66,13 +66,13 @@ exports[`matches snapshots matches floating variant 1`] = `
       class="aje-combobox"
     >
       <div
-        aria-controls="CustomDropdown-6752519095198874"
+        aria-controls="CustomDropdown-1039096923599330"
         aria-describedby=""
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-labelledby="CustomDropdown-7895530930895169"
+        aria-labelledby="CustomDropdown-1036107267185307"
         class="aje-combobox__input"
-        id="CustomDropdown-4355539176316202"
+        id="CustomDropdown-3519441858017239"
         role="combobox"
         tabindex="0"
       >
@@ -81,9 +81,9 @@ exports[`matches snapshots matches floating variant 1`] = `
         </span>
       </div>
       <ul
-        aria-labelledby="CustomDropdown-7895530930895169"
+        aria-labelledby="CustomDropdown-1036107267185307"
         class="aje-combobox__menu"
-        id="CustomDropdown-6752519095198874"
+        id="CustomDropdown-1039096923599330"
         role="listbox"
         tabindex="-1"
       >
@@ -104,8 +104,8 @@ exports[`matches snapshots matches floating variant 1`] = `
       </ul>
       <label
         class="aje-label"
-        for="CustomDropdown-4355539176316202"
-        id="CustomDropdown-7895530930895169"
+        for="CustomDropdown-3519441858017239"
+        id="CustomDropdown-1036107267185307"
       >
         Custom dropdown label
       </label>
