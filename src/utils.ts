@@ -22,7 +22,7 @@ export function makeIds<T extends string>(
   base: T,
   args: readonly string[]
 ): string[] {
-  const seed = Math.random();
+  const seed = Math.random() * 10 ** 10;
   return args.map((a) => `${base}-${hash(base + a, seed)}`);
 }
 
