@@ -1,17 +1,18 @@
+import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { ErrorBanner, BannerWrapperProps } from ".";
+import { ErrorBanner as ErrorBannerComponent, BannerWrapperProps } from ".";
 
 export default {
   title: "Banners/DismissableBanner/ErrorBanner",
-  component: ErrorBanner,
-} as ComponentMeta<typeof ErrorBanner>;
+  component: ErrorBannerComponent,
+} as ComponentMeta<typeof ErrorBannerComponent>;
 
-const Template: ComponentStory<typeof ErrorBanner> = (
+const Template: ComponentStory<typeof ErrorBannerComponent> = (
   args: BannerWrapperProps
-) => <ErrorBanner {...args} />;
+) => <ErrorBannerComponent {...args} />;
 
-export const Default = Template.bind({});
-Default.args = {
+export const ErrorBanner = Template.bind({});
+ErrorBanner.args = {
   children: "Error!",
 };
 

@@ -1,8 +1,8 @@
 import { SharedInputProps } from "../../../types";
 
-export interface SharedComboboxProps extends SharedInputProps {
-  value: string;
-  onChange: (value: string) => void;
+export interface ComboboxProps extends SharedInputProps {
+  value?: string;
+  onChange?: (value: string) => void;
 
   /** Array of possible values to suggest to the user */
   options: string[];

@@ -1,9 +1,10 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import CustomDropdown, { CustomDropdownProps } from ".";
+import CustomDropdown, { FloatingCustomDropdown } from ".";
 import { DefaultInputProperties } from "../../../utils";
 import MaterialIcon from "../../Utility/MaterialIcon";
 import { Option, EmptyOption } from "./Option";
+import { CustomDropdownProps } from "./CustomDropdown.types";
 
 export default {
   title: "Dropdowns/CustomDropdown",
@@ -25,7 +26,6 @@ const Template: ComponentStory<typeof CustomDropdown> = (
 export const Default = Template.bind({});
 Default.args = {
   value: "val1",
-  variant: "default",
   ...DefaultInputProperties,
   placeholder: undefined,
   label: "Custom Select Label",
@@ -63,3 +63,12 @@ WithIcons.args = {
     </Option>,
   ],
 };
+
+const FloatingTemplate: ComponentStory<typeof FloatingCustomDropdown> = (
+  args: CustomDropdownProps<any>
+) => {
+  return <FloatingCustomDropdown {...args} />;
+};
+
+export const FloatingVariant = FloatingTemplate.bind({});
+FloatingVariant.args = Default.args;

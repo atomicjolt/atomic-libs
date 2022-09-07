@@ -1,6 +1,6 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import TextInput from ".";
+import TextInput, { FloatingTextInput } from ".";
 import { DefaultInputProperties } from "../../../utils";
 import { TextInputProps } from "./TextInput.types";
 
@@ -16,7 +16,6 @@ const Template: ComponentStory<typeof TextInput> = (args: TextInputProps) => {
 export const Controlled = Template.bind({});
 Controlled.args = {
   value: "",
-  variant: "default",
   type: "text",
   ...DefaultInputProperties,
   label: "Text input label",
@@ -26,7 +25,6 @@ Controlled.args = {
 
 export const Uncontrolled = Template.bind({});
 Uncontrolled.args = {
-  variant: "default",
   type: "text",
   ...DefaultInputProperties,
   label: "Text input label",
@@ -42,3 +40,12 @@ Uncontrolled.argTypes = {
     control: false,
   },
 };
+
+const FloatingTemplate: ComponentStory<typeof TextInput> = (
+  args: TextInputProps
+) => {
+  return <FloatingTextInput {...args} />;
+};
+
+export const Floating = FloatingTemplate.bind({});
+Floating.args = Controlled.args;

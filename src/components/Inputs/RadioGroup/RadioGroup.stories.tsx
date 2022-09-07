@@ -1,11 +1,11 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import RadioGroup, { RadioGroupsProps } from ".";
+import RadioGroupComponent, { RadioGroupsProps } from ".";
 import Radio from "./Radio";
 
 export default {
   title: "Inputs/RadioGroup",
-  component: RadioGroup,
+  component: RadioGroupComponent,
   argTypes: {
     children: {
       control: false,
@@ -17,21 +17,21 @@ export default {
   subcomponents: {
     Radio,
   },
-} as ComponentMeta<typeof RadioGroup>;
+} as ComponentMeta<typeof RadioGroupComponent>;
 
-const Template: ComponentStory<typeof RadioGroup> = (
+const Template: ComponentStory<typeof RadioGroupComponent> = (
   args: RadioGroupsProps
 ) => (
-  <RadioGroup {...args}>
+  <RadioGroupComponent {...args}>
     <Radio value="opt1">Option 1</Radio>
     <Radio value="opt2">Option 2</Radio>
     <Radio value="opt3">Option 3</Radio>
-  </RadioGroup>
+  </RadioGroupComponent>
 );
 
-export const Default = Template.bind({});
+export const RadioGroup = Template.bind({});
 
-Default.args = {
+RadioGroup.args = {
   value: "opt1",
   name: "radiogroup",
   label: "Radio Group Label",
@@ -41,7 +41,7 @@ Default.args = {
   disabled: false,
 };
 
-Default.argTypes = {
+RadioGroup.argTypes = {
   value: {
     control: "select",
     options: ["opt1", "opt2", "opt3"],

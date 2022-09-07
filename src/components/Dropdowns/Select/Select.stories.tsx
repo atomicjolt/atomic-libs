@@ -1,21 +1,24 @@
+import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import Select, { Props } from ".";
+import SelectComponent, { SelectProps } from ".";
 
 export default {
   title: "Dropdowns/Select",
-  component: Select,
-} as ComponentMeta<typeof Select>;
+  component: SelectComponent,
+} as ComponentMeta<typeof SelectComponent>;
 
-const Template: ComponentStory<typeof Select> = (args: Props) => (
-  <Select {...args}>
+const Template: ComponentStory<typeof SelectComponent> = (
+  args: SelectProps
+) => (
+  <SelectComponent {...args}>
     <option value="none">- Select an option -</option>
     <option value="value1">Option 1</option>
     <option value="value2">Option 2</option>
-  </Select>
+  </SelectComponent>
 );
 
-export const Default = Template.bind({});
-Default.args = {
+export const Select = Template.bind({});
+Select.args = {
   value: "none",
   label: "Select label",
   message: "",

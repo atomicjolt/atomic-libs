@@ -7,7 +7,7 @@ interface CustomSelectOptionProps<T> {
   children: React.ReactNode;
 }
 
-/** An Option in the `CustomSelect` */
+/** An Option in the `CustomDropdown` */
 export function Option<T>({ value, children }: CustomSelectOptionProps<T>) {
   const { currentValue, onClick } = useContext(Context);
 
@@ -25,7 +25,7 @@ export function Option<T>({ value, children }: CustomSelectOptionProps<T>) {
   );
 }
 
-/** A `CustomSelect.Option` item with `null` as the value */
+/** A `CustomDropdown` `Option` item with `null` as the value */
 export function EmptyOption({ children }: { children?: React.ReactNode }) {
   return <Option value={null}>{children}</Option>;
 }

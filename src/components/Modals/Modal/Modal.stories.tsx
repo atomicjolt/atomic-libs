@@ -1,18 +1,18 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import Modal, { Props } from ".";
+import ModalComponent, { ModalProps } from ".";
 
 export default {
   title: "Modals/Modal",
-  component: Modal,
-} as ComponentMeta<typeof Modal>;
+  component: ModalComponent,
+} as ComponentMeta<typeof ModalComponent>;
 
-const Template: ComponentStory<typeof Modal> = (args: Props) => (
-  <Modal {...args} />
+const Template: ComponentStory<typeof ModalComponent> = (args: ModalProps) => (
+  <ModalComponent {...args} />
 );
 
-export const Default = Template.bind({});
-Default.args = {
+export const Modal = Template.bind({});
+Modal.args = {
   open: true,
   title: "Modal Title",
   children: "Complex stuff",

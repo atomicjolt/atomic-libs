@@ -1,18 +1,17 @@
+import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { WarningBanner, BannerWrapperProps } from ".";
+import { WarningBanner as WarningBannerComponent, BannerWrapperProps } from ".";
 
 export default {
   title: "Banners/DismissableBanner/WarningBanner",
-  component: WarningBanner,
-} as ComponentMeta<typeof WarningBanner>;
+  component: WarningBannerComponent,
+} as ComponentMeta<typeof WarningBannerComponent>;
 
-const Template: ComponentStory<typeof WarningBanner> = (
+const Template: ComponentStory<typeof WarningBannerComponent> = (
   args: BannerWrapperProps
-) => <WarningBanner {...args} />;
+) => <WarningBannerComponent {...args} />;
 
-export const Default = Template.bind({});
-Default.args = {
+export const WarningBanner = Template.bind({});
+WarningBanner.args = {
   children: "Warning!",
 };
-
-// Additional stories go here

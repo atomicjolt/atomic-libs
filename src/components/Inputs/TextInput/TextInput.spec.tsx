@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import TextInput from ".";
+import TextInput, { FloatingTextInput } from ".";
 
 describe("matches snapshot", () => {
   const shared = {
@@ -13,12 +13,12 @@ describe("matches snapshot", () => {
   };
 
   it("default variant", () => {
-    const result = render(<TextInput variant="default" {...shared} />);
+    const result = render(<TextInput {...shared} />);
     expect(result.asFragment()).toMatchSnapshot();
   });
 
   it("floating variant", () => {
-    const result = render(<TextInput variant="floating" {...shared} />);
+    const result = render(<FloatingTextInput {...shared} />);
     expect(result.asFragment()).toMatchSnapshot();
   });
 });

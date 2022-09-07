@@ -3,12 +3,13 @@ import cn from "classnames";
 import { useIds } from "../../../../hooks";
 import Label from "../../../Utility/Label";
 import InputError from "../../../Utility/InputError";
-import { SharedComboboxProps } from "../Combobox.types";
+import { ComboboxProps } from "../Combobox.types";
 import { defaultFilterSuggestions } from "../utils";
 
+/** A combobox is a combination of a dropdown, with a searchable text field. */
 export default function FloatingCombobox({
   options,
-  value,
+  value = "",
   onChange,
   size = "medium",
   label,
@@ -17,7 +18,7 @@ export default function FloatingCombobox({
   hideLabel = false,
   disabled = false,
   filterSuggestions = defaultFilterSuggestions,
-}: SharedComboboxProps) {
+}: ComboboxProps) {
   const [menuActive, setMenuActive] = useState(false);
 
   const [labelId, comobId, inputId, listBoxId, errorId] = useIds(`combo`, [
@@ -52,7 +53,7 @@ export default function FloatingCombobox({
             aria-describedby={error ? errorId : ""}
             id={inputId}
             value={value}
-            onChange={(e) => onChange(e.target.value)}
+            onChange={(e) => onChange && onChange(e.target.value)}
             onFocus={() => setMenuActive(true)}
             onBlur={() => setMenuActive(false)}
           />
@@ -68,7 +69,7 @@ export default function FloatingCombobox({
               className={cn("aje-combobox__option", {
                 "is-focused": o === value,
               })}
-              onMouseDown={() => onChange(o)}
+              onMouseDown={() => onChange && onChange(o)}
               role="option"
               id={String(o)}
               key={String(o)}

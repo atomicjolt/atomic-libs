@@ -1,17 +1,18 @@
+import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import Spinner, { Props } from ".";
+import SpinneComponent, { SpinnerProps } from ".";
 
 export default {
   title: "Loaders/Spinner",
-  component: Spinner,
-} as ComponentMeta<typeof Spinner>;
+  component: SpinneComponent,
+} as ComponentMeta<typeof SpinneComponent>;
 
-const Template: ComponentStory<typeof Spinner> = (args: Props) => (
-  <Spinner {...args} />
-);
+const Template: ComponentStory<typeof SpinneComponent> = (
+  args: SpinnerProps
+) => <SpinneComponent {...args} />;
 
-export const Default = Template.bind({});
-Default.args = {
+export const Spinner = Template.bind({});
+Spinner.args = {
   loading: true,
 };
 

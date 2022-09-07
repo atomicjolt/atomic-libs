@@ -1,11 +1,11 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import PopupModal, { PopupModalProps } from ".";
+import PopupModalComponent, { PopupModalProps } from ".";
 import Button from "../../Buttons/Button";
 
 export default {
   title: "Modals/PopupModal",
-  component: PopupModal,
+  component: PopupModalComponent,
   argTypes: {
     actions: {
       control: false,
@@ -14,14 +14,14 @@ export default {
       control: "text",
     },
   },
-} as ComponentMeta<typeof PopupModal>;
+} as ComponentMeta<typeof PopupModalComponent>;
 
-const Template: ComponentStory<typeof PopupModal> = (args: PopupModalProps) => (
-  <PopupModal {...args} />
-);
+const Template: ComponentStory<typeof PopupModalComponent> = (
+  args: PopupModalProps
+) => <PopupModalComponent {...args} />;
 
-export const Default = Template.bind({});
-Default.args = {
+export const PopupModal = Template.bind({});
+PopupModal.args = {
   open: true,
   title: "Popup!",
   children:
