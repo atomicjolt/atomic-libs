@@ -49,7 +49,7 @@ export default function CustomDropdown<T>({
     currentValue: value,
     onClick: (v, e) => {
       toggleMenu();
-      onChange(v, e);
+      onChange && onChange(v, e);
     },
   };
 

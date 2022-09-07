@@ -20,7 +20,6 @@ export default function FloatingCustomDropdown<T>({
   hideLabel = false,
   disabled = false,
   children,
-  required = false,
 }: CustomDropdownProps<T>) {
   const [menuActive, toggleMenu] = useBool(false);
   const ref = useRef(null);
@@ -43,7 +42,10 @@ export default function FloatingCustomDropdown<T>({
 
   const ctx: CustomSelectContext<T> = {
     currentValue: value,
-    onClick: onChange,
+    onClick: (v, e) => {
+      toggleMenu();
+      onChange && onChange(v, e);
+    },
   };
 
   return (
@@ -53,7 +55,7 @@ export default function FloatingCustomDropdown<T>({
       error={error}
       disabled={disabled}
     >
-      <div className="aje-combobox">
+      <div className="aje-combobox" ref={ref}>
         <div
           className="aje-combobox__input"
           aria-controls={listBoxId}
