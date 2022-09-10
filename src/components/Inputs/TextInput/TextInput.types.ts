@@ -1,6 +1,6 @@
-import { ControlledInput, SharedInputProps } from "../../../types";
+import { InputProps } from "../../../types";
 
-export interface TextInputProps extends SharedInputProps, ControlledInput {
+export interface TextInputProps extends InputProps<string> {
   /** Other types like date, time, and number have their own component  */
-  readonly type?: "text" | "email" | "tel";
+  type?: "text" | "email" | "tel";
 }

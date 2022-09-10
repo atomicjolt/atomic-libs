@@ -1,12 +1,13 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import TextInput, { FloatingTextInput } from ".";
-import { DefaultInputProperties } from "../../../utils";
+import { InputControls, DefaultInputProperties } from "../../storybook";
 import { TextInputProps } from "./TextInput.types";
 
 export default {
   title: "Inputs/TextInput",
   component: TextInput,
+  argTypes: InputControls,
 } as ComponentMeta<typeof TextInput>;
 
 const Template: ComponentStory<typeof TextInput> = (args: TextInputProps) => {
@@ -20,7 +21,7 @@ Controlled.args = {
   ...DefaultInputProperties,
   label: "Text input label",
   placeholder: "",
-  readonly: false,
+  readOnly: false,
 };
 
 export const Uncontrolled = Template.bind({});
@@ -29,19 +30,17 @@ Uncontrolled.args = {
   ...DefaultInputProperties,
   label: "Text input label",
   placeholder: "",
-  readonly: false,
+  readOnly: false,
 };
 
 Uncontrolled.argTypes = {
   value: {
     control: false,
   },
-  onChange: {
-    control: false,
-  },
+  ...InputControls,
 };
 
-const FloatingTemplate: ComponentStory<typeof TextInput> = (
+const FloatingTemplate: ComponentStory<typeof FloatingTextInput> = (
   args: TextInputProps
 ) => {
   return <FloatingTextInput {...args} />;

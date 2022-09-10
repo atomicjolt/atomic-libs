@@ -1,22 +1,22 @@
-import React, { ChangeEvent } from "react";
-import cn from "classnames";
+import React from "react";
 import { useIds } from "../../../hooks";
-import { ControlledInput, SharedInputProps } from "../../../types";
+import { InputProps } from "../../../types";
 import Label from "../../Utility/Label";
 import InputError from "../../Utility/InputError";
 import ComponentWrapper from "../../Utility/ComponentWrapper";
+import { makeEventHandler } from "../../../utils";
 
-export interface NumberInputProps
-  extends SharedInputProps,
-    ControlledInput<number> {
+export interface NumberInputProps extends InputProps<number> {
   min?: number;
   max?: number;
 }
 
 /** Number Input Component. Accepts a `ref` */
 const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
-  (
-    {
+  (props, ref) => {
+    const [inputId, errorId] = useIds("NumberInput", ["input", "error"]);
+
+    const {
       value,
       min,
       max,
@@ -25,15 +25,11 @@ const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
       error,
       message,
       size = "small",
-      readonly = false,
-      disabled = false,
-      required = false,
-      hideLabel = false,
-      placeholder,
-    },
-    ref
-  ) => {
-    const [inputId, errorId] = useIds("NumberInput", ["input", "error"]);
+      hideLabel,
+      ...inputProps
+    } = props;
+
+    const { disabled, required } = inputProps;
 
     return (
       <ComponentWrapper
@@ -53,12 +49,11 @@ const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
           aria-describedby={error ? errorId : ""}
           min={min}
           max={max}
-          readOnly={readonly}
-          disabled={disabled}
-          required={required}
-          placeholder={placeholder}
           value={value}
-          onChange={(e) => onChange && onChange(parseInt(e.target.value), e)}
+          onChange={makeEventHandler(onChange, (e) =>
+            parseInt(e.target.value, 10)
+          )}
+          {...inputProps}
         />
         <InputError error={error} id={errorId} />
       </ComponentWrapper>

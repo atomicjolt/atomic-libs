@@ -1,11 +1,16 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import NumberInput, { NumberInputProps } from ".";
-import { DefaultInputProperties } from "../../../utils";
+import {
+  InputControls,
+  DefaultInputProperties,
+  UncontrolledInputControls,
+} from "../../storybook";
 
 export default {
   title: "Inputs/NumberInput",
   component: NumberInput,
+  argTypes: InputControls,
 } as ComponentMeta<typeof NumberInput>;
 
 const Template: ComponentStory<typeof NumberInput> = (
@@ -29,13 +34,4 @@ Uncontrolled.args = {
   label: "Number input label",
 };
 
-Uncontrolled.argTypes = {
-  value: {
-    control: false,
-  },
-  onChange: {
-    control: false,
-  },
-};
-
-// Additional stories go here
+Uncontrolled.argTypes = UncontrolledInputControls;

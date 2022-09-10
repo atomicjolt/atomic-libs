@@ -2,7 +2,7 @@ import React from "react";
 
 export interface RadioContextData {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  currentValue: string;
+  currentValue?: string;
   name: string;
   disabled: boolean;
 }

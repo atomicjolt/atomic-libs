@@ -1,11 +1,16 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Textarea, { TextAreaProps } from ".";
-import { DefaultInputProperties } from "../../../utils";
+import {
+  UncontrolledInputControls,
+  InputControls,
+  DefaultInputProperties,
+} from "../../storybook";
 
 export default {
   title: "Inputs/Textarea",
   component: Textarea,
+  argTypes: InputControls,
 } as ComponentMeta<typeof Textarea>;
 
 const Template: ComponentStory<typeof Textarea> = (args: TextAreaProps) => (
@@ -16,7 +21,7 @@ export const Controlled = Template.bind({});
 Controlled.args = {
   value: "Text Area content",
   resize: true,
-  ...(DefaultInputProperties as TextAreaProps),
+  ...DefaultInputProperties,
   label: "Textarea label",
   message: "1000 characters",
 };

@@ -3,29 +3,27 @@ import Label from "../../../Utility/Label";
 import { useIds } from "../../../../hooks";
 import InputError from "../../../Utility/InputError";
 import { makeEventHandler } from "../../../../utils";
-import { TextInputProps } from "../TextInput.types";
 import ComponentWrapper from "../../../Utility/ComponentWrapper";
+import { TextInputProps } from "../TextInput.types";
 
 /** TextInput component. Fowards a `ref` to the internal input element */
 const DefaultTextInput = React.forwardRef(
-  (
-    {
+  (props: TextInputProps, ref: React.Ref<HTMLInputElement>) => {
+    const [inputId, errorId] = useIds("TextInput", ["input", "error"]);
+
+    const {
       value,
       onChange,
       type = "text",
-      size = "medium",
       label,
+      hideLabel,
+      size,
       error,
       message,
-      placeholder,
-      hideLabel = false,
-      readonly = false,
-      disabled = false,
-      required = false,
-    }: TextInputProps,
-    ref: React.Ref<HTMLInputElement>
-  ) => {
-    const [inputId, errorId] = useIds("TextInput", ["input", "error"]);
+      ...inputProps
+    } = props;
+
+    const { disabled, required } = inputProps;
 
     return (
       <ComponentWrapper
@@ -42,13 +40,10 @@ const DefaultTextInput = React.forwardRef(
           ref={ref}
           id={inputId}
           aria-describedby={error ? errorId : ""}
-          type={type}
-          placeholder={placeholder}
           value={value}
-          readOnly={readonly}
-          disabled={disabled}
-          required={required}
-          onChange={onChange && makeEventHandler(onChange)}
+          onChange={makeEventHandler(onChange)}
+          type={type}
+          {...inputProps}
         />
         <InputError error={error} id={errorId} />
       </ComponentWrapper>

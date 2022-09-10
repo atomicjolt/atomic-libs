@@ -1,5 +1,5 @@
 import React from "react";
-import { EventHandler, SharedInputProps } from "./types";
+import { EventHandler } from "./types";
 
 function hash(str: string, seed: number = 0) {
   let h1 = 0xdeadbeef ^ seed,
@@ -26,14 +26,16 @@ export function makeIds<T extends string>(
   return args.map((a) => `${base}-${hash(base + a, seed)}`);
 }
 
-interface Event<T = Element> extends React.SyntheticEvent<T> {
-  target: EventTarget & T & { value: any };
-}
+interface Event<T = Element> extends React.SyntheticEvent<T> {}
+
+const defaultCallback = (e: Event) =>
+  (e.target as HTMLInputElement).value as any;
 
 export function makeEventHandler<T, E extends Event>(
-  handler: EventHandler<T, E>
+  handler?: EventHandler<T, E>,
+  callback: (event: E) => T = defaultCallback
 ) {
-  return (event: E) => handler(event.target.value, event);
+  return (event: E) => handler && handler(callback(event), event);
 }
 
 export function makeOptionaCallback<T = unknown>(
@@ -41,15 +43,3 @@ export function makeOptionaCallback<T = unknown>(
 ) {
   return (...rest: T[]) => callback && callback(...rest);
 }
-
-export const DefaultInputProperties: SharedInputProps = {
-  label: "",
-  hideLabel: false,
-  error: "",
-  message: "",
-  disabled: false,
-  required: false,
-  readonly: false,
-  placeholder: "",
-  size: "medium",
-};

@@ -1,10 +1,12 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Checkbox, { CheckboxProps } from ".";
+import { InputControls } from "../../storybook";
 
 export default {
   title: "Inputs/Checkbox",
   component: Checkbox,
+  argTypes: InputControls,
 } as ComponentMeta<typeof Checkbox>;
 
 const Template: ComponentStory<typeof Checkbox> = (args: CheckboxProps) => (
@@ -23,7 +25,13 @@ Controlled.args = {
 
 export const Uncontrolled = Template.bind({});
 Uncontrolled.args = {
+  ...Controlled.args,
+  checked: undefined,
   label: "Checkbox label",
 };
 
-// Additional stories go here
+Uncontrolled.argTypes = {
+  checked: {
+    control: false,
+  },
+};

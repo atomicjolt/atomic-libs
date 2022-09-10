@@ -1,7 +1,7 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import CustomDropdown, { FloatingCustomDropdown } from ".";
-import { DefaultInputProperties } from "../../../utils";
+import { DefaultInputProperties } from "../../storybook";
 import MaterialIcon from "../../Utility/MaterialIcon";
 import { Option, EmptyOption } from "./Option";
 import { CustomDropdownProps } from "./CustomDropdown.types";

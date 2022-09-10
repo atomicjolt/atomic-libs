@@ -1,19 +1,17 @@
 import cn from "classnames";
 import React from "react";
-import { SharedInputProps } from "../../../types";
+import { HasChildren, InputComponentProps, EventHandler } from "../../../types";
 import { RadioContextData } from "./context";
 import RadioContext from "./context";
+import { makeEventHandler } from "../../../utils";
 
 export interface RadioGroupsProps
-  extends Omit<SharedInputProps, "size" | "required" | "readonly"> {
-  value?: string;
-  onChange?: (
-    value: string,
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => void;
-  /** The name associated with the radio group. */
-  name: string;
-  children: React.ReactNode;
+  extends Omit<InputComponentProps, "size">,
+    HasChildren {
+  readonly name: string;
+  readonly disabled?: boolean;
+  readonly value?: string;
+  readonly onChange?: EventHandler<string, React.ChangeEvent<Element>>;
 }
 
 /**
@@ -27,21 +25,22 @@ export interface RadioGroupsProps
  * do note that it does not need to nested directly under. As such, you can add additional strucuture
  * between the over-lying `<RadioGroup />` and it's `<Radio />`s
  * */
-export default function RadioGroup({
-  value,
-  label,
-  message,
-  error,
-  name,
-  onChange,
-  children,
-  disabled = false,
-  hideLabel,
-}: RadioGroupsProps) {
-  const ctx: RadioContextData = {
-    onChange: (e) => onChange && onChange(e.target.value, e),
+export default function RadioGroup(props: RadioGroupsProps) {
+  const {
+    value,
+    onChange,
+    label,
+    message,
+    error,
     name,
-    // @ts-ignore
+    children,
+    disabled = false,
+    hideLabel,
+  } = props;
+
+  const ctx: RadioContextData = {
+    onChange: makeEventHandler(onChange),
+    name,
     currentValue: value,
     disabled,
   };

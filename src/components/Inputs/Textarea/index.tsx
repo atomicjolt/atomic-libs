@@ -1,39 +1,36 @@
 import cn from "classnames";
 import React from "react";
 import { useIds } from "../../../hooks";
-import { ControlledInput, SharedInputProps } from "../../../types";
+import { InputProps } from "../../../types";
 import { makeEventHandler } from "../../../utils";
 import ComponentWrapper from "../../Utility/ComponentWrapper";
 import InputError from "../../Utility/InputError";
 import Label from "../../Utility/Label";
 
 export interface TextAreaProps
-  extends Omit<SharedInputProps, "size">,
-    ControlledInput<string, HTMLTextAreaElement> {
+  extends Omit<InputProps<string, HTMLTextAreaElement>, "size"> {
   size?: "small" | "medium" | "large";
   resize?: boolean;
 }
 
 /** Textarea Component. Accepts a `ref` */
 const Textarea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
-  (
-    {
+  (props, ref) => {
+    const [inputId, errorId] = useIds("textarea", ["textarea", "error"]);
+    const {
       value,
       onChange,
       size = "small",
+      hideLabel = false,
       resize = true,
       label,
       error,
       message,
       placeholder,
-      readonly = false,
-      disabled = false,
-      required = false,
-      hideLabel = false,
-    },
-    ref
-  ) => {
-    const [inputId, errorId] = useIds("textarea", ["textarea", "error"]);
+      ...inputProps
+    } = props;
+
+    const { disabled, required } = inputProps;
 
     return (
       <ComponentWrapper
@@ -52,10 +49,8 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
           aria-describedby={error ? errorId : ""}
           placeholder={placeholder}
           value={value}
-          readOnly={readonly}
-          disabled={disabled}
-          required={required}
-          onChange={onChange && makeEventHandler(onChange)}
+          onChange={makeEventHandler(onChange)}
+          {...inputProps}
         />
         <InputError error={error} id={errorId} />
       </ComponentWrapper>

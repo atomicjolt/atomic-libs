@@ -2,7 +2,6 @@
 
 .aje-label {
   display: block;
-  padding-bottom: 5px;
   @include mixins.bold;
   font-size: 1.3rem;
   line-height: 1.1;
@@ -10,9 +9,8 @@
 
   &--message,
   &--error {
-    margin: 3px 0 0;
-    @include mixins.bold;
     font-size: 1.3rem;
+    padding-bottom: 5px;
   }
 
   &--message {
@@ -22,6 +20,8 @@
   }
 
   &--error {
+    margin: 3px 0 0;
+    @include mixins.bold;
     color: var(--error700);
   }
 }

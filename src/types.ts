@@ -1,45 +1,5 @@
 import React from "react";
 
-export interface SharedInputProps {
-  /** Must include a label. Labels are always Sentence case. */
-  readonly label: string;
-  /** Only use in very specific circumstances.
-   * This hides the label from view, but still allows
-   * screen readers to read the label. (A filter dropdown with a
-   * clear meaning could potentially be a use case.) */
-  readonly hideLabel?: boolean;
-  /** Error text should be descriptive and explicit in meaning. */
-  readonly error?: string;
-  /** For additional information (ex. date format mm/dd/yy) */
-  readonly message?: string;
-  /** The select size should reflect the size of its content. */
-  readonly size?: Sizes;
-  readonly disabled?: boolean;
-  readonly required?: boolean;
-  readonly readonly?: boolean;
-
-  /** Placeholders aren't common, you should use the message instead for most placeholders so the user doesn't lose the information after entering text in the input. */
-  readonly placeholder?: string;
-}
-
-export interface ControlledInput<
-  T = string,
-  E extends Element = HTMLInputElement
-> {
-  value?: T;
-  onChange?: EventHandler<T, React.ChangeEvent<E>>;
-}
-
-export type EventHandler<
-  V = string,
-  E extends React.SyntheticEvent = React.SyntheticEvent
-> = (value: V, event: E) => void;
-
-export type VariantRecord<Variants extends string, ComponentProps> = Record<
-  Variants,
-  React.ComponentType<ComponentProps>
-> & { default: React.ComponentType<ComponentProps> };
-
 export interface HasChildren {
   children: React.ReactNode;
 }
@@ -52,12 +12,69 @@ export interface CanHaveIcon {
   icon?: MaterialIcons;
 }
 
-export interface HasVariant<T = string> {
-  /** Variants modify the overall stucture or design of the component */
-  variant?: T;
+// INPUTS ----------------------------------------------------------
+export type EventHandler<
+  V = string,
+  E extends React.SyntheticEvent = React.SyntheticEvent
+> = (value: V, event: E) => void;
+
+/** The props on an `<input />` element that we care about */
+export interface InputElementProps<E extends Element>
+  extends Omit<React.AriaAttributes, "aria-describedby"> {
+  readonly placeholder?: string;
+  readonly readOnly?: boolean;
+  readonly disabled?: boolean;
+  readonly required?: boolean;
+  readonly name?: string;
+  readonly autoFocus?: boolean;
+  readonly defaultValue?: string;
+
+  // Events
+  // Note that onChange isn't here, because we define a slight wrapper for it
+  readonly onClick?: React.MouseEventHandler<E>;
+  readonly onKeyDown?: React.KeyboardEventHandler<E>;
+  readonly onKeyUp?: React.KeyboardEventHandler<E>;
+  readonly onFocus?: React.FocusEventHandler<E>;
+  readonly onBlur?: React.FocusEventHandler<E>;
 }
 
-export type Setter<T> = (value: T) => void;
+/** The additional Props that a component that wraps an `<input />` will have */
+export interface InputComponentProps {
+  // Required
+  /** Must include a label. Labels are always Sentence case. */
+  readonly label: string;
+
+  // Optional
+  /** The select size should reflect the size of its content. */
+  readonly size?: Sizes;
+  /** Only use in very specific circumstances.
+   * This hides the label from view, but still allows
+   * screen readers to read the label. (A filter dropdown with a
+   * clear meaning could potentially be a use case.) */
+  readonly hideLabel?: boolean;
+  /** Error text should be descriptive and explicit in meaning. */
+  readonly error?: React.ReactNode;
+  /** For additional information (ex. date format mm/dd/yy) */
+  readonly message?: string;
+}
+
+export interface InputProps<
+  T,
+  E extends Element = HTMLInputElement,
+  Event extends React.SyntheticEvent<E> = React.ChangeEvent<E>
+> extends InputComponentProps,
+    InputElementProps<E> {
+  readonly value?: T;
+  readonly onChange?: EventHandler<T, Event>;
+}
+
+export interface CheckedInputProps<E extends Element = HTMLInputElement>
+  extends Omit<InputComponentProps, "hideLabel" | "size">,
+    Omit<InputElementProps<E>, "onClick"> {
+  readonly checked?: boolean;
+  readonly onClick?: EventHandler<boolean, React.MouseEvent<E>>;
+  readonly onChange?: EventHandler<boolean, React.ChangeEvent<E>>;
+}
 
 export type Booleanish = boolean | "false" | "true";
 export type AriaHasPopUp =

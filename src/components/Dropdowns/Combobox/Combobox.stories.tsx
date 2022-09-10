@@ -1,7 +1,7 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Combobox from "./variants/DefaultCombobox";
-import { DefaultInputProperties } from "../../../utils";
+import { DefaultInputProperties } from "../../storybook";
 import { ComboboxProps } from "./Combobox.types";
 import FloatingCombobox from "./variants/FloatingCombobox";
 

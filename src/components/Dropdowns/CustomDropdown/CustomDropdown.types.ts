@@ -1,9 +1,8 @@
-import { EventHandler, SharedInputProps } from "../../../types";
+import React from "react";
+import { InputProps } from "../../../types";
 
 export interface CustomDropdownProps<T>
-  extends Omit<SharedInputProps, "placeholder"> {
-  readonly value: T | null;
-  readonly onChange?: EventHandler<T, React.MouseEvent<Element>>;
+  extends InputProps<T | null, Element, React.MouseEvent<Element>> {
   readonly children: React.ReactElement | React.ReactElement[];
 }
 

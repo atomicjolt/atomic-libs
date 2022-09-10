@@ -11,7 +11,7 @@ import { Context, useSelectedChild } from "../utils";
 import ComponentWrapper from "../../../Utility/ComponentWrapper";
 
 export default function FloatingCustomDropdown<T>({
-  value,
+  value = null,
   onChange,
   size = "medium",
   label,

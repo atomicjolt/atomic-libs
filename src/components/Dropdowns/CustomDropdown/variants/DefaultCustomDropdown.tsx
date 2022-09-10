@@ -15,17 +15,7 @@ import { Context, useSelectedChild } from "../utils";
  * https://www.w3.org/TR/wai-aria-practices/examples/combobox/combobox-select-only.html for accessibility implementation.
  *
  * */
-export default function CustomDropdown<T>({
-  value,
-  onChange,
-  size = "medium",
-  label,
-  error,
-  message,
-  hideLabel = false,
-  disabled = false,
-  children,
-}: CustomDropdownProps<T>) {
+export default function CustomDropdown<T>(props: CustomDropdownProps<T>) {
   const [menuActive, toggleMenu] = useBool(false);
   const ref = useRef(null);
   const [inputId, listBoxId, errorId, labelId] = useIds("CustomDropdown", [
@@ -34,6 +24,20 @@ export default function CustomDropdown<T>({
     "errors",
     "label",
   ]);
+
+  const {
+    value = null,
+    onChange,
+    size = "medium",
+    label,
+    error,
+    message,
+    hideLabel = false,
+    children,
+    ...inputProps
+  } = props;
+
+  const { required, disabled } = inputProps;
 
   const selectedChild = useSelectedChild(value, children);
 
@@ -59,6 +63,7 @@ export default function CustomDropdown<T>({
       size={size}
       error={error}
       disabled={disabled}
+      required={required}
     >
       <Label
         message={message}

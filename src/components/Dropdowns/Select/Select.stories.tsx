@@ -1,10 +1,22 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
+import {
+  InputControls,
+  DefaultInputProperties,
+  inputProperties,
+} from "../../storybook";
 import SelectComponent, { SelectProps } from ".";
 
 export default {
   title: "Dropdowns/Select",
   component: SelectComponent,
+  argTypes: {
+    value: {
+      control: "select",
+      options: ["none", "value1", "value2"],
+    },
+    ...InputControls,
+  },
 } as ComponentMeta<typeof SelectComponent>;
 
 const Template: ComponentStory<typeof SelectComponent> = (
@@ -20,13 +32,8 @@ const Template: ComponentStory<typeof SelectComponent> = (
 export const Select = Template.bind({});
 Select.args = {
   value: "none",
+  ...DefaultInputProperties,
+  ...inputProperties({ filter: ["placeholder", "readOnly"] }),
   label: "Select label",
-  message: "",
-  hideLabel: false,
-  error: "",
-  disabled: false,
-  required: false,
   size: "medium",
 };
-
-// Additional stories go here

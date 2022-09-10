@@ -1,44 +1,39 @@
 import React from "react";
-import cn from "classnames";
-import {
-  HasChildren,
-  HTMLInputValueAttribute,
-  SharedInputProps,
-} from "../../../types";
+import { HasChildren, InputProps } from "../../../types";
 import Label from "../../Utility/Label";
 import { useIds } from "../../../hooks";
 import InputError from "../../Utility/InputError";
+import ComponentWrapper from "../../Utility/ComponentWrapper";
+import { makeEventHandler } from "../../../utils";
 
-export type SelectProps = HasChildren &
-  SharedInputProps & {
-    value: HTMLInputValueAttribute;
-    onSelect: (
-      value: string,
-      event: React.ChangeEvent<HTMLSelectElement>
-    ) => void;
-  };
+export interface SelectProps
+  extends HasChildren,
+    Omit<InputProps<string, HTMLSelectElement>, "placeholder" | "readOnly"> {}
 
 /** Select Component */
-export default function Select({
-  children,
-  onSelect,
-  value,
-  size = "medium",
-  label,
-  error,
-  message,
-  hideLabel = false,
-  disabled = false,
-  required = false,
-}: SelectProps) {
+export default function Select(props: SelectProps) {
   const [inputId, errorId] = useIds("select", ["select", "error"]);
 
+  const {
+    children,
+    onChange,
+    size = "medium",
+    label,
+    error,
+    message,
+    hideLabel = false,
+    disabled = false,
+    required = false,
+    ...inputProps
+  } = props;
+
   return (
-    <div
-      className={cn("aje-input", `is-${size}`, {
-        "has-error": error,
-        "is-disabled": disabled,
-      })}
+    <ComponentWrapper
+      className="aje-input"
+      size={size}
+      error={error}
+      required={required}
+      disabled={disabled}
     >
       <Label message={message} htmlFor={inputId} hidden={hideLabel}>
         {label}
@@ -47,15 +42,13 @@ export default function Select({
         <select
           id={inputId}
           aria-describedby={error ? errorId : ""}
-          disabled={disabled}
-          required={required}
-          onChange={(e) => onSelect(e.target.value, e)}
-          value={value}
+          onChange={makeEventHandler(onChange)}
+          {...inputProps}
         >
           {children}
         </select>
       </div>
       <InputError error={error} id={errorId} />
-    </div>
+    </ComponentWrapper>
   );
 }

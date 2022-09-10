@@ -1,6 +1,7 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import FileInput, { Props } from ".";
+import FileInput, { FileInputProps } from ".";
+import { InputControls, inputProperties } from "../../storybook";
 
 export default {
   title: "Inputs/FileInput",
@@ -9,17 +10,22 @@ export default {
     file: {
       control: false,
     },
+    ...InputControls,
   },
 } as ComponentMeta<typeof FileInput>;
 
-const Template: ComponentStory<typeof FileInput> = (args: Props) => {
+const Template: ComponentStory<typeof FileInput> = (args: FileInputProps) => {
   return <FileInput {...args} />;
 };
 
 export const Default = Template.bind({});
-Default.args = {};
+Default.args = {
+  ...inputProperties({ filter: ["hideLabel", "size", "message"] }),
+  label: "Choose a file...",
+};
 
 export const WithFile = Template.bind({});
 WithFile.args = {
+  ...Default.args,
   file: new File(["test"], "test.txt"),
 };

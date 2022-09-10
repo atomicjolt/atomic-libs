@@ -1,6 +1,7 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import RadioGroupComponent, { RadioGroupsProps } from ".";
+import { InputControls, DefaultInputProperties } from "../../storybook";
 import Radio from "./Radio";
 
 export default {
@@ -12,6 +13,9 @@ export default {
     },
     onChange: {
       control: false,
+    },
+    error: {
+      control: "text",
     },
   },
   subcomponents: {
