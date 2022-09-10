@@ -11,7 +11,9 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "classnames": "^2.3.1"
+    "@ljcl/storybook-addon-cssprops": "^2.3.5",
+    "classnames": "^2.3.1",
+    "react-highlight": "^0.14.0"
   },
   "peerDependencies": {
     "react": "^16.8.0",

@@ -18,7 +18,7 @@
     "allowSyntheticDefaultImports": true,
     "emitDeclarationOnly": true
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "addon.tsx"],
   "exclude": [
     "src/**/*.stories.tsx",
     "src/**/*.spec.tsx",

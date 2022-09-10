@@ -5,9 +5,10 @@ module.exports = {
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    "@storybook/addon-interactions",
     "@storybook/addon-docs",
     "storybook-addon-sass-postcss",
+    "@ljcl/storybook-addon-cssprops",
+    "./test-addon/preset.js",
   ],
   staticDirs: ["../public"],
   framework: "@storybook/react",

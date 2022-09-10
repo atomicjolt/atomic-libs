@@ -1,5 +1,7 @@
+import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import Button, { Props } from ".";
+import Button, { ButtonProps } from ".";
+import Doc from "./Button.doc.mdx";
 
 export default {
   title: "Buttons/Button",
@@ -9,9 +11,15 @@ export default {
       control: false,
     },
   },
+  parameters: {
+    docs: {
+      page: Doc,
+    },
+    cssClasses: [".aje-btn--primary", ".aje-btn"],
+  },
 } as ComponentMeta<typeof Button>;
 
-const Template: ComponentStory<typeof Button> = (args: Props) => (
+const Template: ComponentStory<typeof Button> = (args: ButtonProps) => (
   <Button {...args} />
 );
 
