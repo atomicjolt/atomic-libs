@@ -10,12 +10,12 @@ exports[`matches snapshots matches default variant 1`] = `
       for="combo-3203043081081503"
     >
       Text Label
-      <p
-        class="aje-label--message"
-      >
-        message
-      </p>
     </label>
+    <p
+      class="aje-label--message"
+    >
+      message
+    </p>
     <div
       class="aje-combobox"
     >

@@ -3,19 +3,19 @@
 exports[`matches snapshot default variant 1`] = `
 <DocumentFragment>
   <div
-    class="aje-input is-medium has-error"
+    class="aje-input has-error"
   >
     <label
       class="aje-label"
       for="TextInput-3892280160776712"
     >
       Text Label
-      <p
-        class="aje-label--message"
-      >
-        message
-      </p>
     </label>
+    <p
+      class="aje-label--message"
+    >
+      message
+    </p>
     <input
       aria-describedby="TextInput-2911453357077744"
       id="TextInput-3892280160776712"
@@ -36,7 +36,7 @@ exports[`matches snapshot default variant 1`] = `
 exports[`matches snapshot floating variant 1`] = `
 <DocumentFragment>
   <div
-    class="aje-input--floating is-medium has-error"
+    class="aje-input--floating has-error"
   >
     <div
       class="aje-input__container"
