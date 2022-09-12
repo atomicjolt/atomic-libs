@@ -15,7 +15,7 @@ export default {
     docs: {
       page: Doc,
     },
-    cssClasses: [".aje-btn--primary", ".aje-btn"],
+    cssSelectors: [".aje-btn--primary", ".aje-btn"],
   },
 } as ComponentMeta<typeof Button>;
 
