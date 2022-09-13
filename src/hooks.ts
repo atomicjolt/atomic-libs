@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState, RefObject } from "react";
+import { VariantRecord } from "./types";
 import { makeIds } from "./utils";
 
 export function useIds(base: string, args: string[], deps: any[] = []) {
@@ -106,4 +107,16 @@ export function useInput<
     "value",
     "onChange",
   ]);
+}
+
+export function useVariant<V extends string, T>(
+  variants: VariantRecord<V, T>,
+  variant: V
+): React.ComponentType<T> {
+  return useMemo(() => {
+    if (!variants.hasOwnProperty(variant)) {
+      throw new Error(`${variant} is not a valid variant for this Component`);
+    }
+    return variants[variant];
+  }, [variant]);
 }

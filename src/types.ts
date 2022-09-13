@@ -12,6 +12,15 @@ export interface CanHaveIcon {
   icon?: MaterialIcons;
 }
 
+export type VariantRecord<Variants extends string, ComponentProps> = Record<
+  Variants,
+  React.ComponentType<ComponentProps>
+> & { default: React.ComponentType<ComponentProps> };
+
+export interface HasVariant<Variants> {
+  variant: Variants;
+}
+
 // INPUTS ----------------------------------------------------------
 export type EventHandler<
   V = string,

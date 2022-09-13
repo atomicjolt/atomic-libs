@@ -20,29 +20,37 @@ exports[`matches snapshots matches default variant 1`] = `
       class="aje-combobox"
     >
       <div
-        aria-expanded="false"
-        aria-haspopup="listbox"
-        aria-owns="combo-8480847626628883"
-        class="aje-combobox__input is-searchable"
-        id="combo-2090163056255192"
-        role="combobox"
+        class="aje-popover__wrapper"
       >
-        <input
-          aria-autocomplete="both"
-          aria-controls="combo-8480847626628883"
-          aria-describedby="combo-1389913685417936"
-          aria-labelledby="combo-3203043081081503"
-          id="combo-972457727978134"
-          type="text"
-          value="content"
-        />
+        <div
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-owns="combo-8480847626628883"
+          class="aje-combobox__input is-searchable"
+          id="combo-2090163056255192"
+          role="combobox"
+        >
+          <input
+            aria-autocomplete="both"
+            aria-controls="combo-8480847626628883"
+            aria-describedby="combo-1389913685417936"
+            aria-labelledby="combo-3203043081081503"
+            id="combo-972457727978134"
+            type="text"
+            value="content"
+          />
+        </div>
+        <div
+          class="aje-popover is-full aje-popover-bottom-left"
+        >
+          <ul
+            aria-labelledby="combo-3203043081081503"
+            class="aje-combobox__menu"
+            id="combo-8480847626628883"
+            role="listbox"
+          />
+        </div>
       </div>
-      <ul
-        aria-labelledby="combo-3203043081081503"
-        class="aje-combobox__menu"
-        id="combo-8480847626628883"
-        role="listbox"
-      />
     </div>
     <p
       class="aje-label--error"

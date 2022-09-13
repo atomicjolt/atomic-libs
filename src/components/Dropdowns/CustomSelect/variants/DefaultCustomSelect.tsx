@@ -1,69 +1,29 @@
-import React, { useMemo, useRef } from "react";
-import Label from "../../../Utility/Label";
-import { useBool, useClickOutside, useIds } from "../../../../hooks";
+import React from "react";
 import cn from "classnames";
-import InputError from "../../../Utility/InputError";
-import ComponentWrapper from "../../../Utility/ComponentWrapper";
-import { CustomSelectProps, CustomSelectContext } from "../CustomSelect.types";
-import { Context, useSelectedChild } from "../utils";
+import Label from "../../../Utility/Label";
+import { CustomSelectVariantProps } from "../CustomSelect.types";
 import Popover, { PopoverWrapper } from "../../../Utility/Popover";
 
-/**
- * Custom Dropdown
- *
- * https://www.w3.org/TR/wai-aria-practices/examples/combobox/combobox-select-only.html for accessibility implementation.
- *
- * */
-export default function CustomSelect<T>(props: CustomSelectProps<T>) {
-  const [menuActive, toggleMenu] = useBool(false);
-  const ref = useRef(null);
-  const [inputId, listBoxId, errorId, labelId] = useIds("CustomSelect", [
-    "combo",
-    "list",
-    "errors",
-    "label",
-  ]);
-
+export default function DefaulCustomSelect<T>(
+  props: CustomSelectVariantProps<T>
+) {
   const {
-    value = null,
-    onChange,
-    size = "medium",
+    ids,
+    active,
+    message,
+    hideLabel,
     label,
     error,
-    message,
-    hideLabel = false,
-    children,
-    ...inputProps
+    toggleMenu,
+    options,
+    selectedOption,
+    onSelect,
   } = props;
 
-  const { required, disabled } = inputProps;
-
-  const selectedChild = useSelectedChild(value, children);
-
-  useClickOutside(
-    ref,
-    () => {
-      if (menuActive) toggleMenu();
-    },
-    { enabled: menuActive }
-  );
-
-  const ctx: CustomSelectContext<T> = {
-    currentValue: value,
-    onClick: (v, e) => {
-      toggleMenu();
-      onChange && onChange(v, e);
-    },
-  };
+  const [inputId, listBoxId, errorId, labelId] = ids;
 
   return (
-    <ComponentWrapper
-      className="aje-dropdown"
-      size={size}
-      error={error}
-      disabled={disabled}
-      required={required}
-    >
+    <>
       <Label
         message={message}
         htmlFor={inputId}
@@ -72,12 +32,12 @@ export default function CustomSelect<T>(props: CustomSelectProps<T>) {
       >
         {label}
       </Label>
-      <div className="aje-combobox" ref={ref}>
+      <div className="aje-combobox">
         <PopoverWrapper>
           <div
             className="aje-combobox__input"
             aria-controls={listBoxId}
-            aria-expanded={menuActive}
+            aria-expanded={active}
             aria-haspopup="listbox"
             aria-labelledby={labelId}
             aria-describedby={error ? errorId : ""}
@@ -86,9 +46,9 @@ export default function CustomSelect<T>(props: CustomSelectProps<T>) {
             tabIndex={0}
             onClick={toggleMenu}
           >
-            <span>{selectedChild?.props?.children}</span>
+            <span>{selectedOption?.children}</span>
           </div>
-          <Popover show={menuActive} size="full">
+          <Popover show={active} size="full">
             <ul
               className="aje-combobox__menu"
               role="listbox"
@@ -96,12 +56,22 @@ export default function CustomSelect<T>(props: CustomSelectProps<T>) {
               aria-labelledby={labelId}
               tabIndex={-1}
             >
-              <Context.Provider value={ctx}>{children}</Context.Provider>
+              {options.map(({ value, children }) => (
+                <li
+                  className={cn("aje-combobox__option", {
+                    "is-focused": value == selectedOption?.value,
+                  })}
+                  role="option"
+                  aria-selected={value == selectedOption?.value}
+                  onClick={(e) => onSelect(value, e)}
+                >
+                  {children}
+                </li>
+              ))}
             </ul>
           </Popover>
         </PopoverWrapper>
       </div>
-      <InputError error={error} id={errorId} />
-    </ComponentWrapper>
+    </>
   );
 }

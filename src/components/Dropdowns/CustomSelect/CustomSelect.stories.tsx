@@ -1,11 +1,10 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import CustomSelect, { FloatingCustomSelect } from ".";
+import CustomSelect from ".";
 import { DefaultInputProperties } from "../../storybook";
 import MaterialIcon from "../../Utility/MaterialIcon";
 import { Option, EmptyOption } from "./Option";
 import { CustomSelectProps } from "./CustomSelect.types";
-import { PopOver, PopOverWrapper } from "./variants/DefaultCustomSelect";
 import Button from "../../Buttons/Button";
 
 export default {
@@ -66,11 +65,11 @@ WithIcons.args = {
   ],
 };
 
-const FloatingTemplate: ComponentStory<typeof FloatingCustomSelect> = (
-  args: CustomSelectProps<any>
-) => {
-  return <FloatingCustomSelect {...args} />;
-};
+// const FloatingTemplate: ComponentStory<typeof FloatingCustomSelect> = (
+//   args: CustomSelectProps<any>
+// ) => {
+//   return <FloatingCustomSelect {...args} />;
+// };
 
-export const FloatingVariant = FloatingTemplate.bind({});
-FloatingVariant.args = Default.args;
+// export const FloatingVariant = FloatingTemplate.bind({});
+// FloatingVariant.args = Default.args;
