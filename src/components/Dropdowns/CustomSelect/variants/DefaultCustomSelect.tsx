@@ -1,13 +1,12 @@
 import React, { useMemo, useRef } from "react";
 import Label from "../../../Utility/Label";
 import { useBool, useClickOutside, useIds } from "../../../../hooks";
+import cn from "classnames";
 import InputError from "../../../Utility/InputError";
 import ComponentWrapper from "../../../Utility/ComponentWrapper";
-import {
-  CustomDropdownProps,
-  CustomSelectContext,
-} from "../CustomDropdown.types";
+import { CustomSelectProps, CustomSelectContext } from "../CustomSelect.types";
 import { Context, useSelectedChild } from "../utils";
+import Popover, { PopoverWrapper } from "../../../Utility/Popover";
 
 /**
  * Custom Dropdown
@@ -15,10 +14,10 @@ import { Context, useSelectedChild } from "../utils";
  * https://www.w3.org/TR/wai-aria-practices/examples/combobox/combobox-select-only.html for accessibility implementation.
  *
  * */
-export default function CustomDropdown<T>(props: CustomDropdownProps<T>) {
+export default function CustomSelect<T>(props: CustomSelectProps<T>) {
   const [menuActive, toggleMenu] = useBool(false);
   const ref = useRef(null);
-  const [inputId, listBoxId, errorId, labelId] = useIds("CustomDropdown", [
+  const [inputId, listBoxId, errorId, labelId] = useIds("CustomSelect", [
     "combo",
     "list",
     "errors",
@@ -74,29 +73,33 @@ export default function CustomDropdown<T>(props: CustomDropdownProps<T>) {
         {label}
       </Label>
       <div className="aje-combobox" ref={ref}>
-        <div
-          className="aje-combobox__input"
-          aria-controls={listBoxId}
-          aria-expanded={menuActive}
-          aria-haspopup="listbox"
-          aria-labelledby={labelId}
-          aria-describedby={error ? errorId : ""}
-          id={inputId}
-          role="combobox"
-          tabIndex={0}
-          onClick={toggleMenu}
-        >
-          <span>{selectedChild?.props?.children}</span>
-        </div>
-        <ul
-          className="aje-combobox__menu"
-          role="listbox"
-          id={listBoxId}
-          aria-labelledby={labelId}
-          tabIndex={-1}
-        >
-          <Context.Provider value={ctx}>{children}</Context.Provider>
-        </ul>
+        <PopoverWrapper>
+          <div
+            className="aje-combobox__input"
+            aria-controls={listBoxId}
+            aria-expanded={menuActive}
+            aria-haspopup="listbox"
+            aria-labelledby={labelId}
+            aria-describedby={error ? errorId : ""}
+            id={inputId}
+            role="combobox"
+            tabIndex={0}
+            onClick={toggleMenu}
+          >
+            <span>{selectedChild?.props?.children}</span>
+          </div>
+          <Popover show={menuActive} size="full">
+            <ul
+              className="aje-combobox__menu"
+              role="listbox"
+              id={listBoxId}
+              aria-labelledby={labelId}
+              tabIndex={-1}
+            >
+              <Context.Provider value={ctx}>{children}</Context.Provider>
+            </ul>
+          </Popover>
+        </PopoverWrapper>
       </div>
       <InputError error={error} id={errorId} />
     </ComponentWrapper>

@@ -4,7 +4,7 @@
 @use "./Buttons/Button/Button.scss";
 @use "./Buttons/IconButton/IconButton.scss";
 @use "./Dropdowns/Combobox/Combobox.scss";
-@use "./Dropdowns/CustomDropdown/CustomDropdown.scss";
+@use "./Dropdowns/CustomSelect/CustomSelect.scss";
 @use "./Dropdowns/IconMenu/IconMenu.scss";
 @use "./Dropdowns/Select/Select.scss";
 @use "./Inputs/common.scss";
@@ -27,3 +27,4 @@
 @use "./Utility/Label/Label.scss";
 @use "./Utility/LoadingStatus/LoadingStatus.scss";
 @use "./Utility/MaterialIcon/MaterialIcon.scss";
+@use "./Utility/Popover/Popover.scss";

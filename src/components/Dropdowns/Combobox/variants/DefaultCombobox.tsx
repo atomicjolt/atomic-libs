@@ -7,6 +7,7 @@ import { ComboboxProps } from "../Combobox.types";
 import { defaultFilterSuggestions } from "../utils";
 import { makeEventHandler } from "../../../../utils";
 import ComponentWrapper from "../../../Utility/ComponentWrapper";
+import Popover, { PopoverWrapper } from "../../../Utility/Popover";
 
 /** A combobox is a combination of a dropdown, with a searchable text field. */
 export default function Combobox(props: ComboboxProps) {
@@ -49,56 +50,60 @@ export default function Combobox(props: ComboboxProps) {
         {label}
       </Label>
       <div className="aje-combobox">
-        <div
-          className="aje-combobox__input is-searchable"
-          aria-owns={listBoxId}
-          aria-expanded={menuActive}
-          aria-haspopup="listbox"
-          id={comobId}
-          role="combobox"
-        >
-          <input
-            type="text"
-            aria-autocomplete="both"
-            aria-controls={listBoxId}
-            aria-labelledby={labelId}
-            aria-describedby={error ? errorId : ""}
-            id={inputId}
-            value={value}
-            onChange={makeEventHandler(onChange)}
-            onFocus={(e) => {
-              setMenuActive(true);
-              onFocus && onFocus(e);
-            }}
-            onBlur={(e) => {
-              setMenuActive(false);
-              onBlur && onBlur(e);
-            }}
-            {...inputProps}
-          />
-        </div>
-        <ul
-          className="aje-combobox__menu"
-          role="listbox"
-          id={listBoxId}
-          aria-labelledby={labelId}
-        >
-          {filterSuggestions(value, options).map((o) => (
-            <li
-              className={cn("aje-combobox__option", {
-                "is-focused": o === value,
-              })}
-              // @ts-ignore
-              onMouseDown={makeEventHandler(onChange)}
-              role="option"
-              id={String(o)}
-              key={String(o)}
-              tabIndex={0}
+        <PopoverWrapper>
+          <div
+            className="aje-combobox__input is-searchable"
+            aria-owns={listBoxId}
+            aria-expanded={menuActive}
+            aria-haspopup="listbox"
+            id={comobId}
+            role="combobox"
+          >
+            <input
+              type="text"
+              aria-autocomplete="both"
+              aria-controls={listBoxId}
+              aria-labelledby={labelId}
+              aria-describedby={error ? errorId : ""}
+              id={inputId}
+              value={value}
+              onChange={makeEventHandler(onChange)}
+              onFocus={(e) => {
+                setMenuActive(true);
+                onFocus && onFocus(e);
+              }}
+              onBlur={(e) => {
+                setMenuActive(false);
+                onBlur && onBlur(e);
+              }}
+              {...inputProps}
+            />
+          </div>
+          <Popover show={menuActive} size="full">
+            <ul
+              className="aje-combobox__menu"
+              role="listbox"
+              id={listBoxId}
+              aria-labelledby={labelId}
             >
-              {o}
-            </li>
-          ))}
-        </ul>
+              {filterSuggestions(value, options).map((o) => (
+                <li
+                  className={cn("aje-combobox__option", {
+                    "is-focused": o === value,
+                  })}
+                  // @ts-ignore
+                  onMouseDown={makeEventHandler(onChange)}
+                  role="option"
+                  id={String(o)}
+                  key={String(o)}
+                  tabIndex={0}
+                >
+                  {o}
+                </li>
+              ))}
+            </ul>
+          </Popover>
+        </PopoverWrapper>
       </div>
       <InputError error={error} id={errorId} />
     </ComponentWrapper>

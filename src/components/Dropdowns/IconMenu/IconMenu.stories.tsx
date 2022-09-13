@@ -27,6 +27,6 @@ export const IconMenu = Template.bind({});
 IconMenu.args = {
   icon: "more_vert",
   label: "Custom dropdown label",
-  dropRight: true,
   disabled: false,
+  position: "bottom-left",
 };

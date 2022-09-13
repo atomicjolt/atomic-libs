@@ -1,4 +1,5 @@
 @use "../../mixins";
+@use "../common.scss";
 
 .aje-checkbox {
   --check-box-radius: var(--radius);

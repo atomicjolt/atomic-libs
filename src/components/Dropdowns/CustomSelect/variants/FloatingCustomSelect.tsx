@@ -3,14 +3,11 @@ import cn from "classnames";
 import Label from "../../../Utility/Label";
 import { useBool, useClickOutside, useIds } from "../../../../hooks";
 import InputError from "../../../Utility/InputError";
-import {
-  CustomDropdownProps,
-  CustomSelectContext,
-} from "../CustomDropdown.types";
+import { CustomSelectProps, CustomSelectContext } from "../CustomSelect.types";
 import { Context, useSelectedChild } from "../utils";
 import ComponentWrapper from "../../../Utility/ComponentWrapper";
 
-export default function FloatingCustomDropdown<T>({
+export default function FloatingCustomSelect<T>({
   value = null,
   onChange,
   size = "medium",
@@ -20,10 +17,10 @@ export default function FloatingCustomDropdown<T>({
   hideLabel = false,
   disabled = false,
   children,
-}: CustomDropdownProps<T>) {
+}: CustomSelectProps<T>) {
   const [menuActive, toggleMenu] = useBool(false);
   const ref = useRef(null);
-  const [inputId, listBoxId, errorId, labelId] = useIds("CustomDropdown", [
+  const [inputId, listBoxId, errorId, labelId] = useIds("CustomSelect", [
     "combo",
     "list",
     "errors",

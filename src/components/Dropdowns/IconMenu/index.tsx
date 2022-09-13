@@ -3,14 +3,18 @@ import cn from "classnames";
 import IconButton from "../../Buttons/IconButton";
 import { useBool, useClickOutside, useIds } from "../../../hooks";
 import { CanHaveIcon, HasChildren, MaterialIcons } from "../../../types";
+import Popover, {
+  PopoverPosition,
+  PopoverWrapper,
+} from "../../Utility/Popover";
 
 export interface IconMenuProps {
   icon: MaterialIcons;
   children: React.ReactNode;
   /** Must include a label. */
   label: string;
-  /** For when the dropdown menu needs to expand to the right instead of the left. */
-  dropRight?: boolean;
+  /** Changes where the dropdown menu appears */
+  position: PopoverPosition;
   disabled?: boolean;
 }
 
@@ -23,8 +27,8 @@ function IconMenu({
   children,
   icon = "more_vert",
   label = "More options",
-  dropRight,
   disabled = false,
+  position,
 }: IconMenuProps) {
   const [menuActive, toggleMenu] = useBool(false);
 
@@ -52,16 +56,20 @@ function IconMenu({
         disabled={disabled}
         onClick={toggleMenu}
       />
-      <div
-        className={cn("aje-menu__dropdown", { "drop-right": dropRight })}
-        role="menu"
-        id={menuId}
-        aria-labelledby={buttonId}
-        tabIndex={-1}
-        onClick={toggleMenu}
-      >
-        {children}
-      </div>
+      <PopoverWrapper>
+        <Popover show={menuActive} position={position}>
+          <div
+            className={"aje-menu__dropdown"}
+            role="menu"
+            id={menuId}
+            aria-labelledby={buttonId}
+            tabIndex={-1}
+            onClick={toggleMenu}
+          >
+            {children}
+          </div>
+        </Popover>
+      </PopoverWrapper>
     </div>
   );
 }

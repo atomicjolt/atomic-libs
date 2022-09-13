@@ -1,0 +1,84 @@
+@use "../../mixins.scss";
+
+.aje-popover__wrapper {
+  position: relative;
+}
+
+.aje-popover {
+  --popover-animation: transform 200ms ease, opacity 200ms;
+  --popover-disatnce: 5px;
+
+  visibility: hidden;
+  position: absolute;
+  width: var(--popover-width, auto);
+  z-index: 100;
+  opacity: 0;
+  transform: scaleY(0.9);
+  transform-origin: top;
+  transition: var(--popover-animation);
+
+  &-bottom-left {
+    margin-top: var(--popover-disatnce);
+    top: 100%;
+    left: 0;
+  }
+
+  &-bottom-right {
+    margin-top: var(--popover-disatnce);
+    top: 100%;
+    right: 0;
+  }
+
+  &-top-left {
+    margin-bottom: var(--popover-disatnce);
+    bottom: 100%;
+    left: 0;
+  }
+
+  &-top-right {
+    margin-bottom: var(--popover-disatnce);
+    bottom: 100%;
+    right: 0;
+  }
+
+  &-left {
+    margin-right: var(--popover-disatnce);
+    right: 100%;
+    top: 0;
+  }
+
+  &-right {
+    margin-left: var(--popover-disatnce);
+    left: 100%;
+    top: 0;
+  }
+
+  &.is-small {
+    --popover-width: 100px;
+  }
+  &.is-medium {
+    --popover-width: 200px;
+  }
+  &.is-large {
+    --popover-width: 300px;
+  }
+  &.is-full {
+    --popover-width: 100%;
+  }
+  &.is-auto {
+    --popover-width: max-content;
+  }
+
+  &.is-visible {
+    visibility: visible;
+    opacity: 1;
+    transform: scaleY(1);
+  }
+
+  .dropdown {
+    background-color: lightblue;
+    padding: 10px;
+    @include mixins.regular;
+    font-size: 20px;
+  }
+}
