@@ -5,6 +5,11 @@ import { UpgradeBanner as UpgradeBannerComponent, UpgradeBannerProps } from ".";
 export default {
   title: "Banners/ActionBanner/UpgradeBanner",
   component: UpgradeBannerComponent,
+  argTypes: {
+    children: {
+      control: "text",
+    },
+  },
 } as ComponentMeta<typeof UpgradeBannerComponent>;
 
 const Template: ComponentStory<typeof UpgradeBannerComponent> = (

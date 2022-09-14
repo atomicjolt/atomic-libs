@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import Combobox, { FloatingCombobox } from ".";
+import Combobox from ".";
 
 describe("matches snapshots", () => {
   const shared = {
@@ -18,7 +18,7 @@ describe("matches snapshots", () => {
   });
 
   it("matches floating variant", () => {
-    const result = render(<FloatingCombobox {...shared} />);
+    const result = render(<Combobox variant="floating" {...shared} />);
     expect(result.asFragment()).toMatchSnapshot();
   });
 });

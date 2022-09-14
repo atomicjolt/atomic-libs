@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`matches snapshots changes className 1`] = `
+exports[`matches snapshots changes variant 1`] = `
 <DocumentFragment>
   <button
     aria-label=""

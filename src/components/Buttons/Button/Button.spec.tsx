@@ -8,8 +8,8 @@ describe("matches snapshots", () => {
     expect(result.asFragment()).toMatchSnapshot();
   });
 
-  test("changes className", () => {
-    const result = render(<Button className="secondary">Click Me</Button>);
+  test("changes variant", () => {
+    const result = render(<Button variant="secondary">Click Me</Button>);
     expect(result.asFragment()).toMatchSnapshot();
   });
 

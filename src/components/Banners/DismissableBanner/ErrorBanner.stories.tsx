@@ -5,6 +5,11 @@ import { ErrorBanner as ErrorBannerComponent, BannerWrapperProps } from ".";
 export default {
   title: "Banners/DismissableBanner/ErrorBanner",
   component: ErrorBannerComponent,
+  argTypes: {
+    children: {
+      control: "text",
+    },
+  },
 } as ComponentMeta<typeof ErrorBannerComponent>;
 
 const Template: ComponentStory<typeof ErrorBannerComponent> = (

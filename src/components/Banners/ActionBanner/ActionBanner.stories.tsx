@@ -5,6 +5,14 @@ import ActionBanner, { ActionBannerProps } from ".";
 export default {
   title: "Banners/ActionBanner",
   component: ActionBanner,
+  argTypes: {
+    variant: {
+      control: "text",
+    },
+    children: {
+      control: "text",
+    },
+  },
 } as ComponentMeta<typeof ActionBanner>;
 
 const Template: ComponentStory<typeof ActionBanner> = (
@@ -13,7 +21,7 @@ const Template: ComponentStory<typeof ActionBanner> = (
 
 export const Default = Template.bind({});
 Default.args = {
-  className: "upgrade",
+  variant: "upgrade",
   children: "Take Action!",
   icon: "info",
   buttonText: "Press Me",
