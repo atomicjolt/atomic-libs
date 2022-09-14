@@ -1,6 +1,10 @@
-import { InputProps } from "../../../types";
+import { HasChildren, HasVariant, InputProps } from "../../../types";
 
-export interface ComboboxProps extends InputProps<string> {
+export type Variants = "default" | "floating";
+
+export interface ComboboxProps
+  extends InputProps<string>,
+    HasVariant<Variants> {
   /** Array of possible values to suggest to the user */
   options: string[];
 
@@ -10,4 +14,11 @@ export interface ComboboxProps extends InputProps<string> {
    * levenshtein distance between them is 2 or less.
    */
   filterSuggestions?: (value: string, options: string[]) => string[];
+}
+
+export interface ComboboxVariantProps extends HasChildren {
+  message?: string;
+  hideLabel?: boolean;
+  label: string;
+  inputId: string;
 }

@@ -27,6 +27,7 @@ const Template: ComponentStory<typeof CustomSelect> = (
 export const Default = Template.bind({});
 Default.args = {
   value: "val1",
+  variant: "default",
   ...DefaultInputProperties,
   placeholder: undefined,
   label: "Custom Select Label",

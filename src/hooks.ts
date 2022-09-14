@@ -109,7 +109,7 @@ export function useInput<
   ]);
 }
 
-export function useVariant<V extends string, T>(
+export function useVariantComponent<V extends string, T>(
   variants: VariantRecord<V, T>,
   variant: V
 ): React.ComponentType<T> {
@@ -119,4 +119,28 @@ export function useVariant<V extends string, T>(
     }
     return variants[variant];
   }, [variant]);
+}
+
+export function useVariantClass<V extends string>(
+  className: string,
+  variant: V
+) {
+  return useMemo(() => {
+    if (variant === "default") {
+      return className;
+    } else {
+      return `${className}--${variant}`;
+    }
+  }, [variant]);
+}
+
+export function useVariant<V extends string, T>(
+  variants: VariantRecord<V, T>,
+  className: string,
+  variant: V
+): [React.ComponentType<T>, string] {
+  return [
+    useVariantComponent(variants, variant),
+    useVariantClass(className, variant),
+  ];
 }

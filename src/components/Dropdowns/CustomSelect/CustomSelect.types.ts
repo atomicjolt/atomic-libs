@@ -16,14 +16,11 @@ export interface CustomSelectContext<T> {
 }
 
 export interface CustomSelectVariantProps<T> {
-  ids: [string, string, string, string];
+  children: React.ReactNode;
   error: React.ReactNode;
-  active: boolean;
   message?: string;
   hideLabel: boolean;
   label: string;
-  options: CustomSelectOptionProps<T>[];
-  selectedOption?: CustomSelectOptionProps<T>;
-  toggleMenu: () => void;
-  onSelect: EventHandler<T, React.MouseEvent>;
+  inputId: string;
+  labelId: string;
 }

@@ -18,7 +18,7 @@ export type VariantRecord<Variants extends string, ComponentProps> = Record<
 > & { default: React.ComponentType<ComponentProps> };
 
 export interface HasVariant<Variants> {
-  variant: Variants;
+  variant?: Variants;
 }
 
 // INPUTS ----------------------------------------------------------

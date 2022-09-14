@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import CustomSelect, { FloatingCustomSelect } from ".";
+import CustomSelect from ".";
 import { Option } from "./Option";
 
 describe("matches snapshots", () => {
@@ -23,10 +23,10 @@ describe("matches snapshots", () => {
 
   it("matches floating variant", () => {
     const result = render(
-      <FloatingCustomSelect {...shared}>
+      <CustomSelect variant="floating" {...shared}>
         <Option value="opt1">Option 1</Option>
         <Option value="opt2">Option 2</Option>
-      </FloatingCustomSelect>
+      </CustomSelect>
     );
 
     expect(result.asFragment()).toMatchSnapshot();
