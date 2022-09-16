@@ -14,7 +14,7 @@
     "classnames": "^2.3.1"
   },
   "peerDependencies": {
-    "react": "^16.8.0",
+    "react": "^16.0.0 || ^17.0.0 || ^18.0.0",
     "react-dom": "^16.8.0"
   },
   "devDependencies": {
@@ -73,8 +73,8 @@
   },
   "scripts": {
     "storybook": "start-storybook -p 6006",
-    "build:storybook": "build-storybook",
-    "publish:storybook": "gh-pages -d storybook-static/",
+    "storybook:build": "build-storybook",
+    "storybook:publish": "gh-pages -d storybook-static/",
     "build": "rollup --config rollup.config.ts --configPlugin typescript && yarn build:cleanup",
     "build:cleanup": "rm -rf dist/cjs/dist && rm -rf dist/esm/types",
     "test": "jest"

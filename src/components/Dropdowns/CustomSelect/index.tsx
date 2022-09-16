@@ -12,7 +12,7 @@ import {
   CustomSelectVariantProps,
   Variants,
 } from "./CustomSelect.types";
-import { CustomSelectOptionProps } from "./Option";
+import { CustomSelectOptionProps } from "../Option";
 import Popover from "../../Utility/Popover";
 
 const variants: VariantRecord<Variants, CustomSelectVariantProps<any>> = {

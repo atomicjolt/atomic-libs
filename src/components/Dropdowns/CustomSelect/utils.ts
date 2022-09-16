@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import { CustomSelectContext } from "./CustomSelect.types";
-import { EmptyOption, Option } from "./Option";
+import { EmptyOption, Option } from "../Option";
 
 export const Context = React.createContext<CustomSelectContext<any>>(
   {} as CustomSelectContext<any>

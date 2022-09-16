@@ -13,7 +13,6 @@ function styleSheetEntry(input, output) {
     plugins: [
       scss({
         output: output,
-        sourceMap: true,
         // @ts-ignore
         outputStyle: "compressed",
       }),
