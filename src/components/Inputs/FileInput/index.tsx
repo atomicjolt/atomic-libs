@@ -1,53 +1,53 @@
 import React from "react";
-import cn from "classnames";
 import { useIds } from "../../../hooks";
-import { SharedInputProps } from "../../../types";
+import {
+  EventHandler,
+  InputComponentProps,
+  InputElementProps,
+} from "../../../types";
 import InputError from "../../Utility/InputError";
 import ComponentWrapper from "../../Utility/ComponentWrapper";
+import { makeEventHandler } from "../../../utils";
 
-export interface FileInputProps extends Omit<SharedInputProps, "hideLabel"> {
+export interface FileInputProps
+  extends Omit<InputComponentProps, "size" | "hideLabel" | "message">,
+    InputElementProps<HTMLInputElement> {
   file?: File | null;
-  onChange?: (
-    file: File | null,
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => void;
+  onChange?: EventHandler<File | null, React.ChangeEvent<HTMLInputElement>>;
 }
 
 /** FileInput component. Used to select singular files */
 const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
-  (
-    {
+  (props, ref) => {
+    const [inputId, errorId] = useIds("FileInput", ["input", "error"]);
+
+    const {
       file,
       onChange,
-      label = "Choose a file...",
+      label,
       error,
-      readonly = false,
       disabled = false,
       required = false,
-      size = "medium",
-    },
-    ref
-  ) => {
-    const [inputId, errorId] = useIds("FileInput", ["input", "error"]);
+      ...inputProps
+    } = props;
 
     return (
       <ComponentWrapper
         className="aje-input--file"
         disabled={disabled}
         required={required}
-        size={size}
       >
         <input
           id={inputId}
           ref={ref}
           aria-describedby={error ? errorId : ""}
           type="file"
-          readOnly={readonly}
           disabled={disabled}
           required={required}
-          onChange={(e) =>
-            onChange && onChange(e.target.files ? e.target.files[0] : null, e)
-          }
+          onChange={makeEventHandler(onChange, (e) =>
+            e.target.files ? e.target.files[0] : null
+          )}
+          {...inputProps}
         />
         <label htmlFor={inputId}>
           <span>{file?.name}</span>

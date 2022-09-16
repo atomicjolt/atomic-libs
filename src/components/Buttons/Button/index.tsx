@@ -2,6 +2,14 @@ import React from "react";
 import cn from "classnames";
 import Spinner from "../../Loaders/Spinner";
 
+type ButtonVariants =
+  | "primary"
+  | "secondary"
+  | "success"
+  | "error"
+  | "inverted"
+  | (string & {});
+
 interface CommonProps {
   /** What to render within the Button */
   children?: React.ReactNode;
@@ -12,13 +20,7 @@ interface CommonProps {
    * - `error`
    * - `inverted`
    */
-  className?:
-    | "primary"
-    | "secondary"
-    | "success"
-    | "error"
-    | "inverted"
-    | (string & {});
+  variant?: ButtonVariants;
   type?: "submit" | "reset" | "button";
   disabled?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
@@ -45,7 +47,7 @@ export type ButtonProps = CommonProps & LoadingProps;
 export default function Button({
   children,
   type = "button",
-  className = "primary",
+  variant = "primary",
   disabled = false,
   loading = false,
   loadingLabel = "loading",
@@ -58,7 +60,7 @@ export default function Button({
     <button
       aria-label={loadingText}
       type={type}
-      className={cn(`aje-btn aje-btn--${className}`, { "is-loading": loading })}
+      className={cn(`aje-btn aje-btn--${variant}`, { "is-loading": loading })}
       onClick={onClick}
       disabled={disabled}
     >

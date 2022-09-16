@@ -1,11 +1,16 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import SearchInputComponent, { SearchInputProps } from ".";
-import { DefaultInputProperties } from "../../../utils";
+import {
+  DefaultInputProperties,
+  InputControls,
+  inputProperties,
+} from "../../storybook";
 
 export default {
   title: "Inputs/SearchInput",
   component: SearchInputComponent,
+  argTypes: InputControls,
 } as ComponentMeta<typeof SearchInputComponent>;
 
 const Template: ComponentStory<typeof SearchInputComponent> = (
@@ -14,6 +19,7 @@ const Template: ComponentStory<typeof SearchInputComponent> = (
 
 export const SearchInput = Template.bind({});
 SearchInput.args = {
+  value: "",
   submitButton: false,
   ...DefaultInputProperties,
   label: "Search input label",

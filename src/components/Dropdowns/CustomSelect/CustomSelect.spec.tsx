@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import CustomDropdown, { FloatingCustomDropdown } from ".";
+import CustomSelect from ".";
 import { Option } from "./Option";
 
 describe("matches snapshots", () => {
@@ -12,10 +12,10 @@ describe("matches snapshots", () => {
 
   it("matches default variant", () => {
     const result = render(
-      <CustomDropdown {...shared}>
+      <CustomSelect {...shared}>
         <Option value="opt1">Option 1</Option>
         <Option value="opt2">Option 2</Option>
-      </CustomDropdown>
+      </CustomSelect>
     );
 
     expect(result.asFragment()).toMatchSnapshot();
@@ -23,10 +23,10 @@ describe("matches snapshots", () => {
 
   it("matches floating variant", () => {
     const result = render(
-      <FloatingCustomDropdown {...shared}>
+      <CustomSelect variant="floating" {...shared}>
         <Option value="opt1">Option 1</Option>
         <Option value="opt2">Option 2</Option>
-      </FloatingCustomDropdown>
+      </CustomSelect>
     );
 
     expect(result.asFragment()).toMatchSnapshot();

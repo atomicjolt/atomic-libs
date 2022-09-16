@@ -1,5 +1,6 @@
+import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import Button, { Props } from ".";
+import Button, { ButtonProps } from ".";
 
 export default {
   title: "Buttons/Button",
@@ -11,14 +12,14 @@ export default {
   },
 } as ComponentMeta<typeof Button>;
 
-const Template: ComponentStory<typeof Button> = (args: Props) => (
+const Template: ComponentStory<typeof Button> = (args: ButtonProps) => (
   <Button {...args} />
 );
 
 export const Primary = Template.bind({});
 Primary.args = {
   children: "Primary",
-  className: "primary",
+  variant: "primary",
   type: "button",
   disabled: false,
   loading: false,
@@ -28,35 +29,35 @@ export const Secondary = Template.bind({});
 Secondary.args = {
   ...Primary.args,
   children: "Secondary",
-  className: "secondary",
+  variant: "secondary",
 };
 
 export const Error = Template.bind({});
 Error.args = {
   ...Primary.args,
   children: "Error",
-  className: "error",
+  variant: "error",
 };
 
 export const Success = Template.bind({});
 Success.args = {
   ...Primary.args,
   children: "Success",
-  className: "success",
+  variant: "success",
 };
 
 export const Inverted = Template.bind({});
 Inverted.args = {
   ...Primary.args,
   children: "Inverted",
-  className: "inverted",
+  variant: "inverted",
 };
 
 export const LoadingButton = Template.bind({});
 LoadingButton.args = {
   ...Primary.args,
   children: "Primary",
-  className: "primary",
+  variant: "primary",
   loading: true,
   loadingLabel: "Now Loading",
 };
@@ -65,7 +66,7 @@ export const LoadingCompleteButton = Template.bind({});
 LoadingCompleteButton.args = {
   ...Primary.args,
   children: "Primary",
-  className: "primary",
+  variant: "primary",
   loading: true,
   loadingLabel: "Now Loading",
   loadingComplete: true,

@@ -2,11 +2,13 @@ import React from "react";
 import Button from "../../Buttons/Button";
 import { MaterialIcons } from "../../../types";
 
+type ActionBannerVariants = "upgrade" | (string & {});
+
 export interface ActionBannerProps {
   /** `aje-banner--${className}` pre-defined styles for:
    * - `upgrade`
    */
-  readonly className: string;
+  readonly variant?: ActionBannerVariants;
   readonly icon?: MaterialIcons;
   readonly children: React.ReactNode;
   readonly buttonText: string;
@@ -15,21 +17,21 @@ export interface ActionBannerProps {
 
 /** A view-spanning Banner with an associated `onClick` action */
 export default function ActionBanner({
-  className,
+  variant = "upgrade",
   children,
   icon,
   buttonText,
   onClick,
 }: ActionBannerProps) {
   return (
-    <div className={`aje-banner--${className}`}>
+    <div className={`aje-banner--${variant}`}>
       {icon && (
         <i className="material-icons" aria-hidden>
           {icon}
         </i>
       )}
       <div className="aje-banner__main">{children}</div>
-      <Button className="inverted" onClick={onClick}>
+      <Button variant="inverted" onClick={onClick}>
         {buttonText}
       </Button>
     </div>
@@ -49,7 +51,7 @@ export function UpgradeBanner({ time, app, onClick }: UpgradeBannerProps) {
   return (
     <ActionBanner
       icon="new_releases"
-      className="upgrade"
+      variant="upgrade"
       onClick={onClick}
       buttonText="Upgrade Now"
     >

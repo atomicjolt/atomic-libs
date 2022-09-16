@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState, RefObject } from "react";
+import { VariantRecord } from "./types";
 import { makeIds } from "./utils";
 
 export function useIds(base: string, args: string[], deps: any[] = []) {
@@ -70,4 +71,76 @@ export function useClickOutside(
       window.removeEventListener("click", onClick);
     }
   }, [options, ref.current]);
+}
+
+export function useWrapperComponent<
+  ElementProps extends Record<string, any>,
+  WrappedProps extends Record<string, any>
+>(
+  properties: Partial<ElementProps & WrappedProps>,
+  names: (keyof WrappedProps)[]
+): [ElementProps, WrappedProps] {
+  const entries = Object.entries(properties);
+
+  const elementProperties = Object.fromEntries(
+    entries.filter(([k, v]) => !names.includes(k))
+  ) as ElementProps;
+
+  const wrappedProperties = Object.fromEntries(
+    entries.filter(([k, v]) => names.includes(k))
+  ) as WrappedProps;
+
+  return [elementProperties, wrappedProperties];
+}
+
+export function useInput<
+  A extends Record<string, any>,
+  B extends Record<string, any>
+>(properties: A & B, keys: string[] = []) {
+  return useWrapperComponent<A, B>(properties, [
+    ...keys,
+    "label",
+    "size",
+    "hideLabel",
+    "error",
+    "message",
+    "value",
+    "onChange",
+  ]);
+}
+
+export function useVariantComponent<V extends string, T>(
+  variants: VariantRecord<V, T>,
+  variant: V
+): React.ComponentType<T> {
+  return useMemo(() => {
+    if (!variants.hasOwnProperty(variant)) {
+      throw new Error(`${variant} is not a valid variant for this Component`);
+    }
+    return variants[variant];
+  }, [variant]);
+}
+
+export function useVariantClass<V extends string>(
+  className: string,
+  variant: V
+) {
+  return useMemo(() => {
+    if (variant === "default") {
+      return className;
+    } else {
+      return `${className}--${variant}`;
+    }
+  }, [variant]);
+}
+
+export function useVariant<V extends string, T>(
+  variants: VariantRecord<V, T>,
+  className: string,
+  variant: V
+): [React.ComponentType<T>, string] {
+  return [
+    useVariantComponent(variants, variant),
+    useVariantClass(className, variant),
+  ];
 }

@@ -2,8 +2,7 @@ import React from "react";
 import cn from "classnames";
 import { HasChildren } from "../../../types";
 
-export interface LabelProps {
-  children: React.ReactNode;
+export interface LabelProps extends HasChildren {
   message?: string;
   htmlFor: string;
   hidden?: boolean;
@@ -18,17 +17,19 @@ export default function Label({
   htmlFor,
   hidden,
   id,
-  error,
   className = "aje-label",
+  error,
 }: LabelProps) {
   const classes = cn(className, { "aje-hidden": hidden });
 
   return (
-    <label className={classes} htmlFor={htmlFor} id={id}>
-      {children}
+    <>
+      <label className={classes} htmlFor={htmlFor} id={id}>
+        {children}
+      </label>
       {message && <p className="aje-label--message">{message}</p>}
       {error && <ErrorLabel>{error}</ErrorLabel>}
-    </label>
+    </>
   );
 }
 

@@ -13,6 +13,14 @@ export default {
     ErrorBanner: ErrorBannerWrapper,
     WarningBanner: WarningBannerWrapper,
   },
+  argTypes: {
+    variant: {
+      control: "text",
+    },
+    children: {
+      control: "text",
+    },
+  },
 } as ComponentMeta<typeof DismissableBanner>;
 
 const Template: ComponentStory<typeof DismissableBanner> = (
@@ -22,7 +30,7 @@ const Template: ComponentStory<typeof DismissableBanner> = (
 export const Default = Template.bind({});
 Default.args = {
   children: "Informative Text",
-  type: "info",
+  variant: "info",
   icon: "info",
   autoDismiss: false,
 };

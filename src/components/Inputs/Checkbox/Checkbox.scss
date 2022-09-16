@@ -1,4 +1,5 @@
 @use "../../mixins";
+@use "../common.scss";
 
 .aje-checkbox {
   --check-box-radius: var(--radius);
@@ -29,5 +30,9 @@
   input[type="checkbox"]:checked:disabled ~ .aje-checkbox__label:before {
     cursor: auto;
     opacity: 0.5;
+  }
+
+  &.is-required::after {
+    content: " *";
   }
 }

@@ -5,48 +5,52 @@ exports[`matches snapshots matches default variant 1`] = `
   <div
     class="aje-dropdown is-medium has-error"
   >
-    <label
-      class="aje-label"
-      for="combo-3203043081081503"
+    <div
+      class="aje-combobox"
     >
-      Text Label
+      <label
+        class="aje-label"
+        for="Combobox-4002622434181609"
+      >
+        Text Label
+      </label>
       <p
         class="aje-label--message"
       >
         message
       </p>
-    </label>
-    <div
-      class="aje-combobox"
-    >
       <div
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-owns="combo-8480847626628883"
+        aria-owns="Combobox-7093062952917764"
         class="aje-combobox__input is-searchable"
-        id="combo-2090163056255192"
+        id="Combobox-1477414593289298"
         role="combobox"
       >
         <input
           aria-autocomplete="both"
-          aria-controls="combo-8480847626628883"
-          aria-describedby="combo-1389913685417936"
-          aria-labelledby="combo-3203043081081503"
-          id="combo-972457727978134"
+          aria-controls="Combobox-7093062952917764"
+          aria-describedby="Combobox-500790602956198"
+          aria-labelledby="Combobox-6416608466361828"
+          id="Combobox-4002622434181609"
           type="text"
           value="content"
         />
       </div>
-      <ul
-        aria-labelledby="combo-3203043081081503"
-        class="aje-combobox__menu"
-        id="combo-8480847626628883"
-        role="listbox"
-      />
+      <div
+        class="aje-popover is-full aje-popover-bottom-left"
+      >
+        <ul
+          aria-labelledby="Combobox-6416608466361828"
+          class="aje-combobox__menu"
+          id="Combobox-7093062952917764"
+          role="listbox"
+        />
+      </div>
     </div>
     <p
       class="aje-label--error"
-      id="combo-1389913685417936"
+      id="Combobox-500790602956198"
     >
       some error
     </p>
@@ -65,30 +69,34 @@ exports[`matches snapshots matches floating variant 1`] = `
       <div
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-owns="combo-8480847626628883"
+        aria-owns="Combobox-7093062952917764"
         class="aje-combobox__input is-searchable"
-        id="combo-2090163056255192"
+        id="Combobox-1477414593289298"
         role="combobox"
       >
         <input
           aria-autocomplete="both"
-          aria-controls="combo-8480847626628883"
-          aria-describedby="combo-1389913685417936"
-          aria-labelledby="combo-3203043081081503"
-          id="combo-972457727978134"
+          aria-controls="Combobox-7093062952917764"
+          aria-describedby="Combobox-500790602956198"
+          aria-labelledby="Combobox-6416608466361828"
+          id="Combobox-4002622434181609"
           type="text"
           value="content"
         />
       </div>
-      <ul
-        aria-labelledby="combo-3203043081081503"
-        class="aje-combobox__menu"
-        id="combo-8480847626628883"
-        role="listbox"
-      />
+      <div
+        class="aje-popover is-full aje-popover-bottom-left"
+      >
+        <ul
+          aria-labelledby="Combobox-6416608466361828"
+          class="aje-combobox__menu"
+          id="Combobox-7093062952917764"
+          role="listbox"
+        />
+      </div>
       <label
-        class="aje-label"
-        for="combo-3203043081081503"
+        class=""
+        for="Combobox-4002622434181609"
       >
         Text Label
       </label>
@@ -100,7 +108,7 @@ exports[`matches snapshots matches floating variant 1`] = `
     </p>
     <p
       class="aje-label--error"
-      id="combo-1389913685417936"
+      id="Combobox-500790602956198"
     >
       some error
     </p>

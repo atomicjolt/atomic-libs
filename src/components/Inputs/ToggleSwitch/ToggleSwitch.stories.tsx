@@ -1,16 +1,13 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import ToggleSwitchComponent, { ToggleSwitchProps } from ".";
+import { InputControls } from "../../storybook";
 
 export default {
   title: "Inputs/ToggleSwitch",
   component: ToggleSwitchComponent,
   parameters: {
-    argTypes: {
-      onChange: {
-        control: false,
-      },
-    },
+    argTypes: InputControls,
   },
 } as ComponentMeta<typeof ToggleSwitchComponent>;
 

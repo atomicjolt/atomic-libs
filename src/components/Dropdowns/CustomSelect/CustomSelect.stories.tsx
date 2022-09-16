@@ -1,31 +1,33 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import CustomDropdown, { FloatingCustomDropdown } from ".";
-import { DefaultInputProperties } from "../../../utils";
+import CustomSelect from ".";
+import { DefaultInputProperties } from "../../storybook";
 import MaterialIcon from "../../Utility/MaterialIcon";
 import { Option, EmptyOption } from "./Option";
-import { CustomDropdownProps } from "./CustomDropdown.types";
+import { CustomSelectProps } from "./CustomSelect.types";
+import Button from "../../Buttons/Button";
 
 export default {
-  title: "Dropdowns/CustomDropdown",
-  component: CustomDropdown,
+  title: "Dropdowns/CustomSelect",
+  component: CustomSelect,
   argTypes: {
     value: {
       control: "select",
       options: ["val1", "val2", null],
     },
   },
-} as ComponentMeta<typeof CustomDropdown>;
+} as ComponentMeta<typeof CustomSelect>;
 
-const Template: ComponentStory<typeof CustomDropdown> = (
-  args: CustomDropdownProps<any>
+const Template: ComponentStory<typeof CustomSelect> = (
+  args: CustomSelectProps<any>
 ) => {
-  return <CustomDropdown {...args} />;
+  return <CustomSelect {...args} />;
 };
 
 export const Default = Template.bind({});
 Default.args = {
   value: "val1",
+  variant: "default",
   ...DefaultInputProperties,
   placeholder: undefined,
   label: "Custom Select Label",
@@ -64,11 +66,11 @@ WithIcons.args = {
   ],
 };
 
-const FloatingTemplate: ComponentStory<typeof FloatingCustomDropdown> = (
-  args: CustomDropdownProps<any>
-) => {
-  return <FloatingCustomDropdown {...args} />;
-};
+// const FloatingTemplate: ComponentStory<typeof FloatingCustomSelect> = (
+//   args: CustomSelectProps<any>
+// ) => {
+//   return <FloatingCustomSelect {...args} />;
+// };
 
-export const FloatingVariant = FloatingTemplate.bind({});
-FloatingVariant.args = Default.args;
+// export const FloatingVariant = FloatingTemplate.bind({});
+// FloatingVariant.args = Default.args;

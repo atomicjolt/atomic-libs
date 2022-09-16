@@ -8,10 +8,10 @@ export { default as Button } from "./Buttons/Button";
 export { default as IconButton } from "./Buttons/IconButton";
 export { default as Combobox, FloatingCombobox } from "./Dropdowns/Combobox";
 export {
-  default as CustomDropdown,
-  FloatingCustomDropdown,
-} from "./Dropdowns/CustomDropdown";
-export { Option, EmptyOption } from "./Dropdowns/CustomDropdown/Option";
+  default as CustomSelect,
+  FloatingCustomSelect,
+} from "./Dropdowns/CustomSelect";
+export { Option, EmptyOption } from "./Dropdowns/CustomSelect/Option";
 export { default as Select } from "./Dropdowns/Select";
 export { default as IconMenu } from "./Dropdowns/IconMenu";
 export { default as CheckBox } from "./Inputs/Checkbox";

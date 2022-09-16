@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { CustomSelectContext } from "./CustomDropdown.types";
+import { CustomSelectContext } from "./CustomSelect.types";
 import { EmptyOption, Option } from "./Option";
 
 export const Context = React.createContext<CustomSelectContext<any>>(
@@ -12,7 +12,7 @@ export function useSelectedChild<T>(value: T, children: React.ReactNode) {
     childArray.forEach((c) => {
       if (c.type !== Option && c.type !== EmptyOption) {
         throw new Error(
-          "All children of CustomDropdown must be Option or EmptyOption"
+          "All children of CustomSelect must be Option or EmptyOption"
         );
       }
     });

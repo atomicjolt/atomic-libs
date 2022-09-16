@@ -1,32 +1,46 @@
 import React from "react";
 import cn from "classnames";
 import { useIds } from "../../../hooks";
-import { EventHandler, SharedInputProps } from "../../../types";
+import { CheckedInputProps } from "../../../types";
+import { makeEventHandler } from "../../../utils";
 
-export interface CheckboxProps
-  extends Omit<SharedInputProps, "hideLabel" | "size"> {
-  checked?: boolean;
-  onClick?: EventHandler<boolean, React.MouseEvent<HTMLInputElement>>;
-}
+export type CheckboxProps = CheckedInputProps;
 
 /** Checkbox Component. Accepts a `ref` */
 const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
-  ({ label, error, message, checked, onClick, disabled = false }, ref) => {
+  (props, ref) => {
     const [inputId] = useIds("Checkbox", ["input"]);
+    const {
+      label,
+      error,
+      message,
+      checked,
+      onClick,
+      onChange,
+      required,
+      ...inputProps
+    } = props;
 
     return (
       <label
-        className={cn("aje-checkbox", { "has-error": error })}
+        className={cn("aje-checkbox", {
+          "has-error": error,
+          "is-required": required,
+        })}
         htmlFor={inputId}
       >
         <input
           id={inputId}
+          ref={ref}
           type="checkbox"
           checked={checked}
-          disabled={disabled}
-          onClick={(e) =>
-            onClick && onClick((e.target as HTMLInputElement).checked, e)
-          }
+          onClick={makeEventHandler(
+            onClick,
+            (e) => (e.target as HTMLInputElement).checked
+          )}
+          required={required}
+          onChange={makeEventHandler(onChange, (e) => e.target.checked)}
+          {...inputProps}
         />
         <span className="aje-checkbox__label">
           {label}

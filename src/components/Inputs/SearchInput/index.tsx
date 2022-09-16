@@ -1,30 +1,32 @@
 import React, { useState } from "react";
 import cn from "classnames";
 import { useIds } from "../../../hooks";
-import { EventHandler, SharedInputProps } from "../../../types";
+import { EventHandler, InputProps } from "../../../types";
 import InputError from "../../Utility/InputError";
 import Label from "../../Utility/Label";
 import MaterialIcon from "../../Utility/MaterialIcon";
+import { makeEventHandler } from "../../../utils";
 
 export interface SearchInputProps
-  extends Omit<SharedInputProps, "required" | "message"> {
+  extends Omit<InputProps<string>, "required" | "message"> {
   /** When the user hits enter, or presses the submit button, this event will fire
    * with the current value of the input element. */
   onSubmit?: EventHandler<
-    string,
+    string | undefined,
     React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>
   >;
 
-  /** Callback whenever the content of the input changes */
-  onChange?: EventHandler<string, React.ChangeEvent<HTMLInputElement>>;
   /** Display a button to click on to search, instead of just hitting enter */
   submitButton?: boolean;
 }
 
 /** Search Input Component. Accepts a `ref`*/
 const SearchInput = React.forwardRef<HTMLInputElement, SearchInputProps>(
-  (
-    {
+  (props, ref) => {
+    const [inputId, errorId] = useIds("SearchInput", ["input", "error"]);
+
+    const {
+      value,
       size = "medium",
       label,
       placeholder,
@@ -34,11 +36,7 @@ const SearchInput = React.forwardRef<HTMLInputElement, SearchInputProps>(
       error,
       onSubmit,
       onChange,
-    },
-    ref
-  ) => {
-    const [inputValue, setInputValue] = useState("");
-    const [inputId, errorId] = useIds("SearchInput", ["input", "error"]);
+    } = props;
 
     return (
       <form
@@ -48,7 +46,7 @@ const SearchInput = React.forwardRef<HTMLInputElement, SearchInputProps>(
         })}
         onSubmit={(e) => {
           e.preventDefault();
-          onSubmit && onSubmit(inputValue, e);
+          onSubmit && onSubmit(value, e);
         }}
       >
         <Label hidden={hideLabel} htmlFor={inputId}>
@@ -59,11 +57,8 @@ const SearchInput = React.forwardRef<HTMLInputElement, SearchInputProps>(
           type="search"
           role="search"
           placeholder={placeholder}
-          value={inputValue}
-          onChange={(e) => {
-            setInputValue(e.target.value);
-            onChange && onChange(e.target.value, e);
-          }}
+          value={value}
+          onChange={makeEventHandler(onChange)}
           disabled={disabled}
           ref={ref}
         />

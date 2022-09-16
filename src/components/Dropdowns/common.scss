@@ -100,12 +100,6 @@
         border-color: var(--outline-clr-primary);
       }
 
-      &[aria-expanded="true"] + .aje-combobox__menu {
-        visibility: visible;
-        opacity: 1;
-        transform: scaleY(1);
-      }
-
       &.is-searchable {
         padding: 0;
         overflow: hidden;
@@ -117,23 +111,16 @@
     }
 
     &__menu {
-      visibility: hidden;
       overflow-y: auto;
       max-height: var(--menu-max-height);
-      position: absolute;
       top: 100%;
       left: 0;
       border-radius: var(--menu-border-radius);
-      box-shadow: var(--menu-box-shadow);
-      min-width: 100%;
       background-color: var(--menu-bg-clr);
       padding: var(--menu-padding-top) 0;
       margin: 0;
       z-index: 100;
-      opacity: 0;
-      transform: scaleY(0.9);
-      transform-origin: top;
-      transition: transform 200ms ease, opacity 200ms;
+      box-shadow: var(--menu-box-shadow);
     }
 
     &__option {

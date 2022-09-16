@@ -5,6 +5,11 @@ import { WarningBanner as WarningBannerComponent, BannerWrapperProps } from ".";
 export default {
   title: "Banners/DismissableBanner/WarningBanner",
   component: WarningBannerComponent,
+  argTypes: {
+    children: {
+      control: "text",
+    },
+  },
 } as ComponentMeta<typeof WarningBannerComponent>;
 
 const Template: ComponentStory<typeof WarningBannerComponent> = (

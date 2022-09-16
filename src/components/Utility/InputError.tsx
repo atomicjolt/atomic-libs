@@ -3,7 +3,7 @@ import { ErrorLabel } from "./Label";
 
 interface InputErrorProps {
   id: string;
-  error?: string;
+  error?: React.ReactNode;
 }
 
 export default function InputError({ error, id }: InputErrorProps) {
