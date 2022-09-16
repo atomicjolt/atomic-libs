@@ -41,10 +41,10 @@ export default function ConfirmationModal({
       open={open}
       title={title}
       actions={[
-        <Button className="secondary" onClick={makeOptionaCallback(onReject)}>
+        <Button variant="secondary" onClick={makeOptionaCallback(onReject)}>
           {rejectText}
         </Button>,
-        <Button className="primary" onClick={makeOptionaCallback(onConfirm)}>
+        <Button variant="primary" onClick={makeOptionaCallback(onConfirm)}>
           {confirmText}
         </Button>,
       ]}

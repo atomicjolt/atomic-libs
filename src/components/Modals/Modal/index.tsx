@@ -61,7 +61,7 @@ function Modal({
         <div className="aje-modal__bottom">
           {secondaryButton && (
             <Button
-              className="secondary"
+              variant="secondary"
               type="button"
               onClick={() => primaryAction && primaryAction()}
             >
@@ -70,7 +70,7 @@ function Modal({
           )}
           {primaryButton && (
             <Button
-              className="primary"
+              variant="primary"
               type="button"
               onClick={() => secondaryAction && secondaryAction()}
             >
