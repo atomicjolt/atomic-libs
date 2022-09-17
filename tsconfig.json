@@ -8,6 +8,8 @@
     "skipLibCheck": true,
 
     // Added
+    "outDir": "dist/esm",
+    "declarationDir": "dist/esm/types",
     "jsx": "react",
     "module": "ESNext",
     "declaration": true,

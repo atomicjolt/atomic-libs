@@ -4,6 +4,7 @@ import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import dts from "rollup-plugin-dts";
 import scss from "rollup-plugin-scss";
+import pkg from "./package.json";
 
 function styleSheetEntry(input, output) {
   return {
@@ -20,7 +21,7 @@ function styleSheetEntry(input, output) {
 
 const formatEntryPoint = (format) => ({
   input: "src/index.ts",
-  external: ["react", "react-dom"],
+  external: ["react", "react-dom", ...Object.keys(pkg.dependencies)],
   output: [
     {
       dir: `dist/${format}`,
