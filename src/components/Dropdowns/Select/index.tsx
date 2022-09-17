@@ -5,12 +5,22 @@ import { useIds } from "../../../hooks";
 import InputError from "../../Utility/InputError";
 import ComponentWrapper from "../../Utility/ComponentWrapper";
 import { makeEventHandler } from "../../../utils";
+import Option, { OptionProps } from "../Option";
+
+type OptionChild = React.ReactElement<
+  OptionProps<string | number | readonly string[] | undefined>,
+  typeof Option
+>;
 
 export interface SelectProps
-  extends HasChildren,
-    Omit<InputProps<string, HTMLSelectElement>, "placeholder" | "readOnly"> {}
+  extends Omit<
+    InputProps<string, HTMLSelectElement>,
+    "placeholder" | "readOnly"
+  > {
+  children: OptionChild[] | OptionChild;
+}
 
-/** Select Component */
+/** Select Component. Simple wrapper around native `<select>` */
 export default function Select(props: SelectProps) {
   const [inputId, errorId] = useIds("select", ["select", "error"]);
 
@@ -24,7 +34,7 @@ export default function Select(props: SelectProps) {
     hideLabel = false,
     disabled = false,
     required = false,
-    ...inputProps
+    ...selectProps
   } = props;
 
   return (
@@ -43,7 +53,7 @@ export default function Select(props: SelectProps) {
           id={inputId}
           aria-describedby={error ? errorId : ""}
           onChange={makeEventHandler(onChange)}
-          {...inputProps}
+          {...selectProps}
         >
           {children}
         </select>

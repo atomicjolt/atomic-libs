@@ -1,11 +1,10 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import CustomSelect from ".";
-import { DefaultInputProperties } from "../../storybook";
+import { DefaultInputProperties, InputControls } from "../../storybook";
 import MaterialIcon from "../../Utility/MaterialIcon";
-import { Option, EmptyOption } from "./Option";
+import Option from "../Option";
 import { CustomSelectProps } from "./CustomSelect.types";
-import Button from "../../Buttons/Button";
 
 export default {
   title: "Dropdowns/CustomSelect",
@@ -15,6 +14,7 @@ export default {
       control: "select",
       options: ["val1", "val2", null],
     },
+    ...InputControls,
   },
 } as ComponentMeta<typeof CustomSelect>;
 
@@ -46,7 +46,9 @@ WithEmpty.args = {
   ...Default.args,
   value: null,
   children: [
-    <EmptyOption key="empty">-- Select an Option --</EmptyOption>,
+    <Option value={null} key="empty">
+      -- Select an Option --
+    </Option>,
     ...Default.args.children,
   ],
 };

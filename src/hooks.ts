@@ -14,10 +14,17 @@ export function useClick(callback: (e: MouseEvent) => void, deps: any[]) {
   }, deps);
 }
 
-export function useBool(initialState: boolean = false): [boolean, () => void] {
+export function useBool(
+  initialState: boolean = false
+): [boolean, () => void, () => void, () => void] {
   const [bool, setBool] = useState(initialState);
 
-  return [bool, () => setBool(!bool)];
+  return [
+    bool,
+    () => setBool(!bool),
+    () => setBool(true),
+    () => setBool(false),
+  ];
 }
 
 export function useIsoDateString(date?: string | Date | number): string {
