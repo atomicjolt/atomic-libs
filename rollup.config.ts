@@ -1,11 +1,9 @@
-import { defineConfig } from "rollup";
+import { defineConfig, ModuleFormat, RollupOptions } from "rollup";
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import dts from "rollup-plugin-dts";
 import scss from "rollup-plugin-scss";
-import { terser } from "rollup-plugin-terser";
-import renameNodeModules from "rollup-plugin-rename-node-modules";
 
 function styleSheetEntry(input, output) {
   return {
@@ -20,31 +18,36 @@ function styleSheetEntry(input, output) {
   };
 }
 
+const formatEntryPoint = (format) => ({
+  input: "src/index.ts",
+  external: ["react", "react-dom"],
+  output: [
+    {
+      dir: `dist/${format}`,
+      format: format,
+      sourcemap: true,
+      preserveModules: format === "esm",
+      sourcemapPathTransform: (relativeSourePath) => {
+        return relativeSourePath.slice(3);
+      },
+    },
+  ],
+  plugins: [
+    resolve(),
+    commonjs(),
+    typescript({
+      tsconfig: "./tsconfig.json",
+      compilerOptions: {
+        outDir: `dist/${format}`,
+        declarationDir: `dist/${format}/types`,
+      },
+    }),
+  ],
+});
+
 export default defineConfig([
-  {
-    external: ["react", "react-dom"],
-    input: "src/index.ts",
-    output: [
-      {
-        dir: "dist/esm",
-        format: "esm",
-        sourcemap: true,
-        preserveModules: true,
-      },
-      {
-        file: "dist/cjs/index.js",
-        format: "cjs",
-        sourcemap: true,
-      },
-    ],
-    plugins: [
-      resolve(),
-      renameNodeModules("external"),
-      commonjs(),
-      typescript({ tsconfig: "./tsconfig.json" }),
-      terser(),
-    ],
-  },
+  formatEntryPoint("esm"),
+  formatEntryPoint("cjs"),
   styleSheetEntry("src/components/index.scss", "dist/styles.css"),
   styleSheetEntry("src/defines/fonts.scss", "dist/fonts.css"),
   styleSheetEntry("src/defines/variables.scss", "dist/variables.css"),

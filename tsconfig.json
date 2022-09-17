@@ -11,14 +11,11 @@
     "jsx": "react",
     "module": "ESNext",
     "declaration": true,
-    "declarationDir": "dist/esm/types",
     "sourceMap": true,
-    "outDir": "dist/esm",
     "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
-    "emitDeclarationOnly": true
+    "allowSyntheticDefaultImports": true
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*.tsx", "src/**/*.ts"],
   "exclude": [
     "src/**/*.stories.tsx",
     "src/**/*.spec.tsx",

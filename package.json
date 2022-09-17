@@ -15,7 +15,7 @@
   },
   "peerDependencies": {
     "react": "^16.0.0 || ^17.0.0 || ^18.0.0",
-    "react-dom": "^16.8.0"
+    "react-dom": "^16.0.0 || ^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",
@@ -75,7 +75,7 @@
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook",
     "storybook:publish": "gh-pages -d storybook-static/",
-    "build": "rollup --config rollup.config.ts --configPlugin typescript && yarn build:cleanup",
+    "build": "rollup --config rollup.config.ts --configPlugin typescript ",
     "build:cleanup": "rm -rf dist/cjs/dist && rm -rf dist/esm/types",
     "test": "jest"
   }

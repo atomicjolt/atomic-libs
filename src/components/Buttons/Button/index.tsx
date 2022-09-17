@@ -55,7 +55,6 @@ export default function Button({
   onClick,
 }: ButtonProps) {
   const loadingText = loading ? loadingLabel : "";
-  throw new Error("ah");
 
   return (
     <button
