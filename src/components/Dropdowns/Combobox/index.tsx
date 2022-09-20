@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import cn from "classnames";
 import { useIds, useVariant } from "../../../hooks";
-import Label from "../../Utility/Label";
 import InputError from "../../Utility/InputError";
 import { makeEventHandler } from "../../../utils";
 import ComponentWrapper from "../../Utility/ComponentWrapper";
@@ -21,7 +20,7 @@ const variants: VariantRecord<Variants, ComboboxVariantProps> = {
   floating: FloatingCombobox,
 };
 
-/** A combobox is a combination of a dropdown, with a searchable text field. */
+/** A combobox is a combination of a select, with a searchable text field. */
 export default function Combobox(props: ComboboxProps) {
   const [menuActive, setMenuActive] = useState(false);
 
