@@ -1,68 +1,50 @@
+import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import Tabs, { Tab, Props } from ".";
-import Doc from "./Tabs.doc.mdx";
+import TabsComponent, { Tab, TabLink, TabsNavigation } from ".";
+import { TabsContent, TabsProps } from "./Tabs";
 
 export default {
   title: "Tabs/Tabs",
-  component: Tabs,
+  component: TabsComponent,
   subcomponents: {
     Tab,
+    TabLink,
+    TabsNavigation,
   },
-  parameters: {
-    docs: {
-      page: Doc,
+  argTypes: {
+    currentTab: {
+      control: "select",
+      options: ["tab1", "tab2"],
+    },
+    children: {
+      control: false,
     },
   },
-} as ComponentMeta<typeof Tabs>;
+} as ComponentMeta<typeof TabsComponent>;
 
-const Template: ComponentStory<typeof Tabs> = (args: Props) => (
-  <Tabs {...args} />
-);
+const Template: ComponentStory<typeof TabsComponent> = (
+  args: TabsProps<string>
+) => <TabsComponent {...args} />;
 
-export const TabsUncontrolled = Template.bind({});
-TabsUncontrolled.args = {
-  tabs: { tab1: { label: "Tab One", notification: "error" }, tab2: "Tab Two" },
-  children: [
-    <Tab name="tab1" key="key1">
-      <div>
-        <h2>First Tab</h2>
-      </div>
-    </Tab>,
-    <Tab name="tab2" key="key2">
-      <div>
-        <h2>Second Tab</h2>
-      </div>
-    </Tab>,
-  ],
-};
-
-TabsUncontrolled.argTypes = {
-  currentTab: {
-    control: false,
-  },
-};
-
-export const TabsControlled = Template.bind({});
-TabsControlled.args = {
-  tabs: { tab1: { label: "Tab One", notification: "error" }, tab2: "Tab Two" },
+export const Tabs = Template.bind({});
+Tabs.args = {
   currentTab: "tab1",
   children: [
-    <Tab name="tab1" key="key1">
-      <div>
-        <h2>First Tab</h2>
-      </div>
-    </Tab>,
-    <Tab name="tab2" key="key2">
-      <div>
-        <h2>Second Tab</h2>
-      </div>
-    </Tab>,
+    <TabsNavigation key="nav">
+      <TabLink to="tab1">Tab One</TabLink>
+      <TabLink to="tab2">Tab Two</TabLink>
+    </TabsNavigation>,
+    <TabsContent key="content">
+      <Tab name="tab1">
+        <div>
+          <h2>First Tab</h2>
+        </div>
+      </Tab>
+      <Tab name="tab2">
+        <div>
+          <h2>Second Tab</h2>
+        </div>
+      </Tab>
+    </TabsContent>,
   ],
-};
-
-TabsControlled.argTypes = {
-  currentTab: {
-    control: "select",
-    options: ["tab1", "tab2"],
-  },
 };
