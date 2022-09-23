@@ -2,6 +2,7 @@
 
 .aje-label {
   display: block;
+  padding-bottom: 5px;
   @include mixins.bold;
   font-size: 1.3rem;
   line-height: 1.1;

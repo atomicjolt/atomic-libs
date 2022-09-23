@@ -1,7 +1,6 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Popover, { PopoverWrapper, PopoverProps } from ".";
-import Button from "../../Buttons/Button";
 
 export default {
   title: "Utility/Popover",
