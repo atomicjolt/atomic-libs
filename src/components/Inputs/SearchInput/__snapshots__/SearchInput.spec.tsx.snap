@@ -22,6 +22,7 @@ exports[`matches snapshot displays with search button 1`] = `
       type="submit"
     >
       <i
+        aria-hidden="true"
         class="material-icons is-medium"
       >
         search

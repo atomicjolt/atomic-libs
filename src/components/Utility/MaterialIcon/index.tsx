@@ -24,6 +24,7 @@ export default function MaterialIcon({
       className={cn("material-icons", className, `is-${size}`, {
         "is-disabled": disabled,
       })}
+      aria-hidden={true}
       {...rest}
     >
       {icon}
