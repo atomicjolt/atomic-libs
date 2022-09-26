@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import { useIds } from "../../../hooks";
 import { HasChildren } from "../../../types";
+import Tab from "./Tab";
+import TabsNavigation, { TabLink } from "./TabNavigation";
 import { TabsContextT } from "./Tabs.types";
 import { getTabId, TabsContext } from "./utils";
 
@@ -9,7 +11,7 @@ export interface TabsProps<T extends string> extends HasChildren {
   readonly onChange: (name: T) => void;
 }
 
-export default function Tabs<T extends string>(props: TabsProps<T>) {
+function Tabs<T extends string>(props: TabsProps<T>) {
   const { children, currentTab, onChange } = props;
   const [tabIdPrefix, tabContentId] = useIds("Tabs", ["prefix", "content"]);
 
@@ -38,3 +40,16 @@ export function TabsContent({ children }: HasChildren) {
     </div>
   );
 }
+
+TabsContent.displayName = "Tabs.Content";
+
+// @ts-ignore
+Tabs.Tab = Tab;
+// @ts-ignore
+Tabs.Navigation = TabsNavigation;
+// @ts-ignore
+Tabs.Link = TabLink;
+// @ts-ignore
+Tabs.Content = TabsContent;
+
+export default Tabs;

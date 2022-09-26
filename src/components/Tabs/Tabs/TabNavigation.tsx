@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
+import React from "react";
 import { HasChildren } from "../../../types";
-import { getTabId, TabsContext } from "./utils";
+import { getTabId, useTabContext } from "./utils";
 
 type TabNavigationProps = HasChildren;
 
@@ -12,6 +12,8 @@ export default function TabsNavigation({ children }: TabNavigationProps) {
   );
 }
 
+TabsNavigation.displayName = "Tabs.Navigation";
+
 interface TabLinkProps extends HasChildren {
   /** What tab this link navigates to */
   readonly to: string;
@@ -19,8 +21,7 @@ interface TabLinkProps extends HasChildren {
 
 export function TabLink(props: TabLinkProps) {
   const { to, children } = props;
-  const { changeTab, currentTab, tabIdPrefix, tabContentId } =
-    useContext(TabsContext);
+  const { changeTab, currentTab, tabIdPrefix, tabContentId } = useTabContext();
 
   const tabId = getTabId(tabIdPrefix, to);
 
@@ -41,3 +42,5 @@ export function TabLink(props: TabLinkProps) {
     </div>
   );
 }
+
+TabLink.displayName = "Tabs.Link";

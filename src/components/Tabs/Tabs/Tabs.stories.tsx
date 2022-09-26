@@ -1,15 +1,18 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import TabsComponent, { Tab, TabLink, TabsNavigation } from ".";
+import TabsC from ".";
 import { TabsContent, TabsProps } from "./Tabs";
+import Tab from "./Tab";
+import TabsNavigation, { TabLink } from "./TabNavigation";
 
 export default {
   title: "Tabs/Tabs",
-  component: TabsComponent,
+  component: TabsC,
   subcomponents: {
-    Tab,
-    TabLink,
-    TabsNavigation,
+    "Tabs.Tab": Tab,
+    "Tabs.Link": TabLink,
+    "Tabs.Navigation": TabsNavigation,
+    "Tabs.Content": TabsContent,
   },
   argTypes: {
     currentTab: {
@@ -20,31 +23,31 @@ export default {
       control: false,
     },
   },
-} as ComponentMeta<typeof TabsComponent>;
+} as ComponentMeta<typeof TabsC>;
 
-const Template: ComponentStory<typeof TabsComponent> = (
-  args: TabsProps<string>
-) => <TabsComponent {...args} />;
+const Template: ComponentStory<typeof TabsC> = (args: TabsProps<string>) => (
+  <TabsC {...args} />
+);
 
 export const Tabs = Template.bind({});
 Tabs.args = {
   currentTab: "tab1",
   children: [
-    <TabsNavigation key="nav">
-      <TabLink to="tab1">Tab One</TabLink>
-      <TabLink to="tab2">Tab Two</TabLink>
-    </TabsNavigation>,
-    <TabsContent key="content">
-      <Tab name="tab1">
+    <TabsC.Navigation key="nav">
+      <TabsC.Link to="tab1">Tab One</TabsC.Link>
+      <TabsC.Link to="tab2">Tab Two</TabsC.Link>
+    </TabsC.Navigation>,
+    <TabsC.Content key="content">
+      <TabsC.Tab name="tab1">
         <div>
           <h2>First Tab</h2>
         </div>
-      </Tab>
-      <Tab name="tab2">
+      </TabsC.Tab>
+      <TabsC.Tab name="tab2">
         <div>
           <h2>Second Tab</h2>
         </div>
-      </Tab>
-    </TabsContent>,
+      </TabsC.Tab>
+    </TabsC.Content>,
   ],
 };

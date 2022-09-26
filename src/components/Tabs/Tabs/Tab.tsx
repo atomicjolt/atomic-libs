@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { TabsContext } from "./utils";
+import React from "react";
+import { useTabContext } from "./utils";
 
 interface TabProps {
   children: React.ReactNode;
@@ -8,9 +8,11 @@ interface TabProps {
 }
 
 export default function Tab({ children, name }: TabProps) {
-  const { currentTab } = useContext(TabsContext);
+  const { currentTab } = useTabContext();
 
   if (name !== currentTab) return null;
 
   return <>{children}</>;
 }
+
+Tab.displayName = "Tabs.Tab";
