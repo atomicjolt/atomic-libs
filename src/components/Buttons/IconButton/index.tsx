@@ -1,31 +1,34 @@
 import React from "react";
-import { useIds } from "../../../hooks";
-import { AriaHasPopUp, MaterialIcons } from "../../../types";
+import { LoadingProps, MaterialIcons } from "../../../types";
+import Spinner from "../../Loaders/Spinner";
 import MaterialIcon from "../../Utility/MaterialIcon";
 
-export interface IconButtonProps {
+interface BaseProps {
   /** Material Icon to render */
   icon: MaterialIcons;
   id?: string;
+  /** Label for the button, because IconButton does not contain text, this should always be present */
   ariaLabel: string;
-  ariaExpanded?: boolean;
-  ariaHasPopup?: AriaHasPopUp;
-  ariaControls?: string;
   disabled?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
+export type IconButtonProps = BaseProps & LoadingProps & React.AriaAttributes;
+
 /** Icon Button Component */
-export default function IconButton({
-  icon,
-  id,
-  ariaLabel,
-  ariaExpanded,
-  ariaHasPopup,
-  ariaControls,
-  disabled,
-  onClick,
-}: IconButtonProps) {
+export default function IconButton(props: IconButtonProps) {
+  const {
+    icon,
+    id,
+    ariaLabel,
+    disabled,
+    onClick,
+    loading,
+    loadingComplete,
+    loadingLabel,
+    ...rest
+  } = props;
+
   return (
     <button
       id={id}
@@ -33,12 +36,14 @@ export default function IconButton({
       type="button"
       onClick={onClick}
       disabled={disabled}
-      aria-label={ariaLabel}
-      aria-controls={ariaControls}
-      aria-haspopup={ariaHasPopup}
-      aria-expanded={ariaExpanded}
+      aria-label={loading && loadingLabel ? loadingLabel : ariaLabel}
+      {...rest}
     >
-      <MaterialIcon icon={icon} aria-hidden />
+      {loading ? (
+        <Spinner loading={!loadingComplete} />
+      ) : (
+        <MaterialIcon icon={icon} />
+      )}
     </button>
   );
 }

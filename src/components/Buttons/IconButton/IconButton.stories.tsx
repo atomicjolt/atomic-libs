@@ -21,4 +21,7 @@ export const IconButton = Template.bind({});
 IconButton.args = {
   icon: "more_vert",
   ariaLabel: "More options",
+  loading: false,
+  loadingComplete: false,
+  disabled: false,
 };

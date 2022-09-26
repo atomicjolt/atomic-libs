@@ -8,6 +8,7 @@
     --btn-hover-text-clr: var(--text-clr);
     --btn-hover-bg-clr: var(--neutral100);
     --btn-border: var(--border);
+    position: relative;
     @extend .aje-btn;
 
     width: var(--btn-height);
