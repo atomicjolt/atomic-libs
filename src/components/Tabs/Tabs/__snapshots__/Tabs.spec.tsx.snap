@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    aria-label="navigation"
+    class="aje-tab-list"
+    role="tablist"
+  >
+    <div
+      class="aje-tab-link"
+    >
+      <a
+        aria-controls="Tabs-4823990839262559"
+        aria-current="true"
+        aria-selected="true"
+        class="aje-tab"
+        id="Tabs-5920074657064936-tab1"
+        role="tab"
+        tabindex="-1"
+      >
+        Tab One
+      </a>
+    </div>
+    <div
+      class="aje-tab-link"
+    >
+      <a
+        aria-controls="Tabs-4823990839262559"
+        aria-current="false"
+        aria-selected="false"
+        class="aje-tab"
+        id="Tabs-5920074657064936-tab2"
+        role="tab"
+        tabindex="-1"
+      >
+        Tab Two
+      </a>
+    </div>
+  </div>
+  <div
+    aria-labelledby="Tabs-5920074657064936-tab1"
+    class="aje-tab-content"
+    id="Tabs-4823990839262559"
+    role="tabpanel"
+    tabindex="0"
+  >
+    <div>
+      <h2>
+        First Tab
+      </h2>
+    </div>
+  </div>
+</DocumentFragment>
+`;

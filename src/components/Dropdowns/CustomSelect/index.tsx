@@ -1,4 +1,4 @@
-import React, { useMemo, useRef } from "react";
+import React, { useMemo, useRef, useState } from "react";
 import cn from "classnames";
 
 import FloatingCustomSelect from "./variants/FloatingCustomSelect";
@@ -12,7 +12,7 @@ import {
   CustomSelectVariantProps,
   Variants,
 } from "./CustomSelect.types";
-import { CustomSelectOptionProps } from "../Option";
+import { OptionProps } from "../Option";
 import Popover from "../../Utility/Popover";
 
 const variants: VariantRecord<Variants, CustomSelectVariantProps<any>> = {
@@ -21,7 +21,9 @@ const variants: VariantRecord<Variants, CustomSelectVariantProps<any>> = {
 };
 
 /**
- * Custom Select
+ * CustomSelect
+ * Intended for when you want to render custom content in the dropdown of a Select. Additionally, the values
+ * for the select can be any object, not just strings or numbers.
  *
  * https://www.w3.org/TR/wai-aria-practices/examples/combobox/combobox-select-only.html for accessibility implementation.
  *
@@ -41,8 +43,8 @@ export default function CustomSelect<T>(props: CustomSelectProps<T>) {
     required,
   } = props;
 
-  const [menuActive, toggleMenu] = useBool(false);
-  const ref = useRef(null);
+  const [menuActive, toggleMenu, openMenu, closeMenu] = useBool(false);
+  const ref = useRef<HTMLDivElement | null>(null);
   const [inputId, listBoxId, errorId, labelId] = useIds("CustomSelect", [
     "combo",
     "list",
@@ -52,20 +54,56 @@ export default function CustomSelect<T>(props: CustomSelectProps<T>) {
 
   const [Variant, className] = useVariant(variants, "aje-dropdown", variant);
 
-  useClickOutside(
-    ref,
-    () => {
-      if (menuActive) toggleMenu();
-    },
-    { enabled: menuActive }
-  );
-
-  const options: CustomSelectOptionProps<T>[] = React.Children.map(
+  const options: OptionProps<T>[] = React.Children.map(
     children,
     (child) => child.props
   );
 
-  const selectedOption = options.find((o) => o.value == value);
+  const selectedIndex = options.findIndex((o) => o.value == value);
+  const [focused, setFocused] = useState(selectedIndex || 0);
+
+  useClickOutside(
+    ref,
+    () => {
+      if (menuActive) {
+        handleClose();
+      }
+    },
+    { enabled: menuActive }
+  );
+
+  const handleClose = () => {
+    if (focused !== selectedIndex) {
+      setFocused(selectedIndex);
+    }
+    closeMenu();
+  };
+
+  const handleKeyPress: React.KeyboardEventHandler = (e) => {
+    if (e.key === " ") {
+      openMenu();
+    } else if (e.key === "Escape") {
+      if (menuActive) {
+        handleClose();
+      } else {
+        ref.current?.blur();
+      }
+    } else if (menuActive) {
+      switch (e.key) {
+        case "ArrowDown":
+          setFocused(Math.min(focused + 1, options.length - 1));
+          break;
+        case "ArrowUp":
+          setFocused(Math.max(focused - 1, 0));
+          break;
+        case "Enter":
+          onChange && onChange(options[focused].value, e);
+          handleClose();
+        default:
+          break;
+      }
+    }
+  };
 
   return (
     <ComponentWrapper
@@ -93,10 +131,17 @@ export default function CustomSelect<T>(props: CustomSelectProps<T>) {
           id={inputId}
           role="combobox"
           tabIndex={0}
-          onClick={toggleMenu}
+          onClick={() => {
+            if (menuActive) {
+              handleClose();
+            } else {
+              openMenu();
+            }
+          }}
           ref={ref}
+          onKeyDown={handleKeyPress}
         >
-          <span>{selectedOption?.children}</span>
+          <span>{options[selectedIndex]?.children}</span>
         </div>
         <Popover show={menuActive} size="full">
           <ul
@@ -109,10 +154,10 @@ export default function CustomSelect<T>(props: CustomSelectProps<T>) {
             {options.map(({ value, children }, idx) => (
               <li
                 className={cn("aje-combobox__option", {
-                  "is-focused": value == selectedOption?.value,
+                  "is-focused": idx === focused,
                 })}
                 role="option"
-                aria-selected={value == selectedOption?.value}
+                aria-selected={idx === focused}
                 onClick={(e) => onChange && onChange(value, e)}
                 key={String(value)}
               >

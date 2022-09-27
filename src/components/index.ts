@@ -26,6 +26,6 @@ export { default as ConfirmationModal } from "./Modals/ConfirmationModal";
 export { default as ErrorModal } from "./Modals/ErrorModal";
 export { default as MaterialIcon } from "./Utility/MaterialIcon";
 export { default as Table } from "./Tables/Table";
-export { default as Tabs, Tab } from "./Tabs/Tabs";
+export { default as Tabs } from "./Tabs/Tabs";
 export { default as LoadingStatus } from "./Utility/LoadingStatus";
 export { default as Label } from "./Utility/Label";
