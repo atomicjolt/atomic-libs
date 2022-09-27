@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import CustomSelect from ".";
 import { DefaultInputProperties } from "../../storybook";
 import MaterialIcon from "../../Utility/MaterialIcon";
-import { Option, EmptyOption } from "./Option";
+import { Option, EmptyOption } from "../Option";
 import { CustomSelectProps } from "./CustomSelect.types";
 import Button from "../../Buttons/Button";
 

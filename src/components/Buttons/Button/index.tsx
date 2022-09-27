@@ -1,6 +1,7 @@
 import React from "react";
 import cn from "classnames";
 import Spinner from "../../Loaders/Spinner";
+import { LoadingProps } from "../../../types";
 
 type ButtonVariants =
   | "primary"
@@ -25,22 +26,6 @@ interface CommonProps {
   disabled?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
-
-type LoadingProps =
-  | {
-      /** When loading is true, the content will be replaced with a spinner.
-       * When it is false, the content will be shown normally */
-      loading?: false;
-      /** aria accessiblity label to inform screen-readers that it is loading */
-      loadingLabel?: never;
-      /** Transitions the loading spinner to a checkmark */
-      loadingComplete?: never;
-    }
-  | {
-      loading: true;
-      loadingLabel?: string;
-      loadingComplete?: boolean;
-    };
 
 export type ButtonProps = CommonProps & LoadingProps;
 

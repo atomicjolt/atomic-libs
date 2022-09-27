@@ -31,7 +31,7 @@ export default function ErrorModal({
         </>
       }
       actions={[
-        <Button className="error" type="button" onClick={onClose}>
+        <Button variant="error" type="button" onClick={onClose}>
           {buttonText}
         </Button>,
       ]}

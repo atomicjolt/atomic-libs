@@ -21,6 +21,22 @@ export interface HasVariant<Variants> {
   variant?: Variants;
 }
 
+export type LoadingProps =
+  | {
+      /** When loading is true, the content will be replaced with a spinner.
+       * When it is false, the content will be shown normally */
+      loading?: false;
+      /** aria accessiblity label to inform screen-readers that it is loading */
+      loadingLabel?: never;
+      /** Transitions the loading spinner to a checkmark */
+      loadingComplete?: never;
+    }
+  | {
+      loading: true;
+      loadingLabel?: string;
+      loadingComplete?: boolean;
+    };
+
 // INPUTS ----------------------------------------------------------
 export type EventHandler<
   V = string,

@@ -49,9 +49,9 @@ function IconMenu({
     <div className="aje-menu" ref={ref}>
       <IconButton
         icon={icon}
-        ariaControls={menuId}
-        ariaExpanded={menuActive}
-        ariaHasPopup="menu"
+        aria-controls={menuId}
+        aria-expanded={menuActive}
+        aria-haspopup="menu"
         ariaLabel={label}
         disabled={disabled}
         onClick={toggleMenu}

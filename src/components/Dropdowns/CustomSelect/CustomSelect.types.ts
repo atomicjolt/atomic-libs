@@ -1,6 +1,5 @@
 import React from "react";
-import { EventHandler, HasVariant, InputProps } from "../../../types";
-import { CustomSelectOptionProps } from "./Option";
+import { HasVariant, InputProps } from "../../../types";
 
 export type Variants = "default" | "floating";
 
