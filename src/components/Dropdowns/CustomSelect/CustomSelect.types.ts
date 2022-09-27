@@ -4,7 +4,11 @@ import { HasVariant, InputProps } from "../../../types";
 export type Variants = "default" | "floating";
 
 export interface CustomSelectProps<T>
-  extends InputProps<T | null, Element, React.MouseEvent<Element>>,
+  extends InputProps<
+      T | null,
+      Element,
+      React.MouseEvent<Element> | React.KeyboardEvent<Element>
+    >,
     HasVariant<Variants> {
   readonly children: React.ReactElement | React.ReactElement[];
 }

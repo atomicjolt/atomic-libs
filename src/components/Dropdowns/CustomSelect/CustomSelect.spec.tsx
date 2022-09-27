@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import CustomSelect from ".";
-import { Option } from "../Option";
+import Option from "../Option";
 
 describe("matches snapshots", () => {
   const shared = {
