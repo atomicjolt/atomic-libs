@@ -107,7 +107,7 @@ export default function Combobox(props: ComboboxProps) {
                   "is-focused": o === value,
                 })}
                 // @ts-ignore
-                onMouseDown={makeEventHandler(onChange)}
+                onMouseDown={(e) => onChange && onChange(o, e)}
                 role="option"
                 id={String(o)}
                 key={String(o)}
