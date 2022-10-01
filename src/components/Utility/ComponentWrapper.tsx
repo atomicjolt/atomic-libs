@@ -11,24 +11,21 @@ interface ComponentWrapperProps {
   children: React.ReactNode;
 }
 
-export default function ComponentWrapper({
-  className,
-  size,
-  disabled,
-  required,
-  children,
-  error,
-}: ComponentWrapperProps) {
-  return (
-    <div
-      className={cn(className, {
-        [`is-${size}`]: size,
-        "has-error": error,
-        "is-disabled": disabled,
-        "is-required": required,
-      })}
-    >
-      {children}
-    </div>
-  );
-}
+export default React.forwardRef(
+  (props: ComponentWrapperProps, ref: React.ForwardedRef<HTMLDivElement>) => {
+    const { className, size, disabled, required, children, error } = props;
+    return (
+      <div
+        className={cn(className, {
+          [`is-${size}`]: size,
+          "has-error": error,
+          "is-disabled": disabled,
+          "is-required": required,
+        })}
+        ref={ref}
+      >
+        {children}
+      </div>
+    );
+  }
+);

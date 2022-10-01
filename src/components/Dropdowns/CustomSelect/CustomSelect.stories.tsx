@@ -12,7 +12,7 @@ export default {
   argTypes: {
     value: {
       control: "select",
-      options: ["val1", "val2", null],
+      options: ["val1", "val2", "val3", null],
     },
     ...InputControls,
   },
@@ -31,12 +31,33 @@ Default.args = {
   ...DefaultInputProperties,
   placeholder: undefined,
   label: "Custom Select Label",
+  searchable: false,
   children: [
     <Option value="val1" key="1">
       Option 1
     </Option>,
     <Option value="val2" key="2">
       Option 2
+    </Option>,
+    <Option value="val3" key="3">
+      Option 3
+    </Option>,
+  ],
+};
+
+export const Seachable = Template.bind({});
+Seachable.args = {
+  ...Default.args,
+  searchable: true,
+  children: [
+    <Option value="val1" searchKey="Option 1" key="1">
+      Option 1
+    </Option>,
+    <Option value="val2" searchKey="Option 2" key="2">
+      Option 2
+    </Option>,
+    <Option value="val3" searchKey="Option 3" key="3">
+      Option 3
     </Option>,
   ],
 };
@@ -68,11 +89,15 @@ WithIcons.args = {
   ],
 };
 
-// const FloatingTemplate: ComponentStory<typeof FloatingCustomSelect> = (
-//   args: CustomSelectProps<any>
-// ) => {
-//   return <FloatingCustomSelect {...args} />;
-// };
+export const MultiSelect = Template.bind({});
+MultiSelect.args = {
+  ...Default.args,
+  value: ["val1", "val2"],
+};
 
-// export const FloatingVariant = FloatingTemplate.bind({});
-// FloatingVariant.args = Default.args;
+MultiSelect.argTypes = {
+  value: {
+    control: "multi-select",
+    options: ["val1", "val2", "val3"],
+  },
+};

@@ -121,6 +121,12 @@
       margin: 0;
       z-index: 100;
       box-shadow: var(--menu-box-shadow);
+
+      &.is-multiselect {
+        .aje-combobox__option {
+          margin-bottom: 1px;
+        }
+      }
     }
 
     &__option {
@@ -170,11 +176,50 @@
           content: "\e5ca";
         }
       }
+
       &.is-focused {
+        --option-bg-clr: var(--neutral100);
+      }
+
+      &.is-selected {
         --option-bg-clr: var(--primary700);
         --option-text-clr: var(--text-clr-inverted);
         --option-icon-clr: var(--text-clr-inverted);
         --option-selected-clr: var(--text-clr-inverted);
+      }
+
+      &.is-focused.is-selected {
+        --option-bg-clr: var(--primary800);
+      }
+    }
+
+    &__search {
+      position: relative;
+      border-bottom: 1px solid var(--neutral200);
+
+      input {
+        border: none;
+        background-color: var(--option-bg-clr);
+        height: 4rem;
+        width: 100%;
+        padding: 0 32px 0 var(--option-padding-horizontal);
+        @include mixins.regular;
+        font-size: var(--option-font-size);
+        color: var(--option-text-clr);
+
+        &:focus {
+          outline: 2px solid var(--outline-clr-primary);
+          outline-offset: -2px;
+        }
+      }
+
+      i {
+        position: absolute;
+        right: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 2.4rem;
+        color: var(--neutral400);
       }
     }
   }

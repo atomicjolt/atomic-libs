@@ -12,6 +12,10 @@ export interface CanHaveIcon {
   icon?: MaterialIcons;
 }
 
+export interface HasValue<T> {
+  value: T;
+}
+
 export type VariantRecord<Variants extends string, ComponentProps> = Record<
   Variants,
   React.ComponentType<ComponentProps>

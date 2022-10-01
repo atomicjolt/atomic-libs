@@ -42,7 +42,7 @@ exports[`matches snapshots matches default variant 1`] = `
         >
           <li
             aria-selected="true"
-            class="aje-combobox__option is-focused"
+            class="aje-combobox__option is-selected is-focused"
             role="option"
           >
             Option 1
@@ -99,7 +99,7 @@ exports[`matches snapshots matches floating variant 1`] = `
           >
             <li
               aria-selected="true"
-              class="aje-combobox__option is-focused"
+              class="aje-combobox__option is-selected is-focused"
               role="option"
             >
               Option 1

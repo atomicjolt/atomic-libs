@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import cn from "classnames";
 import { useIds, useVariant } from "../../../hooks";
 import InputError from "../../Utility/InputError";
-import { makeEventHandler } from "../../../utils";
+import { searchFilter, makeEventHandler } from "../../../utils";
 import ComponentWrapper from "../../Utility/ComponentWrapper";
 import Popover from "../../Utility/Popover";
 import {
@@ -10,7 +10,6 @@ import {
   ComboboxVariantProps,
   Variants,
 } from "./Combobox.types";
-import { defaultFilterSuggestions } from "./utils";
 import { VariantRecord } from "../../../types";
 import DefaultCombobox from "./variants/DefaultCombobox";
 import FloatingCombobox from "./variants/FloatingCombobox";
@@ -19,6 +18,10 @@ const variants: VariantRecord<Variants, ComboboxVariantProps> = {
   default: DefaultCombobox,
   floating: FloatingCombobox,
 };
+
+function defaultFilter(value: string, options: string[]) {
+  return searchFilter<string>(value, options, (o) => o);
+}
 
 /** A combobox is a combination of a select, with a searchable text field. */
 export default function Combobox(props: ComboboxProps) {
@@ -41,7 +44,7 @@ export default function Combobox(props: ComboboxProps) {
     error,
     message,
     hideLabel = false,
-    filterSuggestions = defaultFilterSuggestions,
+    filterSuggestions = defaultFilter,
     onFocus,
     onBlur,
     variant = "default",

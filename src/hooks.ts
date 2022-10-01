@@ -130,13 +130,14 @@ export function useVariantComponent<V extends string, T>(
 
 export function useVariantClass<V extends string>(
   className: string,
-  variant: V
+  variant: V,
+  sep: string = "--"
 ) {
   return useMemo(() => {
     if (variant === "default") {
       return className;
     } else {
-      return `${className}--${variant}`;
+      return `${className}${sep}${variant}`;
     }
   }, [variant]);
 }

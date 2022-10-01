@@ -3,7 +3,7 @@ import cn from "classnames";
 
 import FloatingCustomSelect from "./variants/FloatingCustomSelect";
 import DefaultCustomSelect from "./variants/DefaultCustomSelect";
-import { useBool, useClickOutside, useIds, useVariant } from "../../../hooks";
+import { useIds, useVariant } from "../../../hooks";
 import { VariantRecord } from "../../../types";
 import ComponentWrapper from "../../Utility/ComponentWrapper";
 import InputError from "../../Utility/InputError";
@@ -12,8 +12,10 @@ import {
   CustomSelectVariantProps,
   Variants,
 } from "./CustomSelect.types";
-import { OptionProps } from "../Option";
 import Popover from "../../Utility/Popover";
+import useSelect from "./useSelect";
+import MaterialIcon from "../../Utility/MaterialIcon";
+import { searchFilter } from "../../../utils";
 
 const variants: VariantRecord<Variants, CustomSelectVariantProps<any>> = {
   default: DefaultCustomSelect,
@@ -27,24 +29,22 @@ const variants: VariantRecord<Variants, CustomSelectVariantProps<any>> = {
  *
  * https://www.w3.org/TR/wai-aria-practices/examples/combobox/combobox-select-only.html for accessibility implementation.
  *
+ * The CustomSelect supports multiple selection. If you want single selection, pass a single value in for `value`
+ * If you want multi-select, pass in an array of values.
  * */
 export default function CustomSelect<T>(props: CustomSelectProps<T>) {
   const {
-    value = null,
-    onChange,
     size = "medium",
     label,
     error,
     message,
     hideLabel = false,
     disabled = false,
-    children,
     variant = "default",
     required,
+    searchable = false,
   } = props;
 
-  const [menuActive, toggleMenu, openMenu, closeMenu] = useBool(false);
-  const ref = useRef<HTMLDivElement | null>(null);
   const [inputId, listBoxId, errorId, labelId] = useIds("CustomSelect", [
     "combo",
     "list",
@@ -54,56 +54,25 @@ export default function CustomSelect<T>(props: CustomSelectProps<T>) {
 
   const [Variant, className] = useVariant(variants, "aje-dropdown", variant);
 
-  const options: OptionProps<T>[] = React.Children.map(
-    children,
-    (child) => child.props
-  );
-
-  const selectedIndex = options.findIndex((o) => o.value == value);
-  const [focused, setFocused] = useState(selectedIndex || 0);
-
-  useClickOutside(
+  const {
+    selectedIndex,
+    multiselect,
+    menu,
+    handleKeyPress,
+    isFocused,
+    isSelected,
+    onChange,
+    options,
     ref,
-    () => {
-      if (menuActive) {
-        handleClose();
-      }
-    },
-    { enabled: menuActive }
-  );
-
-  const handleClose = () => {
-    if (focused !== selectedIndex) {
-      setFocused(selectedIndex);
-    }
-    closeMenu();
-  };
-
-  const handleKeyPress: React.KeyboardEventHandler = (e) => {
-    if (e.key === " ") {
-      openMenu();
-    } else if (e.key === "Escape") {
-      if (menuActive) {
-        handleClose();
-      } else {
-        ref.current?.blur();
-      }
-    } else if (menuActive) {
-      switch (e.key) {
-        case "ArrowDown":
-          setFocused(Math.min(focused + 1, options.length - 1));
-          break;
-        case "ArrowUp":
-          setFocused(Math.max(focused - 1, 0));
-          break;
-        case "Enter":
-          onChange && onChange(options[focused].value, e);
-          handleClose();
-        default:
-          break;
-      }
-    }
-  };
+    search,
+  } = useSelect({
+    value: props.value || null,
+    children: props.children,
+    onChange: props.onChange,
+    searchable,
+    filterOptions: (v, options) =>
+      searchFilter(v, options, (o) => o.searchKey || ""),
+  });
 
   return (
     <ComponentWrapper
@@ -112,6 +81,7 @@ export default function CustomSelect<T>(props: CustomSelectProps<T>) {
       error={error}
       disabled={disabled}
       required={required}
+      ref={ref}
     >
       <Variant
         message={message}
@@ -124,42 +94,44 @@ export default function CustomSelect<T>(props: CustomSelectProps<T>) {
         <div
           className="aje-combobox__input"
           aria-controls={listBoxId}
-          aria-expanded={menuActive}
+          aria-expanded={menu.opened}
           aria-haspopup="listbox"
           aria-labelledby={labelId}
           aria-describedby={error ? errorId : ""}
           id={inputId}
           role="combobox"
           tabIndex={0}
-          onClick={() => {
-            if (menuActive) {
-              handleClose();
-            } else {
-              openMenu();
-            }
-          }}
-          ref={ref}
+          onClick={menu.toggle}
           onKeyDown={handleKeyPress}
         >
-          <span>{options[selectedIndex]?.children}</span>
+          <span>{multiselect ? label : options[selectedIndex]?.children}</span>
         </div>
-        <Popover show={menuActive} size="full">
+        <Popover show={menu.opened} size="full">
           <ul
-            className="aje-combobox__menu"
+            className={cn("aje-combobox__menu", {
+              "is-multiselect": multiselect,
+            })}
             role="listbox"
             id={listBoxId}
             aria-labelledby={labelId}
             tabIndex={-1}
           >
-            {options.map(({ value, children }, idx) => (
+            {searchable && (
+              <li className="aje-combobox__search">
+                <input type="text" {...search} />
+                <MaterialIcon icon="search" />
+              </li>
+            )}
+            {options.map(({ value: optionValue, children }) => (
               <li
                 className={cn("aje-combobox__option", {
-                  "is-focused": idx === focused,
+                  "is-selected": isSelected(optionValue),
+                  "is-focused": isFocused(optionValue),
                 })}
                 role="option"
-                aria-selected={idx === focused}
-                onClick={(e) => onChange && onChange(value, e)}
-                key={String(value)}
+                aria-selected={isSelected(optionValue)}
+                onClick={(e) => onChange(optionValue, e)}
+                key={String(optionValue)}
               >
                 {children}
               </li>

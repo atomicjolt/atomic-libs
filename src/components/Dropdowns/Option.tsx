@@ -3,6 +3,7 @@ import React from "react";
 export interface OptionProps<T> {
   value: T;
   children: React.ReactNode;
+  searchKey?: string;
 }
 
 /** An Option in the various Dropdown */
