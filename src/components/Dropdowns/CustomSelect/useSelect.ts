@@ -1,27 +1,38 @@
 import React, { useMemo, useRef, useState } from "react";
 
-import { useBool, useClickOutside, useIds, useVariant } from "../../../hooks";
-import { EventHandler, HasValue, VariantRecord } from "../../../types";
+import { useBool, useClickOutside } from "../../../hooks";
+import { EventHandler } from "../../../types";
 import { OptionProps } from "../Option";
-import { NullTypeOrTypeArray } from "./CustomSelect.types";
 
 type SelectOnChangeHandler<T> = EventHandler<
   T,
   React.MouseEvent<Element> | React.KeyboardEvent<Element>
 >;
 
-interface UseSelectOptions<T, ChildrenProps extends OptionProps<T>> {
-  value: NullTypeOrTypeArray<T>;
+interface BaseOptions<T, ChildrenProps extends OptionProps<T>> {
   children:
     | React.ReactElement<ChildrenProps>
     | React.ReactElement<ChildrenProps>[];
-  onChange?: SelectOnChangeHandler<NullTypeOrTypeArray<T>>;
   searchable: boolean;
   filterOptions: (value: string, options: ChildrenProps[]) => ChildrenProps[];
 }
 
+type ValueOptions<T> =
+  | {
+      value: T | null;
+      onChange?: SelectOnChangeHandler<T | null>;
+    }
+  | {
+      value: (T | null)[];
+      onChange?: SelectOnChangeHandler<(T | null)[]>;
+    };
+
+type UseSelectOptions<T, C extends OptionProps<T>> = BaseOptions<T, C> &
+  ValueOptions<T>;
+
 interface UseSelectReturn<T, ChildrenProps extends OptionProps<T>> {
   readonly selectedValues: (T | null)[];
+  readonly selectedOption: ChildrenProps;
   readonly selectedIndex: number;
   readonly multiselect: boolean;
   readonly ref: React.RefObject<any>;
@@ -42,6 +53,12 @@ interface UseSelectReturn<T, ChildrenProps extends OptionProps<T>> {
   };
 }
 
+function isMultiSelect<T>(
+  value: T | null | (T | null)[]
+): value is (T | null)[] {
+  return Array.isArray(value);
+}
+
 export default function useSelect<T, C extends OptionProps<T>>(
   opts: UseSelectOptions<T, C>
 ): UseSelectReturn<T, C> {
@@ -50,11 +67,11 @@ export default function useSelect<T, C extends OptionProps<T>>(
   const { value, children, onChange, searchable, filterOptions } = opts;
   let selectedValues: (T | null)[];
   let multiselect = false;
-  if (!Array.isArray(value)) {
-    selectedValues = [value];
-  } else {
+  if (Array.isArray(value)) {
     selectedValues = value;
     multiselect = true;
+  } else {
+    selectedValues = [value];
   }
 
   let options: C[] = React.Children.map(children, (child) => child.props);
@@ -62,6 +79,8 @@ export default function useSelect<T, C extends OptionProps<T>>(
   const selectedIndex = options.findIndex((o) =>
     selectedValues.includes(o.value)
   );
+
+  const selectedOption = options[selectedIndex];
   // HOOKS -------------------------------------
 
   const [search, setSearch] = useState<string>("");
@@ -101,17 +120,21 @@ export default function useSelect<T, C extends OptionProps<T>>(
     handleClose();
     if (!onChange) return;
 
+    // TODO: figure out a better way to disciminate between these types
+    // rather than just asserting it manually
     if (multiselect) {
+      const multiOnChange = onChange as SelectOnChangeHandler<(T | null)[]>;
       if (selectedValues.includes(v)) {
-        onChange(
+        multiOnChange(
           selectedValues.filter((s) => s !== v),
           e
         );
       } else {
-        onChange([...selectedValues, v], e);
+        multiOnChange([...selectedValues, v], e);
       }
     } else {
-      onChange(v, e);
+      const singleOnChange = onChange as SelectOnChangeHandler<T | null>;
+      singleOnChange(v, e);
     }
   };
 
@@ -149,6 +172,7 @@ export default function useSelect<T, C extends OptionProps<T>>(
 
   return {
     selectedValues,
+    selectedOption,
     selectedIndex,
     multiselect,
     ref,

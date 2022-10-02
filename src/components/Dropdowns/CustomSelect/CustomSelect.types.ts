@@ -1,17 +1,11 @@
-import React, { EventHandler } from "react";
+import React from "react";
 import { HasVariant, InputProps } from "../../../types";
-import { OptionProps } from "../Option";
 
-export type Variants = "default" | "floating";
-export type NullTypeOrTypeArray<T> = T | T[] | (T | null)[] | null;
+export type CustomSelectVariants = "default" | "floating";
 
-export interface CustomSelectProps<T>
-  extends InputProps<
-      NullTypeOrTypeArray<T>,
-      Element,
-      React.MouseEvent<Element> | React.KeyboardEvent<Element>
-    >,
-    HasVariant<Variants> {
+export interface CustomSelectProps<T extends {} | Array<any>>
+  extends InputProps<T | null, Element, React.SyntheticEvent<Element>>,
+    HasVariant<CustomSelectVariants> {
   readonly children: React.ReactElement | React.ReactElement[];
   /** Adds a search input to the dropdown.
    * When enabling search, it is reccomended to added a `searchKey` to each

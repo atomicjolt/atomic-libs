@@ -10,14 +10,17 @@ import InputError from "../../Utility/InputError";
 import {
   CustomSelectProps,
   CustomSelectVariantProps,
-  Variants,
+  CustomSelectVariants,
 } from "./CustomSelect.types";
 import Popover from "../../Utility/Popover";
 import useSelect from "./useSelect";
 import MaterialIcon from "../../Utility/MaterialIcon";
 import { searchFilter } from "../../../utils";
 
-const variants: VariantRecord<Variants, CustomSelectVariantProps<any>> = {
+const variants: VariantRecord<
+  CustomSelectVariants,
+  CustomSelectVariantProps<any>
+> = {
   default: DefaultCustomSelect,
   floating: FloatingCustomSelect,
 };
@@ -32,7 +35,9 @@ const variants: VariantRecord<Variants, CustomSelectVariantProps<any>> = {
  * The CustomSelect supports multiple selection. If you want single selection, pass a single value in for `value`
  * If you want multi-select, pass in an array of values.
  * */
-export default function CustomSelect<T>(props: CustomSelectProps<T>) {
+export default function CustomSelect<T extends {} | Array<any>>(
+  props: CustomSelectProps<T>
+) {
   const {
     size = "medium",
     label,
@@ -55,7 +60,7 @@ export default function CustomSelect<T>(props: CustomSelectProps<T>) {
   const [Variant, className] = useVariant(variants, "aje-dropdown", variant);
 
   const {
-    selectedIndex,
+    selectedOption,
     multiselect,
     menu,
     handleKeyPress,
@@ -104,7 +109,7 @@ export default function CustomSelect<T>(props: CustomSelectProps<T>) {
           onClick={menu.toggle}
           onKeyDown={handleKeyPress}
         >
-          <span>{multiselect ? label : options[selectedIndex]?.children}</span>
+          <span>{multiselect ? label : selectedOption?.children}</span>
         </div>
         <Popover show={menu.opened} size="full">
           <ul
