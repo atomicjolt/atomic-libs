@@ -99,7 +99,7 @@ export default function useSelect<T, C extends OptionProps<T>>(
     ref,
     () => {
       if (menuActive) {
-        handleClose();
+        handleClose(true);
       }
     },
     { enabled: menuActive }
@@ -107,13 +107,15 @@ export default function useSelect<T, C extends OptionProps<T>>(
 
   // CALLBACKS -------------------------------------
   const isSelected = (value: T) => selectedValues.includes(value);
-  const isFocused = (value: T) => value == options[focused].value;
+  const isFocused = (value: T) => value == options[focused]?.value;
 
-  const handleClose = () => {
-    if (focused !== selectedIndex) {
-      setFocused(selectedIndex);
+  const handleClose = (force: boolean = false) => {
+    if (!multiselect || force) {
+      if (focused !== selectedIndex) {
+        setFocused(selectedIndex);
+      }
+      closeMenu();
     }
-    if (!multiselect) closeMenu();
   };
 
   const onChangeWrapper: SelectOnChangeHandler<T | null> = (v, e) => {
@@ -167,8 +169,6 @@ export default function useSelect<T, C extends OptionProps<T>>(
   const onSearch: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     setSearch(e.target.value);
   };
-
-  console.log(search);
 
   return {
     selectedValues,
