@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import "./playground.scss";
 import {
   Button,
   TextInput,
@@ -11,11 +11,11 @@ import {
   ToggleSwitch,
   CustomSelect,
   Option,
-} from "../../src";
+} from "./elements";
+import FormTesting from "./FormTesting";
 
 function Playground() {
-  const [currentTab, setCurrentTab] = useState("inputs");
-
+  const [currentTab, setCurrentTab] = useState("form");
   const [radioValue, setRadioValue] = useState("opt1");
   const [toggleChecked, setToggleChecked] = useState(false);
   const [number, setNumber] = useState(0);
@@ -39,10 +39,7 @@ function Playground() {
                 label="Number Input"
                 max={10}
                 value={number}
-                onChange={(v) => {
-                  console.log(v);
-                  setNumber(v);
-                }}
+                onChange={setNumber}
               />
             </div>
             <div className="padder">
@@ -92,12 +89,12 @@ function Playground() {
               <Button variant="inverted">Inverted</Button>
             </div>
             <div className="padder">
-              <IconButton icon="more_vert" ariaLabel="move" />
+              <IconButton icon="more_vert" ariaLabel="more" />
             </div>
           </Tabs.Tab>
-          {/* <Tabs.Tab name="form">
+          <Tabs.Tab name="form">
             <FormTesting />
-          </Tabs.Tab> */}
+          </Tabs.Tab>
         </Tabs.Content>
       </Tabs>
     </div>

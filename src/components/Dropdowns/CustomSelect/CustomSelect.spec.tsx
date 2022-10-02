@@ -21,6 +21,28 @@ describe("matches snapshots", () => {
     expect(result.asFragment()).toMatchSnapshot();
   });
 
+  it("matches multi-select enabled", () => {
+    const result = render(
+      <CustomSelect {...shared} value={["opt1", "opt2"]}>
+        <Option value="opt1">Option 1</Option>
+        <Option value="opt2">Option 2</Option>
+      </CustomSelect>
+    );
+
+    expect(result.asFragment()).toMatchSnapshot();
+  });
+
+  it("matches search enabled", () => {
+    const result = render(
+      <CustomSelect {...shared} searchable>
+        <Option value="opt1">Option 1</Option>
+        <Option value="opt2">Option 2</Option>
+      </CustomSelect>
+    );
+
+    expect(result.asFragment()).toMatchSnapshot();
+  });
+
   it("matches floating variant", () => {
     const result = render(
       <CustomSelect variant="floating" {...shared}>

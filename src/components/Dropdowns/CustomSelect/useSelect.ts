@@ -1,71 +1,58 @@
-import React, { useMemo, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 
 import { useBool, useClickOutside } from "../../../hooks";
-import { EventHandler } from "../../../types";
+import { EventHandler, FilterFunction } from "../../../types";
 import { OptionProps } from "../Option";
 
+// TYPES --------------------------------------------------------
 type SelectOnChangeHandler<T> = EventHandler<
   T,
   React.MouseEvent<Element> | React.KeyboardEvent<Element>
 >;
 
-interface BaseOptions<T, ChildrenProps extends OptionProps<T>> {
-  children:
+interface UseSelectOptions<T, ChildrenProps extends OptionProps<T>> {
+  readonly children:
     | React.ReactElement<ChildrenProps>
     | React.ReactElement<ChildrenProps>[];
-  searchable: boolean;
-  filterOptions: (value: string, options: ChildrenProps[]) => ChildrenProps[];
+  readonly searchable: boolean;
+  readonly filterOptions: FilterFunction<ChildrenProps>;
+  readonly value: T | T[];
+  readonly onChange?: SelectOnChangeHandler<T> | SelectOnChangeHandler<T[]>;
 }
 
-type ValueOptions<T> =
-  | {
-      value: T | null;
-      onChange?: SelectOnChangeHandler<T | null>;
-    }
-  | {
-      value: (T | null)[];
-      onChange?: SelectOnChangeHandler<(T | null)[]>;
-    };
+interface UseSelectMenu {
+  readonly opened: boolean;
+  readonly open: () => void;
+  readonly close: () => void;
+  readonly toggle: () => void;
+}
 
-type UseSelectOptions<T, C extends OptionProps<T>> = BaseOptions<T, C> &
-  ValueOptions<T>;
+interface UseSelectSearch {
+  readonly value: string;
+  readonly onChange: React.ChangeEventHandler<HTMLInputElement>;
+}
 
 interface UseSelectReturn<T, ChildrenProps extends OptionProps<T>> {
-  readonly selectedValues: (T | null)[];
+  readonly selectedValues: T[];
   readonly selectedOption: ChildrenProps;
   readonly selectedIndex: number;
   readonly multiselect: boolean;
   readonly ref: React.RefObject<any>;
   readonly options: ChildrenProps[];
+  readonly menu: UseSelectMenu;
+  readonly search: UseSelectSearch;
   readonly handleKeyPress: React.KeyboardEventHandler;
   readonly isSelected: (value: T) => boolean;
   readonly isFocused: (value: T) => boolean;
-  readonly onChange: SelectOnChangeHandler<T | null>;
-  readonly menu: {
-    readonly opened: boolean;
-    readonly open: () => void;
-    readonly close: () => void;
-    readonly toggle: () => void;
-  };
-  readonly search: {
-    readonly value: string;
-    readonly onChange: React.ChangeEventHandler<HTMLInputElement>;
-  };
+  readonly onChange: SelectOnChangeHandler<T>;
 }
 
-function isMultiSelect<T>(
-  value: T | null | (T | null)[]
-): value is (T | null)[] {
-  return Array.isArray(value);
-}
+// Functions --------------------------------------------------------
 
-export default function useSelect<T, C extends OptionProps<T>>(
-  opts: UseSelectOptions<T, C>
-): UseSelectReturn<T, C> {
-  // SETUP -------------------------------------
-
-  const { value, children, onChange, searchable, filterOptions } = opts;
-  let selectedValues: (T | null)[];
+function handleMultiSelect<T>(
+  value: T | T[]
+): [values: T[], multiselect: boolean] {
+  let selectedValues: T[];
   let multiselect = false;
   if (Array.isArray(value)) {
     selectedValues = value;
@@ -74,7 +61,24 @@ export default function useSelect<T, C extends OptionProps<T>>(
     selectedValues = [value];
   }
 
-  let options: C[] = React.Children.map(children, (child) => child.props);
+  return [selectedValues, multiselect];
+}
+
+export default function useSelect<
+  SelectedValue,
+  ChildProps extends OptionProps<SelectedValue>
+>(
+  opts: UseSelectOptions<SelectedValue, ChildProps>
+): UseSelectReturn<SelectedValue, ChildProps> {
+  // SETUP -------------------------------------
+
+  const { value, children, onChange, searchable, filterOptions } = opts;
+  const [selectedValues, multiselect] = handleMultiSelect(value);
+
+  let options: ChildProps[] = React.Children.map(
+    children,
+    (child) => child.props
+  );
 
   const selectedIndex = options.findIndex((o) =>
     selectedValues.includes(o.value)
@@ -106,8 +110,8 @@ export default function useSelect<T, C extends OptionProps<T>>(
   );
 
   // CALLBACKS -------------------------------------
-  const isSelected = (value: T) => selectedValues.includes(value);
-  const isFocused = (value: T) => value == options[focused]?.value;
+  const isSelected = (value: SelectedValue) => selectedValues.includes(value);
+  const isFocused = (value: SelectedValue) => value == options[focused]?.value;
 
   const handleClose = (force: boolean = false) => {
     if (!multiselect || force) {
@@ -118,14 +122,14 @@ export default function useSelect<T, C extends OptionProps<T>>(
     }
   };
 
-  const onChangeWrapper: SelectOnChangeHandler<T | null> = (v, e) => {
+  const onChangeWrapper: SelectOnChangeHandler<SelectedValue> = (v, e) => {
     handleClose();
     if (!onChange) return;
 
     // TODO: figure out a better way to disciminate between these types
     // rather than just asserting it manually
     if (multiselect) {
-      const multiOnChange = onChange as SelectOnChangeHandler<(T | null)[]>;
+      const multiOnChange = onChange as SelectOnChangeHandler<SelectedValue[]>;
       if (selectedValues.includes(v)) {
         multiOnChange(
           selectedValues.filter((s) => s !== v),
@@ -135,7 +139,7 @@ export default function useSelect<T, C extends OptionProps<T>>(
         multiOnChange([...selectedValues, v], e);
       }
     } else {
-      const singleOnChange = onChange as SelectOnChangeHandler<T | null>;
+      const singleOnChange = onChange as SelectOnChangeHandler<SelectedValue>;
       singleOnChange(v, e);
     }
   };
@@ -145,7 +149,7 @@ export default function useSelect<T, C extends OptionProps<T>>(
       openMenu();
     } else if (e.key === "Escape") {
       if (menuActive) {
-        handleClose();
+        handleClose(true);
       } else {
         ref.current?.blur();
       }
@@ -170,6 +174,18 @@ export default function useSelect<T, C extends OptionProps<T>>(
     setSearch(e.target.value);
   };
 
+  const menu = {
+    opened: menuActive,
+    open: openMenu,
+    close: () => handleClose(true),
+    toggle: toggleMenu,
+  };
+
+  const searchData = {
+    value: search,
+    onChange: onSearch,
+  };
+
   return {
     selectedValues,
     selectedOption,
@@ -181,15 +197,7 @@ export default function useSelect<T, C extends OptionProps<T>>(
     isFocused,
     isSelected,
     onChange: onChangeWrapper,
-    menu: {
-      opened: menuActive,
-      open: openMenu,
-      close: closeMenu,
-      toggle: toggleMenu,
-    },
-    search: {
-      value: search,
-      onChange: onSearch,
-    },
+    menu,
+    search: searchData,
   };
 }

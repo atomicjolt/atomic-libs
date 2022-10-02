@@ -16,6 +16,11 @@ export interface HasValue<T> {
   value: T;
 }
 
+export type FilterFunction<FilteredValue, InputValue = string> = (
+  value: InputValue,
+  values: FilteredValue[]
+) => FilteredValue[];
+
 export type VariantRecord<Variants extends string, ComponentProps> = Record<
   Variants,
   React.ComponentType<ComponentProps>
