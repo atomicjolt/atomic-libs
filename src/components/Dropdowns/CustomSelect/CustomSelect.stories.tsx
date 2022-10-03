@@ -1,7 +1,12 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import CustomSelect from ".";
-import { DefaultInputProperties, InputControls } from "../../storybook";
+import {
+  DefaultInputProperties,
+  disableControl,
+  InputControls,
+  inputProperties,
+} from "../../storybook";
 import MaterialIcon from "../../Utility/MaterialIcon";
 import Option from "../Option";
 import { CustomSelectProps } from "./CustomSelect.types";
@@ -15,6 +20,7 @@ export default {
       options: ["val1", "val2", "val3", null],
     },
     ...InputControls,
+    ...disableControl("children"),
   },
 } as ComponentMeta<typeof CustomSelect>;
 
@@ -28,10 +34,10 @@ export const Default = Template.bind({});
 Default.args = {
   value: "val1",
   variant: "default",
-  ...DefaultInputProperties,
-  placeholder: undefined,
+  ...inputProperties({ filter: ["placeholder"] }),
   label: "Custom Select Label",
   searchable: false,
+  searchPlaceholder: "Search...",
   children: [
     <Option value="val1" key="1">
       Option 1

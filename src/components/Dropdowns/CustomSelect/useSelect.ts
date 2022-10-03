@@ -145,15 +145,7 @@ export default function useSelect<
   };
 
   const handleKeyPress: React.KeyboardEventHandler = (e) => {
-    if (e.key === " ") {
-      openMenu();
-    } else if (e.key === "Escape") {
-      if (menuActive) {
-        handleClose(true);
-      } else {
-        ref.current?.blur();
-      }
-    } else if (menuActive) {
+    if (menuActive) {
       switch (e.key) {
         case "ArrowDown":
           setFocused(Math.min(focused + 1, options.length - 1));
@@ -162,10 +154,21 @@ export default function useSelect<
           setFocused(Math.max(focused - 1, 0));
           break;
         case "Enter":
+        case " ":
           onChangeWrapper(options[focused].value, e);
           handleClose();
         default:
           break;
+      }
+    } else {
+      if (e.key === " ") {
+        openMenu();
+      } else if (e.key === "Escape") {
+        if (menuActive) {
+          handleClose(true);
+        } else {
+          ref.current?.blur();
+        }
       }
     }
   };

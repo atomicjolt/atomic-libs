@@ -48,6 +48,7 @@ export default function CustomSelect<T extends {} | Array<any>>(
     variant = "default",
     required,
     searchable = false,
+    searchPlaceholder,
   } = props;
 
   const [inputId, listBoxId, errorId, labelId] = useIds("CustomSelect", [
@@ -123,7 +124,11 @@ export default function CustomSelect<T extends {} | Array<any>>(
           >
             {searchable && (
               <li className="aje-combobox__search">
-                <input type="text" {...search} />
+                <input
+                  type="text"
+                  {...search}
+                  placeholder={searchPlaceholder}
+                />
                 <MaterialIcon icon="search" />
               </li>
             )}

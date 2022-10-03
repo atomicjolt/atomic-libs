@@ -36,6 +36,7 @@
   --option-padding: var(--dropdown-padding);
   --option-padding-horizontal: calc(var(--dropdown-padding) * 2);
   --option-icon-gap: 8px;
+  --option-border-clr: var(--neutral50, transparent);
 
   .aje-combobox {
     position: relative;
@@ -123,8 +124,8 @@
       box-shadow: var(--menu-box-shadow);
 
       &.is-multiselect {
-        .aje-combobox__option {
-          margin-bottom: 1px;
+        .aje-combobox__option + .aje-combobox__option {
+          border-top: 1px solid var(--option-border-clr);
         }
       }
     }
@@ -177,30 +178,26 @@
         }
       }
 
-      &.is-focused {
-        --option-bg-clr: var(--neutral100);
+      &.is-selected {
+        --option-selected-clr: var(--primary800);
       }
 
-      &.is-selected {
+      &.is-focused {
         --option-bg-clr: var(--primary700);
         --option-text-clr: var(--text-clr-inverted);
         --option-icon-clr: var(--text-clr-inverted);
         --option-selected-clr: var(--text-clr-inverted);
       }
-
-      &.is-focused.is-selected {
-        --option-bg-clr: var(--primary800);
-      }
     }
 
     &__search {
       position: relative;
-      border-bottom: 1px solid var(--neutral200);
+      border-bottom: 1px solid var(--option-border-clr);
 
       input {
         border: none;
         background-color: var(--option-bg-clr);
-        height: 4rem;
+        height: var(--option-height);
         width: 100%;
         padding: 0 32px 0 var(--option-padding-horizontal);
         @include mixins.regular;

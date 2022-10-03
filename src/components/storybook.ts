@@ -26,32 +26,129 @@ export function inputProperties({ filter = [], merge = {} }: Options) {
   );
 }
 
+export function disableControl(name: string) {
+  return {
+    [name]: { table: { disable: true } },
+  };
+}
+
 export const CallbackControls = {
   onChange: {
     control: false,
+    table: {
+      category: "Events",
+    },
   },
   onClick: {
     control: false,
+    table: {
+      category: "Events",
+    },
   },
   onFocus: {
     control: false,
+    table: {
+      category: "Events",
+    },
   },
   onBlur: {
     control: false,
+    table: {
+      category: "Events",
+    },
   },
   onKeyDown: {
     control: false,
+    table: {
+      category: "Events",
+    },
   },
   onKeyUp: {
     control: false,
+    table: {
+      category: "Events",
+    },
+  },
+};
+
+export const CommonInputControls = {
+  label: {
+    control: "text",
+    table: {
+      category: "Common",
+    },
+  },
+  hideLabel: {
+    control: "boolean",
+    table: {
+      category: "Common",
+    },
+  },
+  error: {
+    control: "text",
+    table: {
+      category: "Common",
+    },
+  },
+  message: {
+    control: "text",
+    table: {
+      category: "Common",
+    },
+  },
+  disabled: {
+    control: "boolean",
+    table: {
+      category: "Common",
+    },
+  },
+  required: {
+    control: "boolean",
+    table: {
+      category: "Common",
+    },
+  },
+  readOnly: {
+    control: "boolean",
+    table: {
+      category: "Common",
+    },
+  },
+  size: {
+    control: "select",
+    table: {
+      category: "Common",
+    },
+  },
+  placeholder: {
+    control: "text",
+    table: {
+      category: "Common",
+    },
+  },
+  name: {
+    control: "text",
+    table: {
+      category: "Common",
+    },
+  },
+  autoFocus: {
+    control: "boolean",
+    table: {
+      category: "Common",
+    },
+  },
+  defaultValue: {
+    control: "text",
+    table: {
+      category: "Common",
+    },
   },
 };
 
 export const InputControls = {
-  error: {
-    control: "text",
-  },
   ...CallbackControls,
+  ...CommonInputControls,
 };
 
 export const UncontrolledInputControls = {
