@@ -6,6 +6,8 @@ import { useVariantClass } from "../../../hooks";
 export interface MaterialIconProps
   extends Omit<React.HTMLProps<HTMLElement>, "size"> {
   icon: MaterialIcons;
+  /** The type of material icon to
+   * render. Note that the font for that style needs to be in scope for it to render properly*/
   variant?: "default" | "outlined" | "round" | "sharp" | "two-tone";
   className?: string;
   size?: "small" | "medium" | "large";

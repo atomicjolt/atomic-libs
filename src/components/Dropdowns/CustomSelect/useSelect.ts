@@ -30,6 +30,7 @@ interface UseSelectMenu {
 interface UseSelectSearch {
   readonly value: string;
   readonly onChange: React.ChangeEventHandler<HTMLInputElement>;
+  readonly onKeyDown: React.KeyboardEventHandler<HTMLInputElement>;
 }
 
 interface UseSelectReturn<T, ChildrenProps extends OptionProps<T>> {
@@ -157,19 +158,27 @@ export default function useSelect<
         case " ":
           onChangeWrapper(options[focused].value, e);
           handleClose();
+          break;
+        case "Escape":
+          if (menuActive) {
+            handleClose(true);
+          } else {
+            ref.current?.blur();
+          }
+          break;
         default:
           break;
       }
     } else {
       if (e.key === " ") {
         openMenu();
-      } else if (e.key === "Escape") {
-        if (menuActive) {
-          handleClose(true);
-        } else {
-          ref.current?.blur();
-        }
       }
+    }
+  };
+
+  const searchKeydown: React.KeyboardEventHandler<HTMLInputElement> = (e) => {
+    if (e.key !== " ") {
+      handleKeyPress(e);
     }
   };
 
@@ -187,6 +196,7 @@ export default function useSelect<
   const searchData = {
     value: search,
     onChange: onSearch,
+    onKeyDown: searchKeydown,
   };
 
   return {
