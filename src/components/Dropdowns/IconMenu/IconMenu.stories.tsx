@@ -29,4 +29,5 @@ IconMenu.args = {
   label: "Custom dropdown label",
   disabled: false,
   position: "bottom-left",
+  iconVariant: "default",
 };

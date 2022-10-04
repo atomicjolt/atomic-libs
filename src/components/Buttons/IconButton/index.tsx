@@ -1,7 +1,7 @@
 import React from "react";
 import { LoadingProps, MaterialIcons } from "../../../types";
 import Spinner from "../../Loaders/Spinner";
-import MaterialIcon from "../../Utility/MaterialIcon";
+import MaterialIcon, { MaterialIconVariants } from "../../Utility/MaterialIcon";
 
 interface BaseProps {
   /** Material Icon to render */
@@ -11,6 +11,8 @@ interface BaseProps {
   ariaLabel: string;
   disabled?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  /** The MaterialIcons icon set to use */
+  iconVariant?: MaterialIconVariants;
 }
 
 export type IconButtonProps = BaseProps & LoadingProps & React.AriaAttributes;
@@ -26,6 +28,7 @@ export default function IconButton(props: IconButtonProps) {
     loading,
     loadingComplete,
     loadingLabel,
+    iconVariant = "default",
     ...rest
   } = props;
 
@@ -42,7 +45,7 @@ export default function IconButton(props: IconButtonProps) {
       {loading ? (
         <Spinner loading={!loadingComplete} />
       ) : (
-        <MaterialIcon icon={icon} />
+        <MaterialIcon icon={icon} variant={iconVariant} />
       )}
     </button>
   );

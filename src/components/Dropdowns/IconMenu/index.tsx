@@ -7,6 +7,7 @@ import Popover, {
   PopoverPosition,
   PopoverWrapper,
 } from "../../Utility/Popover";
+import { MaterialIconVariants } from "../../Utility/MaterialIcon";
 
 export interface IconMenuProps {
   icon: MaterialIcons;
@@ -16,6 +17,8 @@ export interface IconMenuProps {
   /** Changes where the dropdown menu appears */
   position: PopoverPosition;
   disabled?: boolean;
+  /** The MaterialIcons icon set to use */
+  iconVariant?: MaterialIconVariants;
 }
 
 /**
@@ -23,13 +26,15 @@ export interface IconMenuProps {
  *
  * https://www.w3.org/TR/wai-aria-practices/examples/combobox/combobox-select-only.html for accessibility implementation.
  * */
-function IconMenu({
-  children,
-  icon = "more_vert",
-  label = "More options",
-  disabled = false,
-  position,
-}: IconMenuProps) {
+function IconMenu(props: IconMenuProps) {
+  const {
+    children,
+    icon = "more_vert",
+    label = "More options",
+    disabled = false,
+    position,
+    iconVariant = "default",
+  } = props;
   const [menuActive, toggleMenu] = useBool(false);
 
   const [buttonId, menuId] = useIds("iconmenu", ["menu"]);
@@ -55,6 +60,7 @@ function IconMenu({
         ariaLabel={label}
         disabled={disabled}
         onClick={toggleMenu}
+        iconVariant={iconVariant}
       />
       <PopoverWrapper>
         <Popover show={menuActive} position={position}>
