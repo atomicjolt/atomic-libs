@@ -1,12 +1,13 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { DefaultInputProperties } from "../../storybook";
+import { DefaultInputProperties, InputControls } from "../../storybook";
 import Combobox from ".";
 import { ComboboxProps } from "./Combobox.types";
 
 export default {
   title: "Dropdowns/Combobox",
   component: Combobox,
+  argTypes: InputControls,
 } as ComponentMeta<typeof Combobox>;
 
 const Template: ComponentStory<typeof Combobox> = (args: ComboboxProps) => {

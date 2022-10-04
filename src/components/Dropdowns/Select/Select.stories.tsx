@@ -4,6 +4,7 @@ import {
   InputControls,
   DefaultInputProperties,
   inputProperties,
+  disableControl,
 } from "../../storybook";
 import SelectComponent, { SelectProps } from ".";
 
@@ -16,6 +17,8 @@ export default {
       options: ["none", "value1", "value2"],
     },
     ...InputControls,
+    ...disableControl("readOnly"),
+    ...disableControl("placeholder"),
   },
 } as ComponentMeta<typeof SelectComponent>;
 

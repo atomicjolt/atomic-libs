@@ -108,12 +108,6 @@ export const CommonInputControls = {
       category: "Common",
     },
   },
-  readOnly: {
-    control: "boolean",
-    table: {
-      category: "Common",
-    },
-  },
   size: {
     control: "select",
     table: {
@@ -132,6 +126,15 @@ export const CommonInputControls = {
       category: "Common",
     },
   },
+};
+
+export const InputControls = {
+  ...CallbackControls,
+  ...CommonInputControls,
+};
+
+export const TextInputControls = {
+  ...InputControls,
   autoFocus: {
     control: "boolean",
     table: {
@@ -144,11 +147,12 @@ export const CommonInputControls = {
       category: "Common",
     },
   },
-};
-
-export const InputControls = {
-  ...CallbackControls,
-  ...CommonInputControls,
+  readOnly: {
+    control: "boolean",
+    table: {
+      category: "Common",
+    },
+  },
 };
 
 export const UncontrolledInputControls = {
