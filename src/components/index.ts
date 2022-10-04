@@ -20,6 +20,7 @@ export { default as Textarea } from "./Inputs/Textarea";
 export { default as ToggleSwitch } from "./Inputs/ToggleSwitch";
 export { default as Spinner } from "./Loaders/Spinner";
 export { default as ThreeDotLoader } from "./Loaders/Spinner";
+export { default as BlankModal } from "./Modals/BlankModal";
 export { default as Modal } from "./Modals/Modal";
 export { default as PopupModal } from "./Modals/PopupModal";
 export { default as ConfirmationModal } from "./Modals/ConfirmationModal";
