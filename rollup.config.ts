@@ -52,6 +52,7 @@ export default defineConfig([
   styleSheetEntry("src/components/index.scss", "dist/styles.css"),
   styleSheetEntry("src/defines/fonts.scss", "dist/fonts.css"),
   styleSheetEntry("src/defines/variables.scss", "dist/variables.css"),
+  styleSheetEntry("src/defines/globals.scss", "dist/globals.css"),
   {
     input: "dist/esm/types/index.d.ts",
     output: [{ file: "dist/index.d.ts", format: "esm" }],

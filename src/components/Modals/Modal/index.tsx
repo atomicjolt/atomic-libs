@@ -23,6 +23,8 @@ export interface ModalProps {
   secondaryAction?: () => void;
   /** Callback when the close button is pressed */
   onClose?: () => void;
+  /** Centers the modal within the viewport */
+  centered?: boolean;
 }
 
 /**
@@ -40,10 +42,11 @@ function Modal(props: ModalProps) {
     primaryAction,
     secondaryAction,
     onClose,
+    centered,
   } = props;
 
   return (
-    <BasicModal open={open}>
+    <BasicModal open={open} centered={centered}>
       <div className="aje-modal__top">
         <h2 className="aje-modal__title">{title}</h2>
         <button

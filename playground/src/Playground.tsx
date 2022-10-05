@@ -11,11 +11,12 @@ import {
   ToggleSwitch,
   CustomSelect,
   Option,
+  PopupModal,
 } from "./elements";
 import FormTesting from "./FormTesting";
 
 function Playground() {
-  const [currentTab, setCurrentTab] = useState("form");
+  const [currentTab, setCurrentTab] = useState("modal");
   const [radioValue, setRadioValue] = useState("opt1");
   const [toggleChecked, setToggleChecked] = useState(false);
   const [number, setNumber] = useState(0);
@@ -28,6 +29,7 @@ function Playground() {
           <Tabs.Link to="inputs">Inputs</Tabs.Link>
           <Tabs.Link to="buttons">Buttons</Tabs.Link>
           <Tabs.Link to="form">Form</Tabs.Link>
+          <Tabs.Link to="modal">Modal</Tabs.Link>
         </Tabs.Navigation>
         <Tabs.Content>
           <Tabs.Tab name="inputs">
@@ -94,6 +96,9 @@ function Playground() {
           </Tabs.Tab>
           <Tabs.Tab name="form">
             <FormTesting />
+          </Tabs.Tab>
+          <Tabs.Tab name="modal">
+            <PopupModal title="Title">Here is some content</PopupModal>
           </Tabs.Tab>
         </Tabs.Content>
       </Tabs>
