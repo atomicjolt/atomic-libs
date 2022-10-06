@@ -2,6 +2,7 @@ import React from "react";
 import { modalInitializer, useModal } from "../utils";
 import Button from "../../Buttons/Button";
 import BasicModal from "../BlankModal";
+import { makeOptionaCallback } from "../../../utils";
 
 export interface ModalProps {
   /** Whether or not the modal is visible */
@@ -21,7 +22,7 @@ export interface ModalProps {
   primaryAction?: () => void;
   /** Callback when the secondary button is pressed */
   secondaryAction?: () => void;
-  /** Callback when the close button is pressed */
+  /** Callback when the close button is pressed, or the background is clicked on */
   onClose?: () => void;
   /** Centers the modal within the viewport */
   centered?: boolean;
@@ -45,14 +46,20 @@ function Modal(props: ModalProps) {
     centered,
   } = props;
 
+  const onCloseCallback = makeOptionaCallback(onClose);
+
   return (
-    <BasicModal open={open} centered={centered}>
+    <BasicModal
+      open={open}
+      centered={centered}
+      onOutsideClick={onCloseCallback}
+    >
       <div className="aje-modal__top">
         <h2 className="aje-modal__title">{title}</h2>
         <button
           className="aje-modal__close"
           aria-label="close modal"
-          onClick={() => onClose && onClose()}
+          onClick={onCloseCallback}
         >
           <i className="material-icons" aria-hidden>
             close
@@ -65,7 +72,7 @@ function Modal(props: ModalProps) {
           <Button
             variant="secondary"
             type="button"
-            onClick={() => primaryAction && primaryAction()}
+            onClick={makeOptionaCallback(primaryAction)}
           >
             {secondaryButton}
           </Button>
@@ -74,7 +81,7 @@ function Modal(props: ModalProps) {
           <Button
             variant="primary"
             type="button"
-            onClick={() => secondaryAction && secondaryAction()}
+            onClick={makeOptionaCallback(secondaryAction)}
           >
             {primaryButton}
           </Button>

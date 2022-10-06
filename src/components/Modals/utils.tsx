@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
+import React, { createRef, useEffect, useRef } from "react";
 import ReactDOM from "react-dom";
+import { useClickOutside } from "../../hooks";
 
 interface ModalData {
   appRoot: Element;
@@ -7,11 +8,25 @@ interface ModalData {
   initialized: boolean;
 }
 
+interface UseModalOptions {
+  open: boolean;
+  onOutsideClick: () => void;
+  data?: ModalData;
+}
+
 export let SharedModalData: ModalData = {
   initialized: false,
 } as ModalData;
 
-export function useModal(open: boolean, data: ModalData = SharedModalData) {
+type UseModalReturn<E extends HTMLElement> = [
+  (node: React.ReactNode) => JSX.Element | null,
+  React.RefObject<E>
+];
+
+export function useModal<E extends HTMLElement>(
+  options: UseModalOptions
+): UseModalReturn<E> {
+  const { open, data = SharedModalData, onOutsideClick } = options;
   useEffect(() => {
     if (data.initialized) {
       if (open) {
@@ -23,16 +38,20 @@ export function useModal(open: boolean, data: ModalData = SharedModalData) {
     }
   }, [open, data.appRoot, data.initialized]);
 
-  return (node: React.ReactNode) => {
+  const ref = useRef<E | null>(null);
+  useClickOutside(ref, onOutsideClick, { enabled: open });
+
+  const renderModal = (node: React.ReactNode) => {
     if (!open) return null;
     if (data.initialized) {
-      // @ts-ignore
       return ReactDOM.createPortal(node, data.modalRoot);
     }
     // TODO: Figure out why TS gets mad
     // when this isn't wrapped in a fragment
     return <>{node}</>;
   };
+
+  return [renderModal, ref];
 }
 
 export function modalInitializer(node: Element) {

@@ -18,7 +18,10 @@ export interface ConfirmationModalProps {
 
   /** Called when the user clicks on the button with `confirmText` */
   onConfirm?: () => void;
-  /** Called when the user clicks on the button with `rejectText` */
+  /** Called when the user clicks on the button with
+   * `rejectText` or when they attempt to close the modal by clicking
+   * on the background
+   * */
   onReject?: () => void;
 }
 
@@ -36,18 +39,23 @@ export default function ConfirmationModal({
   onConfirm,
   onReject,
 }: ConfirmationModalProps) {
+  const onRejectCallback = makeOptionaCallback(onReject);
+
   return (
     <PopupModal
       open={open}
       title={title}
-      actions={[
-        <Button variant="secondary" onClick={makeOptionaCallback(onReject)}>
-          {rejectText}
-        </Button>,
-        <Button variant="primary" onClick={makeOptionaCallback(onConfirm)}>
-          {confirmText}
-        </Button>,
-      ]}
+      onOutsideClick={onRejectCallback}
+      actions={
+        <>
+          <Button variant="secondary" onClick={onRejectCallback}>
+            {rejectText}
+          </Button>
+          <Button variant="primary" onClick={makeOptionaCallback(onConfirm)}>
+            {confirmText}
+          </Button>
+        </>
+      }
     >
       {children}
     </PopupModal>

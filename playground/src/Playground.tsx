@@ -12,6 +12,7 @@ import {
   CustomSelect,
   Option,
   PopupModal,
+  ConfirmationModal,
 } from "./elements";
 import FormTesting from "./FormTesting";
 
@@ -21,6 +22,7 @@ function Playground() {
   const [toggleChecked, setToggleChecked] = useState(false);
   const [number, setNumber] = useState(0);
   const [selectValue, setSelectValue] = useState<string[] | null>(["val1"]);
+  const [modalOpen, setModalOpen] = useState(true);
 
   return (
     <div className="padder">
@@ -98,7 +100,14 @@ function Playground() {
             <FormTesting />
           </Tabs.Tab>
           <Tabs.Tab name="modal">
-            <PopupModal title="Title">Here is some content</PopupModal>
+            <ConfirmationModal
+              title="Title"
+              open={modalOpen}
+              confirmText="Ok"
+              onReject={() => setModalOpen(false)}
+            >
+              Here is some content
+            </ConfirmationModal>
           </Tabs.Tab>
         </Tabs.Content>
       </Tabs>

@@ -24,17 +24,18 @@ export default function ErrorModal({
   return (
     <PopupModal
       open={open}
+      onOutsideClick={onClose}
       title={
         <>
           <i className="material-icons">error</i>
           <h2 className="aje-modal__title">{title}</h2>
         </>
       }
-      actions={[
+      actions={
         <Button variant="error" type="button" onClick={onClose}>
           {buttonText}
-        </Button>,
-      ]}
+        </Button>
+      }
     >
       {children}
     </PopupModal>

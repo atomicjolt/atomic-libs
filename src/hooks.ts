@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState, RefObject } from "react";
+import React, { useEffect, useMemo, useRef, useState, RefObject } from "react";
 import { VariantRecord } from "./types";
 import { makeIds } from "./utils";
 
@@ -58,8 +58,8 @@ const defaultOptions: UseClickOutsideOptions = {
 };
 
 // https://www.30secondsofcode.org/react/s/use-click-outside
-export function useClickOutside(
-  ref: RefObject<HTMLElement>,
+export function useClickOutside<E extends HTMLElement>(
+  ref: RefObject<E>,
   callback: () => void,
   options: Partial<UseClickOutsideOptions> = {}
 ) {

@@ -1,5 +1,7 @@
 import cn from "classnames";
-import React from "react";
+import React, { useRef } from "react";
+import { useClickOutside, useVariantClass } from "../../../hooks";
+import { EventHandler } from "../../../types";
 import { useModal } from "../utils";
 
 export interface BasicModalProps {
@@ -8,6 +10,10 @@ export interface BasicModalProps {
   children?: React.ReactNode;
   /** Centers the modal within the viewport */
   centered?: boolean;
+  variant?: string;
+  /** Fired when the user clicks on the
+   * background / outside of the content of your modal */
+  onOutsideClick?: () => void;
 }
 
 /** The most basic Modal that atomic-element offers. Makes no assumptiosn or enforcements on how / where
@@ -16,12 +22,24 @@ export interface BasicModalProps {
  * Unless you absolutely need to, you are probably better served using one of the other modals provided
  */
 export default function BasicModal(props: BasicModalProps) {
-  const { open = false, children, centered = false } = props;
-  const renderModal = useModal(open);
+  const {
+    open = false,
+    children,
+    centered = false,
+    variant = "default",
+    onOutsideClick,
+  } = props;
+  const [renderModal, ref] = useModal<HTMLDivElement>({
+    open,
+    onOutsideClick: () => onOutsideClick && onOutsideClick(),
+  });
+  const className = useVariantClass("aje-modal", variant);
 
   return renderModal(
     <div className={cn("aje-modal-background", { "is-center": centered })}>
-      <div className="aje-modal">{children}</div>
+      <div className={className} ref={ref}>
+        {children}
+      </div>
     </div>
   );
 }
