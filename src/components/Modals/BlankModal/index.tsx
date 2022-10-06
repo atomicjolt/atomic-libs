@@ -4,12 +4,15 @@ import { useClickOutside, useVariantClass } from "../../../hooks";
 import { EventHandler } from "../../../types";
 import { useModal } from "../utils";
 
-export interface BasicModalProps {
+export interface BaseModalProps {
   /** Whether or not the modal is visible */
   open?: boolean;
   children?: React.ReactNode;
   /** Centers the modal within the viewport */
   centered?: boolean;
+}
+
+export interface BasicModalProps extends BaseModalProps {
   variant?: string;
   /** Fired when the user clicks on the
    * background / outside of the content of your modal */
@@ -36,7 +39,7 @@ export default function BasicModal(props: BasicModalProps) {
   const className = useVariantClass("aje-modal", variant);
 
   return renderModal(
-    <div className={cn("aje-modal-background", { "is-center": centered })}>
+    <div className={cn("aje-modal-background", { "is-centered": centered })}>
       <div className={className} ref={ref}>
         {children}
       </div>

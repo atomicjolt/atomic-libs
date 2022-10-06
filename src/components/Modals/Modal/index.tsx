@@ -1,12 +1,10 @@
 import React from "react";
 import { modalInitializer, useModal } from "../utils";
 import Button from "../../Buttons/Button";
-import BasicModal from "../BlankModal";
+import BasicModal, { BaseModalProps } from "../BlankModal";
 import { makeOptionaCallback } from "../../../utils";
 
-export interface ModalProps {
-  /** Whether or not the modal is visible */
-  open?: boolean;
+export interface ModalProps extends BaseModalProps {
   /** Must include a title. Titles are always in Title case. */
   title: string;
   children: React.ReactNode;
@@ -24,8 +22,6 @@ export interface ModalProps {
   secondaryAction?: () => void;
   /** Callback when the close button is pressed, or the background is clicked on */
   onClose?: () => void;
-  /** Centers the modal within the viewport */
-  centered?: boolean;
 }
 
 /**
@@ -35,7 +31,6 @@ export interface ModalProps {
  * */
 function Modal(props: ModalProps) {
   const {
-    open = false,
     title,
     children,
     primaryButton,
@@ -43,17 +38,13 @@ function Modal(props: ModalProps) {
     primaryAction,
     secondaryAction,
     onClose,
-    centered,
+    ...rest
   } = props;
 
   const onCloseCallback = makeOptionaCallback(onClose);
 
   return (
-    <BasicModal
-      open={open}
-      centered={centered}
-      onOutsideClick={onCloseCallback}
-    >
+    <BasicModal onOutsideClick={onCloseCallback} {...rest}>
       <div className="aje-modal__top">
         <h2 className="aje-modal__title">{title}</h2>
         <button

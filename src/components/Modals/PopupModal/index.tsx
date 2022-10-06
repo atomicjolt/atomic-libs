@@ -1,7 +1,5 @@
-import cn from "classnames";
 import React from "react";
 import BasicModal, { BasicModalProps } from "../BlankModal";
-import { useModal } from "../utils";
 
 export interface PopupModalProps extends Omit<BasicModalProps, "variant"> {
   title: React.ReactNode;

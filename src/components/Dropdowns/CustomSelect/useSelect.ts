@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import { useBool, useClickOutside } from "../../../hooks";
 import { EventHandler, FilterFunction } from "../../../types";
@@ -81,11 +81,15 @@ export default function useSelect<
     (child) => child.props
   );
 
-  const selectedIndex = options.findIndex((o) =>
-    selectedValues.includes(o.value)
-  );
+  const getSelected = (values: SelectedValue[]): [number, ChildProps] => {
+    const index = options.findIndex((o) => values.includes(o.value));
+    const selectedValue: ChildProps = options[index];
 
-  const selectedOption = options[selectedIndex];
+    return [index, selectedValue];
+  };
+
+  const [selectedIndex, selectedOption] = getSelected(selectedValues);
+
   // HOOKS -------------------------------------
 
   const [search, setSearch] = useState<string>("");
@@ -99,6 +103,12 @@ export default function useSelect<
   const [menuActive, toggleMenu, openMenu, closeMenu] = useBool(false);
 
   const [focused, setFocused] = useState(selectedIndex || 0);
+
+  useEffect(() => {
+    if (!menuActive) {
+      setFocused(getSelected(selectedValues)[0]);
+    }
+  }, [menuActive]);
 
   useClickOutside(
     ref,
@@ -116,9 +126,6 @@ export default function useSelect<
 
   const handleClose = (force: boolean = false) => {
     if (!multiselect || force) {
-      if (focused !== selectedIndex) {
-        setFocused(selectedIndex);
-      }
       closeMenu();
     }
   };
@@ -131,18 +138,17 @@ export default function useSelect<
     // rather than just asserting it manually
     if (multiselect) {
       const multiOnChange = onChange as SelectOnChangeHandler<SelectedValue[]>;
-      if (selectedValues.includes(v)) {
-        multiOnChange(
-          selectedValues.filter((s) => s !== v),
-          e
-        );
-      } else {
-        multiOnChange([...selectedValues, v], e);
-      }
+      const newValue: SelectedValue[] = selectedValues.includes(v)
+        ? selectedValues.filter((s) => s !== v)
+        : [...selectedValues, v];
+
+      multiOnChange(newValue, e);
     } else {
       const singleOnChange = onChange as SelectOnChangeHandler<SelectedValue>;
       singleOnChange(v, e);
     }
+
+    setFocused(getSelected([v])[0]);
   };
 
   const handleKeyPress: React.KeyboardEventHandler = (e) => {

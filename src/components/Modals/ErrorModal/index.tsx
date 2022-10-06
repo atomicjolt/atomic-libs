@@ -1,12 +1,12 @@
 import React from "react";
 import Button from "../../Buttons/Button";
+import MaterialIcon from "../../Utility/MaterialIcon";
+import { BaseModalProps } from "../BlankModal";
 import PopupModal from "../PopupModal";
 
-export interface ErrorModalProps {
-  open?: boolean;
+export interface ErrorModalProps extends BaseModalProps {
   /** Must include a title. Titles are always in Title case. */
   title: string;
-  children: React.ReactNode;
   buttonText?: string;
   onClose: () => void;
 }
@@ -14,20 +14,16 @@ export interface ErrorModalProps {
 /**
  * Error Modal Component
  * */
-export default function ErrorModal({
-  open = false,
-  title,
-  children,
-  buttonText = "Close",
-  onClose,
-}: ErrorModalProps) {
+export default function ErrorModal(props: ErrorModalProps) {
+  const { title, children, buttonText = "Close", onClose, ...rest } = props;
+
   return (
     <PopupModal
-      open={open}
+      {...rest}
       onOutsideClick={onClose}
       title={
         <>
-          <i className="material-icons">error</i>
+          <MaterialIcon icon="error" />
           <h2 className="aje-modal__title">{title}</h2>
         </>
       }

@@ -13,16 +13,17 @@ import {
   Option,
   PopupModal,
   ConfirmationModal,
+  ErrorModal,
 } from "./elements";
 import FormTesting from "./FormTesting";
 
 function Playground() {
-  const [currentTab, setCurrentTab] = useState("modal");
+  const [currentTab, setCurrentTab] = useState("inputs");
   const [radioValue, setRadioValue] = useState("opt1");
   const [toggleChecked, setToggleChecked] = useState(false);
   const [number, setNumber] = useState(0);
   const [selectValue, setSelectValue] = useState<string[] | null>(["val1"]);
-  const [modalOpen, setModalOpen] = useState(true);
+  const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <div className="padder">
@@ -100,14 +101,14 @@ function Playground() {
             <FormTesting />
           </Tabs.Tab>
           <Tabs.Tab name="modal">
-            <ConfirmationModal
+            <ErrorModal
               title="Title"
               open={modalOpen}
-              confirmText="Ok"
-              onReject={() => setModalOpen(false)}
+              centered
+              onClose={() => setModalOpen(false)}
             >
               Here is some content
-            </ConfirmationModal>
+            </ErrorModal>
           </Tabs.Tab>
         </Tabs.Content>
       </Tabs>
