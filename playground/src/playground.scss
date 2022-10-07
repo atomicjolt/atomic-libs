@@ -22,5 +22,28 @@ html a {
 }
 
 .padder {
-  padding: 1.5rem;
+  padding-top: 15rem;
+}
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+}
+
+.scroll {
+  height: 400px;
+  overflow: scroll;
+  width: 400px;
+  margin: auto;
+}
+
+.content {
+  height: 800px;
+  width: 800px;
+}
+
+.wrapper {
+  padding: 100px;
 }

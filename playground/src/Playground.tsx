@@ -13,6 +13,8 @@ import {
   Option,
   IconMenu,
   ErrorModal,
+  Popover,
+  PopoverWrapper,
 } from "./elements";
 import FormTesting from "./FormTesting";
 
@@ -26,7 +28,36 @@ function Playground() {
 
   return (
     <div className="padder">
-      <Tabs currentTab={currentTab} onChange={setCurrentTab}>
+      <div className="scroll">
+        <div className="content">
+          <div className="wrapper">
+            <PopoverWrapper>
+              <p
+                style={{
+                  fontSize: "20px",
+                  backgroundColor: "peru",
+
+                  width: "200px",
+                }}
+              >
+                Here's the Content
+              </p>
+              <Popover show position="top-left">
+                <div
+                  style={{
+                    backgroundColor: "lightblue",
+                    fontSize: "20px",
+                    padding: "10px",
+                  }}
+                >
+                  Hi
+                </div>
+              </Popover>
+            </PopoverWrapper>
+          </div>
+        </div>
+      </div>
+      {/* <Tabs currentTab={currentTab} onChange={setCurrentTab}>
         <Tabs.Navigation>
           <Tabs.Link to="inputs">Inputs</Tabs.Link>
           <Tabs.Link to="buttons">Buttons</Tabs.Link>
@@ -117,7 +148,7 @@ function Playground() {
             </ErrorModal>
           </Tabs.Tab>
         </Tabs.Content>
-      </Tabs>
+      </Tabs> */}
     </div>
   );
 }

@@ -30,3 +30,4 @@ export { default as Table } from "./Tables/Table";
 export { default as Tabs } from "./Tabs/Tabs";
 export { default as LoadingStatus } from "./Utility/LoadingStatus";
 export { default as Label } from "./Utility/Label";
+export { default as Popover, PopoverWrapper } from "./Utility/Popover";

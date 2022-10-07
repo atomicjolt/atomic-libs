@@ -7,7 +7,7 @@ export default {
   component: Popover,
   decorators: [
     (Story) => (
-      <div style={{ padding: "5rem", width: "max-content" }}>
+      <div style={{ width: "max-content" }}>
         <Story />
       </div>
     ),
