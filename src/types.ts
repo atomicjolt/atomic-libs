@@ -1,19 +1,18 @@
+import { Argument } from "classnames";
 import React from "react";
 
 export interface HasChildren {
   children: React.ReactNode;
 }
 
-export interface RequireIcon {
-  icon: MaterialIcons;
-}
-
-export interface CanHaveIcon {
-  icon?: MaterialIcons;
-}
-
 export interface HasValue<T> {
   value: T;
+}
+
+export interface HasClassName {
+  /** Add classes to the root element of the component.
+   * Refer to this for possible values: https://github.com/JedWatson/classnames#readme*/
+  className?: Argument[] | Argument;
 }
 
 export type FilterFunction<FilteredValue, InputValue = string> = (
@@ -53,7 +52,7 @@ export type EventHandler<
 > = (value: V, event: E) => void;
 
 /** The props on an `<input />` element that we care about */
-export interface InputElementProps<E extends Element>
+export interface InputElementProps<E extends Element = HTMLInputElement>
   extends Omit<React.AriaAttributes, "aria-describedby"> {
   readonly placeholder?: string;
   readonly readOnly?: boolean;
@@ -73,7 +72,7 @@ export interface InputElementProps<E extends Element>
 }
 
 /** The additional Props that a component that wraps an `<input />` will have */
-export interface InputComponentProps {
+export interface InputComponentProps extends HasClassName {
   // Required
   /** Must include a label. Labels are always Sentence case. */
   readonly label: string;
@@ -148,6 +147,23 @@ export type HTMLInputTypeAttribute =
   | "time"
   | "url"
   | "week";
+
+// ICONS ------------------------------------------------------------
+
+export type MaterialIconVariants =
+  | "default"
+  | "outlined"
+  | "round"
+  | "sharp"
+  | "two-tone";
+export interface HasIcon {
+  /** Material Icon to render */
+  icon: MaterialIcons;
+  /** The MaterialIcons icon set to use */
+  iconVariant?: MaterialIconVariants;
+}
+
+export type CanHavIcon = Partial<HasIcon>;
 
 export type MaterialIcons =
   | "search"

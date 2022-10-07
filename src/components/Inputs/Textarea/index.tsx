@@ -16,7 +16,7 @@ export interface TextAreaProps
 /** Textarea Component. Accepts a `ref` */
 const Textarea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
   (props, ref) => {
-    const [inputId, errorId] = useIds("textarea", ["textarea", "error"]);
+    const [inputId, errorId] = useIds("TextArea", ["textarea", "error"]);
     const {
       value,
       onChange,
@@ -27,6 +27,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
       error,
       message,
       placeholder,
+      className,
       ...inputProps
     } = props;
 
@@ -34,7 +35,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
 
     return (
       <ComponentWrapper
-        className={cn("aje-input", { "can-resize": resize })}
+        className={["aje-input", className, { "can-resize": resize }]}
         size={size}
         disabled={disabled}
         required={required}

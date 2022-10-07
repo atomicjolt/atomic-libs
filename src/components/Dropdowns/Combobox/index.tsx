@@ -48,16 +48,21 @@ export default function Combobox(props: ComboboxProps) {
     onFocus,
     onBlur,
     variant = "default",
+    className,
     ...inputProps
   } = props;
 
   const { disabled, required } = inputProps;
 
-  const [Variant, className] = useVariant(variants, "aje-dropdown", variant);
+  const [Variant, variantClassName] = useVariant(
+    variants,
+    "aje-dropdown",
+    variant
+  );
 
   return (
     <ComponentWrapper
-      className={className}
+      className={cn(variantClassName, className)}
       size={size}
       disabled={disabled}
       required={required}

@@ -18,12 +18,13 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       onClick,
       onChange,
       required,
+      className,
       ...inputProps
     } = props;
 
     return (
       <label
-        className={cn("aje-checkbox", {
+        className={cn("aje-checkbox", className, {
           "has-error": error,
           "is-required": required,
         })}
@@ -38,8 +39,8 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
             onClick,
             (e) => (e.target as HTMLInputElement).checked
           )}
-          required={required}
           onChange={makeEventHandler(onChange, (e) => e.target.checked)}
+          required={required}
           {...inputProps}
         />
         <span className="aje-checkbox__label">

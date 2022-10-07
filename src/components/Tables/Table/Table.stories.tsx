@@ -1,5 +1,6 @@
+import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import Table, { Props } from ".";
+import Table, { TableProps } from ".";
 import IconButton from "../../Buttons/IconButton";
 import Doc from "./Table.doc.mdx";
 
@@ -33,7 +34,7 @@ export default {
   },
 } as ComponentMeta<typeof Table>;
 
-const Template: ComponentStory<typeof Table> = (args: Props) => (
+const Template: ComponentStory<typeof Table> = (args: TableProps) => (
   <Table {...args}></Table>
 );
 

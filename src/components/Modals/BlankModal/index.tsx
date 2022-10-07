@@ -1,10 +1,10 @@
 import cn from "classnames";
 import React, { useRef } from "react";
 import { useClickOutside, useVariantClass } from "../../../hooks";
-import { EventHandler } from "../../../types";
+import { EventHandler, HasClassName } from "../../../types";
 import { useModal } from "../utils";
 
-export interface BaseModalProps {
+export interface BaseModalProps extends HasClassName {
   /** Whether or not the modal is visible */
   open?: boolean;
   children?: React.ReactNode;
@@ -30,17 +30,23 @@ export default function BasicModal(props: BasicModalProps) {
     children,
     centered = false,
     variant = "default",
+    className,
     onOutsideClick,
   } = props;
   const [renderModal, ref] = useModal<HTMLDivElement>({
     open,
     onOutsideClick: () => onOutsideClick && onOutsideClick(),
   });
-  const className = useVariantClass("aje-modal", variant);
+
+  const variantClassName = useVariantClass("aje-modal", variant);
 
   return renderModal(
-    <div className={cn("aje-modal-background", { "is-centered": centered })}>
-      <div className={className} ref={ref}>
+    <div
+      className={cn("aje-modal-background", className, {
+        "is-centered": centered,
+      })}
+    >
+      <div className={variantClassName} ref={ref}>
         {children}
       </div>
     </div>

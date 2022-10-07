@@ -1,12 +1,18 @@
 import React from "react";
-import { HasChildren } from "../../../types";
+import cn from "classnames";
+import { HasChildren, HasClassName } from "../../../types";
 import { getTabId, useTabContext } from "./utils";
 
-type TabNavigationProps = HasChildren;
+type TabNavigationProps = HasChildren & HasClassName;
 
-export default function TabsNavigation({ children }: TabNavigationProps) {
+export default function TabsNavigation(props: TabNavigationProps) {
+  const { children, className } = props;
   return (
-    <div className="aje-tab-list" role="tablist" aria-label="navigation">
+    <div
+      className={cn("aje-tab-list", className)}
+      role="tablist"
+      aria-label="navigation"
+    >
       {children}
     </div>
   );
@@ -14,19 +20,19 @@ export default function TabsNavigation({ children }: TabNavigationProps) {
 
 TabsNavigation.displayName = "Tabs.Navigation";
 
-interface TabLinkProps extends HasChildren {
+interface TabLinkProps extends HasChildren, HasClassName {
   /** What tab this link navigates to */
   readonly to: string;
 }
 
 export function TabLink(props: TabLinkProps) {
-  const { to, children } = props;
+  const { to, children, className } = props;
   const { changeTab, currentTab, tabIdPrefix, tabContentId } = useTabContext();
 
   const tabId = getTabId(tabIdPrefix, to);
 
   return (
-    <div className="aje-tab-link">
+    <div className={cn("aje-tab-link", className)}>
       <a
         className="aje-tab"
         id={tabId}

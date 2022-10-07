@@ -1,25 +1,25 @@
 import React from "react";
 import cn from "classnames";
-import { HasChildren } from "../../../types";
+import { HasChildren, HasClassName } from "../../../types";
 
-export interface LabelProps extends HasChildren {
+export interface LabelProps extends HasChildren, HasClassName {
   message?: string;
   htmlFor: string;
   hidden?: boolean;
   id?: string;
   error?: string;
-  className?: string;
 }
 
-export default function Label({
-  children,
-  message,
-  htmlFor,
-  hidden,
-  id,
-  className = "aje-label",
-  error,
-}: LabelProps) {
+export default function Label(props: LabelProps) {
+  const {
+    children,
+    message,
+    htmlFor,
+    hidden,
+    id,
+    className = "aje-label",
+    error,
+  } = props;
   const classes = cn(className, { "aje-hidden": hidden });
 
   return (

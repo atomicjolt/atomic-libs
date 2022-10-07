@@ -1,10 +1,10 @@
 import React, { TdHTMLAttributes, useState } from "react";
 import cn from "classnames";
-import { HasChildren, SortDirection } from "../../../types";
+import { HasChildren, HasClassName, SortDirection } from "../../../types";
 import TableHeader from "./TableHeader";
 import TableContext from "./tableContext";
 
-interface BaseProps {
+interface BaseProps extends HasClassName {
   /** Must include a title to label the table. */
   title: string;
   /** Adds sticky first column when a horizontal scrollbar is present. Reccommended to use with vertical borders on. */
@@ -32,21 +32,23 @@ export type TableProps = BaseProps &
   React.HTMLProps<HTMLTableElement>;
 
 /** Table Component */
-function Table({
-  title,
-  sticky = false,
-  verticalBorders = false,
-  sortDirection,
-  sortPath,
-  onSort = () => {},
-  children,
-  ...rest
-}: TableProps) {
+function Table(props: TableProps) {
+  const {
+    title,
+    sticky = false,
+    verticalBorders = false,
+    sortDirection,
+    sortPath,
+    onSort = () => {},
+    children,
+    className,
+    ...rest
+  } = props;
   /* Add functionality to remove sort order from other headers if you click on other ones. */
   return (
     <div className="aje-table-overflow">
       <table
-        className={cn("aje-table", {
+        className={cn("aje-table", className, {
           "has-vertical-borders": verticalBorders,
           "is-sticky": sticky,
         })}
@@ -68,8 +70,11 @@ function Table({
   );
 }
 
-export function TableHead(props: React.HTMLProps<HTMLTableSectionElement>) {
-  return <thead {...props} />;
+type TableChildProps<E> = Omit<React.HTMLProps<E>, "className"> & HasClassName;
+
+export function TableHead(props: TableChildProps<HTMLTableSectionElement>) {
+  const { className, ...rest } = props;
+  return <thead className={cn(className)} {...rest} />;
 }
 
 Table.Head = TableHead;
@@ -77,14 +82,15 @@ TableHead.displayName = "Table.Head";
 
 Table.Header = TableHeader;
 
-export function TableBody(props: React.HTMLProps<HTMLTableSectionElement>) {
-  return <tbody {...props} />;
+export function TableBody(props: TableChildProps<HTMLTableSectionElement>) {
+  const { className, ...rest } = props;
+  return <tbody className={cn(className)} {...rest} />;
 }
 
 Table.Body = TableBody;
 TableBody.displayName = "Table.Body";
 
-type TableRowProps =
+type TableRowProps = (
   | {
       readonly data: React.ReactNode[];
       readonly children?: never;
@@ -92,20 +98,27 @@ type TableRowProps =
   | {
       readonly data?: never;
       readonly children: React.ReactNode;
-    };
+    }
+) &
+  HasClassName;
 
-export function TableRow({
-  data,
-  children,
-  ...rest
-}: TableRowProps & Omit<React.HTMLProps<HTMLTableRowElement>, "data">) {
+export function TableRow(
+  props: TableRowProps &
+    Omit<React.HTMLProps<HTMLTableRowElement>, "data" | "className">
+) {
+  const { data, children, className, ...rest } = props;
+
   if (children) {
-    return <tr {...rest}>{children}</tr>;
+    return (
+      <tr className={cn(className)} {...rest}>
+        {children}
+      </tr>
+    );
   }
 
   if (data) {
     return (
-      <tr {...rest}>
+      <tr className={cn(className)} {...rest}>
         {data.map((d) => (
           <TableCell>{d}</TableCell>
         ))}
@@ -119,10 +132,9 @@ export function TableRow({
 Table.Row = TableRow;
 TableRow.displayName = "Table.Row";
 
-interface TableCellProps extends React.HTMLProps<HTMLTableCellElement> {}
-
-export function TableCell(props: TableCellProps) {
-  return <td {...props} />;
+export function TableCell(props: TableChildProps<HTMLTableCellElement>) {
+  const { className, ...rest } = props;
+  return <td className={cn(className)} {...rest} />;
 }
 
 Table.Cell = TableCell;

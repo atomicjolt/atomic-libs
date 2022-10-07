@@ -2,23 +2,20 @@ import React, { useState, useEffect, useRef } from "react";
 import cn from "classnames";
 import IconButton from "../../Buttons/IconButton";
 import { useBool, useClickOutside, useIds } from "../../../hooks";
-import { CanHaveIcon, HasChildren, MaterialIcons } from "../../../types";
+import { CanHavIcon, HasChildren, HasClassName, HasIcon } from "../../../types";
 import Popover, {
   PopoverPosition,
   PopoverWrapper,
 } from "../../Utility/Popover";
-import { MaterialIconVariants } from "../../Utility/MaterialIcon";
+import MaterialIcon from "../../Utility/MaterialIcon";
+import { useDropdown } from "../../../hooks/useDropdown";
 
-export interface IconMenuProps {
-  icon: MaterialIcons;
-  children: React.ReactNode;
+export interface IconMenuProps extends HasClassName, HasIcon, HasChildren {
   /** Must include a label. */
   label: string;
   /** Changes where the dropdown menu appears */
-  position: PopoverPosition;
+  position?: PopoverPosition;
   disabled?: boolean;
-  /** The MaterialIcons icon set to use */
-  iconVariant?: MaterialIconVariants;
 }
 
 /**
@@ -28,44 +25,33 @@ export interface IconMenuProps {
  * */
 function IconMenu(props: IconMenuProps) {
   const {
+    icon,
+    iconVariant = "default",
     children,
-    icon = "more_vert",
     label = "More options",
     disabled = false,
-    position,
-    iconVariant = "default",
+    position = "bottom-left",
+    className,
   } = props;
-  const [menuActive, toggleMenu] = useBool(false);
-
-  const [buttonId, menuId] = useIds("iconmenu", ["menu"]);
-  const ref = useRef(null);
-
-  useClickOutside(
-    ref,
-    () => {
-      if (menuActive) {
-        toggleMenu();
-      }
-    },
-    { enabled: menuActive }
-  );
+  const [buttonId, menuId] = useIds("IconMenu", ["button", "menu"]);
+  const [ref, menuActive, toggleMenu] = useDropdown<HTMLDivElement>();
 
   return (
-    <div className="aje-menu" ref={ref}>
+    <div className={cn("aje-menu", className)} ref={ref}>
       <IconButton
         icon={icon}
+        iconVariant={iconVariant}
         aria-controls={menuId}
         aria-expanded={menuActive}
         aria-haspopup="menu"
         ariaLabel={label}
         disabled={disabled}
         onClick={toggleMenu}
-        iconVariant={iconVariant}
       />
       <PopoverWrapper>
         <Popover show={menuActive} position={position}>
           <div
-            className={"aje-menu__dropdown"}
+            className="aje-menu__dropdown"
             role="menu"
             id={menuId}
             aria-labelledby={buttonId}
@@ -80,20 +66,15 @@ function IconMenu(props: IconMenuProps) {
   );
 }
 
-type IconMenuItemProps = HasChildren &
-  CanHaveIcon & {
-    onClick: React.MouseEventHandler<HTMLButtonElement>;
-  };
+interface IconMenuItemProps extends HasChildren, CanHavIcon {
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+}
 
-function IconMenuItem({ children, icon, onClick }: IconMenuItemProps) {
-  // TODO: Are ids important for these?
+function IconMenuItem(props: IconMenuItemProps) {
+  const { children, icon, iconVariant, onClick } = props;
   return (
     <button className="aje-menu__option" onClick={onClick}>
-      {icon && (
-        <i className="material-icons" aria-hidden>
-          {icon}
-        </i>
-      )}
+      {icon && <MaterialIcon icon={icon} variant={iconVariant} />}
       {children}
     </button>
   );

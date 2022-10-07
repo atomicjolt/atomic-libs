@@ -1,18 +1,15 @@
 import React from "react";
-import { LoadingProps, MaterialIcons } from "../../../types";
+import cn from "classnames";
+import { HasClassName, HasIcon, LoadingProps } from "../../../types";
 import Spinner from "../../Loaders/Spinner";
-import MaterialIcon, { MaterialIconVariants } from "../../Utility/MaterialIcon";
+import MaterialIcon from "../../Utility/MaterialIcon";
 
-interface BaseProps {
-  /** Material Icon to render */
-  icon: MaterialIcons;
+interface BaseProps extends HasClassName, HasIcon {
   id?: string;
   /** Label for the button, because IconButton does not contain text, this should always be present */
   ariaLabel: string;
   disabled?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
-  /** The MaterialIcons icon set to use */
-  iconVariant?: MaterialIconVariants;
 }
 
 export type IconButtonProps = BaseProps & LoadingProps & React.AriaAttributes;
@@ -29,13 +26,14 @@ export default function IconButton(props: IconButtonProps) {
     loadingComplete,
     loadingLabel,
     iconVariant = "default",
+    className,
     ...rest
   } = props;
 
   return (
     <button
       id={id}
-      className="aje-btn--icon"
+      className={cn("aje-btn aje-btn--icon", className)}
       type="button"
       onClick={onClick}
       disabled={disabled}

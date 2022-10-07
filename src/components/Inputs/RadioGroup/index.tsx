@@ -1,8 +1,7 @@
-import cn from "classnames";
 import React from "react";
+import cn from "classnames";
 import { HasChildren, InputComponentProps, EventHandler } from "../../../types";
-import { RadioContextData } from "./context";
-import RadioContext from "./context";
+import RadioContext, { RadioContextData } from "./context";
 import { makeEventHandler } from "../../../utils";
 
 export interface RadioGroupsProps
@@ -36,6 +35,7 @@ export default function RadioGroup(props: RadioGroupsProps) {
     children,
     disabled = false,
     hideLabel,
+    className,
   } = props;
 
   const ctx: RadioContextData = {
@@ -46,7 +46,7 @@ export default function RadioGroup(props: RadioGroupsProps) {
   };
 
   return (
-    <fieldset className="aje-radio-group">
+    <fieldset className={cn("aje-radio-group", className)}>
       <legend className={cn("aje-label", { "aje-hidden": hideLabel })}>
         {label}
         {message && <p className="aje-label--message">{message}</p>}

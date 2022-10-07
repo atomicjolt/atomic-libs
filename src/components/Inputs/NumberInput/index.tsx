@@ -26,6 +26,7 @@ const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
       message,
       size = "small",
       hideLabel,
+      className,
       ...inputProps
     } = props;
 
@@ -33,7 +34,7 @@ const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
 
     return (
       <ComponentWrapper
-        className="aje-input"
+        className={["aje-input", className]}
         size={size}
         disabled={disabled}
         required={required}

@@ -1,10 +1,10 @@
 import React from "react";
 import cn from "classnames";
 import { useIds, useInitialRender } from "../../../hooks";
-import { EventHandler } from "../../../types";
+import { EventHandler, HasClassName } from "../../../types";
 import { makeEventHandler } from "../../../utils";
 
-export interface ToggleSwitchProps {
+export interface ToggleSwitchProps extends HasClassName {
   readonly checked?: boolean;
   readonly label?: string;
   readonly disabled?: boolean;
@@ -27,11 +27,12 @@ const ToggleSwitch = React.forwardRef<HTMLInputElement, ToggleSwitchProps>(
       onClick,
       checked,
       disabled = false,
+      className,
       ...inputProps
     } = props;
 
     return (
-      <label className="aje-toggle-switch" htmlFor={inputId}>
+      <label className={cn("aje-toggle-switch", className)} htmlFor={inputId}>
         <input
           ref={ref}
           id={inputId}

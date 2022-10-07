@@ -1,10 +1,12 @@
 import React from "react";
+import cn from "classnames";
+
 import Button from "../../Buttons/Button";
-import { MaterialIcons } from "../../../types";
+import { HasClassName, MaterialIcons } from "../../../types";
 
 type ActionBannerVariants = "upgrade" | (string & {});
 
-export interface ActionBannerProps {
+export interface ActionBannerProps extends HasClassName {
   /** `aje-banner--${className}` pre-defined styles for:
    * - `upgrade`
    */
@@ -16,15 +18,18 @@ export interface ActionBannerProps {
 }
 
 /** A view-spanning Banner with an associated `onClick` action */
-export default function ActionBanner({
-  variant = "upgrade",
-  children,
-  icon,
-  buttonText,
-  onClick,
-}: ActionBannerProps) {
+export default function ActionBanner(props: ActionBannerProps) {
+  const {
+    variant = "upgrade",
+    children,
+    icon,
+    buttonText,
+    onClick,
+    className,
+  } = props;
+
   return (
-    <div className={`aje-banner--${variant}`}>
+    <div className={cn(`aje-banner--${variant}`, className)}>
       {icon && (
         <i className="material-icons" aria-hidden>
           {icon}
@@ -38,7 +43,7 @@ export default function ActionBanner({
   );
 }
 
-export interface UpgradeBannerProps {
+export interface UpgradeBannerProps extends HasClassName {
   /** The ammount of time left on their trial */
   time: string;
   /** The name of the Atomic-App that this applies to */
@@ -47,13 +52,15 @@ export interface UpgradeBannerProps {
 }
 
 /** A wrapper around `ActionBanner` */
-export function UpgradeBanner({ time, app, onClick }: UpgradeBannerProps) {
+export function UpgradeBanner(props: UpgradeBannerProps) {
+  const { time, app, onClick, className } = props;
   return (
     <ActionBanner
       icon="new_releases"
       variant="upgrade"
       onClick={onClick}
       buttonText="Upgrade Now"
+      className={className}
     >
       Your trial expires in {time}. Upgrade now to re-enable {app}.
     </ActionBanner>

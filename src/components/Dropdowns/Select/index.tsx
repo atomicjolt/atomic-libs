@@ -1,5 +1,6 @@
-import React from "react";
-import { HasChildren, InputProps } from "../../../types";
+import React, { ForwardedRef, RefObject } from "react";
+import cn from "classnames";
+import { InputProps } from "../../../types";
 import Label from "../../Utility/Label";
 import { useIds } from "../../../hooks";
 import InputError from "../../Utility/InputError";
@@ -21,44 +22,50 @@ export interface SelectProps
 }
 
 /** Select Component. Simple wrapper around native `<select>` */
-export default function Select(props: SelectProps) {
-  const [inputId, errorId] = useIds("select", ["select", "error"]);
+const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
+  (props, ref) => {
+    const [inputId, errorId] = useIds("select", ["select", "error"]);
 
-  const {
-    children,
-    onChange,
-    size = "medium",
-    label,
-    error,
-    message,
-    hideLabel = false,
-    disabled = false,
-    required = false,
-    ...selectProps
-  } = props;
+    const {
+      children,
+      onChange,
+      size = "medium",
+      label,
+      error,
+      message,
+      hideLabel = false,
+      disabled = false,
+      required = false,
+      className,
+      ...selectProps
+    } = props;
 
-  return (
-    <ComponentWrapper
-      className="aje-input"
-      size={size}
-      error={error}
-      required={required}
-      disabled={disabled}
-    >
-      <Label message={message} htmlFor={inputId} hidden={hideLabel}>
-        {label}
-      </Label>
-      <div className="aje-input__select">
-        <select
-          id={inputId}
-          aria-describedby={error ? errorId : ""}
-          onChange={makeEventHandler(onChange)}
-          {...selectProps}
-        >
-          {children}
-        </select>
-      </div>
-      <InputError error={error} id={errorId} />
-    </ComponentWrapper>
-  );
-}
+    return (
+      <ComponentWrapper
+        className={cn("aje-input", className)}
+        size={size}
+        error={error}
+        required={required}
+        disabled={disabled}
+      >
+        <Label message={message} htmlFor={inputId} hidden={hideLabel}>
+          {label}
+        </Label>
+        <div className="aje-input__select">
+          <select
+            id={inputId}
+            aria-describedby={error ? errorId : ""}
+            onChange={makeEventHandler(onChange)}
+            ref={ref}
+            {...selectProps}
+          >
+            {children}
+          </select>
+        </div>
+        <InputError error={error} id={errorId} />
+      </ComponentWrapper>
+    );
+  }
+);
+
+export default Select;

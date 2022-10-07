@@ -1,6 +1,6 @@
 import React from "react";
 import cn from "classnames";
-import { Sizes } from "../../../types";
+import { HasClassName, Sizes } from "../../../types";
 
 export type PopoverPosition =
   | "bottom-right"
@@ -10,7 +10,7 @@ export type PopoverPosition =
   | "left"
   | "right";
 
-export interface PopoverProps {
+export interface PopoverProps extends HasClassName {
   children: React.ReactNode;
   size?: Sizes;
   show?: boolean;
@@ -18,13 +18,19 @@ export interface PopoverProps {
 }
 
 export default function Popover(props: PopoverProps) {
-  const { children, show, size, position = "bottom-left" } = props;
+  const { children, show, size, position = "bottom-left", className } = props;
 
   return (
     <div
-      className={cn("aje-popover", `is-${size}`, `aje-popover-${position}`, {
-        "is-visible": show,
-      })}
+      className={cn(
+        "aje-popover",
+        className,
+        `is-${size}`,
+        `aje-popover-${position}`,
+        {
+          "is-visible": show,
+        }
+      )}
     >
       {children}
     </div>

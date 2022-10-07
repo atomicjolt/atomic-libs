@@ -1,4 +1,6 @@
 import React from "react";
+import cn from "classnames";
+
 import { useIds } from "../../../hooks";
 import {
   EventHandler,
@@ -28,12 +30,13 @@ const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
       error,
       disabled = false,
       required = false,
+      className,
       ...inputProps
     } = props;
 
     return (
       <ComponentWrapper
-        className="aje-input--file"
+        className={["aje-input--file", className]}
         disabled={disabled}
         required={required}
       >

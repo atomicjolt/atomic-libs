@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { MaterialIcons } from "../../../types";
+import cn from "classnames";
+import { HasClassName, MaterialIcons } from "../../../types";
 
-interface SharedProps {
+interface SharedProps extends HasClassName {
   /** Content to render in the banner */
   readonly children: React.ReactNode;
   /** Callback function for when the user dismisses the banner */
@@ -29,13 +30,16 @@ export interface DismissableBannerProps extends SharedProps {
  *
  * **NOTE**: Both the error and warning banners have conveneience wrappers: `ErrorBanner` and `WarningBanner`
  */
-export default function DismissableBanner({
-  children,
-  variant,
-  icon,
-  autoDismiss = false,
-  onDismiss,
-}: DismissableBannerProps) {
+export default function DismissableBanner(props: DismissableBannerProps) {
+  const {
+    children,
+    variant,
+    icon,
+    autoDismiss = false,
+    onDismiss,
+    className,
+  } = props;
+
   const [visible, setVisible] = useState(true);
 
   if (!visible) {
@@ -43,7 +47,7 @@ export default function DismissableBanner({
   }
 
   return (
-    <div className={`aje-banner--${variant}`}>
+    <div className={cn(`aje-banner--${variant}`, className)}>
       {icon && (
         <i className="material-icons" aria-hidden>
           {icon}
@@ -66,7 +70,7 @@ export default function DismissableBanner({
   );
 }
 
-type BannerWrapperProps = SharedProps;
+export type BannerWrapperProps = SharedProps;
 
 /** Conveneince Wrapper around `DismissableBanner` */
 export function ErrorBanner(props: BannerWrapperProps) {

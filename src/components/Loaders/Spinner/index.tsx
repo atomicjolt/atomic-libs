@@ -1,13 +1,17 @@
 import React from "react";
+import cn from "classnames";
+import { HasClassName } from "../../../types";
 
-export interface SpinnerProps {
+export interface SpinnerProps extends HasClassName {
   loading?: boolean;
 }
 
 /** Spinner Component */
-export default function Spinner({ loading = true }: SpinnerProps) {
+export default function Spinner(props: SpinnerProps) {
+  const { loading = true, className } = props;
+
   return (
-    <div className="aje-spinner">
+    <div className={cn("aje-spinner", className)}>
       {loading ? (
         <svg
           className="circular-loader"

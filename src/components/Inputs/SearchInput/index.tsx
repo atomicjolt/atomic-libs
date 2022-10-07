@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import cn from "classnames";
 import { useIds } from "../../../hooks";
 import { EventHandler, InputProps } from "../../../types";
@@ -23,8 +23,6 @@ export interface SearchInputProps
 /** Search Input Component. Accepts a `ref`*/
 const SearchInput = React.forwardRef<HTMLInputElement, SearchInputProps>(
   (props, ref) => {
-    const [inputId, errorId] = useIds("SearchInput", ["input", "error"]);
-
     const {
       value,
       size = "medium",
@@ -36,11 +34,14 @@ const SearchInput = React.forwardRef<HTMLInputElement, SearchInputProps>(
       error,
       onSubmit,
       onChange,
+      className,
     } = props;
+
+    const [inputId, errorId] = useIds("SearchInput", ["input", "error"]);
 
     return (
       <form
-        className={cn("aje-input", `is-${size}`, {
+        className={cn("aje-input", `is-${size}`, className, {
           "is-disabled": disabled,
           "has-error": error,
         })}

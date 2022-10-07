@@ -32,16 +32,21 @@ const TextInput = React.forwardRef(
       error,
       message,
       variant = "default",
+      className,
       ...inputProps
     } = props;
 
     const { disabled, required } = inputProps;
 
-    const [Variant, className] = useVariant(variants, "aje-input", variant);
+    const [Variant, variantClassName] = useVariant(
+      variants,
+      "aje-input",
+      variant
+    );
 
     return (
       <ComponentWrapper
-        className={className}
+        className={[variantClassName, className]}
         size={size}
         disabled={disabled}
         required={required}

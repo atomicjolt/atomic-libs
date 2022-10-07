@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
+import cn from "classnames";
 import { useIds } from "../../../hooks";
-import { HasChildren } from "../../../types";
+import { HasChildren, HasClassName } from "../../../types";
 import Tab from "./Tab";
 import TabsNavigation, { TabLink } from "./TabNavigation";
 import { TabsContextT } from "./Tabs.types";
-import { getTabId, TabsContext } from "./utils";
+import { getTabId, TabsContext, useTabContext } from "./utils";
 
 export interface TabsProps<T extends string> extends HasChildren {
   readonly currentTab: T;
@@ -25,12 +26,14 @@ function Tabs<T extends string>(props: TabsProps<T>) {
   return <TabsContext.Provider value={ctx}>{children}</TabsContext.Provider>;
 }
 
-export function TabsContent({ children }: HasChildren) {
-  const { tabContentId, tabIdPrefix, currentTab } = useContext(TabsContext);
+type TabsContentProps = HasChildren & HasClassName;
+export function TabsContent(props: TabsContentProps) {
+  const { children, className } = props;
+  const { tabContentId, tabIdPrefix, currentTab } = useTabContext();
 
   return (
     <div
-      className="aje-tab-content"
+      className={cn("aje-tab-content", className)}
       id={tabContentId}
       tabIndex={0}
       role="tabpanel"

@@ -1,9 +1,9 @@
 import React from "react";
-import cn from "classnames";
+import cn, { Argument } from "classnames";
 import { Sizes } from "../../types";
 
 interface ComponentWrapperProps {
-  className: string;
+  className: Argument | Argument[];
   size?: Sizes;
   disabled?: boolean;
   required?: boolean;

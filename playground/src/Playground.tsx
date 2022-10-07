@@ -13,12 +13,13 @@ import {
   Option,
   PopupModal,
   ConfirmationModal,
+  IconMenu,
   ErrorModal,
 } from "./elements";
 import FormTesting from "./FormTesting";
 
 function Playground() {
-  const [currentTab, setCurrentTab] = useState("inputs");
+  const [currentTab, setCurrentTab] = useState("buttons");
   const [radioValue, setRadioValue] = useState("opt1");
   const [toggleChecked, setToggleChecked] = useState(false);
   const [number, setNumber] = useState(0);
@@ -95,6 +96,13 @@ function Playground() {
             </div>
             <div className="padder">
               <IconButton icon="more_vert" ariaLabel="more" />
+            </div>
+            <div className="padder">
+              <IconMenu icon="more_vert" label="more">
+                <IconMenu.Item>Test</IconMenu.Item>
+                <IconMenu.Item>Test</IconMenu.Item>
+                <IconMenu.Item>Test</IconMenu.Item>
+              </IconMenu>
             </div>
           </Tabs.Tab>
           <Tabs.Tab name="form">

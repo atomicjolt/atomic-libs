@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
-import { SortDirection } from "../../../types";
+import cn from "classnames";
+import { HasClassName, SortDirection } from "../../../types";
 import TableContext from "./tableContext";
 
-interface BaseProps {
+interface BaseProps extends HasClassName {
   /** What renders as the header */
   children?: React.ReactNode;
   /** For when a column needs width adjustments */
@@ -26,13 +27,16 @@ export type TableHeaderProps = BaseProps &
   React.HTMLProps<HTMLTableCellElement>;
 
 /** Table Header Component */
-function TableHeader({
-  children = "",
-  defaultSortDirection = "ascending",
-  sortPath,
-  width,
-  ...rest
-}: TableHeaderProps) {
+function TableHeader(props: TableHeaderProps) {
+  const {
+    children = "",
+    defaultSortDirection = "ascending",
+    sortPath,
+    width,
+    className,
+    ...rest
+  } = props;
+
   const {
     onSort,
     sortDirection,
@@ -49,7 +53,7 @@ function TableHeader({
   if (sortPath) {
     return (
       <th
-        className="is-sortable"
+        className={cn("is-sortable", className)}
         scope="col"
         aria-sort={colActive}
         style={styleWidth}
@@ -74,7 +78,7 @@ function TableHeader({
   }
 
   return (
-    <th scope="col" style={styleWidth} {...rest}>
+    <th className={cn(className)} scope="col" style={styleWidth} {...rest}>
       {children}
     </th>
   );

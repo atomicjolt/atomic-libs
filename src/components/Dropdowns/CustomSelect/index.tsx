@@ -49,6 +49,7 @@ export default function CustomSelect<T extends {} | Array<any>>(
     required,
     searchable = false,
     searchPlaceholder,
+    className,
   } = props;
 
   const [inputId, listBoxId, errorId, labelId] = useIds("CustomSelect", [
@@ -58,7 +59,11 @@ export default function CustomSelect<T extends {} | Array<any>>(
     "label",
   ]);
 
-  const [Variant, className] = useVariant(variants, "aje-dropdown", variant);
+  const [Variant, variantClassName] = useVariant(
+    variants,
+    "aje-dropdown",
+    variant
+  );
 
   const {
     selectedOption,
@@ -82,7 +87,7 @@ export default function CustomSelect<T extends {} | Array<any>>(
 
   return (
     <ComponentWrapper
-      className={className}
+      className={cn(variantClassName, className)}
       size={size}
       error={error}
       disabled={disabled}
