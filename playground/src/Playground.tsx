@@ -11,8 +11,6 @@ import {
   ToggleSwitch,
   CustomSelect,
   Option,
-  PopupModal,
-  ConfirmationModal,
   IconMenu,
   ErrorModal,
 } from "./elements";
