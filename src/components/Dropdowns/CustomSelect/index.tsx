@@ -48,6 +48,7 @@ export default function CustomSelect<T extends {} | Array<any>>(
     variant = "default",
     required,
     searchable = false,
+    placeholder = "",
     searchPlaceholder,
     className,
   } = props;
@@ -115,7 +116,11 @@ export default function CustomSelect<T extends {} | Array<any>>(
           onClick={menu.toggle}
           onKeyDown={handleKeyPress}
         >
-          <span>{multiselect ? label : selectedOption?.children}</span>
+          <span>
+            {multiselect
+              ? placeholder
+              : selectedOption?.children || placeholder}
+          </span>
         </div>
         <Popover show={menu.opened} size="full">
           <ul

@@ -4,10 +4,7 @@ import { HasVariant, InputProps } from "../../../types";
 export type CustomSelectVariants = "default" | "floating";
 
 export interface CustomSelectProps<T extends {} | Array<any>>
-  extends Omit<
-      InputProps<T | null, Element, React.SyntheticEvent<Element>>,
-      "placeholder"
-    >,
+  extends InputProps<T | null, Element, React.SyntheticEvent<Element>>,
     HasVariant<CustomSelectVariants> {
   readonly children: React.ReactElement | React.ReactElement[];
   /** Adds a search input to the dropdown.
