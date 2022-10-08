@@ -78,3 +78,17 @@ export function searchFilter<T>(
     return unwrapped.startsWith(value) || levenshtein(unwrapped, value) <= 2;
   });
 }
+
+export function getScrollParent(node: HTMLElement | null): HTMLElement {
+  while (node !== null) {
+    const overflowY = window.getComputedStyle(node).overflowY;
+    const isScrollable = overflowY !== "visible" && overflowY !== "hidden";
+    if (node.scrollHeight > node.clientHeight && isScrollable) {
+      return node;
+    } else {
+      node = node.parentElement;
+    }
+  }
+
+  return node || document.body;
+}

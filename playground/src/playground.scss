@@ -3,6 +3,12 @@ html {
 }
 
 html,
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+html,
 html a {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -22,28 +28,24 @@ html a {
 }
 
 .padder {
-  padding-top: 15rem;
+  padding-top: 1.5rem;
 }
 
-html,
-body {
-  width: 100vw;
-  height: 100vh;
-  margin: 0;
-}
+.aje-tip {
+  .aje-popover {
+    --popover-animation: opacity 200ms ease;
+    background-color: rgba(0, 0, 0, 0.774);
+    color: white;
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 5px;
+  }
 
-.scroll {
-  height: 400px;
-  overflow: scroll;
-  width: 400px;
-  margin: auto;
-}
-
-.content {
-  height: 800px;
-  width: 800px;
-}
-
-.wrapper {
-  padding: 100px;
+  &:hover {
+    .aje-popover {
+      visibility: visible;
+      opacity: 1;
+      transform: scaleY(1);
+    }
+  }
 }

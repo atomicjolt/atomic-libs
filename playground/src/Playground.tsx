@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import "./playground.scss";
 import {
   Button,
@@ -18,6 +18,22 @@ import {
 } from "./elements";
 import FormTesting from "./FormTesting";
 
+interface ToolTipProps {
+  children: React.ReactNode;
+  tip: React.ReactNode;
+}
+
+function ToolTip(props: ToolTipProps) {
+  const { children, tip } = props;
+
+  return (
+    <PopoverWrapper className="aje-tip">
+      {children}
+      <Popover position="top">{tip}</Popover>
+    </PopoverWrapper>
+  );
+}
+
 function Playground() {
   const [currentTab, setCurrentTab] = useState("buttons");
   const [radioValue, setRadioValue] = useState("opt1");
@@ -28,42 +44,15 @@ function Playground() {
 
   return (
     <div className="padder">
-      <div className="scroll">
-        <div className="content">
-          <div className="wrapper">
-            <PopoverWrapper>
-              <p
-                style={{
-                  fontSize: "20px",
-                  backgroundColor: "peru",
-
-                  width: "200px",
-                }}
-              >
-                Here's the Content
-              </p>
-              <Popover show position="top-left">
-                <div
-                  style={{
-                    backgroundColor: "lightblue",
-                    fontSize: "20px",
-                    padding: "10px",
-                  }}
-                >
-                  Hi
-                </div>
-              </Popover>
-            </PopoverWrapper>
-          </div>
-        </div>
-      </div>
-      {/* <Tabs currentTab={currentTab} onChange={setCurrentTab}>
+      <Tabs currentTab={currentTab} onChange={setCurrentTab}>
         <Tabs.Navigation>
           <Tabs.Link to="inputs">Inputs</Tabs.Link>
           <Tabs.Link to="buttons">Buttons</Tabs.Link>
           <Tabs.Link to="form">Form</Tabs.Link>
           <Tabs.Link to="modal">Modal</Tabs.Link>
         </Tabs.Navigation>
+        <div className="padder"></div>
+        <div className="padder"></div>
         <Tabs.Content>
           <Tabs.Tab name="inputs">
             <div className="padder">
@@ -117,7 +106,9 @@ function Playground() {
           </Tabs.Tab>
           <Tabs.Tab name="buttons">
             <div className="padder">
-              <Button>Primary</Button>
+              <ToolTip tip="this is a button">
+                <Button>Primary</Button>
+              </ToolTip>
               <Button variant="secondary">Secondary</Button>
               <Button variant="success">Success</Button>
               <Button variant="error">Error</Button>
@@ -148,7 +139,7 @@ function Playground() {
             </ErrorModal>
           </Tabs.Tab>
         </Tabs.Content>
-      </Tabs> */}
+      </Tabs>
     </div>
   );
 }

@@ -1,105 +1,27 @@
-import React, { RefObject, useEffect, useMemo, useRef, useState } from "react";
+import React, { useRef } from "react";
 import cn from "classnames";
 import { HasClassName, Sizes } from "../../../types";
+import usePosition, {
+  PositionNegotiationFunction,
+  Side,
+} from "../../../hooks/usePosition";
 
 export type PopoverPosition =
+  | "top"
+  | "bottom"
+  | "left"
+  | "right"
   | "bottom-right"
   | "bottom-left"
   | "top-right"
-  | "top-left"
-  | "left"
-  | "right";
+  | "top-left";
 
 export interface PopoverProps extends HasClassName {
   children: React.ReactNode;
   size?: Sizes;
   show?: boolean;
   position?: PopoverPosition;
-}
-
-interface RelativeBoundingRect {
-  top: number;
-  bottom: number;
-  left: number;
-  right: number;
-}
-
-enum Side {
-  Top = "top",
-  Bottom = "bottom",
-  Left = "left",
-  Right = "right",
-}
-
-function getScrollParent(node: HTMLElement | null): HTMLElement {
-  while (node !== null) {
-    if (node.scrollHeight > node.clientHeight) {
-      return node;
-    } else {
-      node = node.parentElement;
-    }
-  }
-
-  return node || document.body;
-}
-
-function useIntersectionObserver(
-  ref: RefObject<HTMLElement>,
-  callback: (entry: IntersectionObserverEntry, parent: HTMLElement) => void
-) {
-  console.log(ref);
-
-  useEffect(() => {
-    if (ref.current) {
-      const parent = getScrollParent(ref.current);
-      const observer = new IntersectionObserver(
-        (entries) => {
-          const entry = entries[0];
-
-          callback(entry, parent);
-        },
-        { threshold: [0, 1], root: parent }
-      );
-      observer.observe(ref.current);
-      // return () => observer.disconnect();
-    }
-    return () => {};
-  }, [ref.current]);
-}
-
-function useOverflow(
-  ref: RefObject<HTMLElement>,
-  callback: (overflowSide: Side) => void
-) {
-  useIntersectionObserver(ref, (entry, parent) => {
-    if (entry.isIntersecting) {
-      console.log("We're visible!");
-    } else {
-      const parentPos = parent.getBoundingClientRect();
-      const relativeBounds: RelativeBoundingRect = {
-        top: entry.boundingClientRect.top - parentPos.top,
-        bottom: parentPos.bottom - entry.boundingClientRect.bottom,
-        left: entry.boundingClientRect.left - parentPos.left,
-        right: parentPos.right - entry.boundingClientRect.right,
-      };
-      console.log(relativeBounds);
-    }
-
-    // const { top, bottom, left, right } = entry.boundingClientRect;
-    // let side: Side;
-
-    // if (top < 0) {
-    //   side = Side.Top;
-    // } else if (bottom < 0) {
-    //   side = Side.Bottom;
-    // } else if (left < 0) {
-    //   side = Side.Left;
-    // } else {
-    //   side = Side.Right;
-    // }
-
-    // callback(side);
-  });
+  negotioatePosition?: PositionNegotiationFunction<PopoverPosition>;
 }
 
 const PositionNegotiationLookup: Record<
@@ -107,10 +29,12 @@ const PositionNegotiationLookup: Record<
   Record<Partial<PopoverPosition>, Partial<PopoverPosition>>
 > = {
   [Side.Top]: {
-    "bottom-right": "top-right",
-    "bottom-left": "top-left",
+    "bottom-right": "bottom-right",
+    "bottom-left": "bottom-left",
     "top-right": "bottom-right",
     "top-left": "bottom-left",
+    top: "bottom",
+    bottom: "bottom",
     left: "bottom-left",
     right: "bottom-right",
   },
@@ -119,29 +43,35 @@ const PositionNegotiationLookup: Record<
     "bottom-left": "top-left",
     "top-right": "top-right",
     "top-left": "top-left",
+    top: "top",
+    bottom: "top",
     left: "top-left",
     right: "top-right",
   },
   [Side.Left]: {
-    "bottom-right": "top-right",
-    "bottom-left": "top-left",
-    "top-right": "bottom-right",
-    "top-left": "bottom-left",
+    "bottom-right": "right",
+    "bottom-left": "bottom-right",
+    "top-right": "right",
+    "top-left": "top-right",
+    top: "right",
+    bottom: "right",
     left: "right",
-    right: "left",
+    right: "right",
   },
   [Side.Right]: {
     "bottom-right": "bottom-left",
     "bottom-left": "left",
     "top-right": "top-left",
     "top-left": "bottom-left",
-    left: "right",
+    top: "left",
+    bottom: "left",
+    left: "left",
     right: "left",
   },
 };
 
-function defaultPositionNegotiator(side: Side, postion: PopoverPosition) {
-  return PositionNegotiationLookup[side][postion];
+function defaultPositionNegotiator(side: Side, position: PopoverPosition) {
+  return PositionNegotiationLookup[side][position];
 }
 
 export default function Popover(props: PopoverProps) {
@@ -150,58 +80,44 @@ export default function Popover(props: PopoverProps) {
     show,
     size = "auto",
     position: initialPosition = "bottom-left",
+    negotioatePosition = defaultPositionNegotiator,
     className,
   } = props;
   const ref = useRef<HTMLDivElement>(null);
-  const [position, setPosition] = useState<PopoverPosition>(initialPosition);
 
-  // useEffect(() => {
-  //   if (ref.current) {
-  //     const parent = getScrollParent(ref.current);
-  //     const observer = new IntersectionObserver(
-  //       (entries) => {
-  //         const entry = entries[0];
-  //         console.log(entry);
-  //       },
-  //       { threshold: [0, 1], root: parent }
-  //     );
-  //     observer.observe(ref.current);
-  //     // console.log(parent.clientHeight);
-  //     // console.log(parent.clientLeft);
-  //   }
-  // }, []);
-
-  useOverflow(ref, (side) => {
-    console.log(side);
-    // console.log();
-    setPosition(defaultPositionNegotiator(side, position));
+  const position = usePosition<PopoverPosition>(ref, {
+    initialPosition: initialPosition,
+    positionaNegotiator: negotioatePosition,
   });
 
+  const classNames = cn(
+    "aje-popover",
+    className,
+    `is-${size}`,
+    `aje-popover-${position}`,
+    { "is-visible": show }
+  );
+
   return (
-    <div
-      className={cn(
-        "aje-popover",
-        className,
-        `is-${size}`,
-        `aje-popover-${position}`,
-        {
-          "is-visible": show,
-        }
-      )}
-      ref={ref}
-    >
+    <div className={classNames} ref={ref}>
       {children}
     </div>
   );
 }
 
-interface PopoverWrapperProps {
+interface PopoverWrapperProps
+  extends Omit<React.HTMLProps<HTMLDivElement>, "className">,
+    HasClassName {
   children: React.ReactNode;
 }
 
 /** Optional wrapper for the Popover that simple is a div with `postion: relatve` */
 export function PopoverWrapper(props: PopoverWrapperProps) {
-  const { children } = props;
+  const { children, className, ...rest } = props;
 
-  return <div className={cn("aje-popover__wrapper")}>{children}</div>;
+  return (
+    <div className={cn("aje-popover__wrapper", className)} {...rest}>
+      {children}
+    </div>
+  );
 }

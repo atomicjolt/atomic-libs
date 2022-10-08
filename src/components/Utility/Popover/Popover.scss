@@ -3,11 +3,12 @@
 .aje-popover__wrapper {
   position: relative;
   display: inline-block;
+  overflow: visible;
 }
 
 .aje-popover {
   --popover-animation: transform 200ms ease, opacity 200ms;
-  --popover-disatnce: 5px;
+  --popover-distance: 5px;
 
   visibility: hidden;
   position: absolute;
@@ -19,39 +20,61 @@
   transition: var(--popover-animation);
 
   &-bottom-left {
-    margin-top: var(--popover-disatnce);
     top: 100%;
     left: 0;
+    margin-top: var(--popover-distance);
   }
 
   &-bottom-right {
-    margin-top: var(--popover-disatnce);
     top: 100%;
     right: 0;
+    margin-top: var(--popover-distance);
   }
 
   &-top-left {
-    margin-bottom: var(--popover-disatnce);
     bottom: 100%;
     left: 0;
+    margin-bottom: var(--popover-distance);
   }
 
   &-top-right {
-    margin-bottom: var(--popover-disatnce);
     bottom: 100%;
     right: 0;
+    margin-bottom: var(--popover-distance);
   }
 
   &-left {
-    margin-right: var(--popover-disatnce);
     right: 100%;
     top: 0;
+    margin-right: var(--popover-distance);
   }
 
   &-right {
-    margin-left: var(--popover-disatnce);
     left: 100%;
     top: 0;
+    margin-left: var(--popover-distance);
+  }
+
+  &-top,
+  &-bottom {
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &-bottom {
+    margin: auto;
+    margin-top: var(--popover-distance);
+  }
+
+  &-top {
+    bottom: 100%;
+    margin-bottom: var(--popover-distance);
+  }
+
+  &-bottom {
+    top: 100%;
   }
 
   &.is-small {
