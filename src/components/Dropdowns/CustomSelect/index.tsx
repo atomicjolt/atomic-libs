@@ -15,7 +15,7 @@ import {
 import Popover from "../../Utility/Popover";
 import useSelect from "./useSelect";
 import MaterialIcon from "../../Utility/MaterialIcon";
-import { handleUndefined } from "../../../utils";
+import { fallbackValue, handleUndefined } from "../../../utils";
 import { defaultStrategy } from "../../../filter";
 
 const variants: VariantRecord<
@@ -120,7 +120,7 @@ export default function CustomSelect<T extends {} | Array<any>>(
           <span>
             {multiselect
               ? placeholder
-              : selectedOption?.children || placeholder}
+              : fallbackValue(selectedOption?.children, placeholder)}
           </span>
         </div>
         <Popover show={menu.opened} size="full">

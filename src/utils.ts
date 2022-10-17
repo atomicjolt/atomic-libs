@@ -72,3 +72,11 @@ export function handleUndefined<T>(value: T | null | undefined): T | null {
 
   return value;
 }
+
+export function fallbackValue<T>(value: T | null | undefined, fallback: T): T {
+  if (value === null || value === undefined) {
+    return fallback;
+  }
+
+  return value;
+}

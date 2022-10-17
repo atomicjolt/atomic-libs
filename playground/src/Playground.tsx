@@ -72,7 +72,7 @@ function Playground() {
                 onChange={setSelectValue}
                 searchable
               >
-                <Option value={0}>Zero</Option>
+                <Option value={0}>{0}</Option>
                 <Option value="val1" searchKey="Value 1">
                   Value 1
                 </Option>
