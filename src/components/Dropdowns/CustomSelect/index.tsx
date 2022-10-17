@@ -15,7 +15,8 @@ import {
 import Popover from "../../Utility/Popover";
 import useSelect from "./useSelect";
 import MaterialIcon from "../../Utility/MaterialIcon";
-import { searchFilter } from "../../../utils";
+import { handleUndefined } from "../../../utils";
+import { defaultStrategy } from "../../../filter";
 
 const variants: VariantRecord<
   CustomSelectVariants,
@@ -51,6 +52,7 @@ export default function CustomSelect<T extends {} | Array<any>>(
     placeholder = "",
     searchPlaceholder,
     className,
+    filterStrategy = defaultStrategy,
   } = props;
 
   const [inputId, listBoxId, errorId, labelId] = useIds("CustomSelect", [
@@ -78,12 +80,11 @@ export default function CustomSelect<T extends {} | Array<any>>(
     ref,
     search,
   } = useSelect({
-    value: props.value || null,
+    value: handleUndefined(props.value),
     children: props.children,
     onChange: props.onChange,
     searchable,
-    filterOptions: (v, options) =>
-      searchFilter(v, options, (o) => o.searchKey || ""),
+    filterStrategy,
   });
 
   return (

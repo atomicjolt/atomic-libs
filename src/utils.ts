@@ -65,16 +65,10 @@ export function levenshtein(a: string, b: string): number {
   return matrix[a.length - 1][b.length - 1];
 }
 
-export function searchFilter<T>(
-  value: string,
-  options: T[],
-  unwrap: (v: T) => string
-): T[] {
-  const compValue = String(value);
+export function handleUndefined<T>(value: T | null | undefined): T | null {
+  if (value === undefined) {
+    return null;
+  }
 
-  return options.filter((o) => {
-    if (!value) return true;
-    const unwrapped = unwrap(o);
-    return unwrapped.startsWith(value) || levenshtein(unwrapped, value) <= 2;
-  });
+  return value;
 }

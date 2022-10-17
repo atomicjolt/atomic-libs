@@ -2,26 +2,25 @@ import React, { useState } from "react";
 import cn from "classnames";
 import { useIds, useVariant } from "../../../hooks";
 import InputError from "../../Utility/InputError";
-import { searchFilter, makeEventHandler } from "../../../utils";
+import { makeEventHandler } from "../../../utils";
 import ComponentWrapper from "../../Utility/ComponentWrapper";
 import Popover from "../../Utility/Popover";
+
+import { VariantRecord } from "../../../types";
+import DefaultCombobox from "./variants/DefaultCombobox";
+import FloatingCombobox from "./variants/FloatingCombobox";
+import { defaultStrategy } from "../../../filter";
+
 import {
   ComboboxProps,
   ComboboxVariantProps,
   Variants,
 } from "./Combobox.types";
-import { VariantRecord } from "../../../types";
-import DefaultCombobox from "./variants/DefaultCombobox";
-import FloatingCombobox from "./variants/FloatingCombobox";
 
 const variants: VariantRecord<Variants, ComboboxVariantProps> = {
   default: DefaultCombobox,
   floating: FloatingCombobox,
 };
-
-function defaultFilter(value: string, options: string[]) {
-  return searchFilter<string>(value, options, (o) => o);
-}
 
 /** A combobox is a combination of a select, with a searchable text field. */
 export default function Combobox(props: ComboboxProps) {
@@ -44,7 +43,7 @@ export default function Combobox(props: ComboboxProps) {
     error,
     message,
     hideLabel = false,
-    filterSuggestions = defaultFilter,
+    filterStrategy = defaultStrategy,
     onFocus,
     onBlur,
     variant = "default",
@@ -109,7 +108,7 @@ export default function Combobox(props: ComboboxProps) {
             id={listBoxId}
             aria-labelledby={labelId}
           >
-            {filterSuggestions(value, options).map((o) => (
+            {filterStrategy.filter(value, options).map((o) => (
               <li
                 className={cn("aje-combobox__option", {
                   "is-focused": o === value,

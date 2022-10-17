@@ -17,11 +17,11 @@ import {
 import FormTesting from "./FormTesting";
 
 function Playground() {
-  const [currentTab, setCurrentTab] = useState("buttons");
+  const [currentTab, setCurrentTab] = useState("inputs");
   const [radioValue, setRadioValue] = useState("opt1");
   const [toggleChecked, setToggleChecked] = useState(false);
   const [number, setNumber] = useState(0);
-  const [selectValue, setSelectValue] = useState<string[] | null>(["val1"]);
+  const [selectValue, setSelectValue] = useState<string | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
@@ -72,6 +72,7 @@ function Playground() {
                 onChange={setSelectValue}
                 searchable
               >
+                <Option value={0}>Zero</Option>
                 <Option value="val1" searchKey="Value 1">
                   Value 1
                 </Option>

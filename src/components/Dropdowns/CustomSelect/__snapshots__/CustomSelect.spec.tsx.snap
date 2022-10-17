@@ -152,9 +152,7 @@ exports[`matches snapshots matches multi-select enabled 1`] = `
         role="combobox"
         tabindex="0"
       >
-        <span>
-          Custom dropdown label
-        </span>
+        <span />
       </div>
       <div
         class="aje-popover is-full aje-popover-bottom-left"

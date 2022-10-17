@@ -4,7 +4,7 @@ exports[`matches snapshot 1`] = `
 <DocumentFragment>
   <button
     aria-label="More Button"
-    class="aje-btn--icon"
+    class="aje-btn aje-btn--icon"
     type="button"
   >
     <i
