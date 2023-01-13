@@ -2,12 +2,14 @@ import React from "react";
 import cn from "classnames";
 
 import Button from "../../Buttons/Button";
-import { HasClassName, MaterialIcons } from "../../../types";
+import { HasClassName, MaterialIcons, SuggestStrings } from "../../../types";
+import { Banner, BannerMain } from "../common";
+import MaterialIcon from "../../Utility/MaterialIcon";
 
-type ActionBannerVariants = "upgrade" | (string & {});
+type ActionBannerVariants = SuggestStrings<"variant">;
 
 export interface ActionBannerProps extends HasClassName {
-  /** `aje-banner--${className}` pre-defined styles for:
+  /** `aje-banner--${variant}` pre-defined styles for:
    * - `upgrade`
    */
   readonly variant?: ActionBannerVariants;
@@ -29,17 +31,13 @@ export default function ActionBanner(props: ActionBannerProps) {
   } = props;
 
   return (
-    <div className={cn(`aje-banner--${variant}`, className)}>
-      {icon && (
-        <i className="material-icons" aria-hidden>
-          {icon}
-        </i>
-      )}
-      <div className="aje-banner__main">{children}</div>
+    <Banner className={cn(`aje-banner--${variant}`, className)}>
+      {icon && <MaterialIcon icon={icon} />}
+      <BannerMain className="aje-banner__main">{children}</BannerMain>
       <Button variant="inverted" onClick={onClick}>
         {buttonText}
       </Button>
-    </div>
+    </Banner>
   );
 }
 

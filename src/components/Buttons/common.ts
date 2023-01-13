@@ -1,19 +1,8 @@
-@use "../mixins.scss";
+import styled from "styled-components";
+import mixins from "../../styles/mixins";
 
-.aje-btn {
-  --btn-font-size: 1.6rem;
-  --btn-icon-size: 2.4rem;
-  --btn-icon-gap: 8px;
-  --btn-text-clr: var(--text-clr-alt);
-  --btn-bg-clr: var(--neutral50);
-  --btn-hover-text-clr: var(--text-clr);
-  --btn-hover-bg-clr: var(--neutral100);
-  --btn-hover-shadow: none;
-  --btn-border: none;
-  --btn-border-radius: var(--radius);
-  --btn-height: 40px;
-  --btn-padding: 0.5em;
-
+export const BaseStyledButton = styled.button`
+  ${mixins.Bold}
   padding: var(--btn-padding) calc(var(--btn-padding) * 2);
   border-radius: var(--btn-border-radius);
   font-size: var(--btn-font-size);
@@ -22,7 +11,6 @@
   align-items: center;
   justify-content: center;
   gap: var(--btn-icon-gap);
-  @include mixins.bold;
   transition: background 100ms ease, color 100ms ease, transform 100ms ease,
     box-shadow 100ms ease;
   color: var(--btn-text-clr);
@@ -64,4 +52,4 @@
     font-size: var(--btn-icon-size);
     margin-left: calc(var(--btn-padding) / -2);
   }
-}
+`;

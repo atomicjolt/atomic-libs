@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import cn from "classnames";
 import { HasClassName, MaterialIcons } from "../../../types";
+import { Banner, BannerDismiss, BannerMain } from "../common";
+import MaterialIcon from "../../Utility/MaterialIcon";
 
 interface SharedProps extends HasClassName {
   /** Content to render in the banner */
@@ -47,14 +49,10 @@ export default function DismissableBanner(props: DismissableBannerProps) {
   }
 
   return (
-    <div className={cn(`aje-banner--${variant}`, className)}>
-      {icon && (
-        <i className="material-icons" aria-hidden>
-          {icon}
-        </i>
-      )}
-      <div className="aje-banner__main">{children}</div>
-      <button
+    <Banner className={cn(`aje-banner--${variant}`, className)}>
+      {icon && <MaterialIcon icon={icon} />}
+      <BannerMain className="aje-banner__main">{children}</BannerMain>
+      <BannerDismiss
         className="aje-banner__dismiss"
         aria-label={`dismiss ${variant}`}
         onClick={() => {
@@ -62,11 +60,9 @@ export default function DismissableBanner(props: DismissableBannerProps) {
           onDismiss && onDismiss();
         }}
       >
-        <i className="material-icons" aria-hidden>
-          close
-        </i>
-      </button>
-    </div>
+        <MaterialIcon icon="close" />
+      </BannerDismiss>
+    </Banner>
   );
 }
 

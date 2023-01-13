@@ -6,7 +6,7 @@
 
 .aje-popover {
   --popover-animation: transform 200ms ease, opacity 200ms;
-  --popover-disatnce: 5px;
+  --popover-distance: 5px;
 
   visibility: hidden;
   position: absolute;
@@ -18,37 +18,37 @@
   transition: var(--popover-animation);
 
   &-bottom-left {
-    margin-top: var(--popover-disatnce);
+    margin-top: var(--popover-distance);
     top: 100%;
     left: 0;
   }
 
   &-bottom-right {
-    margin-top: var(--popover-disatnce);
+    margin-top: var(--popover-distance);
     top: 100%;
     right: 0;
   }
 
   &-top-left {
-    margin-bottom: var(--popover-disatnce);
+    margin-bottom: var(--popover-distance);
     bottom: 100%;
     left: 0;
   }
 
   &-top-right {
-    margin-bottom: var(--popover-disatnce);
+    margin-bottom: var(--popover-distance);
     bottom: 100%;
     right: 0;
   }
 
   &-left {
-    margin-right: var(--popover-disatnce);
+    margin-right: var(--popover-distance);
     right: 100%;
     top: 0;
   }
 
   &-right {
-    margin-left: var(--popover-disatnce);
+    margin-left: var(--popover-distance);
     left: 100%;
     top: 0;
   }

@@ -58,4 +58,62 @@
   --outline: 2px solid var(--outline-clr-primary);
   --input-outline: 1px solid var(--outline-clr-primary);
   --radius: 5px;
+
+  --btn-font-size: 1.6rem;
+  --btn-icon-size: 2.4rem;
+  --btn-icon-gap: 8px;
+  --btn-text-clr: var(--text-clr-alt);
+  --btn-bg-clr: var(--neutral50);
+  --btn-hover-text-clr: var(--text-clr);
+  --btn-hover-bg-clr: var(--neutral100);
+  --btn-hover-shadow: none;
+  --btn-border: none;
+  --btn-border-radius: var(--radius);
+  --btn-height: 40px;
+  --btn-padding: 0.5em;
+
+  --banner-bg-clr: var(--neutral100);
+  --banner-text-clr: var(--text-clr);
+  --banner-icon-clr: var(--primary700);
+  --banner-btn-hover-clr: var(--neutral200);
+  --banner-btn-active-clr: var(--neutral300);
+  --banner-btn-size: 40px;
+  --banner-border-radius: var(--radius);
+
+  /* Dropdown variables */
+  --dropdown-border-radius: var(--radius);
+  --dropdown-border-clr: var(--input-border-clr);
+  --dropdown-height: 40px;
+  --dropdown-input-height: calc(var(--dropdown-height) - 2px);
+  --dropdown-padding: 6px;
+  --dropdown-padding-left: calc(var(--dropdown-padding) * 2);
+  --dropdown-padding-right: var(--dropdown-height);
+  --dropdown-text-clr: var(--text-clr);
+  --dropdown-bg-clr: none;
+  --dropdown-text-size: 1.6rem;
+  --dropdown-icon-size: 2.4rem;
+  --dropdown-icon-gap: calc(
+    (var(--dropdown-height) - var(--dropdown-icon-size)) / 2
+  );
+  --dropdown-icon-clr: var(--neutral600);
+
+  /* Menu variables */
+  --menu-box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.5);
+  --menu-bg-clr: var(--neutral50);
+  --menu-border-radius: var(--radius);
+  --menu-max-height: 300px;
+  --menu-padding-top: calc(var(--option-height) / 8);
+
+  /* Option variables */
+  --option-font-size: var(--dropdown-text-size);
+  --option-icon-size: var(--dropdown-icon-size);
+  --option-height: 32px;
+  --option-bg-clr: none;
+  --option-text-clr: inherit;
+  --option-icon-clr: var(--neutral600);
+  --option-selected-clr: var(--text-clr-inverted);
+  --option-padding: var(--dropdown-padding);
+  --option-padding-horizontal: calc(var(--dropdown-padding) * 2);
+  --option-icon-gap: 8px;
+  --option-border-clr: var(--neutral50, transparent);
 }

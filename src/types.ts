@@ -1,6 +1,8 @@
 import { Argument } from "classnames";
 import React from "react";
 
+export type SuggestStrings<T> = T | (string & {});
+
 export interface HasChildren {
   children: React.ReactNode;
 }

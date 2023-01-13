@@ -1,12 +1,13 @@
-import React, { ForwardedRef, RefObject } from "react";
+import React from "react";
 import cn from "classnames";
 import { InputProps } from "../../../types";
 import Label from "../../Utility/Label";
 import { useIds } from "../../../hooks";
 import InputError from "../../Utility/InputError";
-import ComponentWrapper from "../../Utility/ComponentWrapper";
 import { makeEventHandler } from "../../../utils";
 import Option, { OptionProps } from "../Option";
+import { ComponentWrapper } from "../../../styles/utils";
+import { SelectWrapper, StyledSelect } from "./Select.styles";
 
 type OptionChild = React.ReactElement<
   OptionProps<string | number | readonly string[] | undefined>,
@@ -51,8 +52,8 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
         <Label message={message} htmlFor={inputId} hidden={hideLabel}>
           {label}
         </Label>
-        <div className="aje-input__select">
-          <select
+        <SelectWrapper className="aje-input__select">
+          <StyledSelect
             id={inputId}
             aria-describedby={error ? errorId : ""}
             onChange={makeEventHandler(onChange)}
@@ -60,8 +61,8 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
             {...selectProps}
           >
             {children}
-          </select>
-        </div>
+          </StyledSelect>
+        </SelectWrapper>
         <InputError error={error} id={errorId} />
       </ComponentWrapper>
     );
