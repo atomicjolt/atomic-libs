@@ -12,11 +12,11 @@ exports[`matches snapshot 1`] = `
     </legend>
     <label
       class="aje-radio"
-      for="radio-7738719279339995"
+      for="radio-:r0:-input"
     >
       <input
         checked=""
-        id="radio-7738719279339995"
+        id="radio-:r0:-input"
         name="radiogroup"
         type="radio"
         value="opt1"
@@ -29,10 +29,10 @@ exports[`matches snapshot 1`] = `
     </label>
     <label
       class="aje-radio"
-      for="radio-7738719279339995"
+      for="radio-:r1:-input"
     >
       <input
-        id="radio-7738719279339995"
+        id="radio-:r1:-input"
         name="radiogroup"
         type="radio"
         value="opt2"
@@ -45,10 +45,10 @@ exports[`matches snapshot 1`] = `
     </label>
     <label
       class="aje-radio"
-      for="radio-7738719279339995"
+      for="radio-:r2:-input"
     >
       <input
-        id="radio-7738719279339995"
+        id="radio-:r2:-input"
         name="radiogroup"
         type="radio"
         value="opt3"

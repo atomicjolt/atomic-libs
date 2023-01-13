@@ -7,13 +7,13 @@ exports[`matches snapshot 1`] = `
   >
     <label
       class="aje-label"
-      for="TextArea-1898186386716278"
+      for="TextArea-:r0:-textarea"
     >
       label
     </label>
     <textarea
       aria-describedby=""
-      id="TextArea-1898186386716278"
+      id="TextArea-:r0:-textarea"
     />
   </div>
 </DocumentFragment>

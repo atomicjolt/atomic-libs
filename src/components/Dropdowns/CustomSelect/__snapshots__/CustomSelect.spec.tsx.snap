@@ -7,8 +7,8 @@ exports[`matches snapshots matches default variant 1`] = `
   >
     <label
       class="aje-label"
-      for="CustomSelect-4633098791302093"
-      id="CustomSelect-5405221014523335"
+      for="CustomSelect-:r0:-combo"
+      id="CustomSelect-:r0:-label"
     >
       Custom dropdown label
     </label>
@@ -16,13 +16,13 @@ exports[`matches snapshots matches default variant 1`] = `
       class="aje-combobox"
     >
       <div
-        aria-controls="CustomSelect-7736028714175982"
+        aria-controls="CustomSelect-:r0:-list"
         aria-describedby=""
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-labelledby="CustomSelect-5405221014523335"
+        aria-labelledby="CustomSelect-:r0:-label"
         class="aje-combobox__input"
-        id="CustomSelect-4633098791302093"
+        id="CustomSelect-:r0:-combo"
         role="combobox"
         tabindex="0"
       >
@@ -34,9 +34,9 @@ exports[`matches snapshots matches default variant 1`] = `
         class="aje-popover is-full aje-popover-bottom-left"
       >
         <ul
-          aria-labelledby="CustomSelect-5405221014523335"
+          aria-labelledby="CustomSelect-:r0:-label"
           class="aje-combobox__menu"
-          id="CustomSelect-7736028714175982"
+          id="CustomSelect-:r0:-list"
           role="listbox"
           tabindex="-1"
         >
@@ -73,13 +73,13 @@ exports[`matches snapshots matches floating variant 1`] = `
         class="aje-popover__wrapper"
       >
         <div
-          aria-controls="CustomSelect-7736028714175982"
+          aria-controls="CustomSelect-:r3:-list"
           aria-describedby=""
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-labelledby="CustomSelect-5405221014523335"
+          aria-labelledby="CustomSelect-:r3:-label"
           class="aje-combobox__input"
-          id="CustomSelect-4633098791302093"
+          id="CustomSelect-:r3:-combo"
           role="combobox"
           tabindex="0"
         >
@@ -91,9 +91,9 @@ exports[`matches snapshots matches floating variant 1`] = `
           class="aje-popover is-full aje-popover-bottom-left"
         >
           <ul
-            aria-labelledby="CustomSelect-5405221014523335"
+            aria-labelledby="CustomSelect-:r3:-label"
             class="aje-combobox__menu"
-            id="CustomSelect-7736028714175982"
+            id="CustomSelect-:r3:-list"
             role="listbox"
             tabindex="-1"
           >
@@ -115,8 +115,8 @@ exports[`matches snapshots matches floating variant 1`] = `
         </div>
         <label
           class="aje-label"
-          for="CustomSelect-4633098791302093"
-          id="CustomSelect-5405221014523335"
+          for="CustomSelect-:r3:-combo"
+          id="CustomSelect-:r3:-label"
         >
           Custom dropdown label
         </label>
@@ -133,8 +133,8 @@ exports[`matches snapshots matches multi-select enabled 1`] = `
   >
     <label
       class="aje-label"
-      for="CustomSelect-4633098791302093"
-      id="CustomSelect-5405221014523335"
+      for="CustomSelect-:r1:-combo"
+      id="CustomSelect-:r1:-label"
     >
       Custom dropdown label
     </label>
@@ -142,13 +142,13 @@ exports[`matches snapshots matches multi-select enabled 1`] = `
       class="aje-combobox"
     >
       <div
-        aria-controls="CustomSelect-7736028714175982"
+        aria-controls="CustomSelect-:r1:-list"
         aria-describedby=""
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-labelledby="CustomSelect-5405221014523335"
+        aria-labelledby="CustomSelect-:r1:-label"
         class="aje-combobox__input"
-        id="CustomSelect-4633098791302093"
+        id="CustomSelect-:r1:-combo"
         role="combobox"
         tabindex="0"
       >
@@ -158,9 +158,9 @@ exports[`matches snapshots matches multi-select enabled 1`] = `
         class="aje-popover is-full aje-popover-bottom-left"
       >
         <ul
-          aria-labelledby="CustomSelect-5405221014523335"
+          aria-labelledby="CustomSelect-:r1:-label"
           class="aje-combobox__menu is-multiselect"
-          id="CustomSelect-7736028714175982"
+          id="CustomSelect-:r1:-list"
           role="listbox"
           tabindex="-1"
         >
@@ -192,8 +192,8 @@ exports[`matches snapshots matches search enabled 1`] = `
   >
     <label
       class="aje-label"
-      for="CustomSelect-4633098791302093"
-      id="CustomSelect-5405221014523335"
+      for="CustomSelect-:r2:-combo"
+      id="CustomSelect-:r2:-label"
     >
       Custom dropdown label
     </label>
@@ -201,13 +201,13 @@ exports[`matches snapshots matches search enabled 1`] = `
       class="aje-combobox"
     >
       <div
-        aria-controls="CustomSelect-7736028714175982"
+        aria-controls="CustomSelect-:r2:-list"
         aria-describedby=""
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-labelledby="CustomSelect-5405221014523335"
+        aria-labelledby="CustomSelect-:r2:-label"
         class="aje-combobox__input"
-        id="CustomSelect-4633098791302093"
+        id="CustomSelect-:r2:-combo"
         role="combobox"
         tabindex="0"
       >
@@ -219,9 +219,9 @@ exports[`matches snapshots matches search enabled 1`] = `
         class="aje-popover is-full aje-popover-bottom-left"
       >
         <ul
-          aria-labelledby="CustomSelect-5405221014523335"
+          aria-labelledby="CustomSelect-:r2:-label"
           class="aje-combobox__menu"
-          id="CustomSelect-7736028714175982"
+          id="CustomSelect-:r2:-list"
           role="listbox"
           tabindex="-1"
         >

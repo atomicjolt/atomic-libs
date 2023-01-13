@@ -7,12 +7,12 @@ exports[`matches snapshot displays with search button 1`] = `
   >
     <label
       class="aje-label"
-      for="SearchInput-5007117471878883"
+      for="SearchInput-:r1:-input"
     >
       search
     </label>
     <input
-      id="SearchInput-5007117471878883"
+      id="SearchInput-:r1:-input"
       role="search"
       type="search"
       value=""
@@ -39,12 +39,12 @@ exports[`matches snapshot displays without button 1`] = `
   >
     <label
       class="aje-label"
-      for="SearchInput-5007117471878883"
+      for="SearchInput-:r0:-input"
     >
       search
     </label>
     <input
-      id="SearchInput-5007117471878883"
+      id="SearchInput-:r0:-input"
       role="search"
       type="search"
       value=""

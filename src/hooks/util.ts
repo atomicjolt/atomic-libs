@@ -1,8 +1,8 @@
-import { RefObject, useEffect, useMemo, useRef, useState } from "react";
-import { makeIds } from "../utils";
+import { RefObject, useEffect, useId, useMemo, useRef, useState } from "react";
 
 export function useIds(base: string, args: string[], deps: any[] = []) {
-  return useMemo(() => makeIds(base, args), deps);
+  const id = useId();
+  return useMemo(() => args.map((arg) => `${base}-${id}-${arg}`), deps);
 }
 
 export function useBool(

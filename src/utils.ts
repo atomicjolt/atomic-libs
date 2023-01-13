@@ -18,14 +18,6 @@ function hash(str: string, seed: number = 0) {
   return 4294967296 * (2097151 & h2) + (h1 >>> 0);
 }
 
-export function makeIds<T extends string>(
-  base: T,
-  args: readonly string[]
-): string[] {
-  const seed = Math.random() * 10 ** 10;
-  return args.map((a) => `${base}-${hash(base + a, seed)}`);
-}
-
 interface Event<T = Element> extends React.SyntheticEvent<T> {}
 
 const defaultCallback = (e: Event) =>
