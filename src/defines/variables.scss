@@ -166,4 +166,13 @@
   --tab-border-width: 1px;
   --tab-border-clr: transparent;
   --tab-text-clr: var(--text-clr-alt);
+
+  /* Icon variables */
+  --icon-size-sm: 18px;
+  --icon-size-md: 24px;
+  --icon-size-lg: 36px;
+
+  /* Popover Variables */
+  --popover-animation: transform 200ms ease, opacity 200ms;
+  --popover-distance: 5px;
 }

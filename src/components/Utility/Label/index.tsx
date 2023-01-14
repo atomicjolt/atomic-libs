@@ -1,7 +1,11 @@
 import React from "react";
 import cn from "classnames";
 import { HasChildren, HasClassName } from "../../../types";
-import { Label as StyledLabel } from "../../../styles/utils";
+import {
+  ErrorLabel,
+  Label as StyledLabel,
+  MessageLabel,
+} from "../../../styles/utils";
 
 export interface LabelProps extends HasChildren, HasClassName {
   message?: string;
@@ -28,21 +32,8 @@ export default function Label(props: LabelProps) {
       <StyledLabel className={classes} htmlFor={htmlFor} id={id}>
         {children}
       </StyledLabel>
-      {message && <p className="aje-label--message">{message}</p>}
+      {message && <MessageLabel>{message}</MessageLabel>}
       {error && <ErrorLabel>{error}</ErrorLabel>}
     </>
-  );
-}
-
-interface ErrorLabelProps {
-  children: React.ReactNode;
-  id?: string;
-}
-
-export function ErrorLabel({ children, id }: ErrorLabelProps) {
-  return (
-    <p id={id} className="aje-label--error">
-      {children}
-    </p>
   );
 }

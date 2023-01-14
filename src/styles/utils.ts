@@ -44,7 +44,7 @@ export const Label = styled.label.attrs(({ className }) => ({
   ${mixins.Hidden}
 `;
 
-export const MessageLabel = styled.label.attrs(({ className }) => ({
+export const MessageLabel = styled.p.attrs(({ className }) => ({
   className: cn("aje-label--message", className),
 }))`
   ${mixins.Regular}
@@ -54,7 +54,7 @@ export const MessageLabel = styled.label.attrs(({ className }) => ({
   color: var(--text-clr-alt);
 `;
 
-export const ErrorLabel = styled.label.attrs(({ className }) => ({
+export const ErrorLabel = styled.p.attrs(({ className }) => ({
   className: cn("aje-label--error", className),
 }))`
   ${mixins.Bold}

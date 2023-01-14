@@ -11,9 +11,5 @@ export default function InputError({ error, id }: InputErrorProps) {
     return null;
   }
 
-  return (
-    <ErrorLabel as="p" id={id}>
-      {error}
-    </ErrorLabel>
-  );
+  return <ErrorLabel id={id}>{error}</ErrorLabel>;
 }

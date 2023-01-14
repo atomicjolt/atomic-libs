@@ -8,7 +8,9 @@ export default {
   decorators: [
     (Story) => (
       <div style={{ padding: "5rem", width: "max-content" }}>
-        <Story />
+        <PopoverWrapper>
+          <Story />
+        </PopoverWrapper>
       </div>
     ),
   ],
@@ -18,7 +20,7 @@ const Template: ComponentStory<typeof Popover> = (args: PopoverProps) => {
   const [show, setShow] = React.useState(false);
 
   return (
-    <PopoverWrapper>
+    <>
       <p style={{ fontSize: "20px", backgroundColor: "peru" }}>
         Here's the Content
       </p>
@@ -33,7 +35,7 @@ const Template: ComponentStory<typeof Popover> = (args: PopoverProps) => {
           Hi
         </div>
       </Popover>
-    </PopoverWrapper>
+    </>
   );
 };
 
