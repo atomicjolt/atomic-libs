@@ -3,13 +3,15 @@ import cn from "classnames";
 import { useIds } from "../../../hooks";
 import { CheckedInputProps } from "../../../types";
 import { makeEventHandler } from "../../../utils";
+import { ChooseInput, ChooseLabel, ChooseInputWrapper } from "../Inputs.styles";
+import { ErrorLabel, MessageLabel } from "../../../styles/utils";
+import { CheckboxWrapper } from "./Checkbox.styles";
 
 export type CheckboxProps = CheckedInputProps;
 
 /** Checkbox Component. Accepts a `ref` */
 const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
   (props, ref) => {
-    const [inputId] = useIds("Checkbox", ["input"]);
     const {
       label,
       error,
@@ -21,16 +23,17 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       className,
       ...inputProps
     } = props;
+    const [inputId] = useIds("Checkbox", ["input"]);
 
     return (
-      <label
+      <CheckboxWrapper
         className={cn("aje-checkbox", className, {
           "has-error": error,
           "is-required": required,
         })}
         htmlFor={inputId}
       >
-        <input
+        <ChooseInput
           id={inputId}
           ref={ref}
           type="checkbox"
@@ -43,12 +46,12 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
           required={required}
           {...inputProps}
         />
-        <span className="aje-checkbox__label">
+        <ChooseLabel className="aje-checkbox__label">
           {label}
-          {message && <p className="aje-label--message">{message}</p>}
-          {error && <p className="aje-label--error">{error}</p>}
-        </span>
-      </label>
+          {message && <MessageLabel as="p">{message}</MessageLabel>}
+          {error && <ErrorLabel as="p">{error}</ErrorLabel>}
+        </ChooseLabel>
+      </CheckboxWrapper>
     );
   }
 );

@@ -1,7 +1,7 @@
-@use "../../mixins";
-@use "../common.scss";
+import styled from "styled-components";
+import { ChooseInputWrapper } from "../Inputs.styles";
 
-.aje-checkbox {
+export const CheckboxWrapper = styled(ChooseInputWrapper)`
   --check-box-radius: var(--radius);
 
   input[type="checkbox"] + .aje-checkbox__label:before {
@@ -35,4 +35,4 @@
   &.is-required::after {
     content: " *";
   }
-}
+`;

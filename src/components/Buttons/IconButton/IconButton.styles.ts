@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BaseStyledButton } from "../common";
+import { BaseStyledButton } from "../Buttons.styles";
 
 export const StyledIconButton = styled(BaseStyledButton)`
   --btn-text-clr: var(--text-clr-alt);

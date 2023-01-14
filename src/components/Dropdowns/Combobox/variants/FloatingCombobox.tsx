@@ -1,6 +1,6 @@
 import React from "react";
 import Label from "../../../Utility/Label";
-import { DropdownWrapper } from "../../common";
+import { DropdownWrapper } from "../../Dropdowns.styles";
 import { ComboboxVariantProps } from "../Combobox.types";
 
 // TODO: potentially share this between DefaultTextInput and here?

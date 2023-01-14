@@ -16,7 +16,7 @@ import {
   DropdownMenu,
   DropdownOption,
   Wrapper,
-} from "../common";
+} from "../Dropdowns.styles";
 import { SearchInput, SearchListItem } from "./CustomSelect.styles";
 import {
   CustomSelectProps,

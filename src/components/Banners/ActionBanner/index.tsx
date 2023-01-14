@@ -3,7 +3,7 @@ import cn from "classnames";
 
 import Button from "../../Buttons/Button";
 import { HasClassName, MaterialIcons, SuggestStrings } from "../../../types";
-import { Banner, BannerMain } from "../common";
+import { Banner, BannerMain } from "../Banners.styles";
 import MaterialIcon from "../../Utility/MaterialIcon";
 
 type ActionBannerVariants = SuggestStrings<"variant">;

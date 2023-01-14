@@ -1,6 +1,8 @@
-@use "../../mixins";
+import styled from "styled-components";
+import mixins from "../../../styles/mixins";
+import { ChooseInputWrapper } from "../Inputs.styles";
 
-.aje-radio-group {
+export const FieldSet = styled.div`
   padding: 0;
   border: none;
 
@@ -11,9 +13,13 @@
   .aje-radio + .aje-radio {
     margin-top: 12px;
   }
-}
+`;
 
-.aje-radio {
+export const RadioLegend = styled.legend`
+  ${mixins.Hidden}
+`;
+
+export const RadioWrapper = styled(ChooseInputWrapper)`
   --unchecked: var(--neutral600);
   --checked: var(--primary700);
 
@@ -42,4 +48,4 @@
     cursor: auto;
     opacity: 0.5;
   }
-}
+`;

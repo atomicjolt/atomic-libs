@@ -116,4 +116,21 @@
   --option-padding-horizontal: calc(var(--dropdown-padding) * 2);
   --option-icon-gap: 8px;
   --option-border-clr: var(--neutral50, transparent);
+
+  /* Input variables */
+  --input-height: 40px;
+  --input-padding-horiz: 12px;
+  --input-font-size: 1.6rem;
+  --input-icon-size: 2.4rem;
+  --input-text-clr: var(--text-clr);
+  --input-border-color: var(--input-border-clr);
+  --input-border: 1px solid var(--input-border-color);
+  --input-border-radius: var(--radius);
+  --input-bg-clr: none;
+  --input-transition: none;
+
+  /* Textare variables */
+  --textarea-height-sm: 80px;
+  --textarea-height-md: 140px;
+  --textarea-height-lg: 200px;
 }

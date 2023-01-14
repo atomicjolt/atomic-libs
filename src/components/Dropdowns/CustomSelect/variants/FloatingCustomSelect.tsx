@@ -2,7 +2,7 @@ import React from "react";
 import Label from "../../../Utility/Label";
 import { CustomSelectVariantProps } from "../CustomSelect.types";
 import { PopoverWrapper } from "../../../Utility/Popover";
-import { DropdownWrapper } from "../../common";
+import { DropdownWrapper } from "../../Dropdowns.styles";
 
 export default function FloatingCustomSelect<T>(
   props: CustomSelectVariantProps<T>

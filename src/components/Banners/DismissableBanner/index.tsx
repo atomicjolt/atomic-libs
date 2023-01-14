@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import cn from "classnames";
 import { HasClassName, MaterialIcons } from "../../../types";
-import { Banner, BannerDismiss, BannerMain } from "../common";
+import { Banner, BannerDismiss, BannerMain } from "../Banners.styles";
 import MaterialIcon from "../../Utility/MaterialIcon";
 
 interface SharedProps extends HasClassName {

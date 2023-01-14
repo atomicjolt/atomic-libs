@@ -21,7 +21,7 @@ import {
   DropdownOption,
   DropdownInputWrapper,
   Wrapper,
-} from "../common";
+} from "../Dropdowns.styles";
 
 const variants: VariantRecord<Variants, ComboboxVariantProps> = {
   default: DefaultCombobox,
