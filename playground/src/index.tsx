@@ -3,7 +3,7 @@ import ReactDom from "react-dom/client";
 
 import "../../src/defines/fonts.scss";
 import "../../src/defines/variables.scss";
-import "../../src/components/index.scss";
+import "../../src/defines/globals.scss";
 import Playground from "./Playground";
 import { Modal } from "./elements";
 

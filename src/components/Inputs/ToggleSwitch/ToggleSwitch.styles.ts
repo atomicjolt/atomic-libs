@@ -142,12 +142,13 @@ export const ToggleSwitchIcon = styled.i`
   border: 3px solid var(--toggle-unchecked);
   transform-origin: left center;
   transition: border-color 200ms linear;
+  display: flex;
+  margin: auto;
 
   &::before {
     content: "\\e5cd";
-    position: absolute;
-    top: 2px;
-    left: 2px;
+    align-self: center;
+    margin: auto;
     font-size: 1.4rem;
     font-family: "Material Icons";
     font-style: normal;
