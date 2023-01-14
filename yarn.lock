@@ -2252,6 +2252,11 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
+"@ljcl/storybook-addon-cssprops@^2.3.5":
+  version "2.3.5"
+  resolved "https://registry.yarnpkg.com/@ljcl/storybook-addon-cssprops/-/storybook-addon-cssprops-2.3.5.tgz#800a5f90dbfd833948056c568c8bc599b33c0edd"
+  integrity sha512-p2HihtLI2JEYvNKbatfwSDIKOvbmpWkzTh01xWpkeXopr86Oxs6Cokuh/OXkPJ4x4QkqTIycQduAF4sMOTMfQA==
+
 "@mdx-js/mdx@^1.6.22":
   version "1.6.22"
   resolved "https://registry.yarnpkg.com/@mdx-js/mdx/-/mdx-1.6.22.tgz#8a723157bf90e78f17dc0f27995398e6c731f1ba"
@@ -8030,10 +8035,15 @@ header-case@^2.0.4:
     capital-case "^1.0.4"
     tslib "^2.0.3"
 
-highlight.js@^10.4.1, highlight.js@~10.7.0:
+highlight.js@^10.4.1, highlight.js@^10.5.0, highlight.js@~10.7.0:
   version "10.7.3"
   resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-10.7.3.tgz#697272e3991356e40c3cac566a74eef681756531"
   integrity sha512-tzcUFauisWKNHaRkN4Wjl/ZA07gENAjFl3J/c480dprkGTg5EQstgaNFqBfUqCq54kZRIEcreTsAgF/m2quD7A==
+
+highlightjs-copy@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/highlightjs-copy/-/highlightjs-copy-1.0.3.tgz#792c3b92eba5a5d61977ce28d7d9662c3c11f713"
+  integrity sha512-vXHBmzz7IuJg8f5ixX7qxhfCCDnEQCXRuIzcd7yTblJazZT3ZkaRto0md8IfBu86JdK4VRIdKMubxKt7kwNGfg==
 
 history@5.0.0:
   version "5.0.0"
@@ -11713,6 +11723,13 @@ react-element-to-jsx-string@^14.3.4:
     "@base2/pretty-print-object" "1.0.1"
     is-plain-object "5.0.0"
     react-is "17.0.2"
+
+react-highlight@^0.14.0:
+  version "0.14.0"
+  resolved "https://registry.yarnpkg.com/react-highlight/-/react-highlight-0.14.0.tgz#5aefa5518baa580f96b68d48129d7a5d2dc0c9ef"
+  integrity sha512-kWE+KXOXidS7SABhVopOgMnowbI3RAfeGZbnrduLNlWrYAED8sycL9l/Fvw3w0PFpIIawB7mRDnyhDcM/cIIGA==
+  dependencies:
+    highlight.js "^10.5.0"
 
 react-hook-form@^7.36.1:
   version "7.36.1"

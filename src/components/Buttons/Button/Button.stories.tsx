@@ -1,6 +1,7 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Button, { ButtonProps } from ".";
+import Doc from "./Button.doc.mdx";
 
 export default {
   title: "Buttons/Button",
@@ -9,6 +10,12 @@ export default {
     onClick: {
       control: false,
     },
+  },
+  parameters: {
+    docs: {
+      page: Doc,
+    },
+    cssSelectors: [".aje-btn--primary", ".aje-btn"],
   },
 } as ComponentMeta<typeof Button>;
 
