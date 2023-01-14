@@ -2,63 +2,66 @@
 
 exports[`matches snapshot 1`] = `
 <DocumentFragment>
-  <fieldset
-    class="aje-radio-group"
+  <div
+    class="sc-jrcTuL gaccLS aje-radio-group"
   >
     <legend
-      class="aje-label"
+      class="sc-kDvujY cOdru aje-label"
     >
       Label
     </legend>
     <label
-      class="aje-radio"
+      class="sc-iBYQkv sc-ipEyDJ kwrUZT gDbdsk aje-radio"
       for="radio-:r0:-input"
     >
       <input
         checked=""
+        class="sc-ftTHYK gYqjaL"
         id="radio-:r0:-input"
         name="radiogroup"
         type="radio"
         value="opt1"
       />
       <span
-        class="aje-checkbox__label"
+        class="sc-pyfCe hfthtU aje-checkbox__label"
       >
         Option 1
       </span>
     </label>
     <label
-      class="aje-radio"
+      class="sc-iBYQkv sc-ipEyDJ kwrUZT gDbdsk aje-radio"
       for="radio-:r1:-input"
     >
       <input
+        class="sc-ftTHYK gYqjaL"
         id="radio-:r1:-input"
         name="radiogroup"
         type="radio"
         value="opt2"
       />
       <span
-        class="aje-checkbox__label"
+        class="sc-pyfCe hfthtU aje-checkbox__label"
       >
         Option 2
       </span>
     </label>
     <label
-      class="aje-radio"
+      class="sc-iBYQkv sc-ipEyDJ kwrUZT gDbdsk aje-radio"
       for="radio-:r2:-input"
     >
       <input
+        class="sc-ftTHYK gYqjaL"
         id="radio-:r2:-input"
         name="radiogroup"
         type="radio"
         value="opt3"
       />
       <span
-        class="aje-checkbox__label"
+        class="sc-pyfCe hfthtU aje-checkbox__label"
       >
         Option 3
       </span>
     </label>
-  </fieldset>
+  </div>
 </DocumentFragment>
 `;

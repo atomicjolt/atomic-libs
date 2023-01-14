@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FormEvent } from "react";
 import cn from "classnames";
 import { useIds } from "../../../hooks";
 import { EventHandler, InputProps } from "../../../types";
@@ -53,7 +53,7 @@ const SearchInput = React.forwardRef<HTMLInputElement, SearchInputProps>(
         size={size}
         error={error}
         disabled={disabled}
-        onSubmit={(e) => {
+        onSubmit={(e: FormEvent<HTMLFormElement>) => {
           e.preventDefault();
           onSubmit && onSubmit(value, e);
         }}
