@@ -1,8 +1,16 @@
 import React from "react";
 import { modalInitializer, useModal } from "../utils";
 import Button from "../../Buttons/Button";
-import BasicModal, { BaseModalProps } from "../BlankModal";
-import { makeOptionaCallback } from "../../../utils";
+import BasicModal, { BaseModalProps } from "../BasicModal";
+import { makeOptionalCallback } from "../../../utils";
+import {
+  ModalBottom,
+  ModalClose,
+  ModalMain,
+  ModalTitle,
+  ModalTop,
+} from "../Modals.styles";
+import MaterialIcon from "../../Utility/MaterialIcon";
 
 export interface ModalProps extends BaseModalProps {
   /** Must include a title. Titles are always in Title case. */
@@ -41,29 +49,23 @@ function Modal(props: ModalProps) {
     ...rest
   } = props;
 
-  const onCloseCallback = makeOptionaCallback(onClose);
+  const onCloseCallback = makeOptionalCallback(onClose);
 
   return (
     <BasicModal onOutsideClick={onCloseCallback} {...rest}>
-      <div className="aje-modal__top">
-        <h2 className="aje-modal__title">{title}</h2>
-        <button
-          className="aje-modal__close"
-          aria-label="close modal"
-          onClick={onCloseCallback}
-        >
-          <i className="material-icons" aria-hidden>
-            close
-          </i>
-        </button>
-      </div>
-      <div className="aje-modal__main">{children}</div>
-      <div className="aje-modal__bottom">
+      <ModalTop>
+        <ModalTitle>{title}</ModalTitle>
+        <ModalClose aria-label="close modal" onClick={onCloseCallback}>
+          <MaterialIcon icon="close" />
+        </ModalClose>
+      </ModalTop>
+      <ModalMain>{children}</ModalMain>
+      <ModalBottom>
         {secondaryButton && (
           <Button
             variant="secondary"
             type="button"
-            onClick={makeOptionaCallback(primaryAction)}
+            onClick={makeOptionalCallback(primaryAction)}
           >
             {secondaryButton}
           </Button>
@@ -72,12 +74,12 @@ function Modal(props: ModalProps) {
           <Button
             variant="primary"
             type="button"
-            onClick={makeOptionaCallback(secondaryAction)}
+            onClick={makeOptionalCallback(secondaryAction)}
           >
             {primaryButton}
           </Button>
         )}
-      </div>
+      </ModalBottom>
     </BasicModal>
   );
 }

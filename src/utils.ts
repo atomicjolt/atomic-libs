@@ -30,7 +30,7 @@ export function makeEventHandler<T, E extends Event>(
   return (event: E) => handler && handler(callback(event), event);
 }
 
-export function makeOptionaCallback<T = unknown>(
+export function makeOptionalCallback<T = unknown>(
   callback?: (...rest: T[]) => any
 ) {
   return (...rest: T[]) => callback && callback(...rest);
