@@ -16,7 +16,7 @@ export const FieldSet = styled.div`
 `;
 
 export const RadioLegend = styled.legend`
-  ${mixins.Hidden}
+  ${mixins.Hidden};
 `;
 
 export const RadioWrapper = styled(ChooseInputWrapper)`

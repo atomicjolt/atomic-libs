@@ -3,6 +3,13 @@ import cn from "classnames";
 import { useIds, useInitialRender } from "../../../hooks";
 import { EventHandler, HasClassName } from "../../../types";
 import { makeEventHandler } from "../../../utils";
+import {
+  ToggleSwitchIcon,
+  ToggleSwitchContainer,
+  ToggleSwitchLabel,
+  ToggleSwitchWrapper,
+  HiddenCheckbox,
+} from "./ToggleSwitch.styles";
 
 export interface ToggleSwitchProps extends HasClassName {
   readonly checked?: boolean;
@@ -32,11 +39,13 @@ const ToggleSwitch = React.forwardRef<HTMLInputElement, ToggleSwitchProps>(
     } = props;
 
     return (
-      <label className={cn("aje-toggle-switch", className)} htmlFor={inputId}>
-        <input
+      <ToggleSwitchWrapper
+        className={cn("aje-toggle-switch", className)}
+        htmlFor={inputId}
+      >
+        <HiddenCheckbox
           ref={ref}
           id={inputId}
-          type="checkbox"
           checked={checked}
           disabled={disabled}
           onChange={makeEventHandler(onChange, (e) => e.target.checked)}
@@ -46,18 +55,18 @@ const ToggleSwitch = React.forwardRef<HTMLInputElement, ToggleSwitchProps>(
           )}
           {...inputProps}
         />
-        <span
+        <ToggleSwitchLabel
           className={cn("aje-toggle-switch__label", {
             "check-animation": checked && !firstRender,
             "uncheck-animation": !checked && !firstRender,
           })}
         >
           {label}
-          <div>
-            <i />
-          </div>
-        </span>
-      </label>
+          <ToggleSwitchContainer>
+            <ToggleSwitchIcon />
+          </ToggleSwitchContainer>
+        </ToggleSwitchLabel>
+      </ToggleSwitchWrapper>
     );
   }
 );

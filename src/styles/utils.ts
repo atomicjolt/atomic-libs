@@ -26,12 +26,13 @@ export const ComponentWrapper = styled.div.attrs<ComponentWrapperProps>(
 export const Label = styled.label.attrs(({ className }) => ({
   className: cn("aje-label", className),
 }))`
-  ${mixins.Regular}
+  ${mixins.Bold}
   display: block;
   padding-bottom: 5px;
   font-size: 1.3rem;
   line-height: 1.1;
   color: var(--text-clr);
+  ${mixins.Hidden}
 `;
 
 export const MessageLabel = styled.label.attrs(({ className }) => ({
