@@ -88,7 +88,9 @@ function Playground() {
           </Tabs.Tab>
           <Tabs.Tab name="buttons">
             <div className="padder">
-              <Button>Primary</Button>
+              <div className="primary">
+                <Button>Primary</Button>
+              </div>
               <Button variant="secondary">Secondary</Button>
               <Button variant="success">Success</Button>
               <Button variant="error">Error</Button>

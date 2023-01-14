@@ -3,7 +3,7 @@ import cn from "classnames";
 import { useIds } from "../../../hooks";
 import { CheckedInputProps } from "../../../types";
 import { makeEventHandler } from "../../../utils";
-import { ChooseInput, ChooseLabel, ChooseInputWrapper } from "../Inputs.styles";
+import { ChooseInput, ChooseLabel } from "../Inputs.styles";
 import { ErrorLabel, MessageLabel } from "../../../styles/utils";
 import { CheckboxWrapper } from "./Checkbox.styles";
 
