@@ -175,4 +175,15 @@
   /* Popover Variables */
   --popover-animation: transform 200ms ease, opacity 200ms;
   --popover-distance: 5px;
+
+  /* Choose variables (overlapping between checkmarks and radio buttons)*/
+  --choose-unchecked: var(--neutral600);
+  --choose-checked: var(--primary700);
+  --choose-check-border-clr: var(--choose-unchecked);
+  --choose-check-bg-clr: none;
+  --choose-check-size: 20px;
+  --choose-label-text-size: 1.6rem;
+  --choose-label-padding-top: 0;
+  --choose-label-padding-left: 32px;
+  --choose-label-height: 24px;
 }

@@ -88,17 +88,6 @@ export const Input = styled.input`
 `;
 
 export const ChooseInputWrapper = styled.label`
-  // TODO: move these
-  --unchecked: var(--neutral600);
-  --checked: var(--primary700);
-  --check-border-clr: var(--unchecked);
-  --check-bg-clr: none;
-  --check-size: 20px;
-  --label-text-size: 1.6rem;
-  --label-padding-top: 0;
-  --label-padding-left: 32px;
-  --label-height: 24px;
-
   display: block;
 
   :is(input):focus-visible ~ .aje-checkbox__label:before {
@@ -128,23 +117,23 @@ export const ChooseLabel = styled.span`
   display: inline-block;
   cursor: pointer;
   position: relative;
-  font-size: var(--label-text-size);
+  font-size: var(--choose-label-text-size);
   line-height: 1.5;
   color: var(--text-clr);
-  padding-top: var(--label-padding-top);
-  padding-left: var(--label-padding-left);
-  min-height: var(--label-height);
+  padding-top: var(--choose-label-padding-top);
+  padding-left: var(--choose-label-padding-left);
+  min-height: var(--choose-label-height);
 
   &:before {
     content: "";
     position: absolute;
     top: 2px;
     left: 2px;
-    width: var(--check-size);
-    height: var(--check-size);
+    width: var(--choose-check-size);
+    height: var(--choose-check-size);
     box-sizing: border-box;
-    background-color: var(--check-bg-clr);
-    border: 2px solid var(--check-border-clr);
+    background-color: var(--choose-check-bg-clr);
+    border: 2px solid var(--choose-check-border-clr);
   }
   &:after {
     content: "";

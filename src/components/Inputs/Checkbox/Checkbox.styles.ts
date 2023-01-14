@@ -10,8 +10,8 @@ export const CheckboxWrapper = styled(ChooseInputWrapper)`
 
   input[type="checkbox"]:checked ~ .aje-checkbox__label {
     &:before {
-      --check-bg-clr: var(--checked);
-      --check-border-clr: var(--checked);
+      --choose-check-bg-clr: var(--choose-checked);
+      --choose-check-border-clr: var(--choose-checked);
     }
     &:after {
       display: block;

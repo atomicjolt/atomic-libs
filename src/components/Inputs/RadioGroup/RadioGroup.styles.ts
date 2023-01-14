@@ -1,8 +1,7 @@
 import styled from "styled-components";
-import mixins from "../../../styles/mixins";
 import { ChooseInputWrapper } from "../Inputs.styles";
 
-export const FieldSet = styled.div`
+export const FieldSet = styled.fieldset`
   padding: 0;
   border: none;
 
@@ -16,8 +15,8 @@ export const FieldSet = styled.div`
 `;
 
 export const RadioWrapper = styled(ChooseInputWrapper)`
-  --unchecked: var(--neutral600);
-  --checked: var(--primary700);
+  --choose-unchecked: var(--neutral600);
+  --choose-checked: var(--primary700);
 
   input[type="radio"] + .aje-checkbox__label:before {
     border-radius: 50%;
@@ -25,7 +24,7 @@ export const RadioWrapper = styled(ChooseInputWrapper)`
 
   input[type="radio"]:checked ~ .aje-checkbox__label {
     &:before {
-      border-color: var(--checked);
+      border-color: var(--choose-checked);
     }
     &:after {
       display: block;
@@ -34,7 +33,7 @@ export const RadioWrapper = styled(ChooseInputWrapper)`
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background-color: var(--checked);
+      background-color: var(--choose-checked);
     }
   }
 
