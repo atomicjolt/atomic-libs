@@ -139,4 +139,8 @@
   --toggle-checked: var(--primary700);
   --toggle-size: 24px;
   --toggle-travel: calc(var(--toggle-size) * 0.666);
+
+  /* Loader variables */
+  --loader-clr: var(--neutral500);
+  --loader-size: 16px;
 }
