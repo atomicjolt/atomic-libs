@@ -8,7 +8,7 @@ import Playground from "./Playground";
 import { Modal } from "./elements";
 
 const rootElement = document.getElementById("root");
-Modal.init(rootElement);
+Modal.init(rootElement as HTMLElement);
 const root = ReactDom.createRoot(rootElement!);
 
 root.render(

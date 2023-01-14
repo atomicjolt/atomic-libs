@@ -15,10 +15,6 @@ export const FieldSet = styled.div`
   }
 `;
 
-export const RadioLegend = styled.legend`
-  ${mixins.Hidden};
-`;
-
 export const RadioWrapper = styled(ChooseInputWrapper)`
   --unchecked: var(--neutral600);
   --checked: var(--primary700);

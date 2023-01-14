@@ -34,10 +34,7 @@ export default function BasicModal(props: BasicModalProps) {
     className,
     onOutsideClick,
   } = props;
-  const [renderModal, ref] = useModal<HTMLDivElement>({
-    open,
-    onOutsideClick: () => onOutsideClick && onOutsideClick(),
-  });
+  const [renderModal, ref] = useModal<HTMLDivElement>({ open });
 
   const variantClassName = useVariantClass("aje-modal", variant);
 
@@ -46,6 +43,7 @@ export default function BasicModal(props: BasicModalProps) {
       className={cn("aje-modal-background", className, {
         "is-centered": centered,
       })}
+      onClick={() => onOutsideClick && onOutsideClick()}
     >
       <ModalWrapper className={variantClassName} ref={ref}>
         {children}

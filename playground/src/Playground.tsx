@@ -13,6 +13,7 @@ import {
   Option,
   IconMenu,
   ErrorModal,
+  Modal,
 } from "./elements";
 import FormTesting from "./FormTesting";
 
@@ -108,6 +109,9 @@ function Playground() {
             <FormTesting />
           </Tabs.Tab>
           <Tabs.Tab name="modal">
+            <Button onClick={() => setModalOpen((open) => !open)}>
+              Open Modal
+            </Button>
             <ErrorModal
               title="Title"
               open={modalOpen}

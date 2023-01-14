@@ -10,7 +10,6 @@ interface ModalData {
 
 interface UseModalOptions {
   open: boolean;
-  onOutsideClick: () => void;
   data?: ModalData;
 }
 
@@ -26,7 +25,7 @@ type UseModalReturn<E extends HTMLElement> = [
 export function useModal<E extends HTMLElement>(
   options: UseModalOptions
 ): UseModalReturn<E> {
-  const { open, data = SharedModalData, onOutsideClick } = options;
+  const { open, data = SharedModalData } = options;
   useEffect(() => {
     if (data.initialized) {
       if (open) {
@@ -39,7 +38,6 @@ export function useModal<E extends HTMLElement>(
   }, [open, data.appRoot, data.initialized]);
 
   const ref = useRef<E | null>(null);
-  useClickOutside(ref, onOutsideClick, { enabled: open });
 
   const renderModal = (node: React.ReactNode) => {
     if (!open) return null;
