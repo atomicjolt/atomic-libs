@@ -155,4 +155,15 @@
   --table-padding-horz: 12px;
   --table-sort-icon-clr: var(--text-clr);
   --table-sort-icon-hover-clr: var(--neutral400);
+
+  /* Tab variables */
+  --tab-border-width: 1px;
+  --tab-border-clr: var(--border-clr-primary);
+  --tab-padding-hori: 16px;
+  --tab-padding-vert: 8px;
+  --tab-radius: var(--radius);
+  --tab-bg-clr: var(--neutral100);
+  --tab-border-width: 1px;
+  --tab-border-clr: transparent;
+  --tab-text-clr: var(--text-clr-alt);
 }
