@@ -3,6 +3,14 @@ import cn from "classnames";
 import { HasChildren, HasClassName, SortDirection } from "../../../types";
 import TableHeader from "./TableHeader";
 import TableContext from "./tableContext";
+import {
+  StyledTable,
+  StyledTBody,
+  StyledTd,
+  StyledThead,
+  TableWrapper,
+} from "./Table.styles";
+import { Hidden } from "../../../styles/utils";
 
 interface BaseProps extends HasClassName {
   /** Must include a title to label the table. */
@@ -29,7 +37,7 @@ type SortProps =
 
 export type TableProps = BaseProps &
   SortProps &
-  React.HTMLProps<HTMLTableElement>;
+  Omit<React.HTMLProps<HTMLTableElement>, "ref" | "as">;
 
 /** Table Component */
 function Table(props: TableProps) {
@@ -44,37 +52,42 @@ function Table(props: TableProps) {
     className,
     ...rest
   } = props;
+
   /* Add functionality to remove sort order from other headers if you click on other ones. */
   return (
-    <div className="aje-table-overflow">
-      <table
+    <TableWrapper className="aje-table-overflow">
+      <StyledTable
         className={cn("aje-table", className, {
           "has-vertical-borders": verticalBorders,
           "is-sticky": sticky,
         })}
         {...rest}
       >
-        <caption className="aje-hidden">
+        <Hidden as="caption">
           {title}
           {sortPath ? (
             <span>, column headers with buttons are sortable.</span>
           ) : null}
-        </caption>
+        </Hidden>
         <TableContext.Provider
           value={{ sortDirection, sortPath, onSort: onSort }}
         >
           {children}
         </TableContext.Provider>
-      </table>
-    </div>
+      </StyledTable>
+    </TableWrapper>
   );
 }
 
-type TableChildProps<E> = Omit<React.HTMLProps<E>, "className"> & HasClassName;
+type TableChildProps<E> = Omit<
+  React.HTMLProps<E>,
+  "className" | "ref" | "as" | "onCopy"
+> &
+  HasClassName;
 
 export function TableHead(props: TableChildProps<HTMLTableSectionElement>) {
   const { className, ...rest } = props;
-  return <thead className={cn(className)} {...rest} />;
+  return <StyledThead className={cn(className)} {...rest} />;
 }
 
 Table.Head = TableHead;
@@ -84,7 +97,7 @@ Table.Header = TableHeader;
 
 export function TableBody(props: TableChildProps<HTMLTableSectionElement>) {
   const { className, ...rest } = props;
-  return <tbody className={cn(className)} {...rest} />;
+  return <StyledTBody className={cn(className)} {...rest} />;
 }
 
 Table.Body = TableBody;
@@ -134,7 +147,7 @@ TableRow.displayName = "Table.Row";
 
 export function TableCell(props: TableChildProps<HTMLTableCellElement>) {
   const { className, ...rest } = props;
-  return <td className={cn(className)} {...rest} />;
+  return <StyledTd className={cn(className)} {...rest} />;
 }
 
 Table.Cell = TableCell;

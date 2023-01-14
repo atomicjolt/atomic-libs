@@ -23,6 +23,15 @@ export const ComponentWrapper = styled.div.attrs<ComponentWrapperProps>(
   })
 )<ComponentWrapperProps>``;
 
+export const Hidden = styled.span.attrs({ className: "aje-hidden" })`
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+`;
+
 export const Label = styled.label.attrs(({ className }) => ({
   className: cn("aje-label", className),
 }))`
