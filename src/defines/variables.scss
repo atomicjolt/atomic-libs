@@ -1,6 +1,8 @@
 :root {
   color-scheme: base;
 
+  /* # Global Colors */
+  /* ## Neutral */
   --neutral50: hsl(0, 0%, 100%);
   --neutral100: hsl(220, 14%, 96%);
   --neutral200: hsl(220, 13%, 91%);
@@ -11,6 +13,8 @@
   --neutral700: hsl(217, 19%, 27%);
   --neutral800: hsl(215, 28%, 17%);
   --neutral900: hsl(221, 39%, 11%);
+
+  /* ## Error */
   --error100: hsl(0, 93%, 94%);
   --error200: hsl(0, 96%, 89%);
   --error300: hsl(0, 94%, 82%);
@@ -20,6 +24,7 @@
   --error700: hsl(0, 74%, 42%);
   --error800: hsl(0, 70%, 35%);
   --error900: hsl(0, 63%, 31%);
+  /* ## Warning */
   --warning100: hsl(55, 97%, 90%);
   --warning200: hsl(53, 98%, 83%);
   --warning300: hsl(50, 98%, 75%);
@@ -29,6 +34,7 @@
   --warning700: hsl(35, 92%, 33%);
   --warning800: hsl(32, 81%, 29%);
   --warning900: hsl(28, 73%, 26%);
+  /* ##Success */
   --success100: hsl(100, 89%, 89%);
   --success200: hsl(101, 88%, 80%);
   --success300: hsl(102, 85%, 67%);
@@ -38,6 +44,7 @@
   --success700: hsl(106, 78%, 27%);
   --success800: hsl(107, 69%, 23%);
   --success900: hsl(108, 61%, 20%);
+  /* ## Primary */
   --primary100: hsl(185, 96%, 94%);
   --primary200: hsl(186, 94%, 88%);
   --primary300: hsl(187, 92%, 75%);
@@ -48,6 +55,7 @@
   --primary800: hsl(192, 70%, 27%);
   --primary900: hsl(193, 64%, 24%);
 
+  /* # Misc */
   --text-clr: var(--neutral800);
   --text-clr-alt: var(--neutral600);
   --text-clr-inverted: var(--neutral50);
@@ -59,6 +67,7 @@
   --input-outline: 1px solid var(--outline-clr-primary);
   --radius: 5px;
 
+  /* # Button Variables */
   --btn-font-size: 1.6rem;
   --btn-icon-size: 2.4rem;
   --btn-icon-gap: 8px;
@@ -72,6 +81,7 @@
   --btn-height: 40px;
   --btn-padding: 0.5em;
 
+  /* # Banner Variables */
   --banner-bg-clr: var(--neutral100);
   --banner-text-clr: var(--text-clr);
   --banner-icon-clr: var(--primary700);
@@ -80,7 +90,7 @@
   --banner-btn-size: 40px;
   --banner-border-radius: var(--radius);
 
-  /* Dropdown variables */
+  /* # Dropdown variables */
   --dropdown-border-radius: var(--radius);
   --dropdown-border-clr: var(--input-border-clr);
   --dropdown-height: 40px;
@@ -97,14 +107,14 @@
   );
   --dropdown-icon-clr: var(--neutral600);
 
-  /* Menu variables */
+  /* # Menu variables */
   --menu-box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.5);
   --menu-bg-clr: var(--neutral50);
   --menu-border-radius: var(--radius);
   --menu-max-height: 300px;
   --menu-padding-top: calc(var(--option-height) / 8);
 
-  /* Option variables */
+  /* # Option variables */
   --option-font-size: var(--dropdown-text-size);
   --option-icon-size: var(--dropdown-icon-size);
   --option-height: 32px;
@@ -117,7 +127,7 @@
   --option-icon-gap: 8px;
   --option-border-clr: var(--neutral50, transparent);
 
-  /* Input variables */
+  /* # Input variables */
   --input-height: 40px;
   --input-padding-horiz: 12px;
   --input-font-size: 1.6rem;
@@ -129,22 +139,22 @@
   --input-bg-clr: none;
   --input-transition: none;
 
-  /* Textare variables */
+  /* # Textare variables */
   --textarea-height-sm: 80px;
   --textarea-height-md: 140px;
   --textarea-height-lg: 200px;
 
-  /* Toggle switch variables */
+  /* # Toggle switch variables */
   --toggle-unchecked: var(--neutral400);
   --toggle-checked: var(--primary700);
   --toggle-size: 2.4rem;
   --toggle-travel: calc(var(--toggle-size) * 0.666);
 
-  /* Loader variables */
+  /* # Loader variables */
   --loader-clr: var(--neutral500);
   --loader-size: 16px;
 
-  /* Table variables */
+  /* # Table variables */
   --table-border-clr: var(--neutral300);
   --table-border-width: 1px;
   --table-bg-clr: var(--neutral50);
@@ -156,7 +166,7 @@
   --table-sort-icon-clr: var(--text-clr);
   --table-sort-icon-hover-clr: var(--neutral400);
 
-  /* Tab variables */
+  /* # Tab variables */
   --tab-border-width: 1px;
   --tab-border-clr: var(--border-clr-primary);
   --tab-padding-hori: 16px;
@@ -167,16 +177,16 @@
   --tab-border-clr: transparent;
   --tab-text-clr: var(--text-clr-alt);
 
-  /* Icon variables */
+  /* # Icon variables */
   --icon-size-sm: 18px;
   --icon-size-md: 24px;
   --icon-size-lg: 36px;
 
-  /* Popover Variables */
+  /* # Popover Variables */
   --popover-animation: transform 200ms ease, opacity 200ms;
   --popover-distance: 5px;
 
-  /* Choose variables (overlapping between checkmarks and radio buttons)*/
+  /* Choose variables */
   --choose-unchecked: var(--neutral600);
   --choose-checked: var(--primary700);
   --choose-check-border-clr: var(--choose-unchecked);
