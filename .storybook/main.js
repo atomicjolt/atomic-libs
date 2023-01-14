@@ -8,7 +8,6 @@ module.exports = {
     "@storybook/addon-docs",
     "storybook-addon-sass-postcss",
     "@ljcl/storybook-addon-cssprops",
-    "./scoped-css-addon/preset.ts",
   ],
   staticDirs: ["../public"],
   framework: "@storybook/react",
