@@ -6,7 +6,7 @@ css_property_regex = re.compile(r"--(.+): (.+);")
 props_regex = re.compile("const props = .+\n", re.MULTILINE)
 
 
-def get_css_props(contents: list[str]):
+def get_css_props(contents: list[str]) -> dict:
     category = None
     subcategory = None
 
@@ -21,6 +21,7 @@ def get_css_props(contents: list[str]):
             subcategory = match.groups()[0]
         elif match := css_property_regex.match(line):
             name, value = match.groups()
+
             data = {"value": value}
 
             if category:
@@ -33,7 +34,7 @@ def get_css_props(contents: list[str]):
     return props
 
 
-def main():
+def main() -> None:
     with open("src/defines/variables.scss", "r") as f:
         contents = f.readlines()
 
