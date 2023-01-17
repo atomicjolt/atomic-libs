@@ -1,16 +1,15 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import SearchInputComponent, { SearchInputProps } from ".";
-import {
-  DefaultInputProperties,
-  InputControls,
-  inputProperties,
-} from "../../storybook";
+import { DefaultInputProperties, TextInputControls } from "../../storybook";
 
 export default {
   title: "Inputs/SearchInput",
   component: SearchInputComponent,
-  argTypes: InputControls,
+  argTypes: {
+    onSubmit: { control: false, table: { category: "Events" } },
+    ...TextInputControls,
+  },
 } as ComponentMeta<typeof SearchInputComponent>;
 
 const Template: ComponentStory<typeof SearchInputComponent> = (

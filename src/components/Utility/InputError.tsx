@@ -1,5 +1,5 @@
 import React from "react";
-import { ErrorLabel } from "./Label";
+import { ErrorLabel } from "../../styles/utils";
 
 interface InputErrorProps {
   id: string;

@@ -1,13 +1,17 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import TextInput from ".";
-import { InputControls, DefaultInputProperties } from "../../storybook";
+import {
+  InputControls,
+  DefaultInputProperties,
+  TextInputControls,
+} from "../../storybook";
 import { TextInputProps } from "./TextInput.types";
 
 export default {
   title: "Inputs/TextInput",
   component: TextInput,
-  argTypes: InputControls,
+  argTypes: TextInputControls,
 } as ComponentMeta<typeof TextInput>;
 
 const Template: ComponentStory<typeof TextInput> = (args: TextInputProps) => {

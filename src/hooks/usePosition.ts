@@ -16,7 +16,7 @@ export enum Side {
   Right = "right",
 }
 
-export default function usePosition<P>(
+export default function useRelativePosition<P>(
   ref: RefObject<HTMLElement>,
   options: UsePositionOptions<P>
 ): P {
@@ -28,6 +28,7 @@ export default function usePosition<P>(
     root: parent,
     threshold: 0.5,
   });
+  console.log(entry);
 
   useEffect(() => {
     if (entry && !entry.isIntersecting) {
@@ -52,8 +53,11 @@ export default function usePosition<P>(
       if (side) {
         setPosition(positionaNegotiator(side!, position));
       }
+    } /* else if (initialPosition !== position) {
+      setPosition(initialPosition);
     }
-  }, [entry]);
+ */
+  }, [entry, initialPosition]);
 
   return position;
 }

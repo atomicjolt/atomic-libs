@@ -18,14 +18,6 @@ function hash(str: string, seed: number = 0) {
   return 4294967296 * (2097151 & h2) + (h1 >>> 0);
 }
 
-export function makeIds<T extends string>(
-  base: T,
-  args: readonly string[]
-): string[] {
-  const seed = Math.random() * 10 ** 10;
-  return args.map((a) => `${base}-${hash(base + a, seed)}`);
-}
-
 interface Event<T = Element> extends React.SyntheticEvent<T> {}
 
 const defaultCallback = (e: Event) =>
@@ -38,7 +30,7 @@ export function makeEventHandler<T, E extends Event>(
   return (event: E) => handler && handler(callback(event), event);
 }
 
-export function makeOptionaCallback<T = unknown>(
+export function makeOptionalCallback<T = unknown>(
   callback?: (...rest: T[]) => any
 ) {
   return (...rest: T[]) => callback && callback(...rest);
@@ -65,18 +57,20 @@ export function levenshtein(a: string, b: string): number {
   return matrix[a.length - 1][b.length - 1];
 }
 
-export function searchFilter<T>(
-  value: string,
-  options: T[],
-  unwrap: (v: T) => string
-): T[] {
-  const compValue = String(value);
+export function handleUndefined<T>(value: T | null | undefined): T | null {
+  if (value === undefined) {
+    return null;
+  }
 
-  return options.filter((o) => {
-    if (!value) return true;
-    const unwrapped = unwrap(o);
-    return unwrapped.startsWith(value) || levenshtein(unwrapped, value) <= 2;
-  });
+  return value;
+}
+
+export function fallbackValue<T>(value: T | null | undefined, fallback: T): T {
+  if (value === null || value === undefined) {
+    return fallback;
+  }
+
+  return value;
 }
 
 export function getScrollParent(node: HTMLElement | null): HTMLElement {

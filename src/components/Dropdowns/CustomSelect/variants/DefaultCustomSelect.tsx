@@ -1,5 +1,6 @@
 import React from "react";
 import Label from "../../../Utility/Label";
+import { DropdownWrapper } from "../../Dropdowns.styles";
 import { CustomSelectVariantProps } from "../CustomSelect.types";
 
 export default function DefaultCustomSelect<T>(
@@ -17,7 +18,7 @@ export default function DefaultCustomSelect<T>(
       >
         {label}
       </Label>
-      <div className="aje-combobox">{children}</div>
+      <DropdownWrapper className="aje-combobox">{children}</DropdownWrapper>
     </>
   );
 }

@@ -1,32 +1,34 @@
 import React, { createRef, useEffect, useRef } from "react";
 import ReactDOM from "react-dom";
-import { useClickOutside } from "../../hooks";
 
-interface ModalData {
-  appRoot: Element;
-  modalRoot: Element;
-  initialized: boolean;
-}
+type ModalData =
+  | {
+      initialized: false;
+      appRoot: null;
+      modalRoot: null;
+    }
+  | {
+      initialized: true;
+      appRoot: Element;
+      modalRoot: Element;
+    };
 
 interface UseModalOptions {
   open: boolean;
-  onOutsideClick: () => void;
   data?: ModalData;
 }
 
-export let SharedModalData: ModalData = {
+export let ModalDataStore: ModalData = {
   initialized: false,
-} as ModalData;
+  appRoot: null,
+  modalRoot: null,
+};
 
-type UseModalReturn<E extends HTMLElement> = [
-  (node: React.ReactNode) => JSX.Element | null,
-  React.RefObject<E>
-];
+type RenderModalFunction = (node: React.ReactNode) => JSX.Element | null;
 
-export function useModal<E extends HTMLElement>(
-  options: UseModalOptions
-): UseModalReturn<E> {
-  const { open, data = SharedModalData, onOutsideClick } = options;
+export function useModal(options: UseModalOptions): RenderModalFunction {
+  const { open, data = ModalDataStore } = options;
+
   useEffect(() => {
     if (data.initialized) {
       if (open) {
@@ -38,26 +40,48 @@ export function useModal<E extends HTMLElement>(
     }
   }, [open, data.appRoot, data.initialized]);
 
-  const ref = useRef<E | null>(null);
-  useClickOutside(ref, onOutsideClick, { enabled: open });
-
   const renderModal = (node: React.ReactNode) => {
     if (!open) return null;
     if (data.initialized) {
       return ReactDOM.createPortal(node, data.modalRoot);
     }
-    // TODO: Figure out why TS gets mad
-    // when this isn't wrapped in a fragment
+
     return <>{node}</>;
   };
 
-  return [renderModal, ref];
+  return renderModal;
 }
 
-export function modalInitializer(node: Element) {
+/** Initializes the Modal components. Doing this allows `atomic-elements` to open
+ * Modals in a accesibility-friendly way
+ * @param node that acts as the insertion point for your react application
+ * @param [id] id to reference the modal insertion point by
+ */
+export function modalInitializer(
+  node: Element,
+  id: string = "atomic-elements-modal-root"
+) {
+  // Create the insertion point for the Modals
+  // Will be used to create a React portal to
   const modalRoot = document.createElement("div");
-  modalRoot.id = "atomic-elements-modal-root";
+  modalRoot.id = id;
   document.body.appendChild(modalRoot);
-  (SharedModalData.appRoot = node), (SharedModalData.modalRoot = modalRoot);
-  SharedModalData.initialized = true;
+
+  // Initialze the shared data store
+  ModalDataStore.appRoot = node;
+  ModalDataStore.modalRoot = modalRoot;
+  ModalDataStore.initialized = true;
+
+  // Setup stylesheet
+  const modalStyle = document.createElement("style");
+  modalStyle.innerHTML = `
+#${id} {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+`;
+  document.head.appendChild(modalStyle);
 }

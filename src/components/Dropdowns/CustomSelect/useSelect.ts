@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
+import { FilterStrategy } from "../../../filter";
 
 import { useBool, useClickOutside } from "../../../hooks";
 import { EventHandler, FilterFunction } from "../../../types";
@@ -15,7 +16,7 @@ interface UseSelectOptions<T, ChildrenProps extends OptionProps<T>> {
     | React.ReactElement<ChildrenProps>
     | React.ReactElement<ChildrenProps>[];
   readonly searchable: boolean;
-  readonly filterOptions: FilterFunction<ChildrenProps>;
+  readonly filterStrategy: FilterStrategy<string, string>;
   readonly value: T | T[];
   readonly onChange?: SelectOnChangeHandler<T> | SelectOnChangeHandler<T[]>;
 }
@@ -73,17 +74,17 @@ export default function useSelect<
 ): UseSelectReturn<SelectedValue, ChildProps> {
   // SETUP -------------------------------------
 
-  const { value, children, onChange, searchable, filterOptions } = opts;
+  const { value, children, onChange, searchable, filterStrategy } = opts;
   const [selectedValues, multiselect] = handleMultiSelect(value);
 
-  let options: ChildProps[] = React.Children.map(
+  let childrenProps: ChildProps[] = React.Children.map(
     children,
     (child) => child.props
   );
 
   const getSelected = (values: SelectedValue[]): [number, ChildProps] => {
-    const index = options.findIndex((o) => values.includes(o.value));
-    const selectedValue: ChildProps = options[index];
+    const index = childrenProps.findIndex((o) => values.includes(o.value));
+    const selectedValue: ChildProps = childrenProps[index];
 
     return [index, selectedValue];
   };
@@ -94,9 +95,21 @@ export default function useSelect<
 
   const [search, setSearch] = useState<string>("");
 
-  if (searchable && search) {
-    options = filterOptions(search, options);
-  }
+  const options: ChildProps[] = useMemo(() => {
+    if (searchable && search) {
+      const searchableOptions = childrenProps.filter((o) => o.searchKey);
+      const searchKeys: string[] = searchableOptions.map(
+        (o) => o.searchKey
+      ) as string[];
+      const searchLookup: Record<string, ChildProps> = Object.fromEntries(
+        searchableOptions.map((o) => [o.searchKey, o])
+      );
+      const filtered = filterStrategy.filter(search, searchKeys);
+      return filtered.map((o) => searchLookup[o]);
+    } else {
+      return childrenProps;
+    }
+  }, [childrenProps, filterStrategy]);
 
   const ref = useRef<HTMLDivElement | null>(null);
 

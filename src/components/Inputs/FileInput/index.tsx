@@ -8,8 +8,14 @@ import {
   InputElementProps,
 } from "../../../types";
 import InputError from "../../Utility/InputError";
-import ComponentWrapper from "../../Utility/ComponentWrapper";
 import { makeEventHandler } from "../../../utils";
+import { ComponentWrapper } from "../../../styles/utils";
+import {
+  FileInputLabel,
+  FileInputSpan,
+  FileInputStrong,
+  StyledFileInput,
+} from "./FileInput.styles";
 
 export interface FileInputProps
   extends Omit<InputComponentProps, "size" | "hideLabel" | "message">,
@@ -36,11 +42,11 @@ const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
 
     return (
       <ComponentWrapper
-        className={["aje-input--file", className]}
+        className={cn("aje-input--file", className)}
         disabled={disabled}
         required={required}
       >
-        <input
+        <StyledFileInput
           id={inputId}
           ref={ref}
           aria-describedby={error ? errorId : ""}
@@ -52,10 +58,10 @@ const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
           )}
           {...inputProps}
         />
-        <label htmlFor={inputId}>
-          <span>{file?.name}</span>
-          <strong>{label}</strong>
-        </label>
+        <FileInputLabel htmlFor={inputId}>
+          <FileInputSpan>{file?.name}</FileInputSpan>
+          <FileInputStrong>{label}</FileInputStrong>
+        </FileInputLabel>
         <InputError error={error} id={errorId} />
       </ComponentWrapper>
     );

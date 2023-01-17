@@ -1,7 +1,8 @@
 import React from "react";
 import Button from "../../Buttons/Button";
 import MaterialIcon from "../../Utility/MaterialIcon";
-import { BaseModalProps } from "../BlankModal";
+import { BaseModalProps } from "../BasicModal";
+import { ModalTitle } from "../Modals.styles";
 import PopupModal from "../PopupModal";
 
 export interface ErrorModalProps extends BaseModalProps {
@@ -20,11 +21,12 @@ export default function ErrorModal(props: ErrorModalProps) {
   return (
     <PopupModal
       {...rest}
+      variant="error"
       onOutsideClick={onClose}
       title={
         <>
           <MaterialIcon icon="error" />
-          <h2 className="aje-modal__title">{title}</h2>
+          <ModalTitle>{title}</ModalTitle>
         </>
       }
       actions={

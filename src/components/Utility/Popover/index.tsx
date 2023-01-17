@@ -1,10 +1,14 @@
 import React, { useRef } from "react";
 import cn from "classnames";
+import styled from "styled-components";
 import { HasClassName, Sizes } from "../../../types";
-import usePosition, {
+import useRelativePosition, {
   PositionNegotiationFunction,
   Side,
 } from "../../../hooks/usePosition";
+import { StyledPopover } from "./Popover.styles";
+
+export { PopoverWrapper } from "./Popover.styles";
 
 export type PopoverPosition =
   | "top"
@@ -85,7 +89,7 @@ export default function Popover(props: PopoverProps) {
   } = props;
   const ref = useRef<HTMLDivElement>(null);
 
-  const position = usePosition<PopoverPosition>(ref, {
+  const position = useRelativePosition<PopoverPosition>(ref, {
     initialPosition: initialPosition,
     positionaNegotiator: negotioatePosition,
   });
@@ -99,25 +103,8 @@ export default function Popover(props: PopoverProps) {
   );
 
   return (
-    <div className={classNames} ref={ref}>
+    <StyledPopover ref={ref} className={classNames}>
       {children}
-    </div>
-  );
-}
-
-interface PopoverWrapperProps
-  extends Omit<React.HTMLProps<HTMLDivElement>, "className">,
-    HasClassName {
-  children: React.ReactNode;
-}
-
-/** Optional wrapper for the Popover that simple is a div with `postion: relatve` */
-export function PopoverWrapper(props: PopoverWrapperProps) {
-  const { children, className, ...rest } = props;
-
-  return (
-    <div className={cn("aje-popover__wrapper", className)} {...rest}>
-      {children}
-    </div>
+    </StyledPopover>
   );
 }

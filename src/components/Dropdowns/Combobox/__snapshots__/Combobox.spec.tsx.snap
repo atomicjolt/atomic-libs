@@ -3,54 +3,55 @@
 exports[`matches snapshots matches default variant 1`] = `
 <DocumentFragment>
   <div
-    class="aje-dropdown is-medium has-error"
+    class="sc-bcXHqe sc-iBYQkv  egptak aje-dropdown aje-dropdown is-medium has-error"
   >
     <div
-      class="aje-combobox"
+      class="sc-ftTHYK bwEwxk aje-combobox"
     >
       <label
-        class="aje-label"
-        for="Combobox-4002622434181609"
+        class="sc-dkrFOg hmuQfz aje-label aje-label aje-label"
+        for="Combobox-:r0:-input"
       >
         Text Label
       </label>
       <p
-        class="aje-label--message"
+        class="sc-hLBbgP bLlziI aje-label--message"
       >
         message
       </p>
       <div
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-owns="Combobox-7093062952917764"
-        class="aje-combobox__input is-searchable"
-        id="Combobox-1477414593289298"
+        aria-owns="Combobox-:r0:-listbox"
+        class="sc-pyfCe bYPcJV aje-combobox__input is-searchable"
+        id="Combobox-:r0:-combo"
         role="combobox"
       >
         <input
           aria-autocomplete="both"
-          aria-controls="Combobox-7093062952917764"
-          aria-describedby="Combobox-500790602956198"
-          aria-labelledby="Combobox-6416608466361828"
-          id="Combobox-4002622434181609"
+          aria-controls="Combobox-:r0:-listbox"
+          aria-describedby="Combobox-:r0:-error"
+          aria-labelledby="Combobox-:r0:-label"
+          class="sc-jrcTuL jmNKqj"
+          id="Combobox-:r0:-input"
           type="text"
           value="content"
         />
       </div>
       <div
-        class="aje-popover is-full aje-popover-bottom-left"
+        class="sc-gKPRtg donHJI aje-popover is-full aje-popover-bottom-left"
       >
         <ul
-          aria-labelledby="Combobox-6416608466361828"
-          class="aje-combobox__menu"
-          id="Combobox-7093062952917764"
+          aria-labelledby="Combobox-:r0:-label"
+          class="sc-kDvujY kycYbV aje-combobox__menu"
+          id="Combobox-:r0:-listbox"
           role="listbox"
         />
       </div>
     </div>
     <p
-      class="aje-label--error"
-      id="Combobox-500790602956198"
+      class="sc-eDvSVe kXVgQt aje-label--error"
+      id="Combobox-:r0:-error"
     >
       some error
     </p>
@@ -61,42 +62,43 @@ exports[`matches snapshots matches default variant 1`] = `
 exports[`matches snapshots matches floating variant 1`] = `
 <DocumentFragment>
   <div
-    class="aje-dropdown--floating is-medium has-error"
+    class="sc-bcXHqe sc-iBYQkv  egptak aje-dropdown--floating aje-dropdown--floating is-medium has-error"
   >
     <div
-      class="aje-combobox"
+      class="sc-ftTHYK bwEwxk aje-combobox"
     >
       <div
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-owns="Combobox-7093062952917764"
-        class="aje-combobox__input is-searchable"
-        id="Combobox-1477414593289298"
+        aria-owns="Combobox-:r1:-listbox"
+        class="sc-pyfCe bYPcJV aje-combobox__input is-searchable"
+        id="Combobox-:r1:-combo"
         role="combobox"
       >
         <input
           aria-autocomplete="both"
-          aria-controls="Combobox-7093062952917764"
-          aria-describedby="Combobox-500790602956198"
-          aria-labelledby="Combobox-6416608466361828"
-          id="Combobox-4002622434181609"
+          aria-controls="Combobox-:r1:-listbox"
+          aria-describedby="Combobox-:r1:-error"
+          aria-labelledby="Combobox-:r1:-label"
+          class="sc-jrcTuL jmNKqj"
+          id="Combobox-:r1:-input"
           type="text"
           value="content"
         />
       </div>
       <div
-        class="aje-popover is-full aje-popover-bottom-left"
+        class="sc-gKPRtg donHJI aje-popover is-full aje-popover-bottom-left"
       >
         <ul
-          aria-labelledby="Combobox-6416608466361828"
-          class="aje-combobox__menu"
-          id="Combobox-7093062952917764"
+          aria-labelledby="Combobox-:r1:-label"
+          class="sc-kDvujY kycYbV aje-combobox__menu"
+          id="Combobox-:r1:-listbox"
           role="listbox"
         />
       </div>
       <label
-        class=""
-        for="Combobox-4002622434181609"
+        class="sc-dkrFOg hmuQfz aje-label"
+        for="Combobox-:r1:-input"
       >
         Text Label
       </label>
@@ -107,8 +109,8 @@ exports[`matches snapshots matches floating variant 1`] = `
       message
     </p>
     <p
-      class="aje-label--error"
-      id="Combobox-500790602956198"
+      class="sc-eDvSVe kXVgQt aje-label--error"
+      id="Combobox-:r1:-error"
     >
       some error
     </p>

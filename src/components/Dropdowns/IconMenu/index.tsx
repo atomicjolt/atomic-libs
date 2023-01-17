@@ -9,6 +9,11 @@ import Popover, {
 } from "../../Utility/Popover";
 import MaterialIcon from "../../Utility/MaterialIcon";
 import { useDropdown } from "../../../hooks/useDropdown";
+import {
+  IconMenuDropdown,
+  IconMenuOption,
+  IconMenuWrapper,
+} from "./IconMenu.styles";
 
 export interface IconMenuProps extends HasClassName, HasIcon, HasChildren {
   /** Must include a label. */
@@ -37,7 +42,7 @@ function IconMenu(props: IconMenuProps) {
   const [ref, menuActive, toggleMenu] = useDropdown<HTMLDivElement>();
 
   return (
-    <div className={cn("aje-menu", className)} ref={ref}>
+    <IconMenuWrapper className={cn("aje-menu", className)} ref={ref}>
       <IconButton
         icon={icon}
         iconVariant={iconVariant}
@@ -50,7 +55,7 @@ function IconMenu(props: IconMenuProps) {
       />
       <PopoverWrapper>
         <Popover show={menuActive} position={position}>
-          <div
+          <IconMenuDropdown
             className="aje-menu__dropdown"
             role="menu"
             id={menuId}
@@ -59,10 +64,10 @@ function IconMenu(props: IconMenuProps) {
             onClick={toggleMenu}
           >
             {children}
-          </div>
+          </IconMenuDropdown>
         </Popover>
       </PopoverWrapper>
-    </div>
+    </IconMenuWrapper>
   );
 }
 
@@ -73,10 +78,10 @@ interface IconMenuItemProps extends HasChildren, CanHavIcon {
 function IconMenuItem(props: IconMenuItemProps) {
   const { children, icon, iconVariant, onClick } = props;
   return (
-    <button className="aje-menu__option" onClick={onClick}>
+    <IconMenuOption className="aje-menu__option" onClick={onClick}>
       {icon && <MaterialIcon icon={icon} variant={iconVariant} />}
       {children}
-    </button>
+    </IconMenuOption>
   );
 }
 

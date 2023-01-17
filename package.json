@@ -1,6 +1,6 @@
 {
   "name": "atomic-elements",
-  "version": "0.0.20",
+  "version": "0.0.24",
   "sideEffects": false,
   "module": "dist/esm/src/index.js",
   "main": "dist/cjs/index.js",
@@ -12,6 +12,7 @@
   "license": "MIT",
   "dependencies": {
     "classnames": "^2.3.1",
+    "styled-components": "^5.3.6",
     "tslib": "^2.4.0"
   },
   "peerDependencies": {
@@ -24,6 +25,7 @@
     "@babel/preset-env": "^7.18.0",
     "@babel/preset-react": "^7.17.12",
     "@babel/preset-typescript": "^7.17.12",
+    "@ljcl/storybook-addon-cssprops": "^2.3.5",
     "@rollup/plugin-babel": "^5.3.1",
     "@rollup/plugin-commonjs": "^22.0.0",
     "@rollup/plugin-node-resolve": "^13.3.0",
@@ -47,6 +49,7 @@
     "babel-plugin-polyfill-corejs3": "^0.5.2",
     "css-loader": "^6.6.0",
     "gh-pages": "^4.0.0",
+    "highlightjs-copy": "^1.0.3",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^28.1.0",
     "jest-environment-jsdom": "^28.1.0",
@@ -58,6 +61,7 @@
     "react-docgen-typescript": "^2.2.2",
     "react-dom": "^18.0.0",
     "react-hook-form": "^7.36.1",
+    "react-highlight": "^0.14.0",
     "rollup": "^2.75.7",
     "rollup-plugin-dts": "^4.2.2",
     "rollup-plugin-postcss": "^4.0.2",
@@ -74,12 +78,14 @@
     "typed-scss-modules": "^6.4.1",
     "typescript": "^4.5.5",
     "vite": "^3.1.4",
-    "vite-plugin-svgr": "^2.2.1"
+    "vite-plugin-svgr": "^2.2.1",
+    "@types/styled-components": "^5.1.26"
   },
   "scripts": {
     "storybook": "start-storybook -p 6006",
-    "storybook:build": "build-storybook",
-    "storybook:publish": "gh-pages -d storybook-static/",
+    "storybook:cssprops": "python bin/update-css-props.py",
+    "storybook:build": "yarn storybook:cssprops && build-storybook",
+    "storybook:publish": "yarn storybook:build && gh-pages -d storybook-static/",
     "build": "rollup --config rollup.config.ts --configPlugin typescript ",
     "build:cleanup": "rm -rf dist/cjs/dist && rm -rf dist/esm/types",
     "test": "jest",

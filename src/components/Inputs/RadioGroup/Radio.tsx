@@ -1,8 +1,11 @@
 import cn from "classnames";
 import React, { useContext } from "react";
 import { useIds } from "../../../hooks";
+import { MessageLabel, ErrorLabel } from "../../../styles/utils";
 import { HasClassName } from "../../../types";
+import { ChooseInput, ChooseLabel } from "../Inputs.styles";
 import RadioContext from "./context";
+import { RadioWrapper } from "./RadioGroup.styles";
 
 export interface RadioProps extends HasClassName {
   readonly value: string;
@@ -25,8 +28,12 @@ export default function Radio(props: RadioProps) {
   } = useContext(RadioContext);
 
   return (
-    <label className={cn("aje-radio", className)} htmlFor={inputId}>
-      <input
+    <RadioWrapper
+      className={cn("aje-radio", className)}
+      htmlFor={inputId}
+      as="label"
+    >
+      <ChooseInput
         id={inputId}
         type="radio"
         name={name}
@@ -35,11 +42,11 @@ export default function Radio(props: RadioProps) {
         value={value}
         onChange={onChange}
       />
-      <span className="aje-checkbox__label">
+      <ChooseLabel className="aje-checkbox__label">
         {children}
-        {message && <p className="aje-label--message">{message}</p>}
-        {error && <p className="aje-label--error">{error}</p>}
-      </span>
-    </label>
+        {message && <MessageLabel as="p">{message}</MessageLabel>}
+        {error && <ErrorLabel as="p">{error}</ErrorLabel>}
+      </ChooseLabel>
+    </RadioWrapper>
   );
 }
