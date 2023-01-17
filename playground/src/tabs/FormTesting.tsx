@@ -7,8 +7,8 @@ import {
   useForm,
   useFormContext,
 } from "react-hook-form";
-import { TextInputProps } from "../../src/components/Inputs/TextInput/TextInput.types";
-import { Button, TextInput } from "./elements";
+import { TextInputProps } from "../../../src/components/Inputs/TextInput/TextInput.types";
+import { Button, TextInput } from "../elements";
 
 interface FormProps<T> {
   onSubmit: (data: T) => void;

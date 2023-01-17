@@ -21,7 +21,7 @@ export const StyledButton = styled(BaseStyledButton)`
     --btn-text-clr: var(--text-clr-inverted);
     --btn-bg-clr: var(--error700);
     --btn-hover-text-clr: var(--btn-text-clr);
-    --btn-hover-bxg-clr: var(--error800);
+    --btn-hover-bg-clr: var(--error800);
   }
 
   &.aje-btn--success {
