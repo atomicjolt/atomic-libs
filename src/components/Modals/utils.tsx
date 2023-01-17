@@ -1,6 +1,5 @@
 import React, { createRef, useEffect, useRef } from "react";
 import ReactDOM from "react-dom";
-import { useClickOutside } from "../../hooks";
 
 interface ModalData {
   appRoot: Element;

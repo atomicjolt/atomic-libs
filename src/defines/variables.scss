@@ -55,7 +55,7 @@
   --primary800: hsl(192, 70%, 27%);
   --primary900: hsl(193, 64%, 24%);
 
-  /* # Misc */
+  /* # General */
   --text-clr: var(--neutral800);
   --text-clr-alt: var(--neutral600);
   --text-clr-inverted: var(--neutral50);
@@ -186,7 +186,7 @@
   --popover-animation: transform 200ms ease, opacity 200ms;
   --popover-distance: 5px;
 
-  /* Choose variables */
+  /* # Choose variables */
   --choose-unchecked: var(--neutral600);
   --choose-checked: var(--primary700);
   --choose-check-border-clr: var(--choose-unchecked);

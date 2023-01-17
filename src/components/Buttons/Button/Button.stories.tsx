@@ -9,13 +9,22 @@ export default {
   argTypes: {
     onClick: {
       control: false,
+      table: {
+        category: "Events",
+      },
+    },
+    children: {
+      control: "text",
+    },
+    variant: {
+      control: "select",
+      options: ["primary", "secondary", "error", "success", "inverted"],
     },
   },
   parameters: {
     docs: {
       page: Doc,
     },
-    cssSelectors: [".aje-btn--primary", ".aje-btn"],
   },
 } as ComponentMeta<typeof Button>;
 
