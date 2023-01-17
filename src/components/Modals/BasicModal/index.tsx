@@ -34,7 +34,7 @@ export default function BasicModal(props: BasicModalProps) {
     className,
     onOutsideClick,
   } = props;
-  const [renderModal, ref] = useModal<HTMLDivElement>({ open });
+  const renderModal = useModal({ open });
 
   const variantClassName = useVariantClass("aje-modal", variant);
 
@@ -45,9 +45,7 @@ export default function BasicModal(props: BasicModalProps) {
       })}
       onClick={() => onOutsideClick && onOutsideClick()}
     >
-      <ModalWrapper className={variantClassName} ref={ref}>
-        {children}
-      </ModalWrapper>
+      <ModalWrapper className={variantClassName}>{children}</ModalWrapper>
     </ModalBackground>
   );
 }
