@@ -3,8 +3,7 @@
 exports[`matches snapshots changes variant 1`] = `
 <DocumentFragment>
   <button
-    aria-label=""
-    class="aje-btn aje-btn--secondary"
+    class="sc-eDvSVe sc-jSUZER bQqXCn edxVjA aje-btn aje-btn--secondary"
     type="button"
   >
     Click Me
@@ -16,13 +15,15 @@ exports[`matches snapshots loading completed state 1`] = `
 <DocumentFragment>
   <button
     aria-label="loading"
-    class="aje-btn aje-btn--primary is-loading"
+    class="sc-eDvSVe sc-jSUZER bQqXCn edxVjA aje-btn aje-btn--primary is-loading"
     type="button"
   >
     <div
-      class="aje-spinner"
+      class="sc-bcXHqe gqSyei aje-spinner"
     >
-      <span />
+      <span
+        class="sc-hLBbgP kkuUR"
+      />
     </div>
     Click Me
   </button>
@@ -33,19 +34,19 @@ exports[`matches snapshots loading state 1`] = `
 <DocumentFragment>
   <button
     aria-label="loading"
-    class="aje-btn aje-btn--primary is-loading"
+    class="sc-eDvSVe sc-jSUZER bQqXCn edxVjA aje-btn aje-btn--primary is-loading"
     type="button"
   >
     <div
-      class="aje-spinner"
+      class="sc-bcXHqe gqSyei aje-spinner"
     >
       <svg
-        class="circular-loader"
+        class="sc-gswNZR jQYqNE circular-loader"
         data-testid="spinner-svg"
         viewBox="25 25 50 50"
       >
         <circle
-          class="loader-path"
+          class="sc-dkrFOg jOvgpr loader-path"
           cx="50"
           cy="50"
           fill="none"
@@ -61,8 +62,7 @@ exports[`matches snapshots loading state 1`] = `
 exports[`matches snapshots normal display 1`] = `
 <DocumentFragment>
   <button
-    aria-label=""
-    class="aje-btn aje-btn--primary"
+    class="sc-eDvSVe sc-jSUZER bQqXCn edxVjA aje-btn aje-btn--primary"
     type="button"
   >
     Click Me

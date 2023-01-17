@@ -1,15 +1,12 @@
 import React from "react";
 import cn from "classnames";
 import Spinner from "../../Loaders/Spinner";
-import { HasClassName, LoadingProps } from "../../../types";
+import { HasClassName, LoadingProps, SuggestStrings } from "../../../types";
+import { StyledButton } from "./Button.styles";
 
-type ButtonVariants =
-  | "primary"
-  | "secondary"
-  | "success"
-  | "error"
-  | "inverted"
-  | (string & {});
+type ButtonVariants = SuggestStrings<
+  "primary" | "secondary" | "success" | "error" | "inverted"
+>;
 
 interface CommonProps extends HasClassName {
   /** What to render within the Button */
@@ -46,8 +43,8 @@ export default function Button(props: ButtonProps) {
   const loadingText = loading ? loadingLabel : "";
 
   return (
-    <button
-      aria-label={loadingText}
+    <StyledButton
+      aria-label={loadingText || undefined}
       type={type}
       className={cn("aje-btn", `aje-btn--${variant}`, className, {
         "is-loading": loading,
@@ -58,6 +55,6 @@ export default function Button(props: ButtonProps) {
     >
       {loading && <Spinner loading={!loadingComplete} />}
       {children}
-    </button>
+    </StyledButton>
   );
 }

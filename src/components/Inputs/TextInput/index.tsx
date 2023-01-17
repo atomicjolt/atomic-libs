@@ -1,8 +1,8 @@
 import React from "react";
+import cn from "classnames";
 import { useIds, useVariant } from "../../../hooks";
 import InputError from "../../Utility/InputError";
 import { makeEventHandler } from "../../../utils";
-import ComponentWrapper from "../../Utility/ComponentWrapper";
 import {
   TextInputProps,
   TextInputVariantProps,
@@ -11,6 +11,8 @@ import {
 import { VariantRecord } from "../../../types";
 import DefaultTextInput from "./variants/DefaultTextInput";
 import FloatingTextInput from "./variants/FloatingTextInput";
+import { Input } from "../Inputs.styles";
+import { TextInputWrapper } from "./TextInput.styles";
 
 const variants: VariantRecord<Variants, TextInputVariantProps> = {
   default: DefaultTextInput,
@@ -45,8 +47,8 @@ const TextInput = React.forwardRef(
     );
 
     return (
-      <ComponentWrapper
-        className={[variantClassName, className]}
+      <TextInputWrapper
+        className={cn([variantClassName, className])}
         size={size}
         disabled={disabled}
         required={required}
@@ -58,7 +60,7 @@ const TextInput = React.forwardRef(
           inputId={inputId}
           label={label}
         >
-          <input
+          <Input
             ref={ref}
             id={inputId}
             aria-describedby={error ? errorId : ""}
@@ -69,7 +71,7 @@ const TextInput = React.forwardRef(
           />
         </Variant>
         <InputError error={error} id={errorId} />
-      </ComponentWrapper>
+      </TextInputWrapper>
     );
   }
 );

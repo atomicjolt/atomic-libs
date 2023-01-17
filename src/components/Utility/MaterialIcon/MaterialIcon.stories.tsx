@@ -13,7 +13,7 @@ const Template: ComponentStory<typeof MaterialIconComponent> = (
 
 export const MaterialIcon = Template.bind({});
 MaterialIcon.args = {
-  icon: "search",
+  icon: "home",
   size: "medium",
   disabled: false,
   className: "",

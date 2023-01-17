@@ -18,7 +18,6 @@ $ yarn add atomic-elements
 
 Import these stylesheets at the root of your app
 ```js
-import "atomic-elements/dist/styles.css";
 import "atomic-elements/dist/fonts.css";
 import "atomic-elements/dist/variables.css";
 ```

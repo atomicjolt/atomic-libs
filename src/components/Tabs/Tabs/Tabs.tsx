@@ -1,11 +1,31 @@
 import React from "react";
 import cn from "classnames";
+import styled from "styled-components";
 import { useIds } from "../../../hooks";
 import { HasChildren, HasClassName } from "../../../types";
 import Tab from "./Tab";
 import TabsNavigation, { TabLink } from "./TabNavigation";
 import { TabsContextT } from "./Tabs.types";
 import { getTabId, TabsContext, useTabContext } from "./utils";
+
+const TabContentWrapper = styled.div`
+  --tab-bg-clr: var(--neutral50);
+  --tab-border-clr: var(--border-clr-primary);
+
+  position: relative;
+  z-index: 2;
+  background-color: var(--tab-bg-clr);
+  border-top: 1px solid var(--tab-border-clr);
+  min-height: 4px;
+
+  &:focus {
+    outline: none;
+  }
+  &:focus-visible {
+    outline: var(--outline);
+    outline-offset: -2px;
+  }
+`;
 
 export interface TabsProps<T extends string> extends HasChildren {
   readonly currentTab: T;
@@ -27,12 +47,13 @@ function Tabs<T extends string>(props: TabsProps<T>) {
 }
 
 type TabsContentProps = HasChildren & HasClassName;
+
 export function TabsContent(props: TabsContentProps) {
   const { children, className } = props;
   const { tabContentId, tabIdPrefix, currentTab } = useTabContext();
 
   return (
-    <div
+    <TabContentWrapper
       className={cn("aje-tab-content", className)}
       id={tabContentId}
       tabIndex={0}
@@ -40,7 +61,7 @@ export function TabsContent(props: TabsContentProps) {
       aria-labelledby={getTabId(tabIdPrefix, currentTab)}
     >
       {children}
-    </div>
+    </TabContentWrapper>
   );
 }
 

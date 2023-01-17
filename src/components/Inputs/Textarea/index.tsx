@@ -3,9 +3,9 @@ import React from "react";
 import { useIds } from "../../../hooks";
 import { InputProps } from "../../../types";
 import { makeEventHandler } from "../../../utils";
-import ComponentWrapper from "../../Utility/ComponentWrapper";
 import InputError from "../../Utility/InputError";
 import Label from "../../Utility/Label";
+import { StyledTextArea, TextAreaWrapper } from "./Textarea.styles";
 
 export interface TextAreaProps
   extends Omit<InputProps<string, HTMLTextAreaElement>, "size"> {
@@ -34,8 +34,8 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
     const { disabled, required } = inputProps;
 
     return (
-      <ComponentWrapper
-        className={["aje-input", className, { "can-resize": resize }]}
+      <TextAreaWrapper
+        className={cn("aje-input", className, { "can-resize": resize })}
         size={size}
         disabled={disabled}
         required={required}
@@ -44,7 +44,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
         <Label message={message} hidden={hideLabel} htmlFor={inputId}>
           {label}
         </Label>
-        <textarea
+        <StyledTextArea
           id={inputId}
           ref={ref}
           aria-describedby={error ? errorId : ""}
@@ -54,7 +54,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
           {...inputProps}
         />
         <InputError error={error} id={errorId} />
-      </ComponentWrapper>
+      </TextAreaWrapper>
     );
   }
 );

@@ -3,6 +3,8 @@ import cn from "classnames";
 import { HasChildren, InputComponentProps, EventHandler } from "../../../types";
 import RadioContext, { RadioContextData } from "./context";
 import { makeEventHandler } from "../../../utils";
+import { FieldSet } from "./RadioGroup.styles";
+import { ErrorLabel, Label, MessageLabel } from "../../../styles/utils";
 
 export interface RadioGroupsProps
   extends Omit<InputComponentProps, "size">,
@@ -46,14 +48,14 @@ export default function RadioGroup(props: RadioGroupsProps) {
   };
 
   return (
-    <fieldset className={cn("aje-radio-group", className)}>
-      <legend className={cn("aje-label", { "aje-hidden": hideLabel })}>
+    <FieldSet className={cn("aje-radio-group", className)}>
+      <Label as="legend" className={cn({ "aje-hidden": hideLabel })}>
         {label}
-        {message && <p className="aje-label--message">{message}</p>}
-        {error && <p className="aje-label--error">{error}</p>}
-      </legend>
+        {message && <MessageLabel as="p">{message}</MessageLabel>}
+        {error && <ErrorLabel as="p">{error}</ErrorLabel>}
+      </Label>
       <RadioContext.Provider value={ctx}>{children}</RadioContext.Provider>
-    </fieldset>
+    </FieldSet>
   );
 }
 

@@ -1,5 +1,6 @@
 import React from "react";
 import Label from "../../../Utility/Label";
+import { DropdownWrapper } from "../../Dropdowns.styles";
 import { ComboboxVariantProps } from "../Combobox.types";
 
 // TODO: potentially share this between DefaultTextInput and here?
@@ -8,12 +9,12 @@ export default function FloatingCombobox(props: ComboboxVariantProps) {
 
   return (
     <>
-      <div className="aje-combobox">
+      <DropdownWrapper className="aje-combobox">
         {children}
         <Label className="" hidden={hideLabel} htmlFor={inputId}>
           {label}
         </Label>
-      </div>
+      </DropdownWrapper>
       {message && <p className="aje-label--message">{message}</p>}
     </>
   );

@@ -1,22 +1,28 @@
-import React, { useMemo, useRef, useState } from "react";
+import React from "react";
 import cn from "classnames";
 
 import FloatingCustomSelect from "./variants/FloatingCustomSelect";
 import DefaultCustomSelect from "./variants/DefaultCustomSelect";
 import { useIds, useVariant } from "../../../hooks";
 import { VariantRecord } from "../../../types";
-import ComponentWrapper from "../../Utility/ComponentWrapper";
 import InputError from "../../Utility/InputError";
-import {
-  CustomSelectProps,
-  CustomSelectVariantProps,
-  CustomSelectVariants,
-} from "./CustomSelect.types";
 import Popover from "../../Utility/Popover";
 import useSelect from "./useSelect";
 import MaterialIcon from "../../Utility/MaterialIcon";
 import { fallbackValue, handleUndefined } from "../../../utils";
 import { defaultStrategy } from "../../../filter";
+import {
+  DropdownInputWrapper,
+  DropdownMenu,
+  DropdownOption,
+  Wrapper,
+} from "../Dropdowns.styles";
+import { SearchInput, SearchListItem } from "./CustomSelect.styles";
+import {
+  CustomSelectProps,
+  CustomSelectVariantProps,
+  CustomSelectVariants,
+} from "./CustomSelect.types";
 
 const variants: VariantRecord<
   CustomSelectVariants,
@@ -88,7 +94,7 @@ export default function CustomSelect<T extends {} | Array<any>>(
   });
 
   return (
-    <ComponentWrapper
+    <Wrapper
       className={cn(variantClassName, className)}
       size={size}
       error={error}
@@ -104,7 +110,7 @@ export default function CustomSelect<T extends {} | Array<any>>(
         inputId={inputId}
         labelId={labelId}
       >
-        <div
+        <DropdownInputWrapper
           className="aje-combobox__input"
           aria-controls={listBoxId}
           aria-expanded={menu.opened}
@@ -122,9 +128,9 @@ export default function CustomSelect<T extends {} | Array<any>>(
               ? placeholder
               : fallbackValue(selectedOption?.children, placeholder)}
           </span>
-        </div>
+        </DropdownInputWrapper>
         <Popover show={menu.opened} size="full">
-          <ul
+          <DropdownMenu
             className={cn("aje-combobox__menu", {
               "is-multiselect": multiselect,
             })}
@@ -134,19 +140,18 @@ export default function CustomSelect<T extends {} | Array<any>>(
             tabIndex={-1}
           >
             {searchable && (
-              <li className="aje-combobox__search">
-                <input
+              <SearchListItem className="aje-combobox__search">
+                <SearchInput
                   type="text"
                   {...search}
                   placeholder={searchPlaceholder}
                 />
                 <MaterialIcon icon="search" />
-              </li>
+              </SearchListItem>
             )}
             {options.map(({ value: optionValue, children }) => (
-              <li
+              <DropdownOption
                 className={cn("aje-combobox__option", {
-                  "is-selected": isSelected(optionValue),
                   "is-focused": isFocused(optionValue),
                 })}
                 role="option"
@@ -155,12 +160,12 @@ export default function CustomSelect<T extends {} | Array<any>>(
                 key={String(optionValue)}
               >
                 {children}
-              </li>
+              </DropdownOption>
             ))}
-          </ul>
+          </DropdownMenu>
         </Popover>
       </Variant>
       <InputError error={error} id={errorId} />
-    </ComponentWrapper>
+    </Wrapper>
   );
 }

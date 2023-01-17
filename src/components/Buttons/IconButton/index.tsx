@@ -3,9 +3,10 @@ import cn from "classnames";
 import { HasClassName, HasIcon, LoadingProps } from "../../../types";
 import Spinner from "../../Loaders/Spinner";
 import MaterialIcon from "../../Utility/MaterialIcon";
+import { useIds } from "../../../hooks";
+import { StyledIconButton } from "./IconButton.styles";
 
 interface BaseProps extends HasClassName, HasIcon {
-  id?: string;
   /** Label for the button, because IconButton does not contain text, this should always be present */
   ariaLabel: string;
   disabled?: boolean;
@@ -18,7 +19,6 @@ export type IconButtonProps = BaseProps & LoadingProps & React.AriaAttributes;
 export default function IconButton(props: IconButtonProps) {
   const {
     icon,
-    id,
     ariaLabel,
     disabled,
     onClick,
@@ -30,9 +30,11 @@ export default function IconButton(props: IconButtonProps) {
     ...rest
   } = props;
 
+  const [buttonId] = useIds("IconButton", ["button"]);
+
   return (
-    <button
-      id={id}
+    <StyledIconButton
+      id={buttonId}
       className={cn("aje-btn aje-btn--icon", className)}
       type="button"
       onClick={onClick}
@@ -45,6 +47,6 @@ export default function IconButton(props: IconButtonProps) {
       ) : (
         <MaterialIcon icon={icon} variant={iconVariant} />
       )}
-    </button>
+    </StyledIconButton>
   );
 }

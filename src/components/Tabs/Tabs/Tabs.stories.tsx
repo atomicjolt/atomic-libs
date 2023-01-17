@@ -22,6 +22,12 @@ export default {
     children: {
       control: false,
     },
+    onChange: {
+      control: false,
+      table: {
+        category: "Events",
+      },
+    },
   },
 } as ComponentMeta<typeof TabsC>;
 

@@ -1,8 +1,8 @@
 import React from "react";
-import cn from "classnames";
 import Label from "../../../Utility/Label";
 import { CustomSelectVariantProps } from "../CustomSelect.types";
-import Popover, { PopoverWrapper } from "../../../Utility/Popover";
+import { PopoverWrapper } from "../../../Utility/Popover";
+import { DropdownWrapper } from "../../Dropdowns.styles";
 
 export default function FloatingCustomSelect<T>(
   props: CustomSelectVariantProps<T>
@@ -11,14 +11,14 @@ export default function FloatingCustomSelect<T>(
 
   return (
     <>
-      <div className="aje-combobox">
+      <DropdownWrapper className="aje-combobox">
         <PopoverWrapper>
           {children}
           <Label htmlFor={inputId} id={labelId} hidden={hideLabel}>
             {label}
           </Label>
         </PopoverWrapper>
-      </div>
+      </DropdownWrapper>
       {message && <p className="aje-label--message">{message}</p>}
     </>
   );

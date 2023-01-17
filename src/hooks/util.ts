@@ -23,6 +23,9 @@ export function useInitialRender() {
 
   useEffect(() => {
     isInitialrender.current = false;
+    return () => {
+      isInitialrender.current = false;
+    };
   }, []);
 
   return isInitialrender.current;
