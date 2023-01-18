@@ -1,6 +1,6 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { ToolTip as ToolTipComponent, ToolTipProps } from ".";
+import ToolTipComponent, { ToolTipProps } from ".";
 import Button from "../../Buttons/Button";
 import { CenterDecorator } from "../../storybook";
 import MaterialIcon from "../MaterialIcon";

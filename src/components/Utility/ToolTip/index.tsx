@@ -9,7 +9,7 @@ export interface ToolTipProps extends BasePopoverProps {
 }
 
 /** Provide a tooltip when you hover over an element */
-export function ToolTip(props: ToolTipProps) {
+export default function ToolTip(props: ToolTipProps) {
   const { children, tip, position = "top", ...rest } = props;
 
   return (
