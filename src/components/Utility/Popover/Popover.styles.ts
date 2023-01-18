@@ -4,6 +4,8 @@ export const PopoverWrapper = styled.div`
   position: relative;
 `;
 
+PopoverWrapper.displayName = "PopoverWrapper";
+
 export const StyledPopover = styled.div`
   visibility: hidden;
   position: absolute;

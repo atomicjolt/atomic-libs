@@ -2,7 +2,6 @@ import React, { useRef } from "react";
 import cn from "classnames";
 import { useIds, useInitialRender } from "../../../hooks";
 import { EventHandler, HasClassName } from "../../../types";
-import { makeEventHandler } from "../../../utils";
 import {
   ToggleSwitchIcon,
   ToggleSwitchContainer,
@@ -26,11 +25,13 @@ const CHECKED_CLASS_MAP: Record<string, string> = {
   false: "uncheck-animation",
 };
 
+// TODO fix initial animation bug
+
 /** Toggle Switch Component */
 const ToggleSwitch = React.forwardRef<HTMLInputElement, ToggleSwitchProps>(
   (props, ref) => {
     const [inputId] = useIds("ToggleSwitch", ["input"]);
-    const checkedClass = useRef<string | null>(null);
+    const checkedClass = useRef<string | null>("uncheck-animation");
 
     const {
       label,
@@ -68,7 +69,10 @@ const ToggleSwitch = React.forwardRef<HTMLInputElement, ToggleSwitchProps>(
           {...inputProps}
         />
         <ToggleSwitchLabel
-          className={cn("aje-toggle-switch__label", checkedClass.current)}
+          className={cn("aje-toggle-switch__label", {
+            "check-animation": checked,
+            "uncheck-animation": !checked,
+          })}
         >
           {label}
           <ToggleSwitchContainer>

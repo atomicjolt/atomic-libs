@@ -16,22 +16,6 @@ import Buttons from "./tabs/Buttons";
 import Modals from "./tabs/Modals";
 import Scrollings from "./tabs/Scrollings";
 
-interface ToolTipProps {
-  children: React.ReactNode;
-  tip: React.ReactNode;
-}
-
-function ToolTip(props: ToolTipProps) {
-  const { children, tip } = props;
-
-  return (
-    <PopoverWrapper className="aje-tip">
-      {children}
-      <Popover position="top">{tip}</Popover>
-    </PopoverWrapper>
-  );
-}
-
 function Playground() {
   const [currentTab, setCurrentTab] = useState("scrolling");
 

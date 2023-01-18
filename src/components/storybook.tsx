@@ -1,3 +1,4 @@
+import React from "react";
 import { InputComponentProps, InputElementProps } from "../types";
 
 export const DefaultInputProperties: InputElementProps<Element> &
@@ -160,4 +161,12 @@ export const UncontrolledInputControls = {
   value: {
     control: false,
   },
+};
+
+export const CenterDecorator = (Story: React.FC) => {
+  return (
+    <div style={{ display: "grid", placeItems: "center", height: "100%" }}>
+      <Story />
+    </div>
+  );
 };

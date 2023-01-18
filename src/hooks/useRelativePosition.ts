@@ -59,7 +59,11 @@ export default function useRelativePosition<P>(
         setPosition(positionaNegotiator(side!, position));
       }
     }
-  }, [entry, initialPosition]);
+  }, [entry]);
+
+  useEffect(() => {
+    setPosition(initialPosition);
+  }, [initialPosition]);
 
   return position;
 }

@@ -1,11 +1,16 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import SearchInputComponent, { SearchInputProps } from ".";
-import { DefaultInputProperties, TextInputControls } from "../../storybook";
+import {
+  CenterDecorator,
+  DefaultInputProperties,
+  TextInputControls,
+} from "../../storybook";
 
 export default {
   title: "Inputs/SearchInput",
   component: SearchInputComponent,
+  decorators: [CenterDecorator],
   argTypes: {
     onSubmit: { control: false, table: { category: "Events" } },
     ...TextInputControls,

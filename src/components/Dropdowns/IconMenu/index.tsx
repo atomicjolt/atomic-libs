@@ -3,10 +3,7 @@ import cn from "classnames";
 import IconButton from "../../Buttons/IconButton";
 import { useBool, useClickOutside, useIds } from "../../../hooks";
 import { CanHavIcon, HasChildren, HasClassName, HasIcon } from "../../../types";
-import Popover, {
-  PopoverPosition,
-  PopoverWrapper,
-} from "../../Utility/Popover";
+import Popover, { PopoverWrapper } from "../../Utility/Popover";
 import MaterialIcon from "../../Utility/MaterialIcon";
 import { useDropdown } from "../../../hooks/useDropdown";
 import {
@@ -14,6 +11,7 @@ import {
   IconMenuOption,
   IconMenuWrapper,
 } from "./IconMenu.styles";
+import { PopoverPosition } from "../../Utility/Popover/Popover.types";
 
 export interface IconMenuProps extends HasClassName, HasIcon, HasChildren {
   /** Must include a label. */

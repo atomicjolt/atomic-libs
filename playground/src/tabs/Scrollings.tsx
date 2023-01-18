@@ -1,12 +1,12 @@
 import React from "react";
-import { Popover, PopoverWrapper } from "../elements";
+import { Button, Popover, PopoverWrapper } from "../elements";
 
 export default function Scrollings() {
   return (
     <div className="scrolling-container">
       <div className="scrolling">
         <div className="scrolling-content">
-          <PopoverWrapper>
+          {/* <PopoverWrapper>
             <p style={{ fontSize: "20px", backgroundColor: "peru" }}>
               Here's the Content
             </p>
@@ -21,9 +21,29 @@ export default function Scrollings() {
                 Hi
               </div>
             </Popover>
-          </PopoverWrapper>
+          </PopoverWrapper> */}
+
+          <ToolTip tip="hi">
+            <Button>hi</Button>
+          </ToolTip>
         </div>
       </div>
     </div>
+  );
+}
+
+interface ToolTipProps {
+  children: React.ReactNode;
+  tip: React.ReactNode;
+}
+
+function ToolTip(props: ToolTipProps) {
+  const { children, tip } = props;
+
+  return (
+    <PopoverWrapper className="aje-tip">
+      {children}
+      <Popover position="top">{tip}</Popover>
+    </PopoverWrapper>
   );
 }

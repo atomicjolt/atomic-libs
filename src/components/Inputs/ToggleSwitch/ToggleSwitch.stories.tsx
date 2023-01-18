@@ -1,13 +1,22 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import ToggleSwitchComponent, { ToggleSwitchProps } from ".";
-import { InputControls } from "../../storybook";
+import { CenterDecorator, InputControls } from "../../storybook";
 
 export default {
   title: "Inputs/ToggleSwitch",
   component: ToggleSwitchComponent,
+  decorators: [CenterDecorator],
   parameters: {
-    argTypes: InputControls,
+    argTypes: {
+      ...InputControls,
+      onChange: {
+        control: false,
+        table: {
+          category: "Events",
+        },
+      },
+    },
   },
 } as ComponentMeta<typeof ToggleSwitchComponent>;
 

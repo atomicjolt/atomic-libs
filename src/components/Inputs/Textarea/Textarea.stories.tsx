@@ -5,6 +5,7 @@ import {
   InputControls,
   DefaultInputProperties,
   TextInputControls,
+  CenterDecorator,
 } from "../../storybook";
 
 export default {

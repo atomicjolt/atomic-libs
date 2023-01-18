@@ -8,6 +8,7 @@ body,
 }
 
 .aje-tip {
+  max-width: fit-content;
   .aje-popover {
     --popover-animation: opacity 200ms ease;
     background-color: rgba(0, 0, 0, 0.774);
@@ -21,7 +22,6 @@ body,
     .aje-popover {
       visibility: visible;
       opacity: 1;
-      transform: scaleY(1);
     }
   }
 }

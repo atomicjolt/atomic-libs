@@ -2,6 +2,7 @@ import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import CustomSelect from ".";
 import {
+  CenterDecorator,
   DefaultInputProperties,
   disableControl,
   InputControls,
@@ -14,6 +15,7 @@ import { CustomSelectProps } from "./CustomSelect.types";
 export default {
   title: "Dropdowns/CustomSelect",
   component: CustomSelect,
+  decorators: [CenterDecorator],
   argTypes: {
     value: {
       control: "select",
