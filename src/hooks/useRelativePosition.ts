@@ -4,9 +4,13 @@ import useIntersectionObserver from "./useIntersectionObserver";
 
 export type PositionNegotiationFunction<P> = (side: Side, position: P) => P;
 
+export type PositionNegotiationArgument<P> =
+  | PositionNegotiationFunction<P>
+  | false;
+
 interface UsePositionOptions<P> {
   initialPosition: P;
-  positionaNegotiator: PositionNegotiationFunction<P>;
+  positionaNegotiator: PositionNegotiationArgument<P>;
 }
 
 export enum Side {
@@ -28,9 +32,10 @@ export default function useRelativePosition<P>(
     root: parent,
     threshold: 0.5,
   });
-  console.log(entry);
 
   useEffect(() => {
+    if (!positionaNegotiator) return;
+
     if (entry && !entry.isIntersecting) {
       const parentPos = parent.getBoundingClientRect();
       const top = entry.boundingClientRect.top - parentPos.top;
@@ -53,10 +58,7 @@ export default function useRelativePosition<P>(
       if (side) {
         setPosition(positionaNegotiator(side!, position));
       }
-    } /* else if (initialPosition !== position) {
-      setPosition(initialPosition);
     }
- */
   }, [entry, initialPosition]);
 
   return position;

@@ -14,6 +14,7 @@ import FormTesting from "./tabs/FormTesting";
 import Inputs from "./tabs/Inputs";
 import Buttons from "./tabs/Buttons";
 import Modals from "./tabs/Modals";
+import Scrollings from "./tabs/Scrollings";
 
 interface ToolTipProps {
   children: React.ReactNode;
@@ -32,19 +33,18 @@ function ToolTip(props: ToolTipProps) {
 }
 
 function Playground() {
-  const [currentTab, setCurrentTab] = useState("inputs");
+  const [currentTab, setCurrentTab] = useState("scrolling");
 
   return (
-    <div className="padder">
+    <div className="padder" style={{ height: "100%" }}>
       <Tabs currentTab={currentTab} onChange={setCurrentTab}>
         <Tabs.Navigation>
           <Tabs.Link to="inputs">Inputs</Tabs.Link>
           <Tabs.Link to="buttons">Buttons</Tabs.Link>
           <Tabs.Link to="form">Form</Tabs.Link>
           <Tabs.Link to="modal">Modals</Tabs.Link>
+          <Tabs.Link to="scrolling">Scrolling</Tabs.Link>
         </Tabs.Navigation>
-        <div className="padder"></div>
-        <div className="padder"></div>
         <Tabs.Content>
           <Tabs.Tab name="inputs">
             <Inputs />
@@ -57,6 +57,9 @@ function Playground() {
           </Tabs.Tab>
           <Tabs.Tab name="modal">
             <Modals />
+          </Tabs.Tab>
+          <Tabs.Tab name="scrolling">
+            <Scrollings />
           </Tabs.Tab>
         </Tabs.Content>
       </Tabs>

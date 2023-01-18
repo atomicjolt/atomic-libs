@@ -1,82 +1,11 @@
 import React, { useRef } from "react";
 import cn from "classnames";
-import styled from "styled-components";
-import { HasClassName, Sizes } from "../../../types";
-import useRelativePosition, {
-  PositionNegotiationFunction,
-  Side,
-} from "../../../hooks/usePosition";
+import useRelativePosition from "../../../hooks/useRelativePosition";
 import { StyledPopover } from "./Popover.styles";
+import { PopoverPosition, PopoverProps } from "./Popover.types";
+import { defaultPositionNegotiator } from "./positioning";
 
 export { PopoverWrapper } from "./Popover.styles";
-
-export type PopoverPosition =
-  | "top"
-  | "bottom"
-  | "left"
-  | "right"
-  | "bottom-right"
-  | "bottom-left"
-  | "top-right"
-  | "top-left";
-
-export interface PopoverProps extends HasClassName {
-  children: React.ReactNode;
-  size?: Sizes;
-  show?: boolean;
-  position?: PopoverPosition;
-  negotioatePosition?: PositionNegotiationFunction<PopoverPosition>;
-}
-
-const PositionNegotiationLookup: Record<
-  Side,
-  Record<Partial<PopoverPosition>, Partial<PopoverPosition>>
-> = {
-  [Side.Top]: {
-    "bottom-right": "bottom-right",
-    "bottom-left": "bottom-left",
-    "top-right": "bottom-right",
-    "top-left": "bottom-left",
-    top: "bottom",
-    bottom: "bottom",
-    left: "bottom-left",
-    right: "bottom-right",
-  },
-  [Side.Bottom]: {
-    "bottom-right": "top-right",
-    "bottom-left": "top-left",
-    "top-right": "top-right",
-    "top-left": "top-left",
-    top: "top",
-    bottom: "top",
-    left: "top-left",
-    right: "top-right",
-  },
-  [Side.Left]: {
-    "bottom-right": "right",
-    "bottom-left": "bottom-right",
-    "top-right": "right",
-    "top-left": "top-right",
-    top: "right",
-    bottom: "right",
-    left: "right",
-    right: "right",
-  },
-  [Side.Right]: {
-    "bottom-right": "bottom-left",
-    "bottom-left": "left",
-    "top-right": "top-left",
-    "top-left": "bottom-left",
-    top: "left",
-    bottom: "left",
-    left: "left",
-    right: "left",
-  },
-};
-
-function defaultPositionNegotiator(side: Side, position: PopoverPosition) {
-  return PositionNegotiationLookup[side][position];
-}
 
 export default function Popover(props: PopoverProps) {
   const {
