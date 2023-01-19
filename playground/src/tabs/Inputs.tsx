@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {
+  Combobox,
   CustomSelect,
   MaterialIcon,
   NumberInput,
@@ -15,11 +16,20 @@ export default function Inputs() {
   const [toggleChecked, setToggleChecked] = useState(false);
   const [number, setNumber] = useState(0);
   const [selectValue, setSelectValue] = useState<string | null>(null);
+  const [comboxValue, setComboboxValue] = useState<string | undefined>("");
 
   return (
     <>
       <div className="padder">
         <TextInput label="Text Input" size="medium" />
+      </div>
+      <div className="padder">
+        <Combobox
+          options={["Option 1", "Option 2", "Third Thing"]}
+          label="Combobox"
+          value={comboxValue}
+          onChange={setComboboxValue}
+        />
       </div>
       <div className="padder">
         <NumberInput
