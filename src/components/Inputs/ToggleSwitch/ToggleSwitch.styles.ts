@@ -94,6 +94,21 @@ export const ToggleSwitchLabel = styled.span`
   line-height: 1.5;
   color: var(--text-clr);
 
+  &.is-checked div {
+    background-color: var(--toggle-checked);
+
+    i {
+      transform: translateX(var(--toggle-travel)) scale(1, 1);
+      border-color: var(--toggle-checked);
+
+      &::before {
+        color: var(--toggle-checked);
+        translate: translateX(var(--toggle-travel)) scale(1, 1);
+        content: "\\e5ca";
+      }
+    }
+  }
+
   &.check-animation div {
     background-color: var(--toggle-checked);
     i {
@@ -106,6 +121,7 @@ export const ToggleSwitchLabel = styled.span`
       }
     }
   }
+
   &.uncheck-animation div {
     background-color: var(--toggle-unchecked);
     i {

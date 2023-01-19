@@ -17,7 +17,7 @@ import Modals from "./tabs/Modals";
 import Scrollings from "./tabs/Scrollings";
 
 function Playground() {
-  const [currentTab, setCurrentTab] = useState("scrolling");
+  const [currentTab, setCurrentTab] = useState("inputs");
 
   return (
     <div className="padder" style={{ height: "100%" }}>

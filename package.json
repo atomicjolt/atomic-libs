@@ -85,7 +85,7 @@
     "storybook": "start-storybook -p 6006",
     "storybook:cssprops": "python bin/update-css-props.py",
     "storybook:build": "yarn storybook:cssprops && build-storybook",
-    "storybook:publish": "yarn storybook:build && gh-pages -d storybook-static/",
+    "storybook:publish": "yarn storybook:build && gh-pages -f -d storybook-static/",
     "build": "rollup --config rollup.config.ts --configPlugin typescript ",
     "build:cleanup": "rm -rf dist/cjs/dist && rm -rf dist/esm/types",
     "test": "jest",

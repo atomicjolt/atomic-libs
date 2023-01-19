@@ -23,10 +23,18 @@ importing these fonts yourself. The default configuration uses Lato, and materia
 import "atomic-elements/dist/fonts.css";
 ```
 
-This stylesheet defines the CSS variables used by library. This includes all the colors used.
+This stylesheet defines the CSS variables used by library. This includes all the colors used. You can customize this,
+or bring your own for full customization
 
 ```js
 import "atomic-elements/dist/variables.css";
+```
+
+Finally, there is an optional global stylesheet that sets some sensible defaults to make atomic-elements look its best, but
+it shouldn't be necessary and you should be able to forgot this if need be
+
+```js
+import "atomic-elements/dist/global.css";
 ```
 
 You can then start importing components

@@ -1,6 +1,6 @@
-import React, { useRef } from "react";
+import React, { useRef, useLayoutEffect, useEffect } from "react";
 import cn from "classnames";
-import { useIds, useInitialRender } from "../../../hooks";
+import { useFirstStateChange, useIds } from "../../../hooks";
 import { EventHandler, HasClassName } from "../../../types";
 import {
   ToggleSwitchIcon,
@@ -20,18 +20,10 @@ export interface ToggleSwitchProps extends HasClassName {
   >;
 }
 
-const CHECKED_CLASS_MAP: Record<string, string> = {
-  true: "check-animation",
-  false: "uncheck-animation",
-};
-
-// TODO fix initial animation bug
-
 /** Toggle Switch Component */
 const ToggleSwitch = React.forwardRef<HTMLInputElement, ToggleSwitchProps>(
   (props, ref) => {
     const [inputId] = useIds("ToggleSwitch", ["input"]);
-    const checkedClass = useRef<string | null>("uncheck-animation");
 
     const {
       label,
@@ -42,6 +34,8 @@ const ToggleSwitch = React.forwardRef<HTMLInputElement, ToggleSwitchProps>(
       ...inputProps
     } = props;
 
+    const changed = useFirstStateChange(checked);
+
     const handleClick = (
       e:
         | React.ChangeEvent<HTMLInputElement>
@@ -49,7 +43,6 @@ const ToggleSwitch = React.forwardRef<HTMLInputElement, ToggleSwitchProps>(
     ) => {
       if (onChange) {
         const checked: boolean = (e.target as HTMLInputElement).checked;
-        checkedClass.current = CHECKED_CLASS_MAP[String(checked)];
         onChange(checked, e);
       }
     };
@@ -70,8 +63,9 @@ const ToggleSwitch = React.forwardRef<HTMLInputElement, ToggleSwitchProps>(
         />
         <ToggleSwitchLabel
           className={cn("aje-toggle-switch__label", {
-            "check-animation": checked,
-            "uncheck-animation": !checked,
+            "check-animation": checked && changed,
+            "uncheck-animation": !checked && changed,
+            "is-checked": checked && !changed,
           })}
         >
           {label}
