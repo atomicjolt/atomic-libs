@@ -6,6 +6,28 @@ import TextInput from "../components/Inputs/TextInput";
 
 # Usage
 
+## Refs
+
+All components that it makes sense to do so (Mostly inputs, dropdowns, etc...) expose a `ref` prop to get access to their underlying DOM node.
+
+Note that for things like the `TextInput` component, you will get access to the input DOM node, not any of the wrapper elements.
+
+## Event Handlers
+
+Most components export the same event handlers that their wrapped components would. However, when it makes sense to do so, these event handlers
+work slighly differently to their bare React counterparts. When an event has a particular value that is important to it, like the value of
+a text field on the onChange handler, that value will be passed as the first argument, and the full event object as the second one.
+
+So, for example:
+
+```tsx
+<TextInput value={value} onChange={(v, event) => setValue(v)} />
+// Or, even shorter
+<TextInput value={value} onChange={setValue} />
+```
+
+Say goodbye to `event.target.value`!
+
 ## Customizing Appearance
 
 One of the goals with `atomic-elements` is to make it easily customizable. This is accomplished through CSS variables.
@@ -16,22 +38,23 @@ a CSS variable that doesn't currently, feel free to open up a PR with the change
 In the cases where the CSS variables don't cut it, atomic-elements adds easy to use class names to all components
 For example, the [Button](?path=/docs/buttons-button--primary) component has a class name of `aje-btn`.
 So you can simply add a new CSS declaration and target that classname to modify the appearance of the buttons.
+Additionally, all components export a `className` prop if you want to add your own special classes
 
 ## Variants
 
 Some components in atomic-elements have what we call _variants_.
 A variant is a prop you provide that modifies the presentation of a component. There are two kinds of variants:
 
-- **Visual Variations** only modify the visual presentation for a component via CSS. These can be easily modified / additional ones may be added. d
-- **Semantic Variations** modify the actual structure of a component's markup. These need to be added to the code explicitly. Only a few components currently have this kind of variant:
+- **Visual Variants** only modify the visual presentation for a component via CSS. These can be easily modified / additional ones may be added.
+- **Semantic Variants** modify the actual structure of a component's markup. These need to be added to the code explicitly. Only a few components currently have this kind of variant:
   - `TextInput`
   - `CustomSelect`
   - `ComboBox`
 
-### Visual Variations
+### Visual Variants
 
-You can create these easily by passing in a new variant name to the component. The component will add a new classname to it's root that takes the form `aje-<classname>--<variant>`. For example, if you added a variant to the Button called "purple",
-that instance of the component would have the classname `aje-btn--purple`. If you open up the developer tools and look at the buttons below, you can see what variant classnames have been applied to them:
+You can create these easily by passing in a new variant name to the component. The component will add a new classname to it's root that takes the form `aje-<classname>--<variant>`.
+If you open up the developer tools and look at the buttons below, you can see what variant classnames have been applied to them:
 
 <Canvas>
   <Button variant="primary">Primary</Button>
@@ -40,7 +63,50 @@ that instance of the component would have the classname `aje-btn--purple`. If yo
   <Button variant="error">Error!</Button>
 </Canvas>
 
-### Semantic Variations
+For example, if you provided a vaiant of "purple" to the button, that instance of the component would have the classname `aje-btn--purple`.
+
+You could then add a simple CSS decleration like this to customize it:
+
+```css
+.aje-btn--purple {
+  --btn-bg-clr: purple;
+  --btn-text-clr: white;
+  --btn-hover-bg-clr: rgb(179, 13, 179);
+  --btn-hover-text-clr: white;
+}
+```
+
+And then, you can see it in action:
+
+<Canvas>
+  <Button variant="purple">Purple!</Button>
+</Canvas>
+
+#### Modify Built in Variants
+
+You can also modify the built-in variants if you want different defaults, but you need to be aware of CSS specificity rules to get it to work properly. By default,
+the selector that applies the styles to each of the variants has higher specificity than just `.aje-btn--primary` for example. So, one easy way you could get around this
+is by adding an id to your selector (like the ID of the root of your React app), for example:
+
+```css
+/* This won't override the built in styles */
+.aje-btn--primary {
+  --btn-bg-clr: blue;
+  --btn-text-clr: white;
+  --btn-hover-bg-clr: rgb(179, 13, 179);
+  --btn-hover-text-clr: white;
+}
+
+/* This will */
+#root .aje-btn--primary {
+  --btn-bg-clr: blue;
+  --btn-text-clr: white;
+  --btn-hover-bg-clr: rgb(179, 13, 179);
+  --btn-hover-text-clr: white;
+}
+```
+
+### Semantic Variants
 
 Semantic variants change the actual structure of the HTML, and as such, are implmented in the component specifically. For example, the "floating" variant
 of the text input component moves the label _below_ the input rather than above it, you can see this by inspecting the following elements:
