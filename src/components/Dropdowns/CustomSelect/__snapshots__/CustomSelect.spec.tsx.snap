@@ -31,7 +31,7 @@ exports[`matches snapshots matches default variant 1`] = `
         </span>
       </div>
       <div
-        class="sc-gKPRtg donHJI aje-popover is-full aje-popover-bottom-left"
+        class="sc-gKPRtg ejGDae aje-popover is-full aje-popover-bottom-left"
       >
         <ul
           aria-labelledby="CustomSelect-:r0:-label"
@@ -88,7 +88,7 @@ exports[`matches snapshots matches floating variant 1`] = `
           </span>
         </div>
         <div
-          class="sc-gKPRtg donHJI aje-popover is-full aje-popover-bottom-left"
+          class="sc-gKPRtg ejGDae aje-popover is-full aje-popover-bottom-left"
         >
           <ul
             aria-labelledby="CustomSelect-:r3:-label"
@@ -155,7 +155,7 @@ exports[`matches snapshots matches multi-select enabled 1`] = `
         <span />
       </div>
       <div
-        class="sc-gKPRtg donHJI aje-popover is-full aje-popover-bottom-left"
+        class="sc-gKPRtg ejGDae aje-popover is-full aje-popover-bottom-left"
       >
         <ul
           aria-labelledby="CustomSelect-:r1:-label"
@@ -216,7 +216,7 @@ exports[`matches snapshots matches search enabled 1`] = `
         </span>
       </div>
       <div
-        class="sc-gKPRtg donHJI aje-popover is-full aje-popover-bottom-left"
+        class="sc-gKPRtg ejGDae aje-popover is-full aje-popover-bottom-left"
       >
         <ul
           aria-labelledby="CustomSelect-:r2:-label"

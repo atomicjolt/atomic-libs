@@ -2,16 +2,16 @@
 
 exports[`matches snapshot 1`] = `
 <DocumentFragment>
-  <div
+  <fieldset
     class="sc-jrcTuL gaccLS aje-radio-group"
   >
     <legend
-      class="sc-kDvujY cOdru aje-label"
+      class="sc-dkrFOg hmuQfz aje-label"
     >
       Label
     </legend>
     <label
-      class="sc-iBYQkv sc-ipEyDJ kwrUZT gDbdsk aje-radio"
+      class="sc-iBYQkv sc-kDvujY jlugYS blQdaM aje-radio"
       for="radio-:r0:-input"
     >
       <input
@@ -23,13 +23,13 @@ exports[`matches snapshot 1`] = `
         value="opt1"
       />
       <span
-        class="sc-pyfCe hfthtU aje-checkbox__label"
+        class="sc-pyfCe hAUDhE aje-checkbox__label"
       >
         Option 1
       </span>
     </label>
     <label
-      class="sc-iBYQkv sc-ipEyDJ kwrUZT gDbdsk aje-radio"
+      class="sc-iBYQkv sc-kDvujY jlugYS blQdaM aje-radio"
       for="radio-:r1:-input"
     >
       <input
@@ -40,13 +40,13 @@ exports[`matches snapshot 1`] = `
         value="opt2"
       />
       <span
-        class="sc-pyfCe hfthtU aje-checkbox__label"
+        class="sc-pyfCe hAUDhE aje-checkbox__label"
       >
         Option 2
       </span>
     </label>
     <label
-      class="sc-iBYQkv sc-ipEyDJ kwrUZT gDbdsk aje-radio"
+      class="sc-iBYQkv sc-kDvujY jlugYS blQdaM aje-radio"
       for="radio-:r2:-input"
     >
       <input
@@ -57,11 +57,11 @@ exports[`matches snapshot 1`] = `
         value="opt3"
       />
       <span
-        class="sc-pyfCe hfthtU aje-checkbox__label"
+        class="sc-pyfCe hAUDhE aje-checkbox__label"
       >
         Option 3
       </span>
     </label>
-  </div>
+  </fieldset>
 </DocumentFragment>
 `;

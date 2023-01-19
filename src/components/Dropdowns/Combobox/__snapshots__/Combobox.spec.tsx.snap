@@ -39,7 +39,7 @@ exports[`matches snapshots matches default variant 1`] = `
         />
       </div>
       <div
-        class="sc-gKPRtg donHJI aje-popover is-full aje-popover-bottom-left"
+        class="sc-gKPRtg ejGDae aje-popover is-full aje-popover-bottom-left"
       >
         <ul
           aria-labelledby="Combobox-:r0:-label"
@@ -87,7 +87,7 @@ exports[`matches snapshots matches floating variant 1`] = `
         />
       </div>
       <div
-        class="sc-gKPRtg donHJI aje-popover is-full aje-popover-bottom-left"
+        class="sc-gKPRtg ejGDae aje-popover is-full aje-popover-bottom-left"
       >
         <ul
           aria-labelledby="Combobox-:r1:-label"
