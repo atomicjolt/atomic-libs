@@ -4,18 +4,23 @@ import {
   InputControls,
   DefaultInputProperties,
   inputProperties,
+  disableControl,
+  CenterDecorator,
 } from "../../storybook";
 import SelectComponent, { SelectProps } from ".";
 
 export default {
   title: "Dropdowns/Select",
   component: SelectComponent,
+  decorators: [CenterDecorator],
   argTypes: {
     value: {
       control: "select",
       options: ["none", "value1", "value2"],
     },
     ...InputControls,
+    ...disableControl("readOnly"),
+    ...disableControl("placeholder"),
   },
 } as ComponentMeta<typeof SelectComponent>;
 

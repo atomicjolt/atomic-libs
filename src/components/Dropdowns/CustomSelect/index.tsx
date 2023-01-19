@@ -1,48 +1,66 @@
-import React, { useMemo, useRef } from "react";
+import React from "react";
 import cn from "classnames";
 
 import FloatingCustomSelect from "./variants/FloatingCustomSelect";
 import DefaultCustomSelect from "./variants/DefaultCustomSelect";
-import { useBool, useClickOutside, useIds, useVariant } from "../../../hooks";
+import { useIds, useVariant } from "../../../hooks";
 import { VariantRecord } from "../../../types";
-import ComponentWrapper from "../../Utility/ComponentWrapper";
 import InputError from "../../Utility/InputError";
+import Popover from "../../Utility/Popover";
+import useSelect from "./useSelect";
+import MaterialIcon from "../../Utility/MaterialIcon";
+import { fallbackValue, handleUndefined } from "../../../utils";
+import { strategies } from "../../../filter";
+import {
+  DropdownInputWrapper,
+  DropdownMenu,
+  DropdownOption,
+  Wrapper,
+} from "../Dropdowns.styles";
+import { SearchInput, SearchListItem } from "./CustomSelect.styles";
 import {
   CustomSelectProps,
   CustomSelectVariantProps,
-  Variants,
+  CustomSelectVariants,
 } from "./CustomSelect.types";
-import { CustomSelectOptionProps } from "../Option";
-import Popover from "../../Utility/Popover";
 
-const variants: VariantRecord<Variants, CustomSelectVariantProps<any>> = {
+const variants: VariantRecord<
+  CustomSelectVariants,
+  CustomSelectVariantProps<any>
+> = {
   default: DefaultCustomSelect,
   floating: FloatingCustomSelect,
 };
 
 /**
- * Custom Select
+ * CustomSelect
+ * Intended for when you want to render custom content in the dropdown of a Select. Additionally, the values
+ * for the select can be any object, not just strings or numbers.
  *
  * https://www.w3.org/TR/wai-aria-practices/examples/combobox/combobox-select-only.html for accessibility implementation.
  *
+ * The CustomSelect supports multiple selection. If you want single selection, pass a single value in for `value`
+ * If you want multi-select, pass in an array of values.
  * */
-export default function CustomSelect<T>(props: CustomSelectProps<T>) {
+export default function CustomSelect<T extends {} | Array<any>>(
+  props: CustomSelectProps<T>
+) {
   const {
-    value = null,
-    onChange,
     size = "medium",
     label,
     error,
     message,
     hideLabel = false,
     disabled = false,
-    children,
     variant = "default",
     required,
+    searchable = false,
+    placeholder = "",
+    searchPlaceholder,
+    className,
+    filterStrategy = strategies.defaultStrategy,
   } = props;
 
-  const [menuActive, toggleMenu] = useBool(false);
-  const ref = useRef(null);
   const [inputId, listBoxId, errorId, labelId] = useIds("CustomSelect", [
     "combo",
     "list",
@@ -50,30 +68,39 @@ export default function CustomSelect<T>(props: CustomSelectProps<T>) {
     "label",
   ]);
 
-  const [Variant, className] = useVariant(variants, "aje-dropdown", variant);
+  const [Variant, variantClassName] = useVariant(
+    variants,
+    "aje-dropdown",
+    variant
+  );
 
-  useClickOutside(
+  const {
+    selectedOption,
+    multiselect,
+    menu,
+    handleKeyPress,
+    isFocused,
+    isSelected,
+    onChange,
+    options,
     ref,
-    () => {
-      if (menuActive) toggleMenu();
-    },
-    { enabled: menuActive }
-  );
-
-  const options: CustomSelectOptionProps<T>[] = React.Children.map(
-    children,
-    (child) => child.props
-  );
-
-  const selectedOption = options.find((o) => o.value == value);
+    search,
+  } = useSelect({
+    value: handleUndefined(props.value),
+    children: props.children,
+    onChange: props.onChange,
+    searchable,
+    filterStrategy,
+  });
 
   return (
-    <ComponentWrapper
-      className={className}
+    <Wrapper
+      className={cn(variantClassName, className)}
       size={size}
       error={error}
       disabled={disabled}
       required={required}
+      ref={ref}
     >
       <Variant
         message={message}
@@ -83,46 +110,62 @@ export default function CustomSelect<T>(props: CustomSelectProps<T>) {
         inputId={inputId}
         labelId={labelId}
       >
-        <div
+        <DropdownInputWrapper
           className="aje-combobox__input"
           aria-controls={listBoxId}
-          aria-expanded={menuActive}
+          aria-expanded={menu.opened}
           aria-haspopup="listbox"
           aria-labelledby={labelId}
           aria-describedby={error ? errorId : ""}
           id={inputId}
           role="combobox"
           tabIndex={0}
-          onClick={toggleMenu}
-          ref={ref}
+          onClick={menu.toggle}
+          onKeyDown={handleKeyPress}
         >
-          <span>{selectedOption?.children}</span>
-        </div>
-        <Popover show={menuActive} size="full">
-          <ul
-            className="aje-combobox__menu"
+          <span>
+            {multiselect
+              ? placeholder
+              : fallbackValue(selectedOption?.children, placeholder)}
+          </span>
+        </DropdownInputWrapper>
+        <Popover show={menu.opened} size="full">
+          <DropdownMenu
+            className={cn("aje-combobox__menu", {
+              "is-multiselect": multiselect,
+            })}
             role="listbox"
             id={listBoxId}
             aria-labelledby={labelId}
             tabIndex={-1}
           >
-            {options.map(({ value, children }, idx) => (
-              <li
+            {searchable && (
+              <SearchListItem className="aje-combobox__search">
+                <SearchInput
+                  type="text"
+                  {...search}
+                  placeholder={searchPlaceholder}
+                />
+                <MaterialIcon icon="search" />
+              </SearchListItem>
+            )}
+            {options.map(({ value: optionValue, children }) => (
+              <DropdownOption
                 className={cn("aje-combobox__option", {
-                  "is-focused": value == selectedOption?.value,
+                  "is-focused": isFocused(optionValue),
                 })}
                 role="option"
-                aria-selected={value == selectedOption?.value}
-                onClick={(e) => onChange && onChange(value, e)}
-                key={String(value)}
+                aria-selected={isSelected(optionValue)}
+                onClick={(e) => onChange(optionValue, e)}
+                key={String(optionValue)}
               >
                 {children}
-              </li>
+              </DropdownOption>
             ))}
-          </ul>
+          </DropdownMenu>
         </Popover>
       </Variant>
       <InputError error={error} id={errorId} />
-    </ComponentWrapper>
+    </Wrapper>
   );
 }

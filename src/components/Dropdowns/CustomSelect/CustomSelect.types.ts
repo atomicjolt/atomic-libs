@@ -1,12 +1,20 @@
 import React from "react";
-import { HasVariant, InputProps } from "../../../types";
+import { FilterStrategy, HasVariant, InputProps } from "../../../types";
 
-export type Variants = "default" | "floating";
+export type CustomSelectVariants = "default" | "floating";
 
-export interface CustomSelectProps<T>
-  extends InputProps<T | null, Element, React.MouseEvent<Element>>,
-    HasVariant<Variants> {
+export interface CustomSelectProps<T extends {} | Array<any>>
+  extends InputProps<T | null, Element, React.SyntheticEvent<Element>>,
+    HasVariant<CustomSelectVariants> {
   readonly children: React.ReactElement | React.ReactElement[];
+  /** Adds a search input to the dropdown.
+   * When enabling search, it is reccomended to added a `searchKey` to each
+   * `<Option>` child */
+  readonly searchable?: boolean;
+  /** Placeholder for the search input */
+  readonly searchPlaceholder?: string;
+  /** Strategy on how to filter results based on search term */
+  readonly filterStrategy?: FilterStrategy<string, string>;
 }
 
 export interface CustomSelectContext<T> {

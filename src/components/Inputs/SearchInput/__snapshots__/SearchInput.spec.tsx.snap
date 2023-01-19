@@ -3,16 +3,17 @@
 exports[`matches snapshot displays with search button 1`] = `
 <DocumentFragment>
   <form
-    class="aje-input is-medium"
+    class="sc-bcXHqe sc-gKPRtg  fyfNTG aje-input aje-input is-medium"
   >
     <label
-      class="aje-label"
-      for="SearchInput-5007117471878883"
+      class="sc-dkrFOg hmuQfz aje-label aje-label aje-label"
+      for="SearchInput-:r1:-input"
     >
       search
     </label>
     <input
-      id="SearchInput-5007117471878883"
+      class="sc-iBYQkv sc-kDvujY gIknHP hhlMmI"
+      id="SearchInput-:r1:-input"
       role="search"
       type="search"
       value=""
@@ -23,7 +24,7 @@ exports[`matches snapshot displays with search button 1`] = `
     >
       <i
         aria-hidden="true"
-        class="material-icons is-medium"
+        class="sc-jSUZER kYKQSe material-icons is-medium"
       >
         search
       </i>
@@ -35,16 +36,17 @@ exports[`matches snapshot displays with search button 1`] = `
 exports[`matches snapshot displays without button 1`] = `
 <DocumentFragment>
   <form
-    class="aje-input is-medium"
+    class="sc-bcXHqe sc-gKPRtg  fyfNTG aje-input aje-input is-medium"
   >
     <label
-      class="aje-label"
-      for="SearchInput-5007117471878883"
+      class="sc-dkrFOg hmuQfz aje-label aje-label aje-label"
+      for="SearchInput-:r0:-input"
     >
       search
     </label>
     <input
-      id="SearchInput-5007117471878883"
+      class="sc-iBYQkv sc-kDvujY gIknHP hhlMmI"
+      id="SearchInput-:r0:-input"
       role="search"
       type="search"
       value=""

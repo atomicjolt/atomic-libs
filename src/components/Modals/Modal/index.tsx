@@ -1,11 +1,18 @@
-import React, { useEffect } from "react";
-import ReactDOM from "react-dom";
-import { modalInitializer, SharedModalData, useModal } from "../utils";
+import React from "react";
+import { modalInitializer, useModal } from "../utils";
 import Button from "../../Buttons/Button";
+import BasicModal, { BaseModalProps } from "../BasicModal";
+import { makeOptionalCallback } from "../../../utils";
+import {
+  ModalBottom,
+  ModalClose,
+  ModalMain,
+  ModalTitle,
+  ModalTop,
+} from "../Modals.styles";
+import MaterialIcon from "../../Utility/MaterialIcon";
 
-export interface ModalProps {
-  /** Whether or not the modal is visible */
-  open?: boolean;
+export interface ModalProps extends BaseModalProps {
   /** Must include a title. Titles are always in Title case. */
   title: string;
   children: React.ReactNode;
@@ -21,7 +28,7 @@ export interface ModalProps {
   primaryAction?: () => void;
   /** Callback when the secondary button is pressed */
   secondaryAction?: () => void;
-  /** Callback when the close button is pressed */
+  /** Callback when the close button is pressed, or the background is clicked on */
   onClose?: () => void;
 }
 
@@ -30,56 +37,50 @@ export interface ModalProps {
  *
  * For when you need a large modal with somewhat complex actions.
  * */
-function Modal({
-  open = false,
-  title,
-  children,
-  primaryButton,
-  secondaryButton = "Cancel",
-  primaryAction,
-  secondaryAction,
-  onClose,
-}: ModalProps) {
-  const renderModal = useModal(open);
+function Modal(props: ModalProps) {
+  const {
+    title,
+    children,
+    primaryButton,
+    secondaryButton = "Cancel",
+    primaryAction,
+    secondaryAction,
+    onClose,
+    ...rest
+  } = props;
 
-  return renderModal(
-    <div className="aje-modal-background">
-      <div className="aje-modal">
-        <div className="aje-modal__top">
-          <h2 className="aje-modal__title">{title}</h2>
-          <button
-            className="aje-modal__close"
-            aria-label="close modal"
-            onClick={() => onClose && onClose()}
+  const onCloseCallback = makeOptionalCallback(onClose);
+
+  return (
+    <BasicModal onOutsideClick={onCloseCallback} {...rest}>
+      <ModalTop>
+        <ModalTitle>{title}</ModalTitle>
+        <ModalClose aria-label="close modal" onClick={onCloseCallback}>
+          <MaterialIcon icon="close" />
+        </ModalClose>
+      </ModalTop>
+      <ModalMain>{children}</ModalMain>
+      <ModalBottom>
+        {secondaryButton && (
+          <Button
+            variant="secondary"
+            type="button"
+            onClick={makeOptionalCallback(primaryAction)}
           >
-            <i className="material-icons" aria-hidden>
-              close
-            </i>
-          </button>
-        </div>
-        <div className="aje-modal__main">{children}</div>
-        <div className="aje-modal__bottom">
-          {secondaryButton && (
-            <Button
-              variant="secondary"
-              type="button"
-              onClick={() => primaryAction && primaryAction()}
-            >
-              {secondaryButton}
-            </Button>
-          )}
-          {primaryButton && (
-            <Button
-              variant="primary"
-              type="button"
-              onClick={() => secondaryAction && secondaryAction()}
-            >
-              {primaryButton}
-            </Button>
-          )}
-        </div>
-      </div>
-    </div>
+            {secondaryButton}
+          </Button>
+        )}
+        {primaryButton && (
+          <Button
+            variant="primary"
+            type="button"
+            onClick={makeOptionalCallback(secondaryAction)}
+          >
+            {primaryButton}
+          </Button>
+        )}
+      </ModalBottom>
+    </BasicModal>
   );
 }
 

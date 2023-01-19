@@ -1,10 +1,12 @@
 import React from "react";
+import cn from "classnames";
 import { useIds } from "../../../hooks";
 import { InputProps } from "../../../types";
 import Label from "../../Utility/Label";
 import InputError from "../../Utility/InputError";
-import ComponentWrapper from "../../Utility/ComponentWrapper";
 import { makeEventHandler } from "../../../utils";
+import { Input, InputWrapper } from "../Inputs.styles";
+import { StyledNumberInput } from "./NumberInput.styles";
 
 export interface NumberInputProps extends InputProps<number> {
   min?: number;
@@ -26,14 +28,15 @@ const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
       message,
       size = "small",
       hideLabel,
+      className,
       ...inputProps
     } = props;
 
     const { disabled, required } = inputProps;
 
     return (
-      <ComponentWrapper
-        className="aje-input"
+      <InputWrapper
+        className={cn("aje-input", className)}
         size={size}
         disabled={disabled}
         required={required}
@@ -42,8 +45,7 @@ const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
         <Label message={message} htmlFor={inputId} hidden={hideLabel}>
           {label}
         </Label>
-        <input
-          type="number"
+        <StyledNumberInput
           id={inputId}
           ref={ref}
           aria-describedby={error ? errorId : ""}
@@ -56,7 +58,7 @@ const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
           {...inputProps}
         />
         <InputError error={error} id={errorId} />
-      </ComponentWrapper>
+      </InputWrapper>
     );
   }
 );

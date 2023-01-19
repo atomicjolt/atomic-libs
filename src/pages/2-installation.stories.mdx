@@ -1,6 +1,6 @@
 import { Meta } from "@storybook/addon-docs";
 
-<Meta title="Installation & Usage" />
+<Meta title="Installation" />
 
 # Install
 
@@ -16,12 +16,6 @@ $ yarn add atomic-elements
 
 First, at the top level of you project, you'll want to import in the stylesheets.
 
-This stylsheet includes all the styles for each component in the library.
-
-```js
-import "atomic-elements/dist/styles.css";
-```
-
 This stylesheet includes all the fonts used by the library. You can exclude these if you want to handle
 importing these fonts yourself. The default configuration uses Lato, and material-icons
 
@@ -29,10 +23,18 @@ importing these fonts yourself. The default configuration uses Lato, and materia
 import "atomic-elements/dist/fonts.css";
 ```
 
-This stylesheet defines the CSS variables used by library. This includes all the colors used.
+This stylesheet defines the CSS variables used by library. This includes all the colors used. You can customize this,
+or bring your own for full customization
 
 ```js
 import "atomic-elements/dist/variables.css";
+```
+
+Finally, there is an optional global stylesheet that sets some sensible defaults to make atomic-elements look its best, but
+it shouldn't be necessary and you should be able to forgot this if need be
+
+```js
+import "atomic-elements/dist/global.css";
 ```
 
 You can then start importing components
@@ -48,10 +50,3 @@ Or from the index, which exports all of the components
 ```js
 import { Button } from "atomic-elements";
 ```
-
-## Customizing Appearance
-
-Because atomic-elements uses regular CSS and classnames, it is easy to modify the styles by simply
-adding your own CSS scoped to the particular class. For example, the [Button](?path=/docs/buttons-button--primary) component
-has a class name of `aje-btn`. So you can simply add a new CSS declaration and target that classname to modify the appearance
-of the buttons.

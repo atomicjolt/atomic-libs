@@ -1,20 +1,28 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import CustomSelect from ".";
-import { DefaultInputProperties } from "../../storybook";
+import {
+  CenterDecorator,
+  DefaultInputProperties,
+  disableControl,
+  InputControls,
+  inputProperties,
+} from "../../storybook";
 import MaterialIcon from "../../Utility/MaterialIcon";
-import { Option, EmptyOption } from "../Option";
+import Option from "../Option";
 import { CustomSelectProps } from "./CustomSelect.types";
-import Button from "../../Buttons/Button";
 
 export default {
   title: "Dropdowns/CustomSelect",
   component: CustomSelect,
+  decorators: [CenterDecorator],
   argTypes: {
     value: {
       control: "select",
-      options: ["val1", "val2", null],
+      options: ["val1", "val2", "val3", null],
     },
+    ...InputControls,
+    ...disableControl("children"),
   },
 } as ComponentMeta<typeof CustomSelect>;
 
@@ -28,15 +36,36 @@ export const Default = Template.bind({});
 Default.args = {
   value: "val1",
   variant: "default",
-  ...DefaultInputProperties,
-  placeholder: undefined,
+  ...inputProperties({ filter: ["placeholder"] }),
   label: "Custom Select Label",
+  searchable: false,
+  searchPlaceholder: "Search...",
   children: [
     <Option value="val1" key="1">
       Option 1
     </Option>,
     <Option value="val2" key="2">
       Option 2
+    </Option>,
+    <Option value="val3" key="3">
+      Option 3
+    </Option>,
+  ],
+};
+
+export const Seachable = Template.bind({});
+Seachable.args = {
+  ...Default.args,
+  searchable: true,
+  children: [
+    <Option value="val1" searchKey="Option 1" key="1">
+      Option 1
+    </Option>,
+    <Option value="val2" searchKey="Option 2" key="2">
+      Option 2
+    </Option>,
+    <Option value="val3" searchKey="Option 3" key="3">
+      Option 3
     </Option>,
   ],
 };
@@ -46,7 +75,9 @@ WithEmpty.args = {
   ...Default.args,
   value: null,
   children: [
-    <EmptyOption key="empty">-- Select an Option --</EmptyOption>,
+    <Option value={null} key="empty">
+      -- Select an Option --
+    </Option>,
     ...Default.args.children,
   ],
 };
@@ -66,11 +97,15 @@ WithIcons.args = {
   ],
 };
 
-// const FloatingTemplate: ComponentStory<typeof FloatingCustomSelect> = (
-//   args: CustomSelectProps<any>
-// ) => {
-//   return <FloatingCustomSelect {...args} />;
-// };
+export const MultiSelect = Template.bind({});
+MultiSelect.args = {
+  ...Default.args,
+  value: ["val1", "val2"],
+};
 
-// export const FloatingVariant = FloatingTemplate.bind({});
-// FloatingVariant.args = Default.args;
+MultiSelect.argTypes = {
+  value: {
+    control: "multi-select",
+    options: ["val1", "val2", "val3"],
+  },
+};

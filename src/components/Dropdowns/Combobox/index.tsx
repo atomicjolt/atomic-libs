@@ -1,27 +1,34 @@
 import React, { useState } from "react";
 import cn from "classnames";
 import { useIds, useVariant } from "../../../hooks";
-import Label from "../../Utility/Label";
 import InputError from "../../Utility/InputError";
 import { makeEventHandler } from "../../../utils";
-import ComponentWrapper from "../../Utility/ComponentWrapper";
 import Popover from "../../Utility/Popover";
+
+import { VariantRecord } from "../../../types";
+import DefaultCombobox from "./variants/DefaultCombobox";
+import FloatingCombobox from "./variants/FloatingCombobox";
+import { strategies } from "../../../filter";
+
 import {
   ComboboxProps,
   ComboboxVariantProps,
   Variants,
 } from "./Combobox.types";
-import { defaultFilterSuggestions } from "./utils";
-import { VariantRecord } from "../../../types";
-import DefaultCombobox from "./variants/DefaultCombobox";
-import FloatingCombobox from "./variants/FloatingCombobox";
+import {
+  DropdownInput,
+  DropdownMenu,
+  DropdownOption,
+  DropdownInputWrapper,
+  Wrapper,
+} from "../Dropdowns.styles";
 
 const variants: VariantRecord<Variants, ComboboxVariantProps> = {
   default: DefaultCombobox,
   floating: FloatingCombobox,
 };
 
-/** A combobox is a combination of a dropdown, with a searchable text field. */
+/** A combobox is a combination of a select, with a searchable text field. */
 export default function Combobox(props: ComboboxProps) {
   const [menuActive, setMenuActive] = useState(false);
 
@@ -42,20 +49,25 @@ export default function Combobox(props: ComboboxProps) {
     error,
     message,
     hideLabel = false,
-    filterSuggestions = defaultFilterSuggestions,
+    filterStrategy = strategies.defaultStrategy,
     onFocus,
     onBlur,
     variant = "default",
+    className,
     ...inputProps
   } = props;
 
   const { disabled, required } = inputProps;
 
-  const [Variant, className] = useVariant(variants, "aje-dropdown", variant);
+  const [Variant, variantClassName] = useVariant(
+    variants,
+    "aje-dropdown",
+    variant
+  );
 
   return (
-    <ComponentWrapper
-      className={className}
+    <Wrapper
+      className={cn(variantClassName, className)}
       size={size}
       disabled={disabled}
       required={required}
@@ -67,7 +79,7 @@ export default function Combobox(props: ComboboxProps) {
         hideLabel={hideLabel}
         inputId={inputId}
       >
-        <div
+        <DropdownInputWrapper
           className="aje-combobox__input is-searchable"
           aria-owns={listBoxId}
           aria-expanded={menuActive}
@@ -75,7 +87,7 @@ export default function Combobox(props: ComboboxProps) {
           id={comobId}
           role="combobox"
         >
-          <input
+          <DropdownInput
             type="text"
             aria-autocomplete="both"
             aria-controls={listBoxId}
@@ -94,33 +106,33 @@ export default function Combobox(props: ComboboxProps) {
             }}
             {...inputProps}
           />
-        </div>
+        </DropdownInputWrapper>
         <Popover show={menuActive} size="full">
-          <ul
+          <DropdownMenu
             className="aje-combobox__menu"
             role="listbox"
             id={listBoxId}
             aria-labelledby={labelId}
           >
-            {filterSuggestions(value, options).map((o) => (
-              <li
+            {filterStrategy.filter(value, options).map((o) => (
+              <DropdownOption
                 className={cn("aje-combobox__option", {
                   "is-focused": o === value,
                 })}
                 // @ts-ignore
-                onMouseDown={makeEventHandler(onChange)}
+                onMouseDown={(e) => onChange && onChange(o, e)}
                 role="option"
                 id={String(o)}
                 key={String(o)}
                 tabIndex={0}
               >
                 {o}
-              </li>
+              </DropdownOption>
             ))}
-          </ul>
+          </DropdownMenu>
         </Popover>
       </Variant>
       <InputError error={error} id={errorId} />
-    </ComponentWrapper>
+    </Wrapper>
   );
 }

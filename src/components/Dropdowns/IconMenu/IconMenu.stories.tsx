@@ -1,10 +1,12 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import IconMenuComponent, { IconMenuProps } from ".";
+import { CenterDecorator } from "../../storybook";
 
 export default {
   title: "Dropdowns/IconMenu",
   component: IconMenuComponent,
+  decorators: [CenterDecorator],
 } as ComponentMeta<typeof IconMenuComponent>;
 
 const Template: ComponentStory<typeof IconMenuComponent> = (
@@ -29,4 +31,5 @@ IconMenu.args = {
   label: "Custom dropdown label",
   disabled: false,
   position: "bottom-left",
+  iconVariant: "default",
 };

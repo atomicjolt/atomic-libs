@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { FormEvent } from "react";
 import cn from "classnames";
 import { useIds } from "../../../hooks";
 import { EventHandler, InputProps } from "../../../types";
@@ -6,6 +6,8 @@ import InputError from "../../Utility/InputError";
 import Label from "../../Utility/Label";
 import MaterialIcon from "../../Utility/MaterialIcon";
 import { makeEventHandler } from "../../../utils";
+import { InputWrapper } from "../Inputs.styles";
+import { StyledSearchInput } from "./SearchInput.styles";
 
 export interface SearchInputProps
   extends Omit<InputProps<string>, "required" | "message"> {
@@ -20,11 +22,14 @@ export interface SearchInputProps
   submitButton?: boolean;
 }
 
-/** Search Input Component. Accepts a `ref`*/
+/** Search Input Component. Accepts a `ref`
+ *
+ * Essentially the same as the `TextInput` component, but calls
+ * has an `onSumbit()` handler that gets called when the user
+ * hits enter
+ */
 const SearchInput = React.forwardRef<HTMLInputElement, SearchInputProps>(
   (props, ref) => {
-    const [inputId, errorId] = useIds("SearchInput", ["input", "error"]);
-
     const {
       value,
       size = "medium",
@@ -36,15 +41,19 @@ const SearchInput = React.forwardRef<HTMLInputElement, SearchInputProps>(
       error,
       onSubmit,
       onChange,
+      className,
     } = props;
 
+    const [inputId, errorId] = useIds("SearchInput", ["input", "error"]);
+
     return (
-      <form
-        className={cn("aje-input", `is-${size}`, {
-          "is-disabled": disabled,
-          "has-error": error,
-        })}
-        onSubmit={(e) => {
+      <InputWrapper
+        as="form"
+        className={cn("aje-input", className)}
+        size={size}
+        error={error}
+        disabled={disabled}
+        onSubmit={(e: FormEvent<HTMLFormElement>) => {
           e.preventDefault();
           onSubmit && onSubmit(value, e);
         }}
@@ -52,7 +61,7 @@ const SearchInput = React.forwardRef<HTMLInputElement, SearchInputProps>(
         <Label hidden={hideLabel} htmlFor={inputId}>
           {label}
         </Label>
-        <input
+        <StyledSearchInput
           id={inputId}
           type="search"
           role="search"
@@ -68,7 +77,7 @@ const SearchInput = React.forwardRef<HTMLInputElement, SearchInputProps>(
           </button>
         )}
         <InputError error={error} id={errorId} />
-      </form>
+      </InputWrapper>
     );
   }
 );

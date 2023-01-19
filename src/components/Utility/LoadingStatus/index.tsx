@@ -1,6 +1,7 @@
 import React from "react";
 import ThreeDotLoader from "../../Loaders/ThreeDotLoader";
 import { ErrorBanner } from "../../Banners/DismissableBanner";
+import { LoadingMessage, LoadingWrapper } from "./LoadingStatus.types";
 
 export interface LoadingStatusProps {
   /** Loading status, when true, a loading animation is displayed  */
@@ -22,12 +23,12 @@ export interface LoadingStatusProps {
 
 const renderLoadingDefault = (loading: boolean, message: React.ReactNode) => {
   return (
-    <div className="aje-loading-status-loading">
+    <LoadingWrapper className="aje-loading-status-loading">
       <div>
         <ThreeDotLoader loading={loading} />
-        {message && <p>{message}</p>}
+        {message && <LoadingMessage>{message}</LoadingMessage>}
       </div>
-    </div>
+    </LoadingWrapper>
   );
 };
 
@@ -40,14 +41,16 @@ const renderErrorDefault = (error: React.ReactNode) => {
  *
  * **Note**: If both an `error` is present and `loading` is true,
  * the error takes precedencs and will be displayed  */
-export default function LoadingStatus({
-  loading = false,
-  loadingMessage = null,
-  renderLoading = renderLoadingDefault,
-  error = null,
-  renderError = renderErrorDefault,
-  children = null,
-}: LoadingStatusProps) {
+export default function LoadingStatus(props: LoadingStatusProps) {
+  const {
+    loading = false,
+    loadingMessage = null,
+    renderLoading = renderLoadingDefault,
+    error = null,
+    renderError = renderErrorDefault,
+    children = null,
+  } = props;
+
   if (error) {
     return <>{renderError(error)}</>;
   }

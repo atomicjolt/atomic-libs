@@ -1,16 +1,13 @@
 import React from "react";
 
-export interface CustomSelectOptionProps<T> {
+export interface OptionProps<T> {
   value: T;
   children: React.ReactNode;
+  searchKey?: string;
 }
 
-/** An Option in the `CustomSelect` */
-export function Option<T>({ value, children }: CustomSelectOptionProps<T>) {
-  return null;
-}
-
-/** A `CustomSelect` `Option` item with `null` as the value */
-export function EmptyOption({ children }: { children?: React.ReactNode }) {
-  return <Option value={null}>{children}</Option>;
+/** An Option in the various Dropdown */
+export default function Option<T>({ value, children }: OptionProps<T>) {
+  // @ts-ignore
+  return <option value={value}>{children}</option>;
 }

@@ -1,0 +1,52 @@
+html,
+body,
+#root {
+  height: 100%;
+}
+.padder {
+  padding-top: 1.5rem;
+}
+
+.aje-tip {
+  max-width: fit-content;
+  .aje-popover {
+    --popover-animation: opacity 200ms ease;
+    background-color: rgba(0, 0, 0, 0.774);
+    color: white;
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 5px;
+  }
+
+  &:hover {
+    .aje-popover {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
+
+.aje-tab-content {
+  height: 100%;
+}
+
+.scrolling-container {
+  background-color: powderblue;
+  height: 100%;
+  display: grid;
+  place-content: center;
+}
+
+.scrolling {
+  background-color: grey;
+  height: 400px;
+  width: 400px;
+  overflow: auto;
+}
+
+.scrolling-content {
+  display: grid;
+  place-content: center;
+  height: 200%;
+  width: 200%;
+}

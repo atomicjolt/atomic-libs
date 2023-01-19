@@ -1,47 +1,59 @@
 import React from "react";
+import { createGlobalStyle } from "styled-components";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import Popover, { PopoverWrapper, PopoverProps } from ".";
+import PopoverComponent, { PopoverWrapper } from ".";
+import { PopoverProps } from "./Popover.types";
+import { CenterDecorator } from "../../storybook";
 
 export default {
   title: "Utility/Popover",
-  component: Popover,
+  component: PopoverComponent,
   decorators: [
+    CenterDecorator,
     (Story) => (
-      <div style={{ padding: "5rem", width: "max-content" }}>
+      <>
+        <WrapperStyles />
         <Story />
-      </div>
+      </>
     ),
   ],
-} as ComponentMeta<typeof Popover>;
+  argTypes: {
+    negotiatePosition: {
+      control: false,
+    },
+  },
+} as ComponentMeta<typeof PopoverComponent>;
 
-const Template: ComponentStory<typeof Popover> = (args: PopoverProps) => {
-  const [show, setShow] = React.useState(false);
+const WrapperStyles = createGlobalStyle`
+  .content, .popover-content {
+    margin: 0px;
+    font-size: 20px;
+    border: 1px solid grey;
+    border-radius: 10px;
+    padding: 10px
+  }
 
+  .popover-content {
+    font-size: 14px;
+  }
+`;
+
+const Template: ComponentStory<typeof PopoverComponent> = (
+  args: PopoverProps
+) => {
   return (
     <PopoverWrapper>
-      <p style={{ fontSize: "20px", backgroundColor: "peru" }}>
-        Here's the Content
-      </p>
-      <Popover {...args}>
-        <div
-          style={{
-            backgroundColor: "lightblue",
-            fontSize: "20px",
-            padding: "10px",
-          }}
-        >
-          Hi
-        </div>
-      </Popover>
+      <p className="content">Here's the Content</p>
+      <PopoverComponent {...args}>
+        <div className="popover-content">Popover</div>
+      </PopoverComponent>
     </PopoverWrapper>
   );
 };
 
-export const Default = Template.bind({});
-Default.args = {
+export const Popover = Template.bind({});
+Popover.args = {
   show: true,
   size: "auto",
   position: "bottom-left",
 };
-
-// Additional stories go here

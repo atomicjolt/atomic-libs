@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshots is not visible 1`] = `<DocumentFragment />`;
+
+exports[`matches snapshots is visible 1`] = `<DocumentFragment />`;

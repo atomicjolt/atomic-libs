@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import CustomSelect from ".";
-import { Option } from "../Option";
+import Option from "../Option";
 
 describe("matches snapshots", () => {
   const shared = {
@@ -13,6 +13,28 @@ describe("matches snapshots", () => {
   it("matches default variant", () => {
     const result = render(
       <CustomSelect {...shared}>
+        <Option value="opt1">Option 1</Option>
+        <Option value="opt2">Option 2</Option>
+      </CustomSelect>
+    );
+
+    expect(result.asFragment()).toMatchSnapshot();
+  });
+
+  it("matches multi-select enabled", () => {
+    const result = render(
+      <CustomSelect {...shared} value={["opt1", "opt2"]}>
+        <Option value="opt1">Option 1</Option>
+        <Option value="opt2">Option 2</Option>
+      </CustomSelect>
+    );
+
+    expect(result.asFragment()).toMatchSnapshot();
+  });
+
+  it("matches search enabled", () => {
+    const result = render(
+      <CustomSelect {...shared} searchable>
         <Option value="opt1">Option 1</Option>
         <Option value="opt2">Option 2</Option>
       </CustomSelect>

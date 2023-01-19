@@ -1,17 +1,14 @@
 import React from "react";
 import cn from "classnames";
 import Spinner from "../../Loaders/Spinner";
-import { LoadingProps } from "../../../types";
+import { HasClassName, LoadingProps, SuggestStrings } from "../../../types";
+import { StyledButton } from "./Button.styles";
 
-type ButtonVariants =
-  | "primary"
-  | "secondary"
-  | "success"
-  | "error"
-  | "inverted"
-  | (string & {});
+type ButtonVariants = SuggestStrings<
+  "primary" | "secondary" | "success" | "error" | "inverted"
+>;
 
-interface CommonProps {
+interface CommonProps extends HasClassName {
   /** What to render within the Button */
   children?: React.ReactNode;
   /** Added to the button's className as: `aje-btn--${className}`. Builtin styles for:
@@ -27,30 +24,37 @@ interface CommonProps {
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-export type ButtonProps = CommonProps & LoadingProps;
+export type ButtonProps = CommonProps & LoadingProps & React.AriaAttributes;
 
-export default function Button({
-  children,
-  type = "button",
-  variant = "primary",
-  disabled = false,
-  loading = false,
-  loadingLabel = "loading",
-  loadingComplete = false,
-  onClick,
-}: ButtonProps) {
+export default function Button(props: ButtonProps) {
+  const {
+    children,
+    type = "button",
+    variant = "primary",
+    disabled = false,
+    loading = false,
+    loadingLabel = "loading",
+    loadingComplete = false,
+    onClick,
+    className,
+    ...rest
+  } = props;
+
   const loadingText = loading ? loadingLabel : "";
 
   return (
-    <button
-      aria-label={loadingText}
+    <StyledButton
+      aria-label={loadingText || undefined}
       type={type}
-      className={cn(`aje-btn aje-btn--${variant}`, { "is-loading": loading })}
+      className={cn("aje-btn", `aje-btn--${variant}`, className, {
+        "is-loading": loading,
+      })}
       onClick={onClick}
       disabled={disabled}
+      {...rest}
     >
       {loading && <Spinner loading={!loadingComplete} />}
       {children}
-    </button>
+    </StyledButton>
   );
 }

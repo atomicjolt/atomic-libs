@@ -1,13 +1,31 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Button, { ButtonProps } from ".";
+import Doc from "./Button.doc.mdx";
+import { CenterDecorator } from "../../storybook";
 
 export default {
   title: "Buttons/Button",
   component: Button,
+  decorators: [CenterDecorator],
   argTypes: {
     onClick: {
       control: false,
+      table: {
+        category: "Events",
+      },
+    },
+    children: {
+      control: "text",
+    },
+    variant: {
+      control: "select",
+      options: ["primary", "secondary", "error", "success", "inverted"],
+    },
+  },
+  parameters: {
+    docs: {
+      page: Doc,
     },
   },
 } as ComponentMeta<typeof Button>;

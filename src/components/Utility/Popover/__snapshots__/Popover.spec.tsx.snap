@@ -3,7 +3,7 @@
 exports[`matches snapshot matches snapshot 1 1`] = `
 <DocumentFragment>
   <div
-    class="aje-popover is-undefined aje-popover-bottom-left"
+    class="sc-gswNZR fDwQGm aje-popover is-auto aje-popover-bottom-left"
   >
     Child
   </div>
@@ -13,7 +13,7 @@ exports[`matches snapshot matches snapshot 1 1`] = `
 exports[`matches snapshot matches snapshot 1 2`] = `
 <DocumentFragment>
   <div
-    class="aje-popover is-undefined aje-popover-bottom-left is-visible"
+    class="sc-gswNZR fDwQGm aje-popover is-auto aje-popover-bottom-left is-visible"
   >
     Child
   </div>

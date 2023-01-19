@@ -1,24 +1,23 @@
-import React from "react";
-import { useContext } from "react";
+import cn from "classnames";
+import React, { useContext } from "react";
 import { useIds } from "../../../hooks";
+import { MessageLabel, ErrorLabel } from "../../../styles/utils";
+import { HasClassName } from "../../../types";
+import { ChooseInput, ChooseLabel } from "../Inputs.styles";
 import RadioContext from "./context";
+import { RadioWrapper } from "./RadioGroup.styles";
 
-export interface RadioProps {
-  value: string;
-  children: React.ReactNode;
-  disabled?: boolean;
-  message?: string;
-  error?: string;
+export interface RadioProps extends HasClassName {
+  readonly value: string;
+  readonly children: React.ReactNode;
+  readonly disabled?: boolean;
+  readonly message?: string;
+  readonly error?: string;
 }
 
 /** Radio Elements, must be a descendant of a `<RadioGroup>` */
-export default function Radio({
-  value,
-  children,
-  disabled,
-  message,
-  error,
-}: RadioProps) {
+export default function Radio(props: RadioProps) {
+  const { value, children, disabled, message, error, className } = props;
   const [inputId] = useIds(`radio`, ["input"]);
 
   const {
@@ -29,8 +28,12 @@ export default function Radio({
   } = useContext(RadioContext);
 
   return (
-    <label className="aje-radio" htmlFor={inputId}>
-      <input
+    <RadioWrapper
+      className={cn("aje-radio", className)}
+      htmlFor={inputId}
+      as="label"
+    >
+      <ChooseInput
         id={inputId}
         type="radio"
         name={name}
@@ -39,11 +42,11 @@ export default function Radio({
         value={value}
         onChange={onChange}
       />
-      <span className="aje-checkbox__label">
+      <ChooseLabel className="aje-checkbox__label">
         {children}
-        {message && <p className="aje-label--message">{message}</p>}
-        {error && <p className="aje-label--error">{error}</p>}
-      </span>
-    </label>
+        {message && <MessageLabel as="p">{message}</MessageLabel>}
+        {error && <ErrorLabel as="p">{error}</ErrorLabel>}
+      </ChooseLabel>
+    </RadioWrapper>
   );
 }
