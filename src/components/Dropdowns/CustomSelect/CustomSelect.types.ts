@@ -1,6 +1,5 @@
 import React from "react";
-import { FilterStrategy } from "../../../filter";
-import { HasVariant, InputProps } from "../../../types";
+import { FilterStrategy, HasVariant, InputProps } from "../../../types";
 
 export type CustomSelectVariants = "default" | "floating";
 

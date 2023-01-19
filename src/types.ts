@@ -3,6 +3,10 @@ import React from "react";
 
 export type SuggestStrings<T> = T | (string & {});
 
+export interface FilterStrategy<Key, Value> {
+  filter(key: Key, values: Value[]): Value[];
+}
+
 export interface HasChildren {
   children: React.ReactNode;
 }
@@ -16,11 +20,6 @@ export interface HasClassName {
    * Refer to this for possible values: https://github.com/JedWatson/classnames#readme*/
   className?: Argument[] | Argument;
 }
-
-export type FilterFunction<FilteredValue, InputValue = string> = (
-  value: InputValue,
-  values: FilteredValue[]
-) => FilteredValue[];
 
 export type VariantRecord<Variants extends string, ComponentProps> = Record<
   Variants,

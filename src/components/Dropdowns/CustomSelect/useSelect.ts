@@ -1,8 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { FilterStrategy } from "../../../filter";
 
 import { useBool, useClickOutside } from "../../../hooks";
-import { EventHandler, FilterFunction } from "../../../types";
+import { EventHandler, FilterStrategy } from "../../../types";
 import { OptionProps } from "../Option";
 
 // TYPES --------------------------------------------------------
@@ -98,14 +97,23 @@ export default function useSelect<
   const options: ChildProps[] = useMemo(() => {
     if (searchable && search) {
       const searchableOptions = childrenProps.filter((o) => o.searchKey);
-      const searchKeys: string[] = searchableOptions.map(
-        (o) => o.searchKey
-      ) as string[];
-      const searchLookup: Record<string, ChildProps> = Object.fromEntries(
-        searchableOptions.map((o) => [o.searchKey, o])
-      );
-      const filtered = filterStrategy.filter(search, searchKeys);
-      return filtered.map((o) => searchLookup[o]);
+
+      const searchLookup: Record<string, ChildProps[]> = {};
+      searchableOptions.forEach((o) => {
+        searchLookup[o.searchKey as string] ||= [];
+        searchLookup[o.searchKey as string].push(o);
+      });
+
+      const searchKeys: string[] = [
+        ...new Set(searchableOptions.map((o) => o.searchKey)),
+      ] as string[];
+
+      const filteredSearchKeys = filterStrategy.filter(search, searchKeys);
+      const filteredChildren = filteredSearchKeys
+        .map((o) => searchLookup[o])
+        .flat();
+
+      return filteredChildren;
     } else {
       return childrenProps;
     }

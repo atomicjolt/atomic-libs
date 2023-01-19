@@ -18,19 +18,6 @@ export function useBool(
   ];
 }
 
-export function useInitialRender() {
-  const isInitialrender = useRef(true);
-
-  useEffect(() => {
-    isInitialrender.current = false;
-    return () => {
-      isInitialrender.current = false;
-    };
-  }, []);
-
-  return isInitialrender.current;
-}
-
 interface UseClickOutsideOptions {
   enabled: boolean;
 }

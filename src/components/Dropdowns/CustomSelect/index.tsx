@@ -10,7 +10,7 @@ import Popover from "../../Utility/Popover";
 import useSelect from "./useSelect";
 import MaterialIcon from "../../Utility/MaterialIcon";
 import { fallbackValue, handleUndefined } from "../../../utils";
-import { defaultStrategy } from "../../../filter";
+import { strategies } from "../../../filter";
 import {
   DropdownInputWrapper,
   DropdownMenu,
@@ -58,7 +58,7 @@ export default function CustomSelect<T extends {} | Array<any>>(
     placeholder = "",
     searchPlaceholder,
     className,
-    filterStrategy = defaultStrategy,
+    filterStrategy = strategies.defaultStrategy,
   } = props;
 
   const [inputId, listBoxId, errorId, labelId] = useIds("CustomSelect", [

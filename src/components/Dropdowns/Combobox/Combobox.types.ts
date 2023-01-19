@@ -1,5 +1,9 @@
-import { FilterStrategy } from "../../../filter";
-import { HasChildren, HasVariant, InputProps } from "../../../types";
+import {
+  FilterStrategy,
+  HasChildren,
+  HasVariant,
+  InputProps,
+} from "../../../types";
 
 export type Variants = "default" | "floating";
 

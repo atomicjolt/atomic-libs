@@ -8,7 +8,7 @@ import Popover from "../../Utility/Popover";
 import { VariantRecord } from "../../../types";
 import DefaultCombobox from "./variants/DefaultCombobox";
 import FloatingCombobox from "./variants/FloatingCombobox";
-import { defaultStrategy } from "../../../filter";
+import { strategies } from "../../../filter";
 
 import {
   ComboboxProps,
@@ -49,7 +49,7 @@ export default function Combobox(props: ComboboxProps) {
     error,
     message,
     hideLabel = false,
-    filterStrategy = defaultStrategy,
+    filterStrategy = strategies.defaultStrategy,
     onFocus,
     onBlur,
     variant = "default",

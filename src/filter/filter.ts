@@ -1,8 +1,8 @@
-import { levenshtein } from "./utils";
+import { FilterStrategy } from "../types";
 
-type FilterCheck<Key, Value> = (key: Key, value: Value) => boolean;
+export type FilterCheck<Key, Value> = (key: Key, value: Value) => boolean;
 
-export class FilterStrategy<Key, Value> {
+export class Filter<Key, Value> implements FilterStrategy<Key, Value> {
   checker: FilterCheck<Key, Value>;
 
   constructor(checker: FilterCheck<Key, Value>) {
@@ -15,9 +15,9 @@ export class FilterStrategy<Key, Value> {
 
   /** Compose strategy with other strategy, within a given combination operator */
   compose = (
-    other: FilterStrategy<Key, Value>,
+    other: Filter<Key, Value>,
     operator: "and" | "or" | "not" = "and"
-  ): FilterStrategy<Key, Value> => {
+  ): Filter<Key, Value> => {
     let newChecker: FilterCheck<Key, Value>;
 
     switch (operator) {
@@ -36,30 +36,24 @@ export class FilterStrategy<Key, Value> {
         break;
     }
 
-    return new FilterStrategy(newChecker);
+    return new Filter(newChecker);
   };
 
-  and = (
-    ...strategies: FilterStrategy<Key, Value>[]
-  ): FilterStrategy<Key, Value> => {
+  and = (...strategies: Filter<Key, Value>[]): Filter<Key, Value> => {
     return strategies.reduce(
       (cummulative, strat) => cummulative.compose(strat, "and"),
       this
     );
   };
 
-  or = (
-    ...strategies: FilterStrategy<Key, Value>[]
-  ): FilterStrategy<Key, Value> => {
+  or = (...strategies: Filter<Key, Value>[]): Filter<Key, Value> => {
     return strategies.reduce(
       (cummulative, strat) => cummulative.compose(strat, "or"),
       this
     );
   };
 
-  not = (
-    ...strategies: FilterStrategy<Key, Value>[]
-  ): FilterStrategy<Key, Value> => {
+  not = (...strategies: Filter<Key, Value>[]): Filter<Key, Value> => {
     return strategies.reduce(
       (cummulative, strat) => cummulative.compose(strat, "not"),
       this
@@ -69,9 +63,9 @@ export class FilterStrategy<Key, Value> {
 
 export class ModifyFilter {
   static caseInsenstive<Key, Value>(
-    strategy: FilterStrategy<string, string>
-  ): FilterStrategy<Key, Value> {
-    return new FilterStrategy((key, value) => {
+    strategy: Filter<string, string>
+  ): Filter<Key, Value> {
+    return new Filter((key, value) => {
       return strategy.checker(
         String(key).toLowerCase(),
         String(value).toLowerCase()
@@ -79,25 +73,3 @@ export class ModifyFilter {
     });
   }
 }
-
-export const startsWithStrategy = () => {
-  return new FilterStrategy<string, string>((key, value) => {
-    return value.startsWith(key);
-  });
-};
-
-export const distanceStrategy = (distance: number) => {
-  return new FilterStrategy<string, string>((key, value) => {
-    return levenshtein(key, value) <= distance;
-  });
-};
-
-export const subStringStrategy = (position?: number) => {
-  return new FilterStrategy<string, string>((key, value) =>
-    value.includes(key, position)
-  );
-};
-
-export const defaultStrategy = ModifyFilter.caseInsenstive<string, string>(
-  subStringStrategy()
-);
