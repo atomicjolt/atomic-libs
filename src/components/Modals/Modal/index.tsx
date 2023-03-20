@@ -65,7 +65,7 @@ function Modal(props: ModalProps) {
           <Button
             variant="secondary"
             type="button"
-            onClick={makeOptionalCallback(primaryAction)}
+            onClick={makeOptionalCallback(secondaryAction)}
           >
             {secondaryButton}
           </Button>
@@ -74,7 +74,7 @@ function Modal(props: ModalProps) {
           <Button
             variant="primary"
             type="button"
-            onClick={makeOptionalCallback(secondaryAction)}
+            onClick={makeOptionalCallback(primaryAction)}
           >
             {primaryButton}
           </Button>
