@@ -45,7 +45,12 @@ export default function BasicModal(props: BasicModalProps) {
       })}
       onClick={() => onOutsideClick && onOutsideClick()}
     >
-      <ModalWrapper className={variantClassName}>{children}</ModalWrapper>
+      <ModalWrapper
+        className={variantClassName}
+        onClick={(e) => e.stopPropagation()}
+      >
+        {children}
+      </ModalWrapper>
     </ModalBackground>
   );
 }
