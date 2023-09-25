@@ -16,7 +16,7 @@ export { PopoverWrapper } from "./Popover.styles";
  * dropdowns for the `<CustomSelect />` among other things.
  *
  * The Popover is positioned absolutley, so you need to add a position relative
- * ancestor for it to be placed around. atomic-elements provides `<PopoverWrapper />` as
+ * ancestor for it to be placed around. @atomicjolt/atomic-elements provides `<PopoverWrapper />` as
  * a convenience component to do that for you.
  */
 export default function Popover(props: PopoverProps) {
