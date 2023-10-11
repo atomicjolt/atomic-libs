@@ -11,6 +11,7 @@
   ],
   "license": "MIT",
   "dependencies": {
+    "@vitejs/plugin-react": "^4.1.0",
     "classnames": "^2.3.1",
     "styled-components": "^5.3.6",
     "tslib": "^2.4.0"
