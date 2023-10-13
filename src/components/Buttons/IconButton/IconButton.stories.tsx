@@ -11,6 +11,17 @@ export default {
     onClick: {
       control: false,
     },
+    variant: {
+      control: "select",
+      options: [
+        "primary",
+        "secondary",
+        "error",
+        "success",
+        "inverted",
+        "content",
+      ],
+    },
   },
 } as ComponentMeta<typeof IconButtonComponent>;
 

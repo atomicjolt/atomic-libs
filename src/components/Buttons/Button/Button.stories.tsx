@@ -20,7 +20,14 @@ export default {
     },
     variant: {
       control: "select",
-      options: ["primary", "secondary", "error", "success", "inverted"],
+      options: [
+        "primary",
+        "secondary",
+        "error",
+        "success",
+        "inverted",
+        "content",
+      ],
     },
   },
   parameters: {
