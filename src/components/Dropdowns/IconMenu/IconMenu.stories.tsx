@@ -7,6 +7,36 @@ export default {
   title: "Dropdowns/IconMenu",
   component: IconMenuComponent,
   decorators: [CenterDecorator],
+  argTypes: {
+    buttonVariant: {
+      control: "select",
+      options: [
+        "primary",
+        "secondary",
+        "error",
+        "success",
+        "inverted",
+        "content",
+      ],
+    },
+    iconVariant: {
+      control: "select",
+      options: ["default", "outlined", "round", "sharp", "two-tone"],
+    },
+    position: {
+      control: "select",
+      options: [
+        "top",
+        "bottom",
+        "left",
+        "right",
+        "bottom-right",
+        "bottom-left",
+        "top-right",
+        "top-left",
+      ],
+    },
+  },
 } as ComponentMeta<typeof IconMenuComponent>;
 
 const Template: ComponentStory<typeof IconMenuComponent> = (

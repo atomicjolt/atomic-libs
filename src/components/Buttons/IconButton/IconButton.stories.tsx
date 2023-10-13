@@ -20,6 +20,7 @@ export default {
         "success",
         "inverted",
         "content",
+        "ghost",
       ],
     },
   },

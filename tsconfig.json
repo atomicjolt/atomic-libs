@@ -17,7 +17,11 @@
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true
   },
-  "include": ["src/**/*.tsx", "src/**/*.ts"],
+  "include": [
+    "src/**/*.tsx",
+    "src/**/*.ts",
+    "src/components/Buttons/Buttons.types.ts"
+  ],
   "exclude": [
     "src/**/*.stories.tsx",
     "src/**/*.spec.tsx",
