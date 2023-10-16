@@ -10,7 +10,7 @@ import Spinner from "../../Loaders/Spinner";
 import MaterialIcon from "../../Utility/MaterialIcon";
 import { useIds, useVariantClass } from "../../../hooks";
 import { StyledIconButton } from "./IconButton.styles";
-import { ButtonVariants } from "../Buttons.types.ts";
+import { ButtonVariants } from "../Buttons.types";
 
 interface BaseProps extends HasClassName, HasIcon {
   /** Label for the button, because IconButton does not contain text, this should always be present */

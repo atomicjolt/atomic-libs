@@ -3,7 +3,7 @@ import cn from "classnames";
 import Spinner from "../../Loaders/Spinner";
 import { HasClassName, LoadingProps, SuggestStrings } from "../../../types";
 import { StyledButton } from "./Button.styles";
-import { ButtonVariants } from "../Buttons.types.ts";
+import { ButtonVariants } from "../Buttons.types";
 
 interface CommonProps extends HasClassName {
   /** What to render within the Button */
