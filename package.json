@@ -90,6 +90,6 @@
     "build": "rollup --config rollup.config.ts --configPlugin typescript ",
     "build:cleanup": "rm -rf dist/cjs/dist && rm -rf dist/esm/types",
     "test": "jest",
-    "playground": "vite"
+    "playground": "vite --config playground/vite.config.ts"
   }
 }

@@ -1,7 +1,7 @@
 export * from "./components";
 export * from "./hooks";
 export * from "./filter";
-export {
+export type {
   EventHandler as AtomicElementsEventHandler,
   MaterialIcons,
 } from "./types";
