@@ -13,6 +13,7 @@
   "dependencies": {
     "@vitejs/plugin-react": "^4.1.0",
     "classnames": "^2.3.1",
+    "date-fns": "^2.28.0",
     "styled-components": "^5.3.6",
     "tslib": "^2.4.0"
   },
@@ -35,7 +36,6 @@
     "@storybook/addon-essentials": "^6.5.5",
     "@storybook/addon-interactions": "^6.5.5",
     "@storybook/addon-links": "^6.5.5",
-    "@storybook/addon-postcss": "^2.0.0",
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^6.5.5",
     "@storybook/testing-library": "^0.0.11",
@@ -55,10 +55,6 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^28.1.0",
     "jest-environment-jsdom": "^28.1.0",
-    "postcss": "^8.4.14",
-    "postcss-import": "^14.1.0",
-    "postcss-nested": "^5.0.6",
-    "postcss-preset-env": "^7.6.0",
     "react": "^18.0.0",
     "react-docgen-typescript": "^2.2.2",
     "react-dom": "^18.0.0",

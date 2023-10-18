@@ -16,14 +16,18 @@ exports[`matches snapshot default variant 1`] = `
     >
       message
     </p>
-    <input
-      aria-describedby="TextInput-:r0:-error"
-      class="sc-gKPRtg gMwzJI"
-      id="TextInput-:r0:-input"
-      placeholder="placeholder"
-      type="text"
-      value="content"
-    />
+    <div
+      class="aje-input__container"
+    >
+      <input
+        aria-describedby="TextInput-:r0:-error"
+        class="sc-gKPRtg gMwzJI"
+        id="TextInput-:r0:-input"
+        placeholder="placeholder"
+        type="text"
+        value="content"
+      />
+    </div>
     <p
       class="sc-eDvSVe kXVgQt aje-label--error"
       id="TextInput-:r0:-error"

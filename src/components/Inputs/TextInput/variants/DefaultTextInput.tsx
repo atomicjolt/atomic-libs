@@ -10,7 +10,7 @@ export default function DefaultTextInput(props: TextInputVariantProps) {
       <Label message={message} hidden={hideLabel} htmlFor={inputId}>
         {label}
       </Label>
-      {children}
+      <div className="aje-input__container">{children}</div>
     </>
   );
 }

@@ -5,6 +5,11 @@ import "../src/defines/variables.scss";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
+  controls: {
+    matchers: {
+      date: /date/,
+    },
+  },
   cssprops: props,
   docs: {
     source: {

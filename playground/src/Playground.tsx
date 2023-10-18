@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import "./playground.scss";
+
 import {
   Button,
   TextInput,
@@ -15,15 +16,17 @@ import Inputs from "./tabs/Inputs";
 import Buttons from "./tabs/Buttons";
 import Modals from "./tabs/Modals";
 import Scrollings from "./tabs/Scrollings";
+import Dates from "./tabs/Dates";
 
 function Playground() {
-  const [currentTab, setCurrentTab] = useState("inputs");
+  const [currentTab, setCurrentTab] = useState("dates");
 
   return (
     <div className="padder" style={{ height: "100%" }}>
       <Tabs currentTab={currentTab} onChange={setCurrentTab}>
         <Tabs.Navigation>
           <Tabs.Link to="inputs">Inputs</Tabs.Link>
+          <Tabs.Link to="dates">Dates</Tabs.Link>
           <Tabs.Link to="buttons">Buttons</Tabs.Link>
           <Tabs.Link to="form">Form</Tabs.Link>
           <Tabs.Link to="modal">Modals</Tabs.Link>
@@ -32,6 +35,9 @@ function Playground() {
         <Tabs.Content>
           <Tabs.Tab name="inputs">
             <Inputs />
+          </Tabs.Tab>
+          <Tabs.Tab name="dates">
+            <Dates />
           </Tabs.Tab>
           <Tabs.Tab name="buttons">
             <Buttons />

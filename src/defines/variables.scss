@@ -196,4 +196,9 @@
   --choose-label-padding-top: 0;
   --choose-label-padding-left: 32px;
   --choose-label-height: 24px;
+
+  /* # Calendar variables */
+  --time-clr: var(--neutral200);
+  --time-selected-back-clr: var(--primary600);
+  --time-selected-text-clr: var(--neutral100);
 }

@@ -46,7 +46,7 @@ export function useClickOutside<E extends HTMLElement>(
     } else {
       window.removeEventListener("click", onClick);
     }
-  }, [options, ref.current]);
+  }, [options]);
 }
 
 /** Tracks whether or not a state change has
