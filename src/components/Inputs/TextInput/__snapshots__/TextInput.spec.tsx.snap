@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`matches snapshot default variant 1`] = `
+exports[`matches snapshot > default variant 1`] = `
 <DocumentFragment>
   <div
     class="sc-bcXHqe sc-jSUZER sc-jrcTuL  jHcAJm hmgJOA aje-input aje-input has-error"
@@ -38,7 +38,7 @@ exports[`matches snapshot default variant 1`] = `
 </DocumentFragment>
 `;
 
-exports[`matches snapshot floating variant 1`] = `
+exports[`matches snapshot > floating variant 1`] = `
 <DocumentFragment>
   <div
     class="sc-bcXHqe sc-jSUZER sc-jrcTuL  jHcAJm hmgJOA aje-input--floating aje-input--floating has-error"

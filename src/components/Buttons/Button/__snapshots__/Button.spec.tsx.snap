@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`matches snapshots changes variant 1`] = `
+exports[`matches snapshots > changes variant 1`] = `
 <DocumentFragment>
   <button
     class="sc-eDvSVe sc-jSUZER gwaIpe aje-btn aje-btn--secondary"
@@ -11,7 +11,7 @@ exports[`matches snapshots changes variant 1`] = `
 </DocumentFragment>
 `;
 
-exports[`matches snapshots loading completed state 1`] = `
+exports[`matches snapshots > loading completed state 1`] = `
 <DocumentFragment>
   <button
     aria-label="loading"
@@ -30,7 +30,7 @@ exports[`matches snapshots loading completed state 1`] = `
 </DocumentFragment>
 `;
 
-exports[`matches snapshots loading state 1`] = `
+exports[`matches snapshots > loading state 1`] = `
 <DocumentFragment>
   <button
     aria-label="loading"
@@ -59,7 +59,7 @@ exports[`matches snapshots loading state 1`] = `
 </DocumentFragment>
 `;
 
-exports[`matches snapshots normal display 1`] = `
+exports[`matches snapshots > normal display 1`] = `
 <DocumentFragment>
   <button
     class="sc-eDvSVe sc-jSUZER gwaIpe aje-btn aje-btn--primary"

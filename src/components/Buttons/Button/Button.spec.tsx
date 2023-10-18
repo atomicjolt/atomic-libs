@@ -1,4 +1,5 @@
 import React from "react";
+import { describe, test, expect, vi } from "vitest";
 import { render, fireEvent, waitFor, screen } from "@testing-library/react";
 import Button from ".";
 
@@ -28,8 +29,8 @@ describe("matches snapshots", () => {
   });
 });
 
-it("is clickable", () => {
-  const onClick = jest.fn((e) => e);
+test("is clickable", () => {
+  const onClick = vi.fn((e) => e);
   render(<Button onClick={onClick}>Click me</Button>);
 
   fireEvent.click(screen.getByText("Click me"));
@@ -37,14 +38,14 @@ it("is clickable", () => {
   expect(onClick.mock.calls.length).toEqual(1);
 });
 
-it("displays loading displays spinner", () => {
+test("displays loading displays spinner", () => {
   const { rerender } = render(
     <Button loading={true} loadingComplete={false}>
       Click Me
     </Button>
   );
 
-  expect(screen.getByTestId("spinner-svg")).toBeInTheDocument();
+  expect(screen.getByTestId("spinner-svg")).not.toBeNull();
 
   rerender(
     <Button loading={true} loadingComplete={true}>
