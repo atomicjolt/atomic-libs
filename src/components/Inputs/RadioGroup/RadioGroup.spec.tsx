@@ -1,4 +1,5 @@
 import React from "react";
+import { test, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import RadioGroup, { Radio } from ".";
 
@@ -10,12 +11,12 @@ const Wrapper = (value: string) => (
   </RadioGroup>
 );
 
-it("matches snapshot", () => {
+test("matches snapshot", () => {
   const result = render(Wrapper("opt1"));
   expect(result.asFragment()).toMatchSnapshot();
 });
 
-it("swaps between options", () => {
+test("swaps between options", () => {
   const { rerender } = render(Wrapper("opt1"));
 
   expect(screen.getByDisplayValue<HTMLInputElement>("opt1").checked).toBe(true);

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`matches snapshots matches default variant 1`] = `
+exports[`matches snapshots > matches default variant 1`] = `
 <DocumentFragment>
   <div
     class="sc-bcXHqe sc-iBYQkv  egptak aje-dropdown aje-dropdown is-medium has-error"
@@ -59,7 +59,7 @@ exports[`matches snapshots matches default variant 1`] = `
 </DocumentFragment>
 `;
 
-exports[`matches snapshots matches floating variant 1`] = `
+exports[`matches snapshots > matches floating variant 1`] = `
 <DocumentFragment>
   <div
     class="sc-bcXHqe sc-iBYQkv  egptak aje-dropdown--floating aje-dropdown--floating is-medium has-error"

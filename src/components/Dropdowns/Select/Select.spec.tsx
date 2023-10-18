@@ -1,9 +1,10 @@
 import React from "react";
+import { describe, test, expect } from "vitest";
 import { render } from "@testing-library/react";
 import Select from ".";
 import Option from "../Option";
 
-it("matches snapshot", () => {
+test("matches snapshot", () => {
   const result = render(
     <Select value="none" label="Label" onChange={() => {}}>
       <Option value="none">- Select an option -</Option>

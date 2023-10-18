@@ -1,4 +1,5 @@
 import React from "react";
+import { describe, test, expect } from "vitest";
 import { render } from "@testing-library/react";
 import CustomSelect from ".";
 import Option from "../Option";
@@ -10,7 +11,7 @@ describe("matches snapshots", () => {
     onChange: () => {},
   };
 
-  it("matches default variant", () => {
+  test("matches default variant", () => {
     const result = render(
       <CustomSelect {...shared}>
         <Option value="opt1">Option 1</Option>
@@ -21,7 +22,7 @@ describe("matches snapshots", () => {
     expect(result.asFragment()).toMatchSnapshot();
   });
 
-  it("matches multi-select enabled", () => {
+  test("matches multi-select enabled", () => {
     const result = render(
       <CustomSelect {...shared} value={["opt1", "opt2"]}>
         <Option value="opt1">Option 1</Option>
@@ -32,7 +33,7 @@ describe("matches snapshots", () => {
     expect(result.asFragment()).toMatchSnapshot();
   });
 
-  it("matches search enabled", () => {
+  test("matches search enabled", () => {
     const result = render(
       <CustomSelect {...shared} searchable>
         <Option value="opt1">Option 1</Option>
@@ -43,7 +44,7 @@ describe("matches snapshots", () => {
     expect(result.asFragment()).toMatchSnapshot();
   });
 
-  it("matches floating variant", () => {
+  test("matches floating variant", () => {
     const result = render(
       <CustomSelect variant="floating" {...shared}>
         <Option value="opt1">Option 1</Option>

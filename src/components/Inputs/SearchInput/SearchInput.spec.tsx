@@ -1,14 +1,15 @@
 import React from "react";
+import { describe, test, expect, vi } from "vitest";
 import { fireEvent, render, screen } from "@testing-library/react";
 import SearchInput from ".";
 
 describe("matches snapshot", () => {
-  it("displays without button", () => {
+  test("displays without button", () => {
     const result = render(<SearchInput label="search" onSubmit={() => {}} />);
     expect(result.asFragment()).toMatchSnapshot();
   });
 
-  it("displays with search button", () => {
+  test("displays with search button", () => {
     const result = render(
       <SearchInput label="search" onSubmit={() => {}} submitButton />
     );
@@ -29,7 +30,7 @@ describe("matches snapshot", () => {
 // });
 
 test("button calls onSumbit()", () => {
-  const onSubmit = jest.fn(() => {});
+  const onSubmit = vi.fn(() => {});
   const result = render(
     <SearchInput label="label" onSubmit={onSubmit} submitButton />
   );
