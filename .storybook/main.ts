@@ -1,16 +1,24 @@
-const path = require("path");
+import { StorybookConfig } from "@storybook/react-webpack5";
 
-module.exports = {
+const config: StorybookConfig = {
   stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
+
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-docs",
     "storybook-addon-sass-postcss",
     "@ljcl/storybook-addon-cssprops",
+    "@storybook/addon-mdx-gfm",
   ],
+
   staticDirs: ["../public"],
-  framework: "@storybook/react",
+
+  framework: {
+    name: "@storybook/react-webpack5",
+    options: {},
+  },
+
   typescript: {
     check: false,
     checkOptions: {},
@@ -25,4 +33,11 @@ module.exports = {
         prop.parent ? !/node_modules/.test(prop.parent.fileName) : true,
     },
   },
+
+  docs: {
+    autodocs: true,
+    defaultName: "Overview",
+  },
 };
+
+export default config;

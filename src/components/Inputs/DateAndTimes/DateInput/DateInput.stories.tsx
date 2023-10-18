@@ -1,5 +1,4 @@
-import React from "react";
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 import DateInputComponnent, { DateInputProps } from ".";
 import { DefaultInputProperties, TextInputControls } from "../../../storybook";
 
@@ -18,16 +17,15 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof DateInputComponnent>;
+} as Meta<typeof DateInputComponnent>;
 
-const Template: ComponentStory<typeof DateInputComponnent> = (
-  args: DateInputProps
-) => <DateInputComponnent {...args} />;
+type Story = StoryObj<typeof DateInputComponnent>;
 
-export const DateInput = Template.bind({});
-DateInput.args = {
-  value: new Date(),
-  ...DefaultInputProperties,
-  label: "Date input",
-  placeholder: "mm/dd/yyy",
+export const DateInput: Story = {
+  args: {
+    value: new Date(),
+    ...DefaultInputProperties,
+    label: "Date input",
+    placeholder: "mm/dd/yyy",
+  },
 };
