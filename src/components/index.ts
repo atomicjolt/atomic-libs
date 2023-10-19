@@ -1,4 +1,4 @@
-export { default as ActionBanner, UpgradeBanner } from "./Banners/ActionBanner";
+export { default as ActionBanner } from "./Banners/ActionBanner";
 export {
   default as DismissableBanner,
   ErrorBanner,
