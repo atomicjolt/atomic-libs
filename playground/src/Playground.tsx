@@ -1,17 +1,7 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import "./playground.scss";
 
-import {
-  Button,
-  TextInput,
-  IconButton,
-  Tabs,
-  IconMenu,
-  ErrorModal,
-  Popover,
-  PopoverWrapper,
-} from "./elements";
-import FormTesting from "./tabs/FormTesting";
+import { Tabs } from "./elements";
 import Inputs from "./tabs/Inputs";
 import Buttons from "./tabs/Buttons";
 import Modals from "./tabs/Modals";
@@ -28,7 +18,6 @@ function Playground() {
           <Tabs.Link to="inputs">Inputs</Tabs.Link>
           <Tabs.Link to="dates">Dates</Tabs.Link>
           <Tabs.Link to="buttons">Buttons</Tabs.Link>
-          <Tabs.Link to="form">Form</Tabs.Link>
           <Tabs.Link to="modal">Modals</Tabs.Link>
           <Tabs.Link to="scrolling">Scrolling</Tabs.Link>
         </Tabs.Navigation>
@@ -41,9 +30,6 @@ function Playground() {
           </Tabs.Tab>
           <Tabs.Tab name="buttons">
             <Buttons />
-          </Tabs.Tab>
-          <Tabs.Tab name="form">
-            <FormTesting />
           </Tabs.Tab>
           <Tabs.Tab name="modal">
             <Modals />
