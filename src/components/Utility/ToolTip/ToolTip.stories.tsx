@@ -2,13 +2,14 @@ import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import ToolTipComponent, { ToolTipProps } from ".";
 import Button from "../../Buttons/Button";
-import { CenterDecorator } from "../../storybook";
 import MaterialIcon from "../MaterialIcon";
 
 export default {
   title: "Utility/ToolTip",
   component: ToolTipComponent,
-  decorators: [CenterDecorator],
+  parameters: {
+    layout: "centered",
+  },
   argTypes: {
     children: {
       control: false,

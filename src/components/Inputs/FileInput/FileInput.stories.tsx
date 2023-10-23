@@ -1,16 +1,14 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import FileInput, { FileInputProps } from ".";
-import {
-  CenterDecorator,
-  InputControls,
-  inputProperties,
-} from "../../storybook";
+import { InputControls, inputProperties } from "../../storybook";
 
 export default {
   title: "Inputs/FileInput",
   component: FileInput,
-  decorators: [CenterDecorator],
+  parameters: {
+    layout: "centered",
+  },
   argTypes: {
     file: {
       control: false,

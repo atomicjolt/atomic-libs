@@ -4,7 +4,7 @@ import { Meta } from "@storybook/addon-docs";
 
 # Introduction
 
-Atomic Elements is a set of broadly-applicable React components for use within our applications.
+Atomic Elements is a set of fundemental React components for use within [Atomic Jolt](https://atomicjolt.com).
 This site serves as interactive documentation for all of the components, powered by [Storybook](https://storybook.js.org/).
 
 You can see all the components currently available on the left navigation. Some components have multiple stories, which characterize different
@@ -15,29 +15,40 @@ ways in which the component can be used.
 - [Source Code](https://github.com/atomicjolt/atomic-elements)
 - [NPM Package](https://www.npmjs.com/package/@atomicjolt/atomic-elements)
 
+## Built with Atomic Elements
+
+- [Atomic Registrar](https://github.com/atomicjolt/atomic-registrar)
+- [Atomic Form](https://github.com/atomicjolt/atomic-form)
+
 ## Goals
+
 
 ### Consistency
 
-Each of our apps are going to need to use the same basic components (inputs, buttons, modals, etc...).
-As a result, each of these apps have implementations for components for each of these purposes, all
-with slightly different implementations and goals. @atomicjolt/atomic-elements aims to replace these common components with generalized alternatives that should
-be workable in any situations. This should make transferring from application to application a smoother
-process for developers.
+To maintain consistency across our applications, it is imperative that they all utilize the same fundamental
+components, including inputs, buttons, modals, and more. Presently, each of these applications has its own
+implementations of these components, each with slightly varying approaches and objectives.
+This library is designed to replace these disparate components with versatile alternatives that can
+seamlessly adapt to any context. This streamlining process is aimed at facilitating the transition for developers
+when moving between different applications.
 
-Additionally, these docs will serve as a "single source of truth" for how to use each of these components
-in any of the applications that they end up in.
+Moreover, this site will act as a "single source of truth" for understanding the
+utilization of these components within any application where they are employed.
 
 ### Efficiency
 
-Since many components are replciated in several apps, some work has been doubled to produce that. Even if
-the component was originally copied from one app to the other, if updates are required to be made
-to the component, the hassle of updating it in multiple locations is a huge annoyance. By moving the
-components into a library, the update needs to be made only once, then each app can pull in the
-updated dependancy when needed.
+Given that many components are duplicated across several applications, redundant
+effort has been expended in their creation. Even when a component was initially
+copied from one application to another, any subsequent updates to the component
+can be a significant inconvenience, necessitating changes in multiple locations.
+By centralizing these components within a library, updates need to be made only
+once, and every application can subsequently integrate the updated dependency as needed.
 
-### Accessiblity
+### Accessibility
 
-@atomicjolt/atomic-elements aims to have _every_ one of it's components completly accessible, while also allowing
-the developer using the components to not have to worry about ensuring accessiblity. Whenever the
-component requires a property for accessiblity purposes, this will be documented in the component's docs.
+Atomic Elements is committed to ensuring that every single one of its components
+is fully accessible. This not only benefits users with accessibility needs but
+also relieves developers from the burden of constantly ensuring accessibility on
+their own. Whenever a component requires specific properties for accessibility
+purposes, these requirements will be meticulously documented within the
+component's accompanying documentation.

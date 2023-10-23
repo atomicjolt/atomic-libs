@@ -22,6 +22,11 @@ const preview: Preview = {
       },
     },
     cssprops: props,
+    options: {
+      storySort: {
+        order: ["Introduction", "Installation", "Usage", "Buttons", "Inputs"],
+      },
+    },
   },
 };
 

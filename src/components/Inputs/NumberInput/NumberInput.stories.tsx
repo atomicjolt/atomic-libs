@@ -5,13 +5,14 @@ import {
   InputControls,
   DefaultInputProperties,
   UncontrolledInputControls,
-  CenterDecorator,
 } from "../../storybook";
 
 export default {
   title: "Inputs/NumberInput",
   component: NumberInput,
-  decorators: [CenterDecorator],
+  parameters: {
+    layout: "centered",
+  },
   argTypes: InputControls,
 } as ComponentMeta<typeof NumberInput>;
 

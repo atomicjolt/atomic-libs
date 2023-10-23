@@ -1,17 +1,15 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import RadioGroupComponent, { RadioGroupsProps } from ".";
-import {
-  InputControls,
-  DefaultInputProperties,
-  CenterDecorator,
-} from "../../storybook";
+import { InputControls, DefaultInputProperties } from "../../storybook";
 import Radio from "./Radio";
 
 export default {
   title: "Inputs/RadioGroup",
   component: RadioGroupComponent,
-  decorators: [CenterDecorator],
+  parameters: {
+    layout: "centered",
+  },
   argTypes: {
     children: {
       control: false,

@@ -1,12 +1,12 @@
-import React from "react";
-import { ComponentMeta, ComponentStory } from "@storybook/react";
-import IconButtonComponent, { IconButtonProps } from ".";
-import { CenterDecorator } from "../../storybook";
+import { Meta, StoryObj } from "@storybook/react";
+import IconButton from ".";
 
-export default {
+const meta: Meta<typeof IconButton> = {
   title: "Buttons/IconButton",
-  component: IconButtonComponent,
-  decorators: [CenterDecorator],
+  component: IconButton,
+  parameters: {
+    layout: "centered",
+  },
   argTypes: {
     onClick: {
       control: false,
@@ -24,18 +24,26 @@ export default {
       ],
     },
   },
-} as ComponentMeta<typeof IconButtonComponent>;
+};
 
-const Template: ComponentStory<typeof IconButtonComponent> = (
-  args: IconButtonProps
-) => <IconButtonComponent {...args} />;
+export default meta;
 
-export const IconButton = Template.bind({});
+type Story = StoryObj<typeof IconButton>;
 
-IconButton.args = {
-  icon: "more_vert",
-  ariaLabel: "More options",
-  loading: false,
-  loadingComplete: false,
-  disabled: false,
+export const Primary: Story = {
+  args: {
+    icon: "more_vert",
+    ariaLabel: "More options",
+    loading: false,
+  },
+};
+
+export const Loading: Story = {
+  args: {
+    icon: "more_vert",
+    ariaLabel: "More options",
+    loading: true,
+    loadingLabel: "Loading...",
+    loadingComplete: false,
+  },
 };

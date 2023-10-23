@@ -5,14 +5,15 @@ import {
   InputControls,
   DefaultInputProperties,
   TextInputControls,
-  CenterDecorator,
 } from "../../storybook";
 import { TextInputProps } from "./TextInput.types";
 
 export default {
   title: "Inputs/TextInput",
   component: TextInput,
-  decorators: [CenterDecorator],
+  parameters: {
+    layout: "centered",
+  },
   argTypes: TextInputControls,
 } as ComponentMeta<typeof TextInput>;
 

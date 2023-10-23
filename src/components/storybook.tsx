@@ -164,10 +164,3 @@ export const UncontrolledInputControls = {
 };
 
 
-export const CenterDecorator = (Story: React.FC) => {
-  return (
-    <div style={{ display: "grid", placeItems: "center", height: "100%" }}>
-      <Story />
-    </div>
-  );
-};

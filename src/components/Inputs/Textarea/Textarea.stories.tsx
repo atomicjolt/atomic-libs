@@ -1,12 +1,7 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import Textarea, { TextAreaProps } from ".";
-import {
-  InputControls,
-  DefaultInputProperties,
-  TextInputControls,
-  CenterDecorator,
-} from "../../storybook";
+import Textarea, { TextareaProps } from ".";
+import { DefaultInputProperties, TextInputControls } from "../../storybook";
 
 export default {
   title: "Inputs/Textarea",
@@ -14,7 +9,7 @@ export default {
   argTypes: TextInputControls,
 } as ComponentMeta<typeof Textarea>;
 
-const Template: ComponentStory<typeof Textarea> = (args: TextAreaProps) => (
+const Template: ComponentStory<typeof Textarea> = (args: TextareaProps) => (
   <Textarea {...args} />
 );
 

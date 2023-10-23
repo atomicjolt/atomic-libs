@@ -1,12 +1,13 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import IconMenuComponent, { IconMenuProps } from ".";
-import { CenterDecorator } from "../../storybook";
 
 export default {
   title: "Dropdowns/IconMenu",
   component: IconMenuComponent,
-  decorators: [CenterDecorator],
+  parameters: {
+    layout: "centered",
+  },
   argTypes: {
     buttonVariant: {
       control: "select",

@@ -1,12 +1,13 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import MaterialIconComponent, { MaterialIconProps } from ".";
-import { CenterDecorator } from "../../storybook";
 
 export default {
   title: "Utility/MaterialIcon",
   component: MaterialIconComponent,
-  decorators: [CenterDecorator],
+  parameters: {
+    layout: "centered",
+  },
 } as ComponentMeta<typeof MaterialIconComponent>;
 
 const Template: ComponentStory<typeof MaterialIconComponent> = (

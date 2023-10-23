@@ -5,14 +5,15 @@ import {
   DefaultInputProperties,
   inputProperties,
   disableControl,
-  CenterDecorator,
 } from "../../storybook";
 import SelectComponent, { SelectProps } from ".";
 
 export default {
   title: "Dropdowns/Select",
   component: SelectComponent,
-  decorators: [CenterDecorator],
+  parameters: {
+    layout: "centered",
+  },
   argTypes: {
     value: {
       control: "select",

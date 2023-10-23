@@ -1,13 +1,15 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Checkbox, { CheckboxProps } from ".";
-import { CenterDecorator, InputControls } from "../../storybook";
+import { InputControls } from "../../storybook";
 
 export default {
   title: "Inputs/Checkbox",
   component: Checkbox,
-  decorators: [CenterDecorator],
   argTypes: InputControls,
+  parameters: {
+    layout: "centered",
+  },
 } as ComponentMeta<typeof Checkbox>;
 
 const Template: ComponentStory<typeof Checkbox> = (args: CheckboxProps) => (

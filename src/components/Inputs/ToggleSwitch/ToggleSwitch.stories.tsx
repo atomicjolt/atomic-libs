@@ -1,13 +1,13 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import ToggleSwitchComponent, { ToggleSwitchProps } from ".";
-import { CenterDecorator, InputControls } from "../../storybook";
+import { InputControls } from "../../storybook";
 
 export default {
   title: "Inputs/ToggleSwitch",
   component: ToggleSwitchComponent,
-  decorators: [CenterDecorator],
   parameters: {
+    layout: "centered",
     argTypes: {
       ...InputControls,
       onChange: {

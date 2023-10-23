@@ -1,9 +1,8 @@
-import React from "react";
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 import { add } from "date-fns";
-import Calendar, { Props } from ".";
+import Calendar from ".";
 
-export default {
+const meta: Meta<typeof Calendar> = {
   title: "Inputs/Date & Time/Calendar",
   component: Calendar,
   argTypes: {
@@ -17,26 +16,37 @@ export default {
       control: false,
     },
   },
-} as ComponentMeta<typeof Calendar>;
-
-const Template: ComponentStory<typeof Calendar> = (args: Props) => {
-  return <Calendar {...args} />;
 };
 
-export const Default = Template.bind({});
-Default.args = {
-  date: new Date(),
-  showNeighbors: true,
-  showEra: false,
-  size: "medium",
-  interval: false,
+export default meta;
+
+type Story = StoryObj<typeof Calendar>;
+
+export const Primary: Story = {
+  args: {
+    date: new Date(),
+    showNeighbors: true,
+    showEra: false,
+    size: "medium",
+    interval: false,
+    disabled: false,
+    withTime: false,
+  },
 };
 
-export const CalendarWithInterval = Template.bind({});
-CalendarWithInterval.args = {
-  ...Default.args,
-  date: [new Date(), add(new Date(), { days: 5 })],
-  interval: true,
+export const WithInterval: Story = {
+  args: {
+    date: [new Date(), add(new Date(), { days: 5 })],
+    interval: true,
+    showNeighbors: true,
+    showEra: false,
+    size: "medium",
+  },
 };
 
-// Additional stories go here
+export const WithTime: Story = {
+  args: {
+    ...Primary.args,
+    withTime: true,
+  },
+};

@@ -52,9 +52,9 @@ type IntervalSupport =
       readonly withTime?: false | never;
     };
 
-export type Props = CommonProps & IntervalSupport;
+export type CalendarProps = CommonProps & IntervalSupport;
 
-export default function Calendar(props: Props) {
+export default function Calendar(props: CalendarProps) {
   const {
     date: selectedDate,
     interval = false,

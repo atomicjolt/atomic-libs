@@ -1,29 +1,26 @@
-import React from "react";
-import { ComponentMeta, ComponentStory } from "@storybook/react";
-import {
-  CenterDecorator,
-  DefaultInputProperties,
-  InputControls,
-} from "../../storybook";
+import { Meta, StoryObj } from "@storybook/react";
+import { DefaultInputProperties, InputControls } from "../../storybook";
 import Combobox from ".";
-import { ComboboxProps } from "./Combobox.types";
 
-export default {
+const meta: Meta<typeof Combobox> = {
   title: "Dropdowns/Combobox",
   component: Combobox,
-  decorators: [CenterDecorator],
+  parameters: {
+    layout: "centered",
+  },
   argTypes: InputControls,
-} as ComponentMeta<typeof Combobox>;
-
-const Template: ComponentStory<typeof Combobox> = (args: ComboboxProps) => {
-  return <Combobox {...args} />;
 };
 
-export const Default = Template.bind({});
-Default.args = {
-  value: "",
-  options: ["Option 1", "Option 2", "Option 3"],
-  variant: "default",
-  ...DefaultInputProperties,
-  label: "Combobox label",
+export default meta;
+
+type Story = StoryObj<typeof Combobox>;
+
+export const Primary: Story = {
+  args: {
+    value: "",
+    options: ["Option 1", "Option 2", "Option 3"],
+    variant: "default",
+    ...DefaultInputProperties,
+    label: "Combobox label",
+  },
 };
