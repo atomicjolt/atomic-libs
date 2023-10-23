@@ -1,19 +1,20 @@
 import React from "react";
 import cn from "classnames";
 import Spinner from "../../Loaders/Spinner";
-import { HasClassName, LoadingProps, SuggestStrings } from "../../../types";
+import { HasClassName, LoadingProps } from "../../../types";
 import { StyledButton } from "./Button.styles";
 import { ButtonVariants } from "../Buttons.types";
 
 interface CommonProps extends HasClassName {
   /** What to render within the Button */
   children?: React.ReactNode;
-  /** Added to the button's className as: `aje-btn--${className}`. Builtin styles for:
+  /** Added to the button's className as: `aje-btn--${variant}`. Builtin styles for:
    * - `primary`
    * - `secondary`
    * - `success`
    * - `error`
    * - `inverted`
+   * - `content`
    */
   variant?: ButtonVariants;
   type?: "submit" | "reset" | "button";
