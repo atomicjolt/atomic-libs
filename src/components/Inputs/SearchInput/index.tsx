@@ -4,7 +4,7 @@ import { useIds } from "../../../hooks";
 import { EventHandler, InputProps } from "../../../types";
 import InputError from "../../Utility/InputError";
 import Label from "../../Utility/Label";
-import MaterialIcon from "../../Utility/MaterialIcon";
+import MaterialIcon from "../../Icons/MaterialIcon";
 import { makeEventHandler } from "../../../utils";
 import { InputWrapper } from "../Inputs.styles";
 import { StyledSearchInput } from "./SearchInput.styles";

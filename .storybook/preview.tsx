@@ -18,6 +18,9 @@ const preview: Preview = {
             "material-icons-round",
             "material-icons-sharp",
             "material-icons-two-tone",
+            "material-symbols-outlined",
+            "material-symbols-rounded",
+            "material-symbols-sharp",
           ]}
         />
         <CssVariables />

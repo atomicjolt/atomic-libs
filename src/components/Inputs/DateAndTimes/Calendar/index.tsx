@@ -7,7 +7,7 @@ import { DateInterval, DateLike, Time, CalendarView } from "../Date.types";
 import { updateTime, getEra, getMonthName, withinInterval } from "../utils";
 import YearPicker from "../YearPicker";
 import MonthPicker from "../MonthPicker";
-import MaterialIcon from "../../../Utility/MaterialIcon";
+import MaterialIcon from "../../../Icons/MaterialIcon";
 import TimePicker from "../TimePicker";
 import useCalendar from "../useCalendar";
 import {

@@ -7,7 +7,7 @@ import {
   MaterialIconVariants,
   MaterialIcons,
 } from "../../../types";
-import MaterialIcon from "../../Utility/MaterialIcon";
+import MaterialIcon from "../../Icons/MaterialIcon";
 import Banner, { BannerVariants } from "../Banner";
 import { ButtonVariants } from "../../Buttons/Buttons.types";
 

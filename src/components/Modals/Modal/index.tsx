@@ -10,7 +10,7 @@ import {
   ModalTitle,
   ModalTop,
 } from "../Modals.styles";
-import MaterialIcon from "../../Utility/MaterialIcon";
+import MaterialIcon from "../../Icons/MaterialIcon";
 
 export interface ModalProps extends BaseModalProps {
   /** Must include a title. Titles are always in Title case. */

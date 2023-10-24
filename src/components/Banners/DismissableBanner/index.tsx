@@ -6,7 +6,7 @@ import {
   MaterialIcons,
 } from "../../../types";
 import { BannerDismiss } from "../Banners.styles";
-import MaterialIcon from "../../Utility/MaterialIcon";
+import MaterialIcon from "../../Icons/MaterialIcon";
 import Banner, { BannerVariants } from "../Banner";
 
 interface SharedProps extends HasClassName, HasChildren {

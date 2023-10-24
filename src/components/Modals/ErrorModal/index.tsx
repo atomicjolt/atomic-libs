@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "../../Buttons/Button";
-import MaterialIcon from "../../Utility/MaterialIcon";
+import MaterialIcon from "../../Icons/MaterialIcon";
 import { BaseModalProps } from "../BasicModal";
 import { ModalTitle } from "../Modals.styles";
 import PopupModal from "../PopupModal";

@@ -1,28 +1,12 @@
 import React from "react";
 import cn from "classnames";
-import styled from "styled-components";
 import {
   HasClassName,
   MaterialIcons,
   MaterialIconVariants,
 } from "../../../types";
 import { useVariantClass } from "../../../hooks";
-
-const StyledIcon = styled.i`
-  &.is-small {
-    font-size: 18px;
-  }
-  &.is-medium {
-    font-size: 24px;
-  }
-  &.is-large {
-    font-size: 36px;
-  }
-
-  &.is-disabled {
-    color: rgba(0, 0, 0, 0.3);
-  }
-`;
+import { StyledIcon } from "../Icons.styles";
 
 export interface MaterialIconProps
   extends Omit<

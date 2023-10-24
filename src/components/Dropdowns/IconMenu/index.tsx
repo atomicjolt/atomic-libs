@@ -10,7 +10,7 @@ import {
   MaterialIconVariants,
 } from "../../../types";
 import Popover, { PopoverWrapper } from "../../Utility/Popover";
-import MaterialIcon from "../../Utility/MaterialIcon";
+import MaterialIcon from "../../Icons/MaterialIcon";
 import { useDropdown } from "../../../hooks/useDropdown";
 import {
   IconMenuDropdown,

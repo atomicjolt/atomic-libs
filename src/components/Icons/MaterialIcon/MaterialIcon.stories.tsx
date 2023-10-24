@@ -7,14 +7,6 @@ const meta: Meta<typeof MaterialIcon> = {
   parameters: {
     layout: "centered",
   },
-  argTypes: {
-    size: {
-      control: "number",
-    },
-    color: {
-      control: "color",
-    },
-  },
 };
 
 export default meta;
@@ -25,6 +17,5 @@ export const Primary: Story = {
   args: {
     icon: "house",
     size: "large",
-    color: "#000",
   },
 };

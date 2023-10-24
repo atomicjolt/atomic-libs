@@ -8,7 +8,10 @@ type SupportedFont =
   | "material-icons-outlined"
   | "material-icons-round"
   | "material-icons-sharp"
-  | "material-icons-two-tone";
+  | "material-icons-two-tone"
+  | "material-symbols-outlined"
+  | "material-symbols-rounded"
+  | "material-symbols-sharp";
 
 interface LoadFontsProps {
   /** The fonts to load */
@@ -26,9 +29,15 @@ const fontUrls: Record<SupportedFont, string> = {
     "https://fonts.googleapis.com/icon?family=Material+Icons%7CMaterial+Icons+Sharp",
   "material-icons-two-tone":
     "https://fonts.googleapis.com/icon?family=Material+Icons%7CMaterial+Icons+Two+Tone",
+  "material-symbols-outlined":
+    "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0",
+  "material-symbols-rounded":
+    "https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,300,0,0",
+  "material-symbols-sharp":
+    "https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,300,0,0",
 };
-
 const FontCSS = createGlobalStyle`
+
 
 :root {
   --font-family: "Lato", sans-serif;

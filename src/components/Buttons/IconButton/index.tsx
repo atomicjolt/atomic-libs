@@ -7,7 +7,7 @@ import {
   SuggestStrings,
 } from "../../../types";
 import Spinner from "../../Loaders/Spinner";
-import MaterialIcon from "../../Utility/MaterialIcon";
+import MaterialIcon from "../../Icons/MaterialIcon";
 import { useIds, useVariantClass } from "../../../hooks";
 import { StyledIconButton } from "./IconButton.styles";
 import { ButtonVariants } from "../Buttons.types";

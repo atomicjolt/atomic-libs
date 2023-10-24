@@ -8,7 +8,7 @@ import { VariantRecord } from "../../../types";
 import InputError from "../../Utility/InputError";
 import Popover from "../../Utility/Popover";
 import useSelect from "./useSelect";
-import MaterialIcon from "../../Utility/MaterialIcon";
+import MaterialIcon from "../../Icons/MaterialIcon";
 import { fallbackValue, handleUndefined } from "../../../utils";
 import { strategies } from "../../../filter";
 import {

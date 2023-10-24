@@ -6,7 +6,7 @@ import {
   InputControls,
   inputProperties,
 } from "../../storybook";
-import MaterialIcon from "../../Utility/MaterialIcon";
+import MaterialIcon from "../../Icons/MaterialIcon";
 import Option from "../Option";
 import { CustomSelectProps } from "./CustomSelect.types";
 
