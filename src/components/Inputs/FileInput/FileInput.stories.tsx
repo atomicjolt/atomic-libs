@@ -3,7 +3,7 @@ import FileInput from ".";
 import { CallbackControls, inputProperties } from "../../storybook";
 
 const meta: Meta<typeof FileInput> = {
-  title: "Inputs/FileInput",
+  title: "Inputs/Choose State/FileInput",
   component: FileInput,
   parameters: {
     layout: "centered",

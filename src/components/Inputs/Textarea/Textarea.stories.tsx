@@ -1,10 +1,9 @@
-import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
-import Textarea, { TextareaProps } from ".";
+import Textarea from ".";
 import { DefaultInputProperties, TextInputControls } from "../../storybook";
 
 const meta: Meta<typeof Textarea> = {
-  title: "Inputs/Textarea",
+  title: "Inputs/User Input/Textarea",
   component: Textarea,
   argTypes: TextInputControls,
 };

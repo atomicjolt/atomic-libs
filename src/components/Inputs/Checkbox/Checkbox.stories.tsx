@@ -1,4 +1,3 @@
-import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import {
   InputControls,
@@ -8,7 +7,7 @@ import {
 import Checkbox, { CheckboxProps } from ".";
 
 const meta: Meta<CheckboxProps> = {
-  title: "Inputs/Checkbox",
+  title: "Inputs/Choose State/Checkbox",
   component: Checkbox,
   parameters: {
     layout: "centered",

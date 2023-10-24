@@ -4,7 +4,7 @@ import SearchInput, { SearchInputProps } from ".";
 import { DefaultInputProperties, TextInputControls } from "../../storybook";
 
 const meta: Meta<typeof SearchInput> = {
-  title: "Inputs/SearchInput",
+  title: "Inputs/User Input/SearchInput",
   component: SearchInput,
   parameters: {
     layout: "centered",

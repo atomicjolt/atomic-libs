@@ -7,7 +7,7 @@ import {
 } from "../../storybook";
 
 const meta: Meta<typeof TextInput> = {
-  title: "Inputs/TextInput",
+  title: "Inputs/User Input/TextInput",
   component: TextInput,
   parameters: {
     layout: "centered",
