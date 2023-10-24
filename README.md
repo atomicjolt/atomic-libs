@@ -16,12 +16,19 @@ $ npm install --save @atomicjolt/atomic-elements
 $ yarn add @atomicjolt/atomic-elements
 ```
 
-Import these stylesheets at the root of your app
+Include the following in your project
 
 ```js
-import "@atomicjolt/atomic-elements/dist/fonts.css";
-import "@atomicjolt/atomic-elements/dist/variables.css";
-import "@atomicjolt/atomic-elements/dist/globals.css";
+import { LoadFonts, CssVariables, CssGlobalDefaults } from "@atomicjolt/atomic-elements";
+
+const App = () => (
+  <>
+    <LoadFonts />
+    <CssVariables />
+    <CssGlobalDefaults />
+    <YourApp />
+  </>
+);
 ```
 
 Then, start using components

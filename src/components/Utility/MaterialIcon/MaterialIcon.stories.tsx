@@ -1,19 +1,10 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import MaterialIconComponent, { MaterialIconProps } from ".";
-import { LoadFonts } from "../../../styles";
 
 export default {
   title: "Utility/MaterialIcon",
   component: MaterialIconComponent,
-  decorators: [
-    (Comp) => (
-      <>
-        <LoadFonts />
-        <Comp />
-      </>
-    ),
-  ],
   parameters: {
     layout: "centered",
   },

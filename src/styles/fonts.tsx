@@ -4,17 +4,20 @@ import { HeadProvider, Link } from "react-head";
 
 type SupportedFont =
   | "lato"
+  | "material-icons"
   | "material-icons-outlined"
   | "material-icons-round"
   | "material-icons-sharp"
   | "material-icons-two-tone";
 
 interface LoadFontsProps {
+  /** The fonts to load */
   fonts?: SupportedFont[];
 }
 
 const fontUrls: Record<SupportedFont, string> = {
   lato: "https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap",
+  "material-icons": "https://fonts.googleapis.com/icon?family=Material+Icons",
   "material-icons-outlined":
     "https://fonts.googleapis.com/icon?family=Material+Icons%7CMaterial+Icons+Outlined",
   "material-icons-round":
@@ -57,8 +60,9 @@ const FontCSS = createGlobalStyle`
 }
 `;
 
+/** Load the fonts used by atomic-elements by default */
 export function LoadFonts(props: LoadFontsProps) {
-  const { fonts = ["lato", "material-icons-outlined"] } = props;
+  const { fonts = ["lato", "material-icons"] } = props;
 
   return (
     <HeadProvider>
