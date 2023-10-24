@@ -1,22 +1,18 @@
-import React from "react";
-import { ComponentMeta, ComponentStory } from "@storybook/react";
-import ConfirmationModalComponent, { ConfirmationModalProps } from ".";
+import { Meta, StoryObj } from "@storybook/react";
+import ConfirmationModal from ".";
 
-export default {
-  title: "Modals/ConfirmationModal",
-  component: ConfirmationModalComponent,
-} as ComponentMeta<typeof ConfirmationModalComponent>;
-
-const Template: ComponentStory<typeof ConfirmationModalComponent> = (
-  args: ConfirmationModalProps
-) => <ConfirmationModalComponent {...args} />;
-
-export const ConfirmationModal = Template.bind({});
-ConfirmationModal.args = {
-  open: true,
-  title: "Delete Item",
-  children: "Are you sure you want to delete this item?",
-  confirmText: "Delete",
+const meta: Meta<typeof ConfirmationModal> = {
+  title: "Components/ConfirmationModal",
+  component: ConfirmationModal,
 };
 
-// Additional stories go here
+export default meta;
+
+type Story = StoryObj<typeof ConfirmationModal>;
+
+export const Primary: Story = {
+  args: {
+    title: "Confirmation",
+    children: "Are you sure you want to proceed?",
+  },
+};

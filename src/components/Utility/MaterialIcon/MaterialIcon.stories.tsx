@@ -1,25 +1,30 @@
-import React from "react";
-import { ComponentMeta, ComponentStory } from "@storybook/react";
-import MaterialIconComponent, { MaterialIconProps } from ".";
+import { Meta, StoryObj } from "@storybook/react";
+import MaterialIcon from ".";
 
-export default {
-  title: "Utility/MaterialIcon",
-  component: MaterialIconComponent,
+const meta: Meta<typeof MaterialIcon> = {
+  title: "Icons/MaterialIcon",
+  component: MaterialIcon,
   parameters: {
     layout: "centered",
   },
-} as ComponentMeta<typeof MaterialIconComponent>;
-
-const Template: ComponentStory<typeof MaterialIconComponent> = (
-  args: MaterialIconProps
-) => <MaterialIconComponent {...args} />;
-
-export const MaterialIcon = Template.bind({});
-MaterialIcon.args = {
-  icon: "home",
-  size: "large",
-  disabled: false,
-  className: "",
+  argTypes: {
+    size: {
+      control: "number",
+    },
+    color: {
+      control: "color",
+    },
+  },
 };
 
-// Additional stories go here
+export default meta;
+
+type Story = StoryObj<typeof MaterialIcon>;
+
+export const Primary: Story = {
+  args: {
+    icon: "house",
+    size: "large",
+    color: "#000",
+  },
+};

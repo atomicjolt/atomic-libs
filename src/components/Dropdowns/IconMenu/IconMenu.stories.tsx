@@ -1,10 +1,10 @@
 import React from "react";
-import { ComponentMeta, ComponentStory } from "@storybook/react";
-import IconMenuComponent, { IconMenuProps } from ".";
+import { Meta, StoryObj } from "@storybook/react";
+import IconMenu from ".";
 
-export default {
+const meta: Meta<typeof IconMenu> = {
   title: "Dropdowns/IconMenu",
-  component: IconMenuComponent,
+  component: IconMenu,
   parameters: {
     layout: "centered",
   },
@@ -38,29 +38,31 @@ export default {
       ],
     },
   },
-} as ComponentMeta<typeof IconMenuComponent>;
+};
 
-const Template: ComponentStory<typeof IconMenuComponent> = (
-  args: IconMenuProps
-) => (
-  <IconMenuComponent {...args}>
-    <IconMenuComponent.Item icon="add_alert" onClick={() => {}}>
-      Option 1
-    </IconMenuComponent.Item>
-    <IconMenuComponent.Item icon="info" onClick={() => {}}>
-      Option 2
-    </IconMenuComponent.Item>
-    <IconMenuComponent.Item icon="alarm_on" onClick={() => {}}>
-      Option 3
-    </IconMenuComponent.Item>
-  </IconMenuComponent>
-);
+export default meta;
 
-export const IconMenu = Template.bind({});
-IconMenu.args = {
-  icon: "more_vert",
-  label: "Custom dropdown label",
-  disabled: false,
-  position: "bottom-left",
-  iconVariant: "default",
+type Story = StoryObj<typeof IconMenu>;
+
+export const Primary: Story = {
+  render: (args) => (
+    <IconMenu {...args}>
+      <IconMenu.Item icon="add_alert" onClick={() => {}}>
+        Option 1
+      </IconMenu.Item>
+      <IconMenu.Item icon="info" onClick={() => {}}>
+        Option 2
+      </IconMenu.Item>
+      <IconMenu.Item icon="alarm_on" onClick={() => {}}>
+        Option 3
+      </IconMenu.Item>
+    </IconMenu>
+  ),
+  args: {
+    icon: "more_vert",
+    label: "Custom dropdown label",
+    disabled: false,
+    position: "bottom-left",
+    iconVariant: "default",
+  },
 };

@@ -1,50 +1,50 @@
-import React from "react";
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 import TextInput from ".";
 import {
   InputControls,
   DefaultInputProperties,
   TextInputControls,
 } from "../../storybook";
-import { TextInputProps } from "./TextInput.types";
 
-export default {
+const meta: Meta<typeof TextInput> = {
   title: "Inputs/TextInput",
   component: TextInput,
   parameters: {
     layout: "centered",
   },
   argTypes: TextInputControls,
-} as ComponentMeta<typeof TextInput>;
-
-const Template: ComponentStory<typeof TextInput> = (args: TextInputProps) => {
-  return <TextInput {...args} />;
 };
 
-export const Controlled = Template.bind({});
-Controlled.args = {
-  value: "",
-  type: "text",
-  variant: "default",
-  ...DefaultInputProperties,
-  label: "Text input label",
-  placeholder: "",
-  readOnly: false,
-};
+export default meta;
 
-export const Uncontrolled = Template.bind({});
-Uncontrolled.args = {
-  type: "text",
-  variant: "default",
-  ...DefaultInputProperties,
-  label: "Text input label",
-  placeholder: "",
-  readOnly: false,
-};
+type Story = StoryObj<typeof TextInput>;
 
-Uncontrolled.argTypes = {
-  value: {
-    control: false,
+export const Controlled: Story = {
+  args: {
+    value: "Text input content",
+    type: "text",
+    variant: "default",
+    ...DefaultInputProperties,
+    label: "Text input label",
+    placeholder: "",
+    readOnly: false,
   },
-  ...InputControls,
+};
+
+export const Uncontrolled: Story = {
+  args: {
+    value: undefined,
+    type: "text",
+    variant: "default",
+    ...DefaultInputProperties,
+    label: "Text input label",
+    placeholder: "",
+    readOnly: false,
+  },
+  argTypes: {
+    value: {
+      control: false,
+    },
+    ...InputControls,
+  },
 };

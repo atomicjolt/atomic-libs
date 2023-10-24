@@ -1,18 +1,17 @@
-import React from "react";
-import { ComponentMeta, ComponentStory } from "@storybook/react";
-import BasicModalC, { BasicModalProps } from ".";
+import { Meta, StoryObj } from "@storybook/react";
+import BasicModal from ".";
 
-export default {
-  title: "Modals/Basic Modal",
-  component: BasicModalC,
-} as ComponentMeta<typeof BasicModalC>;
+const meta: Meta<typeof BasicModal> = {
+  title: "Components/BasicModal",
+  component: BasicModal,
+};
 
-const Template: ComponentStory<typeof BasicModalC> = (
-  args: BasicModalProps
-) => <BasicModalC {...args} />;
+export default meta;
 
-export const BasicModal = Template.bind({});
-BasicModal.args = {
-  open: true,
-  children: "Modal Content",
+type Story = StoryObj<typeof BasicModal>;
+
+export const Primary: Story = {
+  args: {
+    children: "Modal Content",
+  },
 };

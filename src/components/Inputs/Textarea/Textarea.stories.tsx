@@ -1,38 +1,40 @@
 import React from "react";
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 import Textarea, { TextareaProps } from ".";
 import { DefaultInputProperties, TextInputControls } from "../../storybook";
 
-export default {
+const meta: Meta<typeof Textarea> = {
   title: "Inputs/Textarea",
   component: Textarea,
   argTypes: TextInputControls,
-} as ComponentMeta<typeof Textarea>;
-
-const Template: ComponentStory<typeof Textarea> = (args: TextareaProps) => (
-  <Textarea {...args} />
-);
-
-export const Controlled = Template.bind({});
-Controlled.args = {
-  value: "Text Area content",
-  resize: true,
-  ...DefaultInputProperties,
-  label: "Textarea label",
-  message: "1000 characters",
 };
 
-export const Uncontrolled = Template.bind({});
-Uncontrolled.args = {
-  ...Controlled.args,
-  value: undefined,
-};
+export default meta;
 
-Uncontrolled.argTypes = {
-  value: {
-    control: false,
+type Story = StoryObj<typeof Textarea>;
+
+export const Controlled: Story = {
+  args: {
+    value: "Text Area content",
+    resize: true,
+    ...DefaultInputProperties,
+    size: "large",
+    label: "Textarea label",
+    message: "1000 characters",
   },
-  onChange: {
-    control: false,
+};
+
+export const Uncontrolled: Story = {
+  args: {
+    ...Controlled.args,
+    value: undefined,
+  },
+  argTypes: {
+    value: {
+      control: false,
+    },
+    onChange: {
+      control: false,
+    },
   },
 };

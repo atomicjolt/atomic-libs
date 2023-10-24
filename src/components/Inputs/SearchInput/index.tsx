@@ -9,8 +9,7 @@ import { makeEventHandler } from "../../../utils";
 import { InputWrapper } from "../Inputs.styles";
 import { StyledSearchInput } from "./SearchInput.styles";
 
-export interface SearchInputProps
-  extends Omit<InputProps<string>, "required" | "message"> {
+export interface SearchInputProps extends Omit<InputProps<string>, "required"> {
   /** When the user hits enter, or presses the submit button, this event will fire
    * with the current value of the input element. */
   onSubmit?: EventHandler<
@@ -24,7 +23,7 @@ export interface SearchInputProps
 
 /** Search Input Component. Accepts a `ref`
  *
- * Essentially the same as the `TextInput` component, but calls
+ * Essentially the same as the `TextInput` component, but
  * has an `onSumbit()` handler that gets called when the user
  * hits enter
  */
@@ -42,6 +41,7 @@ const SearchInput = React.forwardRef<HTMLInputElement, SearchInputProps>(
       onSubmit,
       onChange,
       className,
+      message,
     } = props;
 
     const [inputId, errorId] = useIds("SearchInput", ["input", "error"]);
@@ -58,7 +58,7 @@ const SearchInput = React.forwardRef<HTMLInputElement, SearchInputProps>(
           onSubmit && onSubmit(value, e);
         }}
       >
-        <Label hidden={hideLabel} htmlFor={inputId}>
+        <Label hidden={hideLabel} htmlFor={inputId} message={message}>
           {label}
         </Label>
         <StyledSearchInput

@@ -1,40 +1,33 @@
 import React from "react";
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
+import {
+  InputControls,
+  inputProperties,
+  disableControl,
+} from "../../storybook";
 import Checkbox, { CheckboxProps } from ".";
-import { InputControls } from "../../storybook";
 
-export default {
+const meta: Meta<CheckboxProps> = {
   title: "Inputs/Checkbox",
   component: Checkbox,
-  argTypes: InputControls,
   parameters: {
     layout: "centered",
   },
-} as ComponentMeta<typeof Checkbox>;
-
-const Template: ComponentStory<typeof Checkbox> = (args: CheckboxProps) => (
-  <Checkbox {...args} />
-);
-
-export const Controlled = Template.bind({});
-Controlled.args = {
-  checked: false,
-  label: "Checkbox label",
-  error: "",
-  message: "",
-  disabled: false,
-  required: false,
+  argTypes: {
+    ...InputControls,
+    ...disableControl("readOnly"),
+    ...disableControl("placeholder"),
+  },
 };
 
-export const Uncontrolled = Template.bind({});
-Uncontrolled.args = {
-  ...Controlled.args,
-  checked: undefined,
-  label: "Checkbox label",
-};
+export default meta;
 
-Uncontrolled.argTypes = {
-  checked: {
-    control: false,
+type Story = StoryObj<CheckboxProps>;
+
+export const Primary: Story = {
+  args: {
+    checked: false,
+    ...inputProperties({ filter: ["placeholder", "readOnly", "defaultValue"] }),
+    label: "Checkbox label",
   },
 };

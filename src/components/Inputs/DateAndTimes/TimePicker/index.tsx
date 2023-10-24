@@ -10,12 +10,12 @@ import {
 import { convertTo12Hour, convertTo24Hour } from "./TimePicker.convert";
 import { EventHandler } from "../../../../types";
 
-export interface Props {
+export interface TimePickerProps {
   time?: Time | null;
   onChange: EventHandler<Time, React.MouseEvent>;
 }
 
-export default function TimePicker({ time, onChange }: Props) {
+export default function TimePicker({ time, onChange }: TimePickerProps) {
   const hourRef = useRef<HTMLElement | null>(null);
   const minuteRef = useRef<HTMLElement | null>(null);
 

@@ -1,40 +1,40 @@
-import React from "react";
-import { ComponentMeta, ComponentStory } from "@storybook/react";
-import NumberInput, { NumberInputProps } from ".";
+import { Meta, StoryObj } from "@storybook/react";
+import NumberInput from ".";
 import {
-  InputControls,
   DefaultInputProperties,
   UncontrolledInputControls,
+  TextInputControls,
 } from "../../storybook";
 
-export default {
+const meta: Meta<typeof NumberInput> = {
   title: "Inputs/NumberInput",
   component: NumberInput,
   parameters: {
     layout: "centered",
   },
-  argTypes: InputControls,
-} as ComponentMeta<typeof NumberInput>;
-
-const Template: ComponentStory<typeof NumberInput> = (
-  args: NumberInputProps
-) => <NumberInput {...args} />;
-
-export const Controlled = Template.bind({});
-Controlled.args = {
-  value: 10,
-  min: 0,
-  max: undefined,
-  ...DefaultInputProperties,
-  size: "small",
-  label: "Number input label",
+  argTypes: TextInputControls,
 };
 
-export const Uncontrolled = Template.bind({});
-Uncontrolled.args = {
-  min: 0,
-  max: 10,
-  label: "Number input label",
+export default meta;
+
+type Story = StoryObj<typeof NumberInput>;
+
+export const Controlled: Story = {
+  args: {
+    value: 10,
+    min: 0,
+    max: 100,
+    ...DefaultInputProperties,
+    size: "small",
+    label: "Number input label",
+  },
 };
 
-Uncontrolled.argTypes = UncontrolledInputControls;
+export const Uncontrolled: Story = {
+  args: {
+    min: 0,
+    max: 10,
+    label: "Number input label",
+  },
+  argTypes: UncontrolledInputControls,
+};

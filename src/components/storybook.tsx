@@ -12,6 +12,7 @@ export const DefaultInputProperties: InputElementProps<Element> &
   readOnly: false,
   placeholder: "",
   size: "medium",
+  autoFocus: false,
 };
 
 interface Options {
@@ -123,6 +124,12 @@ export const CommonInputControls = {
   },
   name: {
     control: "text",
+    table: {
+      category: "Common",
+    },
+  },
+  autoFocus: {
+    control: "boolean",
     table: {
       category: "Common",
     },

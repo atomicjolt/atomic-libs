@@ -1,22 +1,20 @@
-import React from "react";
-import { ComponentMeta, ComponentStory } from "@storybook/react";
-import TimePickerComponent, { Props } from ".";
+import { Meta, StoryObj } from "@storybook/react";
+import TimePicker from ".";
 
-export default {
+const meta: Meta<typeof TimePicker> = {
   title: "Inputs/Date & Time/TimePicker",
-  component: TimePickerComponent,
+  component: TimePicker,
   argTypes: {
     onChange: { control: false, table: { category: "actions" } },
   },
-} as ComponentMeta<typeof TimePickerComponent>;
-
-const Template: ComponentStory<typeof TimePickerComponent> = (args: Props) => {
-  return <TimePickerComponent {...args} />;
 };
 
-export const TimePicker = Template.bind({});
-TimePicker.args = {
-  time: { hours: 12, minutes: 15 },
-};
+export default meta;
 
-// Additional stories go here
+type Story = StoryObj<typeof TimePicker>;
+
+export const Primary: Story = {
+  args: {
+    time: { hours: 12, minutes: 15 },
+  },
+};
