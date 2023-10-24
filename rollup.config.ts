@@ -34,7 +34,6 @@ const formatEntryPoint = (format) => ({
 
 export default defineConfig([
   formatEntryPoint("esm"),
-  formatEntryPoint("cjs"),
   {
     input: "dist/esm/types/index.d.ts",
     output: [{ file: "dist/index.d.ts", format: "esm" }],
