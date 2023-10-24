@@ -1,7 +1,6 @@
 import props from "./props";
 import { Preview } from "@storybook/react";
 
-import "../src/defines/fonts.scss";
 import "../src/defines/variables.scss";
 
 const preview: Preview = {

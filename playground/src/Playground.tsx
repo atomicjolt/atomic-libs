@@ -7,12 +7,20 @@ import Buttons from "./tabs/Buttons";
 import Modals from "./tabs/Modals";
 import Scrollings from "./tabs/Scrollings";
 import Dates from "./tabs/Dates";
+import { LoadFonts } from "../../src/styles/fonts";
+import { GlobalDefaults } from "../../src/styles/globals";
+import { CssVariables } from "../../src/styles/variables";
 
 function Playground() {
-  const [currentTab, setCurrentTab] = useState("dates");
+  const [currentTab, setCurrentTab] = useState("inputs");
 
   return (
     <div className="padder" style={{ height: "100%" }}>
+      <LoadFonts
+        fonts={["lato", "material-icons-outlined", "material-icons-two-tone"]}
+      />
+      <CssVariables />
+      <GlobalDefaults />
       <Tabs currentTab={currentTab} onChange={setCurrentTab}>
         <Tabs.Navigation>
           <Tabs.Link to="inputs">Inputs</Tabs.Link>

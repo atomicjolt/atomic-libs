@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { Button, Calendar, DateInput, DateLike } from "../elements";
+import {
+  Button,
+  Calendar,
+  DateInput,
+  DateLike,
+  MaterialIcon,
+} from "../elements";
 
 export default function Dates() {
   const [date, setDate] = useState<DateLike | null>(new Date());
@@ -20,6 +26,7 @@ export default function Dates() {
       <hr />
       <h2>Date Input</h2>
       <DateInput label="Date" value={date} onChange={setDate} />
+      <MaterialIcon icon="date_range" variant="two-tone" />
     </div>
   );
 }

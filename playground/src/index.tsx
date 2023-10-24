@@ -1,9 +1,10 @@
 import React from "react";
 import ReactDom from "react-dom/client";
 
-import "../../src/defines/fonts.scss";
-import "../../src/defines/variables.scss";
-import "../../src/defines/globals.scss";
+// import "../../src/defines/fonts.scss";
+// import "../../src/defines/variables.scss";
+// import "../../src/defines/globals.scss";
+
 import Playground from "./Playground";
 import { Modal } from "./elements";
 
