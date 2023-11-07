@@ -3,20 +3,19 @@
 exports[`matches snapshot > displays with search button 1`] = `
 <DocumentFragment>
   <form
-    class="sc-bcXHqe sc-gKPRtg  fyfNTG aje-input aje-input is-medium"
+    class="sc-bdnyFh sc-gKAaef cdHgcj is-medium aje-input"
   >
     <label
-      class="sc-dkrFOg hmuQfz aje-label aje-label aje-label"
+      class="sc-dlniIP coPbkZ aje-label aje-label"
       for="SearchInput-:r1:-input"
     >
       search
     </label>
     <input
-      class="sc-iBYQkv sc-kDvujY gIknHP hhlMmI"
+      class="sc-iCoHzw sc-kEqXeH hiMmll iJJehe"
       id="SearchInput-:r1:-input"
       role="search"
       type="search"
-      value=""
     />
     <button
       aria-label="submit search"
@@ -24,7 +23,7 @@ exports[`matches snapshot > displays with search button 1`] = `
     >
       <i
         aria-hidden="true"
-        class="sc-jSUZER kYKQSe material-icons is-medium"
+        class="sc-jSFipO bvGVgd material-icons is-medium"
       >
         search
       </i>
@@ -36,20 +35,19 @@ exports[`matches snapshot > displays with search button 1`] = `
 exports[`matches snapshot > displays without button 1`] = `
 <DocumentFragment>
   <form
-    class="sc-bcXHqe sc-gKPRtg  fyfNTG aje-input aje-input is-medium"
+    class="sc-bdnyFh sc-gKAaef cdHgcj is-medium aje-input"
   >
     <label
-      class="sc-dkrFOg hmuQfz aje-label aje-label aje-label"
+      class="sc-dlniIP coPbkZ aje-label aje-label"
       for="SearchInput-:r0:-input"
     >
       search
     </label>
     <input
-      class="sc-iBYQkv sc-kDvujY gIknHP hhlMmI"
+      class="sc-iCoHzw sc-kEqXeH hiMmll iJJehe"
       id="SearchInput-:r0:-input"
       role="search"
       type="search"
-      value=""
     />
   </form>
 </DocumentFragment>

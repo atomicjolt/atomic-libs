@@ -3,61 +3,61 @@
 exports[`matches snapshot 1`] = `
 <DocumentFragment>
   <fieldset
-    class="sc-jrcTuL gaccLS aje-radio-group"
+    class="sc-jrsKJM cfSIZA aje-radio-group"
   >
     <legend
-      class="sc-dkrFOg hmuQfz aje-label"
+      class="sc-dlniIP coPbkZ aje-label"
     >
       Label
     </legend>
     <label
-      class="sc-iBYQkv sc-kDvujY jlugYS blQdaM aje-radio"
+      class="sc-iCoHzw sc-kEqXeH hKJGof yaXTG aje-radio"
       for="radio-:r0:-input"
     >
       <input
         checked=""
-        class="sc-ftTHYK gYqjaL"
+        class="sc-fujznN kzHtgv"
         id="radio-:r0:-input"
         name="radiogroup"
         type="radio"
         value="opt1"
       />
       <span
-        class="sc-pyfCe hAUDhE aje-checkbox__label"
+        class="sc-pNWRh hMwpqe aje-checkbox__label"
       >
         Option 1
       </span>
     </label>
     <label
-      class="sc-iBYQkv sc-kDvujY jlugYS blQdaM aje-radio"
+      class="sc-iCoHzw sc-kEqXeH hKJGof yaXTG aje-radio"
       for="radio-:r1:-input"
     >
       <input
-        class="sc-ftTHYK gYqjaL"
+        class="sc-fujznN kzHtgv"
         id="radio-:r1:-input"
         name="radiogroup"
         type="radio"
         value="opt2"
       />
       <span
-        class="sc-pyfCe hAUDhE aje-checkbox__label"
+        class="sc-pNWRh hMwpqe aje-checkbox__label"
       >
         Option 2
       </span>
     </label>
     <label
-      class="sc-iBYQkv sc-kDvujY jlugYS blQdaM aje-radio"
+      class="sc-iCoHzw sc-kEqXeH hKJGof yaXTG aje-radio"
       for="radio-:r2:-input"
     >
       <input
-        class="sc-ftTHYK gYqjaL"
+        class="sc-fujznN kzHtgv"
         id="radio-:r2:-input"
         name="radiogroup"
         type="radio"
         value="opt3"
       />
       <span
-        class="sc-pyfCe hAUDhE aje-checkbox__label"
+        class="sc-pNWRh hMwpqe aje-checkbox__label"
       >
         Option 3
       </span>

@@ -3,17 +3,17 @@
 exports[`matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-bcXHqe sc-jSUZER  cRkWsK aje-input can-resize aje-input can-resize is-small"
+    class="sc-bdnyFh sc-jSFipO iTvmTV is-small aje-input can-resize"
   >
     <label
-      class="sc-dkrFOg hmuQfz aje-label aje-label aje-label"
+      class="sc-dlniIP coPbkZ aje-label aje-label"
       for="TextArea-:r0:-textarea"
     >
       label
     </label>
     <textarea
       aria-describedby=""
-      class="sc-gKPRtg rvtqf"
+      class="sc-gKAaef dldnYB"
       id="TextArea-:r0:-textarea"
     />
   </div>

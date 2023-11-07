@@ -3,19 +3,20 @@
 exports[`matches snapshots > matches default variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-bcXHqe sc-iBYQkv  egptak aje-dropdown aje-dropdown is-medium has-error"
+    class="sc-bdnyFh sc-iCoHzw cgXDQy is-medium has-error aje-dropdown"
+    error="some error"
   >
     <div
-      class="sc-ftTHYK bwEwxk aje-combobox"
+      class="sc-fujznN RVPnQ aje-combobox"
     >
       <label
-        class="sc-dkrFOg hmuQfz aje-label aje-label aje-label"
+        class="sc-dlniIP coPbkZ aje-label aje-label"
         for="Combobox-:r0:-input"
       >
         Text Label
       </label>
       <p
-        class="sc-hLBbgP bLlziI aje-label--message"
+        class="sc-hKFymg kNRMRh aje-label--message"
       >
         message
       </p>
@@ -23,7 +24,7 @@ exports[`matches snapshots > matches default variant 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="Combobox-:r0:-listbox"
-        class="sc-pyfCe bYPcJV aje-combobox__input is-searchable"
+        class="sc-pNWRh iBRcVz aje-combobox__input is-searchable"
         id="Combobox-:r0:-combo"
         role="combobox"
       >
@@ -32,25 +33,25 @@ exports[`matches snapshots > matches default variant 1`] = `
           aria-controls="Combobox-:r0:-listbox"
           aria-describedby="Combobox-:r0:-error"
           aria-labelledby="Combobox-:r0:-label"
-          class="sc-jrcTuL jmNKqj"
+          class="sc-jrsKJM nsEeC"
           id="Combobox-:r0:-input"
           type="text"
           value="content"
         />
       </div>
       <div
-        class="sc-gKPRtg ejGDae aje-popover is-full aje-popover-bottom-left"
+        class="sc-gKAaef fgFsaX aje-popover is-full aje-popover-bottom-left"
       >
         <ul
           aria-labelledby="Combobox-:r0:-label"
-          class="sc-kDvujY kycYbV aje-combobox__menu"
+          class="sc-kEqXeH jBtPvT aje-combobox__menu"
           id="Combobox-:r0:-listbox"
           role="listbox"
         />
       </div>
     </div>
     <p
-      class="sc-eDvSVe kXVgQt aje-label--error"
+      class="sc-eCAqax dNYzUp aje-label--error"
       id="Combobox-:r0:-error"
     >
       some error
@@ -62,16 +63,17 @@ exports[`matches snapshots > matches default variant 1`] = `
 exports[`matches snapshots > matches floating variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-bcXHqe sc-iBYQkv  egptak aje-dropdown--floating aje-dropdown--floating is-medium has-error"
+    class="sc-bdnyFh sc-iCoHzw cgXDQy is-medium has-error aje-dropdown--floating"
+    error="some error"
   >
     <div
-      class="sc-ftTHYK bwEwxk aje-combobox"
+      class="sc-fujznN RVPnQ aje-combobox"
     >
       <div
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="Combobox-:r1:-listbox"
-        class="sc-pyfCe bYPcJV aje-combobox__input is-searchable"
+        class="sc-pNWRh iBRcVz aje-combobox__input is-searchable"
         id="Combobox-:r1:-combo"
         role="combobox"
       >
@@ -80,24 +82,24 @@ exports[`matches snapshots > matches floating variant 1`] = `
           aria-controls="Combobox-:r1:-listbox"
           aria-describedby="Combobox-:r1:-error"
           aria-labelledby="Combobox-:r1:-label"
-          class="sc-jrcTuL jmNKqj"
+          class="sc-jrsKJM nsEeC"
           id="Combobox-:r1:-input"
           type="text"
           value="content"
         />
       </div>
       <div
-        class="sc-gKPRtg ejGDae aje-popover is-full aje-popover-bottom-left"
+        class="sc-gKAaef fgFsaX aje-popover is-full aje-popover-bottom-left"
       >
         <ul
           aria-labelledby="Combobox-:r1:-label"
-          class="sc-kDvujY kycYbV aje-combobox__menu"
+          class="sc-kEqXeH jBtPvT aje-combobox__menu"
           id="Combobox-:r1:-listbox"
           role="listbox"
         />
       </div>
       <label
-        class="sc-dkrFOg hmuQfz aje-label"
+        class="sc-dlniIP coPbkZ aje-label"
         for="Combobox-:r1:-input"
       >
         Text Label
@@ -109,7 +111,7 @@ exports[`matches snapshots > matches floating variant 1`] = `
       message
     </p>
     <p
-      class="sc-eDvSVe kXVgQt aje-label--error"
+      class="sc-eCAqax dNYzUp aje-label--error"
       id="Combobox-:r1:-error"
     >
       some error
