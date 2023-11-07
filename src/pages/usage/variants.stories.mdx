@@ -1,13 +1,17 @@
-
 import { Meta, Canvas } from "@storybook/blocks";
 import Button from "../../components/Buttons/Button";
 import TextInput from "../../components/Inputs/TextInput";
+import { SensibleDefaults } from "../../styles/defaults";
+import { PurpleButtonStyles } from "../../components/storybook";
+
+<SensibleDefaults />
+<PurpleButtonStyles />
 
 <Meta title="Usage/Customizing Appearance/Variants" />
 
 ## Variants
 
-Some components in Atomic Elements  have what we call _variants_.
+Some components in Atomic Elements have what we call _variants_.
 A component variant is a preset configuration of a component that changes it's appearance or behavior in some way. There are two types of variants:
 
 - **Visual Variants** only modify the visual presentation for a component via CSS. These can be easily modified / additional ones may be added.
@@ -15,7 +19,6 @@ A component variant is a preset configuration of a component that changes it's a
   - `TextInput`
   - `CustomSelect`
   - `ComboBox`
-
 
 ## Visual Variants
 

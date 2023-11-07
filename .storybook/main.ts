@@ -7,7 +7,6 @@ const config: StorybookConfig = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-docs",
-    "storybook-addon-sass-postcss",
     "@ljcl/storybook-addon-cssprops",
     "@storybook/addon-mdx-gfm",
   ],

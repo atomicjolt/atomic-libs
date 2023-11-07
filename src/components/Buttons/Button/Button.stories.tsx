@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import Button from ".";
 import Doc from "./Button.doc.mdx";
 
-export default {
+const meta: Meta<typeof Button> = {
   title: "Buttons/Button",
   component: Button,
   argTypes: {
@@ -33,7 +33,9 @@ export default {
       page: Doc,
     },
   },
-} as Meta<typeof Button>;
+};
+
+export default meta;
 
 type Story = StoryObj<typeof Button>;
 

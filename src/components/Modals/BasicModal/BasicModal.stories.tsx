@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import BasicModal from ".";
 
 const meta: Meta<typeof BasicModal> = {
-  title: "Components/BasicModal",
+  title: "Modals/BasicModal",
   component: BasicModal,
 };
 

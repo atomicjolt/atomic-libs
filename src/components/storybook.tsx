@@ -1,5 +1,6 @@
 import React from "react";
 import { InputComponentProps, InputElementProps } from "../types";
+import { createGlobalStyle } from "styled-components";
 
 export const DefaultInputProperties: InputElementProps<Element> &
   InputComponentProps = {
@@ -170,4 +171,11 @@ export const UncontrolledInputControls = {
   },
 };
 
-
+export const PurpleButtonStyles = createGlobalStyle`
+.aje-btn--purple {
+  --btn-bg-clr: purple;
+  --btn-text-clr: white;
+  --btn-hover-bg-clr: rgb(179, 13, 179);
+  --btn-hover-text-clr: white;
+}
+`;
