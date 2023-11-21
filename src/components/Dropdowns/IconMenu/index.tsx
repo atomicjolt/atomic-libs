@@ -26,7 +26,7 @@ export interface IconMenuProps extends HasClassName, HasIcon, HasChildren {
   /** Changes where the dropdown menu appears */
   position?: PopoverPosition;
   disabled?: boolean;
-  buttonVariant: ButtonVariants;
+  buttonVariant?: ButtonVariants;
 }
 
 /**
