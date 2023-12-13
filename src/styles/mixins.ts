@@ -19,4 +19,18 @@ export default {
       overflow: hidden;
     }
   `,
+  Unselectable: css`
+    user-select: none;
+  `,
+  HideScrollbar: css`
+    /* Chrome */
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* IE / Edge */
+    -ms-overflow-style: none;
+    /* Firefox */
+    scrollbar-width: none;
+  `,
 };

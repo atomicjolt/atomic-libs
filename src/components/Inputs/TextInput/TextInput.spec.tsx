@@ -1,4 +1,5 @@
 import React from "react";
+import { describe, test, expect } from "vitest";
 import { render } from "@testing-library/react";
 import TextInput from ".";
 
@@ -12,12 +13,12 @@ describe("matches snapshot", () => {
     onChange: (value: string) => {},
   };
 
-  it("default variant", () => {
+  test("default variant", () => {
     const result = render(<TextInput {...shared} />);
     expect(result.asFragment()).toMatchSnapshot();
   });
 
-  it("floating variant", () => {
+  test("floating variant", () => {
     const result = render(<TextInput variant="floating" {...shared} />);
     expect(result.asFragment()).toMatchSnapshot();
   });

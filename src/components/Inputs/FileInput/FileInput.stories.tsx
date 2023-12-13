@@ -1,36 +1,35 @@
-import React from "react";
-import { ComponentMeta, ComponentStory } from "@storybook/react";
-import FileInput, { FileInputProps } from ".";
-import {
-  CenterDecorator,
-  InputControls,
-  inputProperties,
-} from "../../storybook";
+import { Meta, StoryObj } from "@storybook/react";
+import FileInput from ".";
+import { CallbackControls, inputProperties } from "../../storybook";
 
-export default {
-  title: "Inputs/FileInput",
+const meta: Meta<typeof FileInput> = {
+  title: "Inputs/Choose State/FileInput",
   component: FileInput,
-  decorators: [CenterDecorator],
+  parameters: {
+    layout: "centered",
+  },
   argTypes: {
     file: {
       control: false,
     },
-    ...InputControls,
+    ...CallbackControls,
   },
-} as ComponentMeta<typeof FileInput>;
-
-const Template: ComponentStory<typeof FileInput> = (args: FileInputProps) => {
-  return <FileInput {...args} />;
 };
 
-export const Default = Template.bind({});
-Default.args = {
-  ...inputProperties({ filter: ["hideLabel", "size", "message"] }),
-  label: "Choose a file...",
+export default meta;
+
+type Story = StoryObj<typeof FileInput>;
+
+export const Primary: Story = {
+  args: {
+    ...inputProperties({ filter: ["hideLabel", "size", "message"] }),
+    label: "Choose a file...",
+  },
 };
 
-export const WithFile = Template.bind({});
-WithFile.args = {
-  ...Default.args,
-  file: new File(["test"], "test.txt"),
+export const WithFile: Story = {
+  args: {
+    ...Primary.args,
+    file: new File(["test"], "test.txt"),
+  },
 };

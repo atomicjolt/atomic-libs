@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import mixins from "../../styles/mixins";
 
-export const Banner = styled.div`
+export const StyledBanner = styled.div`
   ${mixins.Bold}
   border-radius: var(--banner-border-radius);
   background-color: var(--banner-bg-clr);
@@ -46,10 +46,12 @@ export const Banner = styled.div`
       --banner-btn-active-clr: var(--primary300);
     }
 
-    &--upgrade {
-      --banner-bg-clr: var(--primary100);
+    &--success {
+      --banner-bg-clr: var(--success100);
       --banner-text-clr: var(--text-clr);
-      --banner-icon-clr: var(--primary700);
+      --banner-icon-clr: var(--success600);
+      --banner-btn-hover-clr: var(--success200);
+      --banner-btn-active-clr: var(--success300);
     }
   }
 `;

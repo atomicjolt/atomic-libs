@@ -1,20 +1,20 @@
-import React from "react";
-import { ComponentMeta, ComponentStory } from "@storybook/react";
-import LabelComponent, { LabelProps } from ".";
+import { Meta, StoryObj } from "@storybook/react";
+import Label from ".";
 
-export default {
+const meta: Meta<typeof Label> = {
   title: "Utility/Label",
-  component: LabelComponent,
-} as ComponentMeta<typeof LabelComponent>;
+  component: Label,
+};
 
-const Template: ComponentStory<typeof LabelComponent> = (args: LabelProps) => (
-  <LabelComponent {...args} />
-);
+export default meta;
 
-export const Label = Template.bind({});
-Label.args = {
-  children: "This is a Label",
-  message: "This is a message beneath the label",
-  error: "This is an error",
-  hidden: false,
+type Story = StoryObj<typeof Label>;
+
+export const Primary: Story = {
+  args: {
+    children: "This is a Label",
+    message: "This is a message beneath the label",
+    error: "This is an error",
+    hidden: false,
+  },
 };

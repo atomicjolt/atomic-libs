@@ -1,31 +1,36 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`matches snapshot default variant 1`] = `
+exports[`matches snapshot > default variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-bcXHqe sc-jSUZER sc-jrcTuL  jHcAJm hmgJOA aje-input aje-input has-error"
+    class="sc-bdnyFh sc-jSFipO sc-jrsKJM helJTd hgyRup has-error aje-input"
+    error="some error"
   >
     <label
-      class="sc-dkrFOg hmuQfz aje-label aje-label aje-label"
+      class="sc-dlniIP coPbkZ aje-label aje-label"
       for="TextInput-:r0:-input"
     >
       Text Label
     </label>
     <p
-      class="sc-hLBbgP bLlziI aje-label--message"
+      class="sc-hKFymg kNRMRh aje-label--message"
     >
       message
     </p>
-    <input
-      aria-describedby="TextInput-:r0:-error"
-      class="sc-gKPRtg gMwzJI"
-      id="TextInput-:r0:-input"
-      placeholder="placeholder"
-      type="text"
-      value="content"
-    />
+    <div
+      class="aje-input__container"
+    >
+      <input
+        aria-describedby="TextInput-:r0:-error"
+        class="sc-gKAaef fSDxJC"
+        id="TextInput-:r0:-input"
+        placeholder="placeholder"
+        type="text"
+        value="content"
+      />
+    </div>
     <p
-      class="sc-eDvSVe kXVgQt aje-label--error"
+      class="sc-eCAqax dNYzUp aje-label--error"
       id="TextInput-:r0:-error"
     >
       some error
@@ -34,24 +39,25 @@ exports[`matches snapshot default variant 1`] = `
 </DocumentFragment>
 `;
 
-exports[`matches snapshot floating variant 1`] = `
+exports[`matches snapshot > floating variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-bcXHqe sc-jSUZER sc-jrcTuL  jHcAJm hmgJOA aje-input--floating aje-input--floating has-error"
+    class="sc-bdnyFh sc-jSFipO sc-jrsKJM helJTd hgyRup has-error aje-input--floating"
+    error="some error"
   >
     <div
       class="aje-input__container"
     >
       <input
         aria-describedby="TextInput-:r1:-error"
-        class="sc-gKPRtg gMwzJI"
+        class="sc-gKAaef fSDxJC"
         id="TextInput-:r1:-input"
         placeholder="placeholder"
         type="text"
         value="content"
       />
       <label
-        class="sc-dkrFOg hmuQfz aje-label"
+        class="sc-dlniIP coPbkZ aje-label"
         for="TextInput-:r1:-input"
       >
         Text Label
@@ -63,7 +69,7 @@ exports[`matches snapshot floating variant 1`] = `
       message
     </p>
     <p
-      class="sc-eDvSVe kXVgQt aje-label--error"
+      class="sc-eCAqax dNYzUp aje-label--error"
       id="TextInput-:r1:-error"
     >
       some error

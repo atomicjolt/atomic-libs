@@ -1,5 +1,6 @@
 import React from "react";
 import { InputComponentProps, InputElementProps } from "../types";
+import { createGlobalStyle } from "styled-components";
 
 export const DefaultInputProperties: InputElementProps<Element> &
   InputComponentProps = {
@@ -12,6 +13,7 @@ export const DefaultInputProperties: InputElementProps<Element> &
   readOnly: false,
   placeholder: "",
   size: "medium",
+  autoFocus: false,
 };
 
 interface Options {
@@ -127,6 +129,12 @@ export const CommonInputControls = {
       category: "Common",
     },
   },
+  autoFocus: {
+    control: "boolean",
+    table: {
+      category: "Common",
+    },
+  },
 };
 
 export const InputControls = {
@@ -163,10 +171,11 @@ export const UncontrolledInputControls = {
   },
 };
 
-export const CenterDecorator = (Story: React.FC) => {
-  return (
-    <div style={{ display: "grid", placeItems: "center", height: "100%" }}>
-      <Story />
-    </div>
-  );
-};
+export const PurpleButtonStyles = createGlobalStyle`
+.aje-btn--purple {
+  --btn-bg-clr: purple;
+  --btn-text-clr: white;
+  --btn-hover-bg-clr: rgb(179, 13, 179);
+  --btn-hover-text-clr: white;
+}
+`;

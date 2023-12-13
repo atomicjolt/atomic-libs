@@ -1,30 +1,54 @@
-import React from "react";
-import { ComponentMeta, ComponentStory } from "@storybook/react";
-import ActionBanner, { ActionBannerProps } from ".";
+import { Meta, StoryObj } from "@storybook/react";
+import ActionBanner from ".";
 
 export default {
   title: "Banners/ActionBanner",
   component: ActionBanner,
   argTypes: {
-    variant: {
-      control: "text",
+    onClick: {
+      control: false,
+      table: {
+        category: "Events",
+      },
     },
-    children: {
-      control: "text",
+    variant: {
+      control: "select",
+      options: ["info", "warning", "success", "error"],
+    },
+    buttonVariant: {
+      control: "select",
+      options: [
+        "primary",
+        "secondary",
+        "error",
+        "success",
+        "inverted",
+        "content",
+      ],
     },
   },
-} as ComponentMeta<typeof ActionBanner>;
+} as Meta<typeof ActionBanner>;
 
-const Template: ComponentStory<typeof ActionBanner> = (
-  args: ActionBannerProps
-) => <ActionBanner {...args} />;
+type Story = StoryObj<typeof ActionBanner>;
 
-export const Default = Template.bind({});
-Default.args = {
-  variant: "upgrade",
-  children: "Take Action!",
-  icon: "info",
-  buttonText: "Press Me",
+export const Info: Story = {
+  args: {
+    variant: "info",
+    children:
+      "Article Posted! Now just wait for the comments to start rolling in",
+    icon: "info",
+    buttonText: "Go to Post",
+    className: "",
+  },
 };
 
-// Additional stories go here
+export const Upgrade: Story = {
+  args: {
+    variant: "info",
+    children:
+      "Your trial expires in 30 Days. Upgrade now to re-enable Atomic Assessments",
+    icon: "new_releases",
+    buttonText: "Upgrade Now",
+    className: "",
+  },
+};

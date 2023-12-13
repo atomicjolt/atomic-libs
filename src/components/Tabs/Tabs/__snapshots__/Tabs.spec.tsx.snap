@@ -1,20 +1,20 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`matches snapshot 1`] = `
 <DocumentFragment>
   <div
     aria-label="navigation"
-    class="sc-bcXHqe jYYVue aje-tab-list"
+    class="sc-bdnyFh cxXdJD aje-tab-list"
     role="tablist"
   >
     <div
-      class="sc-gswNZR bAnNyH aje-tab-link"
+      class="sc-gtsqUy eXJxVI aje-tab-link"
     >
       <a
         aria-controls="Tabs-:r0:-content"
         aria-current="true"
         aria-selected="true"
-        class="sc-dkrFOg bJaSPB aje-tab"
+        class="sc-dlniIP fWMytc aje-tab"
         id="Tabs-:r0:-prefix-tab1"
         role="tab"
         tabindex="-1"
@@ -23,13 +23,13 @@ exports[`matches snapshot 1`] = `
       </a>
     </div>
     <div
-      class="sc-gswNZR bAnNyH aje-tab-link"
+      class="sc-gtsqUy eXJxVI aje-tab-link"
     >
       <a
         aria-controls="Tabs-:r0:-content"
         aria-current="false"
         aria-selected="false"
-        class="sc-dkrFOg bJaSPB aje-tab"
+        class="sc-dlniIP fWMytc aje-tab"
         id="Tabs-:r0:-prefix-tab2"
         role="tab"
         tabindex="-1"
@@ -40,7 +40,7 @@ exports[`matches snapshot 1`] = `
   </div>
   <div
     aria-labelledby="Tabs-:r0:-prefix-tab1"
-    class="sc-hLBbgP imQOPG aje-tab-content"
+    class="sc-hKFymg fNDbzc aje-tab-content"
     id="Tabs-:r0:-content"
     role="tabpanel"
     tabindex="0"

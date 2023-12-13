@@ -5,48 +5,97 @@ import { Meta } from "@storybook/addon-docs";
 # Install
 
 ```
-$ npm install --save atomic-elements
+$ npm install --save @atomicjolt/atomic-elements
 ```
 
 ```
-$ yarn add atomic-elements
+$ yarn add @atomicjolt/atomic-elements
 ```
 
-# Usage
+## Setup
 
-First, at the top level of you project, you'll want to import in the stylesheets.
+At the root of your application, you'll want to import some of these components:
 
-This stylesheet includes all the fonts used by the library. You can exclude these if you want to handle
-importing these fonts yourself. The default configuration uses Lato, and material-icons
+```tsx
 
-```js
-import "atomic-elements/dist/fonts.css";
+import { LoadFonts, CssVariables, CssGlobalDefaults } from "@atomicjolt/atomic-elements";
+
+const App = () => (
+  <>
+    <LoadFonts />
+    <CssVariables />
+    <CssGlobalDefaults />
+    <YourApp />
+  </>
+);
+
 ```
 
-This stylesheet defines the CSS variables used by library. This includes all the colors used. You can customize this,
-or bring your own for full customization
+### Fonts
 
-```js
-import "atomic-elements/dist/variables.css";
+The `<LoadFonts />` component will load the fonts used by the Atomic Elements. It is recommended that you use this component at the root of your application.
+
+If you want to handle the fonts in a different way, you can forgo this component and load the fonts yourself. For example, loading them in your HTML file
+from Google Fonts:
+
+```html
+<!-- Lato is the default text font, you should only need these variants.
+You could load a different text-font if you wanted -->
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@200;400;700&display=swap" rel="stylesheet">
+
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<!-- The default is filled, you only need any of these if you actually intend to use them -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons%7CMaterial+Icons+Outlined" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons%7CMaterial+Icons+Round" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons%7CMaterial+Icons+Sharp" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons%7CMaterial+Icons+Two+Tone" rel="stylesheet">
 ```
 
-Finally, there is an optional global stylesheet that sets some sensible defaults to make atomic-elements look its best, but
-it shouldn't be necessary and you should be able to forgot this if need be
+Also you'll need to make sure to specify the font variables in your CSS:
 
-```js
-import "atomic-elements/dist/global.css";
+```css
+:root {
+  --font-family: "Lato", sans-serif;
+  --font-weight-light: 200;
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+}
 ```
 
-You can then start importing components
+#### Icons
 
-Either from their specific files:
+If you're planning on using a Material Icon variant, you'll need to load the Material Icons font. You can do this with `<LoadFonts />` or you can load it yourself (like above):
 
-```js
-import Button from "atomic-elements/components/Buttons/Button";
+```tsx
+<LoadFonts fonts={["lato", "material-icons-outlined"]} />
 ```
 
-Or from the index, which exports all of the components
 
-```js
-import { Button } from "atomic-elements";
-```
+### CSS Variables
+
+The `<CssVariables />` component will set the CSS variables used by the Atomic Elements. It is recommended that you use this component at the root of your application.
+If you don't include this component none of the components will look correct (unless you provide defaults for everything yourself).
+
+### CSS Global Defaults
+
+The `<CssGlobalDefaults />` component will set some global CSS defaults. It is recommended that you use this component at the root of your application. These are
+common CSS defaults that will make Atomic Elements looks it's best. Not including this component will not break anything, but the components won't look like they do
+in the storybook.
+
+### Sensible Defaults
+
+The `<SensibleDefaults />` component bundles the three above component into a single component.
+It is recommended that you use this component at the root of your application.
+
+```tsx
+
+import { SensibleDefaults } from "@atomicjolt/atomic-elements";
+
+const App = () => (
+  <>
+    <SensibleDefaults />
+    <YourApp />
+  </>
+);

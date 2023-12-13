@@ -1,0 +1,54 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Usage/Customizing Appearance/Class Names" />
+
+# Class Names
+
+Each component exposes a `className` prop that can be used to add custom class names to the component.
+This is useful for adding custom styles or overriding the default styles. The prop is passed to the
+[classnames](https://github.com/JedWatson/classnames#readme) package to generate the final class name,
+so you can take advantage of that to make your class names cleaner.
+
+
+## Examples
+
+Below are some common examples of using class names. Please reference the above package for more.
+
+
+### Dynamically add a class name
+
+It will combine a list of classNames into a single string.
+
+```jsx
+import { useState } from 'react';
+import { Button } from "@atomicjolt/atomic-elements";
+
+function App({ className }) {
+    return (
+        <Button className={["my-internal-class-name", className]}>Hidden Button</Button>
+    )
+}
+
+```
+
+
+### Hide a component with a class name
+
+The `is-hidden` class name will only be applied to the class when `hidden === true`
+
+```jsx
+import { useState } from 'react';
+import { Button, Checkbox } from "@atomicjolt/atomic-elements";
+
+function App() {
+    const [hidden, setHidden] = useState(false);
+
+    return (
+        <>
+        <Button className={{ 'is-hidden': hidden }}>Hidden Button</Button>
+        <Checkbox checked={hidden} onChange={setHidden}>
+        </>
+    )
+}
+```
+

@@ -7,14 +7,14 @@ import InputError from "../../Utility/InputError";
 import Label from "../../Utility/Label";
 import { StyledTextArea, TextAreaWrapper } from "./Textarea.styles";
 
-export interface TextAreaProps
+export interface TextareaProps
   extends Omit<InputProps<string, HTMLTextAreaElement>, "size"> {
   size?: "small" | "medium" | "large";
   resize?: boolean;
 }
 
 /** Textarea Component. Accepts a `ref` */
-const Textarea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
+const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   (props, ref) => {
     const [inputId, errorId] = useIds("TextArea", ["textarea", "error"]);
     const {

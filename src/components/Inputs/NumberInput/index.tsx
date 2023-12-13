@@ -9,8 +9,8 @@ import { Input, InputWrapper } from "../Inputs.styles";
 import { StyledNumberInput } from "./NumberInput.styles";
 
 export interface NumberInputProps extends InputProps<number> {
-  min?: number;
-  max?: number;
+  min?: number | string;
+  max?: number | string;
 }
 
 /** Number Input Component. Accepts a `ref` */

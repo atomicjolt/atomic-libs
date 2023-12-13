@@ -6,7 +6,7 @@ export interface TextInputProps
   extends InputProps<string>,
     HasVariant<Variants> {
   /** Other types like date, time, and number have their own component  */
-  type?: "text" | "email" | "tel";
+  type?: "text" | "email" | "tel" | "password";
 }
 
 export interface TextInputVariantProps extends HasChildren {
