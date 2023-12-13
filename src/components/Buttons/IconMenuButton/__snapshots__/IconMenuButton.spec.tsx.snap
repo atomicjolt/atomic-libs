@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-ipEyDJ fDWEkY"
+  >
+    <button
+      class="sc-jSUZER hqzEMJ aje-btn"
+      type="button"
+    >
+      Button
+    </button>
+    <div
+      class="sc-pyfCe eyqjyo aje-menu"
+    >
+      <button
+        aria-controls="IconMenu-:r0:-menu"
+        aria-expanded="false"
+        aria-haspopup="menu"
+        aria-label="Custom dropdown label"
+        class="sc-jSUZER sc-gKPRtg hqzEMJ kZORnB aje-btn aje-btn--icon"
+        id="IconButton-:r1:-button"
+        type="button"
+      >
+        <i
+          aria-hidden="true"
+          class="sc-eDvSVe ekQCtg material-icons is-medium"
+        >
+          more_vert
+        </i>
+      </button>
+      <div
+        class="sc-iBYQkv AihVo"
+      >
+        <div
+          class="sc-ftTHYK hPyxdj aje-popover is-auto aje-popover-bottom-left"
+        >
+          <div
+            aria-labelledby="IconMenu-:r0:-button"
+            class="sc-jrcTuL jiJrur aje-menu__dropdown"
+            id="IconMenu-:r0:-menu"
+            role="menu"
+            tabindex="-1"
+          >
+            <button
+              class="sc-kDvujY dyZBYR aje-menu__option"
+            >
+              <i
+                aria-hidden="true"
+                class="sc-eDvSVe ekQCtg material-icons is-medium"
+              >
+                add_alert
+              </i>
+              Option 1
+            </button>
+            <button
+              class="sc-kDvujY dyZBYR aje-menu__option"
+            >
+              <i
+                aria-hidden="true"
+                class="sc-eDvSVe ekQCtg material-icons is-medium"
+              >
+                info
+              </i>
+              Option 2
+            </button>
+            <button
+              class="sc-kDvujY dyZBYR aje-menu__option"
+            >
+              <i
+                aria-hidden="true"
+                class="sc-eDvSVe ekQCtg material-icons is-medium"
+              >
+                alarm_on
+              </i>
+              Option 3
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

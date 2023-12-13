@@ -54,10 +54,9 @@ const iconMenuProps = {
   </>
 }
 
-export const Primary = Template.bind({});
-Primary.args = {
-  children: "Primary",
-  variant: "primary",
+export const Default = Template.bind({});
+Default.args = {
+  children: "Button",
   type: "button",
   disabled: false,
   loading: false,
