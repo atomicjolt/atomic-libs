@@ -1,14 +1,11 @@
 import React from "react";
-import { ComponentMeta, ComponentStory } from "@storybook/react";
-import IconMenuButton, { IconMenuButtonProps } from ".";
-import Doc from "./IconMenuButton.doc.mdx";
-import { CenterDecorator } from "../../storybook";
+import IconMenuButton from ".";
 import IconMenu from "../../Dropdowns/IconMenu";
+import { Meta, StoryObj } from "@storybook/react";
 
-export default {
+const meta: Meta<typeof IconMenuButton> = {
   title: "Buttons/IconMenuButton",
   component: IconMenuButton,
-  decorators: [CenterDecorator],
   argTypes: {
     onClick: {
       control: false,
@@ -19,46 +16,54 @@ export default {
     children: {
       control: "text",
     },
-    variant: {
-      control: "select",
-      options: ["primary", "secondary", "error", "success", "inverted"],
-    },
   },
   parameters: {
-    docs: {
-      page: Doc,
-    },
+    layout: "centered",
   },
-} as ComponentMeta<typeof IconMenuButton>;
+};
 
-const Template: ComponentStory<typeof IconMenuButton> = (args: IconMenuButtonProps) => (
-  <IconMenuButton {...args} />
-);
+export default meta;
 
-const iconMenuProps = {
-  icon: "more_vert",
-  label: "Custom dropdown label",
-  disabled: false,
-  position: "bottom-left",
-  iconVariant: "default",
-  children: <>
-    <IconMenu.Item icon="add_alert" onClick={() => { }}>
-      Option 1
-    </IconMenu.Item>
-    <IconMenu.Item icon="info" onClick={() => { }}>
-      Option 2
-    </IconMenu.Item>
-    <IconMenu.Item icon="alarm_on" onClick={() => { }}>
-      Option 3
-    </IconMenu.Item>
-  </>
-}
+type Story = StoryObj<typeof IconMenuButton>;
 
-export const Default = Template.bind({});
-Default.args = {
-  children: "Button",
-  type: "button",
-  disabled: false,
-  loading: false,
-  iconMenuProps,
+export const Default: Story = {
+  args: {
+    children: "Button",
+    type: "button",
+    disabled: false,
+    loading: false,
+    menuIcon: "more_vert",
+    menuLabel: "Custom dropdown label",
+    menuDisabled: false,
+    menuPosition: "bottom-right",
+    menuIconVariant: "default",
+    menuChildren: <>
+      <IconMenu.Item icon="add_alert" onClick={() => { }}>
+        Option 1
+      </IconMenu.Item>
+      <IconMenu.Item icon="info" onClick={() => { }}>
+        Option 2
+      </IconMenu.Item>
+      <IconMenu.Item icon="alarm_on" onClick={() => { }}>
+        Option 3
+      </IconMenu.Item>
+    </>
+  }
+};
+
+export const Loading: Story = {
+  args: {
+    ...Default.args,
+    loading: true,
+    loadingLabel: "Now Loading",
+  },
+};
+
+export const LoadingComplete: Story = {
+  args: {
+    ...Default.args,
+    loading: true,
+    loadingLabel: "Now Loading",
+    loadingComplete: true,
+  },
 };

@@ -1,76 +1,76 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-ipEyDJ fDWEkY"
+    class="sc-iqAbyq juJrWy"
   >
     <button
-      class="sc-jSUZER hqzEMJ aje-btn"
+      class="sc-jSFipO kUfJLg aje-btn"
       type="button"
     >
       Button
     </button>
     <div
-      class="sc-pyfCe eyqjyo aje-menu"
+      class="sc-pNWRh ikcnyd aje-menu"
     >
       <button
         aria-controls="IconMenu-:r0:-menu"
         aria-expanded="false"
         aria-haspopup="menu"
         aria-label="Custom dropdown label"
-        class="sc-jSUZER sc-gKPRtg hqzEMJ kZORnB aje-btn aje-btn--icon"
+        class="sc-jSFipO sc-gKAaef kUfJLg cmuEww aje-btn aje-btn--icon aje-btn--primary"
         id="IconButton-:r1:-button"
         type="button"
       >
         <i
           aria-hidden="true"
-          class="sc-eDvSVe ekQCtg material-icons is-medium"
+          class="sc-eCAqax dRBnmT material-icons is-medium"
         >
           more_vert
         </i>
       </button>
       <div
-        class="sc-iBYQkv AihVo"
+        class="sc-iCoHzw jzQmut"
       >
         <div
-          class="sc-ftTHYK hPyxdj aje-popover is-auto aje-popover-bottom-left"
+          class="sc-fujznN kNZgZH aje-popover is-auto aje-popover-bottom-right"
         >
           <div
             aria-labelledby="IconMenu-:r0:-button"
-            class="sc-jrcTuL jiJrur aje-menu__dropdown"
+            class="sc-jrsKJM eksYmN aje-menu__dropdown"
             id="IconMenu-:r0:-menu"
             role="menu"
             tabindex="-1"
           >
             <button
-              class="sc-kDvujY dyZBYR aje-menu__option"
+              class="sc-kEqXeH dsclas aje-menu__option"
             >
               <i
                 aria-hidden="true"
-                class="sc-eDvSVe ekQCtg material-icons is-medium"
+                class="sc-eCAqax dRBnmT material-icons is-medium"
               >
                 add_alert
               </i>
               Option 1
             </button>
             <button
-              class="sc-kDvujY dyZBYR aje-menu__option"
+              class="sc-kEqXeH dsclas aje-menu__option"
             >
               <i
                 aria-hidden="true"
-                class="sc-eDvSVe ekQCtg material-icons is-medium"
+                class="sc-eCAqax dRBnmT material-icons is-medium"
               >
                 info
               </i>
               Option 2
             </button>
             <button
-              class="sc-kDvujY dyZBYR aje-menu__option"
+              class="sc-kEqXeH dsclas aje-menu__option"
             >
               <i
                 aria-hidden="true"
-                class="sc-eDvSVe ekQCtg material-icons is-medium"
+                class="sc-eCAqax dRBnmT material-icons is-medium"
               >
                 alarm_on
               </i>
