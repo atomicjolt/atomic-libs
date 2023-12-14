@@ -1,13 +1,10 @@
-import React from "react";
-import { ComponentMeta, ComponentStory } from "@storybook/react";
-import Button, { ButtonProps } from ".";
+import { Meta, StoryObj } from "@storybook/react";
+import Button from ".";
 import Doc from "./Button.doc.mdx";
-import { CenterDecorator } from "../../storybook";
 
-export default {
+const meta: Meta<typeof Button> = {
   title: "Buttons/Button",
   component: Button,
-  decorators: [CenterDecorator],
   argTypes: {
     onClick: {
       control: false,
@@ -20,72 +17,86 @@ export default {
     },
     variant: {
       control: "select",
-      options: ["primary", "secondary", "error", "success", "inverted"],
+      options: [
+        "primary",
+        "secondary",
+        "error",
+        "success",
+        "inverted",
+        "content",
+      ],
     },
   },
   parameters: {
+    layout: "centered",
     docs: {
       page: Doc,
     },
   },
-} as ComponentMeta<typeof Button>;
-
-const Template: ComponentStory<typeof Button> = (args: ButtonProps) => (
-  <Button {...args} />
-);
-
-export const Primary = Template.bind({});
-Primary.args = {
-  children: "Primary",
-  variant: "primary",
-  type: "button",
-  disabled: false,
-  loading: false,
 };
 
-export const Secondary = Template.bind({});
-Secondary.args = {
-  ...Primary.args,
-  children: "Secondary",
-  variant: "secondary",
+export default meta;
+
+type Story = StoryObj<typeof Button>;
+
+export const Primary: Story = {
+  args: {
+    children: "Primary",
+    variant: "primary",
+    type: "button",
+    disabled: false,
+    loading: false,
+  },
 };
 
-export const Error = Template.bind({});
-Error.args = {
-  ...Primary.args,
-  children: "Error",
-  variant: "error",
+export const Secondary: Story = {
+  args: {
+    ...Primary.args,
+    children: "Secondary",
+    variant: "secondary",
+  },
 };
 
-export const Success = Template.bind({});
-Success.args = {
-  ...Primary.args,
-  children: "Success",
-  variant: "success",
+export const Error: Story = {
+  args: {
+    ...Primary.args,
+    children: "Error",
+    variant: "error",
+  },
 };
 
-export const Inverted = Template.bind({});
-Inverted.args = {
-  ...Primary.args,
-  children: "Inverted",
-  variant: "inverted",
+export const Success: Story = {
+  args: {
+    ...Primary.args,
+    children: "Success",
+    variant: "success",
+  },
 };
 
-export const LoadingButton = Template.bind({});
-LoadingButton.args = {
-  ...Primary.args,
-  children: "Primary",
-  variant: "primary",
-  loading: true,
-  loadingLabel: "Now Loading",
+export const Inverted: Story = {
+  args: {
+    ...Primary.args,
+    children: "Inverted",
+    variant: "inverted",
+  },
+};
+export const LoadingButton: Story = {
+  args: {
+    ...Primary.args,
+    children: "Primary",
+    variant: "primary",
+    loading: true,
+    loadingLabel: "Now Loading",
+  },
 };
 
-export const LoadingCompleteButton = Template.bind({});
-LoadingCompleteButton.args = {
-  ...Primary.args,
-  children: "Primary",
-  variant: "primary",
-  loading: true,
-  loadingLabel: "Now Loading",
-  loadingComplete: true,
+export const LoadingCompleteButton: Story = {
+  args: {
+    ...Primary.args,
+    children: "Primary",
+    variant: "primary",
+    loading: true,
+    loadingLabel: "Now Loading",
+    loadingComplete: true,
+  },
 };

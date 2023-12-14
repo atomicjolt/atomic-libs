@@ -1,18 +1,19 @@
 import React from "react";
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 import {
   InputControls,
   DefaultInputProperties,
   inputProperties,
   disableControl,
-  CenterDecorator,
 } from "../../storybook";
-import SelectComponent, { SelectProps } from ".";
+import Select from ".";
 
-export default {
+const meta: Meta<typeof Select> = {
   title: "Dropdowns/Select",
-  component: SelectComponent,
-  decorators: [CenterDecorator],
+  component: Select,
+  parameters: {
+    layout: "centered",
+  },
   argTypes: {
     value: {
       control: "select",
@@ -22,23 +23,25 @@ export default {
     ...disableControl("readOnly"),
     ...disableControl("placeholder"),
   },
-} as ComponentMeta<typeof SelectComponent>;
+};
 
-const Template: ComponentStory<typeof SelectComponent> = (
-  args: SelectProps
-) => (
-  <SelectComponent {...args}>
-    <option value="none">- Select an option -</option>
-    <option value="value1">Option 1</option>
-    <option value="value2">Option 2</option>
-  </SelectComponent>
-);
+export default meta;
 
-export const Select = Template.bind({});
-Select.args = {
-  value: "none",
-  ...DefaultInputProperties,
-  ...inputProperties({ filter: ["placeholder", "readOnly"] }),
-  label: "Select label",
-  size: "medium",
+type Story = StoryObj<typeof Select>;
+
+export const Primary: Story = {
+  render: (args) => (
+    <Select {...args}>
+      <option value="none">- Select an option -</option>
+      <option value="value1">Option 1</option>
+      <option value="value2">Option 2</option>
+    </Select>
+  ),
+  args: {
+    value: "none",
+    ...DefaultInputProperties,
+    ...inputProperties({ filter: ["placeholder", "readOnly"] }),
+    label: "Select label",
+    size: "medium",
+  },
 };

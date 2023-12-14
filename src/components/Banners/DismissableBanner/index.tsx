@@ -1,41 +1,42 @@
 import React, { useState } from "react";
-import cn from "classnames";
-import { HasClassName, MaterialIcons } from "../../../types";
-import { Banner, BannerDismiss, BannerMain } from "../Banners.styles";
-import MaterialIcon from "../../Utility/MaterialIcon";
+import {
+  HasChildren,
+  HasClassName,
+  MaterialIconVariants,
+  MaterialIcons,
+} from "../../../types";
+import { BannerDismiss } from "../Banners.styles";
+import MaterialIcon from "../../Icons/MaterialIcon";
+import Banner, { BannerVariants } from "../Banner";
 
-interface SharedProps extends HasClassName {
-  /** Content to render in the banner */
-  readonly children: React.ReactNode;
-  /** Callback function for when the user dismisses the banner */
+interface SharedProps extends HasClassName, HasChildren {
+  /** Callback function for when the user dismisses the banner.
+   * Is called regardless of the value of `autoDismiss` */
   readonly onDismiss?: () => void;
   /** When `autoDismiss` is true, clicking on the `x`
    * will remove the banner automatically. If it is set to false,
-   * you must manage hidiing it yourself. */
+   * you must manage hidiing it yourself in response to the `onDismiss` event*/
   readonly autoDismiss?: boolean;
 }
 
 export interface DismissableBannerProps extends SharedProps {
-  /** The variant of banner to be displayed.
-   * Gets added to the top-level classname
-   * as: `aje-banner--${type}`. The component
-   * comes shipped with styles for these types:
-   * - `error`
-   * - `warning`
-   * - `info` */
-  readonly variant?: "error" | "warning" | "info" | (string & {});
+  readonly variant?: BannerVariants;
   /** Name of material icon to be displayed */
   readonly icon?: MaterialIcons;
+  /** Variant of material icon to be displayed */
+  readonly iconVariant?: MaterialIconVariants;
 }
 
-/** A Banner that the user can dismiss by clicking the "x" on the right
+/** A Banner that the user can dismiss by clicking the "x" on the right.
  *
- * **NOTE**: Both the error and warning banners have conveneience wrappers: `ErrorBanner` and `WarningBanner`
+ * For convenience, there are also `ErrorBanner` and `WarningBanner` components that set sensible defaults
+ * for the `variant` and `icon` props.
  */
 export default function DismissableBanner(props: DismissableBannerProps) {
   const {
     children,
     variant,
+    iconVariant = "default",
     icon,
     autoDismiss = false,
     onDismiss,
@@ -49,19 +50,24 @@ export default function DismissableBanner(props: DismissableBannerProps) {
   }
 
   return (
-    <Banner className={cn(`aje-banner--${variant}`, className)}>
-      {icon && <MaterialIcon icon={icon} />}
-      <BannerMain className="aje-banner__main">{children}</BannerMain>
-      <BannerDismiss
-        className="aje-banner__dismiss"
-        aria-label={`dismiss ${variant}`}
-        onClick={() => {
-          autoDismiss && setVisible(false);
-          onDismiss && onDismiss();
-        }}
-      >
-        <MaterialIcon icon="close" />
-      </BannerDismiss>
+    <Banner
+      className={className}
+      variant={variant}
+      beforeContent={icon && <MaterialIcon icon={icon} variant={iconVariant} />}
+      afterContent={
+        <BannerDismiss
+          className="aje-banner__dismiss"
+          aria-label={`dismiss ${variant}`}
+          onClick={() => {
+            autoDismiss && setVisible(false);
+            onDismiss && onDismiss();
+          }}
+        >
+          <MaterialIcon icon="close" />
+        </BannerDismiss>
+      }
+    >
+      {children}
     </Banner>
   );
 }

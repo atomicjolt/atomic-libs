@@ -1,36 +1,45 @@
 import React from "react";
-import { ComponentMeta, ComponentStory } from "@storybook/react";
-import DismissableBanner, {
-  DismissableBannerProps,
-  ErrorBanner as ErrorBannerWrapper,
-  WarningBanner as WarningBannerWrapper,
-} from ".";
+import { Meta, StoryObj } from "@storybook/react";
+import DismissableBanner, { ErrorBanner, WarningBanner } from ".";
 
 export default {
   title: "Banners/DismissableBanner",
   component: DismissableBanner,
-  subcomponents: {
-    ErrorBanner: ErrorBannerWrapper,
-    WarningBanner: WarningBannerWrapper,
-  },
   argTypes: {
     variant: {
-      control: "text",
+      control: "select",
+      options: ["info", "warning", "success", "error"],
     },
-    children: {
-      control: "text",
+    iconVariant: {
+      control: "select",
+      options: ["default", "outlined", "rounded", "two-tone", "sharp"],
     },
   },
-} as ComponentMeta<typeof DismissableBanner>;
+} as Meta<typeof DismissableBanner>;
 
-const Template: ComponentStory<typeof DismissableBanner> = (
-  args: DismissableBannerProps
-) => <DismissableBanner {...args} />;
+type Story = StoryObj<typeof DismissableBanner>;
 
-export const Default = Template.bind({});
-Default.args = {
-  children: "Informative Text",
-  variant: "info",
-  icon: "info",
-  autoDismiss: false,
+export const Info: Story = {
+  args: {
+    children: "Notification Settings Saved",
+    variant: "info",
+    icon: "info",
+    autoDismiss: false,
+  },
+};
+
+export const Error: Story = {
+  render: (props) => <ErrorBanner {...props} />,
+  args: {
+    children: "Something went wrong",
+    autoDismiss: false,
+  },
+};
+
+export const Warning: Story = {
+  render: (props) => <WarningBanner {...props} />,
+  args: {
+    children: "Something went wrong",
+    autoDismiss: false,
+  },
 };

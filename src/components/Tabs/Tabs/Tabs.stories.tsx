@@ -1,19 +1,13 @@
 import React from "react";
-import { ComponentMeta, ComponentStory } from "@storybook/react";
-import TabsC from ".";
-import { TabsContent, TabsProps } from "./Tabs";
+import { Meta, StoryObj } from "@storybook/react";
+import Tabs from ".";
 import Tab from "./Tab";
 import TabsNavigation, { TabLink } from "./TabNavigation";
+import { TabsContent } from "./Tabs";
 
-export default {
+const meta: Meta<typeof Tabs> = {
   title: "Tabs/Tabs",
-  component: TabsC,
-  subcomponents: {
-    "Tabs.Tab": Tab,
-    "Tabs.Link": TabLink,
-    "Tabs.Navigation": TabsNavigation,
-    "Tabs.Content": TabsContent,
-  },
+  component: Tabs,
   argTypes: {
     currentTab: {
       control: "select",
@@ -29,31 +23,34 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof TabsC>;
+};
 
-const Template: ComponentStory<typeof TabsC> = (args: TabsProps<string>) => (
-  <TabsC {...args} />
-);
+export default meta;
 
-export const Tabs = Template.bind({});
-Tabs.args = {
-  currentTab: "tab1",
-  children: [
-    <TabsC.Navigation key="nav">
-      <TabsC.Link to="tab1">Tab One</TabsC.Link>
-      <TabsC.Link to="tab2">Tab Two</TabsC.Link>
-    </TabsC.Navigation>,
-    <TabsC.Content key="content">
-      <TabsC.Tab name="tab1">
-        <div>
-          <h2>First Tab</h2>
-        </div>
-      </TabsC.Tab>
-      <TabsC.Tab name="tab2">
-        <div>
-          <h2>Second Tab</h2>
-        </div>
-      </TabsC.Tab>
-    </TabsC.Content>,
-  ],
+type Story = StoryObj<typeof Tabs>;
+
+export const Primary: Story = {
+  render: (args) => (
+    <Tabs {...args}>
+      <Tabs.Navigation key="nav">
+        <Tabs.Link to="tab1">Tab One</Tabs.Link>
+        <Tabs.Link to="tab2">Tab Two</Tabs.Link>
+      </Tabs.Navigation>
+      <Tabs.Content key="content">
+        <Tabs.Tab name="tab1">
+          <div>
+            <h2>First Tab</h2>
+          </div>
+        </Tabs.Tab>
+        <Tabs.Tab name="tab2">
+          <div>
+            <h2>Second Tab</h2>
+          </div>
+        </Tabs.Tab>
+      </Tabs.Content>
+    </Tabs>
+  ),
+  args: {
+    currentTab: "tab1",
+  },
 };

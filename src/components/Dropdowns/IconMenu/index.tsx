@@ -1,10 +1,16 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 import cn from "classnames";
 import IconButton from "../../Buttons/IconButton";
-import { useBool, useClickOutside, useIds } from "../../../hooks";
-import { CanHavIcon, HasChildren, HasClassName, HasIcon } from "../../../types";
+import { useIds } from "../../../hooks";
+import {
+  CanHavIcon,
+  HasChildren,
+  HasClassName,
+  HasIcon,
+  MaterialIconVariants,
+} from "../../../types";
 import Popover, { PopoverWrapper } from "../../Utility/Popover";
-import MaterialIcon from "../../Utility/MaterialIcon";
+import MaterialIcon from "../../Icons/MaterialIcon";
 import { useDropdown } from "../../../hooks/useDropdown";
 import {
   IconMenuDropdown,
@@ -12,6 +18,7 @@ import {
   IconMenuWrapper,
 } from "./IconMenu.styles";
 import { PopoverPosition } from "../../Utility/Popover/Popover.types";
+import { ButtonVariants } from "../../Buttons/Buttons.types";
 
 export interface IconMenuProps extends HasClassName, HasIcon, HasChildren {
   /** Must include a label. */
@@ -19,6 +26,7 @@ export interface IconMenuProps extends HasClassName, HasIcon, HasChildren {
   /** Changes where the dropdown menu appears */
   position?: PopoverPosition;
   disabled?: boolean;
+  buttonVariant?: ButtonVariants;
 }
 
 /**
@@ -29,6 +37,7 @@ export interface IconMenuProps extends HasClassName, HasIcon, HasChildren {
 function IconMenu(props: IconMenuProps) {
   const {
     icon,
+    buttonVariant = "primary",
     iconVariant = "default",
     children,
     label = "More options",
@@ -43,6 +52,7 @@ function IconMenu(props: IconMenuProps) {
     <IconMenuWrapper className={cn("aje-menu", className)} ref={ref}>
       <IconButton
         icon={icon}
+        variant={buttonVariant}
         iconVariant={iconVariant}
         aria-controls={menuId}
         aria-expanded={menuActive}

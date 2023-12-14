@@ -1,4 +1,5 @@
 import React from "react";
+import { describe, test, expect } from "vitest";
 import { render } from "@testing-library/react";
 import Tab from "./Tab";
 import TabsNavigation, { TabLink } from "./TabNavigation";

@@ -1,9 +1,9 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`matches snapshot 1`] = `
 <DocumentFragment>
   <label
-    class="sc-dkrFOg hmuQfz aje-label aje-label aje-label"
+    class="sc-dlniIP coPbkZ aje-label aje-label"
     for="id"
   >
     Label Content

@@ -2,3 +2,5 @@ dist
 node_modules
 yarn-error.log
 storybook-static
+.storybook/props.js
+.yarn/cache

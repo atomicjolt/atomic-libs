@@ -37,6 +37,7 @@ const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
       disabled = false,
       required = false,
       className,
+      placeholder,
       ...inputProps
     } = props;
 
@@ -59,7 +60,7 @@ const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
           {...inputProps}
         />
         <FileInputLabel htmlFor={inputId}>
-          <FileInputSpan>{file?.name}</FileInputSpan>
+          <FileInputSpan>{file ? file.name : placeholder}</FileInputSpan>
           <FileInputStrong>{label}</FileInputStrong>
         </FileInputLabel>
         <InputError error={error} id={errorId} />

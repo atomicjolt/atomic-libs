@@ -1,32 +1,30 @@
-import React from "react";
-import { ComponentMeta, ComponentStory } from "@storybook/react";
-import ToggleSwitchComponent, { ToggleSwitchProps } from ".";
-import { CenterDecorator, InputControls } from "../../storybook";
+import { Meta, StoryObj } from "@storybook/react";
+import ToggleSwitch from ".";
 
-export default {
-  title: "Inputs/ToggleSwitch",
-  component: ToggleSwitchComponent,
-  decorators: [CenterDecorator],
+const meta: Meta<typeof ToggleSwitch> = {
+  title: "Inputs/Choose State/ToggleSwitch",
+  component: ToggleSwitch,
   parameters: {
-    argTypes: {
-      ...InputControls,
-      onChange: {
-        control: false,
-        table: {
-          category: "Events",
-        },
+    layout: "centered",
+  },
+  argTypes: {
+    onChange: {
+      control: false,
+      table: {
+        category: "Events",
       },
     },
   },
-} as ComponentMeta<typeof ToggleSwitchComponent>;
+};
 
-const Template: ComponentStory<typeof ToggleSwitchComponent> = (
-  args: ToggleSwitchProps
-) => <ToggleSwitchComponent {...args} />;
+export default meta;
 
-export const ToggleSwitch = Template.bind({});
-ToggleSwitch.args = {
-  checked: false,
-  label: "Toggle switch",
-  disabled: false,
+type Story = StoryObj<typeof ToggleSwitch>;
+
+export const Primary: Story = {
+  args: {
+    checked: false,
+    label: "Toggle switch",
+    disabled: false,
+  },
 };

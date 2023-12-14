@@ -1,21 +1,22 @@
 import React from "react";
-import { ComponentMeta, ComponentStory } from "@storybook/react";
-import ErrorModalComponent, { ErrorModalProps } from ".";
+import { Meta, StoryObj } from "@storybook/react";
+import ErrorModal from ".";
 
-export default {
+const meta: Meta<typeof ErrorModal> = {
   title: "Modals/ErrorModal",
-  component: ErrorModalComponent,
-} as ComponentMeta<typeof ErrorModalComponent>;
-
-const Template: ComponentStory<typeof ErrorModalComponent> = (
-  args: ErrorModalProps
-) => <ErrorModalComponent {...args} />;
-
-export const ErrorModal = Template.bind({});
-ErrorModal.args = {
-  open: true,
-  title: "Error",
-  children: "Something went wrong",
+  component: ErrorModal,
 };
 
-// Additional stories go here
+export default meta;
+
+type Story = StoryObj<typeof ErrorModal>;
+
+export const Primary: Story = {
+  args: {
+    open: true,
+    title: "Error",
+    children: "An error has occurred",
+    buttonText: "Close",
+    centered: true,
+  },
+};

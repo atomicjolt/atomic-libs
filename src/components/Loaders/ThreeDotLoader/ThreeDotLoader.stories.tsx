@@ -1,17 +1,17 @@
-import React from "react";
-import { ComponentMeta, ComponentStory } from "@storybook/react";
-import ThreeDotLoaderComponent, { ThreeDotLoaderProps } from ".";
+import { Meta, StoryObj } from "@storybook/react";
+import ThreeDotLoader from ".";
 
-export default {
+const meta: Meta<typeof ThreeDotLoader> = {
   title: "Loaders/ThreeDotLoader",
-  component: ThreeDotLoaderComponent,
-} as ComponentMeta<typeof ThreeDotLoaderComponent>;
+  component: ThreeDotLoader,
+};
 
-const Template: ComponentStory<typeof ThreeDotLoaderComponent> = (
-  args: ThreeDotLoaderProps
-) => <ThreeDotLoaderComponent {...args} />;
+export default meta;
 
-export const ThreeDotLoader = Template.bind({});
-ThreeDotLoader.args = {
-  loading: true,
+type Story = StoryObj<typeof ThreeDotLoader>;
+
+export const Primary: Story = {
+  args: {
+    loading: true,
+  },
 };

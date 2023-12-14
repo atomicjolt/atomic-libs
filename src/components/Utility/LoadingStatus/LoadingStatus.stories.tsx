@@ -1,44 +1,20 @@
-import React from "react";
-import { ComponentMeta, ComponentStory } from "@storybook/react";
-import LoadingStatusComp, { LoadingStatusProps } from ".";
-import Doc from "./LoadingStatus.doc.mdx";
+import { Meta, StoryObj } from "@storybook/react";
+import LoadingStatus from ".";
 
-export default {
-  title: "Utility/LoadingStatus",
-  component: LoadingStatusComp,
-  parameters: {
-    docs: { page: Doc },
-  },
-  argTypes: {
-    error: {
-      control: {
-        type: "text",
-      },
-    },
-    loadingMessage: {
-      control: {
-        type: "text",
-      },
-    },
-    children: {
-      control: false,
-    },
-  },
-} as ComponentMeta<typeof LoadingStatusComp>;
-
-const Template: ComponentStory<typeof LoadingStatusComp> = (
-  args: LoadingStatusProps
-) => (
-  <LoadingStatusComp {...args}>
-    <div>Here's some Content that will render when loading completes</div>
-  </LoadingStatusComp>
-);
-
-export const LoadingStatus = Template.bind({});
-LoadingStatus.args = {
-  loading: true,
-  loadingMessage: "Loading, please wait...",
-  error: "",
+const meta: Meta<typeof LoadingStatus> = {
+  title: "Utility/Loading Status",
+  component: LoadingStatus,
 };
 
-// Additional stories go here
+export default meta;
+
+type Story = StoryObj<typeof LoadingStatus>;
+
+export const Primary: Story = {
+  args: {
+    loading: true,
+    loadingMessage: "Loading...",
+    error: "",
+    children: "This is the content",
+  },
+};

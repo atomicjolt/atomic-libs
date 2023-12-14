@@ -1,9 +1,9 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`matches snapshots changes variant 1`] = `
+exports[`matches snapshots > changes variant 1`] = `
 <DocumentFragment>
   <button
-    class="sc-eDvSVe sc-jSUZER bQqXCn edxVjA aje-btn aje-btn--secondary"
+    class="sc-eCAqax sc-jSFipO iFCWcu aje-btn aje-btn--secondary"
     type="button"
   >
     Click Me
@@ -11,18 +11,18 @@ exports[`matches snapshots changes variant 1`] = `
 </DocumentFragment>
 `;
 
-exports[`matches snapshots loading completed state 1`] = `
+exports[`matches snapshots > loading completed state 1`] = `
 <DocumentFragment>
   <button
     aria-label="loading"
-    class="sc-eDvSVe sc-jSUZER bQqXCn edxVjA aje-btn aje-btn--primary is-loading"
+    class="sc-eCAqax sc-jSFipO iFCWcu aje-btn aje-btn--primary is-loading"
     type="button"
   >
     <div
-      class="sc-bcXHqe gqSyei aje-spinner"
+      class="sc-bdnyFh xtELr aje-spinner"
     >
       <span
-        class="sc-hLBbgP kkuUR"
+        class="sc-hKFymg joaTQl"
       />
     </div>
     Click Me
@@ -30,23 +30,23 @@ exports[`matches snapshots loading completed state 1`] = `
 </DocumentFragment>
 `;
 
-exports[`matches snapshots loading state 1`] = `
+exports[`matches snapshots > loading state 1`] = `
 <DocumentFragment>
   <button
     aria-label="loading"
-    class="sc-eDvSVe sc-jSUZER bQqXCn edxVjA aje-btn aje-btn--primary is-loading"
+    class="sc-eCAqax sc-jSFipO iFCWcu aje-btn aje-btn--primary is-loading"
     type="button"
   >
     <div
-      class="sc-bcXHqe gqSyei aje-spinner"
+      class="sc-bdnyFh xtELr aje-spinner"
     >
       <svg
-        class="sc-gswNZR jQYqNE circular-loader"
+        class="sc-gtsqUy fELEhR circular-loader"
         data-testid="spinner-svg"
         viewBox="25 25 50 50"
       >
         <circle
-          class="sc-dkrFOg jOvgpr loader-path"
+          class="sc-dlniIP jXXXQL loader-path"
           cx="50"
           cy="50"
           fill="none"
@@ -59,10 +59,10 @@ exports[`matches snapshots loading state 1`] = `
 </DocumentFragment>
 `;
 
-exports[`matches snapshots normal display 1`] = `
+exports[`matches snapshots > normal display 1`] = `
 <DocumentFragment>
   <button
-    class="sc-eDvSVe sc-jSUZER bQqXCn edxVjA aje-btn aje-btn--primary"
+    class="sc-eCAqax sc-jSFipO iFCWcu aje-btn aje-btn--primary"
     type="button"
   >
     Click Me

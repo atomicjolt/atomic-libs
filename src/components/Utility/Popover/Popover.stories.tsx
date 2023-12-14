@@ -1,19 +1,21 @@
 import React from "react";
 import { createGlobalStyle } from "styled-components";
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 import PopoverComponent, { PopoverWrapper } from ".";
-import { PopoverProps } from "./Popover.types";
-import { CenterDecorator } from "../../storybook";
 
-export default {
+const meta: Meta<typeof PopoverComponent> = {
   title: "Utility/Popover",
   component: PopoverComponent,
+  parameters: {
+    layout: "centered",
+  },
   decorators: [
-    CenterDecorator,
-    (Story) => (
+    (Comp) => (
       <>
+        {/* @ts-ignore */}
         <WrapperStyles />
-        <Story />
+        {/* @ts-ignore */}
+        <Comp />
       </>
     ),
   ],
@@ -22,7 +24,9 @@ export default {
       control: false,
     },
   },
-} as ComponentMeta<typeof PopoverComponent>;
+};
+
+export default meta;
 
 const WrapperStyles = createGlobalStyle`
   .content, .popover-content {
@@ -38,22 +42,21 @@ const WrapperStyles = createGlobalStyle`
   }
 `;
 
-const Template: ComponentStory<typeof PopoverComponent> = (
-  args: PopoverProps
-) => {
-  return (
+type Story = StoryObj<typeof PopoverComponent>;
+
+export const Popover: Story = {
+  render: (props) => (
     <PopoverWrapper>
       <p className="content">Here's the Content</p>
-      <PopoverComponent {...args}>
+      {/* @ts-ignore */}
+      <PopoverComponent {...props}>
         <div className="popover-content">Popover</div>
       </PopoverComponent>
     </PopoverWrapper>
-  );
-};
-
-export const Popover = Template.bind({});
-Popover.args = {
-  show: true,
-  size: "auto",
-  position: "bottom-left",
+  ),
+  args: {
+    show: true,
+    size: "auto",
+    position: "bottom-left",
+  },
 };

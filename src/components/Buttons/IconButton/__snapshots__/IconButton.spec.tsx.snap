@@ -1,16 +1,16 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`matches snapshot 1`] = `
 <DocumentFragment>
   <button
     aria-label="More Button"
-    class="sc-jSUZER sc-gKPRtg hqzEMJ kZORnB aje-btn aje-btn--icon"
+    class="sc-jSFipO sc-gKAaef kUfJLg eNIDq aje-btn aje-btn--icon aje-btn--primary"
     id="IconButton-:r0:-button"
     type="button"
   >
     <i
       aria-hidden="true"
-      class="sc-eDvSVe ekQCtg material-icons is-medium"
+      class="sc-eCAqax dRBnmT material-icons is-medium"
     >
       more_vert
     </i>

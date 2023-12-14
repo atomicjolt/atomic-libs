@@ -1,20 +1,21 @@
 import React from "react";
-import cn from "classnames";
 
 import Button from "../../Buttons/Button";
-import { HasClassName, MaterialIcons, SuggestStrings } from "../../../types";
-import { Banner, BannerMain } from "../Banners.styles";
-import MaterialIcon from "../../Utility/MaterialIcon";
+import {
+  HasChildren,
+  HasClassName,
+  MaterialIconVariants,
+  MaterialIcons,
+} from "../../../types";
+import MaterialIcon from "../../Icons/MaterialIcon";
+import Banner, { BannerVariants } from "../Banner";
+import { ButtonVariants } from "../../Buttons/Buttons.types";
 
-type ActionBannerVariants = SuggestStrings<"variant">;
-
-export interface ActionBannerProps extends HasClassName {
-  /** `aje-banner--${variant}` pre-defined styles for:
-   * - `upgrade`
-   */
-  readonly variant?: ActionBannerVariants;
+export interface ActionBannerProps extends HasChildren, HasClassName {
+  readonly variant?: BannerVariants;
   readonly icon?: MaterialIcons;
-  readonly children: React.ReactNode;
+  readonly iconVariant?: MaterialIconVariants;
+  readonly buttonVariant?: ButtonVariants;
   readonly buttonText: string;
   readonly onClick: () => void;
 }
@@ -22,45 +23,28 @@ export interface ActionBannerProps extends HasClassName {
 /** A view-spanning Banner with an associated `onClick` action */
 export default function ActionBanner(props: ActionBannerProps) {
   const {
-    variant = "upgrade",
-    children,
+    variant = "info",
     icon,
+    iconVariant = "default",
+    buttonVariant = "inverted",
     buttonText,
     onClick,
+    children,
     className,
   } = props;
 
   return (
-    <Banner className={cn(`aje-banner--${variant}`, className)}>
-      {icon && <MaterialIcon icon={icon} />}
-      <BannerMain className="aje-banner__main">{children}</BannerMain>
-      <Button variant="inverted" onClick={onClick}>
-        {buttonText}
-      </Button>
-    </Banner>
-  );
-}
-
-export interface UpgradeBannerProps extends HasClassName {
-  /** The ammount of time left on their trial */
-  time: string;
-  /** The name of the Atomic-App that this applies to */
-  app: string;
-  onClick: () => void;
-}
-
-/** A wrapper around `ActionBanner` */
-export function UpgradeBanner(props: UpgradeBannerProps) {
-  const { time, app, onClick, className } = props;
-  return (
-    <ActionBanner
-      icon="new_releases"
-      variant="upgrade"
-      onClick={onClick}
-      buttonText="Upgrade Now"
+    <Banner
       className={className}
+      variant={variant}
+      beforeContent={icon && <MaterialIcon icon={icon} variant={iconVariant} />}
+      afterContent={
+        <Button onClick={onClick} variant={buttonVariant}>
+          {buttonText}
+        </Button>
+      }
     >
-      Your trial expires in {time}. Upgrade now to re-enable {app}.
-    </ActionBanner>
+      {children}
+    </Banner>
   );
 }

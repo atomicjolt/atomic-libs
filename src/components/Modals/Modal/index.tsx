@@ -10,7 +10,7 @@ import {
   ModalTitle,
   ModalTop,
 } from "../Modals.styles";
-import MaterialIcon from "../../Utility/MaterialIcon";
+import MaterialIcon from "../../Icons/MaterialIcon";
 
 export interface ModalProps extends BaseModalProps {
   /** Must include a title. Titles are always in Title case. */
@@ -65,7 +65,7 @@ function Modal(props: ModalProps) {
           <Button
             variant="secondary"
             type="button"
-            onClick={makeOptionalCallback(primaryAction)}
+            onClick={makeOptionalCallback(secondaryAction)}
           >
             {secondaryButton}
           </Button>
@@ -74,7 +74,7 @@ function Modal(props: ModalProps) {
           <Button
             variant="primary"
             type="button"
-            onClick={makeOptionalCallback(secondaryAction)}
+            onClick={makeOptionalCallback(primaryAction)}
           >
             {primaryButton}
           </Button>
