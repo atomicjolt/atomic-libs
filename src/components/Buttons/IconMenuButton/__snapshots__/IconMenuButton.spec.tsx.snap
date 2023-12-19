@@ -19,7 +19,7 @@ exports[`matches snapshot 1`] = `
         aria-expanded="false"
         aria-haspopup="menu"
         aria-label="Custom dropdown label"
-        class="sc-jSFipO sc-gKAaef kUfJLg cmuEww aje-btn aje-btn--icon aje-btn--primary"
+        class="sc-jSFipO sc-gKAaef kUfJLg gJbvHP aje-btn aje-btn--icon aje-btn--primary"
         id="IconButton-:r1:-button"
         type="button"
       >
