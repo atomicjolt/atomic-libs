@@ -1,0 +1,85 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-iqAbyq eDYVOy"
+  >
+    <button
+      class="sc-jSFipO kUfJLg aje-btn"
+      type="button"
+    >
+      Button
+    </button>
+    <div
+      class="sc-pNWRh ikcnyd aje-menu"
+    >
+      <button
+        aria-controls="IconMenu-:r0:-menu"
+        aria-expanded="false"
+        aria-haspopup="menu"
+        aria-label="Custom dropdown label"
+        class="sc-jSFipO sc-gKAaef kUfJLg gJbvHP aje-btn aje-btn--icon aje-btn--primary"
+        id="IconButton-:r1:-button"
+        type="button"
+      >
+        <i
+          aria-hidden="true"
+          class="sc-eCAqax dRBnmT material-icons is-medium"
+        >
+          more_vert
+        </i>
+      </button>
+      <div
+        class="sc-iCoHzw jzQmut"
+      >
+        <div
+          class="sc-fujznN kNZgZH aje-popover is-auto aje-popover-bottom-right"
+        >
+          <div
+            aria-labelledby="IconMenu-:r0:-button"
+            class="sc-jrsKJM eksYmN aje-menu__dropdown"
+            id="IconMenu-:r0:-menu"
+            role="menu"
+            tabindex="-1"
+          >
+            <button
+              class="sc-kEqXeH dsclas aje-menu__option"
+            >
+              <i
+                aria-hidden="true"
+                class="sc-eCAqax dRBnmT material-icons is-medium"
+              >
+                add_alert
+              </i>
+              Option 1
+            </button>
+            <button
+              class="sc-kEqXeH dsclas aje-menu__option"
+            >
+              <i
+                aria-hidden="true"
+                class="sc-eCAqax dRBnmT material-icons is-medium"
+              >
+                info
+              </i>
+              Option 2
+            </button>
+            <button
+              class="sc-kEqXeH dsclas aje-menu__option"
+            >
+              <i
+                aria-hidden="true"
+                class="sc-eCAqax dRBnmT material-icons is-medium"
+              >
+                alarm_on
+              </i>
+              Option 3
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
