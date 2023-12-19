@@ -6,6 +6,7 @@ export {
 } from "./Banners/DismissableBanner";
 export { default as Button } from "./Buttons/Button";
 export { default as IconButton } from "./Buttons/IconButton";
+export { default as IconMenuButton } from "./Buttons/IconMenuButton";
 export { default as Combobox } from "./Dropdowns/Combobox";
 export { default as CustomSelect } from "./Dropdowns/CustomSelect";
 export { default as Option } from "./Dropdowns/Option";
@@ -38,6 +39,7 @@ export { default as TimePicker } from "./Inputs/DateAndTimes/TimePicker";
 
 export type { ButtonProps } from "./Buttons/Button";
 export type { IconButtonProps } from "./Buttons/IconButton";
+export type { IconMenuButtonProps } from './Buttons/IconMenuButton';
 export type { ComboboxProps } from "./Dropdowns/Combobox/Combobox.types";
 export type { CustomSelectProps } from "./Dropdowns/CustomSelect/CustomSelect.types";
 export type { OptionProps } from "./Dropdowns/Option";
