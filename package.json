@@ -1,6 +1,6 @@
 {
   "name": "@atomicjolt/atomic-elements",
-  "version": "1.0.0-beta.3",
+  "version": "1.0.1",
   "sideEffects": false,
   "module": "dist/esm/index.js",
   "type": "module",
@@ -84,6 +84,5 @@
     "test:ui": "vitest --ui",
     "playground": "vite --config playground/vite.config.ts"
   },
-  "packageManager": "yarn@3.6.4",
-  "stableVersion": "1.0.0-beta.0"
+  "packageManager": "yarn@3.6.4"
 }
