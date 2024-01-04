@@ -1,6 +1,6 @@
 {
   "name": "@atomicjolt/atomic-elements",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0-beta.2",
   "sideEffects": false,
   "module": "dist/esm/index.js",
   "type": "module",
@@ -75,7 +75,7 @@
   },
   "scripts": {
     "storybook": "storybook dev -p 6006",
-    "storybook:cssprops": "python bin/update-css-props.py",
+    "storybook:cssprops": "python3 bin/update-css-props.py",
     "storybook:build": "yarn storybook:cssprops && storybook build",
     "storybook:publish": "yarn storybook:build && gh-pages -f -d storybook-static/",
     "build": "rollup --config rollup.config.ts --configPlugin typescript ",
