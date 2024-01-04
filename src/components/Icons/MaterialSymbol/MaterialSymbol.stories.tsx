@@ -15,7 +15,7 @@ type Story = StoryObj<typeof MaterialSymbol>;
 
 export const Primary: Story = {
   args: {
-    symbol: "check_box_outline_blank",
+    symbol: "label",
     size: "large",
     variant: "outlined",
   },

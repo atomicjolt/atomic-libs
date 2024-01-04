@@ -17,7 +17,6 @@ html a {
 * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  vertical-align: top;
 }
 
 :focus:not(:focus-visible) {

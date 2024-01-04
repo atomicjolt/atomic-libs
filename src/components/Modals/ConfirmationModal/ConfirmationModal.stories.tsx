@@ -14,5 +14,7 @@ export const Primary: Story = {
   args: {
     title: "Confirmation",
     children: "Are you sure you want to proceed?",
+    open: true,
+    confirmText: "Confirm",
   },
 };
