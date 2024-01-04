@@ -4,4 +4,4 @@ yarn-error.log
 storybook-static
 .storybook/props.js
 .yarn/cache
-.yarn/install-stage.gz
+.yarn/install-state.gz
