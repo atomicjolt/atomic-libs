@@ -13,5 +13,7 @@ type Story = StoryObj<typeof BasicModal>;
 export const Primary: Story = {
   args: {
     children: "Modal Content",
+    open: true,
+    centered: true,
   },
 };

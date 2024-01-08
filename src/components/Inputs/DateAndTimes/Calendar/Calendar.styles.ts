@@ -82,6 +82,7 @@ export const CalendarHeaderSelectors = styled.div`
 `;
 
 export const CalendarNavigationButton = styled.button`
+  vertical-align: top;
   padding: 0;
   background-color: transparent;
   border: none;
