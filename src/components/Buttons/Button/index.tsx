@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { forwardRef, useRef } from "react";
 import cn from "classnames";
 import { AriaButtonOptions, useButton } from "react-aria";
 
@@ -11,6 +11,7 @@ import {
 } from "../../../types";
 import { StyledButton } from "./Button.styles";
 import { ButtonVariants } from "../Buttons.types";
+import useForwardedRef from "../../../hooks/useForwardedRef";
 
 type ButtonProps = AriaButtonOptions<"button"> &
   LoadingProps &
@@ -18,9 +19,9 @@ type ButtonProps = AriaButtonOptions<"button"> &
   HasChildren &
   HasVariant<ButtonVariants>;
 
-export default function Button(props: ButtonProps) {
-  const ref = useRef<HTMLButtonElement>(null);
-  const { buttonProps, isPressed } = useButton(props, ref);
+const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
+  const internalRef = useForwardedRef<HTMLButtonElement>(null);
+  const { buttonProps, isPressed } = useButton(props, internalRef);
   const {
     children,
     variant = "primary",
@@ -45,4 +46,6 @@ export default function Button(props: ButtonProps) {
       {children}
     </StyledButton>
   );
-}
+});
+
+export default Button;

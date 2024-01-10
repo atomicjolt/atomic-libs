@@ -1,51 +1,49 @@
 import React, { useRef } from "react";
-import cn from "classnames";
-import useRelativePosition from "../../../hooks/useRelativePosition";
-import { StyledPopover } from "./Popover.styles";
-import { PopoverPosition, PopoverProps } from "./Popover.types";
-import { defaultPositionNegotiator } from "./positioning";
+import { DismissButton, Overlay, usePopover } from "react-aria";
+import type { AriaPopoverProps } from "react-aria";
+import type { OverlayTriggerState } from "react-stately";
+import { HasClassName } from "../../../types";
+import classNames from "classnames";
 
-export { PopoverWrapper } from "./Popover.styles";
+export function PopoverWrapper({ children }) {
+  return <div style={{ position: "relative" }}>{children}</div>;
+}
 
-// TODO: figure out a way to get the popover to
-// reset back to it's original position when it can
+export interface PopoverProps
+  extends Omit<AriaPopoverProps, "popoverRef">,
+    HasClassName {
+  children: React.ReactNode;
+  state: OverlayTriggerState;
+}
 
-/**
- * The Popover component is intended as a simple primitive to
- * place one component relative to another. It is used to implement the
- * dropdowns for the `<CustomSelect />` among other things.
- *
- * The Popover is positioned absolutley, so you need to add a position relative
- * ancestor for it to be placed around. @atomicjolt/atomic-elements provides `<PopoverWrapper />` as
- * a convenience component to do that for you.
- */
-export default function Popover(props: PopoverProps) {
-  const {
-    children,
-    show,
-    size = "auto",
-    position: initialPosition = "bottom-left",
-    negotiatePosition = defaultPositionNegotiator,
-    className,
-  } = props;
-  const ref = useRef<HTMLDivElement>(null);
-
-  const position = useRelativePosition<PopoverPosition>(ref, {
-    initialPosition: initialPosition,
-    positionaNegotiator: negotiatePosition,
-  });
-
-  const classNames = cn(
-    "aje-popover",
-    className,
-    `is-${size}`,
-    `aje-popover-${position}`,
-    { "is-visible": show }
+export default function Popover({
+  children,
+  state,
+  offset = 8,
+  ...props
+}: PopoverProps) {
+  let popoverRef = useRef(null);
+  let { popoverProps, underlayProps } = usePopover(
+    {
+      ...props,
+      offset,
+      popoverRef,
+    },
+    state
   );
 
   return (
-    <StyledPopover ref={ref} className={classNames}>
-      {children}
-    </StyledPopover>
+    <Overlay>
+      <div {...underlayProps} className="aje-popover-underlay" />
+      <div
+        {...popoverProps}
+        ref={popoverRef}
+        className={classNames("aje-popover", props.className)}
+      >
+        <DismissButton onDismiss={state.close} />
+        {children}
+        <DismissButton onDismiss={state.close} />
+      </div>
+    </Overlay>
   );
 }

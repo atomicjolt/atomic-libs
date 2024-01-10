@@ -7,9 +7,10 @@ import Buttons from "./tabs/Buttons";
 import Modals from "./tabs/Modals";
 import Scrollings from "./tabs/Scrollings";
 import Dates from "./tabs/Dates";
+import AriaComponents from "./tabs/AriaComponents";
 
 function Playground() {
-  const [currentTab, setCurrentTab] = useState("buttons");
+  const [currentTab, setCurrentTab] = useState("aria");
 
   return (
     <div className="padder" style={{ height: "100%" }}>
@@ -20,6 +21,7 @@ function Playground() {
           <Tabs.Link to="buttons">Buttons</Tabs.Link>
           <Tabs.Link to="modal">Modals</Tabs.Link>
           <Tabs.Link to="scrolling">Scrolling</Tabs.Link>
+          <Tabs.Link to="aria">Aria</Tabs.Link>
         </Tabs.Navigation>
         <Tabs.Content>
           <Tabs.Tab name="inputs">
@@ -36,6 +38,9 @@ function Playground() {
           </Tabs.Tab>
           <Tabs.Tab name="scrolling">
             <Scrollings />
+          </Tabs.Tab>
+          <Tabs.Tab name="aria">
+            <AriaComponents />
           </Tabs.Tab>
         </Tabs.Content>
       </Tabs>
