@@ -1,26 +1,35 @@
 import React from "react";
 import { Button, IconButton, IconMenu } from "../elements";
+import { Item, Section } from "react-stately";
 
 export default function Buttons() {
   return (
     <>
       <div className="padder">
-        <div className="primary">
-          <Button>Primary</Button>
-        </div>
+        <Button onPress={() => console.log("hi")}>Primary</Button>
         <Button variant="secondary">Secondary</Button>
         <Button variant="success">Success</Button>
         <Button variant="error">Error</Button>
         <Button variant="inverted">Inverted</Button>
       </div>
       <div className="padder">
-        <IconButton icon="more_vert" ariaLabel="more" />
+        <IconButton icon="more_vert" aria-label="more" loading />
       </div>
       <div className="padder">
-        <IconMenu icon="more_vert" label="more">
+        {/* <IconMenu icon="more_vert" label="more">
           <IconMenu.Item>Test</IconMenu.Item>
           <IconMenu.Item>Test</IconMenu.Item>
           <IconMenu.Item>Test</IconMenu.Item>
+        </IconMenu> */}
+        <IconMenu>
+          <Item key="1">Test</Item>
+          <Item key="2">Test</Item>
+          <Item key="3">Test</Item>
+          <Section title="Section">
+            <Item key="4">Test</Item>
+            <Item key="5">Test</Item>
+            <Item key="6">Test</Item>
+          </Section>
         </IconMenu>
       </div>
     </>

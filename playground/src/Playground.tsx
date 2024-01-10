@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./playground.scss";
+// import "./playground.scss";
 
 import { Tabs } from "./elements";
 import Inputs from "./tabs/Inputs";

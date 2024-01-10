@@ -24,7 +24,7 @@ export const BaseStyledButton = styled.button`
     background-color: var(--btn-hover-bg-clr);
     box-shadow: var(--btn-hover-shadow);
   }
-  &:active {
+  &.is-active {
     transform: translateY(1px);
   }
   &:focus-visible {

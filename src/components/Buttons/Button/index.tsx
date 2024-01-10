@@ -1,41 +1,33 @@
-import React from "react";
+import React, { useRef } from "react";
 import cn from "classnames";
+import { AriaButtonOptions, useButton } from "react-aria";
+
 import Spinner from "../../Loaders/Spinner";
-import { HasClassName, LoadingProps } from "../../../types";
+import {
+  HasChildren,
+  HasClassName,
+  HasVariant,
+  LoadingProps,
+} from "../../../types";
 import { StyledButton } from "./Button.styles";
 import { ButtonVariants } from "../Buttons.types";
 
-interface CommonProps extends HasClassName {
-  /** What to render within the Button */
-  children?: React.ReactNode;
-  /** Added to the button's className as: `aje-btn--${variant}`. Builtin styles for:
-   * - `primary`
-   * - `secondary`
-   * - `success`
-   * - `error`
-   * - `inverted`
-   * - `content`
-   */
-  variant?: ButtonVariants;
-  type?: "submit" | "reset" | "button";
-  disabled?: boolean;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
-}
-
-export type ButtonProps = CommonProps & LoadingProps & React.AriaAttributes;
+type ButtonProps = AriaButtonOptions<"button"> &
+  LoadingProps &
+  HasClassName &
+  HasChildren &
+  HasVariant<ButtonVariants>;
 
 export default function Button(props: ButtonProps) {
+  const ref = useRef<HTMLButtonElement>(null);
+  const { buttonProps, isPressed } = useButton(props, ref);
   const {
     children,
-    type = "button",
     variant = "primary",
-    disabled = false,
     loading = false,
     loadingLabel = "loading",
     loadingComplete = false,
-    onClick,
     className,
-    ...rest
   } = props;
 
   const loadingText = loading ? loadingLabel : "";
@@ -43,13 +35,11 @@ export default function Button(props: ButtonProps) {
   return (
     <StyledButton
       aria-label={loadingText || undefined}
-      type={type}
       className={cn("aje-btn", `aje-btn--${variant}`, className, {
         "is-loading": loading,
+        "is-active": isPressed,
       })}
-      onClick={onClick}
-      disabled={disabled}
-      {...rest}
+      {...buttonProps}
     >
       {loading && <Spinner loading={!loadingComplete} />}
       {children}

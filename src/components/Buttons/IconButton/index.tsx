@@ -1,62 +1,58 @@
-import React from "react";
+import React, { forwardRef, useImperativeHandle, useRef } from "react";
 import cn from "classnames";
 import {
   HasClassName,
   HasIcon,
+  HasVariant,
   LoadingProps,
-  SuggestStrings,
 } from "../../../types";
 import Spinner from "../../Loaders/Spinner";
 import MaterialIcon from "../../Icons/MaterialIcon";
 import { useIds, useVariantClass } from "../../../hooks";
 import { StyledIconButton } from "./IconButton.styles";
 import { ButtonVariants } from "../Buttons.types";
+import { AriaButtonOptions, useButton } from "react-aria";
+import useForwardedRef from "../../../hooks/useForwardedRef";
 
-interface BaseProps extends HasClassName, HasIcon {
-  /** Label for the button, because IconButton does not contain text, this should always be present */
-  ariaLabel: string;
-  disabled?: boolean;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
-  variant?: ButtonVariants;
-}
-
-export type IconButtonProps = BaseProps & LoadingProps & React.AriaAttributes;
+type IconButtonProps = AriaButtonOptions<"button"> &
+  LoadingProps &
+  HasClassName &
+  HasVariant<ButtonVariants> &
+  HasIcon;
 
 /** Icon Button Component */
-export default function IconButton(props: IconButtonProps) {
-  const {
-    icon,
-    ariaLabel,
-    disabled,
-    onClick,
-    loading,
-    loadingComplete,
-    loadingLabel,
-    variant = "primary",
-    iconVariant = "default",
-    className,
-    ...rest
-  } = props;
+const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
+  (props, ref) => {
+    const {
+      icon,
+      loading,
+      loadingComplete,
+      loadingLabel,
+      variant = "primary",
+      iconVariant = "default",
+      className,
+    } = props;
+    const innerRef = useForwardedRef<HTMLButtonElement>(ref);
+    const { buttonProps, isPressed } = useButton(props, innerRef);
+    const variantClass = useVariantClass("aje-btn", variant);
 
-  const [buttonId] = useIds("IconButton", ["button"]);
-
-  const variantClass = useVariantClass("aje-btn", variant);
-
-  return (
-    <StyledIconButton
-      id={buttonId}
-      className={cn("aje-btn aje-btn--icon", variantClass, className)}
-      type="button"
-      onClick={onClick}
-      disabled={disabled}
-      aria-label={loading && loadingLabel ? loadingLabel : ariaLabel}
-      {...rest}
-    >
-      {loading ? (
-        <Spinner loading={!loadingComplete} />
-      ) : (
+    return (
+      <StyledIconButton
+        className={cn("aje-btn aje-btn--icon", variantClass, className, {
+          "is-loading": loading,
+          "is-active": isPressed,
+        })}
+        type="button"
+        aria-label={
+          loading && loadingLabel ? loadingLabel : buttonProps["aria-label"]
+        }
+        {...buttonProps}
+      >
+        {loading && <Spinner loading={!loadingComplete} />}
         <MaterialIcon icon={icon} variant={iconVariant} />
-      )}
-    </StyledIconButton>
-  );
-}
+      </StyledIconButton>
+    );
+  }
+);
+
+export default IconButton;
