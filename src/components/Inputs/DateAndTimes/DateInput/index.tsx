@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import cn from "classnames";
 import { InputComponentProps } from "../../../../types";
 import {
@@ -79,7 +79,7 @@ interface DateSegmentProps {
 
 function DateSegment(props: DateSegmentProps) {
   const { segment, state } = props;
-  let ref = React.useRef(null);
+  let ref = useRef(null);
   let { segmentProps } = useDateSegment(segment, state, ref);
 
   const className = cn("aje-input__segment", {

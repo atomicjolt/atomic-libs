@@ -40,7 +40,7 @@ export const CalendarWrapper = styled.div`
 export const CalendarHeader = styled.div`
   display: grid;
   grid-template-columns: 1.1fr 1fr;
-  margin: 15px;
+  margin: 0 15px;
   margin-bottom: 5px;
 `;
 
