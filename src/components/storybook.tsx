@@ -16,6 +16,19 @@ export const DefaultInputProperties: InputElementProps<Element> &
   autoFocus: false,
 };
 
+export const NewDefaultInputProperties = {
+  label: "",
+  hideLabel: false,
+  errorMessage: "",
+  message: "",
+  isDisabled: false,
+  isRequired: false,
+  readOnly: false,
+  placeholder: "",
+  size: "medium",
+  autoFocus: false,
+};
+
 interface Options {
   filter?: string[];
   merge?: Object;
@@ -129,8 +142,59 @@ export const CommonInputControls = {
       category: "Common",
     },
   },
-  autoFocus: {
+};
+
+export const NewCommonInputControls = {
+  label: {
+    control: "text",
+    table: {
+      category: "Common",
+    },
+  },
+  hideLabel: {
     control: "boolean",
+    table: {
+      category: "Common",
+    },
+  },
+  errorMessage: {
+    control: "text",
+    table: {
+      category: "Common",
+    },
+  },
+  message: {
+    control: "text",
+    table: {
+      category: "Common",
+    },
+  },
+  isDisabled: {
+    control: "boolean",
+    table: {
+      category: "Common",
+    },
+  },
+  isRequired: {
+    control: "boolean",
+    table: {
+      category: "Common",
+    },
+  },
+  size: {
+    control: "select",
+    table: {
+      category: "Common",
+    },
+  },
+  placeholder: {
+    control: "text",
+    table: {
+      category: "Common",
+    },
+  },
+  name: {
+    control: "text",
     table: {
       category: "Common",
     },
@@ -140,6 +204,11 @@ export const CommonInputControls = {
 export const InputControls = {
   ...CallbackControls,
   ...CommonInputControls,
+};
+
+export const NewInputControls = {
+  ...CallbackControls,
+  ...NewCommonInputControls,
 };
 
 export const TextInputControls = {
@@ -157,6 +226,28 @@ export const TextInputControls = {
     },
   },
   readOnly: {
+    control: "boolean",
+    table: {
+      category: "Common",
+    },
+  },
+};
+
+export const NewTextInputControls = {
+  ...NewInputControls,
+  autoFocus: {
+    control: "boolean",
+    table: {
+      category: "Common",
+    },
+  },
+  defaultValue: {
+    control: "text",
+    table: {
+      category: "Common",
+    },
+  },
+  isReadOnly: {
     control: "boolean",
     table: {
       category: "Common",

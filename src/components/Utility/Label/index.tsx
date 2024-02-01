@@ -8,11 +8,11 @@ import {
 } from "../../../styles/utils";
 
 export interface LabelProps extends HasChildren, HasClassName {
-  message?: string;
-  htmlFor: string;
+  message?: React.ReactNode;
+  htmlFor?: string;
   hidden?: boolean;
   id?: string;
-  error?: string;
+  error?: React.ReactNode;
 }
 
 export default function Label(props: LabelProps) {

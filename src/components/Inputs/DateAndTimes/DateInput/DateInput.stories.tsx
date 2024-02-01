@@ -1,31 +1,52 @@
 import { Meta, StoryObj } from "@storybook/react";
 import DateInputComponnent, { DateInputProps } from ".";
-import { DefaultInputProperties, TextInputControls } from "../../../storybook";
+import { now, getLocalTimeZone } from "@internationalized/date";
+import {
+  NewDefaultInputProperties,
+  NewTextInputControls,
+} from "../../../storybook";
 
 export default {
   title: "Inputs/Date & Time/DateInput",
   component: DateInputComponnent,
+
   argTypes: {
+    ...NewTextInputControls,
     value: {
-      control: "date",
+      control: false,
     },
-    ...TextInputControls,
-    onSelect: {
-      control: "false",
-      table: {
-        category: "Events",
-      },
+    defaultValue: {
+      control: false,
+    },
+    // TODO: hide the placeholder control
+    // placeholder: {
+    //   control: false,
+    // },
+    granularity: {
+      control: "select",
+      options: ["day", "hour", "minute", "second"],
     },
   },
 } as Meta<typeof DateInputComponnent>;
 
 type Story = StoryObj<typeof DateInputComponnent>;
 
-export const DateInput: Story = {
+const date = now(getLocalTimeZone());
+
+export const Primary: Story = {
   args: {
-    value: new Date(),
-    ...DefaultInputProperties,
+    defaultValue: date,
+    ...NewDefaultInputProperties,
     label: "Date input",
-    placeholder: "mm/dd/yyy",
+    size: "small",
+    hideTimeZone: true,
+    isInvalid: false,
+  },
+};
+
+export const DayGranularity: Story = {
+  args: {
+    ...Primary.args,
+    granularity: "day",
   },
 };

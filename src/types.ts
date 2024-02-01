@@ -76,7 +76,7 @@ export interface InputElementProps<E extends Element = HTMLInputElement>
 export interface InputComponentProps extends HasClassName {
   // Required
   /** Must include a label. Labels are always Sentence case. */
-  readonly label: string;
+  readonly label: React.ReactNode;
 
   // Optional
   /** The select size should reflect the size of its content. */
@@ -89,7 +89,7 @@ export interface InputComponentProps extends HasClassName {
   /** Error text should be descriptive and explicit in meaning. */
   readonly error?: React.ReactNode;
   /** For additional information (ex. date format mm/dd/yy) */
-  readonly message?: string;
+  readonly message?: React.ReactNode;
 }
 
 export interface InputProps<

@@ -5,16 +5,19 @@ import { ComponentWrapper } from "../../styles/utils";
 export const InputWrapper = styled(ComponentWrapper)`
   &.is-small {
     input,
-    select {
+    select,
+    .aje-input__date-segments {
       width: var(--input-width-sm, 100px);
     }
+
     textarea {
       min-height: var(--textarea-height-sm);
     }
   }
   &.is-medium {
     input,
-    select {
+    select,
+    .aje-input__date-segments {
       width: var(--input-width-md, 200px);
     }
     textarea {
@@ -23,9 +26,11 @@ export const InputWrapper = styled(ComponentWrapper)`
   }
   &.is-large {
     input,
-    select {
+    select,
+    .aje-input__date-segments {
       width: var(--input-width-lg, 300px);
     }
+
     textarea {
       min-height: var(--textarea-height-lg);
     }
@@ -37,21 +42,15 @@ export const InputWrapper = styled(ComponentWrapper)`
   }
   &.is-auto {
     input,
-    select {
+    select,
+    .aje-input__date-segements {
       max-width: none;
       width: auto;
     }
   }
 
   &.has-error {
-    input,
-    select {
-      --input-border-color: var(--error700);
-
-      &:focus {
-        outline-color: var(--error700);
-      }
-    }
+    --input-outline: 1px solid var(--error700);
   }
 
   &.is-disabled {
