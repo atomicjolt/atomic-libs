@@ -1,19 +1,22 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { add } from "date-fns";
+import { today, getLocalTimeZone } from "@internationalized/date";
 import Calendar from ".";
 
 const meta: Meta<typeof Calendar> = {
   title: "Inputs/Date & Time/Calendar",
   component: Calendar,
+  parameters: {
+    layout: "centered",
+  },
   argTypes: {
-    date: {
-      control: "date",
-    },
-    onSelect: {
+    value: {
       control: false,
     },
-    interval: {
+    onChange: {
       control: false,
+      table: {
+        category: "Events",
+      },
     },
   },
 };
@@ -24,29 +27,30 @@ type Story = StoryObj<typeof Calendar>;
 
 export const Primary: Story = {
   args: {
-    date: new Date(),
-    showNeighbors: true,
-    showEra: false,
     size: "medium",
-    interval: false,
-    disabled: false,
-    withTime: false,
+    isDisabled: false,
+    isInvalid: false,
+    isReadOnly: false,
+    errorMessage: "",
   },
 };
 
-export const WithInterval: Story = {
-  args: {
-    date: [new Date(), add(new Date(), { days: 5 })],
-    interval: true,
-    showNeighbors: true,
-    showEra: false,
-    size: "medium",
-  },
-};
+const date = today(getLocalTimeZone());
+const minValue = date.set({ month: date.month - 1 });
+const maxValue = date.set({ month: date.month + 1 });
 
-export const WithTime: Story = {
+export const WithDefaultValue: Story = {
   args: {
     ...Primary.args,
-    withTime: true,
+    defaultValue: date,
+  },
+};
+
+export const WithMaxAndMinValues: Story = {
+  args: {
+    ...Primary.args,
+    defaultValue: date,
+    minValue,
+    maxValue,
   },
 };

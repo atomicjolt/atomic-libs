@@ -1,7 +1,10 @@
-import React from "react";
-import { IconMenu, Item, Section } from "../elements";
+import React, { useState } from "react";
+import { Calendar, IconMenu, Item, Section } from "../elements";
+import { parseDate } from "@internationalized/date";
 
 export default function AriaComponents() {
+  const [date, setDate] = useState(parseDate("2021-01-01"));
+
   return (
     <div
       style={{
@@ -11,16 +14,7 @@ export default function AriaComponents() {
         height: "80vh",
       }}
     >
-      <div>
-        <IconMenu onAction={console.log} icon="more_vert">
-          <Item key="item1">Item 1</Item>
-          <Item key="item2">Item 2</Item>
-          <Section title="Section 1">
-            <Item key="item3">Item 3</Item>
-            <Item key="item4">Item 4 </Item>
-          </Section>
-        </IconMenu>
-      </div>
+      <Calendar value={date} onChange={setDate} isInvalid />
     </div>
   );
 }
