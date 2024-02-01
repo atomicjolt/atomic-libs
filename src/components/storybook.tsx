@@ -23,7 +23,7 @@ export const NewDefaultInputProperties = {
   message: "",
   isDisabled: false,
   isRequired: false,
-  readOnly: false,
+  isReadOnly: false,
   placeholder: "",
   size: "medium",
   autoFocus: false,

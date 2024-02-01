@@ -31,10 +31,11 @@ import {
 import IconButton from "../../../Buttons/IconButton";
 import Button from "../../../Buttons/Button";
 import { ErrorLabel } from "../../../../styles/utils";
+import { LimitedSizes } from "../../../../types";
 
 export interface CalendarProps<T extends DateValue>
   extends AriaCalendarProps<T> {
-  size?: "small" | "medium" | "large";
+  size?: LimitedSizes;
 }
 
 /**

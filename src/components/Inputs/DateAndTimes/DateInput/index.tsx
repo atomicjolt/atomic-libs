@@ -51,9 +51,11 @@ const DateInput = React.forwardRef<HTMLInputElement, DateInputProps<any>>(
         required={props.isRequired}
         size={size}
       >
-        <Label {...labelProps} message={message} hidden={hideLabel}>
-          {props.label}
-        </Label>
+        {props.label && (
+          <Label {...labelProps} message={message} hidden={hideLabel}>
+            {props.label}
+          </Label>
+        )}
         <DateSegments
           {...fieldProps}
           ref={ref}

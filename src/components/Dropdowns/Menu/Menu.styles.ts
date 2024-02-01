@@ -1,5 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import mixins from "../../../styles/mixins";
+import { scaleAnimation } from "../../../styles/animations";
 
 const scale = keyframes`
   from {
@@ -18,8 +19,7 @@ export const MenuList = styled.ul`
   background-color: var(--neutral50);
   padding: 8px 0;
   z-index: 100;
-  transform-origin: top;
-  animation: ${scale} 0.2s ease-in-out;
+  ${scaleAnimation}
 `;
 
 export const SubMenuList = styled.ul`

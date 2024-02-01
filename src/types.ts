@@ -92,6 +92,23 @@ export interface InputComponentProps extends HasClassName {
   readonly message?: React.ReactNode;
 }
 
+export interface NewInputComponentProps extends HasClassName {
+  // Required
+  /** Must include a label. Labels are always Sentence case. */
+  readonly label: React.ReactNode;
+
+  // Optional
+  /** The select size should reflect the size of its content. */
+  readonly size?: Sizes;
+  /** Only use in very specific circumstances.
+   * This hides the label from view, but still allows
+   * screen readers to read the label. (A filter dropdown with a
+   * clear meaning could potentially be a use case.) */
+  readonly hideLabel?: boolean;
+  /** For additional information (ex. date format mm/dd/yy) */
+  readonly message?: React.ReactNode;
+}
+
 export interface InputProps<
   T,
   E extends Element = HTMLInputElement,
@@ -123,7 +140,8 @@ export type SortDirection = "ascending" | "descending" | undefined;
 
 export type HTMLInputValueAttribute = string | ReadonlyArray<string> | number;
 
-export type Sizes = "small" | "medium" | "large" | "auto" | "full";
+export type LimitedSizes = "small" | "medium" | "large";
+export type Sizes = LimitedSizes | "auto" | "full";
 
 export type HTMLInputTypeAttribute =
   | "button"

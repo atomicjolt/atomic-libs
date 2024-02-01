@@ -2,6 +2,8 @@ import styled from "styled-components";
 import mixins from "../../styles/mixins";
 import { ComponentWrapper } from "../../styles/utils";
 
+// TODO: consider if we want all these styled compiled together like this
+
 export const InputWrapper = styled(ComponentWrapper)`
   &.is-small {
     input,
@@ -36,7 +38,8 @@ export const InputWrapper = styled(ComponentWrapper)`
     }
   }
   &.is-full {
-    .aje-input__select {
+    .aje-input__select,
+    .aje-input__date-segments {
       width: 100%;
     }
   }
@@ -49,19 +52,7 @@ export const InputWrapper = styled(ComponentWrapper)`
     }
   }
 
-  &.has-error {
-    --input-outline: 1px solid var(--error700);
-  }
-
-  &.is-disabled {
-    opacity: 0.5;
-  }
-
-  &.is-required {
-    label::after {
-      content: " *";
-    }
-  }
+  ${mixins.InputWrapper}
 `;
 
 export const Input = styled.input`

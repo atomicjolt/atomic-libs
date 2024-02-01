@@ -33,4 +33,19 @@ export default {
     /* Firefox */
     scrollbar-width: none;
   `,
+  InputWrapper: css`
+    &.is-required {
+      label::after {
+        content: " *";
+      }
+    }
+
+    &.has-error {
+      --input-outline: 1px solid var(--error700);
+    }
+
+    &.is-disabled {
+      opacity: 0.5;
+    }
+  `,
 };
