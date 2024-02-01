@@ -164,7 +164,7 @@ export interface HasIcon {
   iconVariant?: MaterialIconVariants;
 }
 
-export type CanHavIcon = Partial<HasIcon>;
+export type CanHaveIcon = Partial<HasIcon>;
 
 export type MaterialIcons =
   | "search"

@@ -36,7 +36,7 @@ function ToolTipContent({ state, ...props }) {
   );
 }
 
-interface ToolTipProps extends TooltipTriggerProps, HasChildren {
+export interface ToolTipProps extends TooltipTriggerProps, HasChildren {
   tip: React.ReactNode;
 }
 

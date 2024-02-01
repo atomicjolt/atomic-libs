@@ -13,7 +13,7 @@ import { StyledButton } from "./Button.styles";
 import { ButtonVariants } from "../Buttons.types";
 import useForwardedRef from "../../../hooks/useForwardedRef";
 
-type ButtonProps = AriaButtonOptions<"button"> &
+export type ButtonProps = AriaButtonOptions<"button"> &
   LoadingProps &
   HasClassName &
   HasChildren &

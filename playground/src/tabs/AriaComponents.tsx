@@ -1,37 +1,26 @@
-import React, { useRef } from "react";
-import { useOverlayTrigger } from "react-aria";
-import { useOverlayTriggerState } from "react-stately";
-import { Button, Popover, ToolTip } from "../elements";
-
-function PopoverTrigger({ label, children, ...props }) {
-  let ref = useRef(null);
-  let state = useOverlayTriggerState(props);
-  let { triggerProps, overlayProps } = useOverlayTrigger(
-    { type: "dialog" },
-    state,
-    ref
-  );
-
-  return (
-    <>
-      <Button {...triggerProps} ref={ref}>
-        {label}
-      </Button>
-      {state.isOpen && (
-        <Popover {...props} triggerRef={ref} state={state}>
-          {React.cloneElement(children, overlayProps)}
-        </Popover>
-      )}
-    </>
-  );
-}
+import React from "react";
+import { IconMenu, Item, Section } from "../elements";
 
 export default function AriaComponents() {
   return (
-    <div>
-      <ToolTip tip="Test" delay={0} closeDelay={0}>
-        <Button>Test</Button>
-      </ToolTip>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "80vh",
+      }}
+    >
+      <div>
+        <IconMenu onAction={console.log} icon="more_vert">
+          <Item key="item1">Item 1</Item>
+          <Item key="item2">Item 2</Item>
+          <Section title="Section 1">
+            <Item key="item3">Item 3</Item>
+            <Item key="item4">Item 4 </Item>
+          </Section>
+        </IconMenu>
+      </div>
     </div>
   );
 }

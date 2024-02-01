@@ -36,10 +36,11 @@ export { default as ToolTip } from "./Utility/ToolTip";
 export { default as Calendar } from "./Inputs/DateAndTimes/Calendar";
 export { default as DateInput } from "./Inputs/DateAndTimes/DateInput";
 export { default as TimePicker } from "./Inputs/DateAndTimes/TimePicker";
+export { Item, Section } from "./Utility/Helpers";
 
 export type { ButtonProps } from "./Buttons/Button";
 export type { IconButtonProps } from "./Buttons/IconButton";
-export type { IconMenuButtonProps } from './Buttons/IconMenuButton';
+export type { IconMenuButtonProps } from "./Buttons/IconMenuButton";
 export type { ComboboxProps } from "./Dropdowns/Combobox/Combobox.types";
 export type { CustomSelectProps } from "./Dropdowns/CustomSelect/CustomSelect.types";
 export type { OptionProps } from "./Dropdowns/Option";

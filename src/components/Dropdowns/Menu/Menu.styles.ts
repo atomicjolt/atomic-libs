@@ -1,23 +1,46 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import mixins from "../../../styles/mixins";
 
-export const IconMenuWrapper = styled.div`
-  position: relative;
-  display: inline-block;
-  color: var(--text-clr);
+const scale = keyframes`
+  from {
+    transform: scaleY(0.9);
+  }
+
+  to {
+    transform: scaleY(1);
+  }
 `;
 
-export const IconMenuDropdown = styled.div`
+export const MenuList = styled.ul`
+  list-style: none;
   border-radius: 5px;
   box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.5);
   background-color: var(--neutral50);
   padding: 8px 0;
   z-index: 100;
-  transform: scaleY(0.9);
   transform-origin: top;
+  animation: ${scale} 0.2s ease-in-out;
 `;
 
-export const IconMenuOption = styled.button`
+export const SubMenuList = styled.ul`
+  list-style: none;
+  padding: 0px;
+`;
+
+export const MenuSectionSeperator = styled.li`
+  margin: 2px 5px;
+  border-top: 1px solid var(--neutral300);
+`;
+
+export const MenuSectionTitle = styled.span`
+  ${mixins.Regular}
+  margin: 8px 16px;
+  color: var(--neutral400);
+  font-size: 1.4rem;
+  line-height: 1;
+`;
+
+export const MenuOption = styled.li`
   ${mixins.Regular}
   position: relative;
   display: flex;
@@ -43,8 +66,10 @@ export const IconMenuOption = styled.button`
     --option-bg-clr: var(--neutral100);
     cursor: pointer;
   }
-  &:active {
+  &:active,
+  &:focus-visible {
     --option-bg-clr: var(--neutral200);
+    outline: none;
   }
   &.is-focused {
     --option-bg-clr: var(--primary700);

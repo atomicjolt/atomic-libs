@@ -171,6 +171,24 @@ export const UncontrolledInputControls = {
   },
 };
 
+export const PlacementArgType = {
+  control: "select",
+  options: [
+    "bottom",
+    "bottom start",
+    "bottom end",
+    "top",
+    "top start",
+    "top end",
+    "left",
+    "left start",
+    "left end",
+    "right",
+    "right start",
+    "right end",
+  ],
+};
+
 export const PurpleButtonStyles = createGlobalStyle`
 .aje-btn--purple {
   --btn-bg-clr: purple;

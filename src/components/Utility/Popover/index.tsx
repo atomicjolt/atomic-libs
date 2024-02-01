@@ -3,11 +3,10 @@ import { DismissButton, Overlay, usePopover } from "react-aria";
 import type { AriaPopoverProps } from "react-aria";
 import type { OverlayTriggerState } from "react-stately";
 import { HasClassName } from "../../../types";
-import classNames from "classnames";
+import cn from "classnames";
+import { PopoverUnderlay, PopoverContent } from "./Popover.styles";
 
-export function PopoverWrapper({ children }) {
-  return <div style={{ position: "relative" }}>{children}</div>;
-}
+export { PopoverWrapper } from "./Popover.styles";
 
 export interface PopoverProps
   extends Omit<AriaPopoverProps, "popoverRef">,
@@ -34,16 +33,16 @@ export default function Popover({
 
   return (
     <Overlay>
-      <div {...underlayProps} className="aje-popover-underlay" />
-      <div
+      <PopoverUnderlay {...underlayProps} className="aje-popover-underlay" />
+      <PopoverContent
         {...popoverProps}
         ref={popoverRef}
-        className={classNames("aje-popover", props.className)}
+        className={cn("aje-popover", props.className)}
       >
         <DismissButton onDismiss={state.close} />
         {children}
         <DismissButton onDismiss={state.close} />
-      </div>
+      </PopoverContent>
     </Overlay>
   );
 }

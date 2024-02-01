@@ -1,6 +1,8 @@
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import IconMenu from ".";
+import { PlacementArgType } from "../../storybook";
+import { Item, Section } from "../../";
 
 const meta: Meta<typeof IconMenu> = {
   title: "Dropdowns/IconMenu",
@@ -24,18 +26,16 @@ const meta: Meta<typeof IconMenu> = {
       control: "select",
       options: ["default", "outlined", "round", "sharp", "two-tone"],
     },
-    position: {
-      control: "select",
-      options: [
-        "top",
-        "bottom",
-        "left",
-        "right",
-        "bottom-right",
-        "bottom-left",
-        "top-right",
-        "top-left",
-      ],
+    placement: {
+      ...PlacementArgType,
+    },
+    children: {
+      control: false,
+    },
+    onAction: {
+      table: {
+        category: "Events",
+      },
     },
   },
 };
@@ -45,24 +45,28 @@ export default meta;
 type Story = StoryObj<typeof IconMenu>;
 
 export const Primary: Story = {
-  render: (args) => (
-    <IconMenu {...args}>
-      <IconMenu.Item icon="add_alert" onClick={() => {}}>
-        Option 1
-      </IconMenu.Item>
-      <IconMenu.Item icon="info" onClick={() => {}}>
-        Option 2
-      </IconMenu.Item>
-      <IconMenu.Item icon="alarm_on" onClick={() => {}}>
-        Option 3
-      </IconMenu.Item>
-    </IconMenu>
-  ),
   args: {
     icon: "more_vert",
-    label: "Custom dropdown label",
-    disabled: false,
-    position: "bottom-left",
     iconVariant: "default",
+    onAction: (key: React.Key) => console.log(key),
+    children: [
+      <Item key="item1">Item 1</Item>,
+      <Item key="item2">Item 2</Item>,
+      <Item key="item3">Item 3</Item>,
+    ],
+  },
+};
+
+export const WithSections: Story = {
+  args: {
+    ...Primary.args,
+    children: [
+      <Item key="item1">Item 1</Item>,
+      <Item key="item2">Item 2</Item>,
+      <Section>
+        <Item key="item3">Item 3</Item>
+        <Item key="item4">Item 4</Item>
+      </Section>,
+    ],
   },
 };

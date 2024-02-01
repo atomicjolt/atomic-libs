@@ -1,4 +1,4 @@
-import React, { forwardRef, useImperativeHandle, useRef } from "react";
+import React, { forwardRef } from "react";
 import cn from "classnames";
 import {
   HasClassName,
@@ -8,13 +8,13 @@ import {
 } from "../../../types";
 import Spinner from "../../Loaders/Spinner";
 import MaterialIcon from "../../Icons/MaterialIcon";
-import { useIds, useVariantClass } from "../../../hooks";
+import { useVariantClass } from "../../../hooks";
 import { StyledIconButton } from "./IconButton.styles";
 import { ButtonVariants } from "../Buttons.types";
 import { AriaButtonOptions, useButton } from "react-aria";
 import useForwardedRef from "../../../hooks/useForwardedRef";
 
-type IconButtonProps = AriaButtonOptions<"button"> &
+export type IconButtonProps = AriaButtonOptions<"button"> &
   LoadingProps &
   HasClassName &
   HasVariant<ButtonVariants> &
@@ -47,6 +47,7 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
           loading && loadingLabel ? loadingLabel : buttonProps["aria-label"]
         }
         {...buttonProps}
+        ref={innerRef}
       >
         {loading && <Spinner loading={!loadingComplete} />}
         <MaterialIcon icon={icon} variant={iconVariant} />
