@@ -33,7 +33,10 @@ import MaterialIcon from "../../../Icons/MaterialIcon";
 
 export interface DateInputProps<T extends DateValue>
   extends AriaProps<AriaDateFieldProps<T>>,
-    FieldBaseProps {}
+    Omit<FieldBaseProps, "label"> {
+  // Optional because DatePicker renders it's own label
+  label?: React.ReactNode;
+}
 
 /** Date Input Component. Accepts a `ref` */
 const DateInput = React.forwardRef<HTMLInputElement, DateInputProps<DateValue>>(

@@ -31,10 +31,16 @@ import {
 import IconButton from "../../../Buttons/IconButton";
 import Button from "../../../Buttons/Button";
 import { ErrorLabel } from "../../../../styles/utils";
-import { LimitedSizes } from "../../../../types";
+import {
+  AriaProps,
+  BaseProps,
+  FieldStatusProps,
+  LimitedSizes,
+} from "../../../../types";
 
 export interface CalendarProps<T extends DateValue>
-  extends AriaCalendarProps<T> {
+  extends AriaProps<AriaCalendarProps<T>>,
+    BaseProps {
   size?: LimitedSizes;
 }
 
@@ -84,7 +90,6 @@ export default function Calendar<T extends DateValue>(props: CalendarProps<T>) {
             variant="content"
           />
         </CalendarHeaderButtons>
-        <ErrorLabel>{props.errorMessage}</ErrorLabel>
       </CalendarHeader>
       <CalendarGrid state={state} />
       <CalendarFooter className="aje-calendar__footer">

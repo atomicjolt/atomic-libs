@@ -29,6 +29,13 @@ export const CalendarWrapper = styled.div`
     --calendar-content-height: 369px;
   }
 
+  &.is-full {
+    --calendar-cell-size: 52px;
+    --font-size: 22px;
+    --calendar-height: 452px;
+    --calendar-content-height: 369px;
+  }
+
   .aje-time-picker {
     border: none;
     height: var(--calendar-height);

@@ -1,26 +1,18 @@
 import React, { forwardRef } from "react";
 import cn from "classnames";
-import {
-  HasClassName,
-  HasIcon,
-  HasVariant,
-  LoadingProps,
-} from "../../../types";
+import { HasIcon } from "../../../types";
 import Spinner from "../../Loaders/Spinner";
 import MaterialIcon from "../../Icons/MaterialIcon";
 import { useVariantClass } from "../../../hooks";
 import { StyledIconButton } from "./IconButton.styles";
-import { ButtonVariants } from "../Buttons.types";
-import { AriaButtonOptions, useButton } from "react-aria";
+import { useButton } from "react-aria";
 import useForwardedRef from "../../../hooks/useForwardedRef";
+import { ButtonProps } from "../Button";
 
-export type IconButtonProps = AriaButtonOptions<"button"> &
-  LoadingProps &
-  HasClassName &
-  HasVariant<ButtonVariants> &
-  HasIcon;
+export type IconButtonProps = Omit<ButtonProps, "children"> & HasIcon;
 
-/** Icon Button Component */
+/** Similar to the Button component, but is intended to display just an icon instead of text.
+ * Because of this, you should provide an `aria-label` for accessiblity */
 const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
   (props, ref) => {
     const {
@@ -33,7 +25,10 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
       className,
     } = props;
     const innerRef = useForwardedRef<HTMLButtonElement>(ref);
-    const { buttonProps, isPressed } = useButton(props, innerRef);
+    const { buttonProps, isPressed } = useButton(
+      { ...props, "aria-label": loading ? loadingLabel : props["aria-label"] },
+      innerRef
+    );
     const variantClass = useVariantClass("aje-btn", variant);
 
     return (
@@ -43,11 +38,9 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
           "is-active": isPressed,
         })}
         type="button"
-        aria-label={
-          loading && loadingLabel ? loadingLabel : buttonProps["aria-label"]
-        }
-        {...buttonProps}
         ref={innerRef}
+        onClick={props.onClick}
+        {...buttonProps}
       >
         {loading && <Spinner loading={!loadingComplete} />}
         <MaterialIcon icon={icon} variant={iconVariant} />

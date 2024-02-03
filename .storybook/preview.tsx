@@ -39,6 +39,7 @@ const preview: Preview = {
     },
     id: {
       control: "text",
+      description: "The HTML id of the element",
       defaultValue: "",
       table: {
         category: "Common",

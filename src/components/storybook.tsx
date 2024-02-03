@@ -51,12 +51,6 @@ export function disableControl(name: string) {
 }
 
 export const CallbackControls = {
-  onChange: {
-    control: false,
-    table: {
-      category: "Events",
-    },
-  },
   onClick: {
     control: false,
     table: {
@@ -199,6 +193,30 @@ export const NewCommonInputControls = {
     control: "text",
     table: {
       category: "Common",
+    },
+  },
+};
+
+export const FocusEventControls = {
+  onFocus: {
+    control: false,
+    description: "Callback when the element is focused",
+    table: {
+      category: "Events",
+    },
+  },
+  onBlur: {
+    control: false,
+    description: "Callback when the element loses focus",
+    table: {
+      category: "Events",
+    },
+  },
+  onFocusChange: {
+    control: false,
+    description: "Callback when the element's focus state changes",
+    table: {
+      category: "Events",
     },
   },
 };

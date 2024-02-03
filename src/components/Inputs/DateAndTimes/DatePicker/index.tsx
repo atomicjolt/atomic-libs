@@ -7,15 +7,9 @@ import {
   Dialog,
   Label,
 } from "../../../";
-
 import { useDatePicker, AriaDatePickerProps, DateValue } from "react-aria";
-import type { HelpTextProps, Validation } from "@react-types/shared";
 import { useDatePickerState } from "react-stately";
-import {
-  HasClassName,
-  NewInputComponentProps,
-  LimitedSizes,
-} from "../../../../types";
+import { LimitedSizes, AriaProps, FieldBaseProps } from "../../../../types";
 import {
   CalendarWrapper,
   DatePickerInputWrapper,
@@ -24,16 +18,10 @@ import {
 import { ErrorLabel } from "../../../../styles/utils";
 import classNames from "classnames";
 
-export type OmitAriaProps<T> = Omit<
-  T,
-  keyof HelpTextProps | keyof Validation<any>
->;
-
-export type DatePickerProps<T extends DateValue> = OmitAriaProps<
+export type DatePickerProps<T extends DateValue> = AriaProps<
   AriaDatePickerProps<T>
 > &
-  NewInputComponentProps &
-  HasClassName;
+  FieldBaseProps;
 
 /** DatePicker is a combination of a `<DateInput/>` component and a dropdown `<Calendar />` component. */
 export function DatePicker<T extends DateValue>(props: DatePickerProps<T>) {
@@ -50,11 +38,15 @@ export function DatePicker<T extends DateValue>(props: DatePickerProps<T>) {
 
   const {
     size = "medium",
-    errorMessage,
+    error,
     className,
     isDisabled,
     isRequired,
     isReadOnly,
+    isInvalid,
+    label,
+    message,
+    hideLabel,
   } = props;
 
   const calendarSize: LimitedSizes = ["auto", "full"].includes(size)
@@ -68,19 +60,19 @@ export function DatePicker<T extends DateValue>(props: DatePickerProps<T>) {
   return (
     <DatePickerWrapper
       className={datePickerClassName}
-      error={errorMessage}
+      error={isInvalid}
       size={size}
       disabled={isDisabled}
       required={isRequired}
     >
-      <Label {...labelProps} message={props.message} hidden={props.hideLabel}>
-        {props.label}
+      <Label {...labelProps} message={message} hidden={hideLabel}>
+        {label}
       </Label>
       <DatePickerInputWrapper {...groupProps} ref={ref}>
         <DateInput {...fieldProps} size={props.size} isRequired={isRequired} />
         <IconButton icon="calendar_month" variant="content" {...buttonProps} />
       </DatePickerInputWrapper>
-      {props.errorMessage && <ErrorLabel>{errorMessage}</ErrorLabel>}
+      {error && <ErrorLabel>{error}</ErrorLabel>}
       {state.isOpen && (
         <Popover state={state} triggerRef={ref} placement="bottom start">
           <Dialog {...dialogProps}>

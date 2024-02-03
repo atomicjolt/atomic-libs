@@ -1,22 +1,22 @@
 import { Meta, StoryObj } from "@storybook/react";
 import Button from ".";
-import Doc from "./Button.doc.mdx";
+import { CallbackControls, FocusEventControls } from "../../storybook";
 
 const meta: Meta<typeof Button> = {
   title: "Buttons/Button",
   component: Button,
+  parameters: {
+    layout: "centered",
+  },
   argTypes: {
-    onClick: {
-      control: false,
-      table: {
-        category: "Events",
-      },
-    },
+    ...CallbackControls,
+    ...FocusEventControls,
     children: {
       control: "text",
     },
     variant: {
       control: "select",
+      description: "Button variant controls the presentation of the button.",
       options: [
         "primary",
         "secondary",
@@ -26,11 +26,56 @@ const meta: Meta<typeof Button> = {
         "content",
       ],
     },
-  },
-  parameters: {
-    layout: "centered",
-    docs: {
-      page: Doc,
+    isDisabled: {
+      control: "boolean",
+      description: "If true, the button will be not be clickable.",
+    },
+    type: {
+      control: "select",
+      description: "The type of button.",
+      options: ["button", "submit", "reset"],
+    },
+    excludeFromTabOrder: {
+      control: "boolean",
+      description:
+        "If true, the button will be excluded from the tab order and will not be focusable via keyboard navigation.",
+    },
+    // elementType: {
+    //   control: "text",
+    //   description:
+    //     "The type of element to render. By default, it will render a button element.",
+    // },
+
+    onPress: {
+      control: false,
+      description:
+        "Similar to onClick, but preferred for better accessibility. It is called when the button is pressed.",
+      table: {
+        category: "Events",
+      },
+    },
+    onPressStart: {
+      control: false,
+      description:
+        "Called when the button is pressed down. This is called before onPress.",
+      table: {
+        category: "Events",
+      },
+    },
+    onPressEnd: {
+      control: false,
+      description:
+        "Called when the button is released. This is called after onPress.",
+      table: {
+        category: "Events",
+      },
+    },
+    onPressChange: {
+      control: false,
+      description: "Called when the pressed state of the button changes.",
+      table: {
+        category: "Events",
+      },
     },
   },
 };
@@ -44,7 +89,7 @@ export const Primary: Story = {
     children: "Primary",
     variant: "primary",
     type: "button",
-    disabled: false,
+    isDisabled: false,
     loading: false,
   },
 };

@@ -10,6 +10,7 @@ const meta: Meta<typeof IconMenu> = {
   parameters: {
     layout: "centered",
   },
+  // TODO: fully fill out these args
   argTypes: {
     buttonVariant: {
       control: "select",
@@ -48,7 +49,6 @@ export const Primary: Story = {
   args: {
     icon: "more_vert",
     iconVariant: "default",
-    onAction: (key: React.Key) => console.log(key),
     children: [
       <Item key="item1">Item 1</Item>,
       <Item key="item2">Item 2</Item>,
