@@ -17,12 +17,48 @@ export default function AriaComponents() {
       {/* <Calendar value={date} onChange={setDate} isInvalid /> */}
       <div>
         <DateInput
+          // State Management
           value={date}
           onChange={setDate}
+          defaultValue={date}
+          placeholderValue={date}
+          // Help Text
           label="Label"
           message="Message"
-          errorMessage="error"
+          error="error"
+          hideLabel
+          // Status
           isRequired
+          isInvalid
+          isDisabled
+          isReadOnly
+          // Aria
+          aria-describedby="afeaf"
+          aria-details="afeafe"
+          aria-label="afeafe"
+          aria-labelledby="afeafea"
+          // Component Specific
+          shouldForceLeadingZeros
+          granularity="day"
+          isDateUnavailable={() => false}
+          maxValue={date}
+          minValue={date}
+          hideTimeZone
+          hourCycle={12}
+          // Common
+          id=""
+          className="afeafea"
+          key=""
+          size="medium"
+          name=""
+          ref={() => {}}
+          autoFocus
+          // Events
+          onBlur={() => {}}
+          onFocus={() => {}}
+          onKeyDown={() => {}}
+          onFocusChange={() => {}}
+          onKeyUp={() => {}}
         />
       </div>
       <div>

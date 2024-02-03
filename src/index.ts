@@ -7,5 +7,3 @@ export type {
   EventHandler as AtomicEventHandler,
   MaterialIcons,
 } from "./types";
-
-

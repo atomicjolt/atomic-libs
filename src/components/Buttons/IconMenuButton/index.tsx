@@ -8,7 +8,7 @@ import { StyledIconMenuButton } from "./IconMenuButton.styles";
 import { MaterialIconVariants, MaterialIcons } from "../../../types";
 import { PopoverPosition } from "../../Utility/Popover/Popover.types";
 
-export type IconMenuButtonProps = Omit<ButtonProps, "variant"> & { 
+export type IconMenuButtonProps = Omit<ButtonProps, "variant"> & {
   menuIcon: MaterialIcons;
   menuLabel: string;
   menuIconVariant?: MaterialIconVariants;
@@ -55,7 +55,15 @@ export default function IconMenuButton(props: IconMenuButtonProps) {
         {loading && <Spinner loading={!loadingComplete} />}
         {children}
       </BaseStyledButton>
-      <IconMenu label={menuLabel} icon={menuIcon} iconVariant={menuIconVariant} position={menuPosition} disabled={menuDisabled} className={menuClassName} children={menuChildren} />
+      <IconMenu
+        label={menuLabel}
+        icon={menuIcon}
+        iconVariant={menuIconVariant}
+        position={menuPosition}
+        disabled={menuDisabled}
+        className={menuClassName}
+        children={menuChildren}
+      />
     </StyledIconMenuButton>
   );
 }

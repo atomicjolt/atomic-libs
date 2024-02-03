@@ -1,6 +1,12 @@
 import React, { useRef } from "react";
 import cn from "classnames";
-import { InputComponentProps } from "../../../../types";
+import {
+  HelpTextProps,
+  AriaProps,
+  FieldStatusProps,
+  BaseProps,
+  FieldBaseProps,
+} from "../../../../types";
 import {
   DateInputWrapper,
   DateSegments,
@@ -14,6 +20,7 @@ import {
   useDateSegment,
   useLocale,
 } from "react-aria";
+
 import {
   DateFieldState,
   DateSegment as ReactStatelyDateSegment,
@@ -25,12 +32,12 @@ import { ErrorLabel } from "../../../../styles/utils";
 import MaterialIcon from "../../../Icons/MaterialIcon";
 
 export interface DateInputProps<T extends DateValue>
-  extends AriaDateFieldProps<T>,
-    Omit<InputComponentProps, "label"> {}
+  extends AriaProps<AriaDateFieldProps<T>>,
+    FieldBaseProps {}
 
 /** Date Input Component. Accepts a `ref` */
-const DateInput = React.forwardRef<HTMLInputElement, DateInputProps<any>>(
-  (props: DateInputProps<any>, ref) => {
+const DateInput = React.forwardRef<HTMLInputElement, DateInputProps<DateValue>>(
+  (props: DateInputProps<DateValue>, ref) => {
     let { locale } = useLocale();
     let state = useDateFieldState({
       ...props,
@@ -41,12 +48,12 @@ const DateInput = React.forwardRef<HTMLInputElement, DateInputProps<any>>(
     const internalRef = useForwardedRef(ref);
     let { labelProps, fieldProps } = useDateField(props, state, internalRef);
 
-    const { size = "medium", errorMessage, message, hideLabel } = props;
+    const { size = "medium", error, message, hideLabel, className } = props;
 
     return (
       <DateInputWrapper
         className={cn("aje-input__date")}
-        error={errorMessage}
+        error={props.isInvalid}
         disabled={props.isDisabled}
         required={props.isRequired}
         size={size}
@@ -68,7 +75,7 @@ const DateInput = React.forwardRef<HTMLInputElement, DateInputProps<any>>(
           ))}
           {state.isInvalid && <MaterialIcon icon="error" />}
         </DateSegments>
-        {errorMessage && <ErrorLabel>{errorMessage}</ErrorLabel>}
+        {error && <ErrorLabel>{error}</ErrorLabel>}
       </DateInputWrapper>
     );
   }

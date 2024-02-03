@@ -9,6 +9,7 @@ import {
 } from "../../../";
 
 import { useDatePicker, AriaDatePickerProps, DateValue } from "react-aria";
+import type { HelpTextProps, Validation } from "@react-types/shared";
 import { useDatePickerState } from "react-stately";
 import {
   HasClassName,
@@ -23,7 +24,14 @@ import {
 import { ErrorLabel } from "../../../../styles/utils";
 import classNames from "classnames";
 
-export type DatePickerProps<T extends DateValue> = AriaDatePickerProps<T> &
+export type OmitAriaProps<T> = Omit<
+  T,
+  keyof HelpTextProps | keyof Validation<any>
+>;
+
+export type DatePickerProps<T extends DateValue> = OmitAriaProps<
+  AriaDatePickerProps<T>
+> &
   NewInputComponentProps &
   HasClassName;
 

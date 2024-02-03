@@ -17,13 +17,15 @@ export const DefaultInputProperties: InputElementProps<Element> &
 };
 
 export const NewDefaultInputProperties = {
+  className: "",
   label: "",
   hideLabel: false,
-  errorMessage: "",
+  error: "",
   message: "",
   isDisabled: false,
   isRequired: false,
   isReadOnly: false,
+  isInvalid: false,
   placeholder: "",
   size: "medium",
   autoFocus: false,
@@ -148,43 +150,43 @@ export const NewCommonInputControls = {
   label: {
     control: "text",
     table: {
-      category: "Common",
+      category: "Helper Text",
     },
   },
   hideLabel: {
     control: "boolean",
     table: {
-      category: "Common",
+      category: "Helper Text",
     },
   },
-  errorMessage: {
+  error: {
     control: "text",
     table: {
-      category: "Common",
+      category: "Helper Text",
     },
   },
   message: {
     control: "text",
     table: {
-      category: "Common",
+      category: "Helper Text",
     },
   },
   isDisabled: {
     control: "boolean",
     table: {
-      category: "Common",
+      category: "Field State",
     },
   },
   isRequired: {
     control: "boolean",
     table: {
-      category: "Common",
+      category: "Field State",
     },
   },
-  size: {
-    control: "select",
+  isInvalid: {
+    control: "boolean",
     table: {
-      category: "Common",
+      category: "Field State",
     },
   },
   placeholder: {
@@ -242,7 +244,8 @@ export const NewTextInputControls = {
     },
   },
   defaultValue: {
-    control: "text",
+    control: false,
+    description: "Set the initial value of an uncontrolled input",
     table: {
       category: "Common",
     },
@@ -250,7 +253,7 @@ export const NewTextInputControls = {
   isReadOnly: {
     control: "boolean",
     table: {
-      category: "Common",
+      category: "Field State",
     },
   },
 };
