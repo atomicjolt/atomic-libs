@@ -6,7 +6,7 @@ import TabsNavigation, { TabLink } from "./TabNavigation";
 import { TabsContent } from "./Tabs";
 
 const meta: Meta<typeof Tabs> = {
-  title: "Tabs/Tabs",
+  title: "Layouts/Tabs",
   component: Tabs,
   argTypes: {
     currentTab: {

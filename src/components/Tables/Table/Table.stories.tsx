@@ -3,7 +3,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import Table from ".";
 
 const meta: Meta<typeof Table> = {
-  title: "Tables/Table",
+  title: "Layouts/Table",
   component: Table,
   argTypes: {
     sortDirection: {

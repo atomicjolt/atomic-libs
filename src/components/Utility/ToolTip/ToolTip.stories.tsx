@@ -4,7 +4,7 @@ import ToolTip, { ToolTipProps } from ".";
 import Button from "../../Buttons/Button";
 
 const meta: Meta<typeof ToolTip> = {
-  title: "Utility/ToolTip",
+  title: "Atoms/ToolTip",
   component: ToolTip,
   parameters: {
     layout: "centered",

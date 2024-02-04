@@ -58,17 +58,40 @@ export const CssVariables = createGlobalStyle`
   --primary800: hsl(192, 70%, 27%);
   --primary900: hsl(193, 64%, 24%);
 
+  /* # Semantic Colors */
+  --text-clr: var(--neutral800);
+  --text-clr-alt: var(--neutral600);
+  --text-clr-inverted: var(--neutral50);
+  --border-clr-primary: var(--neutral400);
+  --background-clr: var(--neutral50);
+  --background-clr-alt: var(--neutral100);
+  --background-clr-inverted: var(--neutral800);
+  --highlight-clr: var(--primary700);
+
+
   /* # General */
   --text-clr: var(--neutral800);
   --text-clr-alt: var(--neutral600);
   --text-clr-inverted: var(--neutral50);
   --border-clr-primary: var(--neutral400);
   --border: 1px solid var(--border-clr-primary);
-  --input-border-clr: var(--neutral500);
   --outline-clr-primary: var(--neutral600);
   --outline: 2px solid var(--outline-clr-primary);
-  --input-outline: 1px solid var(--outline-clr-primary);
   --radius: 5px;
+
+  /* # Input variables */
+  --input-border-clr: var(--neutral500);
+  --input-outline: 1px solid var(--outline-clr-primary);
+  --input-height: 40px;
+  --input-padding-horiz: 12px;
+  --input-font-size: 1.6rem;
+  --input-icon-size: 2.4rem;
+  --input-text-clr: var(--text-clr);
+  --input-border-color: var(--input-border-clr);
+  --input-border: 1px solid var(--input-border-color);
+  --input-border-radius: var(--radius);
+  --input-bg-clr: none;
+  --input-transition: none;
 
   /* # Button Variables */
   --btn-font-size: 1.6rem;
@@ -117,30 +140,22 @@ export const CssVariables = createGlobalStyle`
   --menu-max-height: 300px;
   --menu-padding-top: calc(var(--option-height) / 8);
 
+  /* # Listbox variables */
+  --listbox-text-clr: inherit;
+  --listbox-bg-clr: var(--background-clr);
+  --listbox-selected-clr: var(--text-clr-inverted);
+  --listbox-icon-clr: var(--neutral600);
+  --listbox-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.5);
+
   /* # Option variables */
   --option-font-size: var(--dropdown-text-size);
   --option-icon-size: var(--dropdown-icon-size);
   --option-height: 32px;
-  --option-bg-clr: none;
-  --option-text-clr: inherit;
-  --option-icon-clr: var(--neutral600);
-  --option-selected-clr: var(--text-clr-inverted);
   --option-padding: var(--dropdown-padding);
   --option-padding-horizontal: calc(var(--dropdown-padding) * 2);
   --option-icon-gap: 8px;
   --option-border-clr: var(--neutral50, transparent);
 
-  /* # Input variables */
-  --input-height: 40px;
-  --input-padding-horiz: 12px;
-  --input-font-size: 1.6rem;
-  --input-icon-size: 2.4rem;
-  --input-text-clr: var(--text-clr);
-  --input-border-color: var(--input-border-clr);
-  --input-border: 1px solid var(--input-border-color);
-  --input-border-radius: var(--radius);
-  --input-bg-clr: none;
-  --input-transition: none;
 
   /* # Textare variables */
   --textarea-height-sm: 80px;

@@ -14,7 +14,7 @@ const scale = keyframes`
 
 export const MenuList = styled.ul`
   list-style: none;
-  border-radius: 5px;
+  border-radius: var(--radius);
   box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.5);
   background-color: var(--neutral50);
   padding: 8px 0;

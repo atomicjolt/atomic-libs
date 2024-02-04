@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import { DateInput, DatePicker } from "../elements";
+import {
+  DateInput,
+  DatePicker,
+  Select,
+  Option,
+  ListBox,
+  Item,
+  Section,
+} from "../elements";
 import { now, getLocalTimeZone } from "@internationalized/date";
 
 export default function AriaComponents() {
@@ -14,60 +22,21 @@ export default function AriaComponents() {
         height: "80vh",
       }}
     >
-      {/* <Calendar value={date} onChange={setDate} isInvalid /> */}
       <div>
-        <DateInput
-          // State Management
-          value={date}
-          onChange={setDate}
-          defaultValue={date}
-          placeholderValue={date}
-          // Help Text
-          label="Label"
-          message="Message"
-          error="error"
-          hideLabel
-          // Status
-          isRequired
-          isInvalid
-          isDisabled
-          isReadOnly
-          // Aria
-          aria-describedby="afeaf"
-          aria-details="afeafe"
-          aria-label="afeafe"
-          aria-labelledby="afeafea"
-          // Component Specific
-          shouldForceLeadingZeros
-          granularity="day"
-          isDateUnavailable={() => false}
-          maxValue={date}
-          minValue={date}
-          hideTimeZone
-          hourCycle={12}
-          // Common
-          id=""
-          className="afeafea"
-          key=""
-          size="medium"
-          name=""
-          ref={() => {}}
-          autoFocus
-          // Events
-          onBlur={() => {}}
-          onFocus={() => {}}
-          onKeyDown={() => {}}
-          onFocusChange={() => {}}
-          onKeyUp={() => {}}
-        />
-      </div>
-      <div>
-        <DatePicker
-          label="Label"
-          value={date}
-          onChange={setDate}
-          size="medium"
-        />
+        {/* <Select label="Select" message="Message" error="error">
+          <Option value="1">Option 1</Option>
+          <Option value="2">Option 2</Option>
+          <Option value="3">Option 3</Option>
+        </Select> */}
+        <ListBox label="Label" selectionMode="multiple">
+          <Item key={1}>Option 1</Item>
+          <Item key={2}>Option 2</Item>
+          <Item key={3}>Option 3</Item>
+          <Section title="Section Title">
+            <Item key={4}>Option 4</Item>
+            <Item key={5}>Option 5</Item>
+          </Section>
+        </ListBox>
       </div>
     </div>
   );
