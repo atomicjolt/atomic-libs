@@ -69,10 +69,15 @@ export const CssVariables = createGlobalStyle`
   --highlight-clr: var(--primary700);
 
   /* # Sizing */
-  --size-sm: 100px;
-  --size-md: 200px;
-  --size-lg: 300px;
-  --size-full: 100%;
+  --size-sm-x: 100px;
+  --size-md-x: 200px;
+  --size-lg-x: 300px;
+  --size-full-x: 100%;
+
+  --size-sm-y: 40px;
+  --size-md-y: 60px;
+  --size-lg-y: 80px;
+  --size-full-y: 100%;
 
   /* # General */
   --text-clr: var(--neutral800);

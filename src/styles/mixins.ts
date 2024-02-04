@@ -1,6 +1,6 @@
 import { css } from "styled-components";
 
-export default {
+const mixins = {
   Bold: css`
     font-family: var(--font-family);
     font-weight: var(--font-weight-bold);
@@ -51,23 +51,63 @@ export default {
 
   SizingsX: css`
     &.is-small {
-      width: var(--size-sm);
+      width: var(--size-sm-x);
     }
 
     &.is-medium {
-      width: var(--size-md);
+      width: var(--size-md-x);
     }
 
     &.is-large {
-      width: var(--size-lg);
+      width: var(--size-lg-x);
     }
 
     &.is-full {
-      width: var(--size-full);
+      width: var(--size-full-x);
     }
 
     &.is-auto {
       width: auto;
     }
   `,
+  SizingY: css`
+    &.is-small {
+      height: var(--size-sm-y);
+    }
+
+    &.is-medium {
+      height: var(--size-md-y);
+    }
+
+    &.is-large {
+      height: var(--size-lg-y);
+    }
+
+    &.is-full {
+      height: var(--size-full-y);
+    }
+  `,
+  Sizing: css`
+    &.is-small {
+      width: var(--size-sm-x);
+      height: var(--size-sm-y);
+    }
+
+    &.is-medium {
+      width: var(--size-md-x);
+      height: var(--size-md-y);
+    }
+
+    &.is-large {
+      width: var(--size-lg-x);
+      height: var(--size-lg-y);
+    }
+
+    &.is-full {
+      width: var(--size-full-x);
+      height: var(--size-full-y);
+    }
+  `,
 };
+
+export default mixins;
