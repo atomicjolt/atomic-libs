@@ -1,5 +1,5 @@
 import React from "react";
-import { ErrorLabel } from "../../styles/utils";
+import { FieldError } from "../../styles/utils";
 
 interface InputErrorProps {
   id: string;
@@ -11,5 +11,5 @@ export default function InputError({ error, id }: InputErrorProps) {
     return null;
   }
 
-  return <ErrorLabel id={id}>{error}</ErrorLabel>;
+  return <FieldError id={id}>{error}</FieldError>;
 }

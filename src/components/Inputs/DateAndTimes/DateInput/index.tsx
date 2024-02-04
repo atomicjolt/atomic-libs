@@ -28,7 +28,7 @@ import {
 } from "react-stately";
 import { createCalendar } from "@internationalized/date";
 import Label from "../../../Utility/Label";
-import { ErrorLabel } from "../../../../styles/utils";
+import { FieldError } from "../../../../styles/utils";
 import MaterialIcon from "../../../Icons/MaterialIcon";
 
 export interface DateInputProps<T extends DateValue>
@@ -78,7 +78,7 @@ const DateInput = React.forwardRef<HTMLInputElement, DateInputProps<DateValue>>(
           ))}
           {state.isInvalid && <MaterialIcon icon="error" />}
         </DateSegments>
-        {error && <ErrorLabel>{error}</ErrorLabel>}
+        {error && <FieldError>{error}</FieldError>}
       </DateInputWrapper>
     );
   }

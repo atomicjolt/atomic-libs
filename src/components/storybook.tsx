@@ -1,5 +1,9 @@
 import React from "react";
-import { InputComponentProps, InputElementProps } from "../types";
+import {
+  FieldBaseProps,
+  InputComponentProps,
+  InputElementProps,
+} from "../types";
 import { createGlobalStyle } from "styled-components";
 
 export const DefaultInputProperties: InputElementProps<Element> &
@@ -16,7 +20,7 @@ export const DefaultInputProperties: InputElementProps<Element> &
   autoFocus: false,
 };
 
-export const NewDefaultInputProperties = {
+export const NewDefaultInputProperties: FieldBaseProps = {
   className: "",
   label: "",
   hideLabel: false,
@@ -26,9 +30,7 @@ export const NewDefaultInputProperties = {
   isRequired: false,
   isReadOnly: false,
   isInvalid: false,
-  placeholder: "",
   size: "medium",
-  autoFocus: false,
 };
 
 interface Options {

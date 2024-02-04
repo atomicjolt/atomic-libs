@@ -34,7 +34,7 @@ const preview: Preview = {
       control: "text",
       defaultValue: "",
       table: {
-        category: "Common",
+        category: "Presentation",
       },
     },
     id: {
@@ -50,7 +50,7 @@ const preview: Preview = {
       defaultValue: "medium",
       options: ["small", "medium", "large", "full", "auto"],
       table: {
-        category: "Common",
+        category: "Presentation",
       },
     },
     "aria-label": {

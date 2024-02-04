@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import LoadingStatus from ".";
 
 const meta: Meta<typeof LoadingStatus> = {
-  title: "Loaders/Loading Status",
+  title: "Loaders/LoadingStatus",
   component: LoadingStatus,
 };
 

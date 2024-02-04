@@ -30,7 +30,7 @@ import {
 } from "./Calendar.styles";
 import IconButton from "../../../Buttons/IconButton";
 import Button from "../../../Buttons/Button";
-import { ErrorLabel } from "../../../../styles/utils";
+import { FieldError } from "../../../../styles/utils";
 import {
   AriaProps,
   BaseProps,

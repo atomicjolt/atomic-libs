@@ -21,12 +21,12 @@ export const SubList = styled.ul`
 export const SectionSeperator = styled.li`
   margin: 2px 5px;
   padding-top: 10px;
-  border-top: 1px solid var(--neutral300);
+  border-top: var(--border);
 `;
 
 export const SectionTitle = styled.span`
   ${mixins.Regular}
-  color: var(--neutral400);
+  color: var(--text-clr-alt);
   line-height: 1;
   padding: 6px 24px 6px 16px;
   font-size: 1.8rem;

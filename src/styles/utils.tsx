@@ -1,3 +1,4 @@
+import React from "react";
 import cn, { Argument } from "classnames";
 import styled from "styled-components";
 import { Sizes } from "../types";
@@ -12,16 +13,21 @@ export interface ComponentWrapperProps {
   children: React.ReactNode;
 }
 
-export const ComponentWrapper = styled.div.attrs<ComponentWrapperProps>(
-  ({ className, size, disabled, required, error }) => ({
-    className: cn(className, {
-      [`is-${size}`]: size,
-      "has-error": error,
-      "is-disabled": disabled,
-      "is-required": required,
-    }),
-  })
-)<ComponentWrapperProps>``;
+export function ComponentWrapper(props: ComponentWrapperProps) {
+  const { className, size, disabled, required, error, children } = props;
+  return (
+    <div
+      className={cn(className, {
+        [`is-${size}`]: size,
+        "has-error": error,
+        "is-disabled": disabled,
+        "is-required": required,
+      })}
+    >
+      {children}
+    </div>
+  );
+}
 
 export const Hidden = styled.span.attrs({ className: "aje-hidden" })`
   position: absolute;
@@ -44,7 +50,7 @@ export const Label = styled.label.attrs(({ className }) => ({
   ${mixins.Hidden}
 `;
 
-export const MessageLabel = styled.p.attrs(({ className }) => ({
+export const FieldMessage = styled.p.attrs(({ className }) => ({
   className: cn("aje-label--message", className),
 }))`
   ${mixins.Regular}
@@ -54,7 +60,7 @@ export const MessageLabel = styled.p.attrs(({ className }) => ({
   color: var(--text-clr-alt);
 `;
 
-export const ErrorLabel = styled.p.attrs(({ className }) => ({
+export const FieldError = styled.p.attrs(({ className }) => ({
   className: cn("aje-label--error", className),
 }))`
   ${mixins.Bold}

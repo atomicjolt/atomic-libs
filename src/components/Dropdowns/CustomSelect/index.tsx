@@ -10,7 +10,7 @@ import {
 } from "../../../types";
 import { Button, Label, MaterialIcon, Popover, UnmanagedListBox } from "../../";
 import { Wrapper } from "../Dropdowns.styles";
-import { ErrorLabel } from "../../../styles/utils";
+import { FieldError } from "../../../styles/utils";
 import { useVariantClass } from "../../../hooks";
 import { ButtonText } from "./CustomSelect.styles";
 
@@ -28,11 +28,8 @@ interface CustomSelectProps<T extends object>
 export function CustomSelect<T extends object>(props: CustomSelectProps<T>) {
   const state = useSelectState<T>(props);
   const ref = useRef(null);
-  const { labelProps, triggerProps, valueProps, menuProps } = useSelect(
-    props,
-    state,
-    ref
-  );
+  const { labelProps, triggerProps, valueProps, menuProps, errorMessageProps } =
+    useSelect(props, state, ref);
 
   const {
     className,
@@ -88,7 +85,7 @@ export function CustomSelect<T extends object>(props: CustomSelectProps<T>) {
         </ButtonText>
         <MaterialIcon icon="arrow_drop_down" />
       </Button>
-      {error && <ErrorLabel>{error}</ErrorLabel>}
+      {error && <FieldError {...errorMessageProps}>{error}</FieldError>}
       {state.isOpen && (
         <Popover state={state} triggerRef={ref} placement="bottom start">
           {/* @ts-ignore */}

@@ -1,10 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 import TextInput from ".";
-import {
-  InputControls,
-  DefaultInputProperties,
-  TextInputControls,
-} from "../../storybook";
+import { NewTextInputControls } from "../../storybook";
 
 const meta: Meta<typeof TextInput> = {
   title: "Inputs/User Input/TextInput",
@@ -12,39 +8,31 @@ const meta: Meta<typeof TextInput> = {
   parameters: {
     layout: "centered",
   },
-  argTypes: TextInputControls,
+  argTypes: {
+    ...NewTextInputControls,
+    variant: { table: { category: "Presentation" } },
+    type: {
+      control: "select",
+      options: ["text", "password", "email", "tel", "number", "search"],
+    },
+  },
 };
 
 export default meta;
 
 type Story = StoryObj<typeof TextInput>;
 
-export const Controlled: Story = {
+export const Primary: Story = {
   args: {
-    value: "Text input content",
     type: "text",
     variant: "default",
-    ...DefaultInputProperties,
     label: "Text input label",
-    placeholder: "",
-    readOnly: false,
   },
 };
 
-export const Uncontrolled: Story = {
+export const Floating: Story = {
   args: {
-    value: undefined,
-    type: "text",
-    variant: "default",
-    ...DefaultInputProperties,
-    label: "Text input label",
-    placeholder: "",
-    readOnly: false,
-  },
-  argTypes: {
-    value: {
-      control: false,
-    },
-    ...InputControls,
+    ...Primary.args,
+    variant: "floating",
   },
 };

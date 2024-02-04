@@ -80,9 +80,6 @@ export const CssVariables = createGlobalStyle`
   --size-full-y: 100%;
 
   /* # General */
-  --text-clr: var(--neutral800);
-  --text-clr-alt: var(--neutral600);
-  --text-clr-inverted: var(--neutral50);
   --border-clr-primary: var(--neutral400);
   --border: 1px solid var(--border-clr-primary);
   --outline-clr-primary: var(--neutral600);

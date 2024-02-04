@@ -1,32 +1,25 @@
 import React from "react";
 import cn from "classnames";
-import { useIds, useVariant } from "../../../hooks";
-import InputError from "../../Utility/InputError";
-import { makeEventHandler } from "../../../utils";
-import {
-  TextInputProps,
-  TextInputVariantProps,
-  Variants,
-} from "./TextInput.types";
-import { VariantRecord } from "../../../types";
-import DefaultTextInput from "./variants/DefaultTextInput";
-import FloatingTextInput from "./variants/FloatingTextInput";
+import { useVariantClass } from "../../../hooks";
+import { AriaProps, FieldBaseProps, HasVariant } from "../../../types";
 import { Input } from "../Inputs.styles";
-import { TextInputWrapper } from "./TextInput.styles";
+import { FloatingInputWrapper, TextInputWrapper } from "./TextInput.styles";
+import useForwardedRef from "../../../hooks/useForwardedRef";
+import { AriaTextFieldProps, useTextField } from "react-aria";
+import { FieldError, FieldMessage } from "../../../styles/utils";
+import Label from "../../Utility/Label";
 
-const variants: VariantRecord<Variants, TextInputVariantProps> = {
-  default: DefaultTextInput,
-  floating: FloatingTextInput,
-};
+type Variants = "default" | "floating";
+
+interface TextInputProps
+  extends AriaProps<AriaTextFieldProps>,
+    FieldBaseProps,
+    HasVariant<Variants> {}
 
 /** TextInput component. Fowards a `ref` to the internal input element */
 const TextInput = React.forwardRef(
   (props: TextInputProps, ref: React.Ref<HTMLInputElement>) => {
-    const [inputId, errorId] = useIds("TextInput", ["input", "error"]);
-
     const {
-      value,
-      onChange,
       type = "text",
       label,
       hideLabel,
@@ -35,42 +28,52 @@ const TextInput = React.forwardRef(
       message,
       variant = "default",
       className,
-      ...inputProps
+      isDisabled,
+      isRequired,
     } = props;
 
-    const { disabled, required } = inputProps;
+    const internalRef = useForwardedRef(ref);
 
-    const [Variant, variantClassName] = useVariant(
-      variants,
-      "aje-input",
-      variant
-    );
+    let {
+      labelProps,
+      inputProps,
+      descriptionProps,
+      errorMessageProps,
+      isInvalid,
+    } = useTextField(props, internalRef);
+
+    const variantClassName = useVariantClass("aje-input", variant);
 
     return (
       <TextInputWrapper
-        className={cn([variantClassName, className])}
+        className={cn("aje-textinput", variantClassName, className, {
+          "has-value": inputProps.value,
+        })}
         size={size}
-        disabled={disabled}
-        required={required}
-        error={error}
+        disabled={isDisabled}
+        required={isRequired}
+        error={isInvalid}
       >
-        <Variant
-          message={message}
-          hideLabel={hideLabel}
-          inputId={inputId}
-          label={label}
-        >
-          <Input
-            ref={ref}
-            id={inputId}
-            aria-describedby={error ? errorId : ""}
-            value={value}
-            onChange={makeEventHandler(onChange)}
-            type={type}
-            {...inputProps}
-          />
-        </Variant>
-        <InputError error={error} id={errorId} />
+        {variant === "default" && (
+          <Label {...labelProps} hidden={hideLabel}>
+            {label}
+          </Label>
+        )}
+        {variant === "default" && message && (
+          <FieldMessage {...descriptionProps}>{message}</FieldMessage>
+        )}
+        <FloatingInputWrapper>
+          <Input ref={internalRef} type={type} {...inputProps} />
+          {variant === "floating" && (
+            <Label {...labelProps} hidden={hideLabel}>
+              {label}
+            </Label>
+          )}
+        </FloatingInputWrapper>
+        {variant === "floating" && message && (
+          <FieldMessage {...descriptionProps}>{message}</FieldMessage>
+        )}
+        {error && <FieldError {...errorMessageProps}>{error}</FieldError>}
       </TextInputWrapper>
     );
   }

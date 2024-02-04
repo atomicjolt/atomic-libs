@@ -15,7 +15,7 @@ import {
   DatePickerInputWrapper,
   DatePickerWrapper,
 } from "./DatePicker.styles";
-import { ErrorLabel } from "../../../../styles/utils";
+import { FieldError } from "../../../../styles/utils";
 import classNames from "classnames";
 
 export type DatePickerProps<T extends DateValue> = AriaProps<
@@ -72,7 +72,7 @@ export function DatePicker<T extends DateValue>(props: DatePickerProps<T>) {
         <DateInput {...fieldProps} size={props.size} isRequired={isRequired} />
         <IconButton icon="calendar_month" variant="content" {...buttonProps} />
       </DatePickerInputWrapper>
-      {error && <ErrorLabel>{error}</ErrorLabel>}
+      {error && <FieldError>{error}</FieldError>}
       {state.isOpen && (
         <Popover state={state} triggerRef={ref} placement="bottom start">
           <Dialog {...dialogProps}>

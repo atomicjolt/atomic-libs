@@ -1,7 +1,7 @@
 import cn from "classnames";
 import React, { useContext } from "react";
 import { useIds } from "../../../hooks";
-import { MessageLabel, ErrorLabel } from "../../../styles/utils";
+import { FieldMessage, FieldError } from "../../../styles/utils";
 import { HasClassName } from "../../../types";
 import { ChooseInput, ChooseLabel } from "../Inputs.styles";
 import RadioContext from "./context";
@@ -44,8 +44,8 @@ export default function Radio(props: RadioProps) {
       />
       <ChooseLabel className="aje-checkbox__label">
         {children}
-        {message && <MessageLabel as="p">{message}</MessageLabel>}
-        {error && <ErrorLabel as="p">{error}</ErrorLabel>}
+        {message && <FieldMessage as="p">{message}</FieldMessage>}
+        {error && <FieldError as="p">{error}</FieldError>}
       </ChooseLabel>
     </RadioWrapper>
   );

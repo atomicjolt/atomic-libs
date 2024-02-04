@@ -21,12 +21,9 @@ export const TextInputWrapper = styled(InputWrapper)`
     --floating-font-size: 1.6rem;
     --floating-label-clr: var(--text-clr-alt);
 
-    .aje-input__container {
-      position: relative;
-    }
-
     label {
       ${mixins.Regular}
+      z-index: 2;
       position: absolute;
       top: 50%;
       left: calc(1em - 4px);
@@ -40,8 +37,19 @@ export const TextInputWrapper = styled(InputWrapper)`
       padding: 1px 4px;
     }
 
-    input:not(:placeholder-shown) ~ label,
-    input:focus ~ label {
+    input:focus {
+      --input-border-clr: var(--primary700);
+      --input-bg-clr: var(--neutral50);
+      box-shadow: 0 0 0 1px var(--input-border-color);
+      outline: none;
+    }
+
+    &.has-value {
+      --input-bg-clr: var(--neutral50);
+    }
+
+    input:focus ~ label,
+    &.has-value label {
       top: 0px;
       left: 1em;
       --floating-font-size: 1.3rem;
@@ -49,27 +57,9 @@ export const TextInputWrapper = styled(InputWrapper)`
       --floating-label-clr: var(--text-clr);
     }
 
-    input:not(:placeholder-shown) {
-      box-shadow: 0 0 0 1px var(--input-border-color);
-      --input-bg-clr: var(--neutral50);
-    }
-
-    input:focus {
-      --input-border-clr: var(--primary700);
-      --input-bg-clr: var(--neutral50);
-      box-shadow: 0 0 0 1px var(--input-border-color);
-      outline: none;
-    }
     input:hover {
       --input-border-color: var(--neutral500);
       box-shadow: 0 0 0 1px var(--input-border-color);
-    }
-    input:focus:hover {
-      --input-border-color: var(--primary800);
-      box-shadow: 0 0 0 1px var(--input-border-color);
-    }
-    input:focus ~ label {
-      --floating-label-clr: var(--text-clr);
     }
 
     &.has-error {
@@ -81,4 +71,8 @@ export const TextInputWrapper = styled(InputWrapper)`
       }
     }
   }
+`;
+
+export const FloatingInputWrapper = styled.div`
+  position: relative;
 `;
