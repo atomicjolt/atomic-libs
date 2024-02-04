@@ -8,11 +8,11 @@ import {
   FieldBaseProps,
   HasVariant,
 } from "../../../types";
-import { Button, Label, MaterialIcon, Popover, UnmanagedListBox } from "../../";
-import { Wrapper } from "../Dropdowns.styles";
-import { FieldError, FieldMessage } from "../../../styles/utils";
+import { Button, MaterialIcon, Popover, UnmanagedListBox } from "../../";
+import { DropdownWrapper } from "../Dropdowns.styles";
 import { useVariantClass } from "../../../hooks";
-import { ButtonText, SelectButtonWrapper } from "./CustomSelect.styles";
+import { ButtonText } from "./CustomSelect.styles";
+import { FieldWrapper } from "../../Utility/FieldWrapper";
 
 export type CustomSelectVariants = "default" | "floating";
 
@@ -56,8 +56,8 @@ export function CustomSelect<T extends object>(props: CustomSelectProps<T>) {
   const variantClassName = useVariantClass("aje-dropdown", variant);
 
   return (
-    <Wrapper
-      className={classNames(variantClassName, className, {
+    <DropdownWrapper
+      className={classNames("aje-dropdown", variantClassName, className, {
         "has-selection": state.selectedItem,
       })}
       error={isInvalid}
@@ -72,13 +72,17 @@ export function CustomSelect<T extends object>(props: CustomSelectProps<T>) {
         label={label}
         name={name}
       />
-      {variant === "default" && message && (
-        <FieldMessage {...descriptionProps}>{message}</FieldMessage>
-      )}
-      <SelectButtonWrapper>
-        <Label {...labelProps} hidden={hideLabel}>
-          {label}
-        </Label>
+
+      <FieldWrapper
+        label={label}
+        labelProps={labelProps}
+        message={message}
+        messageProps={descriptionProps}
+        error={error}
+        errorProps={errorMessageProps}
+        hideLabel={hideLabel}
+        floating={variant === "floating"}
+      >
         <Button
           {...triggerProps}
           ref={ref}
@@ -95,17 +99,13 @@ export function CustomSelect<T extends object>(props: CustomSelectProps<T>) {
           </ButtonText>
           <MaterialIcon icon="arrow_drop_down" />
         </Button>
-      </SelectButtonWrapper>
-      {variant === "floating" && message && (
-        <FieldMessage {...descriptionProps}>{message}</FieldMessage>
-      )}
-      {error && <FieldError {...errorMessageProps}>{error}</FieldError>}
+      </FieldWrapper>
       {state.isOpen && (
         <Popover state={state} triggerRef={ref} placement="bottom start">
           {/* @ts-ignore */}
           <UnmanagedListBox {...menuProps} state={state} size={menuSize} />
         </Popover>
       )}
-    </Wrapper>
+    </DropdownWrapper>
   );
 }

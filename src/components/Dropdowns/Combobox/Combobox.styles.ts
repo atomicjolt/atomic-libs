@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import mixins from "../../../styles/mixins";
-import { ComponentWrapper } from "../../../styles/utils";
+import { DropdownWrapper } from "../Dropdowns.styles";
 
-export const ComboboxWrapper = styled(ComponentWrapper)`
+export const ComboboxWrapper = styled(DropdownWrapper)`
   ${mixins.SizingsX}
   ${mixins.InputWrapper}
 

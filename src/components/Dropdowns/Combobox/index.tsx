@@ -2,19 +2,21 @@ import React, { useRef } from "react";
 import { AriaComboBoxProps, useComboBox, useFilter } from "react-aria";
 import { useComboBoxState } from "react-stately";
 import { IconButton, Label, Popover, UnmanagedListBox } from "../..";
-import { AriaProps, FieldBaseProps, HasIcon } from "../../../types";
+import { AriaProps, FieldBaseProps, HasIcon, HasVariant } from "../../../types";
 import {
   ComboboxInput,
   ComboboxInputWrapper,
   ComboboxWrapper,
 } from "./Combobox.styles";
 import classNames from "classnames";
-import { FieldError } from "../../../styles/utils";
+import { useVariantClass } from "../../../hooks";
+import { FieldWrapper } from "../../Utility/FieldWrapper";
 
 interface ComboBoxProps<T>
   extends AriaProps<AriaComboBoxProps<T>>,
     FieldBaseProps,
-    HasIcon {}
+    HasIcon,
+    HasVariant<"default" | "floating"> {}
 
 /** Combox combinds a text input field with a dropdown list of options for the user to select from */
 export function ComboBox<T extends object>(props: ComboBoxProps<T>) {
@@ -30,6 +32,8 @@ export function ComboBox<T extends object>(props: ComboBoxProps<T>) {
     label,
     message,
     error,
+    variant = "default",
+    hideLabel,
   } = props;
   const { contains } = useFilter({ sensitivity: "base" });
   const state = useComboBoxState({ ...props, defaultFilter: contains });
@@ -45,6 +49,7 @@ export function ComboBox<T extends object>(props: ComboBoxProps<T>) {
     listBoxProps,
     labelProps,
     descriptionProps,
+    errorMessageProps,
   } = useComboBox(
     {
       ...props,
@@ -56,30 +61,41 @@ export function ComboBox<T extends object>(props: ComboBoxProps<T>) {
     state
   );
 
+  const variantClass = useVariantClass("aje-dropdown", variant);
+
   return (
     <ComboboxWrapper
-      className={classNames("aje-combobox", className, {
+      className={classNames("aje-combobox", variantClass, className, {
         "read-only": isReadOnly,
+        "has-selection":
+          state.selectedItem || state.isFocused || state.inputValue,
       })}
       size={size}
       disabled={isDisabled}
       required={isRequired}
       error={isInvalid}
     >
-      <Label {...labelProps} message={message} messageProps={descriptionProps}>
-        {label}
-      </Label>
-      <ComboboxInputWrapper>
-        <ComboboxInput ref={inputRef} {...inputProps} />
-        <IconButton
-          icon={icon}
-          variant="content"
-          iconVariant={iconVariant}
-          ref={buttonRef}
-          {...buttonProps}
-        />
-      </ComboboxInputWrapper>
-      {error && <FieldError>{error}</FieldError>}
+      <FieldWrapper
+        label={label}
+        labelProps={labelProps}
+        message={message}
+        messageProps={descriptionProps}
+        error={error}
+        errorProps={errorMessageProps}
+        hideLabel={hideLabel}
+        floating={variant === "floating"}
+      >
+        <ComboboxInputWrapper>
+          <ComboboxInput ref={inputRef} {...inputProps} />
+          <IconButton
+            icon={icon}
+            variant="content"
+            iconVariant={iconVariant}
+            ref={buttonRef}
+            {...buttonProps}
+          />
+        </ComboboxInputWrapper>
+      </FieldWrapper>
       {state.isOpen && (
         <Popover
           state={state}

@@ -1,6 +1,7 @@
 import React from "react";
 import cn, { Argument } from "classnames";
 import styled from "styled-components";
+import { DOMAttributes } from "@react-types/shared";
 import { Sizes } from "../types";
 import mixins from "./mixins";
 
@@ -67,4 +68,8 @@ export const FieldError = styled.p.attrs(({ className }) => ({
   font-size: 1.3rem;
   margin: 3px 0 0;
   color: var(--error700);
+`;
+
+export const FloatingLabelWrapper = styled.div`
+  position: relative;
 `;

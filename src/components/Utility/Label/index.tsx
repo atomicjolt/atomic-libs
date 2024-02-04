@@ -6,6 +6,7 @@ import {
   FieldError,
   Label as StyledLabel,
   FieldMessage,
+  FloatingLabelWrapper,
 } from "../../../styles/utils";
 
 export interface LabelProps extends HasChildren, HasClassName {

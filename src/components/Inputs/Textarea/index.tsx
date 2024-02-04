@@ -6,6 +6,7 @@ import { StyledTextArea, TextAreaWrapper } from "./Textarea.styles";
 import { AriaTextFieldProps, useTextField } from "react-aria";
 import useForwardedRef from "../../../hooks/useForwardedRef";
 import { FieldError } from "../../../styles/utils";
+import { FieldWrapper } from "../../Utility/FieldWrapper";
 
 export interface TextareaProps
   extends FieldBaseProps,
@@ -55,16 +56,17 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
         required={isRequired}
         error={isInvalid}
       >
-        <Label
+        <FieldWrapper
+          label={label}
+          labelProps={labelProps}
           message={message}
-          hidden={hideLabel}
           messageProps={descriptionProps}
-          {...labelProps}
+          error={error}
+          errorProps={errorMessageProps}
+          hideLabel={hideLabel}
         >
-          {label}
-        </Label>
-        <StyledTextArea ref={ref} {...inputProps} />
-        {error && <FieldError {...errorMessageProps}>{error}</FieldError>}
+          <StyledTextArea ref={ref} {...inputProps} />
+        </FieldWrapper>
       </TextAreaWrapper>
     );
   }

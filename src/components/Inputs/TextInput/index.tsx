@@ -3,11 +3,10 @@ import cn from "classnames";
 import { useVariantClass } from "../../../hooks";
 import { AriaProps, FieldBaseProps, HasVariant } from "../../../types";
 import { Input } from "../Inputs.styles";
-import { FloatingInputWrapper, TextInputWrapper } from "./TextInput.styles";
+import { TextInputWrapper } from "./TextInput.styles";
 import useForwardedRef from "../../../hooks/useForwardedRef";
 import { AriaTextFieldProps, useTextField } from "react-aria";
-import { FieldError, FieldMessage } from "../../../styles/utils";
-import Label from "../../Utility/Label";
+import { FieldWrapper } from "../../Utility/FieldWrapper";
 
 type Variants = "default" | "floating";
 
@@ -54,26 +53,18 @@ const TextInput = React.forwardRef(
         required={isRequired}
         error={isInvalid}
       >
-        {variant === "default" && (
-          <Label {...labelProps} hidden={hideLabel}>
-            {label}
-          </Label>
-        )}
-        {variant === "default" && message && (
-          <FieldMessage {...descriptionProps}>{message}</FieldMessage>
-        )}
-        <FloatingInputWrapper>
+        <FieldWrapper
+          label={label}
+          labelProps={labelProps}
+          message={message}
+          messageProps={descriptionProps}
+          error={error}
+          errorProps={errorMessageProps}
+          hideLabel={hideLabel}
+          floating={variant === "floating"}
+        >
           <Input ref={internalRef} type={type} {...inputProps} />
-          {variant === "floating" && (
-            <Label {...labelProps} hidden={hideLabel}>
-              {label}
-            </Label>
-          )}
-        </FloatingInputWrapper>
-        {variant === "floating" && message && (
-          <FieldMessage {...descriptionProps}>{message}</FieldMessage>
-        )}
-        {error && <FieldError {...errorMessageProps}>{error}</FieldError>}
+        </FieldWrapper>
       </TextInputWrapper>
     );
   }
