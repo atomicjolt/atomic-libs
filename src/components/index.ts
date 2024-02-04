@@ -12,7 +12,7 @@ export { default as IconButton } from "./Buttons/IconButton";
 export { default as IconMenuButton } from "./Buttons/IconMenuButton";
 
 export { default as Combobox } from "./Dropdowns/Combobox";
-export { default as CustomSelect } from "./Dropdowns/CustomSelect";
+export { CustomSelect } from "./Dropdowns/CustomSelect";
 export { default as Option } from "./Dropdowns/Option";
 export { default as Select } from "./Dropdowns/Select";
 export { default as IconMenu } from "./Dropdowns/IconMenu";
@@ -49,7 +49,7 @@ export { default as Popover, PopoverWrapper } from "./Utility/Popover";
 export { default as ToolTip } from "./Utility/ToolTip";
 export { Menu } from "./Dropdowns/Menu";
 export { Dialog } from "./Utility/Dialog";
-export { ListBox } from "./Utility/ListBox";
+export { ListBox, UnmanagedListBox } from "./Utility/ListBox";
 
 /* ---- Types ---- */
 

@@ -20,7 +20,7 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
       loading,
       loadingComplete,
       loadingLabel,
-      variant = "primary",
+      variant = "border",
       iconVariant = "default",
       className,
     } = props;

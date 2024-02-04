@@ -1,14 +1,12 @@
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
-import CustomSelect from ".";
 import {
-  disableControl,
-  InputControls,
-  inputProperties,
+  NewInputControls,
+  FocusEventControls,
+  NewDefaultInputProperties,
 } from "../../storybook";
-import MaterialIcon from "../../Icons/MaterialIcon";
-import Option from "../Option";
-import { CustomSelectProps } from "./CustomSelect.types";
+import { CustomSelect } from ".";
+import { Item, Section } from "react-stately";
 
 const meta: Meta<typeof CustomSelect> = {
   title: "Dropdowns/CustomSelect",
@@ -17,12 +15,44 @@ const meta: Meta<typeof CustomSelect> = {
     layout: "centered",
   },
   argTypes: {
-    value: {
+    ...NewInputControls,
+    ...FocusEventControls,
+    selectedKey: {
       control: "select",
+      description:
+        "Control the value of the selected key in a controlled component",
       options: ["val1", "val2", "val3", null],
     },
-    ...InputControls,
-    ...disableControl("children"),
+    defaultSelectedKey: {
+      control: "false",
+      description:
+        "Control the value of the selected key in an uncontrolled component",
+    },
+    children: {
+      control: false,
+    },
+    isOpen: {
+      control: "boolean",
+      description: "Control the open state of the menu",
+    },
+    defaultOpen: {
+      control: "boolean",
+      description: "Control the inital state of the menu",
+    },
+    onOpenChange: {
+      control: false,
+      description: "Callback for when the menu is opened or closed",
+      table: {
+        category: "Events",
+      },
+    },
+    onSelectionChange: {
+      control: false,
+      description: "Callback for when the selection changes",
+      table: {
+        category: "Events",
+      },
+    },
   },
 };
 
@@ -30,92 +60,41 @@ export default meta;
 
 type Story = StoryObj<typeof CustomSelect>;
 
-export const Default: Story = {
+export const Primary: Story = {
   args: {
-    value: "val1",
+    ...NewDefaultInputProperties,
+    size: "medium",
+    menuSize: "medium",
+    defaultSelectedKey: "val1",
     variant: "default",
-    ...inputProperties({ filter: ["placeholder"] }),
     label: "Custom Select Label",
-    searchable: false,
-    searchPlaceholder: "Search...",
     children: [
-      <Option value="val1" key="1">
-        Option 1
-      </Option>,
-      <Option value="val2" key="2">
-        Option 2
-      </Option>,
-      <Option value="val3" key="3">
-        Option 3
-      </Option>,
+      <Item key="val1">Item 1</Item>,
+      <Item key="val2">Item 2</Item>,
+      <Item key="val3">Item 3</Item>,
     ],
   },
 };
 
-export const Seachable: Story = {
+export const WithSections: Story = {
   args: {
-    ...Default.args,
-    searchable: true,
+    ...Primary.args,
     children: [
-      <Option value="val1" searchKey="Option 1" key="1">
-        Option 1
-      </Option>,
-      <Option value="val2" searchKey="Option 2" key="2">
-        Option 2
-      </Option>,
-      <Option value="val3" searchKey="Option 3" key="3">
-        Option 3
-      </Option>,
+      <Item key="val1">Item 1</Item>,
+      <Item key="val2">Item 2</Item>,
+      <Item key="val3">Item 3</Item>,
+      <Section title="Section Title">
+        <Item key="val4">Item 4</Item>
+        <Item key="val5">Item 5</Item>
+      </Section>,
     ],
   },
 };
 
-export const WithEmpty: Story = {
+export const Floating: Story = {
   args: {
-    ...Default.args,
-    value: null,
-    children: [
-      <Option value={null} key="empty">
-        -- Select an Option --
-      </Option>,
-      <Option value="val1" key="1">
-        Option 1
-      </Option>,
-      <Option value="val2" key="2">
-        Option 2
-      </Option>,
-      <Option value="val3" key="3">
-        Option 3
-      </Option>,
-    ],
-  },
-};
-
-export const WithIcons: Story = {
-  args: {
-    ...Default.args,
-    children: [
-      <Option value="val1" key="1">
-        <MaterialIcon icon="search" />
-        Option 1
-      </Option>,
-      <Option value="val2" key="2">
-        <MaterialIcon icon="u_turn_left" />
-        Option 2
-      </Option>,
-    ],
-  },
-};
-
-export const MultiSelect: Story = {
-  args: {
-    ...Default.args,
-    value: ["val1", "val2"],
-  },
-  argTypes: {
-    value: {
-      control: "multi-select",
-      options: ["val1", "val2", "val3"],
-    },
+    ...Primary.args,
+    defaultSelectedKey: "undefined",
+    variant: "floating",
   },
 };

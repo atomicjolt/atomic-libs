@@ -3,6 +3,7 @@ import mixins from "../../styles/mixins";
 
 export const BaseStyledButton = styled.button`
   ${mixins.Bold}
+  ${mixins.SizingsX}
   padding: var(--btn-padding) calc(var(--btn-padding) * 2);
   border-radius: var(--btn-border-radius);
   font-size: var(--btn-font-size);
@@ -90,6 +91,22 @@ export const BaseStyledButton = styled.button`
     --btn-hover-text-clr: var(--btn-text-clr);
     --btn-hover-bg-clr: transparent;
     --btn-hover-shadow: none;
+  }
+
+  &.aje-btn--border {
+    --btn-text-clr: var(--text-clr-alt);
+    --btn-bg-clr: var(--neutral50);
+    --btn-hover-text-clr: var(--text-clr);
+    --btn-hover-bg-clr: var(--neutral100);
+    --btn-border: var(--border);
+  }
+
+  &.aje-btn--ghost {
+    --btn-text-clr: var(--text-clr-alt);
+    --btn-bg-clr: transparent;
+    --btn-hover-text-clr: var(--text-clr);
+    --btn-hover-bg-clr: var(--neutral100);
+    --btn-border: transparent;
   }
 
   & > i {

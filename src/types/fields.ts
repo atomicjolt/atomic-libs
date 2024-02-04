@@ -31,8 +31,14 @@ export interface FieldStatusProps {
   readonly isInvalid?: boolean;
 }
 
+export interface DomProps {
+  /** Name of the Field */
+  name?: string;
+}
+
 /** Props that are used to create a field */
 export interface FieldBaseProps
   extends BaseProps,
     HelpTextProps,
-    FieldStatusProps {}
+    FieldStatusProps,
+    DomProps {}

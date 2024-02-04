@@ -13,8 +13,6 @@ import { StyledButton } from "./Button.styles";
 import { ButtonVariants } from "../Buttons.types";
 import useForwardedRef from "../../../hooks/useForwardedRef";
 
-// TODO: support size prop
-
 export type ButtonProps = AriaButtonOptions<"button"> &
   LoadingProps &
   BaseProps &
@@ -29,13 +27,14 @@ export type ButtonProps = AriaButtonOptions<"button"> &
 const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   const {
     children,
+    size = "auto",
     variant = "primary",
     loading = false,
     loadingLabel,
     loadingComplete = false,
     className,
   } = props;
-  const internalRef = useForwardedRef<HTMLButtonElement>(null);
+  const internalRef = useForwardedRef<HTMLButtonElement>(ref);
   const { buttonProps, isPressed } = useButton(
     { ...props, "aria-label": loading ? loadingLabel : props["aria-label"] },
     internalRef
@@ -43,11 +42,12 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
 
   return (
     <StyledButton
-      className={cn("aje-btn", `aje-btn--${variant}`, className, {
+      className={cn("aje-btn", `aje-btn--${variant}`, className, `is-${size}`, {
         "is-loading": loading,
         "is-active": isPressed,
       })}
       onClick={props.onClick}
+      ref={internalRef}
       {...buttonProps}
     >
       {loading && <Spinner loading={!loadingComplete} />}

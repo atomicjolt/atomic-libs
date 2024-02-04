@@ -3,6 +3,12 @@ import mixins from "../../styles/mixins";
 import { ComponentWrapper, ComponentWrapperProps } from "../../styles/utils";
 
 export const Wrapper = styled(ComponentWrapper)<ComponentWrapperProps>`
+  button {
+    &.is-active {
+      transform: translateY(0px);
+    }
+  }
+
   &.is-small {
     --combobox-width: 100px;
   }
@@ -48,6 +54,8 @@ export const Wrapper = styled(ComponentWrapper)<ComponentWrapperProps>`
   }
 
   &.aje-dropdown--floating {
+    position: relative;
+
     --dropdown-height: 48px;
     --dropdown-padding: 8px;
     --dropdown-bg-clr: var(--neutral50);
@@ -56,14 +64,14 @@ export const Wrapper = styled(ComponentWrapper)<ComponentWrapperProps>`
     --floating-label-clr: var(--text-clr-alt);
 
     label {
-      --floating-font-size: 1.3rem;
+      --floating-font-size: 1.5rem;
       --dropdown-bg-clr: var(--neutral50);
       --floating-label-clr: var(--text-clr);
-
       ${mixins.Regular}
+
+      z-index: 2;
       position: absolute;
-      transform: translateY(-50%);
-      background-color: var(--dropdown-bg-clr);
+      transform: translateY(60%);
       color: var(--floating-label-clr);
       text-align: center;
       transition: 200ms ease;
@@ -74,7 +82,15 @@ export const Wrapper = styled(ComponentWrapper)<ComponentWrapperProps>`
       left: 1em;
     }
 
-    .aje-dropdown__input {
+    &.has-selection {
+      label {
+        --floating-font-size: 1.4rem;
+        transform: translateY(-50%);
+        background-color: var(--dropdown-bg-clr);
+      }
+    }
+
+    /* .aje-dropdown__input {
       box-shadow: 0 0 0 1px var(--dropdown-border-clr);
       --dropdown-bg-clr: var(--neutral50);
     }
@@ -104,7 +120,7 @@ export const Wrapper = styled(ComponentWrapper)<ComponentWrapperProps>`
       .aje-dropdown__input:focus ~ label {
         --floating-label-clr: var(--error800);
       }
-    }
+    } */
   }
 `;
 

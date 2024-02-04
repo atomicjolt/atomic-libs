@@ -48,4 +48,26 @@ export default {
       opacity: 0.5;
     }
   `,
+
+  SizingsX: css`
+    &.is-small {
+      width: var(--size-sm);
+    }
+
+    &.is-medium {
+      width: var(--size-md);
+    }
+
+    &.is-large {
+      width: var(--size-lg);
+    }
+
+    &.is-full {
+      width: var(--size-full);
+    }
+
+    &.is-auto {
+      width: auto;
+    }
+  `,
 };

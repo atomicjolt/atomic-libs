@@ -24,9 +24,20 @@ export type ListBoxProps<T> = AriaListBoxProps<T> & BaseProps;
 /** A listbox displays a list of options and allows a user to select one or more of them.
  * Used as the dropdown menu for `ComboBox` and `CustomSelect` */
 export function ListBox<T extends object>(props: ListBoxProps<T>) {
-  const { className, size = "medium" } = props;
-  let state = useListState(props);
-  let ref = useRef(null);
+  const state = useListState(props);
+  return <UnmanagedListBox {...props} state={state} />;
+}
+
+export type UnmanagedListBoxProps<T> = ListBoxProps<T> & {
+  state: ListState<T>;
+};
+
+/** Listbox, but the state is passed in instead of managed internally */
+export function UnmanagedListBox<T extends object>(
+  props: UnmanagedListBoxProps<T>
+) {
+  const { state, className, size = "medium" } = props;
+  const ref = useRef(null);
   let { listBoxProps, labelProps } = useListBox(props, state, ref);
 
   return (

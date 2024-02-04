@@ -24,6 +24,8 @@ const meta: Meta<typeof Button> = {
         "success",
         "inverted",
         "content",
+        "border",
+        "ghost",
       ],
     },
     isDisabled: {
@@ -45,7 +47,6 @@ const meta: Meta<typeof Button> = {
     //   description:
     //     "The type of element to render. By default, it will render a button element.",
     // },
-
     onPress: {
       control: false,
       description:

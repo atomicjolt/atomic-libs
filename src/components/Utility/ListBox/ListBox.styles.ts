@@ -10,6 +10,7 @@ export const List = styled.ul`
   padding: 8px 0;
   z-index: 100;
   ${scaleAnimation}
+  ${mixins.SizingsX}
 `;
 
 export const SubList = styled.ul`
@@ -42,10 +43,11 @@ export const ListItem = styled.li`
   padding: 6px 24px 6px 16px;
   min-height: 36px;
   line-height: 1;
-  color: var(--listbox-text-clr, inherit);
   font-size: 1.6rem;
   white-space: nowrap;
+  margin: 2px 0px;
   background-color: var(--listbox-bg-clr);
+  color: var(--listbox-text-clr, inherit);
 
   --listbox-icon-clr: var(--text-clr-alt);
 

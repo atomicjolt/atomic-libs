@@ -1,171 +1,100 @@
 import React from "react";
-import cn from "classnames";
-
-import FloatingCustomSelect from "./variants/FloatingCustomSelect";
-import DefaultCustomSelect from "./variants/DefaultCustomSelect";
-import { useIds, useVariant } from "../../../hooks";
-import { VariantRecord } from "../../../types";
-import InputError from "../../Utility/InputError";
-import Popover from "../../Utility/Popover";
-import useSelect from "./useSelect";
-import MaterialIcon from "../../Icons/MaterialIcon";
-import { fallbackValue, handleUndefined } from "../../../utils";
-import { strategies } from "../../../filter";
+import { SelectProps, useSelectState } from "react-stately";
+import { HiddenSelect, useSelect } from "react-aria";
+import { Button, Label, MaterialIcon, Popover, UnmanagedListBox } from "../../";
+import { useRef } from "react";
 import {
-  DropdownInputWrapper,
-  DropdownMenu,
-  DropdownOption,
-  Wrapper,
-} from "../Dropdowns.styles";
-import { SearchInput, SearchListItem } from "./CustomSelect.styles";
-import {
-  CustomSelectProps,
-  CustomSelectVariantProps,
-  CustomSelectVariants,
-} from "./CustomSelect.types";
+  AriaProps,
+  ExtendedSize,
+  FieldBaseProps,
+  HasVariant,
+} from "../../../types";
+import { Wrapper } from "../Dropdowns.styles";
+import classNames from "classnames";
+import { ErrorLabel } from "../../../styles/utils";
+import { ButtonText } from "./CustomSelect.styles";
+import { CustomSelectVariants } from "./CustomSelect.types";
+import { useVariantClass } from "../../../hooks";
 
-const variants: VariantRecord<
-  CustomSelectVariants,
-  CustomSelectVariantProps<any>
-> = {
-  default: DefaultCustomSelect,
-  floating: FloatingCustomSelect,
-};
+interface CustomSelectProps<T extends object>
+  extends AriaProps<SelectProps<T>>,
+    Omit<FieldBaseProps, "isReadOnly">,
+    HasVariant<CustomSelectVariants> {
+  /** The size of the menu. Defaults to `auto` */
+  menuSize?: ExtendedSize;
+}
 
-/**
- * CustomSelect
- * Intended for when you want to render custom content in the dropdown of a Select. Additionally, the values
- * for the select can be any object, not just strings or numbers.
- *
- * https://www.w3.org/TR/wai-aria-practices/examples/combobox/combobox-select-only.html for accessibility implementation.
- *
- * The CustomSelect supports multiple selection. If you want single selection, pass a single value in for `value`
- * If you want multi-select, pass in an array of values.
- * */
-export default function CustomSelect<T extends {} | Array<any>>(
-  props: CustomSelectProps<T>
-) {
-  const {
-    size = "medium",
-    label,
-    error,
-    message,
-    hideLabel = false,
-    disabled = false,
-    variant = "default",
-    required,
-    searchable = false,
-    placeholder = "",
-    searchPlaceholder,
-    className,
-    filterStrategy = strategies.defaultStrategy,
-  } = props;
-
-  const [inputId, listBoxId, errorId, labelId] = useIds("CustomSelect", [
-    "combo",
-    "list",
-    "errors",
-    "label",
-  ]);
-
-  const [Variant, variantClassName] = useVariant(
-    variants,
-    "aje-dropdown",
-    variant
+/** A custom version of the builtin `select` component to allow for consistent styling */
+export function CustomSelect<T extends object>(props: CustomSelectProps<T>) {
+  const state = useSelectState<T>(props);
+  const ref = useRef(null);
+  const { labelProps, triggerProps, valueProps, menuProps } = useSelect(
+    props,
+    state,
+    ref
   );
 
   const {
-    selectedOption,
-    multiselect,
-    menu,
-    handleKeyPress,
-    isFocused,
-    isSelected,
-    onChange,
-    options,
-    ref,
-    search,
-  } = useSelect({
-    value: handleUndefined(props.value),
-    children: props.children,
-    onChange: props.onChange,
-    searchable,
-    filterStrategy,
-  });
+    className,
+    label,
+    hideLabel,
+    error,
+    message,
+    isInvalid,
+    isDisabled,
+    isRequired,
+    name,
+    size = "medium",
+    menuSize = "auto",
+    placeholder = "Select an option",
+    variant = "default",
+  } = props;
+
+  const variantClassName = useVariantClass("aje-dropdown", variant);
 
   return (
     <Wrapper
-      className={cn(variantClassName, className)}
+      className={classNames(variantClassName, className, {
+        "has-selection": state.selectedItem,
+      })}
+      error={isInvalid}
+      disabled={isDisabled}
+      required={isRequired}
       size={size}
-      error={error}
-      disabled={disabled}
-      required={required}
-      ref={ref}
     >
-      <Variant
-        message={message}
-        hideLabel={hideLabel}
+      <Label {...labelProps} message={message} hidden={hideLabel}>
+        {label}
+      </Label>
+      <HiddenSelect
+        isDisabled={isDisabled}
+        state={state}
+        triggerRef={ref}
         label={label}
-        error={error}
-        inputId={inputId}
-        labelId={labelId}
+        name={name}
+      />
+      <Button
+        {...triggerProps}
+        ref={ref}
+        variant="border"
+        size={size}
+        isDisabled={isDisabled}
       >
-        <DropdownInputWrapper
-          className="aje-combobox__input"
-          aria-controls={listBoxId}
-          aria-expanded={menu.opened}
-          aria-haspopup="listbox"
-          aria-labelledby={labelId}
-          aria-describedby={error ? errorId : ""}
-          id={inputId}
-          role="combobox"
-          tabIndex={0}
-          onClick={menu.toggle}
-          onKeyDown={handleKeyPress}
-        >
-          <span>
-            {multiselect
-              ? placeholder
-              : fallbackValue(selectedOption?.children, placeholder)}
-          </span>
-        </DropdownInputWrapper>
-        <Popover show={menu.opened} size="full">
-          <DropdownMenu
-            className={cn("aje-combobox__menu", {
-              "is-multiselect": multiselect,
-            })}
-            role="listbox"
-            id={listBoxId}
-            aria-labelledby={labelId}
-            tabIndex={-1}
-          >
-            {searchable && (
-              <SearchListItem className="aje-combobox__search">
-                <SearchInput
-                  type="text"
-                  {...search}
-                  placeholder={searchPlaceholder}
-                />
-                <MaterialIcon icon="search" />
-              </SearchListItem>
-            )}
-            {options.map(({ value: optionValue, children }) => (
-              <DropdownOption
-                className={cn("aje-combobox__option", {
-                  "is-focused": isFocused(optionValue),
-                })}
-                role="option"
-                aria-selected={isSelected(optionValue)}
-                onClick={(e) => onChange(optionValue, e)}
-                key={String(optionValue)}
-              >
-                {children}
-              </DropdownOption>
-            ))}
-          </DropdownMenu>
+        <ButtonText {...valueProps}>
+          {state.selectedItem
+            ? state.selectedItem.rendered
+            : variant === "default"
+            ? placeholder
+            : ""}
+        </ButtonText>
+        <MaterialIcon icon="arrow_drop_down" />
+      </Button>
+      {error && <ErrorLabel>{error}</ErrorLabel>}
+      {state.isOpen && (
+        <Popover state={state} triggerRef={ref} placement="bottom start">
+          {/* @ts-ignore */}
+          <UnmanagedListBox {...menuProps} state={state} size={menuSize} />
         </Popover>
-      </Variant>
-      <InputError error={error} id={errorId} />
+      )}
     </Wrapper>
   );
 }

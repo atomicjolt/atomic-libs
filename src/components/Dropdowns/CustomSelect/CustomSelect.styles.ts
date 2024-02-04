@@ -30,3 +30,10 @@ export const SearchInput = styled.input`
     outline-offset: -2px;
   }
 `;
+
+export const ButtonText = styled.span`
+  margin-right: auto;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+`;

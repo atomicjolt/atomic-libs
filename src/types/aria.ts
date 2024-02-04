@@ -8,4 +8,5 @@ export type AriaProps<P> = Omit<
   | "isDisabled"
   | "isReadOnly"
   | "id"
+  | "name"
 >;
