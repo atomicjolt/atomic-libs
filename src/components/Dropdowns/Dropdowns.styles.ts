@@ -54,7 +54,7 @@ export const Wrapper = styled(ComponentWrapper)<ComponentWrapperProps>`
   }
 
   &.aje-dropdown--floating {
-    position: relative;
+    /* position: relative; */
 
     --dropdown-height: 48px;
     --dropdown-padding: 8px;
@@ -71,7 +71,7 @@ export const Wrapper = styled(ComponentWrapper)<ComponentWrapperProps>`
 
       z-index: 2;
       position: absolute;
-      transform: translateY(60%);
+      transform: translateY(50%);
       color: var(--floating-label-clr);
       text-align: center;
       transition: 200ms ease;

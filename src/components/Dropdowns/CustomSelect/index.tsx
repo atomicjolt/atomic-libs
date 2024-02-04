@@ -10,9 +10,9 @@ import {
 } from "../../../types";
 import { Button, Label, MaterialIcon, Popover, UnmanagedListBox } from "../../";
 import { Wrapper } from "../Dropdowns.styles";
-import { FieldError } from "../../../styles/utils";
+import { FieldError, FieldMessage } from "../../../styles/utils";
 import { useVariantClass } from "../../../hooks";
-import { ButtonText } from "./CustomSelect.styles";
+import { ButtonText, SelectButtonWrapper } from "./CustomSelect.styles";
 
 export type CustomSelectVariants = "default" | "floating";
 
@@ -28,8 +28,14 @@ interface CustomSelectProps<T extends object>
 export function CustomSelect<T extends object>(props: CustomSelectProps<T>) {
   const state = useSelectState<T>(props);
   const ref = useRef(null);
-  const { labelProps, triggerProps, valueProps, menuProps, errorMessageProps } =
-    useSelect(props, state, ref);
+  const {
+    labelProps,
+    triggerProps,
+    valueProps,
+    menuProps,
+    errorMessageProps,
+    descriptionProps,
+  } = useSelect(props, state, ref);
 
   const {
     className,
@@ -59,9 +65,6 @@ export function CustomSelect<T extends object>(props: CustomSelectProps<T>) {
       required={isRequired}
       size={size}
     >
-      <Label {...labelProps} message={message} hidden={hideLabel}>
-        {label}
-      </Label>
       <HiddenSelect
         isDisabled={isDisabled}
         state={state}
@@ -69,22 +72,33 @@ export function CustomSelect<T extends object>(props: CustomSelectProps<T>) {
         label={label}
         name={name}
       />
-      <Button
-        {...triggerProps}
-        ref={ref}
-        variant="border"
-        size={size}
-        isDisabled={isDisabled}
-      >
-        <ButtonText {...valueProps}>
-          {state.selectedItem
-            ? state.selectedItem.rendered
-            : variant === "default"
-            ? placeholder
-            : ""}
-        </ButtonText>
-        <MaterialIcon icon="arrow_drop_down" />
-      </Button>
+      {variant === "default" && message && (
+        <FieldMessage {...descriptionProps}>{message}</FieldMessage>
+      )}
+      <SelectButtonWrapper>
+        <Label {...labelProps} hidden={hideLabel}>
+          {label}
+        </Label>
+        <Button
+          {...triggerProps}
+          ref={ref}
+          variant="border"
+          size={size}
+          isDisabled={isDisabled}
+        >
+          <ButtonText {...valueProps}>
+            {state.selectedItem
+              ? state.selectedItem.rendered
+              : variant === "default"
+              ? placeholder
+              : ""}
+          </ButtonText>
+          <MaterialIcon icon="arrow_drop_down" />
+        </Button>
+      </SelectButtonWrapper>
+      {variant === "floating" && message && (
+        <FieldMessage {...descriptionProps}>{message}</FieldMessage>
+      )}
       {error && <FieldError {...errorMessageProps}>{error}</FieldError>}
       {state.isOpen && (
         <Popover state={state} triggerRef={ref} placement="bottom start">
