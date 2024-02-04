@@ -90,7 +90,7 @@ const preview: Preview = {
     },
   },
   parameters: {
-    actions: { argTypesRegex: "^on[A-Z].*" },
+    // actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {
       matchers: {
         date: /date/,

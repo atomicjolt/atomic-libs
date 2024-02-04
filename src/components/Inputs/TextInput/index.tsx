@@ -34,7 +34,7 @@ const TextInput = React.forwardRef(
 
     const internalRef = useForwardedRef(ref);
 
-    let {
+    const {
       labelProps,
       inputProps,
       descriptionProps,

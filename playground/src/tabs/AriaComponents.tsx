@@ -9,6 +9,7 @@ import {
   Section,
   CustomSelect,
   TextInput,
+  Textarea,
 } from "../elements";
 import { now, getLocalTimeZone } from "@internationalized/date";
 
@@ -25,11 +26,14 @@ export default function AriaComponents() {
       }}
     >
       <br />
-      <TextInput
+      <TextInput label="Name" message="Message" error="Error" isInvalid />
+      <br />
+      <Textarea
         label="Name"
-        variant="floating"
         message="Message"
         error="Error"
+        canResize
+        size="medium"
       />
     </div>
   );

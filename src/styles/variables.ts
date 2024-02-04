@@ -67,6 +67,7 @@ export const CssVariables = createGlobalStyle`
   --background-clr-alt: var(--neutral100);
   --background-clr-inverted: var(--neutral800);
   --highlight-clr: var(--primary700);
+  --error-clr: var(--error600);
 
   /* # Sizing */
   --size-sm-x: 100px;
