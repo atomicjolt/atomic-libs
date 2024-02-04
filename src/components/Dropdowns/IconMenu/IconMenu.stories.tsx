@@ -12,6 +12,7 @@ const meta: Meta<typeof IconMenu> = {
   },
   // TODO: fully fill out these args
   argTypes: {
+    ...PlacementArgType,
     buttonVariant: {
       control: "select",
       options: [
@@ -27,16 +28,36 @@ const meta: Meta<typeof IconMenu> = {
       control: "select",
       options: ["default", "outlined", "round", "sharp", "two-tone"],
     },
-    placement: {
-      ...PlacementArgType,
-    },
     children: {
       control: false,
     },
+
     onAction: {
+      description:
+        "Callback for when an item is selected. The callback will receive the key of the selected item.",
       table: {
         category: "Events",
       },
+    },
+    onClose: {
+      description: "Callback for when the menu is closed.",
+      table: {
+        category: "Events",
+      },
+    },
+    onOpenChange: {
+      description: "Callback for when the menu is opened or closed.",
+      table: {
+        category: "Events",
+      },
+    },
+    isOpen: {
+      control: "boolean",
+      description: "Control the open state of the menu externally.",
+    },
+    defaultOpen: {
+      control: "boolean",
+      description: "Whether the menu is open by default.",
     },
   },
 };

@@ -2,14 +2,14 @@ import React, { useRef } from "react";
 import { MenuTriggerProps, useMenuTriggerState } from "react-stately";
 import { AriaMenuProps, Placement, useMenuTrigger } from "react-aria";
 import IconButton from "../../Buttons/IconButton";
-import { HasClassName, HasIcon } from "../../../types";
+import { BaseProps, HasIcon } from "../../../types";
 import Popover from "../../Utility/Popover";
 import { Menu } from "../Menu";
 import { ButtonVariants } from "../../Buttons/Buttons.types";
 
 export type IconMenuProps<T> = AriaMenuProps<T> &
   MenuTriggerProps &
-  HasClassName &
+  BaseProps &
   HasIcon & {
     buttonVariant?: ButtonVariants;
     placement?: Placement;
