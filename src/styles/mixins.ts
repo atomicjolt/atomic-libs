@@ -41,7 +41,7 @@ const mixins = {
     }
 
     &.has-error {
-      --input-outline: 1px solid var(--error700);
+      --input-outline: 1px solid var(--error-clr);
     }
 
     &.is-disabled {
@@ -49,6 +49,23 @@ const mixins = {
     }
   `,
 
+  InputLike: css`
+    border: var(--input-border);
+    border-radius: var(--input-border-radius);
+    min-height: var(--input-height);
+    width: 100%;
+    padding: 0 var(--input-padding-horiz);
+    font-size: var(--input-font-size);
+    color: var(--input-text-clr);
+    background-color: var(--input-bg-clr);
+    text-align: left;
+
+    &:focus,
+    &:focus-within {
+      --input-border-color: var(--outline-clr-primary);
+      outline: var(--input-outline);
+    }
+  `,
   SizingsX: css`
     &.is-small {
       width: var(--size-sm-x);

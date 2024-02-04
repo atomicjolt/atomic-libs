@@ -11,7 +11,7 @@ export { default as Button } from "./Buttons/Button";
 export { default as IconButton } from "./Buttons/IconButton";
 export { default as IconMenuButton } from "./Buttons/IconMenuButton";
 
-export { default as Combobox } from "./Dropdowns/Combobox";
+export { ComboBox } from "./Dropdowns/Combobox";
 export { CustomSelect } from "./Dropdowns/CustomSelect";
 export { default as Option } from "./Dropdowns/Option";
 export { default as Select } from "./Dropdowns/Select";
@@ -21,7 +21,7 @@ export { default as NumberInput } from "./Inputs/NumberInput";
 export { default as RadioGroup, Radio } from "./Inputs/RadioGroup";
 export { default as SearchInput } from "./Inputs/SearchInput";
 export { default as TextInput } from "./Inputs/TextInput";
-export { default as Textarea } from "./Inputs/Textarea";
+export { default as TextArea } from "./Inputs/Textarea";
 export { default as ToggleSwitch } from "./Inputs/ToggleSwitch";
 
 export { default as Spinner } from "./Loaders/Spinner";

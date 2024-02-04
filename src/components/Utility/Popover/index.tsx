@@ -1,10 +1,11 @@
-import React, { useRef } from "react";
+import React from "react";
 import { DismissButton, Overlay, usePopover } from "react-aria";
 import type { AriaPopoverProps } from "react-aria";
 import type { OverlayTriggerState } from "react-stately";
 import { HasClassName } from "../../../types";
 import cn from "classnames";
 import { PopoverUnderlay, PopoverContent } from "./Popover.styles";
+import useForwardedRef from "../../../hooks/useForwardedRef";
 
 export { PopoverWrapper } from "./Popover.styles";
 
@@ -15,18 +16,17 @@ export interface PopoverProps
   state: OverlayTriggerState;
 }
 
-export default function Popover({
-  children,
-  state,
-  offset = 8,
-  ...props
-}: PopoverProps) {
-  let popoverRef = useRef(null);
-  let { popoverProps, underlayProps } = usePopover(
+export default React.forwardRef<HTMLDivElement, PopoverProps>(function Popover(
+  props: PopoverProps,
+  ref
+) {
+  const { children, state, offset = 4, ...rest } = props;
+  const internalRef = useForwardedRef(ref);
+  const { popoverProps, underlayProps } = usePopover(
     {
-      ...props,
+      ...rest,
       offset,
-      popoverRef,
+      popoverRef: internalRef,
     },
     state
   );
@@ -36,7 +36,7 @@ export default function Popover({
       <PopoverUnderlay {...underlayProps} className="aje-popover-underlay" />
       <PopoverContent
         {...popoverProps}
-        ref={popoverRef}
+        ref={internalRef}
         className={cn("aje-popover", props.className)}
       >
         <DismissButton onDismiss={state.close} />
@@ -45,4 +45,4 @@ export default function Popover({
       </PopoverContent>
     </Overlay>
   );
-}
+});

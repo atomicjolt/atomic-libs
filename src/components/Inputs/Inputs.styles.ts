@@ -57,23 +57,11 @@ export const InputWrapper = styled(ComponentWrapper)`
 
 export const Input = styled.input`
   ${mixins.Regular}
-  border: var(--input-border);
-  border-radius: var(--input-border-radius);
-  min-height: var(--input-height);
-  width: 100%;
-  padding: 0 var(--input-padding-horiz);
-  font-size: var(--input-font-size);
-  color: var(--input-text-clr);
-  background-color: var(--input-bg-clr);
-  text-align: left;
+  ${mixins.InputLike}
 
   &:read-only {
     border-color: var(--neutral100);
     --input-bg-clr: var(--neutral100);
-  }
-  &:focus {
-    --input-border-color: var(--outline-clr-primary);
-    outline: var(--input-outline);
   }
 `;
 

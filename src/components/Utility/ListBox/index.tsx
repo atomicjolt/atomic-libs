@@ -18,6 +18,7 @@ import {
 import Label from "../Label";
 import { BaseProps } from "../../../types";
 import classNames from "classnames";
+import useForwardedRef from "../../../hooks/useForwardedRef";
 
 export type ListBoxProps<T> = AriaListBoxProps<T> & BaseProps;
 
@@ -33,19 +34,20 @@ export type UnmanagedListBoxProps<T> = ListBoxProps<T> & {
 };
 
 /** Listbox, but the state is passed in instead of managed internally */
-export function UnmanagedListBox<T extends object>(
-  props: UnmanagedListBoxProps<T>
-) {
+export const UnmanagedListBox = React.forwardRef<
+  HTMLUListElement,
+  UnmanagedListBoxProps<any>
+>((props, ref) => {
   const { state, className, size = "medium" } = props;
-  const ref = useRef(null);
-  let { listBoxProps, labelProps } = useListBox(props, state, ref);
+  const internalRef = useForwardedRef(ref);
+  const { listBoxProps, labelProps } = useListBox(props, state, internalRef);
 
   return (
     <>
       <Label {...labelProps}>{props.label}</Label>
       <List
         {...listBoxProps}
-        ref={ref}
+        ref={internalRef}
         className={classNames("aje-listbox", className, `is-${size}`)}
       >
         {[...state.collection].map((item) =>
@@ -58,7 +60,7 @@ export function UnmanagedListBox<T extends object>(
       </List>
     </>
   );
-}
+});
 
 interface ListBoxSectionProps<T> {
   section: Node<T>;
@@ -101,18 +103,18 @@ interface ListBoxOptionProps<T> {
 
 function ListBoxOption<T>(props: ListBoxOptionProps<T>) {
   const { item, state } = props;
-  let ref = React.useRef(null);
+  let ref = useRef(null);
   let { optionProps } = useOption({ key: item.key }, state, ref);
 
   // Determine whether we should show a keyboard
   // focus ring for accessibility
-  let { isFocusVisible, focusProps } = useFocusRing();
+  let { focusProps } = useFocusRing();
 
   return (
     <ListItem
       {...mergeProps(optionProps, focusProps)}
       ref={ref}
-      data-focus-visible={isFocusVisible}
+      data-focus-visible={item.key === state.selectionManager.focusedKey}
     >
       {item.rendered}
     </ListItem>

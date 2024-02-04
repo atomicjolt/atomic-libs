@@ -3,14 +3,14 @@ import mixins from "../../../styles/mixins";
 import { scaleAnimation } from "../../../styles/animations";
 
 export const List = styled.ul`
+  ${mixins.SizingsX}
+  ${scaleAnimation}
   list-style: none;
   border-radius: var(--radius);
   box-shadow: var(--listbox-shadow);
   background-color: var(--listbox-bg-clr);
   padding: 8px 0;
   z-index: 100;
-  ${scaleAnimation}
-  ${mixins.SizingsX}
 `;
 
 export const SubList = styled.ul`

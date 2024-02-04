@@ -9,7 +9,7 @@ import {
   Section,
   CustomSelect,
   TextInput,
-  Textarea,
+  ComboBox,
 } from "../elements";
 import { now, getLocalTimeZone } from "@internationalized/date";
 
@@ -25,16 +25,17 @@ export default function AriaComponents() {
         height: "80vh",
       }}
     >
-      <br />
-      <TextInput label="Name" message="Message" error="Error" isInvalid />
-      <br />
-      <Textarea
-        label="Name"
-        message="Message"
-        error="Error"
-        canResize
-        size="medium"
-      />
+      <ComboBox
+        label="Label"
+        menuTrigger="focus"
+        message="message"
+        error="error"
+        isInvalid
+      >
+        <Item key="1">Option 1</Item>
+        <Item key="2">Option 2</Item>
+        <Item key="3">Option 3</Item>
+      </ComboBox>
     </div>
   );
 }

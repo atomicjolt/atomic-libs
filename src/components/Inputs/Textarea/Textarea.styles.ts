@@ -4,6 +4,8 @@ import { ComponentWrapper } from "../../../styles/utils";
 
 export const TextAreaWrapper = styled(ComponentWrapper)`
   ${mixins.Sizing}
+  ${mixins.InputWrapper}
+
   &.has-error {
     --input-border-color: var(--error-clr);
   }
