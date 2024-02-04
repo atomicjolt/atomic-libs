@@ -1,25 +1,24 @@
-import React from "react";
+import React, { DetailedHTMLProps, SelectHTMLAttributes } from "react";
 import cn from "classnames";
-import { InputProps } from "../../../types";
+import { FieldBaseProps } from "../../../types";
 import Label from "../../Utility/Label";
 import { useIds } from "../../../hooks";
 import InputError from "../../Utility/InputError";
 import { makeEventHandler } from "../../../utils";
-import Option, { OptionProps } from "../Option";
 import { ComponentWrapper } from "../../../styles/utils";
 import { SelectWrapper, StyledSelect } from "./Select.styles";
 
-type OptionChild = React.ReactElement<
-  OptionProps<string | number | readonly string[] | undefined>,
-  typeof Option
+type LimitedSelectProps = Omit<
+  DetailedHTMLProps<SelectHTMLAttributes<HTMLSelectElement>, HTMLSelectElement>,
+  "className" | "id" | "size" | "onChange"
 >;
 
+type SelectValue = string | number | readonly string[] | undefined;
+
 export interface SelectProps
-  extends Omit<
-    InputProps<string, HTMLSelectElement>,
-    "placeholder" | "readOnly"
-  > {
-  children: OptionChild[] | OptionChild;
+  extends Omit<FieldBaseProps, "placeholder" | "readOnly">,
+    LimitedSelectProps {
+  onChange?: (value: SelectValue) => void;
 }
 
 /** Select Component. Simple wrapper around native `<select>` */
@@ -35,8 +34,9 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
       error,
       message,
       hideLabel = false,
-      disabled = false,
-      required = false,
+      isDisabled = false,
+      isRequired = false,
+      isInvalid = false,
       className,
       ...selectProps
     } = props;
@@ -45,9 +45,9 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
       <ComponentWrapper
         className={cn("aje-input", className)}
         size={size}
-        error={error}
-        required={required}
-        disabled={disabled}
+        error={isInvalid}
+        required={isRequired}
+        disabled={isDisabled}
       >
         <Label message={message} htmlFor={inputId} hidden={hideLabel}>
           {label}

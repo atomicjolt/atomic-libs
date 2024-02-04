@@ -1,20 +1,20 @@
-import React from "react";
+import React, { useRef } from "react";
 import { SelectProps, useSelectState } from "react-stately";
 import { HiddenSelect, useSelect } from "react-aria";
-import { Button, Label, MaterialIcon, Popover, UnmanagedListBox } from "../../";
-import { useRef } from "react";
+import classNames from "classnames";
 import {
   AriaProps,
   ExtendedSize,
   FieldBaseProps,
   HasVariant,
 } from "../../../types";
+import { Button, Label, MaterialIcon, Popover, UnmanagedListBox } from "../../";
 import { Wrapper } from "../Dropdowns.styles";
-import classNames from "classnames";
 import { ErrorLabel } from "../../../styles/utils";
-import { ButtonText } from "./CustomSelect.styles";
-import { CustomSelectVariants } from "./CustomSelect.types";
 import { useVariantClass } from "../../../hooks";
+import { ButtonText } from "./CustomSelect.styles";
+
+export type CustomSelectVariants = "default" | "floating";
 
 interface CustomSelectProps<T extends object>
   extends AriaProps<SelectProps<T>>,
