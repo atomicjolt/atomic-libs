@@ -14,7 +14,7 @@ import {
 import { now, getLocalTimeZone } from "@internationalized/date";
 
 export default function AriaComponents() {
-  const [date, setDate] = useState(now(getLocalTimeZone()));
+  const [key, setKey] = useState<React.Key>("1");
 
   return (
     <div
@@ -25,17 +25,11 @@ export default function AriaComponents() {
         height: "80vh",
       }}
     >
-      <ComboBox
-        label="Label"
-        menuTrigger="focus"
-        message="message"
-        error="error"
-        isInvalid
-      >
+      <CustomSelect label="label" onSelectionChange={setKey} selectedKey={key}>
         <Item key="1">Option 1</Item>
         <Item key="2">Option 2</Item>
         <Item key="3">Option 3</Item>
-      </ComboBox>
+      </CustomSelect>
     </div>
   );
 }

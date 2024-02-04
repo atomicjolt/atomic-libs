@@ -1,6 +1,6 @@
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
-import { NewTextInputControls } from "../../storybook";
+import { NewTextInputControls, FocusEventControls } from "../../storybook";
 import { ComboBox } from ".";
 import { Item } from "react-stately";
 
@@ -12,6 +12,7 @@ const meta: Meta<typeof ComboBox> = {
   },
   argTypes: {
     ...NewTextInputControls,
+    ...FocusEventControls,
     children: { control: false },
     allowsCustomValue: {
       control: "boolean",
@@ -74,20 +75,12 @@ export const DynamicCollection: Story = {
       { id: 1, name: "Aerospace" },
       { id: 2, name: "Mechanical" },
       { id: 3, name: "Civil" },
-      { id: 4, name: "Biomedical" },
-      { id: 5, name: "Nuclear" },
-      { id: 6, name: "Industrial" },
-      { id: 7, name: "Chemical" },
-      { id: 8, name: "Agricultural" },
-      { id: 9, name: "Electrical" },
     ];
 
     return (
-      <>
-        <ComboBox label="Pick a engineering major" items={options}>
-          {(item) => <Item>{item.name}</Item>}
-        </ComboBox>
-      </>
+      <ComboBox label="Pick a engineering major" items={options}>
+        {(item) => <Item>{item.name}</Item>}
+      </ComboBox>
     );
   },
 };

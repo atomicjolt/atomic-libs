@@ -62,10 +62,8 @@ type Story = StoryObj<typeof CustomSelect>;
 
 export const Primary: Story = {
   args: {
-    ...NewDefaultInputProperties,
     size: "medium",
     menuSize: "medium",
-    defaultSelectedKey: "val1",
     variant: "default",
     label: "Custom Select Label",
     children: [
