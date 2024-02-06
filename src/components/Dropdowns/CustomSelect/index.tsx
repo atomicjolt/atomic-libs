@@ -16,7 +16,7 @@ import { FieldWrapper } from "../../Utility/FieldWrapper";
 
 export type CustomSelectVariants = "default" | "floating";
 
-interface CustomSelectProps<T extends object>
+export interface CustomSelectProps<T extends object>
   extends AriaProps<SelectProps<T>>,
     Omit<FieldBaseProps, "isReadOnly">,
     HasVariant<CustomSelectVariants> {
@@ -24,7 +24,8 @@ interface CustomSelectProps<T extends object>
   menuSize?: ExtendedSize;
 }
 
-/** A custom version of the builtin `select` component to allow for consistent styling */
+/** A custom version of the builtin `select` component to
+ * allow for consistent styling & an extended feature set */
 export function CustomSelect<T extends object>(props: CustomSelectProps<T>) {
   const state = useSelectState<T>(props);
   const ref = useRef(null);

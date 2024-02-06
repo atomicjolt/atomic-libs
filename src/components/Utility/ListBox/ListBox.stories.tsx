@@ -1,7 +1,7 @@
 import React from "react";
 import { StoryObj, Meta } from "@storybook/react";
 import { ListBox } from ".";
-import { Item, Section } from "react-stately";
+import { Item, Section } from "../..";
 
 const meta: Meta<typeof ListBox> = {
   title: "Atoms/ListBox",

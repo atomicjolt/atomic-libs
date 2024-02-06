@@ -67,7 +67,7 @@ export const ListItem = styled.li`
   }
 
   &[aria-selected="true"] {
-    background: var(--highlight-clr);
+    background: var(--accent-clr);
     color: white;
   }
 

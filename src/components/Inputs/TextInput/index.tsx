@@ -10,7 +10,7 @@ import { FieldWrapper } from "../../Utility/FieldWrapper";
 
 type Variants = "default" | "floating";
 
-interface TextInputProps
+export interface TextInputProps
   extends AriaProps<AriaTextFieldProps>,
     FieldBaseProps,
     HasVariant<Variants> {}

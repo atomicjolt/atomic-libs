@@ -16,7 +16,6 @@ export const CssVariables = createGlobalStyle`
   --neutral700: hsl(217, 19%, 27%);
   --neutral800: hsl(215, 28%, 17%);
   --neutral900: hsl(221, 39%, 11%);
-
   /* ## Error */
   --error100: hsl(0, 93%, 94%);
   --error200: hsl(0, 96%, 89%);
@@ -62,12 +61,18 @@ export const CssVariables = createGlobalStyle`
   --text-clr: var(--neutral800);
   --text-clr-alt: var(--neutral600);
   --text-clr-inverted: var(--neutral50);
-  --border-clr-primary: var(--neutral400);
+
   --background-clr: var(--neutral50);
   --background-clr-alt: var(--neutral100);
   --background-clr-inverted: var(--neutral800);
-  --highlight-clr: var(--primary700);
+
+  --accent-clr: var(--primary700);
   --error-clr: var(--error600);
+  --success-clr: var(--success600);
+  --warning-clr: var(--warning600);
+
+  --border-clr-primary: var(--neutral400);
+  --outline-clr-primary: var(--neutral600);
 
   /* # Sizing */
   --size-sm-x: 100px;
@@ -81,9 +86,7 @@ export const CssVariables = createGlobalStyle`
   --size-full-y: 100%;
 
   /* # General */
-  --border-clr-primary: var(--neutral400);
   --border: 1px solid var(--border-clr-primary);
-  --outline-clr-primary: var(--neutral600);
   --outline: 2px solid var(--outline-clr-primary);
   --radius: 5px;
 
