@@ -3,6 +3,7 @@
   "version": "1.0.1",
   "sideEffects": false,
   "module": "dist/esm/index.js",
+  "main": "dist/cjs/index.js",
   "type": "module",
   "types": "dist/index.d.ts",
   "files": [
@@ -76,11 +77,11 @@
     "vitest": "^0.34.6"
   },
   "scripts": {
-    "storybook": "storybook dev -p 6006",
+    "storybook:dev": "storybook dev -p 6006 ",
     "storybook:cssprops": "python3 bin/update-css-props.py",
-    "storybook:build": "yarn storybook:cssprops && storybook build",
-    "storybook:publish": "yarn storybook:build && gh-pages -n -f -d storybook-static/ -e",
-    "build": "rollup --config rollup.config.ts --configPlugin typescript ",
+    "storybook:build": "yarn storybook:cssprops && storybook build -o docs/${0} && python3 bin/update-doc-index.py",
+    "storybook:publish": "yarn storybook:build ${0} && gh-pages -a -d docs -m ${0}",
+    "build": "rollup --config rollup.config.ts --configPlugin typescript",
     "build:cleanup": "rm -rf dist/cjs/dist && rm -rf dist/esm/types",
     "test": "vitest run",
     "test:ui": "vitest --ui",
