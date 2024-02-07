@@ -13,6 +13,9 @@ const meta: Meta<typeof ComboBox> = {
   argTypes: {
     ...NewTextInputControls,
     ...FocusEventControls,
+    variant: {
+      table: { category: "Presentation" },
+    },
     children: { control: false },
     allowsCustomValue: {
       control: "boolean",

@@ -1,8 +1,13 @@
 import React, { useRef } from "react";
 import { AriaComboBoxProps, useComboBox, useFilter } from "react-aria";
 import { useComboBoxState } from "react-stately";
-import { IconButton, Label, Popover, UnmanagedListBox } from "../..";
-import { AriaProps, FieldBaseProps, HasIcon, HasVariant } from "../../../types";
+import { IconButton, Popover, UnmanagedListBox } from "../..";
+import {
+  AriaProps,
+  CanHaveIcon,
+  FieldBaseProps,
+  HasVariant,
+} from "../../../types";
 import {
   ComboboxInput,
   ComboboxInputWrapper,
@@ -15,7 +20,7 @@ import { FieldWrapper } from "../../Utility/FieldWrapper";
 interface ComboBoxProps<T>
   extends AriaProps<AriaComboBoxProps<T>>,
     FieldBaseProps,
-    HasIcon,
+    CanHaveIcon,
     HasVariant<"default" | "floating"> {}
 
 /** Combox combinds a text input field with a dropdown list of options for the user to select from */

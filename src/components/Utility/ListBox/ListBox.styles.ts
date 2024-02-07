@@ -3,7 +3,7 @@ import mixins from "../../../styles/mixins";
 import { scaleAnimation } from "../../../styles/animations";
 
 export const List = styled.ul`
-  ${mixins.SizingsX}
+  ${mixins.SizingX}
   ${scaleAnimation}
   list-style: none;
   border-radius: var(--radius);

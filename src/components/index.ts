@@ -17,7 +17,7 @@ export { default as Option } from "./Dropdowns/Option";
 export { default as Select } from "./Dropdowns/Select";
 export { default as IconMenu } from "./Dropdowns/IconMenu";
 export { default as CheckBox } from "./Inputs/Checkbox";
-export { default as NumberInput } from "./Inputs/NumberInput";
+export { NumberInput } from "./Inputs/NumberInput";
 export { default as RadioGroup, Radio } from "./Inputs/RadioGroup";
 export { default as SearchInput } from "./Inputs/SearchInput";
 export { default as TextInput } from "./Inputs/TextInput";

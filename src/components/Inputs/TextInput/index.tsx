@@ -2,8 +2,7 @@ import React from "react";
 import cn from "classnames";
 import { useVariantClass } from "../../../hooks";
 import { AriaProps, FieldBaseProps, HasVariant } from "../../../types";
-import { Input } from "../Inputs.styles";
-import { TextInputWrapper } from "./TextInput.styles";
+import { Input, InputWrapper } from "../Inputs.styles";
 import useForwardedRef from "../../../hooks/useForwardedRef";
 import { AriaTextFieldProps, useTextField } from "react-aria";
 import { FieldWrapper } from "../../Utility/FieldWrapper";
@@ -22,7 +21,7 @@ const TextInput = React.forwardRef(
       type = "text",
       label,
       hideLabel,
-      size,
+      size = "medium",
       error,
       message,
       variant = "default",
@@ -44,8 +43,8 @@ const TextInput = React.forwardRef(
     const variantClassName = useVariantClass("aje-input", variant);
 
     return (
-      <TextInputWrapper
-        className={cn("aje-textinput", variantClassName, className, {
+      <InputWrapper
+        className={cn("aje-input__text", variantClassName, className, {
           "has-value": inputProps.value,
         })}
         size={size}
@@ -65,7 +64,7 @@ const TextInput = React.forwardRef(
         >
           <Input ref={internalRef} type={type} {...inputProps} />
         </FieldWrapper>
-      </TextInputWrapper>
+      </InputWrapper>
     );
   }
 );

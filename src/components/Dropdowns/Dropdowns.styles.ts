@@ -3,7 +3,7 @@ import mixins from "../../styles/mixins";
 import { ComponentWrapper, ComponentWrapperProps } from "../../styles/utils";
 
 export const DropdownWrapper = styled(ComponentWrapper)<ComponentWrapperProps>`
-  ${mixins.SizingsX}
+  ${mixins.SizingX}
 
   button {
     &.is-active {

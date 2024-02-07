@@ -58,9 +58,11 @@ export function FieldWrapper(props: FieldWrapperProps) {
 
   return (
     <>
-      <Label className={labelClasses} {...labelProps}>
-        {label}
-      </Label>
+      {label && (
+        <Label className={labelClasses} {...labelProps}>
+          {label}
+        </Label>
+      )}
       {message && <FieldMessage {...messageProps}>{message}</FieldMessage>}
       {children}
       {error && <FieldError {...errorProps}>{error}</FieldError>}

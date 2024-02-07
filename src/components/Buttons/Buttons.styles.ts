@@ -3,7 +3,7 @@ import mixins from "../../styles/mixins";
 
 export const BaseStyledButton = styled.button`
   ${mixins.Bold}
-  ${mixins.SizingsX}
+  ${mixins.SizingX}
   padding: var(--btn-padding) calc(var(--btn-padding) * 2);
   border-radius: var(--btn-border-radius);
   font-size: var(--btn-font-size);

@@ -17,6 +17,9 @@ const meta: Meta<typeof Button> = {
     variant: {
       control: "select",
       description: "Button variant controls the presentation of the button.",
+      table: {
+        category: "Presentation",
+      },
       options: [
         "primary",
         "secondary",

@@ -62,7 +62,7 @@ export const Primary: Story = {
     defaultValue: date,
     ...NewDefaultInputProperties,
     label: "Date input",
-    size: "small",
+    size: "medium",
     hideTimeZone: true,
     shouldForceLeadingZeros: false,
     isInvalid: false,

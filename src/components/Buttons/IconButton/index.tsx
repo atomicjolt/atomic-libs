@@ -23,6 +23,7 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
       variant = "border",
       iconVariant = "default",
       className,
+      size = "medium",
     } = props;
     const innerRef = useForwardedRef<HTMLButtonElement>(ref);
     const { buttonProps, isPressed } = useButton(
@@ -43,7 +44,7 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
         {...buttonProps}
       >
         {loading && <Spinner loading={!loadingComplete} />}
-        <MaterialIcon icon={icon} variant={iconVariant} />
+        <MaterialIcon icon={icon} variant={iconVariant} size={size} />
       </StyledIconButton>
     );
   }

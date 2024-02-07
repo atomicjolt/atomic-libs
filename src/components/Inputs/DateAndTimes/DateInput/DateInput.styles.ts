@@ -3,9 +3,9 @@ import mixins from "../../../../styles/mixins";
 import { InputWrapper } from "../../Inputs.styles";
 
 export const DateInputWrapper = styled(InputWrapper)`
-  --input-width-sm: 230px;
-  --input-width-md: 230px;
-  --input-width-lg: 400px;
+  --size-sm-x: 230px;
+  --size-md-x: 230px;
+  --size-lg-x: 400px;
 `;
 
 export const DateSegments = styled.div`

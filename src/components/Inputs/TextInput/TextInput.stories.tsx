@@ -15,6 +15,8 @@ const meta: Meta<typeof TextInput> = {
       control: "select",
       options: ["text", "password", "email", "tel", "number", "search"],
     },
+    minLength: { control: "number" },
+    maxLength: { control: "number" },
   },
 };
 

@@ -1,10 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
-import NumberInput from ".";
-import {
-  DefaultInputProperties,
-  UncontrolledInputControls,
-  TextInputControls,
-} from "../../storybook";
+import { NumberInput } from ".";
+import { NewTextInputControls } from "../../storybook";
 
 const meta: Meta<typeof NumberInput> = {
   title: "Inputs/User Input/NumberInput",
@@ -12,29 +8,78 @@ const meta: Meta<typeof NumberInput> = {
   parameters: {
     layout: "centered",
   },
-  argTypes: TextInputControls,
+  argTypes: {
+    ...NewTextInputControls,
+    onChange: { action: "onChange" },
+    formatOptions: {
+      control: "object",
+      description: "Options for formatting the number",
+    },
+    minValue: {
+      control: "number",
+      description: "Minimum value allowed",
+    },
+    maxValue: {
+      control: "number",
+      description: "Maximum value allowed",
+    },
+    defaultValue: {
+      control: "number",
+      description: "Initial value of the input when uncontrolled",
+      table: {
+        category: "Common",
+      },
+    },
+  },
 };
 
 export default meta;
 
 type Story = StoryObj<typeof NumberInput>;
 
-export const Controlled: Story = {
+export const Primary: Story = {
   args: {
-    value: 10,
-    min: 0,
-    max: 100,
-    ...DefaultInputProperties,
-    size: "small",
-    label: "Number input label",
+    size: "medium",
+    label: "Number input",
   },
 };
 
-export const Uncontrolled: Story = {
+export const WithBounds: Story = {
   args: {
-    min: 0,
-    max: 10,
-    label: "Number input label",
+    ...Primary.args,
+    minValue: 0,
+    maxValue: 100,
   },
-  argTypes: UncontrolledInputControls,
+};
+
+export const FormatAsCurrency: Story = {
+  args: {
+    ...Primary.args,
+    defaultValue: 10,
+    formatOptions: {
+      style: "currency",
+      currency: "USD",
+    },
+  },
+};
+
+export const FormatAsPercent: Story = {
+  args: {
+    ...Primary.args,
+    defaultValue: 0.5,
+    formatOptions: {
+      style: "percent",
+    },
+  },
+};
+
+export const FormatAsUnit: Story = {
+  args: {
+    ...Primary.args,
+    defaultValue: 10,
+    formatOptions: {
+      style: "unit",
+      unit: "mile-per-hour",
+    },
+  },
 };

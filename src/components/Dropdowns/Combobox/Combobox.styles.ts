@@ -3,7 +3,7 @@ import mixins from "../../../styles/mixins";
 import { DropdownWrapper } from "../Dropdowns.styles";
 
 export const ComboboxWrapper = styled(DropdownWrapper)`
-  ${mixins.SizingsX}
+  ${mixins.SizingX}
   ${mixins.InputWrapper}
 
   &.read-only {

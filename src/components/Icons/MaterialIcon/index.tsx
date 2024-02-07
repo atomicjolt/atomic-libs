@@ -1,6 +1,7 @@
 import React from "react";
 import cn from "classnames";
 import {
+  ExtendedSize,
   HasClassName,
   MaterialIcons,
   MaterialIconVariants,
@@ -18,7 +19,7 @@ export interface MaterialIconProps
   /** The type of material icon to
    * render. Note that the font for that style needs to be in scope for it to render properly*/
   variant?: MaterialIconVariants;
-  size?: "small" | "medium" | "large";
+  size?: ExtendedSize;
   disabled?: boolean;
 }
 

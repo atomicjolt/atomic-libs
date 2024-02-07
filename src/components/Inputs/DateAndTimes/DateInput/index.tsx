@@ -1,6 +1,13 @@
 import React, { useRef } from "react";
 import cn from "classnames";
 import {
+  AriaDateFieldProps,
+  DateValue,
+  useDateField,
+  useDateSegment,
+  useLocale,
+} from "react-aria";
+import {
   HelpTextProps,
   AriaProps,
   FieldStatusProps,
@@ -14,14 +21,6 @@ import {
 } from "./DateInput.styles";
 import useForwardedRef from "../../../../hooks/useForwardedRef";
 import {
-  AriaDateFieldProps,
-  DateValue,
-  useDateField,
-  useDateSegment,
-  useLocale,
-} from "react-aria";
-
-import {
   DateFieldState,
   DateSegment as ReactStatelyDateSegment,
   useDateFieldState,
@@ -30,6 +29,7 @@ import { createCalendar } from "@internationalized/date";
 import Label from "../../../Utility/Label";
 import { FieldError } from "../../../../styles/utils";
 import MaterialIcon from "../../../Icons/MaterialIcon";
+import { FieldWrapper } from "../../../Utility/FieldWrapper";
 
 export interface DateInputProps<T extends DateValue>
   extends AriaProps<AriaDateFieldProps<T>>,
@@ -51,34 +51,43 @@ const DateInput = React.forwardRef<HTMLInputElement, DateInputProps<DateValue>>(
     const internalRef = useForwardedRef(ref);
     let { labelProps, fieldProps } = useDateField(props, state, internalRef);
 
-    const { size = "medium", error, message, hideLabel, className } = props;
+    const {
+      label,
+      size = "medium",
+      error,
+      message,
+      hideLabel,
+      className,
+    } = props;
 
     return (
       <DateInputWrapper
-        className={cn("aje-input__date")}
+        className={cn("aje-input__date", className)}
         error={props.isInvalid}
         disabled={props.isDisabled}
         required={props.isRequired}
         size={size}
       >
-        {props.label && (
-          <Label {...labelProps} message={message} hidden={hideLabel}>
-            {props.label}
-          </Label>
-        )}
-        <DateSegments
-          {...fieldProps}
-          ref={ref}
-          className={cn("aje-input__date-segments", {
-            "read-only": props.isReadOnly,
-          })}
+        <FieldWrapper
+          label={label}
+          labelProps={labelProps}
+          message={message}
+          error={error}
+          hideLabel={hideLabel}
         >
-          {state.segments.map((segment, i) => (
-            <DateSegment key={i} segment={segment} state={state} />
-          ))}
-          {state.isInvalid && <MaterialIcon icon="error" />}
-        </DateSegments>
-        {error && <FieldError>{error}</FieldError>}
+          <DateSegments
+            {...fieldProps}
+            ref={ref}
+            className={cn("aje-input__date-segments", {
+              "read-only": props.isReadOnly,
+            })}
+          >
+            {state.segments.map((segment, i) => (
+              <DateSegment key={i} segment={segment} state={state} />
+            ))}
+            {state.isInvalid && <MaterialIcon icon="error" />}
+          </DateSegments>
+        </FieldWrapper>
       </DateInputWrapper>
     );
   }

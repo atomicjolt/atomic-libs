@@ -66,7 +66,7 @@ const mixins = {
       outline: var(--input-outline);
     }
   `,
-  SizingsX: css`
+  SizingX: css`
     &.is-small {
       width: var(--size-sm-x);
     }
