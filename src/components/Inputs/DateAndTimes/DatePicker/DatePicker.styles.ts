@@ -4,26 +4,15 @@ import mixins from "../../../../styles/mixins";
 import { ComponentWrapper } from "../../../../styles/utils";
 
 export const DatePickerWrapper = styled(ComponentWrapper)`
+  ${mixins.InputWrapper}
+  ${mixins.SizingX}
+
+  --size-sm-x: 310px;
+  --size-md-x: 310px;
+  --size-lg-x: 445px;
+
   display: flex;
   flex-direction: column;
-
-  ${mixins.InputWrapper}
-
-  &.is-small {
-    width: 280px;
-  }
-
-  &.is-medium {
-    width: 280px;
-  }
-
-  &.is-large {
-    width: 445px;
-  }
-
-  &.is-full {
-    width: 100%;
-  }
 
   &.read-only {
     border-color: var(--neutral100);
