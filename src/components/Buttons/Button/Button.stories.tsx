@@ -94,7 +94,7 @@ export const Primary: Story = {
     variant: "primary",
     type: "button",
     isDisabled: false,
-    loading: false,
+    isLoading: false,
   },
 };
 
@@ -134,7 +134,7 @@ export const LoadingButton: Story = {
     ...Primary.args,
     children: "Primary",
     variant: "primary",
-    loading: true,
+    isLoading: true,
     loadingLabel: "Now Loading",
   },
 };
@@ -144,7 +144,7 @@ export const LoadingCompleteButton: Story = {
     ...Primary.args,
     children: "Primary",
     variant: "primary",
-    loading: true,
+    isLoading: true,
     loadingLabel: "Now Loading",
     loadingComplete: true,
   },

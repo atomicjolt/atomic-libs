@@ -11,6 +11,7 @@ export type IconMenuProps<T> = AriaMenuProps<T> &
   MenuTriggerProps &
   BaseProps &
   HasIcon & {
+    isDisabled?: boolean;
     buttonVariant?: ButtonVariants;
     placement?: Placement;
   };
@@ -29,7 +30,8 @@ export default function IconMenu<T extends {}>(props: IconMenuProps<T>) {
     className,
     iconVariant,
     buttonVariant,
-    placement = "bottom start",
+    placement = "bottom right",
+    isDisabled,
   } = props;
 
   return (
@@ -40,6 +42,7 @@ export default function IconMenu<T extends {}>(props: IconMenuProps<T>) {
         variant={buttonVariant}
         ref={ref}
         className={className}
+        isDisabled={isDisabled}
         {...menuTriggerProps}
       />
       {state.isOpen && (

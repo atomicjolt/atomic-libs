@@ -22,17 +22,17 @@ export const Primary: Story = {
     isDisabled: false,
     icon: "more_vert",
     "aria-label": "More options",
-    loading: false,
+    isLoading: false,
     iconVariant: "default",
     variant: "border",
   },
 };
 
-export const Loading: Story = {
+export const isLoading: Story = {
   args: {
     icon: "more_vert",
     "aria-label": "More options",
-    loading: true,
+    isLoading: true,
     loadingLabel: "Loading...",
     loadingComplete: false,
   },

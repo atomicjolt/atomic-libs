@@ -10,7 +10,7 @@ export interface LoadingStatusProps {
   readonly loadingMessage?: React.ReactNode;
   /** Customize what is rendered when in a loading state */
   readonly renderLoading?: (
-    loading: boolean,
+    isLoading: boolean,
     message: React.ReactNode
   ) => React.ReactNode;
   /** An error. When present, an error banner will be displayed */
@@ -21,7 +21,7 @@ export interface LoadingStatusProps {
   readonly children?: React.ReactNode;
 }
 
-const renderLoadingDefault = (loading: boolean, message: React.ReactNode) => {
+const renderLoadingDefault = (isLoading: boolean, message: React.ReactNode) => {
   return (
     <LoadingWrapper className="aje-loading-status-loading">
       <div>

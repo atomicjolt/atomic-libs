@@ -12,7 +12,7 @@ type Story = StoryObj<typeof LoadingStatus>;
 
 export const Primary: Story = {
   args: {
-    loading: true,
+    isLoading: true,
     loadingMessage: "Loading...",
     error: "",
     children: "This is the content",

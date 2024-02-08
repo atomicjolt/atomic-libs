@@ -9,7 +9,7 @@ export {
 
 export { default as Button } from "./Buttons/Button";
 export { default as IconButton } from "./Buttons/IconButton";
-export { default as IconMenuButton } from "./Buttons/IconMenuButton";
+export { ButtonGroup } from "./Buttons/ButtonGroup";
 
 export { ComboBox } from "./Dropdowns/Combobox";
 export { CustomSelect } from "./Dropdowns/CustomSelect";
@@ -55,7 +55,11 @@ export { ListBox, UnmanagedListBox } from "./Utility/ListBox";
 
 export type { ButtonProps } from "./Buttons/Button";
 export type { IconButtonProps } from "./Buttons/IconButton";
-export type { IconMenuButtonProps } from "./Buttons/IconMenuButton";
+export type {
+  ButtonGroupProps,
+  ButtonGroupChild,
+  ButtonGroupChildProps,
+} from "./Buttons/ButtonGroup";
 export type { ComboboxProps } from "./Dropdowns/Combobox/Combobox.types";
 export type { CustomSelectProps } from "./Dropdowns/CustomSelect";
 export type { OptionProps } from "./Dropdowns/Option";

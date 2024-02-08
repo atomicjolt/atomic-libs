@@ -17,7 +17,7 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
   (props, ref) => {
     const {
       icon,
-      loading,
+      isLoading: loading,
       loadingComplete,
       loadingLabel,
       variant = "border",

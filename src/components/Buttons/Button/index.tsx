@@ -29,7 +29,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
     children,
     size = "auto",
     variant = "primary",
-    loading = false,
+    isLoading: loading = false,
     loadingLabel,
     loadingComplete = false,
     className,

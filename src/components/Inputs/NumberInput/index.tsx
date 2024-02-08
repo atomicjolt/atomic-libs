@@ -13,13 +13,13 @@ import {
   StyledNumberInput,
 } from "./NumberInput.styles";
 
-export interface TextInputProps
+export interface NumberInputProps
   extends AriaProps<AriaNumberFieldProps>,
     FieldBaseProps {}
 
 /** Input for number values. Fowards a `ref` to the internal input element */
 export const NumberInput = React.forwardRef(
-  (props: TextInputProps, ref: React.Ref<HTMLInputElement>) => {
+  (props: NumberInputProps, ref: React.Ref<HTMLInputElement>) => {
     const {
       label,
       hideLabel,
