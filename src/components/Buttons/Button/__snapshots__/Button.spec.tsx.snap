@@ -3,7 +3,7 @@
 exports[`matches snapshots > changes variant 1`] = `
 <DocumentFragment>
   <button
-    class="sc-eCAqax sc-jSFipO iFCWcu aje-btn aje-btn--secondary"
+    class="sc-eCAqax sc-jSFipO iWfYGF aje-btn aje-btn--secondary is-auto"
     type="button"
   >
     Click Me
@@ -14,8 +14,7 @@ exports[`matches snapshots > changes variant 1`] = `
 exports[`matches snapshots > loading completed state 1`] = `
 <DocumentFragment>
   <button
-    aria-label="loading"
-    class="sc-eCAqax sc-jSFipO iFCWcu aje-btn aje-btn--primary is-loading"
+    class="sc-eCAqax sc-jSFipO iWfYGF aje-btn aje-btn--primary is-auto is-loading"
     type="button"
   >
     <div
@@ -33,8 +32,7 @@ exports[`matches snapshots > loading completed state 1`] = `
 exports[`matches snapshots > loading state 1`] = `
 <DocumentFragment>
   <button
-    aria-label="loading"
-    class="sc-eCAqax sc-jSFipO iFCWcu aje-btn aje-btn--primary is-loading"
+    class="sc-eCAqax sc-jSFipO iWfYGF aje-btn aje-btn--primary is-auto is-loading"
     type="button"
   >
     <div
@@ -62,7 +60,7 @@ exports[`matches snapshots > loading state 1`] = `
 exports[`matches snapshots > normal display 1`] = `
 <DocumentFragment>
   <button
-    class="sc-eCAqax sc-jSFipO iFCWcu aje-btn aje-btn--primary"
+    class="sc-eCAqax sc-jSFipO iWfYGF aje-btn aje-btn--primary is-auto"
     type="button"
   >
     Click Me

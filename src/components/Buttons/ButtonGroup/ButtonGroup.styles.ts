@@ -7,7 +7,7 @@ interface ButtonGroupWrapperProps {
 
 export const ButtonGroupWrapper = styled.div<ButtonGroupWrapperProps>`
   display: flex;
-  gap: ${({ gap }) => gap || 8}px;
+  gap: ${({ gap }) => (gap === undefined ? 8 : gap)}px;
 
   &.is-merged {
     gap: 0;
