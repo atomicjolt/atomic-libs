@@ -5,7 +5,7 @@ export default {
   title: "Banners/ActionBanner",
   component: ActionBanner,
   argTypes: {
-    onClick: {
+    onPress: {
       control: false,
       table: {
         category: "Events",

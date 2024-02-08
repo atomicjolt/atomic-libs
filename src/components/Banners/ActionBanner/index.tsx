@@ -17,10 +17,10 @@ export interface ActionBannerProps extends HasChildren, HasClassName {
   readonly iconVariant?: MaterialIconVariants;
   readonly buttonVariant?: ButtonVariants;
   readonly buttonText: string;
-  readonly onClick: () => void;
+  readonly onPress: () => void;
 }
 
-/** A view-spanning Banner with an associated `onClick` action */
+/** A view-spanning Banner with an associated `onPress` action */
 export default function ActionBanner(props: ActionBannerProps) {
   const {
     variant = "info",
@@ -28,7 +28,7 @@ export default function ActionBanner(props: ActionBannerProps) {
     iconVariant = "default",
     buttonVariant = "inverted",
     buttonText,
-    onClick,
+    onPress,
     children,
     className,
   } = props;
@@ -39,7 +39,7 @@ export default function ActionBanner(props: ActionBannerProps) {
       variant={variant}
       beforeContent={icon && <MaterialIcon icon={icon} variant={iconVariant} />}
       afterContent={
-        <Button onClick={onClick} variant={buttonVariant}>
+        <Button onPress={onPress} variant={buttonVariant}>
           {buttonText}
         </Button>
       }

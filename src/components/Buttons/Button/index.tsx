@@ -17,12 +17,7 @@ export type ButtonProps = AriaButtonOptions<"button"> &
   LoadingProps &
   BaseProps &
   HasChildren &
-  HasVariant<ButtonVariants> & {
-    /**
-     * @deprecated Prefer onPress for better accessibility.
-     */
-    onClick?: React.MouseEventHandler<HTMLButtonElement>;
-  };
+  HasVariant<ButtonVariants>;
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   const {
@@ -46,7 +41,6 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
         "is-loading": loading,
         "is-active": isPressed,
       })}
-      onClick={props.onClick}
       ref={internalRef}
       {...buttonProps}
     >
