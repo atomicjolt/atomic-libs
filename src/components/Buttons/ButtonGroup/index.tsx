@@ -4,17 +4,17 @@ import { ButtonVariants } from "../Buttons.types";
 import classNames from "classnames";
 import { ButtonGroupWrapper } from "./ButtonGroup.styles";
 
-export interface ButtonGroupChildProps extends HasVariant<ButtonVariants> {
+export interface SharedProps extends HasVariant<ButtonVariants> {
   isDisabled?: boolean;
+}
+
+export interface ButtonGroupChildProps extends SharedProps {
   buttonVariant?: ButtonVariants;
 }
 
 export type ButtonGroupChild = React.ReactElement<ButtonGroupChildProps>;
 
-export interface ButtonGroupProps
-  extends HasVariant<ButtonVariants>,
-    ButtonGroupChildProps,
-    BaseProps {
+export interface ButtonGroupProps extends SharedProps, BaseProps {
   /** Configure the gap between each button */
   gap?: number;
   /** When true, the gap will be completly removed and
