@@ -17,7 +17,7 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
   (props, ref) => {
     const {
       icon,
-      isLoading: loading,
+      isLoading,
       loadingComplete,
       loadingLabel,
       variant = "border",
@@ -27,7 +27,10 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
     } = props;
     const innerRef = useForwardedRef<HTMLButtonElement>(ref);
     const { buttonProps, isPressed } = useButton(
-      { ...props, "aria-label": loading ? loadingLabel : props["aria-label"] },
+      {
+        ...props,
+        "aria-label": isLoading ? loadingLabel : props["aria-label"],
+      },
       innerRef
     );
     const variantClass = useVariantClass("aje-btn", variant);
@@ -35,15 +38,14 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
     return (
       <StyledIconButton
         className={cn("aje-btn aje-btn--icon", variantClass, className, {
-          "is-loading": loading,
+          "is-loading": isLoading,
           "is-active": isPressed,
         })}
         type="button"
         ref={innerRef}
-        onClick={props.onClick}
         {...buttonProps}
       >
-        {loading && <Spinner loading={!loadingComplete} />}
+        {isLoading && <Spinner isLoading={!loadingComplete} />}
         <MaterialIcon icon={icon} variant={iconVariant} size={size} />
       </StyledIconButton>
     );

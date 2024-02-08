@@ -1,4 +1,4 @@
-import React, { forwardRef, useRef } from "react";
+import React, { forwardRef } from "react";
 import cn from "classnames";
 import { AriaButtonOptions, useButton } from "react-aria";
 
@@ -24,27 +24,27 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
     children,
     size = "auto",
     variant = "primary",
-    isLoading: loading = false,
+    isLoading = false,
     loadingLabel,
     loadingComplete = false,
     className,
   } = props;
   const internalRef = useForwardedRef<HTMLButtonElement>(ref);
   const { buttonProps, isPressed } = useButton(
-    { ...props, "aria-label": loading ? loadingLabel : props["aria-label"] },
+    { ...props, "aria-label": isLoading ? loadingLabel : props["aria-label"] },
     internalRef
   );
 
   return (
     <StyledButton
       className={cn("aje-btn", `aje-btn--${variant}`, className, `is-${size}`, {
-        "is-loading": loading,
+        "is-loading": isLoading,
         "is-active": isPressed,
       })}
       ref={internalRef}
       {...buttonProps}
     >
-      {loading && <Spinner loading={!loadingComplete} />}
+      {isLoading && <Spinner isLoading={!loadingComplete} />}
       {children}
     </StyledButton>
   );

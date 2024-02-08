@@ -31,7 +31,7 @@ describe("matches snapshots", () => {
 
 test("is clickable", () => {
   const onClick = vi.fn((e) => e);
-  render(<Button onClick={onClick}>Click me</Button>);
+  render(<Button onPress={onClick}>Click me</Button>);
 
   fireEvent.click(screen.getByText("Click me"));
 

@@ -6,7 +6,7 @@ export default function Modals() {
 
   return (
     <div className="padder">
-      <Button onClick={() => setModalOpen((open) => !open)}>Open Modal</Button>
+      <Button onPress={() => setModalOpen((open) => !open)}>Open Modal</Button>
       <ErrorModal
         title="Title"
         open={modalOpen}

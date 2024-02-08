@@ -8,11 +8,13 @@ import {
   FieldBaseProps,
   HasVariant,
 } from "../../../types";
-import { Button, MaterialIcon, Popover, UnmanagedListBox } from "../../";
 import { DropdownWrapper } from "../Dropdowns.styles";
 import { useVariantClass } from "../../../hooks";
 import { ButtonText } from "./CustomSelect.styles";
 import { FieldWrapper } from "../../Utility/FieldWrapper";
+import Button from "../../Buttons/Button";
+import MaterialIcon from "../../Icons/MaterialIcon";
+import Popover from "../../Utility/Popover";
 
 export type CustomSelectVariants = "default" | "floating";
 

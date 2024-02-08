@@ -5,16 +5,16 @@ import { CircularLoader, LoaderPath, SpinnerContainer } from "./Spinner.styles";
 import { LoaderCheck } from "../Loader.styles";
 
 export interface SpinnerProps extends HasClassName {
-  loading?: boolean;
+  isLoading?: boolean;
 }
 
 /** Spinner Component */
 export default function Spinner(props: SpinnerProps) {
-  const { loading = true, className } = props;
+  const { isLoading = true, className } = props;
 
   return (
     <SpinnerContainer className={cn("aje-spinner", className)}>
-      {loading ? (
+      {isLoading ? (
         <CircularLoader
           className="circular-loader"
           viewBox="25 25 50 50"

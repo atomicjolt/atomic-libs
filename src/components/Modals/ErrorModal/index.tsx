@@ -30,7 +30,7 @@ export default function ErrorModal(props: ErrorModalProps) {
         </>
       }
       actions={
-        <Button variant="error" type="button" onClick={onClose}>
+        <Button variant="error" type="button" onPress={onClose}>
           {buttonText}
         </Button>
       }

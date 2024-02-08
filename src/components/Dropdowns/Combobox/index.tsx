@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
 import { AriaComboBoxProps, useComboBox, useFilter } from "react-aria";
 import { useComboBoxState } from "react-stately";
-import { IconButton, Popover, UnmanagedListBox } from "../..";
 import {
   AriaProps,
   CanHaveIcon,
@@ -16,6 +15,8 @@ import {
 import classNames from "classnames";
 import { useVariantClass } from "../../../hooks";
 import { FieldWrapper } from "../../Utility/FieldWrapper";
+import IconButton from "../../Buttons/IconButton";
+import Popover from "../../Utility/Popover";
 
 interface ComboBoxProps<T>
   extends AriaProps<AriaComboBoxProps<T>>,

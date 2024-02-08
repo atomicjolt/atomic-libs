@@ -47,10 +47,13 @@ export default function ConfirmationModal({
       onOutsideClick={onRejectCallback}
       actions={
         <>
-          <Button variant="secondary" onClick={onRejectCallback}>
+          <Button variant="secondary" onPress={() => onRejectCallback()}>
             {rejectText}
           </Button>
-          <Button variant="primary" onClick={makeOptionalCallback(onConfirm)}>
+          <Button
+            variant="primary"
+            onPress={() => makeOptionalCallback(onConfirm)()}
+          >
             {confirmText}
           </Button>
         </>

@@ -11,15 +11,15 @@ import {
 import { LoaderCheck } from "../Loader.styles";
 
 export interface ThreeDotLoaderProps extends HasClassName {
-  loading?: boolean;
+  isLoading?: boolean;
 }
 
 /** Three Dot Loader Component */
 export default function ThreeDotLoader(props: ThreeDotLoaderProps) {
-  const { loading = true, className } = props;
+  const { isLoading = true, className } = props;
   return (
     <ThreeDotLoaderWrapper className={cn("aje-three-dot-loader", className)}>
-      {loading ? (
+      {isLoading ? (
         <DotsContainer className="dots-container">
           <Dot1 className="dot1"></Dot1>
           <Dot2 className="dot2"></Dot2>
