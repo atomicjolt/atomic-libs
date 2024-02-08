@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import MaterialIcon from ".";
 
 const meta: Meta<typeof MaterialIcon> = {
-  title: "Icons/MaterialIcon",
+  title: "Atoms/MaterialIcon",
   component: MaterialIcon,
   parameters: {
     layout: "centered",

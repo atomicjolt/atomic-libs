@@ -1,18 +1,22 @@
 import React from "react";
+import { DOMAttributes } from "@react-types/shared";
 import cn from "classnames";
 import { HasChildren, HasClassName } from "../../../types";
 import {
-  ErrorLabel,
+  FieldError,
   Label as StyledLabel,
-  MessageLabel,
+  FieldMessage,
+  FloatingLabelWrapper,
 } from "../../../styles/utils";
 
 export interface LabelProps extends HasChildren, HasClassName {
-  message?: string;
-  htmlFor: string;
+  message?: React.ReactNode;
+  htmlFor?: string;
   hidden?: boolean;
   id?: string;
-  error?: string;
+  error?: React.ReactNode;
+  messageProps?: DOMAttributes;
+  errorProps?: DOMAttributes;
 }
 
 export default function Label(props: LabelProps) {
@@ -24,6 +28,8 @@ export default function Label(props: LabelProps) {
     id,
     className = "aje-label",
     error,
+    messageProps = {},
+    errorProps = {},
   } = props;
   const classes = cn(className, { "aje-hidden": hidden });
 
@@ -32,8 +38,8 @@ export default function Label(props: LabelProps) {
       <StyledLabel className={classes} htmlFor={htmlFor} id={id}>
         {children}
       </StyledLabel>
-      {message && <MessageLabel>{message}</MessageLabel>}
-      {error && <ErrorLabel>{error}</ErrorLabel>}
+      {message && <FieldMessage {...messageProps}>{message}</FieldMessage>}
+      {error && <FieldError {...errorProps}>{error}</FieldError>}
     </>
   );
 }

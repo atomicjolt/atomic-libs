@@ -4,7 +4,7 @@ import { HasChildren, InputComponentProps, EventHandler } from "../../../types";
 import RadioContext, { RadioContextData } from "./context";
 import { makeEventHandler } from "../../../utils";
 import { FieldSet } from "./RadioGroup.styles";
-import { ErrorLabel, Label, MessageLabel } from "../../../styles/utils";
+import { FieldError, Label, FieldMessage } from "../../../styles/utils";
 
 export interface RadioGroupsProps
   extends Omit<InputComponentProps, "size">,
@@ -51,8 +51,8 @@ export default function RadioGroup(props: RadioGroupsProps) {
     <FieldSet className={cn("aje-radio-group", className)}>
       <Label as="legend" className={cn({ "aje-hidden": hideLabel })}>
         {label}
-        {message && <MessageLabel as="p">{message}</MessageLabel>}
-        {error && <ErrorLabel as="p">{error}</ErrorLabel>}
+        {message && <FieldMessage as="p">{message}</FieldMessage>}
+        {error && <FieldError as="p">{error}</FieldError>}
       </Label>
       <RadioContext.Provider value={ctx}>{children}</RadioContext.Provider>
     </FieldSet>

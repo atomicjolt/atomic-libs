@@ -1,66 +1,89 @@
 import React from "react";
 import cn from "classnames";
-import { useIds } from "../../../hooks";
-import { InputProps } from "../../../types";
-import Label from "../../Utility/Label";
-import InputError from "../../Utility/InputError";
-import { makeEventHandler } from "../../../utils";
-import { Input, InputWrapper } from "../Inputs.styles";
-import { StyledNumberInput } from "./NumberInput.styles";
+import { AriaProps, FieldBaseProps } from "../../../types";
+import { InputWrapper } from "../Inputs.styles";
+import useForwardedRef from "../../../hooks/useForwardedRef";
+import { AriaNumberFieldProps, useLocale, useNumberField } from "react-aria";
+import { FieldWrapper } from "../../Utility/FieldWrapper";
+import { useNumberFieldState } from "react-stately";
+import IconButton from "../../Buttons/IconButton";
+import {
+  NumberInputButtons,
+  NumberInputWrapper,
+  StyledNumberInput,
+} from "./NumberInput.styles";
 
-export interface NumberInputProps extends InputProps<number> {
-  min?: number | string;
-  max?: number | string;
-}
+export interface NumberInputProps
+  extends AriaProps<AriaNumberFieldProps>,
+    FieldBaseProps {}
 
-/** Number Input Component. Accepts a `ref` */
-const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
-  (props, ref) => {
-    const [inputId, errorId] = useIds("NumberInput", ["input", "error"]);
-
+/** Input for number values. Fowards a `ref` to the internal input element */
+export const NumberInput = React.forwardRef(
+  (props: NumberInputProps, ref: React.Ref<HTMLInputElement>) => {
     const {
-      value,
-      min,
-      max,
-      onChange,
       label,
+      hideLabel,
+      size = "medium",
       error,
       message,
-      size = "small",
-      hideLabel,
       className,
-      ...inputProps
+      isDisabled,
+      isRequired,
     } = props;
 
-    const { disabled, required } = inputProps;
+    const internalRef = useForwardedRef(ref);
+    const { locale } = useLocale();
+    const state = useNumberFieldState({ ...props, locale });
+
+    const {
+      labelProps,
+      inputProps,
+      descriptionProps,
+      errorMessageProps,
+      isInvalid,
+      incrementButtonProps,
+      decrementButtonProps,
+    } = useNumberField(props, state, internalRef);
 
     return (
       <InputWrapper
-        className={cn("aje-input", className)}
+        className={cn("aje-input__number", className, {
+          "read-only": props.isReadOnly,
+        })}
         size={size}
-        disabled={disabled}
-        required={required}
-        error={error}
+        disabled={isDisabled}
+        required={isRequired}
+        error={isInvalid}
       >
-        <Label message={message} htmlFor={inputId} hidden={hideLabel}>
-          {label}
-        </Label>
-        <StyledNumberInput
-          id={inputId}
-          ref={ref}
-          aria-describedby={error ? errorId : ""}
-          min={min}
-          max={max}
-          value={value}
-          onChange={makeEventHandler(onChange, (e) =>
-            parseInt(e.target.value, 10)
-          )}
-          {...inputProps}
-        />
-        <InputError error={error} id={errorId} />
+        <FieldWrapper
+          label={label}
+          labelProps={labelProps}
+          message={message}
+          messageProps={descriptionProps}
+          error={error}
+          errorProps={errorMessageProps}
+          hideLabel={hideLabel}
+        >
+          <NumberInputWrapper>
+            <StyledNumberInput ref={internalRef} {...inputProps} />
+
+            <NumberInputButtons>
+              <IconButton
+                icon="arrow_drop_up"
+                variant="content"
+                size="small"
+                {...incrementButtonProps}
+              />
+              <IconButton
+                icon="arrow_drop_down"
+                variant="content"
+                size="small"
+                {...decrementButtonProps}
+              />
+            </NumberInputButtons>
+          </NumberInputWrapper>
+        </FieldWrapper>
       </InputWrapper>
     );
   }
 );
-
-export default NumberInput;

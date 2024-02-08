@@ -14,7 +14,9 @@
   "dependencies": {
     "classnames": "^2.3.1",
     "date-fns": "^2.28.0",
+    "react-aria": "^3.31.0",
     "react-head": "^3.4.2",
+    "react-stately": "^3.29.0",
     "styled-components": "^6.1.0",
     "tslib": "^2.4.0"
   },
@@ -78,7 +80,8 @@
     "storybook:dev": "storybook dev -p 6006 ",
     "storybook:cssprops": "python3 bin/update-css-props.py",
     "storybook:build": "yarn storybook:cssprops && storybook build -o docs/${0} && python3 bin/update-doc-index.py",
-    "storybook:publish": "yarn storybook:build ${0} && gh-pages -a -d docs -m ${0}",
+    "storybook:publish": "yarn storybook:build ${0} && gh-pages -d docs -m ${0}",
+    "storybook:publish:next": "yarn storybook:build next && gh-pages -d docs/next -m next -e next",
     "build": "rollup --config rollup.config.ts --configPlugin typescript",
     "build:cleanup": "rm -rf dist/cjs/dist && rm -rf dist/esm/types",
     "test": "vitest run",

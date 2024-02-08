@@ -3,18 +3,19 @@
 exports[`matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-bdnyFh sc-jSFipO iTvmTV is-small aje-input can-resize"
+    class="sc-jSFipO ctJZku aje-input can-resize is-small"
   >
     <label
-      class="sc-dlniIP coPbkZ aje-label aje-label"
-      for="TextArea-:r0:-textarea"
+      class="sc-gtsqUy hMTsbS aje-label aje-label"
+      for="react-aria-:r0:"
+      id="react-aria-:r1:"
     >
       label
     </label>
     <textarea
-      aria-describedby=""
-      class="sc-gKAaef dldnYB"
-      id="TextArea-:r0:-textarea"
+      aria-labelledby="react-aria-:r1:"
+      class="sc-gKAaef kbYhRb"
+      id="react-aria-:r0:"
     />
   </div>
 </DocumentFragment>

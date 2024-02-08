@@ -3,35 +3,33 @@
 exports[`matches snapshot > default variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-bdnyFh sc-jSFipO sc-jrsKJM helJTd hgyRup has-error aje-input"
-    error="some error"
+    class="sc-jSFipO ePrXnD aje-input__text aje-input has-value is-medium"
   >
     <label
-      class="sc-dlniIP coPbkZ aje-label aje-label"
-      for="TextInput-:r0:-input"
+      class="sc-gtsqUy hMTsbS aje-label aje-label"
+      for="react-aria-:r0:"
+      id="react-aria-:r1:"
     >
       Text Label
     </label>
     <p
-      class="sc-hKFymg kNRMRh aje-label--message"
+      class="sc-dlniIP jVWAsB aje-label--message"
+      id="react-aria-:r3:"
     >
       message
     </p>
-    <div
-      class="aje-input__container"
-    >
-      <input
-        aria-describedby="TextInput-:r0:-error"
-        class="sc-gKAaef fSDxJC"
-        id="TextInput-:r0:-input"
-        placeholder="placeholder"
-        type="text"
-        value="content"
-      />
-    </div>
+    <input
+      aria-describedby="react-aria-:r3: react-aria-:r4:"
+      aria-labelledby="react-aria-:r1:"
+      class="sc-gKAaef kZprgu"
+      id="react-aria-:r0:"
+      placeholder="placeholder"
+      type="text"
+      value="content"
+    />
     <p
-      class="sc-eCAqax dNYzUp aje-label--error"
-      id="TextInput-:r0:-error"
+      class="sc-hKFymg fZIskg aje-label--error"
+      id="react-aria-:r4:"
     >
       some error
     </p>
@@ -42,35 +40,37 @@ exports[`matches snapshot > default variant 1`] = `
 exports[`matches snapshot > floating variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-bdnyFh sc-jSFipO sc-jrsKJM helJTd hgyRup has-error aje-input--floating"
-    error="some error"
+    class="sc-jSFipO ePrXnD aje-input__text aje-input--floating has-value is-medium"
   >
     <div
-      class="aje-input__container"
+      class="sc-eCAqax kebOaS"
     >
       <input
-        aria-describedby="TextInput-:r1:-error"
-        class="sc-gKAaef fSDxJC"
-        id="TextInput-:r1:-input"
+        aria-describedby="react-aria-:r8: react-aria-:r9:"
+        aria-labelledby="react-aria-:r6:"
+        class="sc-gKAaef kZprgu"
+        id="react-aria-:r5:"
         placeholder="placeholder"
         type="text"
         value="content"
       />
       <label
-        class="sc-dlniIP coPbkZ aje-label"
-        for="TextInput-:r1:-input"
+        class="sc-gtsqUy hMTsbS aje-label aje-label"
+        for="react-aria-:r5:"
+        id="react-aria-:r6:"
       >
         Text Label
       </label>
     </div>
     <p
-      class="aje-label--message"
+      class="sc-dlniIP jVWAsB aje-label--message"
+      id="react-aria-:r8:"
     >
       message
     </p>
     <p
-      class="sc-eCAqax dNYzUp aje-label--error"
-      id="TextInput-:r1:-error"
+      class="sc-hKFymg fZIskg aje-label--error"
+      id="react-aria-:r9:"
     >
       some error
     </p>

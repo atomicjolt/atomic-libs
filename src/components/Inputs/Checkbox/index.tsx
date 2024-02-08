@@ -4,7 +4,7 @@ import { useIds } from "../../../hooks";
 import { CheckedInputProps } from "../../../types";
 import { makeEventHandler } from "../../../utils";
 import { ChooseInput, ChooseLabel } from "../Inputs.styles";
-import { ErrorLabel, MessageLabel } from "../../../styles/utils";
+import { FieldError, FieldMessage } from "../../../styles/utils";
 import { CheckboxWrapper } from "./Checkbox.styles";
 
 export type CheckboxProps = CheckedInputProps;
@@ -48,8 +48,8 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
         />
         <ChooseLabel className="aje-checkbox__label">
           {label}
-          {message && <MessageLabel as="p">{message}</MessageLabel>}
-          {error && <ErrorLabel as="p">{error}</ErrorLabel>}
+          {message && <FieldMessage as="p">{message}</FieldMessage>}
+          {error && <FieldError as="p">{error}</FieldError>}
         </ChooseLabel>
       </CheckboxWrapper>
     );

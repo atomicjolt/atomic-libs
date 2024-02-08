@@ -1,58 +1,59 @@
-import React from "react";
+import React, { forwardRef, useRef } from "react";
 import cn from "classnames";
+import { AriaButtonOptions, useButton } from "react-aria";
+
 import Spinner from "../../Loaders/Spinner";
-import { HasClassName, LoadingProps } from "../../../types";
+import {
+  BaseProps,
+  HasChildren,
+  HasVariant,
+  LoadingProps,
+} from "../../../types";
 import { StyledButton } from "./Button.styles";
 import { ButtonVariants } from "../Buttons.types";
+import useForwardedRef from "../../../hooks/useForwardedRef";
 
-interface CommonProps extends HasClassName {
-  /** What to render within the Button */
-  children?: React.ReactNode;
-  /** Added to the button's className as: `aje-btn--${variant}`. Builtin styles for:
-   * - `primary`
-   * - `secondary`
-   * - `success`
-   * - `error`
-   * - `inverted`
-   * - `content`
-   */
-  variant?: ButtonVariants;
-  type?: "submit" | "reset" | "button";
-  disabled?: boolean;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
-}
+export type ButtonProps = AriaButtonOptions<"button"> &
+  LoadingProps &
+  BaseProps &
+  HasChildren &
+  HasVariant<ButtonVariants> & {
+    /**
+     * @deprecated Prefer onPress for better accessibility.
+     */
+    onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  };
 
-export type ButtonProps = CommonProps & LoadingProps & React.AriaAttributes;
-
-export default function Button(props: ButtonProps) {
+const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   const {
     children,
-    type = "button",
+    size = "auto",
     variant = "primary",
-    disabled = false,
-    loading = false,
-    loadingLabel = "loading",
+    isLoading: loading = false,
+    loadingLabel,
     loadingComplete = false,
-    onClick,
     className,
-    ...rest
   } = props;
-
-  const loadingText = loading ? loadingLabel : "";
+  const internalRef = useForwardedRef<HTMLButtonElement>(ref);
+  const { buttonProps, isPressed } = useButton(
+    { ...props, "aria-label": loading ? loadingLabel : props["aria-label"] },
+    internalRef
+  );
 
   return (
     <StyledButton
-      aria-label={loadingText || undefined}
-      type={type}
-      className={cn("aje-btn", `aje-btn--${variant}`, className, {
+      className={cn("aje-btn", `aje-btn--${variant}`, className, `is-${size}`, {
         "is-loading": loading,
+        "is-active": isPressed,
       })}
-      onClick={onClick}
-      disabled={disabled}
-      {...rest}
+      onClick={props.onClick}
+      ref={internalRef}
+      {...buttonProps}
     >
       {loading && <Spinner loading={!loadingComplete} />}
       {children}
     </StyledButton>
   );
-}
+});
+
+export default Button;

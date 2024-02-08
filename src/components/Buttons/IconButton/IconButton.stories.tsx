@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 import IconButton from ".";
+import buttonMeta from "../Button/Button.stories";
 
 const meta: Meta<typeof IconButton> = {
   title: "Buttons/IconButton",
@@ -8,21 +9,7 @@ const meta: Meta<typeof IconButton> = {
     layout: "centered",
   },
   argTypes: {
-    onClick: {
-      control: false,
-    },
-    variant: {
-      control: "select",
-      options: [
-        "primary",
-        "secondary",
-        "error",
-        "success",
-        "inverted",
-        "content",
-        "ghost",
-      ],
-    },
+    ...buttonMeta.argTypes,
   },
 };
 
@@ -32,17 +19,20 @@ type Story = StoryObj<typeof IconButton>;
 
 export const Primary: Story = {
   args: {
+    isDisabled: false,
     icon: "more_vert",
-    ariaLabel: "More options",
-    loading: false,
+    "aria-label": "More options",
+    isLoading: false,
+    iconVariant: "default",
+    variant: "border",
   },
 };
 
-export const Loading: Story = {
+export const isLoading: Story = {
   args: {
     icon: "more_vert",
-    ariaLabel: "More options",
-    loading: true,
+    "aria-label": "More options",
+    isLoading: true,
     loadingLabel: "Loading...",
     loadingComplete: false,
   },

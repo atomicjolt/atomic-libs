@@ -1,0 +1,118 @@
+import { Meta } from "@storybook/blocks";
+import { SensibleDefaults } from "../../styles/defaults";
+
+<SensibleDefaults />
+
+<Meta title="Usage/Collection Components" />
+
+# Collection Components
+
+## Introduction
+
+[From React Aria Docs](https://react-spectrum.adobe.com/react-stately/collections.html):
+
+> There are many components that display a collection of items of some kind. For example, lists, menus, selects, tables, trees, and grids. These collections can usually be navigated with the keyboard using arrow keys, and many have some form of selection. Many support loading data asynchronously, updating that data over time, virtualized scrolling for performance with large collections, and more.
+>
+> There are many ways one could design an API for components like this: JSX children, a list of option objects, or a datasource object. Selection, and other states like disabled, could be passed in to each item, or as a top-level prop. Each of these has various tradeoffs. This page describes how we do it in React Spectrum, and covers some of these tradeoffs in detail.
+
+## What is the Collection API?
+
+It is a unified approach for building component that display a collection of items.
+It is designed to be flexible and powerful, and to support a wide variety of use cases.
+It is used by components like `Menu`, `CustomSelect`, `ListBox`, `Combobox`, and `IconMenu`.
+
+## Static Collections
+
+When the component's items are known statically, you can define them using the JSX API:
+
+```jsx
+<CustomSelect>
+  <Item>David</Item>
+  <Item>Sam</Item>
+  <Item>Jane</Item>
+</CustomSelect>
+```
+
+### Sections
+
+Sections or groups of items can be constructed by wrapping the items as needed.
+
+```jsx
+<CustomSelect label="Custom Select">
+  <Section title="People">
+    <Item>David</Item>
+    <Item>Sam</Item>
+    <Item>Jane</Item>
+  </Section>
+  <Section title="Animals">
+    <Item>Aardvark</Item>
+    <Item>Kangaroo</Item>
+    <Item>Snake</Item>
+  </Section>
+</CustomSelect>
+```
+
+The `<Item>` and `<Section>` components are used across multiple collection components to ensure a consistent interface.
+They define the data for the items and sections, while the rendering, visual appearance, and behavior are implemented by each individual collection component (e.g., Menu or ListBox).
+
+## Dynamic Collections
+
+When the items are not known statically, you can use the `items` prop to provide an array of items.
+Then the child of the component must be a function that takes an item and returns the JSX for that item.
+
+```jsx
+let [animals, setAnimals] = useState([
+  { name: "Aardvark" },
+  { name: "Kangaroo" },
+  { name: "Snake" },
+]);
+
+<CustomSelect items={animals}>
+  {(item) => <Item key={item.name}>{item.name}</Item>}
+</CustomSelect>;
+```
+
+### Why not array map?
+
+You may be wondering why we didn't use `animals.map` in this example. In fact, you can do this if you want and it will work, but it will not be as performant.
+
+```jsx
+let [animals, setAnimals] = useState([
+  { name: "Aardvark" },
+  { name: "Kangaroo" },
+  { name: "Snake" },
+]);
+
+<ListBox>
+  {animals.map((item) => (
+    <Item key={item.name}>{item.name}</Item>
+  ))}
+</ListBox>;
+```
+
+By using the `items` prop and a render function, we can optimize performance by caching the rendered results of each item. This avoids unnecessary re-rendering of the entire collection when only a single item changes. This optimization is particularly beneficial for large collections.
+
+### Sections
+
+Sections can also be used with dynamic collections.
+
+```jsx
+let [sections, setSections] = useState([
+  {
+    name: "People",
+    items: [{ name: "David" }, { name: "Same" }, { name: "Jane" }],
+  },
+  {
+    name: "Animals",
+    items: [{ name: "Aardvark" }, { name: "Kangaroo" }, { name: "Snake" }],
+  },
+]);
+
+<CustomSelect items={sections}>
+  {(section) => (
+    <Section key={section.name} title={section.name} items={section.items}>
+      {(item) => <Item key={item.name}>{item.name}</Item>}
+    </Section>
+  )}
+</CustomSelect>;
+```

@@ -4,7 +4,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import PopoverComponent, { PopoverWrapper } from ".";
 
 const meta: Meta<typeof PopoverComponent> = {
-  title: "Utility/Popover",
+  title: "Atoms/Popover",
   component: PopoverComponent,
   parameters: {
     layout: "centered",

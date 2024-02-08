@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import LoadingStatus from ".";
 
 const meta: Meta<typeof LoadingStatus> = {
-  title: "Utility/Loading Status",
+  title: "Loaders/LoadingStatus",
   component: LoadingStatus,
 };
 
@@ -12,7 +12,7 @@ type Story = StoryObj<typeof LoadingStatus>;
 
 export const Primary: Story = {
   args: {
-    loading: true,
+    isLoading: true,
     loadingMessage: "Loading...",
     error: "",
     children: "This is the content",

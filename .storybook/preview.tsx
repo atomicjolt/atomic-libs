@@ -32,13 +32,65 @@ const preview: Preview = {
   argTypes: {
     className: {
       control: "text",
+      defaultValue: "",
+      table: {
+        category: "Presentation",
+      },
+    },
+    id: {
+      control: "text",
+      description: "The HTML id of the element",
+      defaultValue: "",
       table: {
         category: "Common",
       },
     },
+    size: {
+      control: "select",
+      defaultValue: "medium",
+      options: ["small", "medium", "large", "full", "auto"],
+      table: {
+        category: "Presentation",
+      },
+    },
+    "aria-label": {
+      control: "text",
+      defaultValue: "",
+      description: "A label for the current element",
+      table: {
+        category: "Accessibility",
+      },
+    },
+    "aria-labelledby": {
+      control: "text",
+      defaultValue: "",
+      description:
+        "The id of the element that serves as the label for the element",
+      table: {
+        category: "Accessibility",
+      },
+    },
+    "aria-describedby": {
+      control: "text",
+      defaultValue: "",
+      description:
+        "The id of the element that serves as a description for the element",
+      table: {
+        category: "Accessibility",
+      },
+    },
+    "aria-details": {
+      control: "text",
+      defaultValue: "",
+      description:
+        "The id of the element that serves as a details for the element",
+      table: {
+        category: "Accessibility",
+      },
+    },
   },
   parameters: {
-    actions: { argTypesRegex: "^on[A-Z].*" },
+    // actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {
       matchers: {
         date: /date/,

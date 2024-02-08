@@ -1,138 +1,118 @@
-import React, { useState } from "react";
-import cn from "classnames";
-import { useIds, useVariant } from "../../../hooks";
-import InputError from "../../Utility/InputError";
-import { makeEventHandler } from "../../../utils";
-import Popover from "../../Utility/Popover";
-
-import { VariantRecord } from "../../../types";
-import DefaultCombobox from "./variants/DefaultCombobox";
-import FloatingCombobox from "./variants/FloatingCombobox";
-import { strategies } from "../../../filter";
-
+import React, { useRef } from "react";
+import { AriaComboBoxProps, useComboBox, useFilter } from "react-aria";
+import { useComboBoxState } from "react-stately";
+import { IconButton, Popover, UnmanagedListBox } from "../..";
 import {
-  ComboboxProps,
-  ComboboxVariantProps,
-  Variants,
-} from "./Combobox.types";
+  AriaProps,
+  CanHaveIcon,
+  FieldBaseProps,
+  HasVariant,
+} from "../../../types";
 import {
-  DropdownInput,
-  DropdownMenu,
-  DropdownOption,
-  DropdownInputWrapper,
-  Wrapper,
-} from "../Dropdowns.styles";
+  ComboboxInput,
+  ComboboxInputWrapper,
+  ComboboxWrapper,
+} from "./Combobox.styles";
+import classNames from "classnames";
+import { useVariantClass } from "../../../hooks";
+import { FieldWrapper } from "../../Utility/FieldWrapper";
 
-const variants: VariantRecord<Variants, ComboboxVariantProps> = {
-  default: DefaultCombobox,
-  floating: FloatingCombobox,
-};
+interface ComboBoxProps<T>
+  extends AriaProps<AriaComboBoxProps<T>>,
+    FieldBaseProps,
+    CanHaveIcon,
+    HasVariant<"default" | "floating"> {}
 
-/** A combobox is a combination of a select, with a searchable text field. */
-export default function Combobox(props: ComboboxProps) {
-  const [menuActive, setMenuActive] = useState(false);
+/** Combox combinds a text input field with a dropdown list of options for the user to select from */
+export function ComboBox<T extends object>(props: ComboBoxProps<T>) {
+  const {
+    className,
+    size = "medium",
+    isDisabled,
+    isReadOnly,
+    isRequired,
+    isInvalid,
+    icon = "arrow_drop_down",
+    iconVariant,
+    label,
+    message,
+    error,
+    variant = "default",
+    hideLabel,
+  } = props;
+  const { contains } = useFilter({ sensitivity: "base" });
+  const state = useComboBoxState({ ...props, defaultFilter: contains });
 
-  const [labelId, comobId, inputId, listBoxId, errorId] = useIds(`Combobox`, [
-    "label",
-    "combo",
-    "input",
-    "listbox",
-    "error",
-  ]);
+  const buttonRef = useRef(null);
+  const inputRef = useRef(null);
+  const listBoxRef = useRef(null);
+  const popoverRef = useRef(null);
 
   const {
-    options,
-    value = "",
-    onChange,
-    size = "medium",
-    label,
-    error,
-    message,
-    hideLabel = false,
-    filterStrategy = strategies.defaultStrategy,
-    onFocus,
-    onBlur,
-    variant = "default",
-    className,
-    ...inputProps
-  } = props;
-
-  const { disabled, required } = inputProps;
-
-  const [Variant, variantClassName] = useVariant(
-    variants,
-    "aje-dropdown",
-    variant
+    buttonProps,
+    inputProps,
+    listBoxProps,
+    labelProps,
+    descriptionProps,
+    errorMessageProps,
+  } = useComboBox(
+    {
+      ...props,
+      inputRef,
+      buttonRef,
+      listBoxRef,
+      popoverRef,
+    },
+    state
   );
 
+  const variantClass = useVariantClass("aje-dropdown", variant);
+
   return (
-    <Wrapper
-      className={cn(variantClassName, className)}
+    <ComboboxWrapper
+      className={classNames("aje-combobox", variantClass, className, {
+        "read-only": isReadOnly,
+        "has-selection":
+          state.selectedItem || state.isFocused || state.inputValue,
+      })}
       size={size}
-      disabled={disabled}
-      required={required}
-      error={error}
+      disabled={isDisabled}
+      required={isRequired}
+      error={isInvalid}
     >
-      <Variant
-        message={message}
+      <FieldWrapper
         label={label}
+        labelProps={labelProps}
+        message={message}
+        messageProps={descriptionProps}
+        error={error}
+        errorProps={errorMessageProps}
         hideLabel={hideLabel}
-        inputId={inputId}
+        floating={variant === "floating"}
       >
-        <DropdownInputWrapper
-          className="aje-combobox__input is-searchable"
-          aria-owns={listBoxId}
-          aria-expanded={menuActive}
-          aria-haspopup="listbox"
-          id={comobId}
-          role="combobox"
-        >
-          <DropdownInput
-            type="text"
-            aria-autocomplete="both"
-            aria-controls={listBoxId}
-            aria-labelledby={labelId}
-            aria-describedby={error ? errorId : ""}
-            id={inputId}
-            value={value}
-            onChange={makeEventHandler(onChange)}
-            onFocus={(e) => {
-              setMenuActive(true);
-              onFocus && onFocus(e);
-            }}
-            onBlur={(e) => {
-              setMenuActive(false);
-              onBlur && onBlur(e);
-            }}
-            {...inputProps}
+        <ComboboxInputWrapper>
+          <ComboboxInput ref={inputRef} {...inputProps} />
+          <IconButton
+            icon={icon}
+            variant="content"
+            iconVariant={iconVariant}
+            ref={buttonRef}
+            {...buttonProps}
           />
-        </DropdownInputWrapper>
-        <Popover show={menuActive} size="full">
-          <DropdownMenu
-            className="aje-combobox__menu"
-            role="listbox"
-            id={listBoxId}
-            aria-labelledby={labelId}
-          >
-            {filterStrategy.filter(value, options).map((o) => (
-              <DropdownOption
-                className={cn("aje-combobox__option", {
-                  "is-focused": o === value,
-                })}
-                // @ts-ignore
-                onMouseDown={(e) => onChange && onChange(o, e)}
-                role="option"
-                id={String(o)}
-                key={String(o)}
-                tabIndex={0}
-              >
-                {o}
-              </DropdownOption>
-            ))}
-          </DropdownMenu>
+        </ComboboxInputWrapper>
+      </FieldWrapper>
+      {state.isOpen && (
+        <Popover
+          state={state}
+          triggerRef={inputRef}
+          ref={popoverRef}
+          isNonModal
+          placement="bottom start"
+        >
+          {/* @ts-ignore */}
+          <UnmanagedListBox {...listBoxProps} state={state} ref={listBoxRef} />
         </Popover>
-      </Variant>
-      <InputError error={error} id={errorId} />
-    </Wrapper>
+      )}
+    </ComboboxWrapper>
   );
 }

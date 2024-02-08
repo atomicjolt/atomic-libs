@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import { css } from "styled-components";
 
 export const CalendarButton = css`
   font-size: var(--font-size);
@@ -15,6 +15,10 @@ export const CalendarButton = css`
     &:hover {
       background-color: var(--time-selected-back-clr);
     }
+  }
+
+  &[aria-invalid="true"] {
+    background-color: var(--error500);
   }
 
   &:hover {

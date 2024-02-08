@@ -3,6 +3,21 @@ import mixins from "../../../styles/mixins";
 import { ComponentWrapper } from "../../../styles/utils";
 
 export const TextAreaWrapper = styled(ComponentWrapper)`
+  ${mixins.Sizing}
+  ${mixins.InputWrapper}
+
+  &.has-error {
+    --input-border-color: var(--error-clr);
+  }
+
+  &.can-resize-x textarea {
+    resize: horizontal;
+  }
+
+  &.can-resize-y textarea {
+    resize: vertical;
+  }
+
   &.can-resize textarea {
     resize: both;
   }
@@ -25,7 +40,8 @@ export const StyledTextArea = styled.textarea`
     --input-bg-clr: var(--neutral100);
   }
   &:focus {
-    --input-border-color: var(--outline-clr-primary);
+    box-shadow: 0 0 0 1px var(--input-border-color);
     outline: var(--input-outline);
+    outline-color: var(--input-border-color);
   }
 `;

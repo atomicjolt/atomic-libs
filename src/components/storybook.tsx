@@ -1,5 +1,9 @@
 import React from "react";
-import { InputComponentProps, InputElementProps } from "../types";
+import {
+  FieldBaseProps,
+  InputComponentProps,
+  InputElementProps,
+} from "../types";
 import { createGlobalStyle } from "styled-components";
 
 export const DefaultInputProperties: InputElementProps<Element> &
@@ -14,6 +18,19 @@ export const DefaultInputProperties: InputElementProps<Element> &
   placeholder: "",
   size: "medium",
   autoFocus: false,
+};
+
+export const NewDefaultInputProperties: FieldBaseProps = {
+  className: "",
+  label: "",
+  hideLabel: false,
+  error: "",
+  message: "",
+  isDisabled: false,
+  isRequired: false,
+  isReadOnly: false,
+  isInvalid: false,
+  size: "medium",
 };
 
 interface Options {
@@ -36,12 +53,6 @@ export function disableControl(name: string) {
 }
 
 export const CallbackControls = {
-  onChange: {
-    control: false,
-    table: {
-      category: "Events",
-    },
-  },
   onClick: {
     control: false,
     table: {
@@ -129,10 +140,85 @@ export const CommonInputControls = {
       category: "Common",
     },
   },
-  autoFocus: {
+};
+
+export const NewCommonInputControls = {
+  label: {
+    control: "text",
+    table: {
+      category: "Helper Text",
+    },
+  },
+  hideLabel: {
     control: "boolean",
     table: {
+      category: "Helper Text",
+    },
+  },
+  error: {
+    control: "text",
+    table: {
+      category: "Helper Text",
+    },
+  },
+  message: {
+    control: "text",
+    table: {
+      category: "Helper Text",
+    },
+  },
+  isDisabled: {
+    control: "boolean",
+    table: {
+      category: "Field State",
+    },
+  },
+  isRequired: {
+    control: "boolean",
+    table: {
+      category: "Field State",
+    },
+  },
+  isInvalid: {
+    control: "boolean",
+    table: {
+      category: "Field State",
+    },
+  },
+  placeholder: {
+    control: "text",
+    table: {
       category: "Common",
+    },
+  },
+  name: {
+    control: "text",
+    table: {
+      category: "Common",
+    },
+  },
+};
+
+export const FocusEventControls = {
+  onFocus: {
+    control: false,
+    description: "Callback when the element is focused",
+    table: {
+      category: "Events",
+    },
+  },
+  onBlur: {
+    control: false,
+    description: "Callback when the element loses focus",
+    table: {
+      category: "Events",
+    },
+  },
+  onFocusChange: {
+    control: false,
+    description: "Callback when the element's focus state changes",
+    table: {
+      category: "Events",
     },
   },
 };
@@ -140,6 +226,11 @@ export const CommonInputControls = {
 export const InputControls = {
   ...CallbackControls,
   ...CommonInputControls,
+};
+
+export const NewInputControls = {
+  ...CallbackControls,
+  ...NewCommonInputControls,
 };
 
 export const TextInputControls = {
@@ -164,10 +255,53 @@ export const TextInputControls = {
   },
 };
 
+export const NewTextInputControls = {
+  ...NewInputControls,
+  autoFocus: {
+    control: "boolean",
+    table: {
+      category: "Common",
+    },
+  },
+  defaultValue: {
+    control: false,
+    description: "Set the initial value of an uncontrolled input",
+    table: {
+      category: "Common",
+    },
+  },
+  isReadOnly: {
+    control: "boolean",
+    table: {
+      category: "Field State",
+    },
+  },
+};
+
 export const UncontrolledInputControls = {
   ...InputControls,
   value: {
     control: false,
+  },
+};
+
+export const PlacementArgType = {
+  placement: {
+    control: "select",
+    options: [
+      "bottom",
+      "bottom start",
+      "bottom end",
+      "top",
+      "top start",
+      "top end",
+      "left",
+      "left start",
+      "left end",
+      "right",
+      "right start",
+      "right end",
+    ],
   },
 };
 
