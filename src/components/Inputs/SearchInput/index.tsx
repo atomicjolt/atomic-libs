@@ -1,82 +1,77 @@
-import React, { FormEvent } from "react";
+import React from "react";
 import cn from "classnames";
-import { useIds } from "../../../hooks";
-import { EventHandler, InputProps } from "../../../types";
-import InputError from "../../Utility/InputError";
-import Label from "../../Utility/Label";
-import MaterialIcon from "../../Icons/MaterialIcon";
-import { makeEventHandler } from "../../../utils";
-import { InputWrapper } from "../Inputs.styles";
-import { StyledSearchInput } from "./SearchInput.styles";
+import { useVariantClass } from "../../../hooks";
+import { AriaProps, FieldBaseProps, HasVariant } from "../../../types";
+import { Input, InputWrapper } from "../Inputs.styles";
+import useForwardedRef from "../../../hooks/useForwardedRef";
+import {
+  AriaSearchFieldProps,
+  AriaTextFieldProps,
+  useSearchField,
+  useTextField,
+} from "react-aria";
+import { FieldWrapper } from "../../Utility/FieldWrapper";
+import { useSearchFieldState } from "react-stately";
 
-export interface SearchInputProps extends Omit<InputProps<string>, "required"> {
-  /** When the user hits enter, or presses the submit button, this event will fire
-   * with the current value of the input element. */
-  onSubmit?: EventHandler<
-    string | undefined,
-    React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>
-  >;
+type Variants = "default" | "floating";
 
-  /** Display a button to click on to search, instead of just hitting enter */
-  submitButton?: boolean;
-}
+export interface TextInputProps
+  extends AriaProps<AriaSearchFieldProps>,
+    FieldBaseProps,
+    HasVariant<Variants> {}
 
-/** Search Input Component. Accepts a `ref`
- *
- * Essentially the same as the `TextInput` component, but
- * has an `onSumbit()` handler that gets called when the user
- * hits enter
- */
-const SearchInput = React.forwardRef<HTMLInputElement, SearchInputProps>(
-  (props, ref) => {
+/** Essentially the same as the text input, but with an `onSubmit` handler*/
+const SearchInput = React.forwardRef(
+  (props: TextInputProps, ref: React.Ref<HTMLInputElement>) => {
     const {
-      value,
-      size = "medium",
+      type = "text",
       label,
-      placeholder,
-      hideLabel = false,
-      submitButton = false,
-      disabled = false,
+      hideLabel,
+      size = "medium",
       error,
-      onSubmit,
-      onChange,
-      className,
       message,
+      variant = "default",
+      className,
+      isDisabled,
+      isRequired,
     } = props;
 
-    const [inputId, errorId] = useIds("SearchInput", ["input", "error"]);
+    const internalRef = useForwardedRef(ref);
+    const searchState = useSearchFieldState(props);
+
+    const {
+      labelProps,
+      inputProps,
+      descriptionProps,
+      errorMessageProps,
+      isInvalid,
+      clearButtonProps,
+    } = useSearchField(props, searchState, internalRef);
+
+    const variantClassName = useVariantClass("aje-input", variant);
 
     return (
       <InputWrapper
-        as="form"
-        className={cn("aje-input", className)}
+        className={cn("aje-input__search", variantClassName, className, {
+          "has-value": inputProps.value,
+        })}
         size={size}
-        error={error}
-        disabled={disabled}
-        onSubmit={(e: FormEvent<HTMLFormElement>) => {
-          e.preventDefault();
-          onSubmit && onSubmit(value, e);
-        }}
+        disabled={isDisabled}
+        required={isRequired}
+        error={isInvalid}
       >
-        <Label hidden={hideLabel} htmlFor={inputId} message={message}>
-          {label}
-        </Label>
-        <StyledSearchInput
-          id={inputId}
-          type="search"
-          role="search"
-          placeholder={placeholder}
-          value={value}
-          onChange={makeEventHandler(onChange)}
-          disabled={disabled}
-          ref={ref}
-        />
-        {submitButton && (
-          <button type="submit" aria-label="submit search">
-            <MaterialIcon icon="search" />
-          </button>
-        )}
-        <InputError error={error} id={errorId} />
+        <FieldWrapper
+          label={label}
+          labelProps={labelProps}
+          message={message}
+          messageProps={descriptionProps}
+          error={error}
+          errorProps={errorMessageProps}
+          hideLabel={hideLabel}
+          floating={variant === "floating"}
+        >
+          <Input ref={internalRef} type={type} {...inputProps} />
+        </FieldWrapper>
       </InputWrapper>
     );
   }

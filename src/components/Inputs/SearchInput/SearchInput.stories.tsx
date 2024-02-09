@@ -1,7 +1,6 @@
-import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
-import SearchInput, { SearchInputProps } from ".";
-import { DefaultInputProperties, TextInputControls } from "../../storybook";
+import SearchInput from ".";
+import { NewTextInputControls } from "../../storybook";
 
 const meta: Meta<typeof SearchInput> = {
   title: "Inputs/User Input/SearchInput",
@@ -11,7 +10,7 @@ const meta: Meta<typeof SearchInput> = {
   },
   argTypes: {
     onSubmit: { control: false, table: { category: "Events" } },
-    ...TextInputControls,
+    ...NewTextInputControls,
   },
 };
 
@@ -20,11 +19,8 @@ export default meta;
 type Story = StoryObj<typeof SearchInput>;
 
 export const Primary: Story = {
-  render: (args: SearchInputProps) => <SearchInput {...args} />,
   args: {
-    value: "",
-    submitButton: false,
-    ...DefaultInputProperties,
     label: "Search input label",
+    onSubmit: (value: string) => alert(`Search for: ${value}`),
   },
 };

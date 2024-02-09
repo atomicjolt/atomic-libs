@@ -50,6 +50,7 @@ export const UnmanagedListBox = React.forwardRef<
         ref={internalRef}
         className={classNames("aje-listbox", className, `is-${size}`)}
       >
+        <input role="searchbox" />
         {[...state.collection].map((item) =>
           item.type === "section" ? (
             <ListBoxSection key={item.key} section={item} state={state} />
