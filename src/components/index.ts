@@ -63,7 +63,7 @@ export type {
 export type { ComboboxProps } from "./Dropdowns/Combobox/Combobox.types";
 export type { CustomSelectProps } from "./Dropdowns/CustomSelect";
 export type { OptionProps } from "./Dropdowns/Option";
-export type { SelectProps } from "./Dropdowns/Select";
+export type { SelectProps, SelectValue } from "./Dropdowns/Select";
 export type { IconMenuProps } from "./Dropdowns/IconMenu";
 export type { CheckboxProps } from "./Inputs/Checkbox";
 export type { NumberInputProps } from "./Inputs/NumberInput";

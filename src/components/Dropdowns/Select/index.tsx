@@ -13,16 +13,16 @@ type LimitedSelectProps = Omit<
   "className" | "id" | "size" | "onChange"
 >;
 
-type SelectValue = string | number | readonly string[] | undefined;
+export type SelectValue = string | number | readonly string[] | undefined;
 
-export interface SelectProps
+export interface SelectProps<T extends SelectValue>
   extends Omit<FieldBaseProps, "placeholder" | "readOnly">,
     LimitedSelectProps {
-  onChange?: (value: SelectValue) => void;
+  onChange?: (value: T) => void;
 }
 
 /** Select Component. Simple wrapper around native `<select>` */
-const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
+const Select = React.forwardRef<HTMLSelectElement, SelectProps<SelectValue>>(
   (props, ref) => {
     const [inputId, errorId] = useIds("select", ["select", "error"]);
 
