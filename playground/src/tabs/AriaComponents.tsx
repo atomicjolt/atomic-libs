@@ -7,6 +7,7 @@ import {
   IconMenu,
   Item,
   SearchInput,
+  Section,
   Select,
 } from "../elements";
 import styled from "styled-components";
@@ -23,7 +24,7 @@ export default function AriaComponents() {
         padding: "16px",
       }}
     >
-      {/* <Select value={selected} onChange={setSelected} label="Label">
+      <Select value={selected} onChange={setSelected} label="Label">
         <option value="one">One</option>
         <option value="two">Two</option>
         <option value="three">Three</option>
@@ -32,6 +33,8 @@ export default function AriaComponents() {
         label="Label"
         selectedKey={selected}
         onSelectionChange={setSelected}
+        isSearchable
+        searchPlaceholder='Search for "One" or "Two" or "Three"'
       >
         <Item key="one" textValue="One">
           One
@@ -42,8 +45,16 @@ export default function AriaComponents() {
         <Item key="three" textValue="Three">
           Three
         </Item>
-      </CustomSelect> */}
-      <SearchInput onSubmit={alert} />
+        <Section title="Title">
+          <Item key="four" textValue="Four">
+            Four
+          </Item>
+          <Item key="five" textValue="Five">
+            Five
+          </Item>
+        </Section>
+      </CustomSelect>
+      <SearchInput onSubmit={alert} label="label" />
     </div>
   );
 }

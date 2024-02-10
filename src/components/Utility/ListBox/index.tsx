@@ -1,8 +1,9 @@
-import React, { useRef } from "react";
+import React, { useMemo, useRef, useState } from "react";
 import type { AriaListBoxProps } from "react-aria";
 import { useListState, Node, ListState } from "react-stately";
 import {
   mergeProps,
+  useFilter,
   useFocusRing,
   useListBox,
   useListBoxSection,
@@ -19,8 +20,15 @@ import Label from "../Label";
 import { BaseProps } from "../../../types";
 import classNames from "classnames";
 import useForwardedRef from "../../../hooks/useForwardedRef";
+import SearchInput from "../../Inputs/SearchInput";
 
-export type ListBoxProps<T> = AriaListBoxProps<T> & BaseProps;
+export type ListBoxProps<T> = AriaListBoxProps<T> &
+  BaseProps & {
+    /** Allow the items in the select to be searchable */
+    isSearchable?: boolean;
+    /** Placeholder for the search input */
+    searchPlaceholder?: string;
+  };
 
 /** A listbox displays a list of options and allows a user to select one or more of them.
  * Used as the dropdown menu for `ComboBox` and `CustomSelect` */
@@ -38,9 +46,26 @@ export const UnmanagedListBox = React.forwardRef<
   HTMLUListElement,
   UnmanagedListBoxProps<any>
 >((props, ref) => {
-  const { state, className, size = "medium" } = props;
+  const {
+    isSearchable,
+    searchPlaceholder,
+    state,
+    className,
+    size = "medium",
+  } = props;
   const internalRef = useForwardedRef(ref);
   const { listBoxProps, labelProps } = useListBox(props, state, internalRef);
+  const [searchValue, setSearchValue] = useState("");
+
+  const { contains } = useFilter({ sensitivity: "base" });
+
+  const filteredItems = useMemo(
+    () =>
+      [...state.collection].filter((item) =>
+        item.type === "section" ? true : contains(item.textValue, searchValue)
+      ),
+    [state.collection, searchValue]
+  );
 
   return (
     <>
@@ -50,10 +75,23 @@ export const UnmanagedListBox = React.forwardRef<
         ref={internalRef}
         className={classNames("aje-listbox", className, `is-${size}`)}
       >
-        <input role="searchbox" />
-        {[...state.collection].map((item) =>
+        {isSearchable && (
+          <SearchInput
+            label="Search"
+            hideLabel
+            value={searchValue}
+            onChange={setSearchValue}
+            placeholder={searchPlaceholder}
+          />
+        )}
+        {filteredItems.map((item) =>
           item.type === "section" ? (
-            <ListBoxSection key={item.key} section={item} state={state} />
+            <ListBoxSection
+              key={item.key}
+              section={item}
+              state={state}
+              filter={(v) => contains(v, searchValue)}
+            />
           ) : (
             <ListBoxOption key={item.key} item={item} state={state} />
           )
@@ -64,16 +102,25 @@ export const UnmanagedListBox = React.forwardRef<
 });
 
 interface ListBoxSectionProps<T> {
-  section: Node<T>;
-  state: ListState<T>;
+  readonly section: Node<T>;
+  readonly state: ListState<T>;
+  readonly filter: (text: string) => boolean;
 }
 
 function ListBoxSection<T>(props: ListBoxSectionProps<T>) {
-  const { section, state } = props;
+  const { section, state, filter } = props;
   let { itemProps, headingProps, groupProps } = useListBoxSection({
     heading: section.rendered,
     "aria-label": section["aria-label"],
   });
+
+  const children = [...section.childNodes].filter((item) =>
+    filter(item.textValue)
+  );
+
+  if (children.length === 0) {
+    return null;
+  }
 
   // If the section is not the first, add a separator element to provide visual separation.
   // The heading is rendered inside an <li> element, which contains
@@ -88,7 +135,7 @@ function ListBoxSection<T>(props: ListBoxSectionProps<T>) {
           <SectionTitle {...headingProps}>{section.rendered}</SectionTitle>
         )}
         <SubList {...groupProps}>
-          {[...section.childNodes].map((node) => (
+          {children.map((node) => (
             <ListBoxOption key={node.key} item={node} state={state} />
           ))}
         </SubList>

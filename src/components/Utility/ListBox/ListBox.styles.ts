@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import mixins from "../../../styles/mixins";
 import { scaleAnimation } from "../../../styles/animations";
+import SearchInput from "../../Inputs/SearchInput";
+import { SearchInputWrapper } from "../../Inputs/SearchInput/SearchInput.styles";
 
 export const List = styled.ul`
   ${mixins.SizingX}
@@ -11,6 +13,10 @@ export const List = styled.ul`
   background-color: var(--listbox-bg-clr);
   padding: 8px 0;
   z-index: 100;
+
+  // For the search input
+  --input-border: none;
+  --input-border-radius: 0px;
 `;
 
 export const SubList = styled.ul`

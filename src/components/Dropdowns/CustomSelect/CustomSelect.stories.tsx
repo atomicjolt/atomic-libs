@@ -96,3 +96,11 @@ export const Floating: Story = {
     variant: "floating",
   },
 };
+
+export const Searchable: Story = {
+  args: {
+    ...Primary.args,
+    isSearchable: true,
+    searchPlaceholder: "Search",
+  },
+};

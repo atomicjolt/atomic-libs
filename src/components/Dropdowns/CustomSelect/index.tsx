@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { SelectProps, useSelectState } from "react-stately";
 import { HiddenSelect, useSelect } from "react-aria";
 import classNames from "classnames";
@@ -25,6 +25,12 @@ export interface CustomSelectProps<T extends object>
     HasVariant<CustomSelectVariants> {
   /** The size of the menu. Defaults to `auto` */
   menuSize?: ExtendedSize;
+
+  /** Allows the items in the select to be filtered */
+  isSearchable?: boolean;
+
+  /** The placeholder text for the search input*/
+  searchPlaceholder?: string;
 }
 
 /** A custom version of the builtin `select` component to
@@ -51,6 +57,8 @@ export function CustomSelect<T extends object>(props: CustomSelectProps<T>) {
     isDisabled,
     isRequired,
     name,
+    isSearchable,
+    searchPlaceholder,
     size = "medium",
     menuSize = "auto",
     placeholder = "Select an option",
@@ -107,7 +115,13 @@ export function CustomSelect<T extends object>(props: CustomSelectProps<T>) {
       {state.isOpen && (
         <Popover state={state} triggerRef={ref} placement="bottom start">
           {/* @ts-ignore */}
-          <UnmanagedListBox {...menuProps} state={state} size={menuSize} />
+          <UnmanagedListBox
+            {...menuProps}
+            state={state}
+            size={menuSize}
+            isSearchable={isSearchable}
+            searchPlaceholder={searchPlaceholder}
+          />
         </Popover>
       )}
     </DropdownWrapper>

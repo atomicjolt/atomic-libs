@@ -12,6 +12,9 @@ import {
 } from "react-aria";
 import { FieldWrapper } from "../../Utility/FieldWrapper";
 import { useSearchFieldState } from "react-stately";
+import { ActualSearchInput, SearchInputWrapper } from "./SearchInput.styles";
+import MaterialIcon from "../../Icons/MaterialIcon";
+import IconButton from "../../Buttons/IconButton";
 
 type Variants = "default" | "floating";
 
@@ -34,6 +37,7 @@ const SearchInput = React.forwardRef(
       className,
       isDisabled,
       isRequired,
+      onSubmit,
     } = props;
 
     const internalRef = useForwardedRef(ref);
@@ -45,7 +49,6 @@ const SearchInput = React.forwardRef(
       descriptionProps,
       errorMessageProps,
       isInvalid,
-      clearButtonProps,
     } = useSearchField(props, searchState, internalRef);
 
     const variantClassName = useVariantClass("aje-input", variant);
@@ -70,7 +73,14 @@ const SearchInput = React.forwardRef(
           hideLabel={hideLabel}
           floating={variant === "floating"}
         >
-          <Input ref={internalRef} type={type} {...inputProps} />
+          <SearchInputWrapper>
+            <ActualSearchInput ref={internalRef} type={type} {...inputProps} />
+            <IconButton
+              icon="search"
+              variant="content"
+              onPress={() => onSubmit && onSubmit(searchState.value)}
+            />
+          </SearchInputWrapper>
         </FieldWrapper>
       </InputWrapper>
     );
