@@ -67,6 +67,7 @@ export const CssVariables = createGlobalStyle`
   --background-clr-inverted: var(--neutral800);
 
   --accent-clr: var(--primary700);
+  --accent-clr-alt: var(--primary600);
   --error-clr: var(--error600);
   --success-clr: var(--success600);
   --warning-clr: var(--warning600);

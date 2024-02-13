@@ -35,7 +35,8 @@ export const SectionTitle = styled.span`
   color: var(--text-clr-alt);
   line-height: 1;
   padding: 6px 24px 6px 16px;
-  font-size: 1.8rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
 `;
 
 export const ListItem = styled.li`
@@ -73,8 +74,13 @@ export const ListItem = styled.li`
   }
 
   &[aria-selected="true"] {
-    background: var(--accent-clr);
-    color: white;
+    --listbox-bg-clr: var(--accent-clr);
+    color: var(--text-clr-inverted);
+  }
+
+  &[aria-selected="true"][data-focus-visible="true"] {
+    --listbox-bg-clr: var(--accent-clr-alt);
+    color: var(--text-clr-inverted);
   }
 
   &[aria-disabled] {
