@@ -16,7 +16,7 @@ import classNames from "classnames";
 import { useVariantClass } from "../../../hooks";
 import { FieldWrapper } from "../../Utility/FieldWrapper";
 import IconButton from "../../Buttons/IconButton";
-import Popover from "../../Utility/Popover";
+import { Popover } from "../../Utility/Popover";
 import { UnmanagedListBox } from "../../Utility/ListBox";
 
 interface ComboBoxProps<T>

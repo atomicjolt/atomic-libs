@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import mixins from "../../../../styles/mixins";
-import { CalendarButton } from "../styles";
 
 export const CalendarWrapper = styled.div`
   ${mixins.Regular}
@@ -95,8 +94,32 @@ export const CalendarWeekDay = styled.th`
 `;
 
 export const StyledCalendarCell = styled.td`
-  ${CalendarButton}
+  font-size: var(--font-size);
+  padding: 0px;
+  border: 0;
+  background-color: transparent;
+  color: var(--text-clr);
   height: var(--calendar-cell-size);
+
+  &.is-selected {
+    background-color: var(--time-selected-back-clr);
+    color: var(--time-selected-text-clr);
+    border-radius: 3px;
+
+    &:hover {
+      background-color: var(--time-selected-back-clr);
+    }
+  }
+
+  &[aria-invalid="true"] {
+    background-color: var(--error500);
+  }
+
+  &:hover {
+    cursor: pointer;
+    border-radius: 3px;
+    background-color: var(--neutral200);
+  }
 
   &.is-disabled {
     color: var(--neutral400);

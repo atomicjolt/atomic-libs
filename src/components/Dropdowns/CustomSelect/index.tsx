@@ -14,7 +14,7 @@ import { ButtonText } from "./CustomSelect.styles";
 import { FieldWrapper } from "../../Utility/FieldWrapper";
 import Button from "../../Buttons/Button";
 import MaterialIcon from "../../Icons/MaterialIcon";
-import Popover from "../../Utility/Popover";
+import { Popover } from "../../Utility/Popover";
 import { UnmanagedListBox } from "../../Utility/ListBox";
 
 export type CustomSelectVariants = "default" | "floating";

@@ -12,7 +12,7 @@ import classNames from "classnames";
 import Label from "../../../Utility/Label";
 import DateInput from "../DateInput";
 import IconButton from "../../../Buttons/IconButton";
-import Popover from "../../../Utility/Popover";
+import { Popover } from "../../../Utility/Popover";
 import { Dialog } from "../../../Utility/Dialog";
 import Calendar from "../Calendar";
 import { FieldWrapper } from "../../../Utility/FieldWrapper";

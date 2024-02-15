@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import Popover from "../Popover";
+import { Popover } from "../Popover";
 import { BasePopoverProps } from "../Popover/Popover.types";
 import { ToolTipWrapper } from "./ToolTip.styles";
 import { HasChildren, HasClassName } from "../../../types";

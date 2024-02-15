@@ -39,7 +39,7 @@ export { default as Tabs } from "./Tabs/Tabs";
 
 export { default as Calendar } from "./Inputs/DateAndTimes/Calendar";
 export { default as DateInput } from "./Inputs/DateAndTimes/DateInput";
-export { default as TimePicker } from "./Inputs/DateAndTimes/TimePicker";
+export { TimeInput } from "./Inputs/DateAndTimes/TimeInput";
 export { DatePicker } from "./Inputs/DateAndTimes/DatePicker";
 
 export { Item, Section } from "./Utility/Collection";

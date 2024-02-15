@@ -3,7 +3,7 @@ import { MenuTriggerProps, useMenuTriggerState } from "react-stately";
 import { AriaMenuProps, Placement, useMenuTrigger } from "react-aria";
 import IconButton from "../../Buttons/IconButton";
 import { BaseProps, HasIcon, LoadingProps } from "../../../types";
-import Popover from "../../Utility/Popover";
+import { Popover } from "../../Utility/Popover";
 import { Menu } from "../Menu";
 import { ButtonVariants } from "../../Buttons/Buttons.types";
 

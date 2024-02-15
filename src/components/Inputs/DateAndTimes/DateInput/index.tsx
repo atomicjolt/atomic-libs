@@ -7,13 +7,8 @@ import {
   useDateSegment,
   useLocale,
 } from "react-aria";
-import {
-  HelpTextProps,
-  AriaProps,
-  FieldStatusProps,
-  BaseProps,
-  FieldBaseProps,
-} from "../../../../types";
+import { createCalendar } from "@internationalized/date";
+import { AriaProps, FieldBaseProps } from "../../../../types";
 import {
   DateInputWrapper,
   DateSegments,
@@ -25,10 +20,6 @@ import {
   DateSegment as ReactStatelyDateSegment,
   useDateFieldState,
 } from "react-stately";
-import { createCalendar } from "@internationalized/date";
-import Label from "../../../Utility/Label";
-import { FieldError } from "../../../../styles/utils";
-import MaterialIcon from "../../../Icons/MaterialIcon";
 import { FieldWrapper } from "../../../Utility/FieldWrapper";
 
 export interface DateInputProps<T extends DateValue>
@@ -39,8 +30,11 @@ export interface DateInputProps<T extends DateValue>
 }
 
 /** Date Input Component. Accepts a `ref` */
-const DateInput = React.forwardRef<HTMLInputElement, DateInputProps<DateValue>>(
-  (props: DateInputProps<DateValue>, ref) => {
+const DateInput = React.forwardRef(
+  <T extends DateValue>(
+    props: DateInputProps<T>,
+    ref: React.Ref<HTMLDivElement>
+  ) => {
     let { locale } = useLocale();
     let state = useDateFieldState({
       ...props,
@@ -85,7 +79,6 @@ const DateInput = React.forwardRef<HTMLInputElement, DateInputProps<DateValue>>(
             {state.segments.map((segment, i) => (
               <DateSegment key={i} segment={segment} state={state} />
             ))}
-            {state.isInvalid && <MaterialIcon icon="error" />}
           </DateSegments>
         </FieldWrapper>
       </DateInputWrapper>
@@ -98,7 +91,7 @@ interface DateSegmentProps {
   readonly state: DateFieldState;
 }
 
-function DateSegment(props: DateSegmentProps) {
+export function DateSegment(props: DateSegmentProps) {
   const { segment, state } = props;
   let ref = useRef(null);
   let { segmentProps } = useDateSegment(segment, state, ref);

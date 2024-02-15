@@ -9,6 +9,7 @@ import {
   SearchInput,
   Section,
   Select,
+  TimeInput,
 } from "../elements";
 import styled from "styled-components";
 import { HasVariant } from "../../../src/types";
@@ -24,37 +25,7 @@ export default function AriaComponents() {
         padding: "16px",
       }}
     >
-      <Select value={selected} onChange={setSelected} label="Label">
-        <option value="one">One</option>
-        <option value="two">Two</option>
-        <option value="three">Three</option>
-      </Select>
-      <CustomSelect
-        label="Label"
-        selectedKey={selected}
-        onSelectionChange={setSelected}
-        isSearchable
-        searchPlaceholder='Search for "One" or "Two" or "Three"'
-      >
-        <Item key="one" textValue="One">
-          One
-        </Item>
-        <Item key="two" textValue="Two">
-          Two
-        </Item>
-        <Item key="three" textValue="Three">
-          Three
-        </Item>
-        <Section title="Title">
-          <Item key="four" textValue="Four">
-            Four
-          </Item>
-          <Item key="five" textValue="Five">
-            Five
-          </Item>
-        </Section>
-      </CustomSelect>
-      <SearchInput onSubmit={alert} label="label" />
+      <TimeInput label="Time Input" />
     </div>
   );
 }
