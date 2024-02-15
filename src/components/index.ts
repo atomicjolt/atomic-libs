@@ -25,7 +25,7 @@ export { default as TextArea } from "./Inputs/Textarea";
 export { default as ToggleSwitch } from "./Inputs/ToggleSwitch";
 
 export { default as Spinner } from "./Loaders/Spinner";
-export { default as ThreeDotLoader } from "./Loaders/Spinner";
+export { default as ThreeDotLoader } from "./Loaders/ThreeDotLoader";
 
 export { default as BasicModal } from "./Modals/BasicModal";
 export { default as Modal } from "./Modals/Modal";
@@ -45,7 +45,7 @@ export { DatePicker } from "./Inputs/DateAndTimes/DatePicker";
 export { Item, Section } from "./Utility/Collection";
 export { default as LoadingStatus } from "./Utility/LoadingStatus";
 export { default as Label } from "./Utility/Label";
-export { default as Popover, PopoverWrapper } from "./Utility/Popover";
+export { Popover, PopoverWrapper } from "./Utility/Popover";
 export { default as ToolTip } from "./Utility/ToolTip";
 export { Menu } from "./Dropdowns/Menu";
 export { Dialog } from "./Utility/Dialog";

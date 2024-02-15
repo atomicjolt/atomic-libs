@@ -13,12 +13,11 @@ import {
 import { FieldWrapper } from "../../Utility/FieldWrapper";
 import { useSearchFieldState } from "react-stately";
 import { ActualSearchInput, SearchInputWrapper } from "./SearchInput.styles";
-import MaterialIcon from "../../Icons/MaterialIcon";
 import IconButton from "../../Buttons/IconButton";
 
 type Variants = "default" | "floating";
 
-export interface TextInputProps
+export interface SearchInputProps
   extends AriaProps<AriaSearchFieldProps>,
     FieldBaseProps,
     HasVariant<Variants> {}

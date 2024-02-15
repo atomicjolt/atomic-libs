@@ -1,6 +1,10 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { NumberInput } from ".";
-import { NewTextInputControls } from "../../storybook";
+import {
+  NewTextInputControls,
+  FocusEventControls,
+  VariantArgType,
+} from "../../storybook";
 
 const meta: Meta<typeof NumberInput> = {
   title: "Inputs/User Input/NumberInput",
@@ -10,7 +14,9 @@ const meta: Meta<typeof NumberInput> = {
   },
   argTypes: {
     ...NewTextInputControls,
-    onChange: { action: "onChange" },
+    ...FocusEventControls,
+    ...VariantArgType,
+    onChange: { action: "onChange", table: { category: "Events" } },
     formatOptions: {
       control: "object",
       description: "Options for formatting the number",

@@ -11,8 +11,12 @@ export const StyledNumberInput = styled.input`
   ${mixins.InputLike}
   border: none;
 
-  &:focus {
-    outline: none;
+  &:focus,
+  &:active,
+  &:hover {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
   }
 `;
 

@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import cn from "classnames";
-import { AriaProps, FieldBaseProps } from "../../../types";
+import { AriaProps, FieldBaseProps, HasVariant } from "../../../types";
 import { InputWrapper } from "../Inputs.styles";
 import useForwardedRef from "../../../hooks/useForwardedRef";
 import { AriaNumberFieldProps, useLocale, useNumberField } from "react-aria";
@@ -12,10 +12,12 @@ import {
   NumberInputWrapper,
   StyledNumberInput,
 } from "./NumberInput.styles";
+import { useVariantClass } from "../../../hooks";
 
 export interface NumberInputProps
   extends AriaProps<AriaNumberFieldProps>,
-    FieldBaseProps {}
+    FieldBaseProps,
+    HasVariant<"default" | "floating"> {}
 
 /** Input for number values. Fowards a `ref` to the internal input element */
 export const NumberInput = React.forwardRef(
@@ -29,11 +31,13 @@ export const NumberInput = React.forwardRef(
       className,
       isDisabled,
       isRequired,
+      variant = "default",
     } = props;
 
     const internalRef = useForwardedRef(ref);
     const { locale } = useLocale();
     const state = useNumberFieldState({ ...props, locale });
+    const [focused, setFocused] = useState(false);
 
     const {
       labelProps,
@@ -45,10 +49,13 @@ export const NumberInput = React.forwardRef(
       decrementButtonProps,
     } = useNumberField(props, state, internalRef);
 
+    const variantClass = useVariantClass("aje-input", variant);
+
     return (
       <InputWrapper
-        className={cn("aje-input__number", className, {
+        className={cn("aje-input__number", variantClass, className, {
           "read-only": props.isReadOnly,
+          "float-label": inputProps.value || focused,
         })}
         size={size}
         disabled={isDisabled}
@@ -63,9 +70,21 @@ export const NumberInput = React.forwardRef(
           error={error}
           errorProps={errorMessageProps}
           hideLabel={hideLabel}
+          floating={variant === "floating"}
         >
           <NumberInputWrapper>
-            <StyledNumberInput ref={internalRef} {...inputProps} />
+            <StyledNumberInput
+              ref={internalRef}
+              {...inputProps}
+              onFocus={(e) => {
+                setFocused(true);
+                inputProps.onFocus && inputProps.onFocus(e);
+              }}
+              onBlur={(e) => {
+                setFocused(false);
+                inputProps.onBlur && inputProps.onBlur(e);
+              }}
+            />
 
             <NumberInputButtons>
               <IconButton

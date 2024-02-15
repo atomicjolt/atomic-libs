@@ -5,8 +5,8 @@ import { LoadingMessage, LoadingWrapper } from "./LoadingStatus.styles";
 
 export interface LoadingStatusProps {
   /** Loading status, when true, a loading animation is displayed  */
-  readonly loading?: boolean;
-  /** Optinal message to display beneath the loading animation */
+  readonly isLoading?: boolean;
+  /** Optional message to display beneath the loading animation */
   readonly loadingMessage?: React.ReactNode;
   /** Customize what is rendered when in a loading state */
   readonly renderLoading?: (
@@ -43,7 +43,7 @@ const renderErrorDefault = (error: React.ReactNode) => {
  * the error takes precedencs and will be displayed  */
 export default function LoadingStatus(props: LoadingStatusProps) {
   const {
-    loading = false,
+    isLoading = false,
     loadingMessage = null,
     renderLoading = renderLoadingDefault,
     error = null,
@@ -55,8 +55,8 @@ export default function LoadingStatus(props: LoadingStatusProps) {
     return <>{renderError(error)}</>;
   }
 
-  if (loading) {
-    return <>{renderLoading(loading, loadingMessage)}</>;
+  if (isLoading) {
+    return <>{renderLoading(isLoading, loadingMessage)}</>;
   }
 
   return <>{children}</>;

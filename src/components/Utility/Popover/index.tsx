@@ -16,33 +16,32 @@ export interface PopoverProps
   state: OverlayTriggerState;
 }
 
-export default React.forwardRef<HTMLDivElement, PopoverProps>(function Popover(
-  props: PopoverProps,
-  ref
-) {
-  const { children, state, offset = 4, ...rest } = props;
-  const internalRef = useForwardedRef(ref);
-  const { popoverProps, underlayProps } = usePopover(
-    {
-      ...rest,
-      offset,
-      popoverRef: internalRef,
-    },
-    state
-  );
+export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(
+  (props: PopoverProps, ref) => {
+    const { children, state, offset = 4, ...rest } = props;
+    const internalRef = useForwardedRef(ref);
+    const { popoverProps, underlayProps } = usePopover(
+      {
+        ...rest,
+        offset,
+        popoverRef: internalRef,
+      },
+      state
+    );
 
-  return (
-    <Overlay>
-      <PopoverUnderlay {...underlayProps} className="aje-popover-underlay" />
-      <PopoverContent
-        {...popoverProps}
-        ref={internalRef}
-        className={cn("aje-popover", props.className)}
-      >
-        <DismissButton onDismiss={state.close} />
-        {children}
-        <DismissButton onDismiss={state.close} />
-      </PopoverContent>
-    </Overlay>
-  );
-});
+    return (
+      <Overlay>
+        <PopoverUnderlay {...underlayProps} className="aje-popover-underlay" />
+        <PopoverContent
+          {...popoverProps}
+          ref={internalRef}
+          className={cn("aje-popover", props.className)}
+        >
+          <DismissButton onDismiss={state.close} />
+          {children}
+          <DismissButton onDismiss={state.close} />
+        </PopoverContent>
+      </Overlay>
+    );
+  }
+);

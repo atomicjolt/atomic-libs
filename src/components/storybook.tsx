@@ -54,12 +54,14 @@ export function disableControl(name: string) {
 
 export const CallbackControls = {
   onClick: {
+    action: "onClick",
     control: false,
     table: {
       category: "Events",
     },
   },
   onFocus: {
+    action: "onFocus",
     control: false,
     table: {
       category: "Events",
@@ -201,6 +203,7 @@ export const NewCommonInputControls = {
 
 export const FocusEventControls = {
   onFocus: {
+    action: "onFocus",
     control: false,
     description: "Callback when the element is focused",
     table: {
@@ -208,6 +211,7 @@ export const FocusEventControls = {
     },
   },
   onBlur: {
+    action: "onBlur",
     control: false,
     description: "Callback when the element loses focus",
     table: {
@@ -215,10 +219,22 @@ export const FocusEventControls = {
     },
   },
   onFocusChange: {
+    action: "onFocusChange",
     control: false,
     description: "Callback when the element's focus state changes",
     table: {
       category: "Events",
+    },
+  },
+};
+
+export const VariantArgType = {
+  variant: {
+    control: "select",
+    description:
+      "Visual variant of the component. Defines what preset styles to use for the component.",
+    table: {
+      category: "Presentation",
     },
   },
 };
@@ -229,7 +245,6 @@ export const InputControls = {
 };
 
 export const NewInputControls = {
-  ...CallbackControls,
   ...NewCommonInputControls,
 };
 
