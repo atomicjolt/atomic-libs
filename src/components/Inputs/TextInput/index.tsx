@@ -45,7 +45,7 @@ const TextInput = React.forwardRef(
     return (
       <InputWrapper
         className={cn("aje-input__text", variantClassName, className, {
-          "has-value": inputProps.value,
+          "float-label": inputProps.value,
         })}
         size={size}
         disabled={isDisabled}

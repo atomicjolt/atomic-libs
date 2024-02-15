@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import cn from "classnames";
 import { useVariantClass } from "../../../hooks";
 import { AriaProps, FieldBaseProps, HasVariant } from "../../../types";
@@ -42,6 +42,7 @@ const SearchInput = React.forwardRef(
 
     const internalRef = useForwardedRef(ref);
     const searchState = useSearchFieldState(props);
+    const [focused, setFocused] = useState(false);
 
     const {
       labelProps,
@@ -56,7 +57,7 @@ const SearchInput = React.forwardRef(
     return (
       <InputWrapper
         className={cn("aje-input__search", variantClassName, className, {
-          "has-value": inputProps.value,
+          "float-label": inputProps.value || focused,
         })}
         size={size}
         disabled={isDisabled}
@@ -74,7 +75,19 @@ const SearchInput = React.forwardRef(
           floating={variant === "floating"}
         >
           <SearchInputWrapper>
-            <ActualSearchInput ref={internalRef} type={type} {...inputProps} />
+            <ActualSearchInput
+              ref={internalRef}
+              type={type}
+              {...inputProps}
+              onFocus={(e) => {
+                setFocused(true);
+                inputProps.onFocus && inputProps.onFocus(e);
+              }}
+              onBlur={(e) => {
+                setFocused(false);
+                inputProps.onBlur && inputProps.onBlur(e);
+              }}
+            />
             <IconButton
               icon="search"
               variant="content"

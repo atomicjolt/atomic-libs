@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 interface ButtonGroupWrapperProps {
   gap?: number;
-  direction?: "row" | "column";
 }
 
 export const ButtonGroupWrapper = styled.div<ButtonGroupWrapperProps>`

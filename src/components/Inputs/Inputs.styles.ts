@@ -45,12 +45,12 @@ export const InputWrapper = styled(ComponentWrapper)`
       outline: none;
     }
 
-    &.has-value {
+    &.float-label {
       --input-bg-clr: var(--neutral50);
     }
 
     input:focus ~ label,
-    &.has-value label {
+    &.float-label label {
       top: 0px;
       left: 1em;
       --floating-font-size: 1.3rem;

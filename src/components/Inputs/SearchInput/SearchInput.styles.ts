@@ -18,8 +18,13 @@ export const SearchInputWrapper = styled.div`
 export const ActualSearchInput = styled.input`
   ${mixins.InputLike}
   border: none;
+  box-shadow: none;
 
-  &:focus {
-    outline: none;
+  &:focus,
+  &:active,
+  &:hover {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
   }
 `;
