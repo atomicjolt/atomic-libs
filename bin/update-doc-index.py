@@ -51,6 +51,8 @@ def main():
         v.split("/")[-1] for v in res.stdout.decode("utf-8").strip().split("\n")
     ]
 
+    print("Versions: ", versions)
+
     start_index = versions.index(start_version)
     versions = versions[start_index:]
 
