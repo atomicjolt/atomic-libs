@@ -11,6 +11,7 @@ import {
   Section,
   Select,
   TimeInput,
+  ToggleSwitch,
   ToolTip,
 } from "../elements";
 import styled from "styled-components";
@@ -19,7 +20,7 @@ import { ButtonVariants } from "../../../src/components/Buttons/Buttons.types";
 import classNames from "classnames";
 
 export default function AriaComponents() {
-  const [selected, setSelected] = useState<any>("one");
+  const [selected, setSelected] = useState<any>(false);
 
   return (
     <div
@@ -27,10 +28,9 @@ export default function AriaComponents() {
         padding: "16px",
       }}
     >
-      <ToolTip tooltip="This is a tooltip" delay={0}>
-        {/* <Button>Hover Me</Button> */}
-        <MaterialIcon icon="info" />
-      </ToolTip>
+      <ToggleSwitch isSelected={selected} onChange={setSelected}>
+        Label
+      </ToggleSwitch>
     </div>
   );
 }

@@ -51,36 +51,10 @@ const squishyIconBack = keyframes`
 
 export const ToggleSwitchWrapper = styled.label`
   //Disabled states
-  input[type="checkbox"]:disabled ~ .aje-toggle-switch__label {
+  &.is-disabled {
     cursor: auto;
     opacity: 0.5;
   }
-
-  :is(input):focus-visible ~ .aje-toggle-switch__label::after {
-    content: "";
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: calc(var(--toggle-size) * 1.666);
-    height: var(--toggle-size);
-    border-radius: calc(var(--toggle-size) / 2);
-    background-color: transparent;
-    outline: var(--outline);
-    outline-offset: 2px;
-  }
-
-  :is(input):focus:not(:focus-visible) {
-    outline: none;
-  }
-`;
-
-export const HiddenCheckbox = styled.input.attrs({ type: "checkbox" })`
-  opacity: 0;
-  margin: 0;
-  height: 0.01rem;
-  width: 0.01rem;
-  position: absolute;
 `;
 
 export const ToggleSwitchLabel = styled.span`
@@ -144,6 +118,11 @@ export const ToggleSwitchContainer = styled.div`
   background-color: var(--toggle-unchecked);
   transition: background-color 200ms linear;
   overflow: hidden;
+
+  &.focus-visible {
+    outline: var(--outline);
+    outline-offset: 2px;
+  }
 `;
 
 export const ToggleSwitchIcon = styled.i`

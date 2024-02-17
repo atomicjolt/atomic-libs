@@ -22,7 +22,7 @@ export { default as RadioGroup, Radio } from "./Inputs/RadioGroup";
 export { default as SearchInput } from "./Inputs/SearchInput";
 export { default as TextInput } from "./Inputs/TextInput";
 export { default as TextArea } from "./Inputs/Textarea";
-export { default as ToggleSwitch } from "./Inputs/ToggleSwitch";
+export { ToggleSwitch } from "./Inputs/ToggleSwitch";
 
 export { default as Spinner } from "./Loaders/Spinner";
 export { default as ThreeDotLoader } from "./Loaders/ThreeDotLoader";
