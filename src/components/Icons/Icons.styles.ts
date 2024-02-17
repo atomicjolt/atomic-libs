@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const StyledIcon = styled.i`
+  user-select: none;
+
   &.is-small {
     font-size: 18px;
   }
@@ -13,5 +15,9 @@ export const StyledIcon = styled.i`
 
   &.is-disabled {
     color: rgba(0, 0, 0, 0.3);
+  }
+
+  &:hover {
+    cursor: default;
   }
 `;

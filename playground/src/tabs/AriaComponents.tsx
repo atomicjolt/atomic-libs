@@ -6,10 +6,12 @@ import {
   IconButton,
   IconMenu,
   Item,
+  MaterialIcon,
   SearchInput,
   Section,
   Select,
   TimeInput,
+  ToolTip,
 } from "../elements";
 import styled from "styled-components";
 import { HasVariant } from "../../../src/types";
@@ -25,7 +27,10 @@ export default function AriaComponents() {
         padding: "16px",
       }}
     >
-      <TimeInput label="Time Input" />
+      <ToolTip tooltip="This is a tooltip" delay={0}>
+        {/* <Button>Hover Me</Button> */}
+        <MaterialIcon icon="info" />
+      </ToolTip>
     </div>
   );
 }

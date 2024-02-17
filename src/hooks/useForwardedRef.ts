@@ -6,7 +6,10 @@ export default function useForwardedRef<T>(
   defaultValue: T | null = null
 ): React.RefObject<T> {
   const actualRef = React.useRef<T>(defaultValue);
-  useImperativeHandle(ref, () => actualRef.current!);
+  useImperativeHandle(ref, () => {
+    console.log("actualRef", actualRef.current!);
+    return actualRef.current!;
+  });
 
   return actualRef;
 }

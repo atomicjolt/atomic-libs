@@ -1,22 +1,17 @@
 import styled from "styled-components";
 
-export const ToolTipWrapper = styled.div`
+export const TooltipWrapper = styled.span`
   position: relative;
-  max-width: fit-content;
-  --popover-animation: opacity 200ms ease;
+`;
 
-  .aje-popover {
-    background-color: rgba(0, 0, 0, 0.774);
-    color: white;
-    font-size: 15px;
-    padding: 5px;
-    border-radius: 5px;
-  }
-
-  &:hover {
-    .aje-popover {
-      visibility: visible;
-      opacity: 1;
-    }
-  }
+export const StyledToolTipBox = styled.span`
+  position: absolute;
+  left: 5px;
+  top: 100%;
+  max-width: 150px;
+  margin-top: 10px;
+  background-color: white;
+  color: black;
+  padding: 5px;
+  border: 1px solid gray;
 `;

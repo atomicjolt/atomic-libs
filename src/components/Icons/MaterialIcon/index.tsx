@@ -25,27 +25,32 @@ export interface MaterialIconProps
 
 /** Small Utility component for rendering out
  * material-icons with some sensible defaults */
-export default function MaterialIcon(props: MaterialIconProps) {
-  const {
-    icon,
-    className,
-    variant = "default",
-    size = "medium",
-    disabled = false,
-    ...rest
-  } = props;
+export const MaterialIcon = React.forwardRef<HTMLElement, MaterialIconProps>(
+  (props, ref) => {
+    const {
+      icon,
+      className,
+      variant = "default",
+      size = "medium",
+      disabled = false,
+      ...rest
+    } = props;
 
-  const variantClass = useVariantClass("material-icons", variant, "-");
+    const variantClass = useVariantClass("material-icons", variant, "-");
 
-  return (
-    <StyledIcon
-      className={cn(variantClass, className, `is-${size}`, {
-        "is-disabled": disabled,
-      })}
-      aria-hidden={true}
-      {...rest}
-    >
-      {icon}
-    </StyledIcon>
-  );
-}
+    return (
+      <StyledIcon
+        ref={ref}
+        className={cn(variantClass, className, `is-${size}`, {
+          "is-disabled": disabled,
+        })}
+        aria-hidden={true}
+        {...rest}
+      >
+        {icon}
+      </StyledIcon>
+    );
+  }
+);
+
+export default MaterialIcon;
