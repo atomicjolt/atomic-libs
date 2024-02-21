@@ -1,4 +1,4 @@
-import React, { useRef, useLayoutEffect, useEffect } from "react";
+import React from "react";
 import cn from "classnames";
 import { useFirstStateChange, useIds } from "../../../hooks";
 import { EventHandler, HasClassName } from "../../../types";
@@ -16,7 +16,7 @@ export interface ToggleSwitchProps extends HasClassName {
   readonly disabled?: boolean;
   readonly onChange?: EventHandler<
     boolean,
-    React.MouseEvent<HTMLInputElement> | React.ChangeEvent<HTMLInputElement>
+    React.ChangeEvent<HTMLInputElement>
   >;
 }
 
@@ -36,11 +36,7 @@ const ToggleSwitch = React.forwardRef<HTMLInputElement, ToggleSwitchProps>(
 
     const changed = useFirstStateChange(checked);
 
-    const handleClick = (
-      e:
-        | React.ChangeEvent<HTMLInputElement>
-        | React.MouseEvent<HTMLInputElement>
-    ) => {
+    const handleClick = (e: React.ChangeEvent<HTMLInputElement>) => {
       if (onChange) {
         const checked: boolean = (e.target as HTMLInputElement).checked;
         onChange(checked, e);
@@ -58,7 +54,6 @@ const ToggleSwitch = React.forwardRef<HTMLInputElement, ToggleSwitchProps>(
           checked={checked}
           disabled={disabled}
           onChange={handleClick}
-          onClick={handleClick}
           {...inputProps}
         />
         <ToggleSwitchLabel
