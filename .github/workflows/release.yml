@@ -2,6 +2,7 @@ name: Create Release
 
 on:
   push:
+    branches: [main]
     tags: ["*"]
 
 jobs:
@@ -31,6 +32,6 @@ jobs:
           draft: false
           prerelease: false
       - name: Publish
-        run: yarn publish
+        run: yarn npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
