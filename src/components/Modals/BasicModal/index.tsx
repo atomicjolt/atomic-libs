@@ -1,13 +1,16 @@
-import cn from "classnames";
-import React from "react";
+import React, { useRef } from "react";
+import { AriaModalOverlayProps, Overlay, useModalOverlay } from "react-aria";
+import {
+  OverlayTriggerProps,
+  OverlayTriggerState,
+  useOverlayTriggerState,
+} from "react-stately";
 import { useVariantClass } from "../../../hooks";
 import { HasClassName } from "../../../types";
-import { useModal } from "../utils";
 import { ModalBackground, ModalWrapper } from "./BasicModal.styles";
+import classNames from "classnames";
 
-export interface BaseModalProps extends HasClassName {
-  /** Whether or not the modal is visible */
-  open?: boolean;
+export interface BaseModalProps extends HasClassName, OverlayTriggerProps {
   children?: React.ReactNode;
   /** Centers the modal within the viewport */
   centered?: boolean;
@@ -15,9 +18,6 @@ export interface BaseModalProps extends HasClassName {
 
 export interface BasicModalProps extends BaseModalProps {
   variant?: string;
-  /** Fired when the user clicks on the
-   * background / outside of the content of your modal */
-  onOutsideClick?: () => void;
 }
 
 /** The most basic Modal that atomic-element offers. Makes no assumptiosn or enforcements on how / where
@@ -26,31 +26,52 @@ export interface BasicModalProps extends BaseModalProps {
  * Unless you absolutely need to, you are probably better served using one of the other modals provided
  */
 export default function BasicModal(props: BasicModalProps) {
-  const {
-    open = false,
-    children,
-    centered = false,
-    variant = "default",
-    className,
-    onOutsideClick,
-  } = props;
-  const renderModal = useModal({ open });
+  const { children, centered = false, variant = "default", className } = props;
+  const state = useOverlayTriggerState(props);
+  // const { overlayProps } = useOverlayTrigger({ type: "dialog" }, state);
 
   const variantClassName = useVariantClass("aje-modal", variant);
 
-  return renderModal(
-    <ModalBackground
-      className={cn("aje-modal-background", className, {
-        "is-centered": centered,
-      })}
-      onClick={() => onOutsideClick && onOutsideClick()}
+  if (!state.isOpen) {
+    return null;
+  }
+
+  return (
+    <ModalOverlay
+      {...props}
+      state={state}
+      className={classNames(className, variantClassName)}
+      centered={centered}
     >
-      <ModalWrapper
-        className={variantClassName}
-        onClick={(e) => e.stopPropagation()}
+      {children}
+    </ModalOverlay>
+  );
+}
+
+interface ModalOverlayProps extends BaseModalProps, AriaModalOverlayProps {
+  state: OverlayTriggerState;
+}
+
+function ModalOverlay(props: ModalOverlayProps) {
+  const { children, state, centered, className } = props;
+  const ref = useRef(null);
+  const { modalProps, underlayProps } = useModalOverlay(props, state, ref);
+
+  return (
+    <Overlay>
+      <ModalBackground
+        {...underlayProps}
+        className={classNames({ "is-centered": centered })}
       >
-        {children}
-      </ModalWrapper>
-    </ModalBackground>
+        <ModalWrapper
+          className={classNames("aje-modal", className)}
+          onClick={(e) => e.stopPropagation()}
+          ref={ref}
+          {...modalProps}
+        >
+          {children}
+        </ModalWrapper>
+      </ModalBackground>
+    </Overlay>
   );
 }

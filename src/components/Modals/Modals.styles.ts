@@ -1,6 +1,10 @@
 import styled from "styled-components";
 import mixins from "../../styles/mixins";
 
+export const ContentWrapper = styled.div`
+  padding: 24px;
+`;
+
 export const ModalTop = styled.div.attrs({ className: "aje-modal__top" })`
   display: flex;
   align-items: center;

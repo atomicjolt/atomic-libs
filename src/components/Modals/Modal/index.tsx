@@ -3,13 +3,14 @@ import { modalInitializer } from "../utils";
 import Button from "../../Buttons/Button";
 import BasicModal, { BaseModalProps } from "../BasicModal";
 import {
+  ContentWrapper,
   ModalBottom,
   ModalClose,
   ModalMain,
-  ModalTitle,
-  ModalTop,
 } from "../Modals.styles";
 import MaterialIcon from "../../Icons/MaterialIcon";
+import IconButton from "../../Buttons/IconButton";
+import { Dialog } from "../../Utility/Dialog";
 
 export interface ModalProps extends BaseModalProps {
   /** Must include a title. Titles are always in Title case. */
@@ -51,34 +52,37 @@ function Modal(props: ModalProps) {
   const onCloseCallback = () => onClose && onClose();
 
   return (
-    <BasicModal onOutsideClick={onCloseCallback} {...rest}>
-      <ModalTop>
-        <ModalTitle>{title}</ModalTitle>
-        <ModalClose aria-label="close modal" onClick={onCloseCallback}>
-          <MaterialIcon icon="close" />
-        </ModalClose>
-      </ModalTop>
-      <ModalMain>{children}</ModalMain>
-      <ModalBottom>
-        {secondaryButton && (
-          <Button
-            variant="secondary"
-            type="button"
-            onPress={() => secondaryAction && secondaryAction()}
-          >
-            {secondaryButton}
-          </Button>
-        )}
-        {primaryButton && (
-          <Button
-            variant="primary"
-            type="button"
-            onPress={() => primaryAction && primaryAction()}
-          >
-            {primaryButton}
-          </Button>
-        )}
-      </ModalBottom>
+    <BasicModal {...rest}>
+      <Dialog
+        title={title}
+        top={
+          <IconButton icon="close" onPress={onCloseCallback} variant="ghost" />
+        }
+      >
+        <ContentWrapper>
+          <ModalMain>{children}</ModalMain>
+          <ModalBottom>
+            {secondaryButton && (
+              <Button
+                variant="secondary"
+                type="button"
+                onPress={() => secondaryAction && secondaryAction()}
+              >
+                {secondaryButton}
+              </Button>
+            )}
+            {primaryButton && (
+              <Button
+                variant="primary"
+                type="button"
+                onPress={() => primaryAction && primaryAction()}
+              >
+                {primaryButton}
+              </Button>
+            )}
+          </ModalBottom>
+        </ContentWrapper>
+      </Dialog>
     </BasicModal>
   );
 }

@@ -10,7 +10,7 @@ import Dates from "./tabs/Dates";
 import AriaComponents from "./tabs/AriaComponents";
 
 function Playground() {
-  const [currentTab, setCurrentTab] = useState("aria");
+  const [currentTab, setCurrentTab] = useState("modal");
 
   return (
     <div className="padder" style={{ height: "100%" }}>
