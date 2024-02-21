@@ -1,4 +1,3 @@
-import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import ErrorModal from ".";
 
@@ -13,7 +12,7 @@ type Story = StoryObj<typeof ErrorModal>;
 
 export const Primary: Story = {
   args: {
-    open: true,
+    isOpen: false,
     title: "Error",
     children: "An error has occurred",
     buttonText: "Close",

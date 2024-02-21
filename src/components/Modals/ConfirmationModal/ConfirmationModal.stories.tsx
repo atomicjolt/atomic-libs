@@ -12,9 +12,9 @@ type Story = StoryObj<typeof ConfirmationModal>;
 
 export const Primary: Story = {
   args: {
+    isOpen: false,
     title: "Confirmation",
     children: "Are you sure you want to proceed?",
-    open: true,
     confirmText: "Confirm",
   },
 };

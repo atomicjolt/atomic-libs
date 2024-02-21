@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-export const DialogWrapper = styled.div``;
+export const DialogWrapper = styled.div`
+  &:focus-visible {
+    outline: none;
+  }
+`;
 
 export const DialogTop = styled.div`
   display: flex;

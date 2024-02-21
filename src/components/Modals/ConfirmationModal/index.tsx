@@ -1,7 +1,6 @@
 import React from "react";
 import Button from "../../Buttons/Button";
-import PopupModal from "../PopupModal";
-import { BaseModalProps } from "../BasicModal";
+import Modal, { BaseModalProps } from "../Modal";
 
 export interface ConfirmationModalProps extends BaseModalProps {
   /** Must include a title. Titles are always in Title case. */
@@ -38,22 +37,19 @@ export default function ConfirmationModal({
   ...rest
 }: ConfirmationModalProps) {
   return (
-    <PopupModal
-      {...rest}
-      title={title}
-      onOutsideClick={() => onReject && onReject()}
-      actions={
-        <>
-          <Button variant="secondary" onPress={() => onReject && onReject()}>
-            {rejectText}
-          </Button>
-          <Button variant="primary" onPress={() => onConfirm && onConfirm()}>
-            {confirmText}
-          </Button>
-        </>
-      }
-    >
-      {children}
-    </PopupModal>
+    <Modal {...rest} variant="popup">
+      <Modal.Header>
+        <Modal.Title>{title}</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>{children}</Modal.Body>
+      <Modal.Footer>
+        <Button variant="secondary" onPress={() => onReject && onReject()}>
+          {rejectText}
+        </Button>
+        <Button variant="primary" onPress={() => onConfirm && onConfirm()}>
+          {confirmText}
+        </Button>
+      </Modal.Footer>
+    </Modal>
   );
 }
