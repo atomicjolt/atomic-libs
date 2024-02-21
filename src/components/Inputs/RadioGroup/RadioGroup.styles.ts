@@ -5,6 +5,10 @@ export const FieldSet = styled.fieldset`
   padding: 0;
   border: none;
 
+  &.is-disabled {
+    opacity: 0.5;
+  }
+
   & > .aje-label {
     padding-bottom: 12px;
   }

@@ -1,19 +1,23 @@
 import React from "react";
 import cn from "classnames";
-import { HasChildren, InputComponentProps, EventHandler } from "../../../types";
-import RadioContext, { RadioContextData } from "./context";
+import {
+  HasChildren,
+  InputComponentProps,
+  EventHandler,
+  AriaProps,
+  FieldBaseProps,
+} from "../../../types";
+import RadioContext from "./context";
 import { makeEventHandler } from "../../../utils";
 import { FieldSet } from "./RadioGroup.styles";
 import { FieldError, Label, FieldMessage } from "../../../styles/utils";
+import { useRadioGroupState } from "react-stately";
+import { AriaRadioGroupProps, RadioGroupAria, useRadioGroup } from "react-aria";
 
 export interface RadioGroupsProps
-  extends Omit<InputComponentProps, "size">,
-    HasChildren {
-  readonly name: string;
-  readonly disabled?: boolean;
-  readonly value?: string;
-  readonly onChange?: EventHandler<string, React.ChangeEvent<Element>>;
-}
+  extends AriaProps<AriaRadioGroupProps>,
+    FieldBaseProps,
+    HasChildren {}
 
 /**
  * Radio Group
@@ -27,34 +31,32 @@ export interface RadioGroupsProps
  * between the over-lying `<RadioGroup />` and it's `<Radio />`s
  * */
 export default function RadioGroup(props: RadioGroupsProps) {
-  const {
-    value,
-    onChange,
-    label,
-    message,
-    error,
-    name,
-    children,
-    disabled = false,
-    hideLabel,
-    className,
-  } = props;
+  const { label, message, error, children, hideLabel, className } = props;
 
-  const ctx: RadioContextData = {
-    onChange: makeEventHandler(onChange),
-    name,
-    currentValue: value,
-    disabled,
-  };
+  const state = useRadioGroupState(props);
+  const { radioGroupProps, labelProps, descriptionProps, errorMessageProps } =
+    useRadioGroup(props, state);
 
   return (
-    <FieldSet className={cn("aje-radio-group", className)}>
-      <Label as="legend" className={cn({ "aje-hidden": hideLabel })}>
+    <FieldSet
+      className={cn("aje-radio-group", className, {
+        "is-disabled": state.isDisabled,
+      })}
+      {...radioGroupProps}
+    >
+      <Label
+        as="legend"
+        className={cn("aje-radio-group__label", { "aje-hidden": hideLabel })}
+        {...labelProps}
+      >
         {label}
-        {message && <FieldMessage as="p">{message}</FieldMessage>}
-        {error && <FieldError as="p">{error}</FieldError>}
+        {state.isRequired && <span aria-hidden="true"> *</span>}
+        {message && (
+          <FieldMessage {...descriptionProps}>{message}</FieldMessage>
+        )}
+        {error && <FieldError {...errorMessageProps}>{error}</FieldError>}
       </Label>
-      <RadioContext.Provider value={ctx}>{children}</RadioContext.Provider>
+      <RadioContext.Provider value={state}>{children}</RadioContext.Provider>
     </FieldSet>
   );
 }

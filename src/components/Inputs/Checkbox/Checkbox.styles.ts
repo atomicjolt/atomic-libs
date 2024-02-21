@@ -31,8 +31,4 @@ export const CheckboxWrapper = styled(ChooseInputWrapper)`
     cursor: auto;
     opacity: 0.5;
   }
-
-  &.is-required::after {
-    content: " *";
-  }
 `;

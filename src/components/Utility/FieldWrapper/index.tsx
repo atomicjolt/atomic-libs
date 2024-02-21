@@ -22,6 +22,8 @@ export interface FieldWrapperProps extends HelpTextProps {
    * Typically, this should be some kind of input element */
   readonly children: React.ReactNode;
   readonly labelClassName?: string;
+
+  readonly errorPosition?: "top" | "bottom";
 }
 
 /** FieldWrapper component. Wraps input elements with a label, message and error */
@@ -37,6 +39,7 @@ export function FieldWrapper(props: FieldWrapperProps) {
     messageProps = {},
     errorProps = {},
     floating,
+    errorPosition = "bottom",
   } = props;
 
   const labelClasses = cn(labelClassName, { "aje-hidden": hideLabel });
@@ -64,8 +67,13 @@ export function FieldWrapper(props: FieldWrapperProps) {
         </Label>
       )}
       {message && <FieldMessage {...messageProps}>{message}</FieldMessage>}
+      {error && errorPosition === "top" && (
+        <FieldError {...errorProps}>{error}</FieldError>
+      )}
       {children}
-      {error && <FieldError {...errorProps}>{error}</FieldError>}
+      {error && errorPosition === "bottom" && (
+        <FieldError {...errorProps}>{error}</FieldError>
+      )}
     </>
   );
 }

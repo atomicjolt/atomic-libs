@@ -1,55 +1,47 @@
 import React from "react";
 import cn from "classnames";
-import { useIds } from "../../../hooks";
-import { CheckedInputProps } from "../../../types";
-import { makeEventHandler } from "../../../utils";
+import { useToggleState } from "react-stately";
+import { AriaCheckboxProps, useCheckbox } from "react-aria";
+import useForwardedRef from "../../../hooks/useForwardedRef";
+import { AriaProps, FieldBaseProps } from "../../../types";
 import { ChooseInput, ChooseLabel } from "../Inputs.styles";
 import { FieldError, FieldMessage } from "../../../styles/utils";
 import { CheckboxWrapper } from "./Checkbox.styles";
 
-export type CheckboxProps = CheckedInputProps;
+export interface CheckBoxProps
+  extends AriaProps<Omit<AriaCheckboxProps, "isIndeterminate">>,
+    Omit<FieldBaseProps, "label" | "hideLabel"> {}
 
 /** Checkbox Component. Accepts a `ref` */
-const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
+const Checkbox = React.forwardRef<HTMLInputElement, CheckBoxProps>(
   (props, ref) => {
     const {
-      label,
+      children,
       error,
       message,
-      checked,
-      onClick,
-      onChange,
-      required,
       className,
-      ...inputProps
+      isRequired,
+      isInvalid,
+      size = "medium",
     } = props;
-    const [inputId] = useIds("Checkbox", ["input"]);
+    const internalRef = useForwardedRef(ref);
+    const state = useToggleState(props);
+    const { inputProps, labelProps } = useCheckbox(props, state, internalRef);
 
     return (
       <CheckboxWrapper
-        className={cn("aje-checkbox", className, {
-          "has-error": error,
-          "is-required": required,
+        className={cn("aje-checkbox", className, `is-${size}`, {
+          "has-error": isInvalid,
+          "is-required": isRequired,
         })}
-        htmlFor={inputId}
+        {...labelProps}
       >
-        <ChooseInput
-          id={inputId}
-          ref={ref}
-          type="checkbox"
-          checked={checked}
-          onClick={makeEventHandler(
-            onClick,
-            (e) => (e.target as HTMLInputElement).checked
-          )}
-          onChange={makeEventHandler(onChange, (e) => e.target.checked)}
-          required={required}
-          {...inputProps}
-        />
+        <ChooseInput ref={ref} {...inputProps} />
         <ChooseLabel className="aje-checkbox__label">
-          {label}
-          {message && <FieldMessage as="p">{message}</FieldMessage>}
-          {error && <FieldError as="p">{error}</FieldError>}
+          {children}
+          {isRequired && <span aria-hidden="true"> *</span>}
+          {message && <FieldMessage>{message}</FieldMessage>}
+          {error && <FieldError>{error}</FieldError>}
         </ChooseLabel>
       </CheckboxWrapper>
     );
