@@ -4,7 +4,6 @@ import { FieldBaseProps } from "../../../types";
 import Label from "../../Utility/Label";
 import { useIds } from "../../../hooks";
 import InputError from "../../Utility/InputError";
-import { makeEventHandler } from "../../../utils";
 import { ComponentWrapper } from "../../../styles/utils";
 import { SelectWrapper, StyledSelect } from "./Select.styles";
 
@@ -56,7 +55,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps<SelectValue>>(
           <StyledSelect
             id={inputId}
             aria-describedby={error ? errorId : ""}
-            onChange={makeEventHandler(onChange)}
+            onChange={(e) => onChange && onChange(e.target.value)}
             ref={ref}
             {...selectProps}
           >

@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { FileInput } from ".";
-import { NewInputControls } from "../../storybook";
+import { InputControls } from "../../storybook";
 
 const meta: Meta<typeof FileInput> = {
   title: "Inputs/Choose State/FileInput",
@@ -9,7 +9,7 @@ const meta: Meta<typeof FileInput> = {
     layout: "centered",
   },
   argTypes: {
-    ...NewInputControls,
+    ...InputControls,
     file: {
       control: false,
     },

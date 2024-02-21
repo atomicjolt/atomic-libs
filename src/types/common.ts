@@ -43,3 +43,13 @@ export type LoadingProps =
       loadingLabel?: string;
       loadingComplete?: boolean;
     };
+
+export type SortDirection = "ascending" | "descending" | undefined;
+
+export type SuggestStrings<T> = T | (string & {});
+
+export interface HasClassName {
+  /** Add classes to the root element of the component.
+   * Refer to this for possible values: https://github.com/JedWatson/classnames#readme*/
+  className?: Argument[] | Argument;
+}

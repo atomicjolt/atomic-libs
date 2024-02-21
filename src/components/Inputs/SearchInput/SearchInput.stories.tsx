@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 import SearchInput from ".";
-import { NewTextInputControls } from "../../storybook";
+import { TextInputControls } from "../../storybook";
 
 const meta: Meta<typeof SearchInput> = {
   title: "Inputs/User Input/SearchInput",
@@ -10,7 +10,7 @@ const meta: Meta<typeof SearchInput> = {
   },
   argTypes: {
     onSubmit: { control: false, table: { category: "Events" } },
-    ...NewTextInputControls,
+    ...TextInputControls,
   },
 };
 

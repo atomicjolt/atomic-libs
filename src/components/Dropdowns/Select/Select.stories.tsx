@@ -1,6 +1,6 @@
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
-import { NewInputControls, disableControl } from "../../storybook";
+import { InputControls, disableControl } from "../../storybook";
 import Select from ".";
 
 const meta: Meta<typeof Select> = {
@@ -14,7 +14,7 @@ const meta: Meta<typeof Select> = {
       control: "select",
       options: ["value1", "value2", "value3"],
     },
-    ...NewInputControls,
+    ...InputControls,
     ...disableControl("isReadOnly"),
     ...disableControl("placeholder"),
     ...disableControl("children"),

@@ -1,150 +1,7 @@
-import React from "react";
-import {
-  FieldBaseProps,
-  InputComponentProps,
-  InputElementProps,
-} from "../types";
+import { FieldBaseProps } from "../types";
 import { createGlobalStyle } from "styled-components";
 
-export const DefaultInputProperties: InputElementProps<Element> &
-  InputComponentProps = {
-  label: "",
-  hideLabel: false,
-  error: "",
-  message: "",
-  disabled: false,
-  required: false,
-  readOnly: false,
-  placeholder: "",
-  size: "medium",
-  autoFocus: false,
-};
-
-export const NewDefaultInputProperties: FieldBaseProps = {
-  className: "",
-  label: "",
-  hideLabel: false,
-  error: "",
-  message: "",
-  isDisabled: false,
-  isRequired: false,
-  isReadOnly: false,
-  isInvalid: false,
-  size: "medium",
-};
-
-interface Options {
-  filter?: string[];
-  merge?: Object;
-}
-
-export function inputProperties({ filter = [], merge = {} }: Options) {
-  return Object.fromEntries(
-    Object.entries({ ...DefaultInputProperties, ...merge }).filter(
-      ([k, _]) => !filter.includes(k)
-    )
-  );
-}
-
-export function disableControl(name: string) {
-  return {
-    [name]: { table: { disable: true } },
-  };
-}
-
-export const CallbackControls = {
-  onClick: {
-    action: "onClick",
-    control: false,
-    table: {
-      category: "Events",
-    },
-  },
-  onFocus: {
-    action: "onFocus",
-    control: false,
-    table: {
-      category: "Events",
-    },
-  },
-  onBlur: {
-    control: false,
-    table: {
-      category: "Events",
-    },
-  },
-  onKeyDown: {
-    control: false,
-    table: {
-      category: "Events",
-    },
-  },
-  onKeyUp: {
-    control: false,
-    table: {
-      category: "Events",
-    },
-  },
-};
-
 export const CommonInputControls = {
-  label: {
-    control: "text",
-    table: {
-      category: "Common",
-    },
-  },
-  hideLabel: {
-    control: "boolean",
-    table: {
-      category: "Common",
-    },
-  },
-  error: {
-    control: "text",
-    table: {
-      category: "Common",
-    },
-  },
-  message: {
-    control: "text",
-    table: {
-      category: "Common",
-    },
-  },
-  disabled: {
-    control: "boolean",
-    table: {
-      category: "Common",
-    },
-  },
-  required: {
-    control: "boolean",
-    table: {
-      category: "Common",
-    },
-  },
-  size: {
-    control: "select",
-    table: {
-      category: "Common",
-    },
-  },
-  placeholder: {
-    control: "text",
-    table: {
-      category: "Common",
-    },
-  },
-  name: {
-    control: "text",
-    table: {
-      category: "Common",
-    },
-  },
-};
-
-export const NewCommonInputControls = {
   label: {
     control: "text",
     table: {
@@ -201,33 +58,6 @@ export const NewCommonInputControls = {
   },
 };
 
-export const FocusEventControls = {
-  onFocus: {
-    action: "onFocus",
-    control: false,
-    description: "Callback when the element is focused",
-    table: {
-      category: "Events",
-    },
-  },
-  onBlur: {
-    action: "onBlur",
-    control: false,
-    description: "Callback when the element loses focus",
-    table: {
-      category: "Events",
-    },
-  },
-  onFocusChange: {
-    action: "onFocusChange",
-    control: false,
-    description: "Callback when the element's focus state changes",
-    table: {
-      category: "Events",
-    },
-  },
-};
-
 export const VariantArgType = {
   variant: {
     control: "select",
@@ -240,38 +70,11 @@ export const VariantArgType = {
 };
 
 export const InputControls = {
-  ...CallbackControls,
   ...CommonInputControls,
-};
-
-export const NewInputControls = {
-  ...NewCommonInputControls,
 };
 
 export const TextInputControls = {
   ...InputControls,
-  autoFocus: {
-    control: "boolean",
-    table: {
-      category: "Common",
-    },
-  },
-  defaultValue: {
-    control: "text",
-    table: {
-      category: "Common",
-    },
-  },
-  readOnly: {
-    control: "boolean",
-    table: {
-      category: "Common",
-    },
-  },
-};
-
-export const NewTextInputControls = {
-  ...NewInputControls,
   autoFocus: {
     control: "boolean",
     table: {
@@ -290,13 +93,6 @@ export const NewTextInputControls = {
     table: {
       category: "Field State",
     },
-  },
-};
-
-export const UncontrolledInputControls = {
-  ...InputControls,
-  value: {
-    control: false,
   },
 };
 

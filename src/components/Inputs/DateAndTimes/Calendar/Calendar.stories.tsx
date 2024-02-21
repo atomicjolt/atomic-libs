@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import { today, getLocalTimeZone } from "@internationalized/date";
 import {
   NewDefaultInputProperties,
-  NewTextInputControls,
+  TextInputControls,
   CallbackControls,
 } from "../../../storybook";
 import Calendar from ".";

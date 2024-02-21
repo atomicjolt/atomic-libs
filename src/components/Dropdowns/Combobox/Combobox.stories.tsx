@@ -1,6 +1,6 @@
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
-import { NewTextInputControls, FocusEventControls } from "../../storybook";
+import { TextInputControls, FocusEventControls } from "../../storybook";
 import { ComboBox } from ".";
 import { Item } from "react-stately";
 
@@ -11,7 +11,7 @@ const meta: Meta<typeof ComboBox> = {
     layout: "centered",
   },
   argTypes: {
-    ...NewTextInputControls,
+    ...TextInputControls,
     ...FocusEventControls,
     variant: {
       table: { category: "Presentation" },

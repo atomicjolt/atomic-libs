@@ -1,16 +1,13 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { DatePicker } from ".";
 import { now, getLocalTimeZone } from "@internationalized/date";
-import {
-  NewDefaultInputProperties,
-  NewTextInputControls,
-} from "../../../storybook";
+import { TextInputControls } from "../../../storybook";
 
 export default {
   title: "Inputs/Date & Time/DatePicker",
   component: DatePicker,
   argTypes: {
-    ...NewTextInputControls,
+    ...TextInputControls,
     value: {
       control: false,
       description:
@@ -60,7 +57,6 @@ const date = now(getLocalTimeZone());
 export const Primary: Story = {
   args: {
     defaultValue: date,
-    ...NewDefaultInputProperties,
     label: "Date Picker",
     size: "medium",
     hideTimeZone: true,

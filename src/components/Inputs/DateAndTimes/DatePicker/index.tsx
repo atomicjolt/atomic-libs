@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { useDatePicker, AriaDatePickerProps, DateValue } from "react-aria";
 import { useDatePickerState } from "react-stately";
-import { LimitedSizes, AriaProps, FieldBaseProps } from "../../../../types";
+import { Size, AriaProps, FieldBaseProps } from "../../../../types";
 import {
   CalendarWrapper,
   DatePickerInputWrapper,
@@ -49,9 +49,9 @@ export function DatePicker<T extends DateValue>(props: DatePickerProps<T>) {
     hideLabel,
   } = props;
 
-  const calendarSize: LimitedSizes = ["auto", "full"].includes(size)
+  const calendarSize: Size = ["auto", "full"].includes(size)
     ? "medium"
-    : (size as LimitedSizes);
+    : (size as Size);
 
   const datePickerClassName = classNames("aje-date-picker", className, {
     "read-only": isReadOnly,

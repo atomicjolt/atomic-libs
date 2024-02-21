@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { NumberInput } from ".";
 import {
-  NewTextInputControls,
+  TextInputControls,
   FocusEventControls,
   VariantArgType,
 } from "../../storybook";
@@ -13,7 +13,7 @@ const meta: Meta<typeof NumberInput> = {
     layout: "centered",
   },
   argTypes: {
-    ...NewTextInputControls,
+    ...TextInputControls,
     ...FocusEventControls,
     ...VariantArgType,
     onChange: { action: "onChange", table: { category: "Events" } },

@@ -1,10 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import {
-  InputControls,
-  inputProperties,
-  disableControl,
-  NewInputControls,
-} from "../../storybook";
+import { InputControls } from "../../storybook";
 import CheckBox from ".";
 
 const meta: Meta<typeof CheckBox> = {
@@ -14,7 +9,7 @@ const meta: Meta<typeof CheckBox> = {
     layout: "centered",
   },
   argTypes: {
-    ...NewInputControls,
+    ...InputControls,
     // @ts-ignore
     label: {},
     hideLabel: {},

@@ -3,14 +3,14 @@ import { TimeInput } from ".";
 import { now, getLocalTimeZone } from "@internationalized/date";
 import {
   NewDefaultInputProperties,
-  NewTextInputControls,
+  TextInputControls,
 } from "../../../storybook";
 
 export default {
   title: "Inputs/Date & Time/TimeInput",
   component: TimeInput,
   argTypes: {
-    ...NewTextInputControls,
+    ...TextInputControls,
     value: {
       control: false,
       description:

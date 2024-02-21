@@ -1,7 +1,7 @@
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import {
-  NewInputControls,
+  InputControls,
   FocusEventControls,
   NewDefaultInputProperties,
 } from "../../storybook";
@@ -15,7 +15,7 @@ const meta: Meta<typeof CustomSelect> = {
     layout: "centered",
   },
   argTypes: {
-    ...NewInputControls,
+    ...InputControls,
     ...FocusEventControls,
     selectedKey: {
       control: "select",

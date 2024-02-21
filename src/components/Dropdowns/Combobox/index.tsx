@@ -19,7 +19,7 @@ import IconButton from "../../Buttons/IconButton";
 import { Popover } from "../../Utility/Popover";
 import { UnmanagedListBox } from "../../Utility/ListBox";
 
-interface ComboBoxProps<T>
+export interface ComboBoxProps<T>
   extends AriaProps<AriaComboBoxProps<T>>,
     FieldBaseProps,
     CanHaveIcon,

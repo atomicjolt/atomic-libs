@@ -1,8 +1,7 @@
 import React from "react";
-import { modalInitializer, useModal } from "../utils";
+import { modalInitializer } from "../utils";
 import Button from "../../Buttons/Button";
 import BasicModal, { BaseModalProps } from "../BasicModal";
-import { makeOptionalCallback } from "../../../utils";
 import {
   ModalBottom,
   ModalClose,
@@ -49,7 +48,7 @@ function Modal(props: ModalProps) {
     ...rest
   } = props;
 
-  const onCloseCallback = makeOptionalCallback(onClose);
+  const onCloseCallback = () => onClose && onClose();
 
   return (
     <BasicModal onOutsideClick={onCloseCallback} {...rest}>
@@ -65,7 +64,7 @@ function Modal(props: ModalProps) {
           <Button
             variant="secondary"
             type="button"
-            onPress={() => makeOptionalCallback(secondaryAction)()}
+            onPress={() => secondaryAction && secondaryAction()}
           >
             {secondaryButton}
           </Button>
@@ -74,7 +73,7 @@ function Modal(props: ModalProps) {
           <Button
             variant="primary"
             type="button"
-            onPress={() => makeOptionalCallback(primaryAction)()}
+            onPress={() => primaryAction && primaryAction()}
           >
             {primaryButton}
           </Button>

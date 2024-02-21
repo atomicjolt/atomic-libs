@@ -1,7 +1,7 @@
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import RadioGroup, { Radio } from ".";
-import { NewInputControls } from "../../storybook";
+import { InputControls } from "../../storybook";
 
 const meta: Meta<typeof RadioGroup> = {
   title: "Inputs/Choose State/RadioGroup",
@@ -9,7 +9,7 @@ const meta: Meta<typeof RadioGroup> = {
   // @ts-ignore
   subcomponents: { Radio },
   argTypes: {
-    ...NewInputControls,
+    ...InputControls,
     children: {
       control: false,
     },

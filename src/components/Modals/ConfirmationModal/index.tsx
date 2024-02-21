@@ -1,7 +1,6 @@
 import React from "react";
 import Button from "../../Buttons/Button";
 import PopupModal from "../PopupModal";
-import { makeOptionalCallback } from "../../../utils";
 import { BaseModalProps } from "../BasicModal";
 
 export interface ConfirmationModalProps extends BaseModalProps {
@@ -38,22 +37,17 @@ export default function ConfirmationModal({
   onReject,
   ...rest
 }: ConfirmationModalProps) {
-  const onRejectCallback = makeOptionalCallback(onReject);
-
   return (
     <PopupModal
       {...rest}
       title={title}
-      onOutsideClick={onRejectCallback}
+      onOutsideClick={() => onReject && onReject()}
       actions={
         <>
-          <Button variant="secondary" onPress={() => onRejectCallback()}>
+          <Button variant="secondary" onPress={() => onReject && onReject()}>
             {rejectText}
           </Button>
-          <Button
-            variant="primary"
-            onPress={() => makeOptionalCallback(onConfirm)()}
-          >
+          <Button variant="primary" onPress={() => onConfirm && onConfirm()}>
             {confirmText}
           </Button>
         </>

@@ -30,18 +30,12 @@ import {
 } from "./Calendar.styles";
 import IconButton from "../../../Buttons/IconButton";
 import Button from "../../../Buttons/Button";
-import { FieldError } from "../../../../styles/utils";
-import {
-  AriaProps,
-  BaseProps,
-  FieldStatusProps,
-  LimitedSizes,
-} from "../../../../types";
+import { AriaProps, BaseProps, Size } from "../../../../types";
 
 export interface CalendarProps<T extends DateValue>
   extends AriaProps<AriaCalendarProps<T>>,
     BaseProps {
-  size?: LimitedSizes;
+  size?: Size;
 }
 
 /**

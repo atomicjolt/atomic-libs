@@ -1,14 +1,7 @@
 import React from "react";
 import cn from "classnames";
-import {
-  HasChildren,
-  InputComponentProps,
-  EventHandler,
-  AriaProps,
-  FieldBaseProps,
-} from "../../../types";
+import { HasChildren, AriaProps, FieldBaseProps } from "../../../types";
 import RadioContext from "./context";
-import { makeEventHandler } from "../../../utils";
 import { FieldSet } from "./RadioGroup.styles";
 import { FieldError, Label, FieldMessage } from "../../../styles/utils";
 import { useRadioGroupState } from "react-stately";

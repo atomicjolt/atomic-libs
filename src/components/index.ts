@@ -61,7 +61,7 @@ export type {
   ButtonGroupChild,
   ButtonGroupChildProps,
 } from "./Buttons/ButtonGroup";
-export type { ComboboxProps } from "./Dropdowns/Combobox/Combobox.types";
+export type { ComboBoxProps } from "./Dropdowns/Combobox";
 export type { CustomSelectProps } from "./Dropdowns/CustomSelect";
 export type { OptionProps } from "./Dropdowns/Option";
 export type { SelectProps, SelectValue } from "./Dropdowns/Select";

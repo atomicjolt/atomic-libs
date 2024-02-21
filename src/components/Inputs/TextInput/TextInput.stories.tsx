@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 import TextInput from ".";
-import { NewTextInputControls } from "../../storybook";
+import { TextInputControls } from "../../storybook";
 
 const meta: Meta<typeof TextInput> = {
   title: "Inputs/User Input/TextInput",
@@ -9,7 +9,7 @@ const meta: Meta<typeof TextInput> = {
     layout: "centered",
   },
   argTypes: {
-    ...NewTextInputControls,
+    ...TextInputControls,
     variant: { table: { category: "Presentation" } },
     type: {
       control: "select",
