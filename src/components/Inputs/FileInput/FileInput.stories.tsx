@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
-import FileInput from ".";
-import { CallbackControls, inputProperties } from "../../storybook";
+import { FileInput } from ".";
+import { NewInputControls } from "../../storybook";
 
 const meta: Meta<typeof FileInput> = {
   title: "Inputs/Choose State/FileInput",
@@ -9,10 +9,10 @@ const meta: Meta<typeof FileInput> = {
     layout: "centered",
   },
   argTypes: {
+    ...NewInputControls,
     file: {
       control: false,
     },
-    ...CallbackControls,
   },
 };
 
@@ -22,7 +22,6 @@ type Story = StoryObj<typeof FileInput>;
 
 export const Primary: Story = {
   args: {
-    ...inputProperties({ filter: ["hideLabel", "size", "message"] }),
     label: "Choose a file...",
   },
 };

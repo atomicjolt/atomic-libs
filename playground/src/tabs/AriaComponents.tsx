@@ -16,6 +16,7 @@ import {
   CheckBox,
   RadioGroup,
   Radio,
+  FileInput,
 } from "../elements";
 import styled from "styled-components";
 import { HasVariant } from "../../../src/types";
@@ -26,6 +27,7 @@ import Checkbox from "../../../src/components/Inputs/Checkbox";
 export default function AriaComponents() {
   const [selected, setSelected] = useState<any>(false);
   const [selectedRadio, setSelectedRadio] = useState<any>("v1");
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
   return (
     <div
@@ -52,6 +54,12 @@ export default function AriaComponents() {
         <Radio value="v2">Radio 2</Radio>
         <Radio value="v3">Radio 3</Radio>
       </RadioGroup>
+
+      <FileInput
+        label="Select File"
+        file={selectedFile}
+        onChange={setSelectedFile}
+      />
     </div>
   );
 }

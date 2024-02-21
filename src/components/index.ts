@@ -23,6 +23,7 @@ export { default as SearchInput } from "./Inputs/SearchInput";
 export { default as TextInput } from "./Inputs/TextInput";
 export { default as TextArea } from "./Inputs/Textarea";
 export { ToggleSwitch } from "./Inputs/ToggleSwitch";
+export { FileInput } from "./Inputs/FileInput";
 
 export { default as Spinner } from "./Loaders/Spinner";
 export { default as ThreeDotLoader } from "./Loaders/ThreeDotLoader";
@@ -65,7 +66,8 @@ export type { CustomSelectProps } from "./Dropdowns/CustomSelect";
 export type { OptionProps } from "./Dropdowns/Option";
 export type { SelectProps, SelectValue } from "./Dropdowns/Select";
 export type { IconMenuProps } from "./Dropdowns/IconMenu";
-export type { CheckboxProps } from "./Inputs/Checkbox";
+export type { CheckBoxProps } from "./Inputs/Checkbox";
+export type { FileInputProps } from "./Inputs/FileInput";
 export type { NumberInputProps } from "./Inputs/NumberInput";
 export type { RadioGroupsProps } from "./Inputs/RadioGroup";
 export type { RadioProps } from "./Inputs/RadioGroup/Radio";
