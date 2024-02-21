@@ -2,53 +2,76 @@
 
 exports[`matches snapshot > displays with search button 1`] = `
 <DocumentFragment>
-  <form
-    class="sc-gKAaef ikaWgF aje-input"
+  <div
+    class="sc-jSFipO dlBeDT aje-input__search aje-input is-medium"
   >
     <label
       class="sc-gtsqUy hMTsbS aje-label aje-label"
-      for="SearchInput-:r1:-input"
+      for="react-aria-:r5:"
+      id="react-aria-:r6:"
     >
       search
     </label>
-    <input
-      class="sc-iCoHzw sc-kEqXeH cwZLMl iJJehe"
-      id="SearchInput-:r1:-input"
-      role="search"
-      type="search"
-    />
-    <button
-      aria-label="submit search"
-      type="submit"
+    <div
+      class="sc-kEqXeH bMTNHH"
     >
-      <i
-        aria-hidden="true"
-        class="sc-jSFipO bvGVgd material-icons is-medium"
+      <input
+        aria-labelledby="react-aria-:r6:"
+        class="sc-iqAbyq iqkqU"
+        id="react-aria-:r5:"
+        type="search"
+        value=""
+      />
+      <button
+        class="sc-fnVZQs sc-fFSPgy eZZpUo eqmwBm aje-btn aje-btn--icon aje-btn--content"
+        type="button"
       >
-        search
-      </i>
-    </button>
-  </form>
+        <i
+          aria-hidden="true"
+          class="sc-hBMVwJ kORcv material-icons is-medium"
+        >
+          search
+        </i>
+      </button>
+    </div>
+  </div>
 </DocumentFragment>
 `;
 
 exports[`matches snapshot > displays without button 1`] = `
 <DocumentFragment>
-  <form
-    class="sc-gKAaef ikaWgF aje-input"
+  <div
+    class="sc-jSFipO dlBeDT aje-input__search aje-input is-medium"
   >
     <label
       class="sc-gtsqUy hMTsbS aje-label aje-label"
-      for="SearchInput-:r0:-input"
+      for="react-aria-:r0:"
+      id="react-aria-:r1:"
     >
       search
     </label>
-    <input
-      class="sc-iCoHzw sc-kEqXeH cwZLMl iJJehe"
-      id="SearchInput-:r0:-input"
-      role="search"
-      type="search"
-    />
-  </form>
+    <div
+      class="sc-kEqXeH bMTNHH"
+    >
+      <input
+        aria-labelledby="react-aria-:r1:"
+        class="sc-iqAbyq iqkqU"
+        id="react-aria-:r0:"
+        type="search"
+        value=""
+      />
+      <button
+        class="sc-fnVZQs sc-fFSPgy eZZpUo eqmwBm aje-btn aje-btn--icon aje-btn--content"
+        type="button"
+      >
+        <i
+          aria-hidden="true"
+          class="sc-hBMVwJ kORcv material-icons is-medium"
+        >
+          search
+        </i>
+      </button>
+    </div>
+  </div>
 </DocumentFragment>
 `;

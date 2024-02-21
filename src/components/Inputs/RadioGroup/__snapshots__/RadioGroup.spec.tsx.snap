@@ -3,22 +3,26 @@
 exports[`matches snapshot 1`] = `
 <DocumentFragment>
   <fieldset
-    class="sc-jrsKJM cfSIZA aje-radio-group"
+    aria-labelledby="react-aria-:r1:"
+    aria-orientation="vertical"
+    class="sc-jrsKJM HcSNa aje-radio-group"
+    id="react-aria-:r0:"
+    role="radiogroup"
   >
     <legend
-      class="sc-gtsqUy hMTsbS aje-label"
+      class="sc-gtsqUy hMTsbS aje-label aje-radio-group__label"
+      id="react-aria-:r1:"
     >
       Label
     </legend>
     <label
       class="sc-iCoHzw sc-kEqXeH hKJGof yaXTG aje-radio"
-      for="radio-:r0:-input"
     >
       <input
         checked=""
         class="sc-fujznN kzHtgv"
-        id="radio-:r0:-input"
         name="radiogroup"
+        tabindex="0"
         type="radio"
         value="opt1"
       />
@@ -30,12 +34,11 @@ exports[`matches snapshot 1`] = `
     </label>
     <label
       class="sc-iCoHzw sc-kEqXeH hKJGof yaXTG aje-radio"
-      for="radio-:r1:-input"
     >
       <input
         class="sc-fujznN kzHtgv"
-        id="radio-:r1:-input"
         name="radiogroup"
+        tabindex="-1"
         type="radio"
         value="opt2"
       />
@@ -47,12 +50,11 @@ exports[`matches snapshot 1`] = `
     </label>
     <label
       class="sc-iCoHzw sc-kEqXeH hKJGof yaXTG aje-radio"
-      for="radio-:r2:-input"
     >
       <input
         class="sc-fujznN kzHtgv"
-        id="radio-:r2:-input"
         name="radiogroup"
+        tabindex="-1"
         type="radio"
         value="opt3"
       />
