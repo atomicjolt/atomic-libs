@@ -1,10 +1,6 @@
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
-import {
-  InputControls,
-  FocusEventControls,
-  NewDefaultInputProperties,
-} from "../../storybook";
+import { InputControls } from "../../storybook";
 import { CustomSelect } from ".";
 import { Item, Section } from "react-stately";
 
@@ -16,7 +12,6 @@ const meta: Meta<typeof CustomSelect> = {
   },
   argTypes: {
     ...InputControls,
-    ...FocusEventControls,
     selectedKey: {
       control: "select",
       description:

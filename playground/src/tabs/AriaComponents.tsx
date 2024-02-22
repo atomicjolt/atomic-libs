@@ -35,31 +35,20 @@ export default function AriaComponents() {
         padding: "16px",
       }}
     >
-      <ToggleSwitch isSelected={selected} onChange={setSelected}>
-        Label
-      </ToggleSwitch>
-      <Checkbox
-        isSelected={selected}
-        onChange={setSelected}
-        message="Message"
-        error="Error"
-        isInvalid
-        isRequired
-      >
-        Label
-      </Checkbox>
-
-      <RadioGroup label="Label" message="message" error="error">
-        <Radio value="v1">Radio 1</Radio>
-        <Radio value="v2">Radio 2</Radio>
-        <Radio value="v3">Radio 3</Radio>
-      </RadioGroup>
-
-      <FileInput
-        label="Select File"
-        file={selectedFile}
-        onChange={setSelectedFile}
-      />
+      <IconMenu>
+        <Item key="1" textValue="Add">
+          <MaterialIcon icon="add" />
+          Add
+        </Item>
+        <Item key="3" textValue="Add">
+          <MaterialIcon icon="edit" />
+          Edit
+        </Item>
+        <Item key="2" textValue="Add">
+          <MaterialIcon icon="delete" />
+          Delete
+        </Item>
+      </IconMenu>
     </div>
   );
 }

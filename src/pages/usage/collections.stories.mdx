@@ -27,11 +27,31 @@ When the component's items are known statically, you can define them using the J
 
 ```jsx
 <CustomSelect>
-  <Item>David</Item>
-  <Item>Sam</Item>
-  <Item>Jane</Item>
+  <Item key="david">David</Item>
+  <Item key="sam">Sam</Item>
+  <Item key="jane">Jane</Item>
 </CustomSelect>
 ```
+
+### Keys
+
+Each element in a collection should have a unique key prop. This is used to identify the item in the collection. It is what the event handler will receive when an item is selected.
+
+```jsx
+const handleSelectionChange = (key) => {
+  console.log(`Selected item with key: ${key}`);
+};
+
+<CustomSelect onSelectionChange={handleSelectionChange}>
+  <Item key="david">David</Item>
+  <Item key="sam">Sam</Item>
+  <Item key="jane">Jane</Item>
+</CustomSelect>;
+```
+
+Clicking on an item will log the key of the item to the console.
+
+**NOTE**: Currently in Storybook, the key prop is not displayed in examples, just keep in mind that any time that `Item` is used, it should have a unique key prop.
 
 ### Sections
 
@@ -115,4 +135,25 @@ let [sections, setSections] = useState([
     </Section>
   )}
 </CustomSelect>;
+```
+
+## Accessibility Considerations
+
+When rendering non plain-text content in `Item`, it is important to add a `textValue` prop to the `Item` component. This is used to provide a textual representation of the item to assistive technologies.
+
+```jsx
+<IconMenu>
+  <Item key="1" textValue="Add">
+    <MaterialIcon icon="add" />
+    Add
+  </Item>
+  <Item key="3" textValue="Add">
+    <MaterialIcon icon="edit" />
+    Edit
+  </Item>
+  <Item key="2" textValue="Add">
+    <MaterialIcon icon="delete" />
+    Delete
+  </Item>
+</IconMenu>
 ```
