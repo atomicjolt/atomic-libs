@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { Button, Dialog, ErrorModal, Modal, IconButton } from "../elements";
 
 export default function Modals() {
-  const [modalOpen, setModalOpen] = useState(true);
+  const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <div className="padder">
@@ -27,16 +27,7 @@ export default function Modals() {
           <Button variant="primary">Save</Button>
         </Modal.Footer>
       </Modal>
-
       <Button onPress={() => setModalOpen(!modalOpen)}>Open Modal</Button>
-      {/* <ErrorModal
-        title="Title"
-        open={modalOpen}
-        centered
-        onClose={() => setModalOpen(false)}
-      >
-        Here is some content
-      </ErrorModal> */}
     </div>
   );
 }

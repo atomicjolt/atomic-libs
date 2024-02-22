@@ -13,14 +13,9 @@ export default function Buttons() {
         <Button variant="inverted">Inverted</Button>
       </div>
       <div className="padder">
-        <IconButton icon="more_vert" aria-label="more" loading />
+        <IconButton icon="more_vert" aria-label="more" isLoading />
       </div>
       <div className="padder">
-        {/* <IconMenu icon="more_vert" label="more">
-          <IconMenu.Item>Test</IconMenu.Item>
-          <IconMenu.Item>Test</IconMenu.Item>
-          <IconMenu.Item>Test</IconMenu.Item>
-        </IconMenu> */}
         <IconMenu>
           <Item key="1">Test</Item>
           <Item key="2">Test</Item>

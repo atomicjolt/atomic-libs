@@ -34,7 +34,7 @@ export { default as ErrorModal } from "./Modals/ErrorModal";
 export { MaterialIcon } from "./Icons/MaterialIcon";
 
 export { default as Table } from "./Tables/Table";
-export { default as Tabs } from "./Tabs/Tabs";
+export { Tabs } from "./Tabs/Tabs";
 
 export { default as Calendar } from "./Inputs/DateAndTimes/Calendar";
 export { default as DateInput } from "./Inputs/DateAndTimes/DateInput";

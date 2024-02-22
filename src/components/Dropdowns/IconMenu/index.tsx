@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { MenuTriggerProps, useMenuTriggerState } from "react-stately";
 import { AriaMenuProps, Placement, useMenuTrigger } from "react-aria";
 import IconButton from "../../Buttons/IconButton";
-import { BaseProps, HasIcon, LoadingProps } from "../../../types";
+import { BaseProps, CanHaveIcon, HasIcon, LoadingProps } from "../../../types";
 import { Popover } from "../../Utility/Popover";
 import { Menu } from "../Menu";
 import { ButtonVariants } from "../../Buttons/Buttons.types";
@@ -10,7 +10,7 @@ import { ButtonVariants } from "../../Buttons/Buttons.types";
 export type IconMenuProps<T> = AriaMenuProps<T> &
   MenuTriggerProps &
   BaseProps &
-  HasIcon &
+  CanHaveIcon &
   LoadingProps & {
     isDisabled?: boolean;
     buttonVariant?: ButtonVariants;
@@ -27,7 +27,7 @@ export default function IconMenu<T extends {}>(props: IconMenuProps<T>) {
   );
 
   const {
-    icon,
+    icon = "more_vert",
     className,
     iconVariant,
     buttonVariant,
