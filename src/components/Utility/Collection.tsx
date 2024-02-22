@@ -4,6 +4,7 @@ import {
   ItemProps,
   SectionProps,
 } from "react-stately";
+import { cloneComponent } from "../../clone";
 
 // We re-define the react-stately Item and Section components
 // Because for some reason storybook doesn't like to pickup the
@@ -17,15 +18,7 @@ import {
  *  <Item key="banana">Banana</Item>
  * </CustomSelect>
  */
-export function Item<T>(props: ItemProps<T>) {
-  return null;
-}
-
-// React Stately binds some static properties to the Item component that we need to copy over
-for (const key in ReactStatelyItem) {
-  // @ts-ignore
-  Item[key] = ReactStatelyItem[key];
-}
+export const Item = cloneComponent(ReactStatelyItem, "Item");
 
 /** A Section / grouping of items in a collection component
  * @example
@@ -42,11 +35,4 @@ for (const key in ReactStatelyItem) {
  *  </Section>
  * </ListBox>
  */
-export function Section<T>(props: SectionProps<T>) {
-  return null;
-}
-
-for (const key in ReactStatelySection) {
-  // @ts-ignore
-  Section[key] = ReactStatelySection[key];
-}
+export const Section = cloneComponent(ReactStatelySection, "Section");

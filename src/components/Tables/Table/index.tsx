@@ -22,6 +22,8 @@ import {
   Column,
   TableBody,
   Cell,
+  TableHeaderProps,
+  TableBodyProps,
 } from "react-stately";
 import {
   SelectionMode,
@@ -42,15 +44,18 @@ import Checkbox from "../../Inputs/Checkbox";
 import classNames from "classnames";
 import { HasChildren } from "../../../types";
 import MaterialIcon from "../../Icons/MaterialIcon";
+import { cloneComponent } from "../../../clone";
 
-export interface TableProps<T>
-  extends AriaTableProps<T>,
-    Sortable,
-    HasChildren {
+export interface TableProps<T> extends AriaTableProps<T>, Sortable {
   /** The selection mode for the table. */
   selectionMode?: SelectionMode;
   /** The selection behavior for the table. */
   selectionBehavior?: SelectionBehavior;
+
+  children?: [
+    React.ReactElement<TableHeaderProps<T>>,
+    React.ReactElement<TableBodyProps<T>>
+  ];
 }
 
 export default function Table<T extends object>(props: TableProps<T>) {
@@ -104,12 +109,6 @@ export default function Table<T extends object>(props: TableProps<T>) {
     </StyledTable>
   );
 }
-
-Table.Header = TableHeader;
-Table.Row = Row;
-Table.Column = Column;
-Table.Body = TableBody;
-Table.Cell = Cell;
 
 interface TableRowGroupProps extends HasChildren {
   type: React.ElementType;
@@ -278,3 +277,26 @@ function TableSelectAllCell<T>(props: TableSelectAllCellProps<T>) {
     </StyledTh>
   );
 }
+
+/** A `Table.Header` is a container for the `Table.Column` elements in a Table.
+ * Columns can be statically defined as children, or generated dynamically
+ * using a function based on the data passed to the `columns` prop. */
+Table.Header = cloneComponent(TableHeader, "Table.Header");
+/** A `Table.Column` represents a single column in a Table.
+ * It can be used as a child of a `Table.Header` to statically define
+ * or dynamically generated using a function based on the `columns` prop.
+ * of the `Table.Header`.
+ */
+Table.Column = cloneComponent(Column, "Table.Column");
+/** A `Table.Row` represents a single item in a Table and contains Cell elements
+ * for each column. Cells can be statically defined as children, or
+ * generated dynamically using a function based on the columns defined
+ * in the `Table.Header`. */
+Table.Row = cloneComponent(Row, "Table.Row");
+/** A `Table.Body` is a container for the `Table.Row` elements in a Table.
+ * Rows can be statically defined as children, or generated dynamically
+ * using a function based on the data passed to the `items` prop.
+ */
+Table.Body = cloneComponent(TableBody, "Table.Body");
+/** A `Table.Cell` represents a single cell in a Table. */
+Table.Cell = cloneComponent(Cell, "Table.Cell");
