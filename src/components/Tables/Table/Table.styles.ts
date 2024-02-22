@@ -79,15 +79,19 @@ export const StyledTable = styled.table`
 `;
 
 export const StyledTh = styled.th`
-  background-color: var(--table-bg-clr);
   border: solid var(--table-border-clr);
   border-width: 0 0 var(--table-border-width) 0;
   text-align: left;
   font-weight: inherit;
 `;
 
+export const ThContent = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 4px;
+`;
+
 export const StyledTd = styled.td`
-  background-color: var(--table-bg-clr);
   border: solid var(--table-border-clr);
   border-width: 0 0 var(--table-border-width) 0;
   text-align: left;
@@ -95,6 +99,8 @@ export const StyledTd = styled.td`
 `;
 
 export const StyledThead = styled.thead`
+  background-color: var(--table-bg-clr);
+
   th {
     ${mixins.Bold}
     font-size: var(--table-header-font-size);
@@ -103,52 +109,23 @@ export const StyledThead = styled.thead`
     padding: calc(var(--table-padding-vert) + 0.25em) var(--table-padding-horz);
 
     &.is-sortable {
-      padding: 0;
+      .swap-icon {
+        visibility: hidden;
+      }
 
-      button {
-        position: relative;
-        font-family: inherit;
-        font-weight: inherit;
-        color: inherit;
-        text-transform: inherit;
-        width: 100%;
-        border: none;
-        text-align: left;
-        background-color: var(--table-bg-clr);
-        padding: calc(var(--table-padding-vert) + 0.25em)
-          var(--table-padding-horz);
-        padding-right: 32px;
+      &:hover {
+        background-color: var(--neutral100);
+        cursor: pointer;
 
-        &::after {
-          content: "";
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          font-family: "Material Icons";
-          font-weight: normal;
-          color: var(--table-sort-icon-clr);
-          font-size: 1.8rem;
-          line-height: 1;
-          margin-left: 4px;
+        .swap-icon {
+          visibility: visible;
         }
+      }
 
-        &:hover {
-          background-color: var(--neutral100);
-          cursor: pointer;
-
-          &::after {
-            content: "\\e8d5";
-            color: var(--table-sort-icon-hover-clr);
-          }
-        }
-        &:active {
-          background-color: var(--neutral200);
-        }
-        &:focus-visible {
-          background-color: var(--neutral100);
-          outline: 2px solid var(--neutral600);
-          outline-offset: -2px;
-        }
+      &:focus-visible {
+        background-color: var(--neutral100);
+        outline: 2px solid var(--neutral600);
+        outline-offset: -2px;
       }
 
       &[aria-sort="ascending"] {
@@ -176,5 +153,21 @@ export const StyledTBody = styled.tbody`
     height: 48px;
     vertical-align: middle;
     padding: var(--table-padding-vert) var(--table-padding-horz);
+  }
+`;
+
+export const StyledRow = styled.tr`
+  background-color: var(--table-bg-clr);
+
+  &.is-selected {
+    --table-bg-clr: var(--neutral300);
+  }
+
+  &:hover {
+    --table-bg-clr: var(--neutral200);
+  }
+  &:focus-within,
+  &.is-focused {
+    --table-bg-clr: var(--neutral200);
   }
 `;

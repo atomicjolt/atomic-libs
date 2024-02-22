@@ -6,16 +6,15 @@ const meta: Meta<typeof Table> = {
   title: "Layouts/Table",
   component: Table,
   argTypes: {
-    sortDirection: {
-      options: ["ascending", "descending", undefined],
-      control: "radio",
-    },
-    sortPath: {
-      options: ["monday", "tuesday", "wednesday", "thursday", "friday"],
-      control: "select",
-    },
     children: {
       control: false,
+    },
+    onSortChange: {
+      action: "sortChange",
+      description: "Fires when the user changes the sort descriptor",
+      table: {
+        category: "Events",
+      },
     },
   },
 };
@@ -24,45 +23,86 @@ export default meta;
 
 type Story = StoryObj<typeof Table>;
 
-export const Default: Story = {
+export const Primary: Story = {
   args: {
-    title: "Assessments in the course",
     children: [
-      <Table.Head key="head">
-        <Table.Header>Monday</Table.Header>
-        <Table.Header>Tuesday</Table.Header>
-        <Table.Header>Wednesday</Table.Header>
-        <Table.Header>Thursday</Table.Header>
-        <Table.Header>Friday</Table.Header>
-      </Table.Head>,
-
-      <Table.Body key="body">
-        <Table.Row data={[1, 2, 3, 4, 5]} />
-        <Table.Row data={[6, 7, 8, 9, 10]} />
-        <Table.Row data={[11, 12, 14, 14, 15]} />
+      <Table.Header>
+        <Table.Column>Name</Table.Column>
+        <Table.Column>Type</Table.Column>
+        <Table.Column>Level</Table.Column>
+      </Table.Header>,
+      <Table.Body>
+        <Table.Row key="1">
+          <Table.Cell>Charizard</Table.Cell>
+          <Table.Cell>Fire, Flying</Table.Cell>
+          <Table.Cell>67</Table.Cell>
+        </Table.Row>
+        <Table.Row key="2">
+          <Table.Cell>Blastoise</Table.Cell>
+          <Table.Cell>Water</Table.Cell>
+          <Table.Cell>56</Table.Cell>
+        </Table.Row>
+        <Table.Row key="3">
+          <Table.Cell>Venusaur</Table.Cell>
+          <Table.Cell>Grass, Poison</Table.Cell>
+          <Table.Cell>83</Table.Cell>
+        </Table.Row>
+        <Table.Row key="4">
+          <Table.Cell>Pikachu</Table.Cell>
+          <Table.Cell>Electric</Table.Cell>
+          <Table.Cell>100</Table.Cell>
+        </Table.Row>
       </Table.Body>,
     ],
   },
 };
 
+export const WithSelection: Story = {
+  args: {
+    ...Primary.args,
+    selectionMode: "multiple",
+  },
+};
+
 export const SortableHeaders: Story = {
   args: {
-    sortPath: "monday",
-    sortDirection: "ascending",
-    title: "Assessments in the course",
+    sortDescriptor: {
+      column: "name",
+      direction: "ascending",
+    },
     children: [
-      <Table.Head key="head">
-        <Table.Header sortPath="monday">Monday</Table.Header>
-        <Table.Header sortPath="tuesday">Tuesday</Table.Header>
-        <Table.Header sortPath="wednesday">Wednesday</Table.Header>
-        <Table.Header sortPath="thursday">Thursday</Table.Header>
-        <Table.Header sortPath="friday">Friday</Table.Header>
-      </Table.Head>,
-
-      <Table.Body key="body">
-        <Table.Row data={[1, 2, 3, 4, 5]} />
-        <Table.Row data={[6, 7, 8, 9, 10]} />
-        <Table.Row data={[11, 12, 14, 14, 15]} />
+      <Table.Header>
+        <Table.Column key="name" allowsSorting>
+          Name
+        </Table.Column>
+        <Table.Column key="type" allowsSorting>
+          Type
+        </Table.Column>
+        <Table.Column key="level" allowsSorting>
+          Level
+        </Table.Column>
+      </Table.Header>,
+      <Table.Body>
+        <Table.Row key="1">
+          <Table.Cell>Charizard</Table.Cell>
+          <Table.Cell>Fire, Flying</Table.Cell>
+          <Table.Cell>67</Table.Cell>
+        </Table.Row>
+        <Table.Row key="2">
+          <Table.Cell>Blastoise</Table.Cell>
+          <Table.Cell>Water</Table.Cell>
+          <Table.Cell>56</Table.Cell>
+        </Table.Row>
+        <Table.Row key="3">
+          <Table.Cell>Venusaur</Table.Cell>
+          <Table.Cell>Grass, Poison</Table.Cell>
+          <Table.Cell>83</Table.Cell>
+        </Table.Row>
+        <Table.Row key="4">
+          <Table.Cell>Pikachu</Table.Cell>
+          <Table.Cell>Electric</Table.Cell>
+          <Table.Cell>100</Table.Cell>
+        </Table.Row>
       </Table.Body>,
     ],
   },

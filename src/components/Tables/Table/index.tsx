@@ -1,156 +1,280 @@
-import React, { TdHTMLAttributes, useState } from "react";
-import cn from "classnames";
-import { HasChildren, HasClassName, SortDirection } from "../../../types";
-import TableHeader from "./TableHeader";
-import TableContext from "./tableContext";
+import React from "react";
 import {
-  StyledTable,
+  AriaTableProps,
+  VisuallyHidden,
+  mergeProps,
+  useFocusRing,
+  useTable,
+  useTableCell,
+  useTableColumnHeader,
+  useTableHeaderRow,
+  useTableRow,
+  useTableRowGroup,
+  useTableSelectAllCheckbox,
+  useTableSelectionCheckbox,
+} from "react-aria";
+import {
+  TableState,
+  Node,
+  useTableState,
+  TableHeader,
+  Row,
+  Column,
+  TableBody,
+  Cell,
+} from "react-stately";
+import {
+  SelectionMode,
+  SelectionBehavior,
+  Sortable,
+} from "@react-types/shared";
+import { useRef } from "react";
+import {
+  StyledRow,
   StyledTBody,
+  StyledTable,
   StyledTd,
+  StyledTh,
   StyledThead,
-  TableWrapper,
+  ThContent,
 } from "./Table.styles";
-import { Hidden } from "../../../styles/utils";
+import Checkbox from "../../Inputs/Checkbox";
+import classNames from "classnames";
+import { HasChildren } from "../../../types";
+import MaterialIcon from "../../Icons/MaterialIcon";
 
-interface BaseProps extends HasClassName {
-  /** Must include a title to label the table. */
-  title: string;
-  /** Adds sticky first column when a horizontal scrollbar is present. Reccommended to use with vertical borders on. */
-  sticky?: boolean;
-  /** Adds vertical borders between columns. */
-  verticalBorders?: boolean;
-  children: React.ReactNode;
+export interface TableProps<T>
+  extends AriaTableProps<T>,
+    Sortable,
+    HasChildren {
+  /** The selection mode for the table. */
+  selectionMode?: SelectionMode;
+  /** The selection behavior for the table. */
+  selectionBehavior?: SelectionBehavior;
 }
 
-type SortProps =
-  | {
-      /** Must include if using sortable headers, adds accessible instructions to the table title. */
-      sortDirection?: never;
-      sortPath?: never;
-      onSort?: never;
-    }
-  | {
-      sortDirection: SortDirection;
-      sortPath: string;
-      onSort: (path: string, direction: SortDirection) => void;
-    };
+export default function Table<T extends object>(props: TableProps<T>) {
+  const { selectionMode, selectionBehavior } = props;
+  const state = useTableState({
+    ...props,
+    showSelectionCheckboxes:
+      selectionMode === "multiple" && selectionBehavior !== "replace",
+  });
 
-export type TableProps = BaseProps &
-  SortProps &
-  Omit<React.HTMLProps<HTMLTableElement>, "ref" | "as">;
+  const ref = useRef(null);
+  const { collection } = state;
+  const { gridProps } = useTable(props, state, ref);
 
-/** Table Component */
-function Table(props: TableProps) {
-  const {
-    title,
-    sticky = false,
-    verticalBorders = false,
-    sortDirection,
-    sortPath,
-    onSort = () => {},
-    children,
-    className,
-    ...rest
-  } = props;
-
-  /* Add functionality to remove sort order from other headers if you click on other ones. */
   return (
-    <TableWrapper className="aje-table-overflow">
-      <StyledTable
-        className={cn("aje-table", className, {
-          "has-vertical-borders": verticalBorders,
-          "is-sticky": sticky,
-        })}
-        {...rest}
-      >
-        <Hidden as="caption">
-          {title}
-          {sortPath ? (
-            <span>, column headers with buttons are sortable.</span>
-          ) : null}
-        </Hidden>
-        <TableContext.Provider
-          value={{ sortDirection, sortPath, onSort: onSort }}
-        >
-          {children}
-        </TableContext.Provider>
-      </StyledTable>
-    </TableWrapper>
+    <StyledTable {...gridProps} ref={ref}>
+      <TableRowGroup type={StyledThead}>
+        {collection.headerRows.map((headerRow) => (
+          <TableHeaderRow key={headerRow.key} item={headerRow} state={state}>
+            {[...headerRow.childNodes].map((column) =>
+              column.props.isSelectionCell ? (
+                <TableSelectAllCell
+                  key={column.key}
+                  column={column}
+                  state={state}
+                />
+              ) : (
+                <TableColumnHeader
+                  key={column.key}
+                  column={column}
+                  state={state}
+                />
+              )
+            )}
+          </TableHeaderRow>
+        ))}
+      </TableRowGroup>
+      <TableRowGroup type={StyledTBody}>
+        {[...collection.body.childNodes].map((row) => (
+          <TableRow key={row.key} item={row} state={state}>
+            {[...row.childNodes].map((cell) =>
+              cell.props.isSelectionCell ? (
+                <TableCheckboxCell key={cell.key} cell={cell} state={state} />
+              ) : (
+                <TableCell key={cell.key} cell={cell} state={state} />
+              )
+            )}
+          </TableRow>
+        ))}
+      </TableRowGroup>
+    </StyledTable>
   );
 }
 
-type TableChildProps<E> = Omit<
-  React.HTMLProps<E>,
-  "className" | "ref" | "as" | "onCopy"
-> &
-  HasClassName;
-
-export function TableHead(props: TableChildProps<HTMLTableSectionElement>) {
-  const { className, ...rest } = props;
-  return <StyledThead className={cn(className)} {...rest} />;
-}
-
-Table.Head = TableHead;
-TableHead.displayName = "Table.Head";
-
 Table.Header = TableHeader;
-
-export function TableBody(props: TableChildProps<HTMLTableSectionElement>) {
-  const { className, ...rest } = props;
-  return <StyledTBody className={cn(className)} {...rest} />;
-}
-
+Table.Row = Row;
+Table.Column = Column;
 Table.Body = TableBody;
-TableBody.displayName = "Table.Body";
+Table.Cell = Cell;
 
-type TableRowProps = (
-  | {
-      readonly data: React.ReactNode[];
-      readonly children?: never;
-    }
-  | {
-      readonly data?: never;
-      readonly children: React.ReactNode;
-    }
-) &
-  HasClassName;
-
-export function TableRow(
-  props: TableRowProps &
-    Omit<React.HTMLProps<HTMLTableRowElement>, "data" | "className">
-) {
-  const { data, children, className, ...rest } = props;
-
-  if (children) {
-    return (
-      <tr className={cn(className)} {...rest}>
-        {children}
-      </tr>
-    );
-  }
-
-  if (data) {
-    return (
-      <tr className={cn(className)} {...rest}>
-        {data.map((d) => (
-          <TableCell>{d}</TableCell>
-        ))}
-      </tr>
-    );
-  }
-
-  return null;
+interface TableRowGroupProps extends HasChildren {
+  type: React.ElementType;
 }
 
-Table.Row = TableRow;
-TableRow.displayName = "Table.Row";
+function TableRowGroup(props: TableRowGroupProps) {
+  const { type: Element, children } = props;
+  const { rowGroupProps } = useTableRowGroup();
 
-export function TableCell(props: TableChildProps<HTMLTableCellElement>) {
-  const { className, ...rest } = props;
-  return <StyledTd className={cn(className)} {...rest} />;
+  return <Element {...rowGroupProps}>{children}</Element>;
 }
 
-Table.Cell = TableCell;
-TableCell.displayName = "Table.Cell";
+interface TableHeaderRowProps<T> extends HasChildren {
+  item: Node<T>;
+  state: TableState<T>;
+}
 
-export default Table;
+function TableHeaderRow<T>(props: TableHeaderRowProps<T>) {
+  const { item, children, state } = props;
+  const ref = useRef(null);
+  const { rowProps } = useTableHeaderRow({ node: item }, state, ref);
+
+  return (
+    <tr {...rowProps} ref={ref}>
+      {children}
+    </tr>
+  );
+}
+
+interface TableColumnHeaderProps<T> {
+  column: Node<T>;
+  state: TableState<T>;
+}
+
+function TableColumnHeader<T extends object>(props: TableColumnHeaderProps<T>) {
+  const { column, state } = props;
+
+  // @ts-ignore
+  const colspan = column.colspan as number;
+
+  const ref = useRef(null);
+  const { columnHeaderProps } = useTableColumnHeader(
+    { node: column },
+    state,
+    ref
+  );
+  const { focusProps } = useFocusRing();
+  const arrowIcon =
+    state.sortDescriptor?.direction === "ascending"
+      ? "arrow_drop_down"
+      : "arrow_drop_up";
+
+  return (
+    <StyledTh
+      {...mergeProps(columnHeaderProps, focusProps)}
+      className={classNames({ "is-sortable": column.props.allowsSorting })}
+      colSpan={colspan}
+      ref={ref}
+    >
+      <ThContent>
+        {column.rendered}
+        {column.props.allowsSorting &&
+          state.sortDescriptor.column === column.key && (
+            <MaterialIcon icon={arrowIcon} />
+          )}
+        {column.props.allowsSorting &&
+          state.sortDescriptor.column !== column.key && (
+            <MaterialIcon icon="swap_vert" className="swap-icon" />
+          )}
+      </ThContent>
+    </StyledTh>
+  );
+}
+
+interface TableRowProps<T> extends HasChildren {
+  item: Node<T>;
+  state: TableState<T>;
+}
+
+function TableRow<T>(props: TableRowProps<T>) {
+  const { item, children, state } = props;
+  const ref = useRef(null);
+  const isSelected = state.selectionManager.isSelected(item.key);
+  const { rowProps } = useTableRow({ node: item }, state, ref);
+  const { isFocusVisible, focusProps } = useFocusRing();
+
+  return (
+    <StyledRow
+      {...mergeProps(rowProps, focusProps)}
+      className={classNames({
+        "is-selected": isSelected,
+        "is-focused": isFocusVisible,
+      })}
+      ref={ref}
+    >
+      {children}
+    </StyledRow>
+  );
+}
+
+interface TableCellProps<T> {
+  cell: Node<T>;
+  state: TableState<T>;
+}
+
+function TableCell<T>(props: TableCellProps<T>) {
+  const { cell, state } = props;
+
+  const ref = useRef(null);
+  const { gridCellProps } = useTableCell({ node: cell }, state, ref);
+  const { focusProps } = useFocusRing();
+
+  return (
+    <StyledTd {...mergeProps(gridCellProps, focusProps)} ref={ref}>
+      {cell.rendered}
+    </StyledTd>
+  );
+}
+
+interface TableCheckboxCellProps<T> {
+  cell: Node<T>;
+  state: TableState<T>;
+}
+
+function TableCheckboxCell<T>(props: TableCheckboxCellProps<T>) {
+  const { cell, state } = props;
+
+  const ref = useRef(null);
+  const { gridCellProps } = useTableCell({ node: cell }, state, ref);
+  const { checkboxProps } = useTableSelectionCheckbox(
+    // @ts-ignore
+    { key: cell.parentKey },
+    state
+  );
+
+  return (
+    <StyledTd {...gridCellProps} ref={ref}>
+      <Checkbox {...checkboxProps} />
+    </StyledTd>
+  );
+}
+
+interface TableSelectAllCellProps<T> {
+  column: Node<T>;
+  state: TableState<T>;
+}
+
+function TableSelectAllCell<T>(props: TableSelectAllCellProps<T>) {
+  const { column, state } = props;
+
+  const ref = useRef(null);
+  const { columnHeaderProps } = useTableColumnHeader(
+    { node: column },
+    state,
+    ref
+  );
+  const { checkboxProps } = useTableSelectAllCheckbox(state);
+
+  return (
+    <StyledTh {...columnHeaderProps} ref={ref}>
+      {state.selectionManager.selectionMode === "single" ? (
+        <VisuallyHidden>{checkboxProps["aria-label"]}</VisuallyHidden>
+      ) : (
+        <Checkbox {...checkboxProps} />
+      )}
+    </StyledTh>
+  );
+}
