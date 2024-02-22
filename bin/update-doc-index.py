@@ -47,16 +47,16 @@ def main():
         capture_output=True,
     )
 
-    print(res.stdout)
-
     versions = [
-        v.split("/")[-1] for v in res.stdout.decode("utf-8").strip().split("\n")
+        v.split("/")[-1]
+        for v in res.stdout.decode("utf-8").strip().split("\n")
+        if not "-" in v
     ]
-
-    print("Versions: ", versions)
 
     start_index = versions.index(start_version)
     versions = versions[start_index:]
+
+    print("Versions:", ", ".join(versions))
 
     rows = []
 
