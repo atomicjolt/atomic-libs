@@ -15,7 +15,7 @@ type LimitedSelectProps = Omit<
 export type SelectValue = string | number | readonly string[] | undefined;
 
 export interface SelectProps<T extends SelectValue>
-  extends Omit<FieldBaseProps, "placeholder" | "readOnly">,
+  extends Omit<FieldBaseProps, "placeholder" | "isReadOnly">,
     LimitedSelectProps {
   onChange?: (value: T) => void;
 }

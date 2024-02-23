@@ -1,6 +1,6 @@
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
-import { TextInputControls, FocusEventControls } from "../../storybook";
+import { TextInputControls } from "../../storybook";
 import { ComboBox } from ".";
 import { Item } from "../../Utility/Collection";
 
@@ -12,7 +12,6 @@ const meta: Meta<typeof ComboBox> = {
   },
   argTypes: {
     ...TextInputControls,
-    ...FocusEventControls,
     variant: {
       table: { category: "Presentation" },
     },
@@ -69,6 +68,13 @@ export const Primary: Story = {
     ],
     icon: "arrow_drop_down",
     iconVariant: "default",
+  },
+};
+
+export const Floating: Story = {
+  args: {
+    ...Primary.args,
+    variant: "floating",
   },
 };
 
