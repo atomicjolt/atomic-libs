@@ -2,7 +2,7 @@ import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import IconMenu from ".";
 import { PlacementArgType } from "../../storybook";
-import { Item, Section } from "../../";
+import { Section } from "../../";
 
 const meta: Meta<typeof IconMenu> = {
   title: "Dropdowns/IconMenu",
@@ -10,7 +10,6 @@ const meta: Meta<typeof IconMenu> = {
   parameters: {
     layout: "centered",
   },
-  // TODO: fully fill out these args
   argTypes: {
     ...PlacementArgType,
     buttonVariant: {
@@ -30,14 +29,6 @@ const meta: Meta<typeof IconMenu> = {
     },
     children: {
       control: false,
-    },
-
-    onAction: {
-      description:
-        "Callback for when an item is selected. The callback will receive the key of the selected item.",
-      table: {
-        category: "Events",
-      },
     },
     onClose: {
       description: "Callback for when the menu is closed.",
@@ -69,11 +60,16 @@ type Story = StoryObj<typeof IconMenu>;
 export const Primary: Story = {
   args: {
     icon: "more_vert",
-    iconVariant: "default",
     children: [
-      <Item key="item1">Item 1</Item>,
-      <Item key="item2">Item 2</Item>,
-      <Item key="item3">Item 3</Item>,
+      <IconMenu.Item key="item1" onAction={() => alert("Item 1")}>
+        Item 1
+      </IconMenu.Item>,
+      <IconMenu.Item key="item2" onAction={() => alert("Item 2")}>
+        Item 2
+      </IconMenu.Item>,
+      <IconMenu.Item key="item3" onAction={() => alert("Item 3")}>
+        Item 3
+      </IconMenu.Item>,
     ],
   },
 };
@@ -82,11 +78,11 @@ export const WithSections: Story = {
   args: {
     ...Primary.args,
     children: [
-      <Item key="item1">Item 1</Item>,
-      <Item key="item2">Item 2</Item>,
+      <IconMenu.Item key="item1">Item 1</IconMenu.Item>,
+      <IconMenu.Item key="item2">Item 2</IconMenu.Item>,
       <Section>
-        <Item key="item3">Item 3</Item>
-        <Item key="item4">Item 4</Item>
+        <IconMenu.Item key="item3">Item 3</IconMenu.Item>
+        <IconMenu.Item key="item4">Item 4</IconMenu.Item>
       </Section>,
     ],
   },

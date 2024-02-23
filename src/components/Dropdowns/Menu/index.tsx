@@ -23,7 +23,19 @@ export type MenuProps<T> = AriaMenuProps<T> & HasClassName;
 export function Menu<T extends {}>(props: MenuProps<T>) {
   const state = useTreeState(props);
   const ref = useRef<HTMLUListElement>(null);
-  const { menuProps } = useMenu(props, state, ref);
+  const { menuProps } = useMenu(
+    {
+      ...props,
+      onAction: (key) => {
+        const item = state.collection.getItem(key);
+        if (item && item.props.onAction) {
+          item.props.onAction();
+        }
+      },
+    },
+    state,
+    ref
+  );
 
   const { className } = props;
 

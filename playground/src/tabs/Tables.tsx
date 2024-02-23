@@ -1,43 +1,8 @@
 import React, { useState } from "react";
-import {
-  Button,
-  ButtonGroup,
-  CustomSelect,
-  IconButton,
-  IconMenu,
-  Item,
-  MaterialIcon,
-  SearchInput,
-  Section,
-  Select,
-  TimeInput,
-  ToggleSwitch,
-  ToolTip,
-  CheckBox,
-  RadioGroup,
-  Radio,
-  FileInput,
-  Table,
-} from "../elements";
-import styled from "styled-components";
-import { HasVariant } from "../../../src/types";
-import { ButtonVariants } from "../../../src/components/Buttons/Buttons.types";
-import classNames from "classnames";
-import Checkbox from "../../../src/components/Inputs/Checkbox";
-import {
-  Cell,
-  Column,
-  Row,
-  SortDescriptor,
-  TableBody,
-  TableHeader,
-} from "react-stately";
+import { Table } from "../elements";
+import { SortDescriptor } from "react-stately";
 
-export default function AriaComponents() {
-  const [selected, setSelected] = useState<any>(false);
-  const [selectedRadio, setSelectedRadio] = useState<any>("v1");
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
-
+export default function Tables() {
   const [sortDescriptor, setSortDescriptor] = useState<SortDescriptor>({
     column: "name",
     direction: "ascending",

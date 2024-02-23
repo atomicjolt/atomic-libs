@@ -2,7 +2,7 @@ import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import { InputControls } from "../../storybook";
 import { CustomSelect } from ".";
-import { Item, Section } from "react-stately";
+import { Item, Section } from "../../Utility/Collection";
 
 const meta: Meta<typeof CustomSelect> = {
   title: "Dropdowns/CustomSelect",

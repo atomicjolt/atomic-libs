@@ -142,7 +142,7 @@ let [sections, setSections] = useState([
 When rendering non plain-text content in `Item`, it is important to add a `textValue` prop to the `Item` component. This is used to provide a textual representation of the item to assistive technologies.
 
 ```jsx
-<IconMenu>
+<CustomSelect>
   <Item key="1" textValue="Add">
     <MaterialIcon icon="add" />
     Add
@@ -155,5 +155,5 @@ When rendering non plain-text content in `Item`, it is important to add a `textV
     <MaterialIcon icon="delete" />
     Delete
   </Item>
-</IconMenu>
+</CustomSelect>
 ```

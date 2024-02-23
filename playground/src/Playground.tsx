@@ -4,7 +4,8 @@ import React, { useState } from "react";
 import { Item, Tabs } from "./elements";
 import Buttons from "./tabs/Buttons";
 import Modals from "./tabs/Modals";
-import AriaComponents from "./tabs/AriaComponents";
+import Tables from "./tabs/Tables";
+import Aria from "./tabs/Aria";
 
 function Playground() {
   const [currentTab, setCurrentTab] = useState<React.Key>("aria");
@@ -18,8 +19,11 @@ function Playground() {
         <Item key="modal" title="Modals">
           <Modals />
         </Item>
+        <Item key="tables" title="Tables">
+          <Tables />
+        </Item>
         <Item key="aria" title="Aria">
-          <AriaComponents />
+          <Aria />
         </Item>
       </Tabs>
     </div>
