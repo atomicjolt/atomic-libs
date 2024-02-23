@@ -2,14 +2,9 @@ import React, { useState } from "react";
 import cn from "classnames";
 import { useVariantClass } from "../../../hooks";
 import { AriaProps, FieldBaseProps, HasVariant } from "../../../types";
-import { Input, InputWrapper } from "../Inputs.styles";
+import { InputWrapper } from "../Inputs.styles";
 import useForwardedRef from "../../../hooks/useForwardedRef";
-import {
-  AriaSearchFieldProps,
-  AriaTextFieldProps,
-  useSearchField,
-  useTextField,
-} from "react-aria";
+import { AriaSearchFieldProps, useSearchField } from "react-aria";
 import { FieldWrapper } from "../../Utility/FieldWrapper";
 import { useSearchFieldState } from "react-stately";
 import { ActualSearchInput, SearchInputWrapper } from "./SearchInput.styles";
@@ -24,7 +19,7 @@ export interface SearchInputProps
 
 /** Essentially the same as the text input, but with an `onSubmit` handler*/
 const SearchInput = React.forwardRef(
-  (props: TextInputProps, ref: React.Ref<HTMLInputElement>) => {
+  (props: SearchInputProps, ref: React.Ref<HTMLInputElement>) => {
     const {
       type = "text",
       label,

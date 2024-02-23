@@ -83,7 +83,7 @@ export type { TableProps } from "./Tables/Table";
 export type { TabsProps } from "./Tabs/Tabs";
 export type { LoadingStatusProps } from "./Utility/LoadingStatus";
 export type { LabelProps } from "./Utility/Label";
-export type { PopoverProps } from "./Utility/Popover/Popover.types";
+export type { PopoverProps } from "./Utility/Popover";
 export type { ToolTipProps } from "./Utility/ToolTip";
 export type { CalendarProps } from "./Inputs/DateAndTimes/Calendar";
 export type { DateInputProps } from "./Inputs/DateAndTimes/DateInput";

@@ -1,13 +1,12 @@
 import React from "react";
 import cn, { Argument } from "classnames";
 import styled from "styled-components";
-import { DOMAttributes } from "@react-types/shared";
-import { Sizes } from "../types";
+import { ExtendedSize } from "../types";
 import mixins from "./mixins";
 
 export interface ComponentWrapperProps {
   className: Argument | Argument[];
-  size?: Sizes;
+  size?: ExtendedSize;
   disabled?: boolean;
   required?: boolean;
   error?: any;
