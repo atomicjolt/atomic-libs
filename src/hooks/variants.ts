@@ -6,10 +6,6 @@ export function useVariantClass<V extends string>(
   sep: string = "--"
 ) {
   return useMemo(() => {
-    if (variant === "default") {
-      return className;
-    } else {
-      return `${className}${sep}${variant}`;
-    }
+    return `${className}${sep}${variant}`;
   }, [variant]);
 }

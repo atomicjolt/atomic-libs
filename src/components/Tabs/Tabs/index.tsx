@@ -14,31 +14,46 @@ import {
 } from "react-stately";
 import {
   TabContentWrapper,
+  TabInfo,
+  TabInfoWrapper,
   TabLink,
   TabLinkWrapper,
+  TabLinksWrapper,
   TabList,
+  TabsWrapper,
 } from "./Tabs.Styles";
-import { BaseProps } from "../../../types";
+import { BaseProps, HasVariant } from "../../../types";
 import classNames from "classnames";
+import { useVariantClass } from '../../../hooks';
 
-export interface TabsProps<T> extends TabListProps<T>, BaseProps {}
+export interface TabsProps<T> extends TabListProps<T>, BaseProps, HasVariant<"default" | "card" | "toggle"> {
+  /** Display information to the right of the tab list */
+  info?: React.ReactNode;
+}
 
 export function Tabs<T extends object>(props: TabsProps<T>) {
-  const { className, id } = props;
+  const { className, id, info, variant="default" } = props;
 
   const state = useTabListState(props);
   const ref = useRef(null);
   const { tabListProps } = useTabList(props, state, ref);
 
+  const variantClass = useVariantClass("aje-tabs", variant);
+
   return (
-    <div className={classNames("aje-tabs", className)} id={id}>
+    <TabsWrapper className={classNames("aje-tabs", variantClass, className)} id={id}>
       <TabList {...tabListProps} ref={ref}>
-        {[...state.collection].map((item) => (
-          <Tab key={item.key} item={item} state={state} />
-        ))}
+        <TabLinksWrapper>
+          {[...state.collection].map((item) => (
+            <Tab key={item.key} item={item} state={state} />
+          ))}
+        </TabLinksWrapper>
+        <TabInfoWrapper>
+          {React.Children.map(info, (child) => <TabInfo>{child}</TabInfo>)}
+        </TabInfoWrapper>
       </TabList>
       <TabPanel key={state.selectedItem?.key} state={state} />
-    </div>
+    </TabsWrapper>
   );
 }
 

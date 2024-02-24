@@ -198,14 +198,13 @@ export const CssVariables = createGlobalStyle`
 
   /* # Tab variables */
   --tab-border-width: 1px;
-  --tab-border-clr: var(--border-clr-primary);
   --tab-padding-hori: 16px;
   --tab-padding-vert: 8px;
   --tab-radius: var(--radius);
-  --tab-bg-clr: var(--neutral100);
   --tab-border-width: 1px;
-  --tab-border-clr: transparent;
   --tab-text-clr: var(--text-clr-alt);
+  --tab-bg-clr: var(--neutral50);
+  --tab-border-clr: var(--border-clr-primary);
 
   /* # Icon variables */
   --icon-size-sm: 18px;
@@ -231,5 +230,6 @@ export const CssVariables = createGlobalStyle`
   --time-clr: var(--neutral200);
   --time-selected-back-clr: var(--primary600);
   --time-selected-text-clr: var(--neutral100);
+
 }
 `;
