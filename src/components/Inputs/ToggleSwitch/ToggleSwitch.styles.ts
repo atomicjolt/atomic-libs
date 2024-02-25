@@ -49,11 +49,18 @@ const squishyIconBack = keyframes`
   }
 `;
 
-export const ToggleSwitchWrapper = styled.label`
-  //Disabled states
-  &.is-disabled {
-    cursor: auto;
-    opacity: 0.5;
+export const ToggleSwitchContainer = styled.div`
+  position: relative;
+  width: calc(var(--toggle-size) * 1.666);
+  height: var(--toggle-size);
+  border-radius: calc(var(--toggle-size) / 2);
+  background-color: var(--toggle-unchecked);
+  transition: background-color 200ms linear;
+  overflow: hidden;
+
+  &.focus-visible {
+    outline: var(--outline);
+    outline-offset: 2px;
   }
 `;
 
@@ -68,7 +75,7 @@ export const ToggleSwitchLabel = styled.span`
   line-height: 1.5;
   color: var(--text-clr);
 
-  &.is-checked div {
+  &.is-checked ${ToggleSwitchContainer} {
     background-color: var(--toggle-checked);
 
     i {
@@ -83,7 +90,7 @@ export const ToggleSwitchLabel = styled.span`
     }
   }
 
-  &.check-animation div {
+  &.check-animation ${ToggleSwitchContainer} {
     background-color: var(--toggle-checked);
     i {
       animation: ${squishy} 200ms linear forwards;
@@ -96,7 +103,7 @@ export const ToggleSwitchLabel = styled.span`
     }
   }
 
-  &.uncheck-animation div {
+  &.uncheck-animation ${ToggleSwitchContainer} {
     background-color: var(--toggle-unchecked);
     i {
       animation: ${squishyBack} 200ms linear forwards;
@@ -110,18 +117,22 @@ export const ToggleSwitchLabel = styled.span`
   }
 `;
 
-export const ToggleSwitchContainer = styled.div`
-  position: relative;
-  width: calc(var(--toggle-size) * 1.666);
-  height: var(--toggle-size);
-  border-radius: calc(var(--toggle-size) / 2);
-  background-color: var(--toggle-unchecked);
-  transition: background-color 200ms linear;
-  overflow: hidden;
+export const ToggleSwitchWrapper = styled.label`
+  &.has-error ${ToggleSwitchContainer} {
+    background-color: var(--toggle-error);
 
-  &.focus-visible {
-    outline: var(--outline);
-    outline-offset: 2px;
+    i {
+      border-color: var(--toggle-error);
+
+      &::before {
+        color: var(--toggle-error);
+      }
+    }
+  }
+
+  &.is-disabled {
+    cursor: auto;
+    opacity: 0.5;
   }
 `;
 

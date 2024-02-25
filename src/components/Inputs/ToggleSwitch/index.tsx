@@ -21,6 +21,7 @@ export interface ToggleSwitchProps
   /** The position of the children relative to the switch */
   childrenPosition?: "left" | "right";
   isDisabled?: boolean;
+  isInvalid?: boolean;
 }
 
 /** A Toggle Switch is similar to a checkbox, but represents on/off values as opposed to selection. */
@@ -35,12 +36,19 @@ export const ToggleSwitch = React.forwardRef<
 
   const changed = useFirstStateChange(state.isSelected);
 
-  const { children, className, childrenPosition = "left", isDisabled } = props;
+  const {
+    children,
+    className,
+    childrenPosition = "left",
+    isDisabled,
+    isInvalid,
+  } = props;
 
   return (
     <ToggleSwitchWrapper
       className={cn("aje-toggle-switch", className, {
         "is-disabled": isDisabled,
+        "has-error": isInvalid,
       })}
     >
       <ToggleSwitchLabel
