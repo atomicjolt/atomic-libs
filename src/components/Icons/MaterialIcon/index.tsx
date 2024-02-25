@@ -36,7 +36,11 @@ export const MaterialIcon = React.forwardRef<HTMLElement, MaterialIconProps>(
       ...rest
     } = props;
 
-    const variantClass = useVariantClass("material-icons", variant, "-");
+    let variantClass = useVariantClass("material-icons", variant, "-");
+
+    if (variant === "default") {
+      variantClass = "material-icons";
+    }
 
     return (
       <StyledIcon

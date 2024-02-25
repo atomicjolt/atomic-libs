@@ -98,7 +98,7 @@ export function CustomSelect<T extends object>(props: CustomSelectProps<T>) {
         <Button
           {...triggerProps}
           ref={ref}
-          variant="border"
+          variant="dropdown"
           size={size}
           isDisabled={isDisabled}
         >
