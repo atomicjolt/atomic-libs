@@ -17,8 +17,11 @@ $ yarn add @atomicjolt/atomic-elements
 At the root of your application, you'll want to import some of these components:
 
 ```tsx
-
-import { LoadFonts, CssVariables, CssGlobalDefaults } from "@atomicjolt/atomic-elements";
+import {
+  LoadFonts,
+  CssVariables,
+  CssGlobalDefaults,
+} from "@atomicjolt/atomic-elements";
 
 const App = () => (
   <>
@@ -28,12 +31,12 @@ const App = () => (
     <YourApp />
   </>
 );
-
 ```
 
 ### Fonts
 
-The `<LoadFonts />` component will load the fonts used by the Atomic Elements. It is recommended that you use this component at the root of your application.
+The `<LoadFonts />` component will load the fonts used by the Atomic Elements. This is not recommended for production, but it is useful for getting started
+It is recommended that you use this component at the root of your application.
 
 If you want to handle the fonts in a different way, you can forgo this component and load the fonts yourself. For example, loading them in your HTML file
 from Google Fonts:
@@ -41,27 +44,34 @@ from Google Fonts:
 ```html
 <!-- Lato is the default text font, you should only need these variants.
 You could load a different text-font if you wanted -->
-<link href="https://fonts.googleapis.com/css2?family=Lato:wght@200;400;700&display=swap" rel="stylesheet">
+<link
+  href="https://fonts.googleapis.com/css2?family=Lato:wght@200;400;700&display=swap"
+  rel="stylesheet"
+/>
 
 <!-- Material Icons -->
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link
+  href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet"
+/>
 
 <!-- The default is filled, you only need any of these if you actually intend to use them -->
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons%7CMaterial+Icons+Outlined" rel="stylesheet">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons%7CMaterial+Icons+Round" rel="stylesheet">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons%7CMaterial+Icons+Sharp" rel="stylesheet">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons%7CMaterial+Icons+Two+Tone" rel="stylesheet">
-```
-
-Also you'll need to make sure to specify the font variables in your CSS:
-
-```css
-:root {
-  --font-family: "Lato", sans-serif;
-  --font-weight-light: 200;
-  --font-weight-regular: 400;
-  --font-weight-bold: 700;
-}
+<link
+  href="https://fonts.googleapis.com/icon?family=Material+Icons%7CMaterial+Icons+Outlined"
+  rel="stylesheet"
+/>
+<link
+  href="https://fonts.googleapis.com/icon?family=Material+Icons%7CMaterial+Icons+Round"
+  rel="stylesheet"
+/>
+<link
+  href="https://fonts.googleapis.com/icon?family=Material+Icons%7CMaterial+Icons+Sharp"
+  rel="stylesheet"
+/>
+<link
+  href="https://fonts.googleapis.com/icon?family=Material+Icons%7CMaterial+Icons+Two+Tone"
+  rel="stylesheet"
+/>
 ```
 
 #### Icons
@@ -71,7 +81,6 @@ If you're planning on using a Material Icon variant, you'll need to load the Mat
 ```tsx
 <LoadFonts fonts={["lato", "material-icons-outlined"]} />
 ```
-
 
 ### CSS Variables
 
@@ -90,7 +99,6 @@ The `<SensibleDefaults />` component bundles the three above component into a si
 It is recommended that you use this component at the root of your application.
 
 ```tsx
-
 import { SensibleDefaults } from "@atomicjolt/atomic-elements";
 
 const App = () => (
@@ -99,3 +107,4 @@ const App = () => (
     <YourApp />
   </>
 );
+```

@@ -56,7 +56,6 @@ __metadata:
     "@storybook/react": ^7.5.0
     "@storybook/react-webpack5": ^7.5.0
     "@storybook/testing-library": ^0.2.2
-    "@swc/helpers": ^0.5.6
     "@testing-library/jest-dom": ^6.1.4
     "@testing-library/react": ^13.2.0
     "@types/mdx": ^2.0.2
@@ -70,7 +69,6 @@ __metadata:
     babel-plugin-polyfill-corejs3: ^0.5.2
     classnames: ^2.3.1
     css-loader: ^6.6.0
-    date-fns: ^2.28.0
     gh-pages: ^4.0.0
     highlightjs-copy: ^1.0.3
     identity-obj-proxy: ^3.0.0
@@ -79,7 +77,6 @@ __metadata:
     react-aria: ^3.31.0
     react-docgen-typescript: ^2.2.2
     react-dom: ^18.0.0
-    react-head: ^3.4.2
     react-highlight: ^0.14.0
     react-hook-form: ^7.36.1
     react-stately: ^3.29.0
@@ -2098,21 +2095,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.13.10, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.9.2":
-  version: 7.23.2
-  resolution: "@babel/runtime@npm:7.23.2"
-  dependencies:
-    regenerator-runtime: ^0.14.0
-  checksum: 6c4df4839ec75ca10175f636d6362f91df8a3137f86b38f6cd3a4c90668a0fe8e9281d320958f4fbd43b394988958585a17c3aab2a4ea6bf7316b22916a371fb
-  languageName: node
-  linkType: hard
-
 "@babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.8.4":
   version: 7.17.9
   resolution: "@babel/runtime@npm:7.17.9"
   dependencies:
     regenerator-runtime: ^0.13.4
   checksum: 4d56bdb82890f386d5a57c40ef985a0ed7f0a78f789377a2d0c3e8826819e0f7f16ba0fe906d9b2241c5f7ca56630ef0653f5bb99f03771f7b87ff8af4bf5fe3
+  languageName: node
+  linkType: hard
+
+"@babel/runtime@npm:^7.13.10, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.9.2":
+  version: 7.23.2
+  resolution: "@babel/runtime@npm:7.23.2"
+  dependencies:
+    regenerator-runtime: ^0.14.0
+  checksum: 6c4df4839ec75ca10175f636d6362f91df8a3137f86b38f6cd3a4c90668a0fe8e9281d320958f4fbd43b394988958585a17c3aab2a4ea6bf7316b22916a371fb
   languageName: node
   linkType: hard
 
@@ -6504,15 +6501,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@swc/helpers@npm:^0.5.6":
-  version: 0.5.6
-  resolution: "@swc/helpers@npm:0.5.6"
-  dependencies:
-    tslib: ^2.4.0
-  checksum: 45de57097e1f6f356f571c7a4f55c692a46b0404c8601e5d9552e152000dfe541ff529d3d01c8a4abf60799d6e7d0078936e40be0a203ca356299d5d6adea765
-  languageName: node
-  linkType: hard
-
 "@swc/types@npm:^0.1.5":
   version: 0.1.5
   resolution: "@swc/types@npm:0.1.5"
@@ -9064,13 +9052,6 @@ __metadata:
     whatwg-mimetype: ^3.0.0
     whatwg-url: ^12.0.0
   checksum: 006e869b5bf079647949a3e9b1dd69d84b2d5d26e6b01c265485699bc96e83817d4b5aae758b2910a4c58c0601913f3a0034121c1ca2da268e9a244c57515b15
-  languageName: node
-  linkType: hard
-
-"date-fns@npm:^2.28.0":
-  version: 2.28.0
-  resolution: "date-fns@npm:2.28.0"
-  checksum: a0516b2e4f99b8bffc6cc5193349f185f195398385bdcaf07f17c2c4a24473c99d933eb0018be4142a86a6d46cb0b06be6440ad874f15e795acbedd6fd727a1f
   languageName: node
   linkType: hard
 
@@ -14428,18 +14409,6 @@ __metadata:
     react: ^0.14.8 || ^15.0.1 || ^16.0.0 || ^17.0.1 || ^18.0.0
     react-dom: ^0.14.8 || ^15.0.1 || ^16.0.0 || ^17.0.1 || ^18.0.0
   checksum: c3907cc4c1d3e9ecc8ca7727058ebcba6ec89848d9e07bfd2c77ee8f28f1ad99bf55e38359dec8a1125de83d41ac09a2874f53c41415edc86ffa9840fa1b7856
-  languageName: node
-  linkType: hard
-
-"react-head@npm:^3.4.2":
-  version: 3.4.2
-  resolution: "react-head@npm:3.4.2"
-  dependencies:
-    "@babel/runtime": ^7.11.2
-  peerDependencies:
-    react: ">=16.3"
-    react-dom: ">=16.3"
-  checksum: f752014d41f65029e2e759625fd07dbaedd24f96e267f35e41e0f707d47ebfe2854b4409a483e89797f3edb9e8ac42571701ee7aec12c18d4e5aa77766bddc27
   languageName: node
   linkType: hard
 

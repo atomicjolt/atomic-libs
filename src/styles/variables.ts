@@ -4,6 +4,12 @@ export const CssVariables = createGlobalStyle`
 :root {
   color-scheme: base;
 
+  /* # Fonts */
+  --font-family: "Lato", sans-serif;
+  --font-weight-light: 200;
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+
   /* # Global Colors */
   /* ## Neutral */
   --neutral50: hsl(0, 0%, 100%);
