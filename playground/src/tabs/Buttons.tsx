@@ -17,13 +17,13 @@ export default function Buttons() {
       </div>
       <div className="padder">
         <IconMenu>
-          <Item key="1">Test</Item>
-          <Item key="2">Test</Item>
-          <Item key="3">Test</Item>
+          <IconMenu.Item onAction={() => alert('1')}>Test</IconMenu.Item>
+          <IconMenu.Item key="2">Test</IconMenu.Item>
+          <IconMenu.Item key="3">Test</IconMenu.Item>
           <Section title="Section">
-            <Item key="4">Test</Item>
-            <Item key="5">Test</Item>
-            <Item key="6">Test</Item>
+            <IconMenu.Item key="4">Test</IconMenu.Item>
+            <IconMenu.Item key="5">Test</IconMenu.Item>
+            <IconMenu.Item key="6">Test</IconMenu.Item>
           </Section>
         </IconMenu>
       </div>

@@ -1,9 +1,12 @@
 import React from "react";
-import { CustomSelect, IconMenu, Item, Section, Tabs, TextArea } from "../elements";
+import { CustomSelect, IconMenu, Item, Section, Tabs, TextArea, ToggleSwitch } from "../elements";
 
 export default function Aria() {
   return (
     <div>
+      <ToggleSwitch aria-label='label'></ToggleSwitch>
+      <br />
+
       <IconMenu menuPlacement="bottom end" aria-label="Label">
         <IconMenu.Item onAction={() => console.log("item 1 action")}>
           Item 1

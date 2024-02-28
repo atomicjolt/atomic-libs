@@ -10,3 +10,5 @@ export type AriaProps<P> = Omit<
   | "id"
   | "name"
 >;
+
+export type Key = string | number;

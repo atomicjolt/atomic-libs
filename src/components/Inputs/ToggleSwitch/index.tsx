@@ -2,6 +2,7 @@ import React from "react";
 import cn from "classnames";
 import { useToggleState } from "react-stately";
 import type { ToggleProps } from "@react-types/checkbox";
+import type { AriaLabelingProps } from "@react-types/shared";
 import { useFocusRing, useSwitch, VisuallyHidden } from "react-aria";
 import { AriaProps, BaseProps, DomProps, HasChildren } from "../../../types";
 import {
@@ -14,10 +15,9 @@ import useForwardedRef from "../../../hooks/useForwardedRef";
 import { useFirstStateChange } from "../../../hooks";
 
 export interface ToggleSwitchProps
-  extends AriaProps<Omit<ToggleProps, "children">>,
+  extends AriaProps<ToggleProps>, AriaLabelingProps,
     DomProps,
-    BaseProps,
-    HasChildren {
+    BaseProps {
   /** The position of the children relative to the switch */
   childrenPosition?: "left" | "right";
   isDisabled?: boolean;
