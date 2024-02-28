@@ -19,7 +19,7 @@ export interface TextareaProps
 const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   (props, ref) => {
     const {
-      size = "small",
+      size = "medium",
       hideLabel = false,
       resize = "both",
       label,
