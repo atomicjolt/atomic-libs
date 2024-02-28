@@ -5,7 +5,16 @@ import { ComponentWrapper, ComponentWrapperProps } from "../../styles/utils";
 export const DropdownWrapper = styled(ComponentWrapper)<ComponentWrapperProps>`
   ${mixins.SizingX}
 
-  button {
+  .aje-btn--dropdown {
+    --btn-text-clr: var(--text-clr-alt);
+    --btn-bg-clr: var(--neutral50);
+    --btn-hover-text-clr: var(--text-clr);
+    --btn-hover-bg-clr: var(--neutral100);
+
+    // To match the actual select element
+    --btn-border: 1px solid var(--input-border-clr);
+    padding-right: 8px;
+
     &.is-active {
       transform: translateY(0px);
     }

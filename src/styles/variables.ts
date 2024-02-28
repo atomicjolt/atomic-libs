@@ -177,6 +177,7 @@ export const CssVariables = createGlobalStyle`
   /* # Toggle switch variables */
   --toggle-unchecked: var(--neutral400);
   --toggle-checked: var(--primary700);
+  --toggle-error: var(--error600);
   --toggle-size: 2.4rem;
   --toggle-travel: calc(var(--toggle-size) * 0.666);
 
