@@ -2,6 +2,7 @@ import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import { Tabs } from ".";
 import { Item } from "../../Atoms/Collection";
+import { Card } from '../../Atoms/Card';
 
 const meta: Meta<typeof Tabs> = {
   title: "Layouts/Tabs",

@@ -238,14 +238,14 @@ export const CssVariables = createGlobalStyle`
   --time-selected-back-clr: var(--primary600);
   --time-selected-text-clr: var(--neutral100);
 
-    /* # Card variables */
-    --card-bg-clr: var(--background-clr-alt);
-    --card-text-clr: var(--text-clr);
-    --card-radius: var(--radius);
-    --card-border: none;
-    --card-padding: 10px;
-    --card-panel-bg-clr: var(--background-clr);
-    --card-panel-text-clr: var(--text-clr);
-    --card-panel-padding: 10px;
+  /* # Card variables */
+  --card-bg-clr: var(--background-clr-alt);
+  --card-text-clr: var(--text-clr);
+  --card-radius: var(--radius);
+  --card-border: none;
+  --card-padding: 10px;
+  --card-panel-bg-clr: var(--background-clr);
+  --card-panel-text-clr: var(--text-clr);
+  --card-panel-padding: 10px;
 }
 `;

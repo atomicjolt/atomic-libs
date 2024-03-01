@@ -99,8 +99,14 @@ export const TabContentWrapper = styled.div`
 export const TabsWrapper = styled.div`
 
   &.aje-tabs--card {
+    --tab-radius: var(--card-radius);
+    --tab-bg-clr: var(--card-bg-clr);
+    --tab-padding-vert: var(--card-padding);
+    --tab-padding-hori: var(--card-padding);
+    --tab-radius: var(--card-radius);
+    --tab-text-clr: var(--card-text-clr);
+
     ${TabContentWrapper} {
-      --tab-bg-clr: var(--neutral100);
       border-top: 0px solid transparent;
       padding: var(--tab-padding-vert) var(--tab-padding-hori);
       border-radius: 0 var(--tab-radius) var(--tab-radius) var(--tab-radius);
@@ -150,7 +156,6 @@ export const TabsWrapper = styled.div`
   }
 
   &.aje-tabs--toggle {
-
     ${TabLinksWrapper} {
       display: flex;
       align-items: center;

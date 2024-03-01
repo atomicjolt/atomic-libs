@@ -44,7 +44,7 @@ export const CardWrapper  = styled.div`
   }
 `;
 
-export const CardTitle = styled.h2`
+export const CardTitle = styled.span`
   ${mixins.Bold}
   display: flex;
   align-items: center;
