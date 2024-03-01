@@ -5,7 +5,7 @@ import { AriaProps, FieldBaseProps, HasVariant } from "../../../types";
 import { InputWrapper } from "../Inputs.styles";
 import useForwardedRef from "../../../hooks/useForwardedRef";
 import { AriaSearchFieldProps, useSearchField } from "react-aria";
-import { FieldWrapper } from "../../Utility/FieldWrapper";
+import { FieldWrapper } from "../../Atoms/FieldWrapper";
 import { useSearchFieldState } from "react-stately";
 import { ActualSearchInput, SearchInputWrapper } from "./SearchInput.styles";
 import IconButton from "../../Buttons/IconButton";

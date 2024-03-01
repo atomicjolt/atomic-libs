@@ -11,11 +11,11 @@ import {
 import { DropdownWrapper } from "../Dropdowns.styles";
 import { useVariantClass } from "../../../hooks";
 import { ButtonText } from "./CustomSelect.styles";
-import { FieldWrapper } from "../../Utility/FieldWrapper";
+import { FieldWrapper } from "../../Atoms/FieldWrapper";
 import Button from "../../Buttons/Button";
 import MaterialIcon from "../../Icons/MaterialIcon";
-import { Popover } from "../../Utility/Popover";
-import { UnmanagedListBox } from "../../Utility/ListBox";
+import { Popover } from "../../Atoms/Popover";
+import { UnmanagedListBox } from "../../Atoms/ListBox";
 
 export type CustomSelectVariants = "default" | "floating";
 

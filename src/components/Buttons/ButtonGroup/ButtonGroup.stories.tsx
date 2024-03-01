@@ -3,7 +3,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import { ButtonGroup } from ".";
 import Button from "../Button";
 import IconButton from "../IconButton";
-import { Item } from "../../Utility/Collection";
+import { Item } from "../../Atoms/Collection";
 import IconMenu from "../../Dropdowns/IconMenu";
 
 const meta: Meta<typeof ButtonGroup> = {

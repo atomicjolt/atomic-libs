@@ -4,7 +4,7 @@ import { AriaProps, FieldBaseProps, HasVariant } from "../../../types";
 import { InputWrapper } from "../Inputs.styles";
 import useForwardedRef from "../../../hooks/useForwardedRef";
 import { AriaNumberFieldProps, useLocale, useNumberField } from "react-aria";
-import { FieldWrapper } from "../../Utility/FieldWrapper";
+import { FieldWrapper } from "../../Atoms/FieldWrapper";
 import { useNumberFieldState } from "react-stately";
 import IconButton from "../../Buttons/IconButton";
 import {

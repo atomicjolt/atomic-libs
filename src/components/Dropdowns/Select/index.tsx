@@ -1,9 +1,9 @@
 import React, { DetailedHTMLProps, SelectHTMLAttributes } from "react";
 import cn from "classnames";
 import { FieldBaseProps } from "../../../types";
-import Label from "../../Utility/Label";
+import Label from "../../Atoms/Label";
 import { useIds } from "../../../hooks";
-import InputError from "../../Utility/InputError";
+import InputError from "../../Atoms/InputError";
 import { ComponentWrapper } from "../../../styles/utils";
 import { SelectWrapper, StyledSelect } from "./Select.styles";
 

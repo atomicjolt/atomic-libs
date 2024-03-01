@@ -3,7 +3,7 @@ import cn from "classnames";
 
 import { useIds } from "../../../hooks";
 import { FieldBaseProps } from "../../../types";
-import InputError from "../../Utility/InputError";
+import InputError from "../../Atoms/InputError";
 import { ComponentWrapper } from "../../../styles/utils";
 import {
   FileInputLabel,

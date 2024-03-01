@@ -2,7 +2,7 @@ import React from "react";
 import { describe, test, expect } from "vitest";
 import { render } from "@testing-library/react";
 import { ComboBox } from ".";
-import { Item } from "../../Utility/Collection";
+import { Item } from "../../Atoms/Collection";
 
 describe("matches snapshots", () => {
   const shared = {

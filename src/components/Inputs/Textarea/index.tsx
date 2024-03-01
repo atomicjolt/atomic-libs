@@ -1,12 +1,12 @@
 import cn from "classnames";
 import React from "react";
 import { AriaProps, FieldBaseProps } from "../../../types";
-import Label from "../../Utility/Label";
+import Label from "../../Atoms/Label";
 import { StyledTextArea, TextAreaWrapper } from "./Textarea.styles";
 import { AriaTextFieldProps, useTextField } from "react-aria";
 import useForwardedRef from "../../../hooks/useForwardedRef";
 import { FieldError } from "../../../styles/utils";
-import { FieldWrapper } from "../../Utility/FieldWrapper";
+import { FieldWrapper } from "../../Atoms/FieldWrapper";
 
 export interface TextareaProps
   extends FieldBaseProps,

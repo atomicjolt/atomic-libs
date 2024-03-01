@@ -14,10 +14,10 @@ import {
 } from "./Combobox.styles";
 import classNames from "classnames";
 import { useVariantClass } from "../../../hooks";
-import { FieldWrapper } from "../../Utility/FieldWrapper";
+import { FieldWrapper } from "../../Atoms/FieldWrapper";
 import IconButton from "../../Buttons/IconButton";
-import { Popover } from "../../Utility/Popover";
-import { UnmanagedListBox } from "../../Utility/ListBox";
+import { Popover } from "../../Atoms/Popover";
+import { UnmanagedListBox } from "../../Atoms/ListBox";
 
 export interface ComboBoxProps<T>
   extends AriaProps<AriaComboBoxProps<T>>,

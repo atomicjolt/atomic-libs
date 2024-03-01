@@ -9,7 +9,7 @@ import { useTimeFieldState } from "react-stately";
 import classNames from "classnames";
 import { DateSegment } from "../DateInput";
 import { TimeInputWrapper } from "./TimeInput.styles";
-import { FieldWrapper } from "../../../Utility/FieldWrapper";
+import { FieldWrapper } from "../../../Atoms/FieldWrapper";
 import { DateSegments } from "../DateInput/DateInput.styles";
 import { AriaProps, FieldBaseProps } from "../../../../types";
 import useForwardedRef from "../../../../hooks/useForwardedRef";

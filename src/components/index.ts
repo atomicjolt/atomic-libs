@@ -41,14 +41,14 @@ export { default as DateInput } from "./Inputs/DateAndTimes/DateInput";
 export { TimeInput } from "./Inputs/DateAndTimes/TimeInput";
 export { DatePicker } from "./Inputs/DateAndTimes/DatePicker";
 
-export { Item, Section } from "./Utility/Collection";
-export { default as LoadingStatus } from "./Utility/LoadingStatus";
-export { default as Label } from "./Utility/Label";
-export { Popover, PopoverWrapper } from "./Utility/Popover";
-export { ToolTip } from "./Utility/ToolTip";
+export { Item, Section } from "./Atoms/Collection";
+export { default as LoadingStatus } from "./Atoms/LoadingStatus";
+export { default as Label } from "./Atoms/Label";
+export { Popover, PopoverWrapper } from "./Atoms/Popover";
+export { ToolTip } from "./Atoms/ToolTip";
 export { Menu } from "./Dropdowns/Menu";
-export { Dialog } from "./Utility/Dialog";
-export { ListBox, UnmanagedListBox } from "./Utility/ListBox";
+export { Dialog } from "./Atoms/Dialog";
+export { ListBox, UnmanagedListBox } from "./Atoms/ListBox";
 
 /* ---- Types ---- */
 
@@ -81,12 +81,12 @@ export type { ErrorModalProps } from "./Modals/ErrorModal";
 export type { MaterialIconProps } from "./Icons/MaterialIcon";
 export type { TableProps } from "./Tables/Table";
 export type { TabsProps } from "./Tabs/Tabs";
-export type { LoadingStatusProps } from "./Utility/LoadingStatus";
-export type { LabelProps } from "./Utility/Label";
-export type { PopoverProps } from "./Utility/Popover";
-export type { ToolTipProps } from "./Utility/ToolTip";
+export type { LoadingStatusProps } from "./Atoms/LoadingStatus";
+export type { LabelProps } from "./Atoms/Label";
+export type { PopoverProps } from "./Atoms/Popover";
+export type { ToolTipProps } from "./Atoms/ToolTip";
 export type { CalendarProps } from "./Inputs/DateAndTimes/Calendar";
 export type { DateInputProps } from "./Inputs/DateAndTimes/DateInput";
 export type { TimeInputProps } from "./Inputs/DateAndTimes/TimeInput";
 export type { DatePickerProps } from "./Inputs/DateAndTimes/DatePicker";
-export type { ListBoxProps } from "./Utility/ListBox";
+export type { ListBoxProps } from "./Atoms/ListBox";

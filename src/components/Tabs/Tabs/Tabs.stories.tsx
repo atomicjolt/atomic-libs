@@ -1,7 +1,7 @@
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import { Tabs } from ".";
-import { Item } from "../../Utility/Collection";
+import { Item } from "../../Atoms/Collection";
 
 const meta: Meta<typeof Tabs> = {
   title: "Layouts/Tabs",

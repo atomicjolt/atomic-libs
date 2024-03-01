@@ -20,7 +20,7 @@ import {
   DateSegment as ReactStatelyDateSegment,
   useDateFieldState,
 } from "react-stately";
-import { FieldWrapper } from "../../../Utility/FieldWrapper";
+import { FieldWrapper } from "../../../Atoms/FieldWrapper";
 
 export interface DateInputProps<T extends DateValue>
   extends AriaProps<AriaDateFieldProps<T>>,

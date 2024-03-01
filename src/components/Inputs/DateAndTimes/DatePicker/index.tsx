@@ -9,13 +9,13 @@ import {
 } from "./DatePicker.styles";
 import { FieldError } from "../../../../styles/utils";
 import classNames from "classnames";
-import Label from "../../../Utility/Label";
+import Label from "../../../Atoms/Label";
 import DateInput from "../DateInput";
 import IconButton from "../../../Buttons/IconButton";
-import { Popover } from "../../../Utility/Popover";
-import { Dialog } from "../../../Utility/Dialog";
+import { Popover } from "../../../Atoms/Popover";
+import { Dialog } from "../../../Atoms/Dialog";
 import Calendar from "../Calendar";
-import { FieldWrapper } from "../../../Utility/FieldWrapper";
+import { FieldWrapper } from "../../../Atoms/FieldWrapper";
 
 export type DatePickerProps<T extends DateValue> = AriaProps<
   AriaDatePickerProps<T>

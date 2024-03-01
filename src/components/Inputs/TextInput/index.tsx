@@ -5,7 +5,7 @@ import { AriaProps, FieldBaseProps, HasVariant } from "../../../types";
 import { Input, InputWrapper } from "../Inputs.styles";
 import useForwardedRef from "../../../hooks/useForwardedRef";
 import { AriaTextFieldProps, useTextField } from "react-aria";
-import { FieldWrapper } from "../../Utility/FieldWrapper";
+import { FieldWrapper } from "../../Atoms/FieldWrapper";
 
 type Variants = "default" | "floating";
 
