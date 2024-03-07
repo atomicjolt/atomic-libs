@@ -42,11 +42,11 @@ import {
 } from "./Table.styles";
 import Checkbox from "../../Inputs/Checkbox";
 import classNames from "classnames";
-import { HasChildren } from "../../../types";
+import { HasChildren, HasClassName } from "../../../types";
 import MaterialIcon from "../../Icons/MaterialIcon";
 import { cloneComponent } from "../../../clone";
 
-export interface TableProps<T> extends AriaTableProps<T>, Sortable {
+export interface TableProps<T> extends AriaTableProps<T>, Sortable, HasClassName {
   /** The selection mode for the table. */
   selectionMode?: SelectionMode;
   /** The selection behavior for the table. */
@@ -59,7 +59,7 @@ export interface TableProps<T> extends AriaTableProps<T>, Sortable {
 }
 
 export default function Table<T extends object>(props: TableProps<T>) {
-  const { selectionMode, selectionBehavior } = props;
+  const { selectionMode, selectionBehavior, className } = props;
   const state = useTableState({
     ...props,
     showSelectionCheckboxes:
@@ -71,7 +71,7 @@ export default function Table<T extends object>(props: TableProps<T>) {
   const { gridProps } = useTable(props, state, ref);
 
   return (
-    <StyledTable {...gridProps} ref={ref}>
+    <StyledTable {...gridProps} ref={ref} className={classNames("aje-table", className)}>
       <TableRowGroup type={StyledThead}>
         {collection.headerRows.map((headerRow) => (
           <TableHeaderRow key={headerRow.key} item={headerRow} state={state}>
