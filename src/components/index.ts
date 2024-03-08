@@ -50,6 +50,8 @@ export { Menu } from "./Dropdowns/Menu";
 export { Dialog } from "./Atoms/Dialog";
 export { ListBox, UnmanagedListBox } from "./Atoms/ListBox";
 
+export { SkeletonLoader } from "./Loaders/SkeletonLoader";
+
 /* ---- Types ---- */
 
 export type { ButtonProps } from "./Buttons/Button";
@@ -90,3 +92,4 @@ export type { DateInputProps } from "./Inputs/DateAndTimes/DateInput";
 export type { TimeInputProps } from "./Inputs/DateAndTimes/TimeInput";
 export type { DatePickerProps } from "./Inputs/DateAndTimes/DatePicker";
 export type { ListBoxProps } from "./Atoms/ListBox";
+export type { SkeletonLoaderProps } from "./Loaders/SkeletonLoader";

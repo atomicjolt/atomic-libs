@@ -191,6 +191,12 @@ export const CssVariables = createGlobalStyle`
   --loader-clr: var(--neutral500);
   --loader-size: 16px;
 
+  /* # Skeleton Loader variables */
+  --skeleton-bg-clr: var(--neutral200);
+  --skeleton-fg-clr: var(--neutral100);
+  --skeleton-bg-opacity: 1;
+  --skeleton-fg-opacity: 1;
+
   /* # Table variables */
   --table-border-clr: var(--neutral300);
   --table-border-width: 1px;
