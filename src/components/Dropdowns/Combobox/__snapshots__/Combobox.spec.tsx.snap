@@ -3,7 +3,7 @@
 exports[`matches snapshots > matches default variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-jSFipO sc-gKAaef hHKFYs icHBhg aje-combobox aje-dropdown is-medium"
+    class="sc-jSFipO sc-gKAaef huoXgB icHBhg aje-combobox aje-dropdown--default is-medium"
   >
     <label
       class="sc-gtsqUy hMTsbS aje-label aje-label"
@@ -47,7 +47,7 @@ exports[`matches snapshots > matches default variant 1`] = `
       >
         <i
           aria-hidden="true"
-          class="sc-crzpnZ jlbErA material-icons is-medium"
+          class="sc-crzpnZ AiCDI material-icons is-medium"
         >
           arrow_drop_down
         </i>
@@ -66,7 +66,7 @@ exports[`matches snapshots > matches default variant 1`] = `
 exports[`matches snapshots > matches floating variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-jSFipO sc-gKAaef hHKFYs icHBhg aje-combobox aje-dropdown--floating is-medium"
+    class="sc-jSFipO sc-gKAaef huoXgB icHBhg aje-combobox aje-dropdown--floating is-medium"
   >
     <div
       class="sc-eCAqax kebOaS"
@@ -100,7 +100,7 @@ exports[`matches snapshots > matches floating variant 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-crzpnZ jlbErA material-icons is-medium"
+            class="sc-crzpnZ AiCDI material-icons is-medium"
           >
             arrow_drop_down
           </i>

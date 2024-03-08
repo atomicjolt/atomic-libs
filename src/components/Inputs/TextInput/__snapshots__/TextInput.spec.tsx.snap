@@ -3,7 +3,7 @@
 exports[`matches snapshot > default variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-jSFipO dlBeDT aje-input__text aje-input float-label is-medium"
+    class="sc-jSFipO dlBeDT aje-input__text aje-input--default float-label is-medium"
   >
     <label
       class="sc-gtsqUy hMTsbS aje-label aje-label"

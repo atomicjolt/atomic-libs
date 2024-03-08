@@ -3,7 +3,7 @@
 exports[`matches snapshot > displays with search button 1`] = `
 <DocumentFragment>
   <div
-    class="sc-jSFipO dlBeDT aje-input__search aje-input is-medium"
+    class="sc-jSFipO dlBeDT aje-input__search aje-input--default is-medium"
   >
     <label
       class="sc-gtsqUy hMTsbS aje-label aje-label"
@@ -28,7 +28,7 @@ exports[`matches snapshot > displays with search button 1`] = `
       >
         <i
           aria-hidden="true"
-          class="sc-hBMVwJ kORcv material-icons is-medium"
+          class="sc-hBMVwJ ktTEon material-icons is-medium"
         >
           search
         </i>
@@ -41,7 +41,7 @@ exports[`matches snapshot > displays with search button 1`] = `
 exports[`matches snapshot > displays without button 1`] = `
 <DocumentFragment>
   <div
-    class="sc-jSFipO dlBeDT aje-input__search aje-input is-medium"
+    class="sc-jSFipO dlBeDT aje-input__search aje-input--default is-medium"
   >
     <label
       class="sc-gtsqUy hMTsbS aje-label aje-label"
@@ -66,7 +66,7 @@ exports[`matches snapshot > displays without button 1`] = `
       >
         <i
           aria-hidden="true"
-          class="sc-hBMVwJ kORcv material-icons is-medium"
+          class="sc-hBMVwJ ktTEon material-icons is-medium"
         >
           search
         </i>
