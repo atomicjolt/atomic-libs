@@ -1,8 +1,8 @@
 /* ---- Components ---- */
-
-export { default as ActionBanner } from "./Banners/ActionBanner";
+export { Banner } from "./Banners/Banner";
+export { ActionBanner } from "./Banners/ActionBanner";
 export {
-  default as DismissableBanner,
+  DismissableBanner,
   ErrorBanner,
   WarningBanner,
 } from "./Banners/DismissableBanner";
@@ -54,6 +54,7 @@ export { SkeletonLoader } from "./Loaders/SkeletonLoader";
 
 /* ---- Types ---- */
 
+export type { BannerProps, BannerVariants } from "./Banners/Banner";
 export type { ButtonProps } from "./Buttons/Button";
 export type { IconButtonProps } from "./Buttons/IconButton";
 export type {

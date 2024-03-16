@@ -8,51 +8,28 @@ import {
   Radio,
   RadioGroup,
   SkeletonLoader,
+  Banner,
+  MaterialIcon,
+  IconButton,
+  Button,
+  ErrorBanner,
 } from "../elements";
 import { I18nProvider } from "react-aria";
 
 export default function Aria() {
-  const [locale, setLocale] = useState<React.Key>("en");
-
-  const onLocaleChange = (key: React.Key) => {
-    setLocale(key);
-    if (key === "ar") {
-      document.querySelector("html")?.setAttribute("dir", "rtl");
-    } else {
-      document.querySelector("html")?.removeAttribute("dir");
-    }
-  };
-
   return (
     <div>
-      <I18nProvider locale={locale as string}>
-        <CustomSelect
-          label="Locale"
-          selectedKey={locale}
-          onSelectionChange={onLocaleChange}
-        >
-          <Item key="en">English</Item>
-          <Item key="ar">Arabic</Item>
-        </CustomSelect>
-        <hr />
-        <CheckBox>Checkbox</CheckBox>
-        <RadioGroup label="Radio Group">
-          <Radio value="1">Radio 1</Radio>
-          <Radio value="2">Radio 2</Radio>
-          <Radio value="3">This Radio is longer</Radio>
-        </RadioGroup>
-        <DatePicker label="Select Date" />
-        <NumberInput label="Test Label" />
-        <hr />
-        <SkeletonLoader>
-          <rect x="50" y="6" rx="4" ry="4" width="343" height="38" />
-          <rect x="8" y="6" rx="4" ry="4" width="35" height="38" />
-          <rect x="50" y="55" rx="4" ry="4" width="343" height="38" />
-          <rect x="8" y="55" rx="4" ry="4" width="35" height="38" />
-          <rect x="50" y="104" rx="4" ry="4" width="343" height="38" />
-          <rect x="8" y="104" rx="4" ry="4" width="35" height="38" />
-        </SkeletonLoader>
-      </I18nProvider>
+      <Banner variant="error">
+        <MaterialIcon icon="error" />
+        <Banner.Content>This is a banner</Banner.Content>
+        <Banner.Dismiss />
+      </Banner>
+      <ErrorBanner>This is an error</ErrorBanner>
+      <Banner variant="info">
+        <MaterialIcon icon="info" />
+        <Banner.Content>This is a banner</Banner.Content>
+        <Button variant="inverted">Click Me</Button>
+      </Banner>
     </div>
   );
 }

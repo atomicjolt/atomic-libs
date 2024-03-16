@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import ActionBanner from ".";
+import { ActionBanner } from ".";
 
 export default {
   title: "Banners/ActionBanner",

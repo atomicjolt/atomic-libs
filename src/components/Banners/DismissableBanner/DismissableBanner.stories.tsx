@@ -1,6 +1,6 @@
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
-import DismissableBanner, { ErrorBanner, WarningBanner } from ".";
+import { DismissableBanner, ErrorBanner, WarningBanner } from ".";
 
 export default {
   title: "Banners/DismissableBanner",
@@ -24,7 +24,6 @@ export const Info: Story = {
     children: "Notification Settings Saved",
     variant: "info",
     icon: "info",
-    autoDismiss: false,
   },
 };
 
@@ -32,7 +31,6 @@ export const Error: Story = {
   render: (props) => <ErrorBanner {...props} />,
   args: {
     children: "Something went wrong",
-    autoDismiss: false,
   },
 };
 
@@ -40,6 +38,5 @@ export const Warning: Story = {
   render: (props) => <WarningBanner {...props} />,
   args: {
     children: "Something went wrong",
-    autoDismiss: false,
   },
 };

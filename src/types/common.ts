@@ -28,6 +28,8 @@ export interface HasVariant<Variants> {
   variant?: Variants;
 }
 
+export type CanHaveVariant<Variants> = Partial<HasVariant<Variants>>;
+
 export type LoadingProps =
   | {
       /** When loading is true, the content will be replaced with a spinner.

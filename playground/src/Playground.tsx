@@ -28,7 +28,7 @@ function Playground() {
         </Item>
 
         <Item key="aria" title="Aria">
-          <Aria />L
+          <Aria />
         </Item>
       </Tabs>
     </div>
