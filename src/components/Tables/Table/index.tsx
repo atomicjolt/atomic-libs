@@ -29,6 +29,7 @@ import {
   SelectionMode,
   SelectionBehavior,
   Sortable,
+  MultipleSelection,
 } from "@react-types/shared";
 import {
   StyledRow,
@@ -47,6 +48,7 @@ import { cloneComponent } from "../../../clone";
 
 export interface TableProps<T>
   extends AriaTableProps<T>,
+    MultipleSelection,
     Sortable,
     HasClassName {
   /** The selection mode for the table. */
@@ -272,8 +274,6 @@ function TableSelectAllCell<T>(props: TableSelectAllCellProps<T>) {
     ref
   );
   const { checkboxProps } = useTableSelectAllCheckbox(state);
-
-  console.log(checkboxProps);
 
   return (
     <StyledTh {...columnHeaderProps} ref={ref}>

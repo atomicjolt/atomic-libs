@@ -27,6 +27,11 @@ const meta: Meta<typeof CheckBox> = {
       type: "boolean",
       description: "Selected state of the checkbox in a controlled component.",
     },
+    isIndeterminate: {
+      type: "boolean",
+      description:
+        "Indeterminate state of the checkbox. When true, the checkbox will always be displayed in an indeterminate state, regardless of the selected state.",
+    },
   },
 };
 

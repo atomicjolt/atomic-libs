@@ -16,6 +16,9 @@ const meta: Meta<typeof Table> = {
         category: "Events",
       },
     },
+    sortDescriptor: {
+      description: "The current sort descriptor, if any",
+    },
   },
 };
 
@@ -68,7 +71,7 @@ export const SortableHeaders: Story = {
   args: {
     sortDescriptor: {
       column: "name",
-      direction: "ascending",
+      direction: "descending",
     },
     children: [
       <Table.Header>

@@ -25,7 +25,6 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckBoxProps>(
       size = "medium",
       isIndeterminate = false,
     } = props;
-    console.log(props);
     const internalRef = useForwardedRef(ref);
     const state = useToggleState(props);
     const { inputProps, labelProps } = useCheckbox(props, state, internalRef);
