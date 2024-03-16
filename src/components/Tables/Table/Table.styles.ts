@@ -91,6 +91,12 @@ export const ThContent = styled.div`
   gap: 4px;
 `;
 
+export const ColumnDragIndicator = styled.div`
+  background-color: red;
+  width: 3px;
+  height: 25px;
+`;
+
 export const StyledTd = styled.td`
   border: solid var(--table-border-clr);
   border-width: 0 0 var(--table-border-width) 0;

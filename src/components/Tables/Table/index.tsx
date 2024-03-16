@@ -3,6 +3,8 @@ import {
   AriaTableProps,
   VisuallyHidden,
   mergeProps,
+  useDrag,
+  useDrop,
   useFocusRing,
   useTable,
   useTableCell,
@@ -12,6 +14,7 @@ import {
   useTableRowGroup,
   useTableSelectAllCheckbox,
   useTableSelectionCheckbox,
+  TextDropItem,
 } from "react-aria";
 import {
   TableState,
@@ -24,6 +27,7 @@ import {
   Cell,
   TableHeaderProps,
   TableBodyProps,
+  ColumnProps,
 } from "react-stately";
 import {
   SelectionMode,
@@ -32,6 +36,7 @@ import {
   MultipleSelection,
 } from "@react-types/shared";
 import {
+  ColumnDragIndicator,
   StyledRow,
   StyledTBody,
   StyledTable,
@@ -60,10 +65,13 @@ export interface TableProps<T>
     React.ReactElement<TableHeaderProps<T>>,
     React.ReactElement<TableBodyProps<T>>
   ];
+
+  onColumnReorder?: (newOrder: React.Key[]) => void;
 }
 
 export default function Table<T extends object>(props: TableProps<T>) {
-  const { selectionMode, selectionBehavior, className } = props;
+  const { selectionMode, selectionBehavior, className, onColumnReorder } =
+    props;
   const state = useTableState({
     ...props,
     showSelectionCheckboxes:
@@ -74,6 +82,30 @@ export default function Table<T extends object>(props: TableProps<T>) {
   const { collection } = state;
   const { gridProps } = useTable(props, state, ref);
 
+  const reorderColumns = (droppedKey: React.Key, nextKey: React.Key) => {
+    const columnKeys = collection.headerRows
+      .flatMap((row) => [...row.childNodes])
+      .map((column) => column.key);
+    const droppedIndex = columnKeys.findIndex(
+      (column) => column === droppedKey
+    );
+    const nextIndex = columnKeys.findIndex((column) => column === nextKey);
+
+    if (droppedIndex === -1 || nextIndex === -1) {
+      return;
+    }
+
+    columnKeys.splice(droppedIndex, 1);
+    columnKeys.splice(nextIndex, 0, droppedKey);
+
+    if (state.showSelectionCheckboxes) {
+      // Get rid of the checkbox column key
+      columnKeys.shift();
+    }
+
+    onColumnReorder?.(columnKeys);
+  };
+
   return (
     <StyledTable
       {...gridProps}
@@ -83,21 +115,36 @@ export default function Table<T extends object>(props: TableProps<T>) {
       <TableRowGroup type={StyledThead}>
         {collection.headerRows.map((headerRow) => (
           <TableHeaderRow key={headerRow.key} item={headerRow} state={state}>
-            {[...headerRow.childNodes].map((column) =>
-              column.props.isSelectionCell ? (
-                <TableSelectAllCell
-                  key={column.key}
-                  column={column}
-                  state={state}
-                />
-              ) : (
-                <TableColumnHeader
-                  key={column.key}
-                  column={column}
-                  state={state}
-                />
-              )
-            )}
+            {[...headerRow.childNodes].map((column) => {
+              if (column?.props?.isSelectionCell) {
+                return (
+                  <TableSelectAllCell
+                    key={column.key}
+                    column={column}
+                    state={state}
+                  />
+                );
+              } else if (column?.props?.allowsReordering) {
+                return (
+                  <DraggableTableColumnHeader
+                    key={column.key}
+                    column={column}
+                    state={state}
+                    onDrop={(columnKey) =>
+                      reorderColumns(columnKey, column.key)
+                    }
+                  />
+                );
+              } else {
+                return (
+                  <TableColumnHeader
+                    key={column.key}
+                    column={column}
+                    state={state}
+                  />
+                );
+              }
+            })}
           </TableHeaderRow>
         ))}
       </TableRowGroup>
@@ -177,6 +224,92 @@ function TableColumnHeader<T extends object>(props: TableColumnHeaderProps<T>) {
       ref={ref}
     >
       <ThContent>
+        {column.rendered}
+        {column.props.allowsSorting &&
+          state.sortDescriptor.column === column.key && (
+            <MaterialIcon icon={arrowIcon} />
+          )}
+        {column.props.allowsSorting &&
+          state.sortDescriptor.column !== column.key && (
+            <MaterialIcon icon="swap_vert" className="swap-icon" />
+          )}
+      </ThContent>
+    </StyledTh>
+  );
+}
+
+interface DraggableTableColumnHeaderProps<T> {
+  column: Node<T>;
+  state: TableState<T>;
+  onDrop?: (columnKey: string) => void;
+}
+
+function DraggableTableColumnHeader<T extends object>(
+  props: DraggableTableColumnHeaderProps<T>
+) {
+  const { column, state } = props;
+
+  // @ts-ignore
+  const colspan = column.colspan as number;
+
+  const ref = useRef(null);
+  const { columnHeaderProps } = useTableColumnHeader(
+    { node: column },
+    state,
+    ref
+  );
+  const { focusProps } = useFocusRing();
+  const arrowIcon =
+    state.sortDescriptor?.direction === "ascending"
+      ? "arrow_drop_down"
+      : "arrow_drop_up";
+
+  const { dragProps, isDragging } = useDrag({
+    getItems() {
+      return [
+        {
+          "text/plain": column.key as string,
+        },
+      ];
+    },
+  });
+
+  const { dropProps, isDropTarget } = useDrop({
+    ref,
+    async onDrop(e) {
+      const items = await Promise.all(
+        e.items
+          .filter(
+            (item) => item.kind === "text" && item.types.has("text/plain")
+          )
+          // @ts-ignore
+          .map((item: TextDropItem) => item.getText("text/plain"))
+      );
+      const columnKey = items[0];
+
+      props.onDrop?.(columnKey);
+    },
+  });
+
+  return (
+    <StyledTh
+      {...mergeProps(columnHeaderProps, focusProps)}
+      className={classNames({ "is-sortable": column.props.allowsSorting })}
+      colSpan={colspan}
+      ref={ref}
+      {...dragProps}
+      {...dropProps}
+      style={{
+        color: isDragging ? "red" : "black",
+        background: isDropTarget ? "yellow" : "white",
+      }}
+    >
+      <ThContent>
+        {
+          <ColumnDragIndicator
+            style={{ visibility: isDropTarget ? "visible" : "hidden" }}
+          />
+        }
         {column.rendered}
         {column.props.allowsSorting &&
           state.sortDescriptor.column === column.key && (
@@ -290,12 +423,19 @@ function TableSelectAllCell<T>(props: TableSelectAllCellProps<T>) {
  * Columns can be statically defined as children, or generated dynamically
  * using a function based on the data passed to the `columns` prop. */
 Table.Header = cloneComponent(TableHeader, "Table.Header");
+
+interface TableColumnProps<T> extends ColumnProps<T> {
+  allowsReordering?: boolean;
+}
+
 /** A `Table.Column` represents a single column in a Table.
  * It can be used as a child of a `Table.Header` to statically define
  * or dynamically generated using a function based on the `columns` prop.
  * of the `Table.Header`.
  */
-Table.Column = cloneComponent(Column, "Table.Column");
+Table.Column = cloneComponent(Column, "Table.Column") as <T>(
+  props: TableColumnProps<T>
+) => JSX.Element;
 /** A `Table.Row` represents a single item in a Table and contains Cell elements
  * for each column. Cells can be statically defined as children, or
  * generated dynamically using a function based on the columns defined

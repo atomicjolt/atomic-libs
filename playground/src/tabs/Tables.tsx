@@ -8,6 +8,37 @@ export default function Tables() {
     direction: "ascending",
   });
 
+  const [columnOrder, setColumnOrder] = useState<React.Key[]>([
+    "name",
+    "type",
+    "level",
+  ]);
+
+  const columns = [
+    {
+      key: "name",
+      name: "Name",
+      isSortable: true,
+      allowsReordering: true,
+    },
+    {
+      key: "type",
+      name: "Type",
+      isSortable: true,
+      allowsReordering: false,
+    },
+    {
+      key: "level",
+      name: "Level",
+      isSortable: true,
+      allowsReordering: true,
+    },
+  ];
+
+  const sortedColumns = columnOrder.map((key) =>
+    columns.find((c) => c.key === key)
+  ) as typeof columns;
+
   const pokemons = [
     {
       name: "Charizard",
@@ -52,24 +83,25 @@ export default function Tables() {
         selectionMode="multiple"
         sortDescriptor={sortDescriptor}
         onSortChange={setSortDescriptor}
+        onColumnReorder={setColumnOrder}
       >
-        <Table.Header>
-          <Table.Column key="name" allowsSorting>
-            Name
-          </Table.Column>
-          <Table.Column allowsSorting key="type">
-            Type
-          </Table.Column>
-          <Table.Column allowsSorting key="level">
-            Level
-          </Table.Column>
+        <Table.Header columns={sortedColumns}>
+          {(column) => (
+            <Table.Column
+              key={column.key}
+              allowsSorting={column.isSortable}
+              allowsReordering={column.allowsReordering}
+            >
+              {column.name}
+            </Table.Column>
+          )}
         </Table.Header>
         <Table.Body items={sortedPokemons}>
           {(pokemon) => (
             <Table.Row key={pokemon.name}>
-              <Table.Cell>{pokemon.name} </Table.Cell>
-              <Table.Cell>{pokemon.type} </Table.Cell>
-              <Table.Cell>{pokemon.level}</Table.Cell>
+              {sortedColumns.map((column) => (
+                <Table.Cell key={column.key}>{pokemon[column.key]}</Table.Cell>
+              ))}
             </Table.Row>
           )}
         </Table.Body>

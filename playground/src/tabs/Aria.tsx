@@ -22,13 +22,6 @@ export default function Aria() {
       <Banner variant="error">
         <MaterialIcon icon="error" />
         <Banner.Content>This is a banner</Banner.Content>
-        <Banner.Dismiss />
-      </Banner>
-      <ErrorBanner>This is an error</ErrorBanner>
-      <Banner variant="info">
-        <MaterialIcon icon="info" />
-        <Banner.Content>This is a banner</Banner.Content>
-        <Button variant="inverted">Click Me</Button>
       </Banner>
     </div>
   );
