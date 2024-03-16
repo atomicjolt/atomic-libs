@@ -82,6 +82,7 @@ export const UnmanagedListBox = React.forwardRef<
             value={searchValue}
             onChange={setSearchValue}
             placeholder={searchPlaceholder}
+            size={size}
           />
         )}
         {filteredItems.map((item) =>
