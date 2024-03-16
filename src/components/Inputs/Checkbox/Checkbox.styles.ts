@@ -25,6 +25,23 @@ export const CheckboxWrapper = styled(ChooseInputWrapper)`
     }
   }
 
+  input[type="checkbox"][data-indeterminate] ~ .aje-checkbox__label {
+    &:before {
+      --choose-check-bg-clr: var(--choose-checked);
+      --choose-check-border-clr: var(--choose-checked);
+    }
+    &:after {
+      display: block;
+      top: 3px;
+      left: 6px;
+      width: 12px;
+      height: 8px;
+      border: solid var(--neutral50);
+      border-width: 0 0px 2px 0;
+      transform: none;
+    }
+  }
+
   //Disabled states
   input[type="checkbox"]:disabled ~ .aje-checkbox__label,
   input[type="checkbox"]:checked:disabled ~ .aje-checkbox__label:before {

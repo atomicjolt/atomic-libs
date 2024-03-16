@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import {
   AriaTableProps,
   VisuallyHidden,
@@ -30,7 +30,6 @@ import {
   SelectionBehavior,
   Sortable,
 } from "@react-types/shared";
-import { useRef } from "react";
 import {
   StyledRow,
   StyledTBody,
@@ -46,7 +45,10 @@ import { HasChildren, HasClassName } from "../../../types";
 import MaterialIcon from "../../Icons/MaterialIcon";
 import { cloneComponent } from "../../../clone";
 
-export interface TableProps<T> extends AriaTableProps<T>, Sortable, HasClassName {
+export interface TableProps<T>
+  extends AriaTableProps<T>,
+    Sortable,
+    HasClassName {
   /** The selection mode for the table. */
   selectionMode?: SelectionMode;
   /** The selection behavior for the table. */
@@ -71,7 +73,11 @@ export default function Table<T extends object>(props: TableProps<T>) {
   const { gridProps } = useTable(props, state, ref);
 
   return (
-    <StyledTable {...gridProps} ref={ref} className={classNames("aje-table", className)}>
+    <StyledTable
+      {...gridProps}
+      ref={ref}
+      className={classNames("aje-table", className)}
+    >
       <TableRowGroup type={StyledThead}>
         {collection.headerRows.map((headerRow) => (
           <TableHeaderRow key={headerRow.key} item={headerRow} state={state}>
@@ -266,6 +272,8 @@ function TableSelectAllCell<T>(props: TableSelectAllCellProps<T>) {
     ref
   );
   const { checkboxProps } = useTableSelectAllCheckbox(state);
+
+  console.log(checkboxProps);
 
   return (
     <StyledTh {...columnHeaderProps} ref={ref}>

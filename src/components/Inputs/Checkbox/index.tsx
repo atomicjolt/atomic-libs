@@ -9,7 +9,7 @@ import { FieldError, FieldMessage } from "../../../styles/utils";
 import { CheckboxWrapper } from "./Checkbox.styles";
 
 export interface CheckBoxProps
-  extends AriaProps<Omit<AriaCheckboxProps, "isIndeterminate">>,
+  extends AriaProps<AriaCheckboxProps>,
     Omit<FieldBaseProps, "label" | "hideLabel"> {}
 
 /** Checkbox Component. Accepts a `ref` */
@@ -23,7 +23,9 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckBoxProps>(
       isRequired,
       isInvalid,
       size = "medium",
+      isIndeterminate = false,
     } = props;
+    console.log(props);
     const internalRef = useForwardedRef(ref);
     const state = useToggleState(props);
     const { inputProps, labelProps } = useCheckbox(props, state, internalRef);
@@ -36,7 +38,11 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckBoxProps>(
         })}
         {...labelProps}
       >
-        <ChooseInput ref={ref} {...inputProps} />
+        <ChooseInput
+          ref={ref}
+          {...inputProps}
+          data-indeterminate={isIndeterminate || null}
+        />
         <ChooseLabel className="aje-checkbox__label">
           {children}
           {isRequired && <span aria-hidden="true"> *</span>}
