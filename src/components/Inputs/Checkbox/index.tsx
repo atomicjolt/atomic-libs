@@ -1,7 +1,7 @@
 import React from "react";
 import cn from "classnames";
 import { useToggleState } from "react-stately";
-import { AriaCheckboxProps, useCheckbox } from "react-aria";
+import { AriaCheckboxProps, useCheckbox, useLocale } from "react-aria";
 import useForwardedRef from "../../../hooks/useForwardedRef";
 import { AriaProps, FieldBaseProps } from "../../../types";
 import { ChooseInput, ChooseLabel } from "../Inputs.styles";
@@ -27,6 +27,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckBoxProps>(
     } = props;
     const internalRef = useForwardedRef(ref);
     const state = useToggleState(props);
+    const { direction } = useLocale();
     const { inputProps, labelProps } = useCheckbox(props, state, internalRef);
 
     return (
@@ -36,13 +37,14 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckBoxProps>(
           "is-required": isRequired,
         })}
         {...labelProps}
+        $rtl={direction === "rtl"}
       >
         <ChooseInput
           ref={ref}
           {...inputProps}
           data-indeterminate={isIndeterminate || null}
         />
-        <ChooseLabel className="aje-checkbox__label">
+        <ChooseLabel className="aje-checkbox__label" $rtl={direction === "rtl"}>
           {children}
           {isRequired && <span aria-hidden="true"> *</span>}
           {message && <FieldMessage>{message}</FieldMessage>}

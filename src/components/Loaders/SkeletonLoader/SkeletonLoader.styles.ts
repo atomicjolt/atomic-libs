@@ -1,7 +1,8 @@
 import styled from 'styled-components';
+import { DirectionProps } from '../../../types';
 
 
-export const Svg = styled.svg<{ $rtl: boolean }>`
+export const Svg = styled.svg<DirectionProps>`
   ${({$rtl}) => $rtl ? { transform: "scaleX(-1)" } : null}
 `;
 

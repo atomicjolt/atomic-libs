@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { ChooseInputWrapper } from "../Inputs.styles";
+import { DirectionProps } from '../../../types';
 
 export const CheckboxWrapper = styled(ChooseInputWrapper)`
   --check-box-radius: var(--radius);
@@ -16,7 +17,7 @@ export const CheckboxWrapper = styled(ChooseInputWrapper)`
     &:after {
       display: block;
       top: 5px;
-      left: 9px;
+      ${({ $rtl }) => $rtl ? 'right: 9px;' : 'left: 9px;' }
       width: 4px;
       height: 9px;
       border: solid var(--neutral50);
@@ -33,7 +34,7 @@ export const CheckboxWrapper = styled(ChooseInputWrapper)`
     &:after {
       display: block;
       top: 3px;
-      left: 6px;
+      ${({ $rtl }) => $rtl ? 'right: 6px;' : 'left: 6px;' }
       width: 12px;
       height: 8px;
       border: solid var(--neutral50);

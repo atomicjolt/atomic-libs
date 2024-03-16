@@ -52,19 +52,16 @@ export interface CalendarProps<T extends DateValue>
  * <Calendar value={date} onChange={setDate} />
  */
 export default function Calendar<T extends DateValue>(props: CalendarProps<T>) {
-  let { locale } = useLocale();
-  let state = useCalendarState({
+  const { size = "medium" } = props;
+  const { locale } = useLocale();
+  const state = useCalendarState({
     ...props,
     locale,
     createCalendar,
   });
 
-  let { calendarProps, prevButtonProps, nextButtonProps, title } = useCalendar(
-    props,
-    state
-  );
-
-  const { size = "medium" } = props;
+  const { calendarProps, prevButtonProps, nextButtonProps, title } =
+    useCalendar(props, state);
 
   const className = classNames("aje-calendar", `is-${size}`);
 
@@ -118,11 +115,11 @@ interface CalendarGridProps extends AriaCalendarGridProps {
 
 function CalendarGrid(props: CalendarGridProps) {
   const { state, ...rest } = props;
-  let { locale } = useLocale();
-  let { gridProps, headerProps, weekDays } = useCalendarGrid(rest, state);
+  const { locale } = useLocale();
+  const { gridProps, headerProps, weekDays } = useCalendarGrid(rest, state);
 
   // Get the number of weeks in the month so we can render the proper number of rows.
-  let weeksInMonth = getWeeksInMonth(state.visibleRange.start, locale);
+  const weeksInMonth = getWeeksInMonth(state.visibleRange.start, locale);
 
   return (
     <CalendarContent {...gridProps} className="aje-calendar__content">
@@ -159,8 +156,8 @@ interface CalendarCellProps {
 
 function CalendarCell(props: CalendarCellProps) {
   const { state, date } = props;
-  let ref = useRef(null);
-  let {
+  const ref = useRef(null);
+  const {
     cellProps,
     buttonProps,
     isSelected,

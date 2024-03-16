@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import mixins from "../../styles/mixins";
 import { ComponentWrapper } from "../../styles/utils";
+import { DirectionProps } from '../../types';
 
 // TODO: consider if we want all these styled compiled together like this
 
@@ -84,7 +85,7 @@ export const Input = styled.input`
   }
 `;
 
-export const ChooseInputWrapper = styled.label`
+export const ChooseInputWrapper = styled.label<DirectionProps>`
   display: block;
 
   :is(input):focus-visible ~ .aje-checkbox__label:before {
@@ -109,7 +110,7 @@ export const ChooseInput = styled.input`
   position: absolute;
 `;
 
-export const ChooseLabel = styled.span`
+export const ChooseLabel = styled.span<DirectionProps>`
   ${mixins.Regular}
   display: inline-block;
   cursor: pointer;
@@ -118,14 +119,15 @@ export const ChooseLabel = styled.span`
   line-height: 1.5;
   color: var(--text-clr);
   padding-top: var(--choose-label-padding-top);
-  padding-left: var(--choose-label-padding-left);
   min-height: var(--choose-label-height);
+
+  ${({ $rtl }) => $rtl ? 'padding-right: var(--choose-label-padding-left);' : 'padding-left: var(--choose-label-padding-left);' }
 
   &:before {
     content: "";
     position: absolute;
     top: 2px;
-    left: 2px;
+    ${({ $rtl }) => $rtl ? 'right: 2px;' : 'left: 2px;' }
     width: var(--choose-check-size);
     height: var(--choose-check-size);
     box-sizing: border-box;

@@ -33,7 +33,7 @@ export const RadioWrapper = styled(ChooseInputWrapper)`
     &:after {
       display: block;
       top: 7px;
-      left: 7px;
+      ${({ $rtl }) => $rtl ? 'right: 7px;' : 'left: 7px;' }
       width: 10px;
       height: 10px;
       border-radius: 50%;

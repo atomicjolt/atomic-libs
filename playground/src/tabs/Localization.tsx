@@ -11,7 +11,7 @@ import {
 } from "../elements";
 import { I18nProvider } from "react-aria";
 
-export default function Aria() {
+export default function Localization() {
   const [locale, setLocale] = useState<React.Key>("en");
 
   const onLocaleChange = (key: React.Key) => {

@@ -5,7 +5,7 @@ import RadioContext from "./context";
 import { FieldSet } from "./RadioGroup.styles";
 import { FieldError, Label, FieldMessage } from "../../../styles/utils";
 import { useRadioGroupState } from "react-stately";
-import { AriaRadioGroupProps, RadioGroupAria, useRadioGroup } from "react-aria";
+import { AriaRadioGroupProps, useRadioGroup } from "react-aria";
 
 export interface RadioGroupsProps
   extends AriaProps<AriaRadioGroupProps>,

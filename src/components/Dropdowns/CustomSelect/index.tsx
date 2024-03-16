@@ -60,10 +60,11 @@ export function CustomSelect<T extends object>(props: CustomSelectProps<T>) {
     isSearchable,
     searchPlaceholder,
     size = "medium",
-    menuSize = "auto",
     placeholder = "Select an option",
     variant = "default",
   } = props;
+
+  const menuSize = props.menuSize || size;
 
   const variantClassName = useVariantClass("aje-dropdown", variant);
 

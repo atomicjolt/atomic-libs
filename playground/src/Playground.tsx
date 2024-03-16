@@ -6,9 +6,10 @@ import Buttons from "./tabs/Buttons";
 import Modals from "./tabs/Modals";
 import Tables from "./tabs/Tables";
 import Aria from "./tabs/Aria";
+import Localization from "./tabs/Localization";
 
 function Playground() {
-  const [currentTab, setCurrentTab] = useState<React.Key>("tables");
+  const [currentTab, setCurrentTab] = useState<React.Key>("aria");
 
   return (
     <div className="padder" style={{ height: "100%" }}>
@@ -22,8 +23,12 @@ function Playground() {
         <Item key="tables" title="Tables">
           <Tables />
         </Item>
+        <Item key="localization" title="Localization">
+          <Localization />
+        </Item>
+
         <Item key="aria" title="Aria">
-          <Aria />
+          <Aria />L
         </Item>
       </Tabs>
     </div>

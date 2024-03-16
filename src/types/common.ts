@@ -53,3 +53,8 @@ export interface HasClassName {
    * Refer to this for possible values: https://github.com/JedWatson/classnames#readme*/
   className?: Argument[] | Argument;
 }
+
+
+export interface DirectionProps {
+  $rtl?: boolean;
+}
