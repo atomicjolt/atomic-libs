@@ -1,12 +1,6 @@
 import styled from "styled-components";
 import mixins from "../../../styles/mixins";
 
-export const TableWrapper = styled.div`
-  max-width: 100%;
-  overflow-x: auto;
-  scrollbar-gutter: stable;
-  position: relative;
-`;
 
 export const StyledTable = styled.table`
   ${mixins.Regular}
@@ -18,7 +12,31 @@ export const StyledTable = styled.table`
   font-size: var(--table-font-size);
   color: var(--text-clr);
 
-  &.has-vertical-borders {
+
+  &.is-sticky {
+    thead {
+      th {
+        &:first-of-type {
+          position: sticky;
+          left: var(--table-border-width);
+          z-index: 2;
+          box-shadow: calc(var(--table-border-width) * -1) 0 0
+            var(--table-border-clr);
+        }
+      }
+    }
+    tbody {
+      th {
+        position: sticky;
+        left: var(--table-border-width);
+        z-index: 2;
+        box-shadow: calc(var(--table-border-width) * -1) 0 0
+          var(--table-border-clr);
+      }
+    }
+  }
+
+  &.aje-table--vertical-borders {
     border-width: var(--table-border-width) 0 0 var(--table-border-width);
     border-radius: var(--table-border-radius);
 
@@ -54,37 +72,44 @@ export const StyledTable = styled.table`
     }
   }
 
-  &.is-sticky {
-    thead {
-      th {
-        &:first-of-type {
-          position: sticky;
-          left: var(--table-border-width);
-          z-index: 2;
-          box-shadow: calc(var(--table-border-width) * -1) 0 0
-            var(--table-border-clr);
-        }
+  &.aje-table--sheet {
+    border-collapse: collapse;
+
+    --table-header-font-size: 1.4rem;
+    --table-cell-font-size: 1.4rem;
+
+    th {
+      ${mixins.Bold}
+      background: var(--neutral100);
+      border: 0.1rem solid var(--table-border-clr);
+      height: 4rem;
+      color: var(--text-clr-alt);
+      padding: 0 1rem 0 1.2rem;
+      text-transform: uppercase;
+
+      &.is-sortable:hover {
+        background-color: var(--neutral200);
       }
     }
-    tbody {
-      th {
-        position: sticky;
-        left: var(--table-border-width);
-        z-index: 2;
-        box-shadow: calc(var(--table-border-width) * -1) 0 0
-          var(--table-border-clr);
-      }
+
+    td {
+      ${mixins.Regular}
+      height: 3rem;
+      padding: 1rem 4rem 1rem 1.2rem;
+      border: 0.1rem solid var(--neutral300);
+    }
+
+    tbody tr:hover td {
+      background-color: var(--neutral100);
     }
   }
 `;
 
 export const StyledTh = styled.th`
+  ${mixins.Bold}
   border: solid var(--table-border-clr);
   border-width: 0 0 var(--table-border-width) 0;
   text-align: left;
-  font-weight: inherit;
-
-  ${mixins.Bold}
   font-size: var(--table-header-font-size);
   color: var(--text-clr-alt);
   text-transform: uppercase;
@@ -153,6 +178,7 @@ export const StyledTd = styled.td`
   border-width: 0 0 var(--table-border-width) 0;
   text-align: left;
   font-weight: inherit;
+  font-size: var(--table-cell-font-size);
   height: 48px;
   vertical-align: middle;
   padding: var(--table-padding-vert) var(--table-padding-horz);
@@ -185,9 +211,6 @@ export const StyledRow = styled.tr`
     --table-bg-clr: var(--neutral300);
   }
 
-  &:hover {
-    --table-bg-clr: var(--neutral200);
-  }
   &:focus-within,
   &.is-focused {
     --table-bg-clr: var(--neutral200);

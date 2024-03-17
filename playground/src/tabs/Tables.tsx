@@ -60,6 +60,146 @@ export default function Tables() {
       type: "Electric",
       level: 100,
     },
+    {
+      name: "Charizard",
+      type: "Fire, Flying",
+      level: 67,
+    },
+    {
+      name: "Blastoise",
+      type: "Water",
+      level: 56,
+    },
+    {
+      name: "Venusaur",
+      type: "Grass, Poison",
+      level: 83,
+    },
+    {
+      name: "Pikachu",
+      type: "Electric",
+      level: 100,
+    },
+    {
+      name: "Charizard",
+      type: "Fire, Flying",
+      level: 67,
+    },
+    {
+      name: "Blastoise",
+      type: "Water",
+      level: 56,
+    },
+    {
+      name: "Venusaur",
+      type: "Grass, Poison",
+      level: 83,
+    },
+    {
+      name: "Pikachu",
+      type: "Electric",
+      level: 100,
+    },
+    {
+      name: "Charizard",
+      type: "Fire, Flying",
+      level: 67,
+    },
+    {
+      name: "Blastoise",
+      type: "Water",
+      level: 56,
+    },
+    {
+      name: "Venusaur",
+      type: "Grass, Poison",
+      level: 83,
+    },
+    {
+      name: "Pikachu",
+      type: "Electric",
+      level: 100,
+    },
+    {
+      name: "Charizard",
+      type: "Fire, Flying",
+      level: 67,
+    },
+    {
+      name: "Blastoise",
+      type: "Water",
+      level: 56,
+    },
+    {
+      name: "Venusaur",
+      type: "Grass, Poison",
+      level: 83,
+    },
+    {
+      name: "Pikachu",
+      type: "Electric",
+      level: 100,
+    },
+    {
+      name: "Charizard",
+      type: "Fire, Flying",
+      level: 67,
+    },
+    {
+      name: "Blastoise",
+      type: "Water",
+      level: 56,
+    },
+    {
+      name: "Venusaur",
+      type: "Grass, Poison",
+      level: 83,
+    },
+    {
+      name: "Pikachu",
+      type: "Electric",
+      level: 100,
+    },
+    {
+      name: "Charizard",
+      type: "Fire, Flying",
+      level: 67,
+    },
+    {
+      name: "Blastoise",
+      type: "Water",
+      level: 56,
+    },
+    {
+      name: "Venusaur",
+      type: "Grass, Poison",
+      level: 83,
+    },
+    {
+      name: "Pikachu",
+      type: "Electric",
+      level: 100,
+    },
+    {
+      name: "Charizard",
+      type: "Fire, Flying",
+      level: 67,
+    },
+    {
+      name: "Blastoise",
+      type: "Water",
+      level: 56,
+    },
+    {
+      name: "Venusaur",
+      type: "Grass, Poison",
+      level: 83,
+    },
+    {
+      name: "Pikachu",
+      type: "Electric",
+      level: 100,
+    },
   ];
 
   const sortedPokemons = pokemons.sort((a, b) => {
@@ -80,10 +220,11 @@ export default function Tables() {
     >
       <Table
         aria-label="Table with selection"
-        selectionMode="multiple"
         sortDescriptor={sortDescriptor}
         onSortChange={setSortDescriptor}
         onColumnReorder={setColumnOrder}
+        variant="sheet"
+        isSticky
       >
         <Table.Header columns={sortedColumns}>
           {(column) => (
@@ -99,8 +240,10 @@ export default function Tables() {
         <Table.Body items={sortedPokemons}>
           {(pokemon) => (
             <Table.Row key={pokemon.name}>
-              {sortedColumns.map((column) => (
-                <Table.Cell key={column.key}>{pokemon[column.key]}</Table.Cell>
+              {sortedColumns.map((column, idx) => (
+                <Table.Cell key={column.key} isRowHeader={idx === 0}>
+                  {pokemon[column.key]}
+                </Table.Cell>
               ))}
             </Table.Row>
           )}

@@ -202,7 +202,8 @@ export const CssVariables = createGlobalStyle`
   --table-border-width: 1px;
   --table-bg-clr: var(--neutral50);
   --table-font-size: 1.6rem;
-  --table-header-font-size: 0.812em;
+  --table-header-font-size: 1.4rem;
+  --table-cell-font-size: 1em;
   --table-border-radius: var(--radius);
   --table-padding-vert: 8px;
   --table-padding-horz: 12px;

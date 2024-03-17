@@ -50,15 +50,24 @@ import {
 } from "./Table.styles";
 import Checkbox from "../../Inputs/Checkbox";
 import classNames from "classnames";
-import { HasChildren, HasClassName } from "../../../types";
+import {
+  HasChildren,
+  HasClassName,
+  HasVariant,
+  SuggestStrings,
+} from "../../../types";
 import MaterialIcon from "../../Icons/MaterialIcon";
 import { cloneComponent } from "../../../clone";
+import { useVariantClass } from "../../../hooks";
+
+type TableVariants = SuggestStrings<"default" | "grid" | "vertical-borders">;
 
 export interface TableProps<T>
   extends AriaTableProps<T>,
     MultipleSelection,
     Sortable,
-    HasClassName {
+    HasClassName,
+    HasVariant<TableVariants> {
   /** The selection mode for the table. */
   selectionMode?: SelectionMode;
   /** The selection behavior for the table. */
@@ -70,12 +79,20 @@ export interface TableProps<T>
   ];
 
   onColumnReorder?: (newOrder: React.Key[]) => void;
+
+  isSticky?: boolean;
 }
 
 /** Table component that supports sorting, row selection, and column reordering.  */
 export default function Table<T extends object>(props: TableProps<T>) {
-  const { selectionMode, selectionBehavior, className, onColumnReorder } =
-    props;
+  const {
+    selectionMode,
+    selectionBehavior,
+    className,
+    onColumnReorder,
+    variant = "default",
+    isSticky = false,
+  } = props;
   const state = useTableState({
     ...props,
     showSelectionCheckboxes:
@@ -85,6 +102,8 @@ export default function Table<T extends object>(props: TableProps<T>) {
   const ref = useRef(null);
   const { collection } = state;
   const { gridProps } = useTable(props, state, ref);
+
+  const variantClass = useVariantClass("aje-table", variant);
 
   const reorderColumns = (droppedKey: React.Key, nextKey: React.Key) => {
     const columnKeys = collection.headerRows
@@ -114,7 +133,9 @@ export default function Table<T extends object>(props: TableProps<T>) {
     <StyledTable
       {...gridProps}
       ref={ref}
-      className={classNames("aje-table", className)}
+      className={classNames("aje-table", variantClass, className, {
+        "is-sticky": isSticky,
+      })}
     >
       <TableRowGroup type={StyledThead}>
         {collection.headerRows.map((headerRow) => (
