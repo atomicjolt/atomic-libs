@@ -83,18 +83,69 @@ export const StyledTh = styled.th`
   border-width: 0 0 var(--table-border-width) 0;
   text-align: left;
   font-weight: inherit;
+
+  ${mixins.Bold}
+  font-size: var(--table-header-font-size);
+  color: var(--text-clr-alt);
+  text-transform: uppercase;
+  padding: calc(var(--table-padding-vert) + 0.25em) var(--table-padding-horz);
+
+  &.is-sortable {
+    .swap-icon {
+      visibility: hidden;
+    }
+
+    &:hover {
+      background-color: var(--neutral100);
+      cursor: pointer;
+
+      .swap-icon {
+        visibility: visible;
+      }
+    }
+
+    &:focus-visible {
+      background-color: var(--neutral100);
+      outline: 2px solid var(--neutral600);
+      outline-offset: -2px;
+  }
+
+  &[aria-sort="ascending"] {
+    button::after {
+      content: "\\e5d8";
+      color: var(--table-sort-icon-clr);
+    }
+  }
+
+  &[aria-sort="descending"] {
+    button::after {
+      content: "\\e5db";
+      color: var(--table-sort-icon-clr);
+    }
+  }
+  }
+`;
+
+export const DraggableTh = styled(StyledTh)`
+  &:hover {
+    background-color: var(--neutral100);
+    cursor: grab;
+  }
 `;
 
 export const ThContent = styled.div`
   display: flex;
   align-items: center;
   gap: 4px;
+  position: relative;
 `;
 
 export const ColumnDragIndicator = styled.div`
-  background-color: red;
-  width: 3px;
-  height: 25px;
+  background-color: var(--accent-clr);
+  width: 2px;
+  height: 48px;
+  position: absolute;
+  left: calc(var(--table-padding-horz) * -1 + 1px);
 `;
 
 export const StyledTd = styled.td`
@@ -102,64 +153,29 @@ export const StyledTd = styled.td`
   border-width: 0 0 var(--table-border-width) 0;
   text-align: left;
   font-weight: inherit;
+  height: 48px;
+  vertical-align: middle;
+  padding: var(--table-padding-vert) var(--table-padding-horz);
 `;
+
+export const RowHeader = styled.th`
+  border: solid var(--table-border-clr);
+  border-width: 0 0 var(--table-border-width) 0;
+  text-align: left;
+  font-weight: inherit;
+  width: 25%;
+
+  height: 48px;
+  vertical-align: middle;
+  padding: var(--table-padding-vert) var(--table-padding-horz);
+`;
+
 
 export const StyledThead = styled.thead`
   background-color: var(--table-bg-clr);
-
-  th {
-    ${mixins.Bold}
-    font-size: var(--table-header-font-size);
-    color: var(--text-clr-alt);
-    text-transform: uppercase;
-    padding: calc(var(--table-padding-vert) + 0.25em) var(--table-padding-horz);
-
-    &.is-sortable {
-      .swap-icon {
-        visibility: hidden;
-      }
-
-      &:hover {
-        background-color: var(--neutral100);
-        cursor: pointer;
-
-        .swap-icon {
-          visibility: visible;
-        }
-      }
-
-      &:focus-visible {
-        background-color: var(--neutral100);
-        outline: 2px solid var(--neutral600);
-        outline-offset: -2px;
-      }
-
-      &[aria-sort="ascending"] {
-        button::after {
-          content: "\\e5d8";
-          color: var(--table-sort-icon-clr);
-        }
-      }
-      &[aria-sort="descending"] {
-        button::after {
-          content: "\\e5db";
-          color: var(--table-sort-icon-clr);
-        }
-      }
-    }
-  }
 `;
 
 export const StyledTBody = styled.tbody`
-  th {
-    width: 25%;
-  }
-  th,
-  td {
-    height: 48px;
-    vertical-align: middle;
-    padding: var(--table-padding-vert) var(--table-padding-horz);
-  }
 `;
 
 export const StyledRow = styled.tr`

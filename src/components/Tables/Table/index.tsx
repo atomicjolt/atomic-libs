@@ -28,6 +28,7 @@ import {
   TableHeaderProps,
   TableBodyProps,
   ColumnProps,
+  CellProps,
 } from "react-stately";
 import {
   SelectionMode,
@@ -37,6 +38,8 @@ import {
 } from "@react-types/shared";
 import {
   ColumnDragIndicator,
+  DraggableTh,
+  RowHeader,
   StyledRow,
   StyledTBody,
   StyledTable,
@@ -69,6 +72,7 @@ export interface TableProps<T>
   onColumnReorder?: (newOrder: React.Key[]) => void;
 }
 
+/** Table component that supports sorting, row selection, and column reordering.  */
 export default function Table<T extends object>(props: TableProps<T>) {
   const { selectionMode, selectionBehavior, className, onColumnReorder } =
     props;
@@ -264,7 +268,7 @@ function DraggableTableColumnHeader<T extends object>(
       ? "arrow_drop_down"
       : "arrow_drop_up";
 
-  const { dragProps, isDragging } = useDrag({
+  const { dragProps } = useDrag({
     getItems() {
       return [
         {
@@ -292,24 +296,16 @@ function DraggableTableColumnHeader<T extends object>(
   });
 
   return (
-    <StyledTh
-      {...mergeProps(columnHeaderProps, focusProps)}
+    <DraggableTh
       className={classNames({ "is-sortable": column.props.allowsSorting })}
       colSpan={colspan}
       ref={ref}
-      {...dragProps}
-      {...dropProps}
-      style={{
-        color: isDragging ? "red" : "black",
-        background: isDropTarget ? "yellow" : "white",
-      }}
+      {...mergeProps(columnHeaderProps, focusProps, dragProps, dropProps)}
     >
       <ThContent>
-        {
-          <ColumnDragIndicator
-            style={{ visibility: isDropTarget ? "visible" : "hidden" }}
-          />
-        }
+        <ColumnDragIndicator
+          style={{ visibility: isDropTarget ? "visible" : "hidden" }}
+        />
         {column.rendered}
         {column.props.allowsSorting &&
           state.sortDescriptor.column === column.key && (
@@ -320,7 +316,7 @@ function DraggableTableColumnHeader<T extends object>(
             <MaterialIcon icon="swap_vert" className="swap-icon" />
           )}
       </ThContent>
-    </StyledTh>
+    </DraggableTh>
   );
 }
 
@@ -361,6 +357,18 @@ function TableCell<T>(props: TableCellProps<T>) {
   const ref = useRef(null);
   const { gridCellProps } = useTableCell({ node: cell }, state, ref);
   const { focusProps } = useFocusRing();
+
+  if (cell?.props?.isRowHeader) {
+    return (
+      <RowHeader
+        {...mergeProps(gridCellProps, focusProps)}
+        ref={ref}
+        scope="row"
+      >
+        {cell.rendered}
+      </RowHeader>
+    );
+  }
 
   return (
     <StyledTd {...mergeProps(gridCellProps, focusProps)} ref={ref}>
@@ -409,7 +417,7 @@ function TableSelectAllCell<T>(props: TableSelectAllCellProps<T>) {
   const { checkboxProps } = useTableSelectAllCheckbox(state);
 
   return (
-    <StyledTh {...columnHeaderProps} ref={ref}>
+    <StyledTh {...columnHeaderProps} ref={ref} style={{ width: "48px" }}>
       {state.selectionManager.selectionMode === "single" ? (
         <VisuallyHidden>{checkboxProps["aria-label"]}</VisuallyHidden>
       ) : (
@@ -425,6 +433,7 @@ function TableSelectAllCell<T>(props: TableSelectAllCellProps<T>) {
 Table.Header = cloneComponent(TableHeader, "Table.Header");
 
 interface TableColumnProps<T> extends ColumnProps<T> {
+  /** Whether the column can be re-orderd by dragging and dropping an another re-orderable column */
   allowsReordering?: boolean;
 }
 
@@ -446,5 +455,13 @@ Table.Row = cloneComponent(Row, "Table.Row");
  * using a function based on the data passed to the `items` prop.
  */
 Table.Body = cloneComponent(TableBody, "Table.Body");
+
+interface PublicTableCellProps extends CellProps {
+  /** Whether the cell is a header for the row. When true, the cell will be a th instead of a td */
+  isRowHeader?: boolean;
+}
+
 /** A `Table.Cell` represents a single cell in a Table. */
-Table.Cell = cloneComponent(Cell, "Table.Cell");
+Table.Cell = cloneComponent(Cell, "Table.Cell") as (
+  props: PublicTableCellProps
+) => JSX.Element;

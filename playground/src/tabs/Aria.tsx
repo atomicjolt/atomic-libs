@@ -16,13 +16,22 @@ import {
 } from "../elements";
 import { I18nProvider } from "react-aria";
 
+function Items() {
+  return (
+    <>
+      <Item key="1">David</Item>
+      <Item key="2">Sam</Item>
+      <Item key="3">Jane</Item>
+    </>
+  );
+}
+
 export default function Aria() {
   return (
     <div>
-      <Banner variant="error">
-        <MaterialIcon icon="error" />
-        <Banner.Content>This is a banner</Banner.Content>
-      </Banner>
+      <CustomSelect>
+        <Items />
+      </CustomSelect>
     </div>
   );
 }

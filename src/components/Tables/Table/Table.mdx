@@ -1,0 +1,213 @@
+import {
+  Canvas,
+  Meta,
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  ArgsTable,
+  Stories,
+  ArgTypes,
+  Controls,
+  Story,
+} from "@storybook/blocks";
+
+import * as TableStories from "./Table.stories";
+
+<Meta of={TableStories} />
+
+<Title />
+<Subtitle />
+<Description />
+<Primary />
+<Controls />
+
+### Sortable Table
+
+<Canvas of={TableStories.SortableHeaders} source={{ language: 'tsx', code: `
+
+export default function SortableTable() {
+  const [sortDescriptor, setSortDescriptor] = useState<SortDescriptor>({
+    column: "name",
+    direction: "ascending",
+  });
+
+  const pokemons = [
+    {
+      name: "Charizard",
+      type: "Fire, Flying",
+      level: 67,
+    },
+    {
+      name: "Blastoise",
+      type: "Water",
+      level: 56,
+    },
+    {
+      name: "Venusaur",
+      type: "Grass, Poison",
+      level: 83,
+    },
+    {
+      name: "Pikachu",
+      type: "Electric",
+      level: 100,
+    },
+  ];
+
+  const sortedPokemons = pokemons.sort((a, b) => {
+    if (sortDescriptor.column === undefined) return 0;
+
+    if (sortDescriptor.direction === "ascending") {
+      return a[sortDescriptor.column] > b[sortDescriptor.column] ? 1 : -1;
+    } else {
+      return a[sortDescriptor.column] < b[sortDescriptor.column] ? 1 : -1;
+    }
+  });
+
+  return (
+    <Table
+      aria-label="Table with selection"
+      selectionMode="multiple"
+      sortDescriptor={sortDescriptor}
+      onSortChange={setSortDescriptor}
+      onColumnReorder={setColumnOrder}
+    >
+      <Table.Header columns={sortedColumns}>
+        <Table.Column key="name" allowsSorting>
+          Name
+        </Table.Column>
+        <Table.Column key="type" allowsSorting>
+          Type
+        </Table.Column>
+        <Table.Column key="level" allowsSorting>
+          Level
+        </Table.Column>
+      </Table.Header>
+      <Table.Body items={sortedPokemons}>
+        {(pokemon) => (
+          <Table.Row key={pokemon.name}>
+            <Table.Cell>{pokemon.name}</Table.Cell>
+            <Table.Cell>{pokemon.type}</Table.Cell>
+            <Table.Cell>{pokemon.level}</Table.Cell>
+          </Table.Row>
+        )}
+      </Table.Body>
+    </Table>
+  );
+}
+
+` }}/>
+
+### Table with Row Selection
+
+The table component supports row selection. By default, the selected rows will be managed internally, but you can
+also provide `selectedKeys` and `onSelectionChange` props to manage the selected rows externally.
+
+The table component supports two types of row selection: 'single' and 'multiple'
+
+#### Single Selection
+
+In single selection mode, only one row can be selected at a time. Clicking on a row will select it and deselect any other selected row.
+
+<Canvas of={TableStories.SingleSelection} />
+
+#### Multiple Selection
+
+In multiple selection mode, multiple rows can be selected at the same time. Clicking on a row will toggle its selection state.
+
+Multiple selection also displays a checkbox in each row to allow the user to select or deselect the row.
+
+<Canvas of={TableStories.MultipleSelection} />
+
+### Table with reoderable columns
+
+The table supports the ability to drag-and-drop columns to reorder them.
+
+<Canvas of={TableStories.WithColumnReordering} source={{language: 'tsx', code: `
+
+function ReorderableTable() {
+  const [columnOrder, setColumnOrder] = useState<React.Key[]>([
+    "name",
+    "type",
+    "level",
+  ]);
+
+  // Define your columns programatically
+  const columns = [
+    {
+      key: "name",
+      name: "Name",
+    },
+    {
+      key: "type",
+      name: "Type",
+    },
+    {
+      key: "level",
+      name: "Level",
+    },
+  ];
+
+  // Sort those columns based on the order you have in state
+  const sortedColumns = columnOrder.map((key) =>
+    columns.find((c) => c.key === key)
+  ) as typeof columns;
+
+  const pokemons = [
+    {
+      name: "Charizard",
+      type: "Fire, Flying",
+      level: 67,
+    },
+    {
+      name: "Blastoise",
+      type: "Water",
+      level: 56,
+    },
+    {
+      name: "Venusaur",
+      type: "Grass, Poison",
+      level: 83,
+    },
+    {
+      name: "Pikachu",
+      type: "Electric",
+      level: 100,
+    },
+  ];
+
+  return (
+    <Table
+      aria-label="Table with orderable columns"
+      // onColumnReorder will be called with the new ordering
+      // whenever the user finishes reordering the columns
+      onColumnReorder={setColumnOrder}
+    >
+      <Table.Header columns={sortedColumns}>
+        {(column) => (
+          <Table.Column
+            key={column.key}
+            // Allow this column to be reordered
+            // If this is false, the column cannot be dragged nor dropped on
+            allowsReordering          
+          >
+            {column.name}
+          </Table.Column>
+        )}
+      </Table.Header>
+      <Table.Body items={pokemons}>
+        {(pokemon) => (
+          // The cells of the row should be rendered in the same order as the columns
+          <Table.Row key={pokemon.name}>
+            {sortedColumns.map((column) => (
+              <Table.Cell key={column.key}>{pokemon[column.key]}</Table.Cell>
+            ))}
+          </Table.Row>
+        )}
+      </Table.Body>
+    </Table>
+  );
+}
+`
+}} />

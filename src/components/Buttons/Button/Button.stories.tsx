@@ -1,6 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
 import Button from ".";
-import { CallbackControls, FocusEventControls } from "../../storybook";
 
 const meta: Meta<typeof Button> = {
   title: "Buttons/Button",
@@ -9,8 +8,6 @@ const meta: Meta<typeof Button> = {
     layout: "centered",
   },
   argTypes: {
-    ...CallbackControls,
-    ...FocusEventControls,
     children: {
       control: "text",
     },

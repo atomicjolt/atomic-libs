@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import Table from ".";
 
@@ -60,10 +60,17 @@ export const Primary: Story = {
   },
 };
 
-export const WithSelection: Story = {
+export const MultipleSelection: Story = {
   args: {
     ...Primary.args,
     selectionMode: "multiple",
+  },
+};
+
+export const SingleSelection: Story = {
+  args: {
+    ...Primary.args,
+    selectionMode: "single",
   },
 };
 
@@ -108,5 +115,87 @@ export const SortableHeaders: Story = {
         </Table.Row>
       </Table.Body>,
     ],
+  },
+};
+
+export const WithColumnReordering: Story = {
+  render: (args) => {
+    const [columnOrder, setColumnOrder] = useState<React.Key[]>([
+      "name",
+      "type",
+      "level",
+    ]);
+
+    const columns = [
+      {
+        key: "name",
+        name: "Name",
+        allowsReordering: true,
+      },
+      {
+        key: "type",
+        name: "Type",
+        allowsReordering: true,
+      },
+      {
+        key: "level",
+        name: "Level",
+        allowsReordering: true,
+      },
+    ];
+
+    const sortedColumns = columnOrder.map((key) =>
+      columns.find((c) => c.key === key)
+    ) as typeof columns;
+
+    const pokemons = [
+      {
+        name: "Charizard",
+        type: "Fire, Flying",
+        level: 67,
+      },
+      {
+        name: "Blastoise",
+        type: "Water",
+        level: 56,
+      },
+      {
+        name: "Venusaur",
+        type: "Grass, Poison",
+        level: 83,
+      },
+      {
+        name: "Pikachu",
+        type: "Electric",
+        level: 100,
+      },
+    ];
+
+    return (
+      <Table
+        aria-label="Table with orderable columns"
+        onColumnReorder={setColumnOrder}
+      >
+        <Table.Header columns={sortedColumns}>
+          {(column) => (
+            <Table.Column
+              key={column.key}
+              allowsReordering={column.allowsReordering}
+            >
+              {column.name}
+            </Table.Column>
+          )}
+        </Table.Header>
+        <Table.Body items={pokemons}>
+          {(pokemon) => (
+            <Table.Row key={pokemon.name}>
+              {sortedColumns.map((column) => (
+                <Table.Cell key={column.key}>{pokemon[column.key]}</Table.Cell>
+              ))}
+            </Table.Row>
+          )}
+        </Table.Body>
+      </Table>
+    );
   },
 };

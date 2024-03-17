@@ -25,7 +25,7 @@ export default function Tables() {
       key: "type",
       name: "Type",
       isSortable: true,
-      allowsReordering: false,
+      allowsReordering: true,
     },
     {
       key: "level",
