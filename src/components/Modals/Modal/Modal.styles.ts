@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import mixins from "../../../styles/mixins";
+import { CheckboxWrapper } from '../../Inputs/Checkbox/Checkbox.styles';
+import { ChooseLabel } from '../../Inputs/Inputs.styles';
 
 export const ModalHeader = styled.div.attrs({ className: "aje-modal__top" })`
   display: flex;
@@ -22,10 +24,6 @@ export const ModalBody = styled.div.attrs({ className: "aje-modal__main" })`
   font-size: 1.6rem;
   color: var(--text-clr);
   line-height: 1.5;
-
-  p {
-    margin: 0;
-  }
 `;
 
 export const ModalFooter = styled.div.attrs({ className: "aje-modal__bottom" })`
@@ -75,6 +73,23 @@ export const ModalWrapper = styled.div`
 
     .aje-modal__top > i {
       color: var(--error700);
+    }
+  }
+
+  &.aje-modal--developer-error {
+    max-width: 1200px;
+    background-color: #181818;
+
+    ${ChooseLabel} {
+      color: var(--text-clr-inverted);
+    }
+
+    ${ModalHeader} {
+      color: var(--error700) !important;
+    }
+
+    ${ModalTitle} {
+      color: var(--error700) !important;
     }
   }
 `;

@@ -52,6 +52,8 @@ export { ListBox, UnmanagedListBox } from "./Atoms/ListBox";
 
 export { SkeletonLoader } from "./Loaders/SkeletonLoader";
 
+export { DevelopmentErrorModal, DevelopmentErrorBoundary } from "./Development/DevelopmentErrorModal";
+
 /* ---- Types ---- */
 
 export type { BannerProps, BannerVariants } from "./Banners/Banner";
@@ -94,3 +96,4 @@ export type { TimeInputProps } from "./Inputs/DateAndTimes/TimeInput";
 export type { DatePickerProps } from "./Inputs/DateAndTimes/DatePicker";
 export type { ListBoxProps } from "./Atoms/ListBox";
 export type { SkeletonLoaderProps } from "./Loaders/SkeletonLoader";
+export type { DevelopmentErrorModalProps } from "./Development/DevelopmentErrorModal";

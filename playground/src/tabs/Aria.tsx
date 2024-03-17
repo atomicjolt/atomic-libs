@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import {
   CheckBox,
   CustomSelect,
@@ -13,25 +13,12 @@ import {
   IconButton,
   Button,
   ErrorBanner,
+  Modal,
+  DevelopmentErrorBoundary,
 } from "../elements";
 import { I18nProvider } from "react-aria";
-
-function Items() {
-  return (
-    <>
-      <Item key="1">David</Item>
-      <Item key="2">Sam</Item>
-      <Item key="3">Jane</Item>
-    </>
-  );
-}
+import styled from "styled-components";
 
 export default function Aria() {
-  return (
-    <div>
-      <CustomSelect>
-        <Items />
-      </CustomSelect>
-    </div>
-  );
+  return <span>hi there</span>;
 }

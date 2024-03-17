@@ -3,6 +3,8 @@ import { Button, IconButton, IconMenu } from "../elements";
 import { Item, Section } from "react-stately";
 
 export default function Buttons() {
+  throw new Error("This is an error");
+
   return (
     <>
       <div className="padder">
@@ -17,7 +19,7 @@ export default function Buttons() {
       </div>
       <div className="padder">
         <IconMenu>
-          <IconMenu.Item onAction={() => alert('1')}>Test</IconMenu.Item>
+          <IconMenu.Item onAction={() => alert("1")}>Test</IconMenu.Item>
           <IconMenu.Item key="2">Test</IconMenu.Item>
           <IconMenu.Item key="3">Test</IconMenu.Item>
           <Section title="Section">

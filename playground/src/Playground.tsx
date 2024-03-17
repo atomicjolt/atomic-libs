@@ -9,7 +9,7 @@ import Aria from "./tabs/Aria";
 import Localization from "./tabs/Localization";
 
 function Playground() {
-  const [currentTab, setCurrentTab] = useState<React.Key>("tables");
+  const [currentTab, setCurrentTab] = useState<React.Key>("aria");
 
   return (
     <div className="padder" style={{ height: "100%" }}>
