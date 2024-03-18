@@ -1,10 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { today, getLocalTimeZone } from "@internationalized/date";
-import {
-  NewDefaultInputProperties,
-  TextInputControls,
-  CallbackControls,
-} from "../../../storybook";
 import Calendar from ".";
 
 const meta: Meta<typeof Calendar> = {
@@ -14,7 +9,6 @@ const meta: Meta<typeof Calendar> = {
     layout: "centered",
   },
   argTypes: {
-    ...CallbackControls,
     value: {
       control: false,
       description:

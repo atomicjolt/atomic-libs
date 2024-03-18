@@ -1,10 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { TimeInput } from ".";
 import { now, getLocalTimeZone } from "@internationalized/date";
-import {
-  NewDefaultInputProperties,
-  TextInputControls,
-} from "../../../storybook";
+import { TextInputControls } from "../../../storybook";
 
 export default {
   title: "Inputs/Date & Time/TimeInput",

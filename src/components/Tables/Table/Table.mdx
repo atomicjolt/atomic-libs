@@ -67,11 +67,9 @@ export default function SortableTable() {
 
   return (
     <Table
-      aria-label="Table with selection"
-      selectionMode="multiple"
+      aria-label="Table with sorting"
       sortDescriptor={sortDescriptor}
       onSortChange={setSortDescriptor}
-      onColumnReorder={setColumnOrder}
     >
       <Table.Header columns={sortedColumns}>
         <Table.Column key="name" allowsSorting>

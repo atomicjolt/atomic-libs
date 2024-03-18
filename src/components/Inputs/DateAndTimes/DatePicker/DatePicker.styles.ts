@@ -33,6 +33,10 @@ export const DatePickerInputWrapper = styled.div`
   background-color: var(--input-bg-clr);
   text-align: left;
 
+  i {
+    color: var(--input-icon-clr);
+  }
+
   &:focus-within {
     --input-border-color: var(--outline-clr-primary);
     outline: var(--input-outline);

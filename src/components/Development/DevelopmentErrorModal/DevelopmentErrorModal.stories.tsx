@@ -13,7 +13,8 @@ export const Default: Story = {
     isOpen: false,
     errorMessage: "There was an error",
     errorName: "Error",
-    stackTrace: `Buttons@http://localhost:5173/src/tabs/Buttons.tsx?t=1710663578732:5:9
+    stackTrace: `
+    Buttons@http://localhost:5173/src/tabs/Buttons.tsx?t=1710663578732:5:9
     renderWithHooks@http://localhost:5173/@fs/Users/seancollings/sourcecode/aj/atomic-elements/node_modules/.vite/deps/chunk-HVRFWYDF.js?v=1b3d1064:11763:35
     mountIndeterminateComponent@http://localhost:5173/@fs/Users/seancollings/sourcecode/aj/atomic-elements/node_modules/.vite/deps/chunk-HVRFWYDF.js?v=1b3d1064:14492:21
     beginWork@http://localhost:5173/@fs/Users/seancollings/sourcecode/aj/atomic-elements/node_modules/.vite/deps/chunk-HVRFWYDF.js?v=1b3d1064:15447:22

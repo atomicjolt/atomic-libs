@@ -76,11 +76,7 @@ export function DatePicker<T extends DateValue>(props: DatePickerProps<T>) {
       >
         <DatePickerInputWrapper {...groupProps} ref={ref}>
           <DateInput {...fieldProps} size="full" isRequired={isRequired} />
-          <IconButton
-            icon="calendar_month"
-            variant="content"
-            {...buttonProps}
-          />
+          <IconButton icon="today" variant="content" {...buttonProps} />
         </DatePickerInputWrapper>
       </FieldWrapper>
       {state.isOpen && (

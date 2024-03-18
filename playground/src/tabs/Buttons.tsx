@@ -3,8 +3,6 @@ import { Button, IconButton, IconMenu } from "../elements";
 import { Item, Section } from "react-stately";
 
 export default function Buttons() {
-  throw new Error("This is an error");
-
   return (
     <>
       <div className="padder">
