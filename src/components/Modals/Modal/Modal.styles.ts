@@ -9,11 +9,11 @@ export const ModalHeader = styled.div.attrs({ className: "aje-modal__top" })`
   gap: 8px;
 `;
 
-export const ModalTitle = styled.h2.attrs({ className: "aje-modal__title" })`
+export const ModalTitle = styled.h2.attrs({ className: "aje-modal__title" })<{fill?: boolean}>`
   ${mixins.Bold}
   margin: 0;
   font-size: 2rem;
-  flex: 1;
+  ${({ fill = true })=> fill && "flex: 1;"}
   line-height: 1;
   color: var(--text-clr);
 `;
