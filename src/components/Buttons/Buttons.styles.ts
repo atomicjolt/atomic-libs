@@ -106,7 +106,6 @@ export const BaseStyledButton = styled.button`
     --btn-bg-clr: transparent;
     --btn-hover-text-clr: var(--text-clr);
     --btn-hover-bg-clr: var(--neutral100);
-    --btn-hover-bg-clr: #ffffffaa;
     --btn-border: transparent;
   }
 

@@ -8,13 +8,14 @@ import MaterialIcon from "../../Icons/MaterialIcon";
 const meta: Meta<typeof Modal> = {
   title: "Modals/Modal",
   component: Modal,
-  decorators: [
-    (Story) => (
-      <div style={{ backgroundColor: "red" }}>
-        <Story />
-      </div>
-    ),
-  ],
+  parameters: {
+    docs: {
+      story: {
+        inline: false,
+        height: "400px",
+      },
+    },
+  },
   argTypes: {
     children: {
       control: false,
@@ -32,7 +33,7 @@ type Story = StoryObj<typeof Modal>;
 
 export const Primary: Story = {
   args: {
-    isOpen: false,
+    isOpen: true,
     children: [
       <Modal.Header>
         <Modal.Title>Title</Modal.Title>
