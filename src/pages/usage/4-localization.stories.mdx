@@ -2,7 +2,7 @@ import { Meta, Canvas } from "@storybook/blocks";
 import { useState } from "react";
 import { SensibleDefaults } from "../../styles/defaults";
 import { DatePicker } from "../../components/Inputs/DateAndTimes/DatePicker";
-import { LocaleProvider } from "../../locale";
+import { LocaleProvider } from "../../components/locale";
 import { CustomSelect } from "../../components/Dropdowns/CustomSelect";
 import { Item } from "../../components/Atoms/Collection";
 
@@ -19,7 +19,7 @@ Several components handle the details of localization for you. For example, the 
 By default, the locale is determined by the user's browser settings. You can override this by wrapping your component in a `LocaleProvider` and setting the `locale` prop.
 
 ```jsx
-import { LocaleProvider } from "@atomic-elements";
+import { LocaleProvider } from "@atomicjolt/atomic-elements";
 
 <LocaleProvider locale="en">{/* Your app here */}</LocaleProvider>;
 ```
