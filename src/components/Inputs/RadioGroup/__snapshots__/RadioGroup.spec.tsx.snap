@@ -16,7 +16,7 @@ exports[`matches snapshot 1`] = `
       Label
     </legend>
     <label
-      class="sc-iCoHzw sc-kEqXeH hKJGof yaXTG aje-radio"
+      class="sc-iCoHzw sc-kEqXeH hKJGof hBBYWL aje-radio"
     >
       <input
         checked=""
@@ -27,13 +27,13 @@ exports[`matches snapshot 1`] = `
         value="opt1"
       />
       <span
-        class="sc-pNWRh hMwpqe aje-checkbox__label"
+        class="sc-pNWRh keHyrK aje-checkbox__label"
       >
         Option 1
       </span>
     </label>
     <label
-      class="sc-iCoHzw sc-kEqXeH hKJGof yaXTG aje-radio"
+      class="sc-iCoHzw sc-kEqXeH hKJGof hBBYWL aje-radio"
     >
       <input
         class="sc-fujznN kzHtgv"
@@ -43,13 +43,13 @@ exports[`matches snapshot 1`] = `
         value="opt2"
       />
       <span
-        class="sc-pNWRh hMwpqe aje-checkbox__label"
+        class="sc-pNWRh keHyrK aje-checkbox__label"
       >
         Option 2
       </span>
     </label>
     <label
-      class="sc-iCoHzw sc-kEqXeH hKJGof yaXTG aje-radio"
+      class="sc-iCoHzw sc-kEqXeH hKJGof hBBYWL aje-radio"
     >
       <input
         class="sc-fujznN kzHtgv"
@@ -59,7 +59,7 @@ exports[`matches snapshot 1`] = `
         value="opt3"
       />
       <span
-        class="sc-pNWRh hMwpqe aje-checkbox__label"
+        class="sc-pNWRh keHyrK aje-checkbox__label"
       >
         Option 3
       </span>
