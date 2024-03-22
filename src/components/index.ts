@@ -52,7 +52,12 @@ export { ListBox, UnmanagedListBox } from "./Atoms/ListBox";
 
 export { SkeletonLoader } from "./Loaders/SkeletonLoader";
 
-export { DevelopmentErrorModal, DevelopmentErrorBoundary } from "./Development/DevelopmentErrorModal";
+export {
+  DevelopmentErrorModal,
+  DevelopmentErrorBoundary,
+} from "./Development/DevelopmentErrorModal";
+
+export { LocaleProvider } from "./locale";
 
 /* ---- Types ---- */
 
