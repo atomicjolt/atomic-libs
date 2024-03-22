@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import mixins from '../../../styles/mixins';
+import styled from "styled-components";
+import mixins from "../../../styles/mixins";
 
 export const StyledCardPanel = styled.div`
   background-color: var(--card-panel-bg-clr);
@@ -27,16 +27,16 @@ export const StyledCardPanel = styled.div`
   &.is-auto {
     flex: 0 0 auto;
   }
-`
+`;
 
-export const CardWrapper  = styled.div`
+export const CardWrapper = styled.div`
   background-color: var(--card-bg-clr);
   border: var(--card-border);
   border-radius: var(--card-radius);
   padding: var(--card-padding);
 
   & > ${StyledCardPanel} {
-    margin-bottom: var(--card-padding)
+    margin-bottom: var(--card-padding);
   }
 
   & > ${StyledCardPanel}:last-child {
@@ -44,23 +44,24 @@ export const CardWrapper  = styled.div`
   }
 `;
 
-export const CardTitle = styled.span`
-  ${mixins.Bold}
+export const CardHeader = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
-  color: var(--card-text-clr);
   margin: 16px;
-  font-size: 16px;
-`
+`;
 
+export const CardTitle = styled.span`
+  ${mixins.Bold}
+  flex: 1;
+  display: flex;
+  align-items: center;
+  color: var(--card-text-clr);
+  font-size: 16px;
+`;
 
 export const CardColumns = styled.div`
   display: flex;
   flex-direction: row;
   gap: var(--card-padding);
-
-  /* * {
-    flex: 1;
-  } */
-`
+`;

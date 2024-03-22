@@ -4,13 +4,21 @@ import { DevelopmentErrorModal } from ".";
 export default {
   title: "Dev/DevelopmentErrorModal",
   component: DevelopmentErrorModal,
+  parameters: {
+    docs: {
+      story: {
+        inline: false,
+        height: "600px",
+      },
+    },
+  },
 } as Meta<typeof DevelopmentErrorModal>;
 
 type Story = StoryObj<typeof DevelopmentErrorModal>;
 
 export const Default: Story = {
   args: {
-    isOpen: false,
+    isOpen: true,
     errorMessage: "There was an error",
     errorName: "Error",
     stackTrace: `

@@ -43,23 +43,6 @@ export const TabLink = styled.div`
   text-decoration: none;
   color: var(--tab-text-clr);
 
-  &[aria-selected="true"] {
-    --tab-bg-clr: var(--neutral50);
-    --tab-border-clr: var(--border-clr-primary);
-    --tab-text-clr: var(--text-clr);
-
-    &::after {
-      content: "";
-      position: absolute;
-      height: calc(var(--tab-border-width) + 2px);
-      bottom: -1px;
-      left: 0;
-      right: 0;
-      background-color: var(--tab-bg-clr);
-      z-index: 3;
-    }
-  }
-
   &:hover {
     --tab-text-clr: var(--text-clr);
     --tab-border-clr: var(--border-clr-primary);
@@ -97,6 +80,25 @@ export const TabContentWrapper = styled.div`
 `;
 
 export const TabsWrapper = styled.div`
+
+  &.aje-tabs--default {
+    ${TabLink}[aria-selected="true"] {
+      --tab-bg-clr: var(--neutral50);
+      --tab-border-clr: var(--border-clr-primary);
+      --tab-text-clr: var(--text-clr);
+
+        &::after {
+        content: "";
+        position: absolute;
+        height: calc(var(--tab-border-width) + 2px);
+        bottom: -1px;
+        left: 0;
+        right: 0;
+        background-color: var(--tab-bg-clr);
+        z-index: 3;
+      }
+    }
+  }
 
   &.aje-tabs--card {
     --tab-radius: var(--card-radius);

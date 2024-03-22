@@ -2,8 +2,6 @@ import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import { Card } from ".";
 import { ExtendedSize } from "../../../types";
-import { MaterialIcon } from "../../Icons/MaterialIcon";
-
 export default {
   title: "Layouts/Card",
   component: Card,
@@ -24,8 +22,10 @@ type Story = StoryObj<Args>;
 export const Primary: Story = {
   args: {
     children: [
-      <Card.Title>Card Title</Card.Title>,
-      <Card.Panel>Here is some content within a panel</Card.Panel>,
+      <Card.Header key="header">
+        <Card.Title>Card Title</Card.Title>
+      </Card.Header>,
+      <Card.Panel key="panel">Here is some content within a panel</Card.Panel>,
     ],
   },
 };
@@ -35,7 +35,9 @@ export const WithColumns: Story = {
     const { column1Size, column2Size, ...rest } = args;
     return (
       <Card {...rest}>
-        <Card.Title>Card Title</Card.Title>
+        <Card.Header>
+          <Card.Title>Card Title</Card.Title>
+        </Card.Header>
         <Card.Columns>
           <Card.Panel size={column1Size}>Column 1</Card.Panel>
           <Card.Panel size={column2Size}>Column 2</Card.Panel>
