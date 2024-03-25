@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { SelectProps, useSelectState } from "react-stately";
 import { HiddenSelect, useSelect } from "react-aria";
 import classNames from "classnames";
