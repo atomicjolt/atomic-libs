@@ -110,7 +110,7 @@ interface ListBoxSectionProps<T> {
 
 function ListBoxSection<T>(props: ListBoxSectionProps<T>) {
   const { section, state, filter } = props;
-  let { itemProps, headingProps, groupProps } = useListBoxSection({
+  const { itemProps, headingProps, groupProps } = useListBoxSection({
     heading: section.rendered,
     "aria-label": section["aria-label"],
   });
@@ -152,12 +152,12 @@ interface ListBoxOptionProps<T> {
 
 function ListBoxOption<T>(props: ListBoxOptionProps<T>) {
   const { item, state } = props;
-  let ref = useRef(null);
-  let { optionProps } = useOption({ key: item.key }, state, ref);
+  const ref = useRef(null);
+  const { optionProps } = useOption({ key: item.key }, state, ref);
 
   // Determine whether we should show a keyboard
   // focus ring for accessibility
-  let { focusProps } = useFocusRing();
+  const { focusProps } = useFocusRing();
 
   return (
     <ListItem

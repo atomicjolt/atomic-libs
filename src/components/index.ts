@@ -59,6 +59,8 @@ export {
 
 export { LocaleProvider } from "./locale";
 
+export { MultiSelect } from "./Dropdowns/MultiSelect";
+
 /* ---- Types ---- */
 
 export type { BannerProps, BannerVariants } from "./Banners/Banner";

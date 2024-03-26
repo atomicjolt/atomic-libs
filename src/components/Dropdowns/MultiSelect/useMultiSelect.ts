@@ -1,6 +1,5 @@
 import { AriaButtonProps } from "@react-types/button";
 import { AriaListBoxOptions } from "@react-aria/listbox";
-import { AriaSelectProps } from "@react-types/select";
 import { chain, filterDOMProps, mergeProps, useId } from "@react-aria/utils";
 import {
   DOMAttributes,
@@ -10,15 +9,15 @@ import {
 } from "@react-types/shared";
 import { FocusEvent, RefObject, useMemo } from "react";
 import { ListKeyboardDelegate, useTypeSelect } from "@react-aria/selection";
-import { SelectState } from "@react-stately/select";
 import { setInteractionModality } from "@react-aria/interactions";
 import { useCollator } from "@react-aria/i18n";
 import { useField } from "@react-aria/label";
 import { useMenuTrigger } from "@react-aria/menu";
 import { MultiSelectState } from "./useMultiSelectState";
+import { AriaMultiSelectProps } from "./MutliSelect.types";
 
-export interface AriaSelectOptions<T>
-  extends Omit<AriaSelectProps<T>, "children"> {
+export interface UseMultiSelectOptions<T>
+  extends Omit<AriaMultiSelectProps<T>, "children"> {
   /**
    * An optional keyboard delegate implementation for type to select,
    * to override the default.
@@ -26,7 +25,7 @@ export interface AriaSelectOptions<T>
   keyboardDelegate?: KeyboardDelegate;
 }
 
-export interface SelectAria<T> {
+export interface MultiSelect<T> extends ValidationResult {
   /** Props for the label element. */
   labelProps: DOMAttributes;
 
@@ -53,7 +52,7 @@ interface SelectData {
   validationBehavior?: "aria" | "native";
 }
 
-export const selectData = new WeakMap<SelectState<any>, SelectData>();
+export const selectData = new WeakMap<MultiSelectState<any>, SelectData>();
 
 /**
  * Provides the behavior and accessibility implementation for a select component.
@@ -62,10 +61,10 @@ export const selectData = new WeakMap<SelectState<any>, SelectData>();
  * @param state - State for the select, as returned by `useListState`.
  */
 export function useMultiSelect<T>(
-  props: AriaSelectOptions<T>,
+  props: UseMultiSelectOptions<T>,
   state: MultiSelectState<T>,
   ref: RefObject<FocusableElement>
-): SelectAria<T> {
+): MultiSelect<T> {
   const {
     keyboardDelegate,
     isDisabled,
@@ -98,42 +97,11 @@ export function useMultiSelect<T>(
     ref
   );
 
-  const onKeyDown = (e: KeyboardEvent) => {
-    switch (e.key) {
-      case "ArrowLeft": {
-        // prevent scrolling containers
-        e.preventDefault();
-
-        const key =
-          state.selectedKey != null
-            ? delegate.getKeyAbove(state.selectedKey)
-            : delegate.getFirstKey();
-        if (key) {
-          state.setSelectedKey(key);
-        }
-        break;
-      }
-      case "ArrowRight": {
-        // prevent scrolling containers
-        e.preventDefault();
-
-        const key =
-          state.selectedKey != null
-            ? delegate.getKeyBelow(state.selectedKey)
-            : delegate.getFirstKey();
-        if (key) {
-          state.setSelectedKey(key);
-        }
-        break;
-      }
-    }
-  };
-
   const { typeSelectProps } = useTypeSelect({
     keyboardDelegate: delegate,
     selectionManager: state.selectionManager,
     onTypeSelect(key) {
-      state.setSelectedKey(key);
+      state.selectionManager.toggleSelection(key);
     },
   });
 
@@ -181,7 +149,7 @@ export function useMultiSelect<T>(
     triggerProps: mergeProps(domProps, {
       ...triggerProps,
       isDisabled,
-      onKeyDown: chain(triggerProps.onKeyDown, onKeyDown, props.onKeyDown),
+      onKeyDown: chain(triggerProps.onKeyDown, props.onKeyDown),
       onKeyUp: props.onKeyUp,
       "aria-labelledby": [
         valueId,
