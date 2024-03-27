@@ -45,7 +45,7 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
         ref={innerRef}
         {...buttonProps}
       >
-        {isLoading && <Spinner isLoading={!loadingComplete} />}
+        {isLoading && <Spinner isLoading={!loadingComplete} isCentered />}
         <MaterialIcon icon={icon} variant={iconVariant} size={size} />
       </StyledIconButton>
     );

@@ -44,7 +44,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
       ref={internalRef}
       {...buttonProps}
     >
-      {isLoading && <Spinner isLoading={!loadingComplete} />}
+      {isLoading && <Spinner isLoading={!loadingComplete} isCentered />}
       {children}
     </StyledButton>
   );

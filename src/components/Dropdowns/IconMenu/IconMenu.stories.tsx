@@ -2,7 +2,7 @@ import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import IconMenu from ".";
 import { PlacementArgType } from "../../storybook";
-import { Section } from "../../";
+import { MaterialIcon, Section } from "../../";
 
 const meta: Meta<typeof IconMenu> = {
   title: "Dropdowns/IconMenu",
@@ -84,6 +84,26 @@ export const WithSections: Story = {
         <IconMenu.Item key="item3">Item 3</IconMenu.Item>
         <IconMenu.Item key="item4">Item 4</IconMenu.Item>
       </Section>,
+    ],
+  },
+};
+
+export const WithIcons: Story = {
+  args: {
+    ...Primary.args,
+    children: [
+      <IconMenu.Item key="item1">
+        <MaterialIcon icon="edit" />
+        Edit
+      </IconMenu.Item>,
+      <IconMenu.Item key="item2">
+        <MaterialIcon icon="delete" />
+        Delete
+      </IconMenu.Item>,
+      <IconMenu.Item key="item3">
+        <MaterialIcon icon="archive" />
+        Archive
+      </IconMenu.Item>,
     ],
   },
 };

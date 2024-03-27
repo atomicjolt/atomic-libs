@@ -1,8 +1,6 @@
 import React from "react";
-import { BaseProps, HasVariant } from "../../../types";
+import { HasVariant } from "../../../types";
 import { ButtonVariants } from "../Buttons.types";
-import classNames from "classnames";
-import { ButtonGroupWrapper } from "./ButtonGroup.styles";
 import { Group, GroupProps } from "../../Atoms/Group";
 
 export interface SharedProps extends HasVariant<ButtonVariants> {

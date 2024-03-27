@@ -6,7 +6,7 @@ import { LoaderCheck, LoaderWrapper } from "../Loader.styles";
 
 export interface SpinnerProps extends Omit<BaseProps, "size">, AriaLabelProps {
   isLoading?: boolean;
-  isCentered: boolean;
+  isCentered?: boolean;
   size?: Size;
 }
 
