@@ -1,10 +1,12 @@
 import React from "react";
 import cn from "classnames";
-import { BaseProps, Size } from "../../../types";
+import { AriaLabelProps, BaseProps, Size } from "../../../types";
 import { Dot1, Dot2, Dot3, DotsContainer } from "./ThreeDotLoader.styles";
 import { LoaderCheck, LoaderWrapper } from "../Loader.styles";
 
-export interface ThreeDotLoaderProps extends Omit<BaseProps, "size"> {
+export interface ThreeDotLoaderProps
+  extends Omit<BaseProps, "size">,
+    AriaLabelProps {
   isLoading?: boolean;
   size?: Size;
   isCentered?: boolean;

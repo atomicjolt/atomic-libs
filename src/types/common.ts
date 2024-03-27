@@ -3,14 +3,14 @@ import { Argument } from "classnames";
 export type Size = "small" | "medium" | "large";
 export type ExtendedSize = Size | "auto" | "full";
 
-export interface AriaProps {
+export interface AriaLabelProps {
   readonly "aria-label"?: string;
   readonly "aria-labelledby"?: string;
   readonly "aria-describedby"?: string;
   readonly "aria-details"?: string;
 }
 
-export interface BaseProps extends AriaProps {
+export interface BaseProps {
   /** Unique id for the component */
   readonly id?: string;
 

@@ -3,6 +3,7 @@ import { BaseProps, HasVariant } from "../../../types";
 import { ButtonVariants } from "../Buttons.types";
 import classNames from "classnames";
 import { ButtonGroupWrapper } from "./ButtonGroup.styles";
+import { Group, GroupProps } from "../../Atoms/Group";
 
 export interface SharedProps extends HasVariant<ButtonVariants> {
   isDisabled?: boolean;
@@ -14,19 +15,18 @@ export interface ButtonGroupChildProps extends SharedProps {
 
 export type ButtonGroupChild = React.ReactElement<ButtonGroupChildProps>;
 
-export interface ButtonGroupProps extends SharedProps, BaseProps {
-  /** Configure the gap between each button */
-  gap?: number;
-  /** When true, the gap will be completly removed and
-   * the buttons will be grouped into a single visual element.
-   * Works best when `variant` is set to `secondary` or `border` */
-  isMerged?: boolean;
+export interface ButtonGroupProps
+  extends SharedProps,
+    Omit<GroupProps, "children"> {
   children: ButtonGroupChild | ButtonGroupChild[];
-  /** Configure the direction of the buttons flow. */
-  direction?: "row" | "column";
 }
 
-/** Component used to logically and visually group a set of buttons together */
+/** Wrapper around the  [Group Component](/docs/layouts-group--overview)
+ * Used to group several buttons / icon buttons / icon menus together into a visual & logical group.
+ *
+ * In addition to the normal behavior of the Group component, this component also passes down several
+ * of it's props to it's children as defaults.
+ */
 export function ButtonGroup(props: ButtonGroupProps) {
   const {
     children,
@@ -48,17 +48,15 @@ export function ButtonGroup(props: ButtonGroupProps) {
   });
 
   return (
-    <ButtonGroupWrapper
-      role="group"
+    <Group
+      isMerged={isMerged}
+      className={className}
       id={id}
-      className={classNames("aje-btn-group", className, {
-        "is-merged": isMerged,
-        "is-column": direction === "column",
-        "is-row": direction === "row",
-      })}
+      size={size}
       gap={gap}
+      direction={direction}
     >
       {mergedPropsChildren}
-    </ButtonGroupWrapper>
+    </Group>
   );
 }

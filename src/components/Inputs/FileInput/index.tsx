@@ -3,8 +3,7 @@ import cn from "classnames";
 
 import { useIds } from "../../../hooks";
 import { FieldBaseProps } from "../../../types";
-import InputError from "../../Atoms/InputError";
-import { ComponentWrapper } from "../../../styles/utils";
+import { ComponentWrapper, FieldError } from "../../../styles/utils";
 import {
   FileInputLabel,
   FileInputSpan,
@@ -67,7 +66,7 @@ export const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
             {isRequired && <span aria-hidden="true"> *</span>}
           </FileInputStrong>
         </FileInputLabel>
-        <InputError error={error} id={errorId} />
+        {error && <FieldError id={errorId}>{error}</FieldError>}
       </ComponentWrapper>
     );
   }

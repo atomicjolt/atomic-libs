@@ -3,8 +3,7 @@ import cn from "classnames";
 import { FieldBaseProps } from "../../../types";
 import Label from "../../Atoms/Label";
 import { useIds } from "../../../hooks";
-import InputError from "../../Atoms/InputError";
-import { ComponentWrapper } from "../../../styles/utils";
+import { ComponentWrapper, FieldError } from "../../../styles/utils";
 import { SelectWrapper, StyledSelect } from "./Select.styles";
 
 type LimitedSelectProps = Omit<
@@ -62,7 +61,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps<SelectValue>>(
             {children}
           </StyledSelect>
         </SelectWrapper>
-        <InputError error={error} id={errorId} />
+        {error && <FieldError id={errorId}>{error}</FieldError>}
       </ComponentWrapper>
     );
   }

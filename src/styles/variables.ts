@@ -78,7 +78,7 @@ export const CssVariables = createGlobalStyle`
   --success-clr: var(--success600);
   --warning-clr: var(--warning600);
 
-  --border-clr-primary: var(--neutral400);
+  --border-clr-primary: var(--neutral500);
   --outline-clr-primary: var(--neutral600);
 
   /* # Sizing */

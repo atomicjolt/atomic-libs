@@ -1,10 +1,10 @@
 import React from "react";
 import cn from "classnames";
-import { BaseProps, Size } from "../../../types";
+import { AriaLabelProps, BaseProps, Size } from "../../../types";
 import { CircularLoader, LoaderPath } from "./Spinner.styles";
 import { LoaderCheck, LoaderWrapper } from "../Loader.styles";
 
-export interface SpinnerProps extends Omit<BaseProps, "size"> {
+export interface SpinnerProps extends Omit<BaseProps, "size">, AriaLabelProps {
   isLoading?: boolean;
   isCentered: boolean;
   size?: Size;
