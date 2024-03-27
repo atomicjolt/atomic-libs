@@ -1,19 +1,40 @@
 import React from "react";
 import cn from "classnames";
-import { HasClassName } from "../../../types";
-import { CircularLoader, LoaderPath, SpinnerContainer } from "./Spinner.styles";
-import { LoaderCheck } from "../Loader.styles";
+import { BaseProps, Size } from "../../../types";
+import { CircularLoader, LoaderPath } from "./Spinner.styles";
+import { LoaderCheck, LoaderWrapper } from "../Loader.styles";
 
-export interface SpinnerProps extends HasClassName {
+export interface SpinnerProps extends Omit<BaseProps, "size"> {
   isLoading?: boolean;
+  isCentered: boolean;
+  size?: Size;
 }
+
+const strokeWidths: Record<Size, number> = {
+  small: 1,
+  medium: 0.5,
+  large: 0.3,
+};
 
 /** Spinner Component */
 export default function Spinner(props: SpinnerProps) {
-  const { isLoading = true, className } = props;
+  const {
+    isLoading = true,
+    className,
+    size = "medium",
+    isCentered = false,
+    ...rest
+  } = props;
+
+  const strokeWidth = strokeWidths[size];
 
   return (
-    <SpinnerContainer className={cn("aje-spinner", className)}>
+    <LoaderWrapper
+      className={cn("aje-spinner", `is-${size}`, className, {
+        "is-centered": isCentered,
+      })}
+      {...rest}
+    >
       {isLoading ? (
         <CircularLoader
           className="circular-loader"
@@ -26,11 +47,12 @@ export default function Spinner(props: SpinnerProps) {
             cy="50"
             r="20"
             fill="none"
+            strokeWidth={`${strokeWidth}em`}
           />
         </CircularLoader>
       ) : (
         <LoaderCheck />
       )}
-    </SpinnerContainer>
+    </LoaderWrapper>
   );
 }

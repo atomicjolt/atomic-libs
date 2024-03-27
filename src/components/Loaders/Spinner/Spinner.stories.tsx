@@ -13,5 +13,6 @@ type Story = StoryObj<typeof Spinner>;
 export const Primary: Story = {
   args: {
     isLoading: true,
+    isCentered: true,
   },
 };

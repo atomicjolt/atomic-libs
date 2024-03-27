@@ -191,6 +191,7 @@ export const CssVariables = createGlobalStyle`
   /* # Loader variables */
   --loader-clr: var(--neutral500);
   --loader-size: 16px;
+  --animation-duration: 2000ms;
 
   /* # Skeleton Loader variables */
   --skeleton-bg-clr: var(--neutral200);
