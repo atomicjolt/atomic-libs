@@ -40,14 +40,14 @@ exports[`matches snapshots > matches default variant 1`] = `
         aria-haspopup="listbox"
         aria-label="Show suggestions"
         aria-labelledby="react-aria-:r0: react-aria-:r3:"
-        class="sc-dItHI sc-bqGGcD ghbwEW iTXvDT aje-btn aje-btn--icon aje-btn--content"
+        class="sc-bqGGcD sc-ksltVi fbxKAC cUiMyk aje-btn aje-btn--icon aje-btn--content"
         id="react-aria-:r0:"
         tabindex="-1"
         type="button"
       >
         <i
           aria-hidden="true"
-          class="sc-crzpnZ AiCDI material-icons is-medium"
+          class="sc-dItHI lcUOnn material-icons is-medium"
         >
           arrow_drop_down
         </i>
@@ -93,14 +93,14 @@ exports[`matches snapshots > matches floating variant 1`] = `
           aria-haspopup="listbox"
           aria-label="Show suggestions"
           aria-labelledby="react-aria-:r9: react-aria-:rc:"
-          class="sc-dItHI sc-bqGGcD ghbwEW iTXvDT aje-btn aje-btn--icon aje-btn--content"
+          class="sc-bqGGcD sc-ksltVi fbxKAC cUiMyk aje-btn aje-btn--icon aje-btn--content"
           id="react-aria-:r9:"
           tabindex="-1"
           type="button"
         >
           <i
             aria-hidden="true"
-            class="sc-crzpnZ AiCDI material-icons is-medium"
+            class="sc-dItHI lcUOnn material-icons is-medium"
           >
             arrow_drop_down
           </i>

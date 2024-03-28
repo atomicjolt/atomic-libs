@@ -3,12 +3,12 @@
 exports[`matches snapshot 1`] = `
 <DocumentFragment>
   <button
-    class="sc-jSFipO sc-gKAaef dnLXfL eJraQ aje-btn aje-btn--icon aje-btn--border"
+    class="sc-gKAaef sc-iCoHzw cMayuV jermjb aje-btn aje-btn--icon aje-btn--border"
     type="button"
   >
     <i
       aria-hidden="true"
-      class="sc-eCAqax bAgMGg material-icons is-medium"
+      class="sc-jSFipO eeJbpe material-icons is-medium"
     >
       more_vert
     </i>
