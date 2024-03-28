@@ -17,7 +17,8 @@ export interface MaterialIconProps
     HasClassName {
   icon: MaterialIcons;
   /** The type of material icon to
-   * render. Note that the font for that style needs to be in scope for it to render properly*/
+   * render. Note that the font for that
+   * style needs to be in scope for it to render properly */
   variant?: MaterialIconVariants;
   size?: ExtendedSize;
   disabled?: boolean;
