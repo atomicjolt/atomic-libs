@@ -1,0 +1,74 @@
+import React from "react";
+import { Meta, StoryObj } from "@storybook/react";
+import { InputControls } from "../../storybook";
+import { MultiSelect } from ".";
+import { Item } from "../../Atoms/Collection";
+
+export default {
+  title: "Dropdowns/MultiSelect",
+  component: MultiSelect,
+  parameters: {
+    layout: "centered",
+  },
+  argTypes: {
+    ...InputControls,
+    selectedKeys: {
+      control: "select",
+      description:
+        "Control the value of the selected keys in a controlled component",
+      options: [["val1"], ["val2"], ["val3"], null],
+    },
+    defaultSelectedKeys: {
+      control: "false",
+      description:
+        "Control the value of the selected keys in an uncontrolled component",
+    },
+    children: {
+      control: false,
+    },
+    isOpen: {
+      control: "boolean",
+      description: "Control the open state of the menu",
+    },
+    defaultOpen: {
+      control: "boolean",
+      description: "Control the inital state of the menu",
+    },
+    onOpenChange: {
+      control: false,
+      action: "onOpenChange",
+      description: "Callback for when the menu is opened or closed",
+      table: {
+        category: "Events",
+      },
+    },
+    onSelectionChange: {
+      action: "onSelectionChange",
+      control: false,
+      description: "Callback for when the selection changes",
+      table: {
+        category: "Events",
+      },
+    },
+  },
+} as Meta<typeof MultiSelect>;
+
+type Story = StoryObj<typeof MultiSelect>;
+
+export const Default: Story = {
+  args: {
+    label: "Multiselect Label",
+    children: [
+      <Item key="val1">Option 1</Item>,
+      <Item key="val2">Option 2</Item>,
+      <Item key="val3">Option 3</Item>,
+    ],
+  },
+};
+
+export const Floating: Story = {
+  args: {
+    ...Default.args,
+    variant: "floating",
+  },
+};

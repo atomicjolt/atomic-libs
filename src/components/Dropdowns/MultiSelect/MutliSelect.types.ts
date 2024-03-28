@@ -28,10 +28,6 @@ export interface AriaMultiSelectProps<T>
   /** Method that is called when the open state of the menu changes. */
   onOpenChange?: (isOpen: boolean) => void;
   /**
-   * Describes the type of autocomplete functionality the input should provide if any. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefautocomplete).
-   */
-  autoComplete?: string;
-  /**
    * The name of the input, used when submitting an HTML form.
    */
   name?: string;

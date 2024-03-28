@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useMemo, useRef } from "react";
 import {
   AriaProps,
   ExtendedSize,
@@ -37,6 +37,7 @@ export interface MultiSelectProps<T extends object>
   selectionPlaceholder?: string;
 }
 
+/** MultiSelect is a dropdown that allows the user to select multiple options from a list */
 export function MultiSelect<T extends object>(props: MultiSelectProps<T>) {
   const state = useMultiSelectState<T>(props);
   const ref = useRef(null);
@@ -67,6 +68,27 @@ export function MultiSelect<T extends object>(props: MultiSelectProps<T>) {
     variant = "default",
   } = props;
 
+  const buttonText = useMemo(() => {
+    if (variant === "floating") {
+      if (state.selectionManager.selectedKeys.size > 0) {
+        return selectionPlaceholder;
+      }
+
+      return "";
+    }
+
+    if (state.selectionManager.selectedKeys.size > 0) {
+      return selectionPlaceholder;
+    }
+
+    return placeholder;
+  }, [
+    state.selectionManager.selectedKeys.size,
+    selectionPlaceholder,
+    placeholder,
+    variant,
+  ]);
+
   const variantClassName = useVariantClass("aje-dropdown", variant);
 
   return (
@@ -96,11 +118,7 @@ export function MultiSelect<T extends object>(props: MultiSelectProps<T>) {
           size={size}
           isDisabled={isDisabled}
         >
-          <ButtonText {...valueProps}>
-            {state.selectionManager.selectedKeys.size > 0
-              ? selectionPlaceholder
-              : placeholder}
-          </ButtonText>
+          <ButtonText {...valueProps}>{buttonText}</ButtonText>
           <MaterialIcon icon="arrow_drop_down" />
         </Button>
       </FieldWrapper>

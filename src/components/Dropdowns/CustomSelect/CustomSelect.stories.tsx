@@ -36,12 +36,14 @@ const meta: Meta<typeof CustomSelect> = {
     },
     onOpenChange: {
       control: false,
+      action: "onOpenChange",
       description: "Callback for when the menu is opened or closed",
       table: {
         category: "Events",
       },
     },
     onSelectionChange: {
+      action: "onSelectionChange",
       control: false,
       description: "Callback for when the selection changes",
       table: {
