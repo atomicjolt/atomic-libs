@@ -104,3 +104,4 @@ export type { DatePickerProps } from "./Inputs/DateAndTimes/DatePicker";
 export type { ListBoxProps } from "./Atoms/ListBox";
 export type { SkeletonLoaderProps } from "./Loaders/SkeletonLoader";
 export type { DevelopmentErrorModalProps } from "./Development/DevelopmentErrorModal";
+export type { MultiSelectProps } from "./Dropdowns/MultiSelect";
