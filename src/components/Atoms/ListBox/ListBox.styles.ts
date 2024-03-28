@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import mixins from "../../../styles/mixins";
 import { scaleAnimation } from "../../../styles/animations";
-import SearchInput from "../../Inputs/SearchInput";
-import { SearchInputWrapper } from "../../Inputs/SearchInput/SearchInput.styles";
 
 export const List = styled.ul`
   ${mixins.SizingX}
@@ -44,6 +42,7 @@ export const ListItem = styled.li`
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   border: none;
   width: 100%;
   gap: 12px;
@@ -56,11 +55,12 @@ export const ListItem = styled.li`
   background-color: var(--listbox-bg-clr);
   color: var(--listbox-text-clr, inherit);
 
-  --listbox-icon-clr: var(--text-clr-alt);
+  --listbox-icon-clr: var(--text-clr-inverted);
 
   i {
     font-size: 2rem;
     color: var(--listbox-icon-clr);
+    visibility: hidden;
   }
 
   &:hover {
@@ -76,6 +76,10 @@ export const ListItem = styled.li`
   &[aria-selected="true"] {
     --listbox-bg-clr: var(--accent-clr);
     color: var(--text-clr-inverted);
+
+    i {
+      visibility: visible;
+    }
   }
 
   &[aria-selected="true"][data-focus-visible="true"] {

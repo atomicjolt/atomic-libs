@@ -21,6 +21,7 @@ import { BaseProps } from "../../../types";
 import classNames from "classnames";
 import useForwardedRef from "../../../hooks/useForwardedRef";
 import SearchInput from "../../Inputs/SearchInput";
+import MaterialIcon from "../../Icons/MaterialIcon";
 
 export type ListBoxProps<T> = AriaListBoxProps<T> &
   BaseProps & {
@@ -28,6 +29,8 @@ export type ListBoxProps<T> = AriaListBoxProps<T> &
     isSearchable?: boolean;
     /** Placeholder for the search input */
     searchPlaceholder?: string;
+    /** Whether to show a checkmark next to selected items */
+    showCheckmark?: boolean;
   };
 
 /** A listbox displays a list of options and allows a user to select one or more of them.
@@ -52,6 +55,7 @@ export const UnmanagedListBox = React.forwardRef<
     state,
     className,
     size = "medium",
+    showCheckmark = false,
   } = props;
   const internalRef = useForwardedRef(ref);
   const { listBoxProps, labelProps } = useListBox(props, state, internalRef);
@@ -92,9 +96,15 @@ export const UnmanagedListBox = React.forwardRef<
               section={item}
               state={state}
               filter={(v) => contains(v, searchValue)}
+              showCheckmark={showCheckmark}
             />
           ) : (
-            <ListBoxOption key={item.key} item={item} state={state} />
+            <ListBoxOption
+              key={item.key}
+              item={item}
+              state={state}
+              showCheckmark={showCheckmark}
+            />
           )
         )}
       </List>
@@ -106,10 +116,11 @@ interface ListBoxSectionProps<T> {
   readonly section: Node<T>;
   readonly state: ListState<T>;
   readonly filter: (text: string) => boolean;
+  readonly showCheckmark?: boolean;
 }
 
 function ListBoxSection<T>(props: ListBoxSectionProps<T>) {
-  const { section, state, filter } = props;
+  const { section, state, filter, showCheckmark = false } = props;
   const { itemProps, headingProps, groupProps } = useListBoxSection({
     heading: section.rendered,
     "aria-label": section["aria-label"],
@@ -137,7 +148,12 @@ function ListBoxSection<T>(props: ListBoxSectionProps<T>) {
         )}
         <SubList {...groupProps}>
           {children.map((node) => (
-            <ListBoxOption key={node.key} item={node} state={state} />
+            <ListBoxOption
+              key={node.key}
+              item={node}
+              state={state}
+              showCheckmark={showCheckmark}
+            />
           ))}
         </SubList>
       </li>
@@ -148,10 +164,11 @@ function ListBoxSection<T>(props: ListBoxSectionProps<T>) {
 interface ListBoxOptionProps<T> {
   item: Node<T>;
   state: ListState<T>;
+  showCheckmark?: boolean;
 }
 
 function ListBoxOption<T>(props: ListBoxOptionProps<T>) {
-  const { item, state } = props;
+  const { item, state, showCheckmark } = props;
   const ref = useRef(null);
   const { optionProps } = useOption({ key: item.key }, state, ref);
 
@@ -166,6 +183,7 @@ function ListBoxOption<T>(props: ListBoxOptionProps<T>) {
       data-focus-visible={item.key === state.selectionManager.focusedKey}
     >
       {item.rendered}
+      {showCheckmark && <MaterialIcon icon="check" />}
     </ListItem>
   );
 }

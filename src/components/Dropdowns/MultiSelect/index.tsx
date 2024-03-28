@@ -22,7 +22,9 @@ export interface MultiSelectProps<T extends object>
   extends AriaProps<AriaMultiSelectProps<T>>,
     Omit<FieldBaseProps, "isReadOnly">,
     HasVariant<"default" | "floating"> {
-  /** The size of the menu. Defaults to `auto` */
+  /** The size of the menu. Defaults to `size` if not provided.
+   * If the content of the dropdown is likely to be large,
+   * you should set this to `auto` so it sizes to the length of the content */
   menuSize?: ExtendedSize;
 
   /** Allows the items in the select to be filtered */
@@ -30,6 +32,9 @@ export interface MultiSelectProps<T extends object>
 
   /** The placeholder text for the search input*/
   searchPlaceholder?: string;
+
+  /** The placeholder text for the select when the user has made a selection. Defaults to `placeholder` if one isn't provided */
+  selectionPlaceholder?: string;
 }
 
 export function MultiSelect<T extends object>(props: MultiSelectProps<T>) {
@@ -56,11 +61,11 @@ export function MultiSelect<T extends object>(props: MultiSelectProps<T>) {
     isSearchable,
     searchPlaceholder,
     size = "medium",
+    menuSize = size,
     placeholder = "Select an option",
+    selectionPlaceholder = placeholder,
     variant = "default",
   } = props;
-
-  const menuSize = props.menuSize || size;
 
   const variantClassName = useVariantClass("aje-dropdown", variant);
 
@@ -93,7 +98,7 @@ export function MultiSelect<T extends object>(props: MultiSelectProps<T>) {
         >
           <ButtonText {...valueProps}>
             {state.selectionManager.selectedKeys.size > 0
-              ? "Items Selected"
+              ? selectionPlaceholder
               : placeholder}
           </ButtonText>
           <MaterialIcon icon="arrow_drop_down" />
@@ -108,6 +113,7 @@ export function MultiSelect<T extends object>(props: MultiSelectProps<T>) {
             size={menuSize}
             isSearchable={isSearchable}
             searchPlaceholder={searchPlaceholder}
+            showCheckmark
           />
         </Popover>
       )}
