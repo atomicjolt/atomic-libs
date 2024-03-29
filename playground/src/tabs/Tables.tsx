@@ -1,11 +1,21 @@
 import React, { useState } from "react";
-import { Table } from "../elements";
+import { IconButton, Table, TextInput } from "../elements";
 import { SortDescriptor } from "react-stately";
+import {
+  ComboboxInput,
+  ComboboxInputWrapper,
+} from "../../../src/components/Dropdowns/Combobox/Combobox.styles";
+import { Input, InputWrapper } from "../../../src/styles/input";
 
 export default function Tables() {
   const [sortDescriptor, setSortDescriptor] = useState<SortDescriptor>({
     column: "name",
     direction: "ascending",
+  });
+
+  const [searchDescriptor, setSearchDescriptor] = useState({
+    column: null,
+    search: "",
   });
 
   const [columnOrder, setColumnOrder] = useState<React.Key[]>([
@@ -19,12 +29,12 @@ export default function Tables() {
       key: "name",
       name: "Name",
       isSortable: true,
-      allowsReordering: true,
+      allowsReordering: false,
     },
     {
       key: "type",
       name: "Type",
-      isSortable: true,
+      isSortable: false,
       allowsReordering: true,
     },
     {
@@ -60,157 +70,17 @@ export default function Tables() {
       type: "Electric",
       level: 100,
     },
-    {
-      name: "Charizard",
-      type: "Fire, Flying",
-      level: 67,
-    },
-    {
-      name: "Blastoise",
-      type: "Water",
-      level: 56,
-    },
-    {
-      name: "Venusaur",
-      type: "Grass, Poison",
-      level: 83,
-    },
-    {
-      name: "Pikachu",
-      type: "Electric",
-      level: 100,
-    },
-    {
-      name: "Charizard",
-      type: "Fire, Flying",
-      level: 67,
-    },
-    {
-      name: "Blastoise",
-      type: "Water",
-      level: 56,
-    },
-    {
-      name: "Venusaur",
-      type: "Grass, Poison",
-      level: 83,
-    },
-    {
-      name: "Pikachu",
-      type: "Electric",
-      level: 100,
-    },
-    {
-      name: "Charizard",
-      type: "Fire, Flying",
-      level: 67,
-    },
-    {
-      name: "Blastoise",
-      type: "Water",
-      level: 56,
-    },
-    {
-      name: "Venusaur",
-      type: "Grass, Poison",
-      level: 83,
-    },
-    {
-      name: "Pikachu",
-      type: "Electric",
-      level: 100,
-    },
-    {
-      name: "Charizard",
-      type: "Fire, Flying",
-      level: 67,
-    },
-    {
-      name: "Blastoise",
-      type: "Water",
-      level: 56,
-    },
-    {
-      name: "Venusaur",
-      type: "Grass, Poison",
-      level: 83,
-    },
-    {
-      name: "Pikachu",
-      type: "Electric",
-      level: 100,
-    },
-    {
-      name: "Charizard",
-      type: "Fire, Flying",
-      level: 67,
-    },
-    {
-      name: "Blastoise",
-      type: "Water",
-      level: 56,
-    },
-    {
-      name: "Venusaur",
-      type: "Grass, Poison",
-      level: 83,
-    },
-    {
-      name: "Pikachu",
-      type: "Electric",
-      level: 100,
-    },
-    {
-      name: "Charizard",
-      type: "Fire, Flying",
-      level: 67,
-    },
-    {
-      name: "Blastoise",
-      type: "Water",
-      level: 56,
-    },
-    {
-      name: "Venusaur",
-      type: "Grass, Poison",
-      level: 83,
-    },
-    {
-      name: "Pikachu",
-      type: "Electric",
-      level: 100,
-    },
-    {
-      name: "Charizard",
-      type: "Fire, Flying",
-      level: 67,
-    },
-    {
-      name: "Blastoise",
-      type: "Water",
-      level: 56,
-    },
-    {
-      name: "Venusaur",
-      type: "Grass, Poison",
-      level: 83,
-    },
-    {
-      name: "Pikachu",
-      type: "Electric",
-      level: 100,
-    },
   ];
 
-  const sortedPokemons = pokemons.sort((a, b) => {
-    if (sortDescriptor.column === undefined) return 0;
+  // const sortedPokemons = pokemons.sort((a, b) => {
+  //   if (sortDescriptor.column === undefined) return 0;
 
-    if (sortDescriptor.direction === "ascending") {
-      return a[sortDescriptor.column] > b[sortDescriptor.column] ? 1 : -1;
-    } else {
-      return a[sortDescriptor.column] < b[sortDescriptor.column] ? 1 : -1;
-    }
-  });
+  //   if (sortDescriptor.direction === "ascending") {
+  //     return a[sortDescriptor.column] > b[sortDescriptor.column] ? 1 : -1;
+  //   } else {
+  //     return a[sortDescriptor.column] < b[sortDescriptor.column] ? 1 : -1;
+  //   }
+  // });
 
   return (
     <div
@@ -223,21 +93,23 @@ export default function Tables() {
         sortDescriptor={sortDescriptor}
         onSortChange={setSortDescriptor}
         onColumnReorder={setColumnOrder}
-        variant="sheet"
-        isSticky
+        searchDescriptor={searchDescriptor}
+        onSearchChange={setSearchDescriptor}
       >
         <Table.Header columns={sortedColumns}>
           {(column) => (
             <Table.Column
               key={column.key}
               allowsSorting={column.isSortable}
-              allowsReordering={column.allowsReordering}
+              // allowsReordering={column.allowsReordering}
+
+              allowsSearching
             >
               {column.name}
             </Table.Column>
           )}
         </Table.Header>
-        <Table.Body items={sortedPokemons}>
+        <Table.Body items={pokemons}>
           {(pokemon) => (
             <Table.Row key={pokemon.name}>
               {sortedColumns.map((column, idx) => (

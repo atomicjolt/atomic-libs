@@ -58,4 +58,6 @@ export const MaterialIcon = React.forwardRef<HTMLElement, MaterialIconProps>(
   }
 );
 
+MaterialIcon.displayName = "MaterialIcon";
+
 export default MaterialIcon;

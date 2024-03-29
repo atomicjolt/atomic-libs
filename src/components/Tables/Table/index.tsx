@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import {
   AriaTableProps,
   VisuallyHidden,
@@ -19,7 +19,6 @@ import {
 import {
   TableState,
   Node,
-  useTableState,
   TableHeader,
   Row,
   Column,
@@ -40,6 +39,8 @@ import {
   ColumnDragIndicator,
   DraggableTh,
   RowHeader,
+  SearchInput,
+  SearchInputWrapper,
   StyledRow,
   StyledTBody,
   StyledTable,
@@ -59,6 +60,13 @@ import {
 import MaterialIcon from "../../Icons/MaterialIcon";
 import { cloneComponent } from "../../../clone";
 import { useVariantClass } from "../../../hooks";
+import IconButton from "../../Buttons/IconButton";
+import {
+  ExtendedTableState,
+  Searchable,
+  useExtendedTableState,
+} from "./hooks/useExtendedTableState";
+import { useExtendedTableColumnHeader } from "./hooks/useExtendedTableColumnHeader";
 
 type TableVariants = SuggestStrings<"default" | "grid" | "vertical-borders">;
 
@@ -66,6 +74,7 @@ export interface TableProps<T>
   extends AriaTableProps<T>,
     MultipleSelection,
     Sortable,
+    Searchable,
     HasClassName,
     HasVariant<TableVariants> {
   /** The selection mode for the table. */
@@ -93,7 +102,7 @@ export default function Table<T extends object>(props: TableProps<T>) {
     variant = "default",
     isSticky = false,
   } = props;
-  const state = useTableState({
+  const state = useExtendedTableState({
     ...props,
     showSelectionCheckboxes:
       selectionMode === "multiple" && selectionBehavior !== "replace",
@@ -128,6 +137,11 @@ export default function Table<T extends object>(props: TableProps<T>) {
 
     onColumnReorder?.(columnKeys);
   };
+
+  if (props.searchDescriptor?.column) {
+    delete gridProps.onKeyDownCapture;
+    delete gridProps.onFocus;
+  }
 
   return (
     <StyledTable
@@ -220,44 +234,97 @@ function TableHeaderRow<T>(props: TableHeaderRowProps<T>) {
 
 interface TableColumnHeaderProps<T> {
   column: Node<T>;
-  state: TableState<T>;
+  state: ExtendedTableState<T>;
 }
 
 function TableColumnHeader<T extends object>(props: TableColumnHeaderProps<T>) {
   const { column, state } = props;
-
-  // @ts-ignore
-  const colspan = column.colspan as number;
+  const {
+    allowsSearching = false,
+    allowsSorting = false,
+    colspan,
+  } = column.props;
 
   const ref = useRef(null);
-  const { columnHeaderProps } = useTableColumnHeader(
+  const inputRef = useRef(null);
+
+  const { focusProps } = useFocusRing();
+
+  const { columnHeaderProps, isSearching } = useExtendedTableColumnHeader(
     { node: column },
     state,
-    ref
+    ref,
+    inputRef
   );
-  const { focusProps } = useFocusRing();
+
   const arrowIcon =
     state.sortDescriptor?.direction === "ascending"
-      ? "arrow_drop_down"
-      : "arrow_drop_up";
+      ? "arrow_drop_up"
+      : "arrow_drop_down";
+
+  const headerProps = mergeProps(columnHeaderProps, focusProps);
 
   return (
     <StyledTh
-      {...mergeProps(columnHeaderProps, focusProps)}
-      className={classNames({ "is-sortable": column.props.allowsSorting })}
+      {...headerProps}
+      className={classNames({ "is-sortable": allowsSorting })}
       colSpan={colspan}
       ref={ref}
     >
       <ThContent>
         {column.rendered}
-        {column.props.allowsSorting &&
-          state.sortDescriptor.column === column.key && (
-            <MaterialIcon icon={arrowIcon} />
-          )}
-        {column.props.allowsSorting &&
-          state.sortDescriptor.column !== column.key && (
-            <MaterialIcon icon="swap_vert" className="swap-icon" />
-          )}
+        {allowsSorting && state.sortDescriptor.column === column.key && (
+          <MaterialIcon icon={arrowIcon} />
+        )}
+        {allowsSorting && state.sortDescriptor.column !== column.key && (
+          <MaterialIcon icon="swap_vert" className="swap-icon" />
+        )}
+        {allowsSearching && (
+          <SearchInputWrapper
+            className={classNames({ "is-expanded": isSearching })}
+          >
+            <SearchInput
+              autoFocus
+              value={state.searchDescriptor?.search}
+              onChange={(e) => {
+                state.onSearchChange?.({
+                  column: column.key,
+                  search: e.target.value,
+                });
+              }}
+              // Table listens for keydown events for things
+              // like flipping to sorting when pressing the spacebar
+              // so we need to stop propagation to prevent that
+              // when the input is focused
+              onKeyDown={(e) => e.stopPropagation()}
+              ref={inputRef}
+            />
+            <IconButton
+              icon="close"
+              variant="content"
+              size="small"
+              onPress={() => {
+                state.onSearchChange?.({
+                  column: null,
+                  search: "",
+                });
+              }}
+            />
+          </SearchInputWrapper>
+        )}
+        {allowsSearching && !isSearching && (
+          <IconButton
+            icon="search"
+            variant="content"
+            size="small"
+            onPress={() => {
+              state.onSearchChange?.({
+                column: column.key,
+                search: "",
+              });
+            }}
+          />
+        )}
       </ThContent>
     </StyledTh>
   );
@@ -456,6 +523,8 @@ Table.Header = cloneComponent(TableHeader, "Table.Header");
 interface TableColumnProps<T> extends ColumnProps<T> {
   /** Whether the column can be re-orderd by dragging and dropping an another re-orderable column */
   allowsReordering?: boolean;
+
+  allowsSearching?: boolean;
 }
 
 /** A `Table.Column` represents a single column in a Table.
