@@ -1,15 +1,6 @@
 import React from "react";
 import { TableState, TableStateProps, useTableState } from "react-stately";
-
-export interface SearchDescriptor {
-  column: React.Key | null;
-  search: string;
-}
-
-export interface Searchable {
-  searchDescriptor?: SearchDescriptor;
-  onSearchChange?: (descriptor: SearchDescriptor) => void;
-}
+import { Searchable } from "../Table.types";
 
 export interface ExtendedTableStateProps<T extends object>
   extends TableStateProps<T>,

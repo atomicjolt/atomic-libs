@@ -1,11 +1,7 @@
 import React, { useState } from "react";
-import { IconButton, Table, TextInput } from "../elements";
+import { Table } from "../elements";
 import { SortDescriptor } from "react-stately";
-import {
-  ComboboxInput,
-  ComboboxInputWrapper,
-} from "../../../src/components/Dropdowns/Combobox/Combobox.styles";
-import { Input, InputWrapper } from "../../../src/styles/input";
+import { SearchDescriptor } from "../../../src/components/Tables/Table/Table.types";
 
 export default function Tables() {
   const [sortDescriptor, setSortDescriptor] = useState<SortDescriptor>({
@@ -13,41 +9,10 @@ export default function Tables() {
     direction: "ascending",
   });
 
-  const [searchDescriptor, setSearchDescriptor] = useState({
+  const [searchDescriptor, setSearchDescriptor] = useState<SearchDescriptor>({
     column: null,
     search: "",
   });
-
-  const [columnOrder, setColumnOrder] = useState<React.Key[]>([
-    "name",
-    "type",
-    "level",
-  ]);
-
-  const columns = [
-    {
-      key: "name",
-      name: "Name",
-      isSortable: true,
-      allowsReordering: false,
-    },
-    {
-      key: "type",
-      name: "Type",
-      isSortable: false,
-      allowsReordering: true,
-    },
-    {
-      key: "level",
-      name: "Level",
-      isSortable: true,
-      allowsReordering: true,
-    },
-  ];
-
-  const sortedColumns = columnOrder.map((key) =>
-    columns.find((c) => c.key === key)
-  ) as typeof columns;
 
   const pokemons = [
     {
@@ -72,15 +37,23 @@ export default function Tables() {
     },
   ];
 
-  // const sortedPokemons = pokemons.sort((a, b) => {
-  //   if (sortDescriptor.column === undefined) return 0;
+  const filteredPokemons = pokemons.filter((pokemon) => {
+    if (!searchDescriptor.search || !searchDescriptor.column) return true;
 
-  //   if (sortDescriptor.direction === "ascending") {
-  //     return a[sortDescriptor.column] > b[sortDescriptor.column] ? 1 : -1;
-  //   } else {
-  //     return a[sortDescriptor.column] < b[sortDescriptor.column] ? 1 : -1;
-  //   }
-  // });
+    return pokemon[searchDescriptor.column]
+      .toLowerCase()
+      .includes(searchDescriptor.search.toLowerCase());
+  });
+
+  const sortedPokemons = filteredPokemons.sort((a, b) => {
+    if (sortDescriptor.column === undefined) return 0;
+
+    if (sortDescriptor.direction === "ascending") {
+      return a[sortDescriptor.column] > b[sortDescriptor.column] ? 1 : -1;
+    } else {
+      return a[sortDescriptor.column] < b[sortDescriptor.column] ? 1 : -1;
+    }
+  });
 
   return (
     <div
@@ -92,31 +65,26 @@ export default function Tables() {
         aria-label="Table with selection"
         sortDescriptor={sortDescriptor}
         onSortChange={setSortDescriptor}
-        onColumnReorder={setColumnOrder}
         searchDescriptor={searchDescriptor}
         onSearchChange={setSearchDescriptor}
       >
-        <Table.Header columns={sortedColumns}>
-          {(column) => (
-            <Table.Column
-              key={column.key}
-              allowsSorting={column.isSortable}
-              // allowsReordering={column.allowsReordering}
-
-              allowsSearching
-            >
-              {column.name}
-            </Table.Column>
-          )}
+        <Table.Header>
+          <Table.Column key="name" allowsSorting allowsSearching>
+            Name
+          </Table.Column>
+          <Table.Column key="type" allowsSorting>
+            Type
+          </Table.Column>
+          <Table.Column key="level" allowsSorting>
+            Level
+          </Table.Column>
         </Table.Header>
-        <Table.Body items={pokemons}>
+        <Table.Body items={sortedPokemons}>
           {(pokemon) => (
             <Table.Row key={pokemon.name}>
-              {sortedColumns.map((column, idx) => (
-                <Table.Cell key={column.key} isRowHeader={idx === 0}>
-                  {pokemon[column.key]}
-                </Table.Cell>
-              ))}
+              <Table.Cell>{pokemon.name}</Table.Cell>
+              <Table.Cell>{pokemon.type}</Table.Cell>
+              <Table.Cell>{pokemon.level}</Table.Cell>
             </Table.Row>
           )}
         </Table.Body>

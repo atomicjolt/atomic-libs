@@ -63,10 +63,10 @@ import { useVariantClass } from "../../../hooks";
 import IconButton from "../../Buttons/IconButton";
 import {
   ExtendedTableState,
-  Searchable,
   useExtendedTableState,
 } from "./hooks/useExtendedTableState";
 import { useExtendedTableColumnHeader } from "./hooks/useExtendedTableColumnHeader";
+import { Searchable } from "./Table.types";
 
 type TableVariants = SuggestStrings<"default" | "grid" | "vertical-borders">;
 
@@ -138,9 +138,15 @@ export default function Table<T extends object>(props: TableProps<T>) {
     onColumnReorder?.(columnKeys);
   };
 
+  // TODO: I'm not sure why, but the focus handling seems to be broken
+  // It always fouses the last row in the table for some reason initially
+  // Which is confusing. Disabling it for now.
+  delete gridProps.onFocus;
+
+  // When searching, the table's key down listener
+  // breaks the input's ability to type in the search box
   if (props.searchDescriptor?.column) {
     delete gridProps.onKeyDownCapture;
-    delete gridProps.onFocus;
   }
 
   return (
@@ -283,8 +289,13 @@ function TableColumnHeader<T extends object>(props: TableColumnHeaderProps<T>) {
           <SearchInputWrapper
             className={classNames({ "is-expanded": isSearching })}
           >
+            {/* TODO: the input is getting focused when you sort the column
+            https://github.com/adobe/react-spectrum/blob/main/packages/%40react-aria/grid/src/useGridCell.ts#L71
+            */}
             <SearchInput
+              aria-label={`Search ${column.key}`}
               autoFocus
+              tabIndex={-1}
               value={state.searchDescriptor?.search}
               onChange={(e) => {
                 state.onSearchChange?.({
