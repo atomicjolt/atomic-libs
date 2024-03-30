@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import Table from ".";
+import { SearchDescriptor } from "./Table.types";
 
 const meta: Meta<typeof Table> = {
   title: "Layouts/Table",
@@ -9,6 +10,14 @@ const meta: Meta<typeof Table> = {
     children: {
       control: false,
     },
+    sortDescriptor: {
+      description: "The current sort descriptor, if any",
+    },
+    variant: {
+      description: "The visual variant of the table",
+      options: ["default", "full-borders", "sheet"],
+      control: "select",
+    },
     onSortChange: {
       action: "sortChange",
       description: "Fires when the user changes the sort descriptor",
@@ -16,13 +25,19 @@ const meta: Meta<typeof Table> = {
         category: "Events",
       },
     },
-    sortDescriptor: {
-      description: "The current sort descriptor, if any",
+    onSearchChange: {
+      action: "onSearchChange",
+      description: "Fires when the user changes search descriptor",
+      table: {
+        category: "Events",
+      },
     },
-    variant: {
-      description: "The visual variant of the table",
-      options: ["default", "vertical-borders", "sheet"],
-      control: "select",
+    onColumnReorder: {
+      action: "onColumnReorder",
+      description: "Fires when the user changes the column order",
+      table: {
+        category: "Events",
+      },
     },
   },
 };
@@ -79,6 +94,43 @@ export const MultipleSelection: Story = {
   },
 };
 
+export const NestedColumns: Story = {
+  args: {
+    variant: "full-borders",
+    children: [
+      <Table.Header key="header">
+        <Table.Column key="name">Name</Table.Column>
+        <Table.Column title="Details">
+          <Table.Column key="type">Type</Table.Column>
+          <Table.Column key="level">Level</Table.Column>
+        </Table.Column>
+      </Table.Header>,
+      <Table.Body key="body">
+        <Table.Row key="1">
+          <Table.Cell>Charizard</Table.Cell>
+          <Table.Cell>Fire, Flying</Table.Cell>
+          <Table.Cell>67</Table.Cell>
+        </Table.Row>
+        <Table.Row key="2">
+          <Table.Cell>Blastoise</Table.Cell>
+          <Table.Cell>Water</Table.Cell>
+          <Table.Cell>56</Table.Cell>
+        </Table.Row>
+        <Table.Row key="3">
+          <Table.Cell>Venusaur</Table.Cell>
+          <Table.Cell>Grass, Poison</Table.Cell>
+          <Table.Cell>83</Table.Cell>
+        </Table.Row>
+        <Table.Row key="4">
+          <Table.Cell>Pikachu</Table.Cell>
+          <Table.Cell>Electric</Table.Cell>
+          <Table.Cell>100</Table.Cell>
+        </Table.Row>
+      </Table.Body>,
+    ],
+  },
+};
+
 export const SingleSelection: Story = {
   args: {
     ...Primary.args,
@@ -93,7 +145,7 @@ export const SortableHeaders: Story = {
       direction: "descending",
     },
     children: [
-      <Table.Header>
+      <Table.Header key="header">
         <Table.Column key="name" allowsSorting>
           Name
         </Table.Column>
@@ -104,7 +156,7 @@ export const SortableHeaders: Story = {
           Level
         </Table.Column>
       </Table.Header>,
-      <Table.Body>
+      <Table.Body key="body">
         <Table.Row key="1">
           <Table.Cell>Charizard</Table.Cell>
           <Table.Cell>Fire, Flying</Table.Cell>
@@ -209,5 +261,84 @@ export const WithColumnReordering: Story = {
         </Table.Body>
       </Table>
     );
+  },
+};
+
+export const WithColumnSearch: Story = {
+  render: (props) => {
+    const [searchDescriptor, setSearchDescriptor] = useState<SearchDescriptor>({
+      column: null,
+      search: "",
+    });
+
+    const pokemons = [
+      {
+        name: "Charizard",
+        type: "Fire, Flying",
+        level: 67,
+      },
+      {
+        name: "Blastoise",
+        type: "Water",
+        level: 56,
+      },
+      {
+        name: "Venusaur",
+        type: "Grass, Poison",
+        level: 83,
+      },
+      {
+        name: "Pikachu",
+        type: "Electric",
+        level: 100,
+      },
+    ];
+
+    const filteredPokemon = pokemons.filter((pokemon) => {
+      if (!searchDescriptor.search || !searchDescriptor.column) return true;
+
+      return pokemon[searchDescriptor.column]
+        .toLowerCase()
+        .includes(searchDescriptor.search.toLowerCase());
+    });
+
+    return (
+      <div
+        style={{
+          padding: "16px",
+        }}
+      >
+        <Table
+          searchDescriptor={searchDescriptor}
+          onSearchChange={setSearchDescriptor}
+          {...props}
+        >
+          <Table.Header>
+            <Table.Column key="name" allowsSearching>
+              Name
+            </Table.Column>
+            <Table.Column key="type" allowsSearching width={200}>
+              Type
+            </Table.Column>
+            <Table.Column key="level" width={100}>
+              Level
+            </Table.Column>
+          </Table.Header>
+          <Table.Body items={filteredPokemon}>
+            {(pokemon) => (
+              <Table.Row key={pokemon.name}>
+                <Table.Cell>{pokemon.name}</Table.Cell>
+                <Table.Cell>{pokemon.type}</Table.Cell>
+                <Table.Cell>{pokemon.level}</Table.Cell>
+              </Table.Row>
+            )}
+          </Table.Body>
+        </Table>
+      </div>
+    );
+  },
+  args: {
+    variant: "full-borders",
+    "aria-label": "Table with searching",
   },
 };

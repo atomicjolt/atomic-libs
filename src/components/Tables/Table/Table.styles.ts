@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import mixins from "../../../styles/mixins";
-
+import { Input, InputWrapper } from "../../../styles/input";
 
 export const StyledTable = styled.table`
   ${mixins.Regular}
@@ -11,7 +11,6 @@ export const StyledTable = styled.table`
   width: 100%;
   font-size: var(--table-font-size);
   color: var(--text-clr);
-
 
   &.is-sticky {
     thead {
@@ -36,7 +35,7 @@ export const StyledTable = styled.table`
     }
   }
 
-  &.aje-table--vertical-borders {
+  &.aje-table--full-borders {
     border-width: var(--table-border-width) 0 0 var(--table-border-width);
     border-radius: var(--table-border-radius);
 
@@ -133,21 +132,7 @@ export const StyledTh = styled.th`
       background-color: var(--neutral100);
       outline: 2px solid var(--neutral600);
       outline-offset: -2px;
-  }
-
-  &[aria-sort="ascending"] {
-    button::after {
-      content: "\\e5d8";
-      color: var(--table-sort-icon-clr);
     }
-  }
-
-  &[aria-sort="descending"] {
-    button::after {
-      content: "\\e5db";
-      color: var(--table-sort-icon-clr);
-    }
-  }
   }
 `;
 
@@ -163,6 +148,10 @@ export const ThContent = styled.div`
   align-items: center;
   gap: 4px;
   position: relative;
+
+  &.is-centered {
+    justify-content: center;
+  }
 `;
 
 export const ColumnDragIndicator = styled.div`
@@ -196,13 +185,11 @@ export const RowHeader = styled.th`
   padding: var(--table-padding-vert) var(--table-padding-horz);
 `;
 
-
 export const StyledThead = styled.thead`
   background-color: var(--table-bg-clr);
 `;
 
-export const StyledTBody = styled.tbody`
-`;
+export const StyledTBody = styled.tbody``;
 
 export const StyledRow = styled.tr`
   background-color: var(--table-bg-clr);
@@ -216,3 +203,32 @@ export const StyledRow = styled.tr`
     --table-bg-clr: var(--neutral200);
   }
 `;
+
+export const SearchInputWrapper = styled(InputWrapper)`
+  --input-height: 30px;
+  --input-padding-horiz: 0px;
+  --btn-padding: 0px 5px;
+
+  height: 30px;
+  /* display: none; */
+  width: 0;
+  transition: width 0.3s ease;
+  align-items: center;
+  border: none;
+
+  button {
+    display: none;
+  }
+
+  &.is-expanded {
+    --input-padding-horiz: 12px;
+    border: var(--input-border);
+    width: 200px;
+
+    button {
+      display: flex;
+    }
+  }
+`;
+
+export const SearchInput = styled(Input)``;

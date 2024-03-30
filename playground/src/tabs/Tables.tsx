@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Table } from "../elements";
 import { SortDescriptor } from "react-stately";
+import { SearchDescriptor } from "../../../src/components/Tables/Table/Table.types";
 
 export default function Tables() {
   const [sortDescriptor, setSortDescriptor] = useState<SortDescriptor>({
@@ -8,36 +9,10 @@ export default function Tables() {
     direction: "ascending",
   });
 
-  const [columnOrder, setColumnOrder] = useState<React.Key[]>([
-    "name",
-    "type",
-    "level",
-  ]);
-
-  const columns = [
-    {
-      key: "name",
-      name: "Name",
-      isSortable: true,
-      allowsReordering: true,
-    },
-    {
-      key: "type",
-      name: "Type",
-      isSortable: true,
-      allowsReordering: true,
-    },
-    {
-      key: "level",
-      name: "Level",
-      isSortable: true,
-      allowsReordering: true,
-    },
-  ];
-
-  const sortedColumns = columnOrder.map((key) =>
-    columns.find((c) => c.key === key)
-  ) as typeof columns;
+  const [searchDescriptor, setSearchDescriptor] = useState<SearchDescriptor>({
+    column: null,
+    search: "",
+  });
 
   const pokemons = [
     {
@@ -60,149 +35,17 @@ export default function Tables() {
       type: "Electric",
       level: 100,
     },
-    {
-      name: "Charizard",
-      type: "Fire, Flying",
-      level: 67,
-    },
-    {
-      name: "Blastoise",
-      type: "Water",
-      level: 56,
-    },
-    {
-      name: "Venusaur",
-      type: "Grass, Poison",
-      level: 83,
-    },
-    {
-      name: "Pikachu",
-      type: "Electric",
-      level: 100,
-    },
-    {
-      name: "Charizard",
-      type: "Fire, Flying",
-      level: 67,
-    },
-    {
-      name: "Blastoise",
-      type: "Water",
-      level: 56,
-    },
-    {
-      name: "Venusaur",
-      type: "Grass, Poison",
-      level: 83,
-    },
-    {
-      name: "Pikachu",
-      type: "Electric",
-      level: 100,
-    },
-    {
-      name: "Charizard",
-      type: "Fire, Flying",
-      level: 67,
-    },
-    {
-      name: "Blastoise",
-      type: "Water",
-      level: 56,
-    },
-    {
-      name: "Venusaur",
-      type: "Grass, Poison",
-      level: 83,
-    },
-    {
-      name: "Pikachu",
-      type: "Electric",
-      level: 100,
-    },
-    {
-      name: "Charizard",
-      type: "Fire, Flying",
-      level: 67,
-    },
-    {
-      name: "Blastoise",
-      type: "Water",
-      level: 56,
-    },
-    {
-      name: "Venusaur",
-      type: "Grass, Poison",
-      level: 83,
-    },
-    {
-      name: "Pikachu",
-      type: "Electric",
-      level: 100,
-    },
-    {
-      name: "Charizard",
-      type: "Fire, Flying",
-      level: 67,
-    },
-    {
-      name: "Blastoise",
-      type: "Water",
-      level: 56,
-    },
-    {
-      name: "Venusaur",
-      type: "Grass, Poison",
-      level: 83,
-    },
-    {
-      name: "Pikachu",
-      type: "Electric",
-      level: 100,
-    },
-    {
-      name: "Charizard",
-      type: "Fire, Flying",
-      level: 67,
-    },
-    {
-      name: "Blastoise",
-      type: "Water",
-      level: 56,
-    },
-    {
-      name: "Venusaur",
-      type: "Grass, Poison",
-      level: 83,
-    },
-    {
-      name: "Pikachu",
-      type: "Electric",
-      level: 100,
-    },
-    {
-      name: "Charizard",
-      type: "Fire, Flying",
-      level: 67,
-    },
-    {
-      name: "Blastoise",
-      type: "Water",
-      level: 56,
-    },
-    {
-      name: "Venusaur",
-      type: "Grass, Poison",
-      level: 83,
-    },
-    {
-      name: "Pikachu",
-      type: "Electric",
-      level: 100,
-    },
   ];
 
-  const sortedPokemons = pokemons.sort((a, b) => {
+  const filteredPokemons = pokemons.filter((pokemon) => {
+    if (!searchDescriptor.search || !searchDescriptor.column) return true;
+
+    return pokemon[searchDescriptor.column]
+      .toLowerCase()
+      .includes(searchDescriptor.search.toLowerCase());
+  });
+
+  const sortedPokemons = filteredPokemons.sort((a, b) => {
     if (sortDescriptor.column === undefined) return 0;
 
     if (sortDescriptor.direction === "ascending") {
@@ -222,29 +65,45 @@ export default function Tables() {
         aria-label="Table with selection"
         sortDescriptor={sortDescriptor}
         onSortChange={setSortDescriptor}
-        onColumnReorder={setColumnOrder}
-        variant="sheet"
-        isSticky
+        searchDescriptor={searchDescriptor}
+        onSearchChange={setSearchDescriptor}
+        variant="full-borders"
       >
-        <Table.Header columns={sortedColumns}>
-          {(column) => (
+        <Table.Header>
+          <Table.Column
+            key="name"
+            allowsSorting
+            allowsSearching
+            allowsReordering
+          >
+            Name
+          </Table.Column>
+          <Table.Column title="Title" key="title">
             <Table.Column
-              key={column.key}
-              allowsSorting={column.isSortable}
-              allowsReordering={column.allowsReordering}
+              key="type"
+              allowsSorting
+              allowsReordering
+              width={200}
+              allowsSearching
             >
-              {column.name}
+              Type
             </Table.Column>
-          )}
+            <Table.Column
+              key="level"
+              allowsSorting
+              allowsReordering
+              width={100}
+            >
+              Level
+            </Table.Column>
+          </Table.Column>
         </Table.Header>
         <Table.Body items={sortedPokemons}>
           {(pokemon) => (
             <Table.Row key={pokemon.name}>
-              {sortedColumns.map((column, idx) => (
-                <Table.Cell key={column.key} isRowHeader={idx === 0}>
-                  {pokemon[column.key]}
-                </Table.Cell>
-              ))}
+              <Table.Cell>{pokemon.name}</Table.Cell>
+              <Table.Cell>{pokemon.type}</Table.Cell>
+              <Table.Cell>{pokemon.level}</Table.Cell>
             </Table.Row>
           )}
         </Table.Body>

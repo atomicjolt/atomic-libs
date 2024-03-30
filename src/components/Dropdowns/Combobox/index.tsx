@@ -18,6 +18,7 @@ import { FieldWrapper } from "../../Atoms/FieldWrapper";
 import IconButton from "../../Buttons/IconButton";
 import { Popover } from "../../Atoms/Popover";
 import { UnmanagedListBox } from "../../Atoms/ListBox";
+import { Input, InputWrapper } from "../../../styles/input";
 
 export interface ComboBoxProps<T>
   extends AriaProps<AriaComboBoxProps<T>>,
@@ -92,8 +93,8 @@ export function ComboBox<T extends object>(props: ComboBoxProps<T>) {
         hideLabel={hideLabel}
         floating={variant === "floating"}
       >
-        <ComboboxInputWrapper>
-          <ComboboxInput ref={inputRef} {...inputProps} />
+        <InputWrapper>
+          <Input ref={inputRef} {...inputProps} />
           <IconButton
             icon={icon}
             variant="content"
@@ -101,7 +102,7 @@ export function ComboBox<T extends object>(props: ComboBoxProps<T>) {
             ref={buttonRef}
             {...buttonProps}
           />
-        </ComboboxInputWrapper>
+        </InputWrapper>
       </FieldWrapper>
       {state.isOpen && (
         <Popover

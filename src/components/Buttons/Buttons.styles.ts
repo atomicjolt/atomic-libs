@@ -91,6 +91,9 @@ export const BaseStyledButton = styled.button`
     --btn-hover-text-clr: var(--btn-text-clr);
     --btn-hover-bg-clr: transparent;
     --btn-hover-shadow: none;
+    --btn-padding: 0px;
+    --btn-height: auto;
+    outline: none;
   }
 
   &.aje-btn--border {
