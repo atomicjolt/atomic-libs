@@ -19,7 +19,7 @@ exports[`matches snapshots > matches default variant 1`] = `
       message
     </p>
     <div
-      class="sc-iCoHzw ixYftF"
+      class="sc-iJCSeZ hGFHIV"
     >
       <input
         aria-autocomplete="list"
@@ -28,7 +28,7 @@ exports[`matches snapshots > matches default variant 1`] = `
         aria-labelledby="react-aria-:r3:"
         autocomplete="off"
         autocorrect="off"
-        class="sc-fujznN ezPOVY"
+        class="sc-giAruI ebwaiC"
         id="react-aria-:r2:"
         role="combobox"
         spellcheck="false"
@@ -40,14 +40,14 @@ exports[`matches snapshots > matches default variant 1`] = `
         aria-haspopup="listbox"
         aria-label="Show suggestions"
         aria-labelledby="react-aria-:r0: react-aria-:r3:"
-        class="sc-bqGGcD sc-ksltVi fbxKAC cUiMyk aje-btn aje-btn--icon aje-btn--content"
+        class="sc-crzpnZ sc-dItHI hhZjXJ fwPWKD aje-btn aje-btn--icon aje-btn--content"
         id="react-aria-:r0:"
         tabindex="-1"
         type="button"
       >
         <i
           aria-hidden="true"
-          class="sc-dItHI lcUOnn material-icons is-medium"
+          class="sc-iqAbyq hHUDGk material-icons is-medium"
         >
           arrow_drop_down
         </i>
@@ -72,7 +72,7 @@ exports[`matches snapshots > matches floating variant 1`] = `
       class="sc-eCAqax kebOaS"
     >
       <div
-        class="sc-iCoHzw ixYftF"
+        class="sc-iJCSeZ hGFHIV"
       >
         <input
           aria-autocomplete="list"
@@ -81,7 +81,7 @@ exports[`matches snapshots > matches floating variant 1`] = `
           aria-labelledby="react-aria-:rc:"
           autocomplete="off"
           autocorrect="off"
-          class="sc-fujznN ezPOVY"
+          class="sc-giAruI ebwaiC"
           id="react-aria-:rb:"
           role="combobox"
           spellcheck="false"
@@ -93,14 +93,14 @@ exports[`matches snapshots > matches floating variant 1`] = `
           aria-haspopup="listbox"
           aria-label="Show suggestions"
           aria-labelledby="react-aria-:r9: react-aria-:rc:"
-          class="sc-bqGGcD sc-ksltVi fbxKAC cUiMyk aje-btn aje-btn--icon aje-btn--content"
+          class="sc-crzpnZ sc-dItHI hhZjXJ fwPWKD aje-btn aje-btn--icon aje-btn--content"
           id="react-aria-:r9:"
           tabindex="-1"
           type="button"
         >
           <i
             aria-hidden="true"
-            class="sc-dItHI lcUOnn material-icons is-medium"
+            class="sc-iqAbyq hHUDGk material-icons is-medium"
           >
             arrow_drop_down
           </i>

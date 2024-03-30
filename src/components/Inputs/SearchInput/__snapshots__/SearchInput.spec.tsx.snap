@@ -17,13 +17,13 @@ exports[`matches snapshot > displays with search button 1`] = `
     >
       <input
         aria-labelledby="react-aria-:r6:"
-        class="sc-iqAbyq iqkqU"
+        class="sc-iqAbyq dZWvfL"
         id="react-aria-:r5:"
         type="search"
         value=""
       />
       <button
-        class="sc-fFSPgy sc-bkbjWr gThLkv jHDcPD aje-btn aje-btn--icon aje-btn--content"
+        class="sc-fFSPgy sc-bkbjWr eXoGmL jHDcPD aje-btn aje-btn--icon aje-btn--content"
         type="button"
       >
         <i
@@ -55,13 +55,13 @@ exports[`matches snapshot > displays without button 1`] = `
     >
       <input
         aria-labelledby="react-aria-:r1:"
-        class="sc-iqAbyq iqkqU"
+        class="sc-iqAbyq dZWvfL"
         id="react-aria-:r0:"
         type="search"
         value=""
       />
       <button
-        class="sc-fFSPgy sc-bkbjWr gThLkv jHDcPD aje-btn aje-btn--icon aje-btn--content"
+        class="sc-fFSPgy sc-bkbjWr eXoGmL jHDcPD aje-btn aje-btn--icon aje-btn--content"
         type="button"
       >
         <i
