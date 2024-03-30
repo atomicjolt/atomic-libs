@@ -51,7 +51,7 @@ export const UnmanagedListBox = React.forwardRef<
 >((props, ref) => {
   const {
     isSearchable,
-    searchPlaceholder,
+    searchPlaceholder = "Search",
     state,
     className,
     size = "medium",
@@ -60,6 +60,7 @@ export const UnmanagedListBox = React.forwardRef<
   const internalRef = useForwardedRef(ref);
   const { listBoxProps, labelProps } = useListBox(props, state, internalRef);
   const [searchValue, setSearchValue] = useState("");
+  const [isSearching, setIsSearching] = useState(false);
 
   const { contains } = useFilter({ sensitivity: "base" });
 
@@ -70,6 +71,12 @@ export const UnmanagedListBox = React.forwardRef<
       ),
     [state.collection, searchValue]
   );
+
+  if (isSearching) {
+    // Prevent the listbox from handling keyboard events while the search input is focused
+    // Stops it from taking focus away from the search input
+    delete listBoxProps.onKeyDownCapture;
+  }
 
   return (
     <>
@@ -87,6 +94,8 @@ export const UnmanagedListBox = React.forwardRef<
             onChange={setSearchValue}
             placeholder={searchPlaceholder}
             size={size}
+            onFocus={() => setIsSearching(true)}
+            onBlur={() => setIsSearching(false)}
           />
         )}
         {filteredItems.map((item) =>

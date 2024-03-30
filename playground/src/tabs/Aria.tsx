@@ -16,7 +16,7 @@ export default function Aria() {
         <Item key="2">Item 2</Item>
         <Item key="3">Item 3</Item>
       </MultiSelect>
-      <CustomSelect label="Label" defaultSelectedKey="1">
+      <CustomSelect label="Label" defaultSelectedKey="1" isSearchable>
         <Item key="1">Item 1</Item>
         <Item key="2">Item 2</Item>
         <Item key="3">Item 3</Item>
