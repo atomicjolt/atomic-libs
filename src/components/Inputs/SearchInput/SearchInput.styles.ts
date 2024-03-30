@@ -17,6 +17,7 @@ export const SearchInputWrapper = styled.div`
 
 export const ActualSearchInput = styled.input`
   ${mixins.InputLike}
+  ${mixins.Regular}
   border: none;
   box-shadow: none;
 

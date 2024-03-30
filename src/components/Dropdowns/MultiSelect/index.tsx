@@ -1,29 +1,30 @@
-import React, { useRef } from "react";
-import { SelectProps, useSelectState } from "react-stately";
-import { HiddenSelect, useSelect } from "react-aria";
-import classNames from "classnames";
+import React, { useMemo, useRef } from "react";
 import {
   AriaProps,
   ExtendedSize,
   FieldBaseProps,
   HasVariant,
 } from "../../../types";
+import { useMultiSelectState } from "./useMultiSelectState";
+import { AriaMultiSelectProps } from "./MutliSelect.types";
+import { useMultiSelect } from "./useMultiSelect";
 import { DropdownWrapper } from "../Dropdowns.styles";
 import { useVariantClass } from "../../../hooks";
-import { ButtonText } from "./CustomSelect.styles";
 import { FieldWrapper } from "../../Atoms/FieldWrapper";
 import Button from "../../Buttons/Button";
+import { ButtonText } from "../CustomSelect/CustomSelect.styles";
 import MaterialIcon from "../../Icons/MaterialIcon";
 import { Popover } from "../../Atoms/Popover";
+import classNames from "classnames";
 import { UnmanagedListBox } from "../../Atoms/ListBox";
 
-export type CustomSelectVariants = "default" | "floating";
-
-export interface CustomSelectProps<T extends object>
-  extends AriaProps<SelectProps<T>>,
+export interface MultiSelectProps<T extends object>
+  extends AriaProps<AriaMultiSelectProps<T>>,
     Omit<FieldBaseProps, "isReadOnly">,
-    HasVariant<CustomSelectVariants> {
-  /** The size of the menu. Defaults to `auto` */
+    HasVariant<"default" | "floating"> {
+  /** The size of the menu. Defaults to `size` if not provided.
+   * If the content of the dropdown is likely to be large,
+   * you should set this to `auto` so it sizes to the length of the content */
   menuSize?: ExtendedSize;
 
   /** Allows the items in the select to be filtered */
@@ -31,12 +32,14 @@ export interface CustomSelectProps<T extends object>
 
   /** The placeholder text for the search input*/
   searchPlaceholder?: string;
+
+  /** The placeholder text for the select when the user has made a selection. Defaults to `placeholder` if one isn't provided */
+  selectionPlaceholder?: string;
 }
 
-/** A custom version of the builtin `select` component to
- * allow for consistent styling & an extended feature set */
-export function CustomSelect<T extends object>(props: CustomSelectProps<T>) {
-  const state = useSelectState<T>(props);
+/** MultiSelect is a dropdown that allows the user to select multiple options from a list */
+export function MultiSelect<T extends object>(props: MultiSelectProps<T>) {
+  const state = useMultiSelectState<T>(props);
   const ref = useRef(null);
   const {
     labelProps,
@@ -45,7 +48,7 @@ export function CustomSelect<T extends object>(props: CustomSelectProps<T>) {
     menuProps,
     errorMessageProps,
     descriptionProps,
-  } = useSelect(props, state, ref);
+  } = useMultiSelect(props, state, ref);
 
   const {
     className,
@@ -56,36 +59,48 @@ export function CustomSelect<T extends object>(props: CustomSelectProps<T>) {
     isInvalid,
     isDisabled,
     isRequired,
-    name,
     isSearchable,
     searchPlaceholder,
     size = "medium",
+    menuSize = size,
     placeholder = "Select an option",
+    selectionPlaceholder = placeholder,
     variant = "default",
   } = props;
 
-  const menuSize = props.menuSize || size;
+  const buttonText = useMemo(() => {
+    if (variant === "floating") {
+      if (state.selectionManager.selectedKeys.size > 0) {
+        return selectionPlaceholder;
+      }
+
+      return "";
+    }
+
+    if (state.selectionManager.selectedKeys.size > 0) {
+      return selectionPlaceholder;
+    }
+
+    return placeholder;
+  }, [
+    state.selectionManager.selectedKeys.size,
+    selectionPlaceholder,
+    placeholder,
+    variant,
+  ]);
 
   const variantClassName = useVariantClass("aje-dropdown", variant);
 
   return (
     <DropdownWrapper
       className={classNames("aje-dropdown", variantClassName, className, {
-        "has-selection": state.selectedItem,
+        "has-selection": state.selectionManager.selectedKeys.size > 0,
       })}
       error={isInvalid}
       disabled={isDisabled}
       required={isRequired}
       size={size}
     >
-      <HiddenSelect
-        isDisabled={isDisabled}
-        state={state}
-        triggerRef={ref}
-        label={label}
-        name={name}
-      />
-
       <FieldWrapper
         label={label}
         labelProps={labelProps}
@@ -103,13 +118,7 @@ export function CustomSelect<T extends object>(props: CustomSelectProps<T>) {
           size={size}
           isDisabled={isDisabled}
         >
-          <ButtonText {...valueProps}>
-            {state.selectedItem
-              ? state.selectedItem.rendered
-              : variant === "default"
-              ? placeholder
-              : ""}
-          </ButtonText>
+          <ButtonText {...valueProps}>{buttonText}</ButtonText>
           <MaterialIcon icon="arrow_drop_down" />
         </Button>
       </FieldWrapper>
@@ -122,6 +131,7 @@ export function CustomSelect<T extends object>(props: CustomSelectProps<T>) {
             size={menuSize}
             isSearchable={isSearchable}
             searchPlaceholder={searchPlaceholder}
+            showCheckmark
           />
         </Popover>
       )}
