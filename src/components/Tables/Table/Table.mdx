@@ -71,7 +71,7 @@ export default function SortableTable() {
       sortDescriptor={sortDescriptor}
       onSortChange={setSortDescriptor}
     >
-      <Table.Header columns={sortedColumns}>
+      <Table.Header>
         <Table.Column key="name" allowsSorting>
           Name
         </Table.Column>
@@ -96,6 +96,89 @@ export default function SortableTable() {
 }
 
 ` }}/>
+
+### Searchable Table Columns
+
+Any column in the table can be made searchable by setting the `allowsSearching` prop to `true` on a given column.
+
+If there are multiple columns that are searchable, when the user selects a new column to search by, 
+the current search term will be cleared. Closing the search input will also clear the search term.
+
+
+<Canvas of={TableStories.WithColumnSearch} source={{language: 'tsx', code: `
+function SearchableTable() {
+  const [searchDescriptor, setSearchDescriptor] = useState<SearchDescriptor>({
+    column: null,
+    search: "",
+  });
+
+  const pokemons = [
+    {
+      name: "Charizard",
+      type: "Fire, Flying",
+      level: 67,
+    },
+    {
+      name: "Blastoise",
+      type: "Water",
+      level: 56,
+    },
+    {
+      name: "Venusaur",
+      type: "Grass, Poison",
+      level: 83,
+    },
+    {
+      name: "Pikachu",
+      type: "Electric",
+      level: 100,
+    },
+  ];
+
+  const filteredPokemon = pokemons.filter((pokemon) => {
+    if (!searchDescriptor.search || !searchDescriptor.column) return true;
+
+    return pokemon[searchDescriptor.column]
+      .toLowerCase()
+      .includes(searchDescriptor.search.toLowerCase());
+  });
+
+  return (
+    <div
+      style={{
+        padding: "16px",
+      }}
+    >
+      <Table
+        searchDescriptor={searchDescriptor}
+        onSearchChange={setSearchDescriptor}
+        {...props}
+      >
+        <Table.Header>
+          <Table.Column key="name" allowsSearching>
+            Name
+          </Table.Column>
+          <Table.Column key="type" allowsSearching width={200}>
+            Type
+          </Table.Column>
+          <Table.Column key="level" width={100}>
+            Level
+          </Table.Column>
+        </Table.Header>
+        <Table.Body items={filteredPokemon}>
+          {(pokemon) => (
+            <Table.Row key={pokemon.name}>
+              <Table.Cell>{pokemon.name}</Table.Cell>
+              <Table.Cell>{pokemon.type}</Table.Cell>
+              <Table.Cell>{pokemon.level}</Table.Cell>
+            </Table.Row>
+          )}
+        </Table.Body>
+      </Table>
+    </div>
+  );
+}
+`}} />
 
 ### Table with Row Selection
 
@@ -209,3 +292,10 @@ function ReorderableTable() {
 }
 `
 }} />
+
+
+### Nested Columns 
+
+The table component supports nested columns. Nested columns can be used to group columns together under a common header.
+
+<Canvas of={TableStories.NestedColumns} />

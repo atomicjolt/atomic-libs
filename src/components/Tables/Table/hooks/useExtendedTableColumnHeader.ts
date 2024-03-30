@@ -21,7 +21,6 @@ export function useExtendedTableColumnHeader<T>(
 ): TableColumnHeader {
   const tableColumnHeader = useTableColumnHeader(props, state, ref);
 
-  const headerProps = tableColumnHeader.columnHeaderProps;
   const column = props.node;
 
   const allowsSearching = state.searchDescriptor?.column === column.key;
@@ -30,6 +29,8 @@ export function useExtendedTableColumnHeader<T>(
     state.searchDescriptor?.column === column.key && allowsSearching;
 
   if (isSearching) {
+    const headerProps = tableColumnHeader.columnHeaderProps;
+
     // The mouse down event prevents the input from receiving focus
 
     const ariaOnMouseDown = headerProps.onMouseDown;
@@ -58,6 +59,12 @@ export function useExtendedTableColumnHeader<T>(
 
   return {
     ...tableColumnHeader,
+    columnHeaderProps: {
+      ...tableColumnHeader.columnHeaderProps,
+      style: {
+        width: column.props.width,
+      },
+    },
     isSearching,
   };
 }

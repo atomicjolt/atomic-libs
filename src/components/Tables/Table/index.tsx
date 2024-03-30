@@ -3,8 +3,6 @@ import {
   AriaTableProps,
   VisuallyHidden,
   mergeProps,
-  useDrag,
-  useDrop,
   useFocusRing,
   useTable,
   useTableCell,
@@ -14,7 +12,6 @@ import {
   useTableRowGroup,
   useTableSelectAllCheckbox,
   useTableSelectionCheckbox,
-  TextDropItem,
 } from "react-aria";
 import {
   TableState,
@@ -36,18 +33,13 @@ import {
   MultipleSelection,
 } from "@react-types/shared";
 import {
-  ColumnDragIndicator,
-  DraggableTh,
   RowHeader,
-  SearchInput,
-  SearchInputWrapper,
   StyledRow,
   StyledTBody,
   StyledTable,
   StyledTd,
   StyledTh,
   StyledThead,
-  ThContent,
 } from "./Table.styles";
 import Checkbox from "../../Inputs/Checkbox";
 import classNames from "classnames";
@@ -57,18 +49,16 @@ import {
   HasVariant,
   SuggestStrings,
 } from "../../../types";
-import MaterialIcon from "../../Icons/MaterialIcon";
 import { cloneComponent } from "../../../clone";
 import { useVariantClass } from "../../../hooks";
-import IconButton from "../../Buttons/IconButton";
-import {
-  ExtendedTableState,
-  useExtendedTableState,
-} from "./hooks/useExtendedTableState";
-import { useExtendedTableColumnHeader } from "./hooks/useExtendedTableColumnHeader";
+import { useExtendedTableState } from "./hooks/useExtendedTableState";
 import { Searchable } from "./Table.types";
+import {
+  DraggableTableColumnHeader,
+  TableColumnHeader,
+} from "./components/header";
 
-type TableVariants = SuggestStrings<"default" | "grid" | "vertical-borders">;
+type TableVariants = SuggestStrings<"default" | "grid" | "full-borders">;
 
 export interface TableProps<T>
   extends AriaTableProps<T>,
@@ -235,187 +225,6 @@ function TableHeaderRow<T>(props: TableHeaderRowProps<T>) {
     <tr {...rowProps} ref={ref}>
       {children}
     </tr>
-  );
-}
-
-interface TableColumnHeaderProps<T> {
-  column: Node<T>;
-  state: ExtendedTableState<T>;
-}
-
-function TableColumnHeader<T extends object>(props: TableColumnHeaderProps<T>) {
-  const { column, state } = props;
-  const {
-    allowsSearching = false,
-    allowsSorting = false,
-    colspan,
-  } = column.props;
-
-  const ref = useRef(null);
-  const inputRef = useRef(null);
-
-  const { focusProps } = useFocusRing();
-
-  const { columnHeaderProps, isSearching } = useExtendedTableColumnHeader(
-    { node: column },
-    state,
-    ref,
-    inputRef
-  );
-
-  const arrowIcon =
-    state.sortDescriptor?.direction === "ascending"
-      ? "arrow_drop_up"
-      : "arrow_drop_down";
-
-  const headerProps = mergeProps(columnHeaderProps, focusProps);
-
-  return (
-    <StyledTh
-      {...headerProps}
-      className={classNames({ "is-sortable": allowsSorting })}
-      colSpan={colspan}
-      ref={ref}
-    >
-      <ThContent>
-        {column.rendered}
-        {allowsSorting && state.sortDescriptor.column === column.key && (
-          <MaterialIcon icon={arrowIcon} />
-        )}
-        {allowsSorting && state.sortDescriptor.column !== column.key && (
-          <MaterialIcon icon="swap_vert" className="swap-icon" />
-        )}
-        {allowsSearching && (
-          <SearchInputWrapper
-            className={classNames({ "is-expanded": isSearching })}
-          >
-            {/* TODO: the input is getting focused when you sort the column
-            https://github.com/adobe/react-spectrum/blob/main/packages/%40react-aria/grid/src/useGridCell.ts#L71
-            */}
-            <SearchInput
-              aria-label={`Search ${column.key}`}
-              autoFocus
-              tabIndex={-1}
-              value={state.searchDescriptor?.search}
-              onChange={(e) => {
-                state.onSearchChange?.({
-                  column: column.key,
-                  search: e.target.value,
-                });
-              }}
-              // Table listens for keydown events for things
-              // like flipping to sorting when pressing the spacebar
-              // so we need to stop propagation to prevent that
-              // when the input is focused
-              onKeyDown={(e) => e.stopPropagation()}
-              ref={inputRef}
-            />
-            <IconButton
-              icon="close"
-              variant="content"
-              size="small"
-              onPress={() => {
-                state.onSearchChange?.({
-                  column: null,
-                  search: "",
-                });
-              }}
-            />
-          </SearchInputWrapper>
-        )}
-        {allowsSearching && !isSearching && (
-          <IconButton
-            icon="search"
-            variant="content"
-            size="small"
-            onPress={() => {
-              state.onSearchChange?.({
-                column: column.key,
-                search: "",
-              });
-            }}
-          />
-        )}
-      </ThContent>
-    </StyledTh>
-  );
-}
-
-interface DraggableTableColumnHeaderProps<T> {
-  column: Node<T>;
-  state: TableState<T>;
-  onDrop?: (columnKey: string) => void;
-}
-
-function DraggableTableColumnHeader<T extends object>(
-  props: DraggableTableColumnHeaderProps<T>
-) {
-  const { column, state } = props;
-
-  // @ts-ignore
-  const colspan = column.colspan as number;
-
-  const ref = useRef(null);
-  const { columnHeaderProps } = useTableColumnHeader(
-    { node: column },
-    state,
-    ref
-  );
-  const { focusProps } = useFocusRing();
-  const arrowIcon =
-    state.sortDescriptor?.direction === "ascending"
-      ? "arrow_drop_down"
-      : "arrow_drop_up";
-
-  const { dragProps } = useDrag({
-    getItems() {
-      return [
-        {
-          "text/plain": column.key as string,
-        },
-      ];
-    },
-  });
-
-  const { dropProps, isDropTarget } = useDrop({
-    ref,
-    async onDrop(e) {
-      const items = await Promise.all(
-        e.items
-          .filter(
-            (item) => item.kind === "text" && item.types.has("text/plain")
-          )
-          // @ts-ignore
-          .map((item: TextDropItem) => item.getText("text/plain"))
-      );
-      const columnKey = items[0];
-
-      props.onDrop?.(columnKey);
-    },
-  });
-
-  return (
-    <DraggableTh
-      className={classNames({ "is-sortable": column.props.allowsSorting })}
-      colSpan={colspan}
-      ref={ref}
-      {...mergeProps(columnHeaderProps, focusProps, dragProps, dropProps)}
-    >
-      <ThContent>
-        <ColumnDragIndicator
-          style={{ visibility: isDropTarget ? "visible" : "hidden" }}
-        />
-        {column.rendered}
-        {column.props.allowsSorting &&
-          state.sortDescriptor.column === column.key && (
-            <MaterialIcon icon={arrowIcon} />
-          )}
-        {column.props.allowsSorting &&
-          state.sortDescriptor.column !== column.key && (
-            <MaterialIcon icon="swap_vert" className="swap-icon" />
-          )}
-      </ThContent>
-    </DraggableTh>
   );
 }
 

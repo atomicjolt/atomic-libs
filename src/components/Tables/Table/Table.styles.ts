@@ -35,7 +35,7 @@ export const StyledTable = styled.table`
     }
   }
 
-  &.aje-table--vertical-borders {
+  &.aje-table--full-borders {
     border-width: var(--table-border-width) 0 0 var(--table-border-width);
     border-radius: var(--table-border-radius);
 
@@ -148,6 +148,10 @@ export const ThContent = styled.div`
   align-items: center;
   gap: 4px;
   position: relative;
+
+  &.is-centered {
+    justify-content: center;
+  }
 `;
 
 export const ColumnDragIndicator = styled.div`

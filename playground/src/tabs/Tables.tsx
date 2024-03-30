@@ -67,16 +67,35 @@ export default function Tables() {
         onSortChange={setSortDescriptor}
         searchDescriptor={searchDescriptor}
         onSearchChange={setSearchDescriptor}
+        variant="full-borders"
       >
         <Table.Header>
-          <Table.Column key="name" allowsSorting allowsSearching>
+          <Table.Column
+            key="name"
+            allowsSorting
+            allowsSearching
+            allowsReordering
+          >
             Name
           </Table.Column>
-          <Table.Column key="type" allowsSorting>
-            Type
-          </Table.Column>
-          <Table.Column key="level" allowsSorting>
-            Level
+          <Table.Column title="Title" key="title">
+            <Table.Column
+              key="type"
+              allowsSorting
+              allowsReordering
+              width={200}
+              allowsSearching
+            >
+              Type
+            </Table.Column>
+            <Table.Column
+              key="level"
+              allowsSorting
+              allowsReordering
+              width={100}
+            >
+              Level
+            </Table.Column>
           </Table.Column>
         </Table.Header>
         <Table.Body items={sortedPokemons}>
