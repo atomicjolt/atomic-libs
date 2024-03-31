@@ -20,51 +20,52 @@ export interface SelectProps<T extends SelectValue>
 }
 
 /** Select Component. Simple wrapper around native `<select>` */
-const Select = React.forwardRef<HTMLSelectElement, SelectProps<SelectValue>>(
-  (props, ref) => {
-    const [inputId, errorId] = useIds("select", ["select", "error"]);
+export const Select = React.forwardRef<
+  HTMLSelectElement,
+  SelectProps<SelectValue>
+>((props, ref) => {
+  const [inputId, errorId] = useIds("select", ["select", "error"]);
 
-    const {
-      children,
-      onChange,
-      size = "medium",
-      label,
-      error,
-      message,
-      hideLabel = false,
-      isDisabled = false,
-      isRequired = false,
-      isInvalid = false,
-      className,
-      ...selectProps
-    } = props;
+  const {
+    children,
+    onChange,
+    size = "medium",
+    label,
+    error,
+    message,
+    hideLabel = false,
+    isDisabled = false,
+    isRequired = false,
+    isInvalid = false,
+    className,
+    ...selectProps
+  } = props;
 
-    return (
-      <ComponentWrapper
-        className={cn("aje-input", className)}
-        size={size}
-        error={isInvalid}
-        required={isRequired}
-        disabled={isDisabled}
-      >
-        <Label message={message} htmlFor={inputId} hidden={hideLabel}>
-          {label}
-        </Label>
-        <SelectWrapper className="aje-input__select">
-          <StyledSelect
-            id={inputId}
-            aria-describedby={error ? errorId : ""}
-            onChange={(e) => onChange && onChange(e.target.value)}
-            ref={ref}
-            {...selectProps}
-          >
-            {children}
-          </StyledSelect>
-        </SelectWrapper>
-        {error && <FieldError id={errorId}>{error}</FieldError>}
-      </ComponentWrapper>
-    );
-  }
-);
+  return (
+    <ComponentWrapper
+      className={cn("aje-input", className)}
+      size={size}
+      error={isInvalid}
+      required={isRequired}
+      disabled={isDisabled}
+    >
+      <Label message={message} htmlFor={inputId} hidden={hideLabel}>
+        {label}
+      </Label>
+      <SelectWrapper className="aje-input__select">
+        <StyledSelect
+          id={inputId}
+          aria-describedby={error ? errorId : ""}
+          onChange={(e) => onChange && onChange(e.target.value)}
+          ref={ref}
+          {...selectProps}
+        >
+          {children}
+        </StyledSelect>
+      </SelectWrapper>
+      {error && <FieldError id={errorId}>{error}</FieldError>}
+    </ComponentWrapper>
+  );
+});
 
 export default Select;

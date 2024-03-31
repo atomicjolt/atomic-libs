@@ -13,7 +13,7 @@ export type IconButtonProps = Omit<ButtonProps, "children"> & HasIcon;
 
 /** Similar to the Button component, but is intended to display just an icon instead of text.
  * Because of this, you should provide an `aria-label` for accessiblity */
-const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
+export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
   (props, ref) => {
     const {
       icon,

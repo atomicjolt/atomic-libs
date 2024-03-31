@@ -13,7 +13,7 @@ export interface ThreeDotLoaderProps
 }
 
 /** Three Dot Loader Component */
-export default function ThreeDotLoader(props: ThreeDotLoaderProps) {
+export function ThreeDotLoader(props: ThreeDotLoaderProps) {
   const {
     isLoading = true,
     className,
@@ -40,3 +40,5 @@ export default function ThreeDotLoader(props: ThreeDotLoaderProps) {
     </LoaderWrapper>
   );
 }
+
+export default ThreeDotLoader;

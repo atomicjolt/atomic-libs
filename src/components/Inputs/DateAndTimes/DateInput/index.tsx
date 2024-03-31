@@ -30,7 +30,7 @@ export interface DateInputProps<T extends DateValue>
 }
 
 /** Date Input Component. Accepts a `ref` */
-const DateInput = React.forwardRef(
+export const DateInput = React.forwardRef(
   <T extends DateValue>(
     props: DateInputProps<T>,
     ref: React.Ref<HTMLDivElement>
@@ -107,4 +107,5 @@ export function DateSegment(props: DateSegmentProps) {
   );
 }
 
+DateInput.displayName = "DateInput";
 export default DateInput;

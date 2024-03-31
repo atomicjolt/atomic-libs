@@ -41,7 +41,7 @@ import {
   StyledTh,
   StyledThead,
 } from "./Table.styles";
-import Checkbox from "../../Inputs/Checkbox";
+import CheckBox from "../../Inputs/Checkbox";
 import classNames from "classnames";
 import {
   HasChildren,
@@ -83,7 +83,7 @@ export interface TableProps<T>
 }
 
 /** Table component that supports sorting, row selection, and column reordering.  */
-export default function Table<T extends object>(props: TableProps<T>) {
+export function Table<T extends object>(props: TableProps<T>) {
   const {
     selectionMode,
     selectionBehavior,
@@ -303,7 +303,7 @@ function TableCheckboxCell<T>(props: TableCheckboxCellProps<T>) {
 
   return (
     <StyledTd {...gridCellProps} ref={ref}>
-      <Checkbox {...checkboxProps} />
+      <CheckBox {...checkboxProps} />
     </StyledTd>
   );
 }
@@ -329,7 +329,7 @@ function TableSelectAllCell<T>(props: TableSelectAllCellProps<T>) {
       {state.selectionManager.selectionMode === "single" ? (
         <VisuallyHidden>{checkboxProps["aria-label"]}</VisuallyHidden>
       ) : (
-        <Checkbox {...checkboxProps} />
+        <CheckBox {...checkboxProps} />
       )}
     </StyledTh>
   );
@@ -375,3 +375,5 @@ interface PublicTableCellProps extends CellProps {
 Table.Cell = cloneComponent(Cell, "Table.Cell") as (
   props: PublicTableCellProps
 ) => JSX.Element;
+
+export default Table;

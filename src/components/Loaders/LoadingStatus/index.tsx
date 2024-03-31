@@ -1,5 +1,5 @@
 import React from "react";
-import ThreeDotLoader from "../../Loaders/ThreeDotLoader";
+import ThreeDotLoader from "../ThreeDotLoader";
 import { ErrorBanner } from "../../Banners/DismissableBanner";
 import { LoadingMessage, LoadingWrapper } from "./LoadingStatus.styles";
 
@@ -41,7 +41,7 @@ const renderErrorDefault = (error: React.ReactNode) => {
  *
  * **Note**: If both an `error` is present and `loading` is true,
  * the error takes precedencs and will be displayed  */
-export default function LoadingStatus(props: LoadingStatusProps) {
+export function LoadingStatus(props: LoadingStatusProps) {
   const {
     isLoading = false,
     loadingMessage = null,
@@ -61,3 +61,5 @@ export default function LoadingStatus(props: LoadingStatusProps) {
 
   return <>{children}</>;
 }
+
+export default LoadingStatus;

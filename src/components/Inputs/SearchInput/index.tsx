@@ -18,7 +18,7 @@ export interface SearchInputProps
     HasVariant<Variants> {}
 
 /** Essentially the same as the text input, but with an `onSubmit` handler*/
-const SearchInput = React.forwardRef(
+export const SearchInput = React.forwardRef(
   (props: SearchInputProps, ref: React.Ref<HTMLInputElement>) => {
     const {
       type = "text",

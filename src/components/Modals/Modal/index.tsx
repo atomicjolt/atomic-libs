@@ -32,7 +32,7 @@ export interface ModalProps extends BaseModalProps {
  *
  * Unless you absolutely need to, you are probably better served using one of the other modals provided
  */
-export default function Modal(props: ModalProps) {
+export function Modal(props: ModalProps) {
   const { children, centered = false, variant = "default", className } = props;
   const state = useOverlayTriggerState(props);
   // const { overlayProps } = useOverlayTrigger({ type: "dialog" }, state);
@@ -91,3 +91,5 @@ ModalBody.displayName = "Modal.Body";
 Modal.Body = ModalBody;
 ModalFooter.displayName = "Modal.Footer";
 Modal.Footer = ModalFooter;
+
+export default Modal;

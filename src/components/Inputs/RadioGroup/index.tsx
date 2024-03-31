@@ -23,7 +23,7 @@ export interface RadioGroupsProps
  * do note that it does not need to nested directly under. As such, you can add additional strucuture
  * between the over-lying `<RadioGroup />` and it's `<Radio />`s
  * */
-export default function RadioGroup(props: RadioGroupsProps) {
+export function RadioGroup(props: RadioGroupsProps) {
   const { label, message, error, children, hideLabel, className } = props;
 
   const state = useRadioGroupState(props);

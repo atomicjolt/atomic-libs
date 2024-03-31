@@ -13,7 +13,7 @@ export interface CheckBoxProps
     Omit<FieldBaseProps, "label" | "hideLabel"> {}
 
 /** Checkbox Component. Accepts a `ref` */
-const Checkbox = React.forwardRef<HTMLInputElement, CheckBoxProps>(
+export const CheckBox = React.forwardRef<HTMLInputElement, CheckBoxProps>(
   (props, ref) => {
     const {
       children,
@@ -55,4 +55,4 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckBoxProps>(
   }
 );
 
-export default Checkbox;
+export default CheckBox;

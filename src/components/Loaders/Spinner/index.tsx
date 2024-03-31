@@ -17,7 +17,7 @@ const strokeWidths: Record<Size, number> = {
 };
 
 /** Spinner Component */
-export default function Spinner(props: SpinnerProps) {
+export function Spinner(props: SpinnerProps) {
   const {
     isLoading = true,
     className,
@@ -56,3 +56,5 @@ export default function Spinner(props: SpinnerProps) {
     </LoaderWrapper>
   );
 }
+
+export default Spinner;

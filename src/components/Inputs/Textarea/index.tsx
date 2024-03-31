@@ -16,7 +16,7 @@ export interface TextareaProps
 }
 
 /** Textarea Component. Accepts a `ref` */
-const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
+export const TextArea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   (props, ref) => {
     const {
       size = "medium",
@@ -72,4 +72,4 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   }
 );
 
-export default Textarea;
+export default TextArea;

@@ -19,7 +19,7 @@ export interface LabelProps extends HasChildren, HasClassName {
   errorProps?: DOMAttributes;
 }
 
-export default function Label(props: LabelProps) {
+export function Label(props: LabelProps) {
   const {
     children,
     message,
@@ -43,3 +43,5 @@ export default function Label(props: LabelProps) {
     </>
   );
 }
+
+export default Label;

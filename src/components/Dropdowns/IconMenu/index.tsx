@@ -21,7 +21,7 @@ export type IconMenuProps<T> = Omit<AriaMenuProps<T>, "onAction"> &
       | React.ReactElement<IconMenuItemProps<T>>;
   };
 
-export default function IconMenu<T extends {}>(props: IconMenuProps<T>) {
+export function IconMenu<T extends {}>(props: IconMenuProps<T>) {
   const state = useMenuTriggerState(props);
   const ref = useRef<HTMLButtonElement>(null);
   const { menuTriggerProps, menuProps } = useMenuTrigger<T>(
@@ -87,3 +87,5 @@ const IconMenuItem = cloneComponent(Item, "IconMenu.Item") as <T>(
 ) => JSX.Element;
 
 IconMenu.Item = IconMenuItem;
+
+export default IconMenu;

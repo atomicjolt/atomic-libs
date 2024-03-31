@@ -15,7 +15,7 @@ export interface TextInputProps
     HasVariant<Variants> {}
 
 /** TextInput component. Fowards a `ref` to the internal input element */
-const TextInput = React.forwardRef(
+export const TextInput = React.forwardRef(
   (props: TextInputProps, ref: React.Ref<HTMLInputElement>) => {
     const {
       type = "text",

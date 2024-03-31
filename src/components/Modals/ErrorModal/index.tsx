@@ -17,7 +17,7 @@ export interface ErrorModalProps extends BaseModalProps {
  * Keep in mind that the `ErrorModal` is a simple wrapper around the `Modal` component for a simple error message.
  * If you need a more complex error modal, you can use the `Modal` component directly. [Check the ErrorModal implementation for a starting point](https://github.com/atomicjolt/atomic-elements/blob/next/src/components/Modals/ErrorModal/index.tsx)
  * */
-export default function ErrorModal(props: ErrorModalProps) {
+export function ErrorModal(props: ErrorModalProps) {
   const { title, children, buttonText = "Close", onClose, ...rest } = props;
 
   return (
@@ -35,3 +35,5 @@ export default function ErrorModal(props: ErrorModalProps) {
     </Modal>
   );
 }
+
+export default ErrorModal;

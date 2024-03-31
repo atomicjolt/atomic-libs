@@ -51,7 +51,7 @@ export interface CalendarProps<T extends DateValue>
  * const [date, setDate] = useState(parseDate("2021-01-01"));
  * <Calendar value={date} onChange={setDate} />
  */
-export default function Calendar<T extends DateValue>(props: CalendarProps<T>) {
+export function Calendar<T extends DateValue>(props: CalendarProps<T>) {
   const { size = "medium" } = props;
   const { locale } = useLocale();
   const state = useCalendarState({
@@ -185,3 +185,5 @@ function CalendarCell(props: CalendarCellProps) {
     </StyledCalendarCell>
   );
 }
+
+export default Calendar;
