@@ -1,37 +1,15 @@
 import styled from "styled-components";
 import mixins from "../../../../styles/mixins";
-import { InputWrapper } from "../../Inputs.styles";
+import { FieldWrapper } from "../../../Internal/FieldWrapper";
 
-export const DateInputWrapper = styled(InputWrapper)`
+export const DateInputWrapper = styled(FieldWrapper)`
+  ${mixins.Regular}
+  ${mixins.FieldStatus}
+  ${mixins.SizingX}
   --size-sm-x: 230px;
   --size-md-x: 230px;
   --size-lg-x: 400px;
-`;
-
-export const DateSegments = styled.div`
-  display: flex;
-  align-items: center;
-
-  ${mixins.Regular}
-  border: var(--input-border);
-  border-radius: var(--input-border-radius);
-  min-height: var(--input-height);
-  width: 100%;
-  padding: 0 var(--input-padding-horiz);
-  font-size: var(--input-font-size);
-  color: var(--input-text-clr);
-  background-color: var(--input-bg-clr);
-  text-align: left;
-
-  &:focus-within {
-    --input-border-color: var(--outline-clr-primary);
-    outline: var(--input-outline);
-  }
-
-  &.read-only {
-    border-color: var(--neutral100);
-    --input-bg-clr: var(--neutral100);
-  }
+  --input-gap: 0;
 `;
 
 export const StyledDateSegment = styled.div`

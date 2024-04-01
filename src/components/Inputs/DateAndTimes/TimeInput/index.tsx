@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import {
   AriaTimeFieldProps,
   TimeValue,
@@ -9,73 +9,66 @@ import { useTimeFieldState } from "react-stately";
 import classNames from "classnames";
 import { DateSegment } from "../DateInput";
 import { TimeInputWrapper } from "./TimeInput.styles";
-import { FieldWrapper } from "../../../Atoms/FieldWrapper";
-import { DateSegments } from "../DateInput/DateInput.styles";
-import { AriaProps, FieldBaseProps } from "../../../../types";
-import useForwardedRef from "../../../../hooks/useForwardedRef";
+import { AriaProps, FieldInputProps } from "../../../../types";
+import {
+  ErrorMessage,
+  Label,
+  Message,
+  VirtualInput,
+} from "../../../Atoms/Field";
 
 export interface TimeInputProps<T extends TimeValue>
   extends AriaProps<AriaTimeFieldProps<T>>,
-    FieldBaseProps {}
+    FieldInputProps {}
 
-export const TimeInput = React.forwardRef(
-  <T extends TimeValue>(
-    props: TimeInputProps<T>,
-    ref: React.Ref<HTMLDivElement>
-  ) => {
-    const {
-      label,
-      error,
-      message,
-      hideLabel,
-      size,
-      isDisabled,
-      isInvalid,
-      isReadOnly,
-      isRequired,
-      className,
-    } = props;
-    let { locale } = useLocale();
-    let state = useTimeFieldState({
-      ...props,
-      locale,
-    });
+export function TimeInput<T extends TimeValue>(props: TimeInputProps<T>) {
+  const {
+    label,
+    error,
+    message,
+    size = "medium",
+    isDisabled,
+    isInvalid,
+    isReadOnly,
+    isRequired,
+    className,
+  } = props;
+  const { locale } = useLocale();
+  const state = useTimeFieldState({
+    ...props,
+    locale,
+  });
 
-    const internalRef = useForwardedRef(ref);
+  const ref = useRef(null);
 
-    let { labelProps, fieldProps, errorMessageProps, descriptionProps } =
-      useTimeField(props, state, internalRef);
+  const { labelProps, fieldProps, errorMessageProps, descriptionProps } =
+    useTimeField(props, state, ref);
 
-    return (
-      <TimeInputWrapper
-        className={classNames("aje-input__time", className)}
-        error={isInvalid}
-        disabled={isDisabled}
-        required={isRequired}
-        size={size}
+  return (
+    <TimeInputWrapper
+      className={classNames("aje-input__time", className)}
+      isInvalid={isInvalid}
+      isDisabled={isDisabled}
+      isRequired={isRequired}
+      isReadOnly={isReadOnly}
+      size={size}
+    >
+      {label && <Label {...labelProps}>{label}</Label>}
+      {message && <Message {...descriptionProps}>{message}</Message>}
+
+      <VirtualInput
+        {...fieldProps}
+        ref={ref}
+        className={"aje-input__date-segments"}
       >
-        <FieldWrapper
-          label={label}
-          labelProps={labelProps}
-          message={message}
-          error={error}
-          hideLabel={hideLabel}
-          messageProps={descriptionProps}
-          errorProps={errorMessageProps}
-        >
-          <DateSegments
-            {...fieldProps}
-            ref={internalRef}
-            className={classNames("aje-input__date-segments", {
-              "read-only": isReadOnly,
-            })}
-          >
-            {state.segments.map((segment, i) => (
-              <DateSegment key={i} segment={segment} state={state} />
-            ))}
-          </DateSegments>
-        </FieldWrapper>
-      </TimeInputWrapper>
-    );
-  }
-);
+        {state.segments.map((segment, i) => (
+          <DateSegment key={i} segment={segment} state={state} />
+        ))}
+      </VirtualInput>
+
+      {isInvalid && error && (
+        <ErrorMessage {...errorMessageProps}>{error}</ErrorMessage>
+      )}
+    </TimeInputWrapper>
+  );
+}

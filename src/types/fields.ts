@@ -1,16 +1,23 @@
-import { BaseProps } from "./common";
+import { StyledTarget } from "styled-components/dist/types";
+import { BaseProps, HasChildren, HasClassName } from "./common";
+import { HTMLAttributes } from "react";
+
+export type FieldComponentProps<
+  T extends HTMLAttributes<unknown>,
+  AsTarget extends StyledTarget<"web"> = StyledTarget<"web">
+> = HasChildren &
+  HasClassName &
+  Omit<T, "className"> & {
+    as?: AsTarget;
+  };
 
 /** Type for props that are used to provide
  * information to the consumer of a field */
 export interface HelpTextProps {
-  /** Must include a label. Labels are always Sentence case. */
-  readonly label: React.ReactNode;
-
-  /** Hides the label from view, but still allows screen readers to read the label.
-   *
-   * Only use in very specific circumstances. A filter dropdown with a clear meaning could
-   * potentially be a use case. */
-  readonly hideLabel?: boolean;
+  /** A visible label for the field. Labels are always Sentence case.
+   * If you do not provide a label, you should provide an aria-label or aria-labelledby attribute.
+   */
+  readonly label?: React.ReactNode;
 
   /** For additional information (ex. date format mm/dd/yy) */
   readonly message?: React.ReactNode;
@@ -27,7 +34,8 @@ export interface FieldStatusProps {
   readonly isReadOnly?: boolean;
   /** Field must be interacted with. Should be indicated in the UI */
   readonly isRequired?: boolean;
-  /** Field has an error. Should be made to look like an error */
+  /** Field has an error. Should be made to look like an error.
+   * Controls whether the value of `error` is displayed */
   readonly isInvalid?: boolean;
 }
 
@@ -37,7 +45,7 @@ export interface DomProps {
 }
 
 /** Props that are used to create a field */
-export interface FieldBaseProps
+export interface FieldInputProps
   extends BaseProps,
     HelpTextProps,
     FieldStatusProps,

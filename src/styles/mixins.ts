@@ -9,48 +9,29 @@ const mixins = {
     font-family: var(--font-family);
     font-weight: var(--font-weight-regular);
   `,
-  Hidden: css`
-    &.aje-hidden {
-      position: absolute;
-      left: -10000px;
-      top: auto;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-    }
-  `,
-  Unselectable: css`
-    user-select: none;
-  `,
-  HideScrollbar: css`
-    /* Chrome */
-    ::-webkit-scrollbar {
-      display: none;
-    }
-
-    /* IE / Edge */
-    -ms-overflow-style: none;
-    /* Firefox */
-    scrollbar-width: none;
-  `,
-  InputWrapper: css`
-    &.is-required {
+  FieldStatus: css`
+    &[data-required] {
       label::after {
         content: " *";
       }
     }
 
-    &.has-error {
+    &[data-invalid] {
       --input-outline: 1px solid var(--error-clr);
     }
 
-    &.is-disabled {
+    &[data-disabled] {
       opacity: 0.5;
     }
-  `,
 
+    &[data-readonly] {
+      --input-border-clr: var(--neutral100);
+      --input-bg-clr: var(--neutral100);
+    }
+  `,
   InputLike: css`
     border: var(--input-border);
+    border-color: var(--input-border-clr);
     border-radius: var(--input-border-radius);
     min-height: var(--input-height);
     width: 100%;
@@ -60,9 +41,13 @@ const mixins = {
     background-color: var(--input-bg-clr);
     text-align: left;
 
+    i {
+      color: var(--input-icon-clr);
+    }
+
     &:focus,
     &:focus-within {
-      --input-border-color: var(--outline-clr-primary);
+      --input-border-clr: var(--outline-clr-primary);
       outline: var(--input-outline);
     }
   `,

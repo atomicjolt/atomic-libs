@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { InputWrapper } from "../../Inputs/Inputs.styles";
 
 interface GroupWrapperProps {
   gap?: number;

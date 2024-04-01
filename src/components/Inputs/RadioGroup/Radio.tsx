@@ -1,16 +1,16 @@
 import cn from "classnames";
 import React, { useContext, useRef } from "react";
-import { FieldMessage, FieldError } from "../../../styles/utils";
 import { HasClassName, HelpTextProps } from "../../../types";
 import { ChooseInput, ChooseLabel } from "../Inputs.styles";
 import RadioContext from "./context";
 import { RadioWrapper } from "./RadioGroup.styles";
 import { AriaRadioProps, useLocale, useRadio } from "react-aria";
+import { ErrorMessage, Message } from "../../Atoms/Field";
 
 export interface RadioProps
   extends AriaRadioProps,
     HasClassName,
-    Omit<HelpTextProps, "label" | "hideLabel"> {
+    Omit<HelpTextProps, "label"> {
   readonly children: React.ReactNode;
 }
 
@@ -33,8 +33,8 @@ export default function Radio(props: RadioProps) {
       <ChooseInput {...inputProps} />
       <ChooseLabel className="aje-checkbox__label" $rtl={direction === "rtl"}>
         {children}
-        {message && <FieldMessage>{message}</FieldMessage>}
-        {error && <FieldError>{error}</FieldError>}
+        {message && <Message>{message}</Message>}
+        {error && <ErrorMessage>{error}</ErrorMessage>}
       </ChooseLabel>
     </RadioWrapper>
   );

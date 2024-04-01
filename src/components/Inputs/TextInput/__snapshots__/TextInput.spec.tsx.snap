@@ -3,36 +3,30 @@
 exports[`matches snapshot > default variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-jSFipO dlBeDT aje-input__text aje-input--default float-label is-medium"
+    class="sc-gKAaef iJKtbz aje-input__text sc-bqGGcD hCFqor aje-input--default is-medium"
   >
     <label
-      class="sc-gtsqUy hMTsbS aje-label aje-label"
+      class="sc-bdnyFh hQZKgx"
       for="react-aria-:r0:"
       id="react-aria-:r1:"
     >
       Text Label
     </label>
     <p
-      class="sc-dlniIP jVWAsB aje-label--message"
+      class="sc-gtsqUy eWkPNm"
       id="react-aria-:r3:"
     >
       message
     </p>
     <input
-      aria-describedby="react-aria-:r3: react-aria-:r4:"
+      aria-describedby="react-aria-:r3:"
       aria-labelledby="react-aria-:r1:"
-      class="sc-gKAaef kZprgu"
+      class="sc-hKFymg iJvJd"
       id="react-aria-:r0:"
       placeholder="placeholder"
       type="text"
       value="content"
     />
-    <p
-      class="sc-hKFymg fZIskg aje-label--error"
-      id="react-aria-:r4:"
-    >
-      some error
-    </p>
   </div>
 </DocumentFragment>
 `;
@@ -40,22 +34,24 @@ exports[`matches snapshot > default variant 1`] = `
 exports[`matches snapshot > floating variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-jSFipO dlBeDT aje-input__text aje-input--floating float-label is-medium"
+    class="sc-gKAaef iJKtbz aje-input__text sc-bqGGcD hCFqor aje-input--floating is-medium"
+    data-float="true"
   >
     <div
-      class="sc-eCAqax kebOaS"
+      class="sc-bkbjWr bivRPJ"
     >
       <input
-        aria-describedby="react-aria-:r8: react-aria-:r9:"
+        aria-describedby="react-aria-:r8:"
         aria-labelledby="react-aria-:r6:"
-        class="sc-gKAaef kZprgu"
+        class="sc-hKFymg iJvJd"
+        data-float="true"
         id="react-aria-:r5:"
         placeholder="placeholder"
         type="text"
         value="content"
       />
       <label
-        class="sc-gtsqUy hMTsbS aje-label aje-label"
+        class="sc-bdnyFh hQZKgx"
         for="react-aria-:r5:"
         id="react-aria-:r6:"
       >
@@ -63,16 +59,10 @@ exports[`matches snapshot > floating variant 1`] = `
       </label>
     </div>
     <p
-      class="sc-dlniIP jVWAsB aje-label--message"
+      class="sc-gtsqUy eWkPNm"
       id="react-aria-:r8:"
     >
       message
-    </p>
-    <p
-      class="sc-hKFymg fZIskg aje-label--error"
-      id="react-aria-:r9:"
-    >
-      some error
     </p>
   </div>
 </DocumentFragment>

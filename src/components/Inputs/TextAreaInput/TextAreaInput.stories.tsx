@@ -1,10 +1,10 @@
 import { Meta, StoryObj } from "@storybook/react";
-import Textarea from ".";
+import TextAreaInput from ".";
 import { TextInputControls } from "../../storybook";
 
-const meta: Meta<typeof Textarea> = {
-  title: "Inputs/User Input/Textarea",
-  component: Textarea,
+const meta: Meta<typeof TextAreaInput> = {
+  title: "Inputs/User Input/TextAreaInput",
+  component: TextAreaInput,
   argTypes: {
     ...TextInputControls,
     onChange: { action: "changed", table: { category: "Events" } },
@@ -13,7 +13,7 @@ const meta: Meta<typeof Textarea> = {
 
 export default meta;
 
-type Story = StoryObj<typeof Textarea>;
+type Story = StoryObj<typeof TextAreaInput>;
 
 export const Primary: Story = {
   args: {

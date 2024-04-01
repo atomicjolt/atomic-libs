@@ -5,13 +5,13 @@ import classNames from "classnames";
 import {
   AriaProps,
   ExtendedSize,
-  FieldBaseProps,
+  FieldInputProps,
   HasVariant,
 } from "../../../types";
 import { DropdownWrapper } from "../Dropdowns.styles";
 import { useVariantClass } from "../../../hooks";
 import { ButtonText } from "./CustomSelect.styles";
-import { FieldWrapper } from "../../Atoms/FieldWrapper";
+import { FloatingInputWrapper } from "../../Internal/FloatingInputWrapper";
 import Button from "../../Buttons/Button";
 import MaterialIcon from "../../Icons/MaterialIcon";
 import { Popover } from "../../Atoms/Popover";
@@ -21,7 +21,7 @@ export type CustomSelectVariants = "default" | "floating";
 
 export interface CustomSelectProps<T extends object>
   extends AriaProps<SelectProps<T>>,
-    Omit<FieldBaseProps, "isReadOnly">,
+    FieldInputProps,
     HasVariant<CustomSelectVariants> {
   /** The size of the menu. Defaults to `auto` */
   menuSize?: ExtendedSize;
@@ -50,12 +50,12 @@ export function CustomSelect<T extends object>(props: CustomSelectProps<T>) {
   const {
     className,
     label,
-    hideLabel,
     error,
     message,
     isInvalid,
     isDisabled,
     isRequired,
+    isReadOnly,
     name,
     isSearchable,
     searchPlaceholder,
@@ -70,13 +70,13 @@ export function CustomSelect<T extends object>(props: CustomSelectProps<T>) {
 
   return (
     <DropdownWrapper
-      className={classNames("aje-dropdown", variantClassName, className, {
-        "has-selection": state.selectedItem,
-      })}
-      error={isInvalid}
-      disabled={isDisabled}
-      required={isRequired}
+      className={classNames("aje-dropdown", variantClassName, className)}
       size={size}
+      isInvalid={isInvalid}
+      isDisabled={isDisabled}
+      isRequired={isRequired}
+      isReadOnly={isReadOnly}
+      data-float={(variant === "floating" && state.selectedKey) || undefined}
     >
       <HiddenSelect
         isDisabled={isDisabled}
@@ -86,14 +86,14 @@ export function CustomSelect<T extends object>(props: CustomSelectProps<T>) {
         name={name}
       />
 
-      <FieldWrapper
+      <FloatingInputWrapper
         label={label}
         labelProps={labelProps}
         message={message}
         messageProps={descriptionProps}
         error={error}
         errorProps={errorMessageProps}
-        hideLabel={hideLabel}
+        isInvalid={isInvalid}
         floating={variant === "floating"}
       >
         <Button
@@ -101,7 +101,7 @@ export function CustomSelect<T extends object>(props: CustomSelectProps<T>) {
           ref={ref}
           variant="dropdown"
           size={size}
-          isDisabled={isDisabled}
+          isDisabled={isDisabled || isReadOnly}
         >
           <ButtonText {...valueProps}>
             {state.selectedItem
@@ -112,7 +112,7 @@ export function CustomSelect<T extends object>(props: CustomSelectProps<T>) {
           </ButtonText>
           <MaterialIcon icon="arrow_drop_down" />
         </Button>
-      </FieldWrapper>
+      </FloatingInputWrapper>
       {state.isOpen && (
         <Popover state={state} triggerRef={ref} placement="bottom start">
           {/* @ts-ignore */}

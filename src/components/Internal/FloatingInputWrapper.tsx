@@ -1,19 +1,20 @@
 import React from "react";
 import { DOMAttributes } from "@react-types/shared";
 import cn from "classnames";
-import {
-  FieldError,
-  Label,
-  FieldMessage,
-  FloatingLabelWrapper,
-} from "../../../styles/utils";
-import { HelpTextProps } from "../../../types";
+import { HelpTextProps } from "../../types";
+import { ErrorMessage, Label, Message } from "../Atoms/Field";
+import styled from "styled-components";
+
+const FloatingLabelWrapper = styled.div`
+  position: relative;
+`;
 
 export interface FieldWrapperProps extends HelpTextProps {
   readonly labelProps?: DOMAttributes;
   readonly messageProps?: DOMAttributes;
   readonly errorProps?: DOMAttributes;
-  /** When true, ,oves the label and message below the children &
+  readonly isInvalid?: boolean;
+  /** When true, moves the label and message below the children &
    * adds an additional container around the label and children
    * to manage the floating label effect
    * */
@@ -27,12 +28,11 @@ export interface FieldWrapperProps extends HelpTextProps {
 }
 
 /** FieldWrapper component. Wraps input elements with a label, message and error */
-export function FieldWrapper(props: FieldWrapperProps) {
+export function FloatingInputWrapper(props: FieldWrapperProps) {
   const {
     children,
     label,
     message,
-    hideLabel,
     labelClassName = "aje-label",
     error,
     labelProps = {},
@@ -40,21 +40,22 @@ export function FieldWrapper(props: FieldWrapperProps) {
     errorProps = {},
     floating,
     errorPosition = "bottom",
+    isInvalid,
   } = props;
-
-  const labelClasses = cn(labelClassName, { "aje-hidden": hideLabel });
 
   if (floating) {
     return (
       <>
         <FloatingLabelWrapper>
           {children}
-          <Label className={labelClasses} {...labelProps}>
+          <Label className={labelClassName} {...labelProps}>
             {label}
           </Label>
         </FloatingLabelWrapper>
-        {message && <FieldMessage {...messageProps}>{message}</FieldMessage>}
-        {error && <FieldError {...errorProps}>{error}</FieldError>}
+        {message && <Message {...messageProps}>{message}</Message>}
+        {isInvalid && error && (
+          <ErrorMessage {...errorProps}>{error}</ErrorMessage>
+        )}
       </>
     );
   }
@@ -62,17 +63,17 @@ export function FieldWrapper(props: FieldWrapperProps) {
   return (
     <>
       {label && (
-        <Label className={labelClasses} {...labelProps}>
+        <Label className={labelClassName} {...labelProps}>
           {label}
         </Label>
       )}
-      {message && <FieldMessage {...messageProps}>{message}</FieldMessage>}
-      {error && errorPosition === "top" && (
-        <FieldError {...errorProps}>{error}</FieldError>
+      {message && <Message {...messageProps}>{message}</Message>}
+      {isInvalid && error && errorPosition === "top" && (
+        <ErrorMessage {...errorProps}>{error}</ErrorMessage>
       )}
       {children}
-      {error && errorPosition === "bottom" && (
-        <FieldError {...errorProps}>{error}</FieldError>
+      {isInvalid && error && errorPosition === "bottom" && (
+        <ErrorMessage {...errorProps}>{error}</ErrorMessage>
       )}
     </>
   );

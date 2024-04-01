@@ -1,10 +1,10 @@
 import React, { DetailedHTMLProps, SelectHTMLAttributes } from "react";
 import cn from "classnames";
-import { FieldBaseProps } from "../../../types";
-import Label from "../../Atoms/Label";
+import { FieldInputProps } from "../../../types";
 import { useIds } from "../../../hooks";
-import { ComponentWrapper, FieldError } from "../../../styles/utils";
 import { SelectWrapper, StyledSelect } from "./Select.styles";
+import { ErrorMessage, Label, Message } from "../../Atoms/Field";
+import { FieldWrapper } from "../../Internal/FieldWrapper";
 
 type LimitedSelectProps = Omit<
   DetailedHTMLProps<SelectHTMLAttributes<HTMLSelectElement>, HTMLSelectElement>,
@@ -14,7 +14,7 @@ type LimitedSelectProps = Omit<
 export type SelectValue = string | number | readonly string[] | undefined;
 
 export interface SelectProps<T extends SelectValue>
-  extends Omit<FieldBaseProps, "placeholder" | "isReadOnly">,
+  extends Omit<FieldInputProps, "placeholder" | "isReadOnly">,
     LimitedSelectProps {
   onChange?: (value: T) => void;
 }
@@ -24,7 +24,11 @@ export const Select = React.forwardRef<
   HTMLSelectElement,
   SelectProps<SelectValue>
 >((props, ref) => {
-  const [inputId, errorId] = useIds("select", ["select", "error"]);
+  const [inputId, messageId, errorId] = useIds("select", [
+    "select",
+    "message",
+    "error",
+  ]);
 
   const {
     children,
@@ -33,7 +37,6 @@ export const Select = React.forwardRef<
     label,
     error,
     message,
-    hideLabel = false,
     isDisabled = false,
     isRequired = false,
     isInvalid = false,
@@ -42,20 +45,20 @@ export const Select = React.forwardRef<
   } = props;
 
   return (
-    <ComponentWrapper
-      className={cn("aje-input", className)}
+    <FieldWrapper
+      className={cn("aje-input__select", className)}
       size={size}
-      error={isInvalid}
-      required={isRequired}
-      disabled={isDisabled}
+      isInvalid={isInvalid}
+      isRequired={isRequired}
+      isDisabled={isDisabled}
     >
-      <Label message={message} htmlFor={inputId} hidden={hideLabel}>
-        {label}
-      </Label>
+      {label && <Label htmlFor={inputId}>{label}</Label>}
+      {message && <Message id={messageId}>{message}</Message>}
+
       <SelectWrapper className="aje-input__select">
         <StyledSelect
           id={inputId}
-          aria-describedby={error ? errorId : ""}
+          aria-describedby={isInvalid && error ? errorId : messageId}
           onChange={(e) => onChange && onChange(e.target.value)}
           ref={ref}
           {...selectProps}
@@ -63,8 +66,8 @@ export const Select = React.forwardRef<
           {children}
         </StyledSelect>
       </SelectWrapper>
-      {error && <FieldError id={errorId}>{error}</FieldError>}
-    </ComponentWrapper>
+      {isInvalid && error && <ErrorMessage id={errorId}>{error}</ErrorMessage>}
+    </FieldWrapper>
   );
 });
 

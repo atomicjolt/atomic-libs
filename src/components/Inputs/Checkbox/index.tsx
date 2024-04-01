@@ -3,14 +3,14 @@ import cn from "classnames";
 import { useToggleState } from "react-stately";
 import { AriaCheckboxProps, useCheckbox, useLocale } from "react-aria";
 import useForwardedRef from "../../../hooks/useForwardedRef";
-import { AriaProps, FieldBaseProps } from "../../../types";
+import { AriaProps, FieldInputProps } from "../../../types";
 import { ChooseInput, ChooseLabel } from "../Inputs.styles";
-import { FieldError, FieldMessage } from "../../../styles/utils";
 import { CheckboxWrapper } from "./Checkbox.styles";
+import { ErrorMessage, Message } from "../../Atoms/Field";
 
 export interface CheckBoxProps
   extends AriaProps<AriaCheckboxProps>,
-    Omit<FieldBaseProps, "label" | "hideLabel"> {}
+    Omit<FieldInputProps, "label"> {}
 
 /** Checkbox Component. Accepts a `ref` */
 export const CheckBox = React.forwardRef<HTMLInputElement, CheckBoxProps>(
@@ -22,6 +22,8 @@ export const CheckBox = React.forwardRef<HTMLInputElement, CheckBoxProps>(
       className,
       isRequired,
       isInvalid,
+      isDisabled,
+      isReadOnly,
       size = "medium",
       isIndeterminate = false,
     } = props;
@@ -32,12 +34,14 @@ export const CheckBox = React.forwardRef<HTMLInputElement, CheckBoxProps>(
 
     return (
       <CheckboxWrapper
-        className={cn("aje-checkbox", className, `is-${size}`, {
-          "has-error": isInvalid,
-          "is-required": isRequired,
-        })}
-        {...labelProps}
+        className={cn("aje-checkbox", className)}
+        size={size}
+        isDisabled={isDisabled}
+        isInvalid={isInvalid}
+        isReadOnly={isReadOnly}
+        isRequired={isRequired}
         $rtl={direction === "rtl"}
+        {...labelProps}
       >
         <ChooseInput
           ref={ref}
@@ -47,8 +51,8 @@ export const CheckBox = React.forwardRef<HTMLInputElement, CheckBoxProps>(
         <ChooseLabel className="aje-checkbox__label" $rtl={direction === "rtl"}>
           {children}
           {isRequired && <span aria-hidden="true"> *</span>}
-          {message && <FieldMessage>{message}</FieldMessage>}
-          {error && <FieldError>{error}</FieldError>}
+          {message && <Message>{message}</Message>}
+          {isInvalid && <ErrorMessage>{error}</ErrorMessage>}
         </ChooseLabel>
       </CheckboxWrapper>
     );

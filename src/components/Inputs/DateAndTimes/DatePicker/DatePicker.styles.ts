@@ -1,10 +1,12 @@
 import styled from "styled-components";
 import { scaleAnimation } from "../../../../styles/animations";
 import mixins from "../../../../styles/mixins";
-import { ComponentWrapper } from "../../../../styles/utils";
+import { FieldWrapper } from "../../../Internal/FieldWrapper";
+import { VirtualInput } from "../../../Atoms/Field";
+import { StyledInputWrapper } from "../../../Atoms/Field/VirtualInput";
 
-export const DatePickerWrapper = styled(ComponentWrapper)`
-  ${mixins.InputWrapper}
+export const DatePickerWrapper = styled(FieldWrapper)`
+  ${mixins.FieldStatus}
   ${mixins.SizingX}
 
   --size-sm-x: 310px;
@@ -13,46 +15,15 @@ export const DatePickerWrapper = styled(ComponentWrapper)`
 
   display: flex;
   flex-direction: column;
-
-  &.read-only {
-    border-color: var(--neutral100);
-    --input-bg-clr: var(--neutral100);
-  }
 `;
 
-export const DatePickerInputWrapper = styled.div`
-  display: flex;
-  align-items: end;
-
-  ${mixins.Regular}
-  border: var(--input-border);
-  border-radius: var(--input-border-radius);
-  min-height: var(--input-height);
-  font-size: var(--input-font-size);
-  color: var(--input-text-clr);
-  background-color: var(--input-bg-clr);
-  text-align: left;
-
-  i {
-    color: var(--input-icon-clr);
-  }
-
-  &:focus-within {
-    --input-border-color: var(--outline-clr-primary);
-    outline: var(--input-outline);
-  }
-
-  &.read-only {
-    border-color: var(--neutral100);
-    --input-bg-clr: var(--neutral100);
-  }
-
-  .aje-input__date-segments {
-    border: 0px solid transparent;
-    padding-right: 0px;
+export const DatePickerVirtualInput = styled(VirtualInput)`
+  ${StyledInputWrapper} {
+    border: none;
+    padding: 0px;
 
     &:focus-within {
-      outline: 0px solid transparent;
+      outline: none;
     }
   }
 `;

@@ -35,8 +35,8 @@ export const InputsAndButton: Story = {
   args: {
     isMerged: true,
     children: [
-      <TextInput key="1" label="Password" hideLabel placeholder="Username" />,
-      <TextInput key="2" label="Password" hideLabel placeholder="Password" />,
+      <TextInput key="1" aria-label="Password" placeholder="Username" />,
+      <TextInput key="2" aria-label="Password" placeholder="Password" />,
       <Button key="2" variant="primary">
         Login
       </Button>,

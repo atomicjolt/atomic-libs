@@ -3,32 +3,33 @@
 exports[`matches snapshots > matches default variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-jSFipO sc-gKAaef huoXgB icHBhg aje-combobox aje-dropdown--default is-medium"
+    class="sc-bdnyFh sc-ksltVi dFsGYa irTQOn aje-combobox aje-dropdown--default is-medium"
   >
     <label
-      class="sc-gtsqUy hMTsbS aje-label aje-label"
+      class="sc-gtsqUy jNpFzP aje-label"
       for="react-aria-:r2:"
       id="react-aria-:r3:"
     >
       Text Label
     </label>
     <p
-      class="sc-dlniIP jVWAsB aje-label--message"
+      class="sc-dlniIP jVWAsB"
       id="react-aria-:r5:"
     >
       message
     </p>
     <div
-      class="sc-iJCSeZ hGFHIV"
+      class="sc-jSFipO bTUvzS sc-hBMVwJ cWIM"
+      inputref="[object Object]"
     >
       <input
         aria-autocomplete="list"
-        aria-describedby="react-aria-:r5: react-aria-:r6:"
+        aria-describedby="react-aria-:r5:"
         aria-expanded="false"
         aria-labelledby="react-aria-:r3:"
         autocomplete="off"
         autocorrect="off"
-        class="sc-giAruI ebwaiC"
+        class="sc-eCAqax fCVRXs"
         id="react-aria-:r2:"
         role="combobox"
         spellcheck="false"
@@ -40,25 +41,19 @@ exports[`matches snapshots > matches default variant 1`] = `
         aria-haspopup="listbox"
         aria-label="Show suggestions"
         aria-labelledby="react-aria-:r0: react-aria-:r3:"
-        class="sc-crzpnZ sc-dItHI hhZjXJ fwPWKD aje-btn aje-btn--icon aje-btn--content"
+        class="sc-dItHI sc-bqGGcD gSWXoi iTXvDT aje-btn aje-btn--icon aje-btn--content"
         id="react-aria-:r0:"
         tabindex="-1"
         type="button"
       >
         <i
           aria-hidden="true"
-          class="sc-iqAbyq hHUDGk material-icons is-medium"
+          class="sc-crzpnZ AiCDI material-icons is-medium"
         >
           arrow_drop_down
         </i>
       </button>
     </div>
-    <p
-      class="sc-hKFymg fZIskg aje-label--error"
-      id="react-aria-:r6:"
-    >
-      some error
-    </p>
   </div>
 </DocumentFragment>
 `;
@@ -66,22 +61,23 @@ exports[`matches snapshots > matches default variant 1`] = `
 exports[`matches snapshots > matches floating variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-jSFipO sc-gKAaef huoXgB icHBhg aje-combobox aje-dropdown--floating is-medium"
+    class="sc-bdnyFh sc-ksltVi dFsGYa irTQOn aje-combobox aje-dropdown--floating is-medium"
   >
     <div
-      class="sc-eCAqax kebOaS"
+      class="sc-fKgKDd yOFvo"
     >
       <div
-        class="sc-iJCSeZ hGFHIV"
+        class="sc-jSFipO bTUvzS sc-hBMVwJ cWIM"
+        inputref="[object Object]"
       >
         <input
           aria-autocomplete="list"
-          aria-describedby="react-aria-:re: react-aria-:rf:"
+          aria-describedby="react-aria-:re:"
           aria-expanded="false"
           aria-labelledby="react-aria-:rc:"
           autocomplete="off"
           autocorrect="off"
-          class="sc-giAruI ebwaiC"
+          class="sc-eCAqax fCVRXs"
           id="react-aria-:rb:"
           role="combobox"
           spellcheck="false"
@@ -93,21 +89,21 @@ exports[`matches snapshots > matches floating variant 1`] = `
           aria-haspopup="listbox"
           aria-label="Show suggestions"
           aria-labelledby="react-aria-:r9: react-aria-:rc:"
-          class="sc-crzpnZ sc-dItHI hhZjXJ fwPWKD aje-btn aje-btn--icon aje-btn--content"
+          class="sc-dItHI sc-bqGGcD gSWXoi iTXvDT aje-btn aje-btn--icon aje-btn--content"
           id="react-aria-:r9:"
           tabindex="-1"
           type="button"
         >
           <i
             aria-hidden="true"
-            class="sc-iqAbyq hHUDGk material-icons is-medium"
+            class="sc-crzpnZ AiCDI material-icons is-medium"
           >
             arrow_drop_down
           </i>
         </button>
       </div>
       <label
-        class="sc-gtsqUy hMTsbS aje-label aje-label"
+        class="sc-gtsqUy jNpFzP aje-label"
         for="react-aria-:rb:"
         id="react-aria-:rc:"
       >
@@ -115,16 +111,10 @@ exports[`matches snapshots > matches floating variant 1`] = `
       </label>
     </div>
     <p
-      class="sc-dlniIP jVWAsB aje-label--message"
+      class="sc-dlniIP jVWAsB"
       id="react-aria-:re:"
     >
       message
-    </p>
-    <p
-      class="sc-hKFymg fZIskg aje-label--error"
-      id="react-aria-:rf:"
-    >
-      some error
     </p>
   </div>
 </DocumentFragment>

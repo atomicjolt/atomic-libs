@@ -1,7 +1,7 @@
 import React from "react";
 import { test, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
-import RadioGroup, { Radio } from ".";
+import { RadioGroup, Radio } from ".";
 
 const Wrapper = (value: string) => (
   <RadioGroup value={value} name="radiogroup" label="Label" onChange={() => {}}>

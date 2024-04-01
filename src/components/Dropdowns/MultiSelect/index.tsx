@@ -2,7 +2,7 @@ import React, { useMemo, useRef } from "react";
 import {
   AriaProps,
   ExtendedSize,
-  FieldBaseProps,
+  FieldInputProps,
   HasVariant,
 } from "../../../types";
 import { useMultiSelectState } from "./useMultiSelectState";
@@ -10,7 +10,7 @@ import { AriaMultiSelectProps } from "./MutliSelect.types";
 import { useMultiSelect } from "./useMultiSelect";
 import { DropdownWrapper } from "../Dropdowns.styles";
 import { useVariantClass } from "../../../hooks";
-import { FieldWrapper } from "../../Atoms/FieldWrapper";
+import { FloatingInputWrapper } from "../../Internal/FloatingInputWrapper";
 import Button from "../../Buttons/Button";
 import { ButtonText } from "../CustomSelect/CustomSelect.styles";
 import MaterialIcon from "../../Icons/MaterialIcon";
@@ -20,7 +20,7 @@ import { UnmanagedListBox } from "../../Atoms/ListBox";
 
 export interface MultiSelectProps<T extends object>
   extends AriaProps<AriaMultiSelectProps<T>>,
-    Omit<FieldBaseProps, "isReadOnly">,
+    FieldInputProps,
     HasVariant<"default" | "floating"> {
   /** The size of the menu. Defaults to `size` if not provided.
    * If the content of the dropdown is likely to be large,
@@ -53,12 +53,12 @@ export function MultiSelect<T extends object>(props: MultiSelectProps<T>) {
   const {
     className,
     label,
-    hideLabel,
     error,
     message,
     isInvalid,
     isDisabled,
     isRequired,
+    isReadOnly,
     isSearchable,
     searchPlaceholder,
     size = "medium",
@@ -93,22 +93,26 @@ export function MultiSelect<T extends object>(props: MultiSelectProps<T>) {
 
   return (
     <DropdownWrapper
-      className={classNames("aje-dropdown", variantClassName, className, {
-        "has-selection": state.selectionManager.selectedKeys.size > 0,
-      })}
-      error={isInvalid}
-      disabled={isDisabled}
-      required={isRequired}
+      className={classNames("aje-dropdown", variantClassName, className)}
+      isInvalid={isInvalid}
+      isDisabled={isDisabled}
+      isRequired={isRequired}
+      isReadOnly={isReadOnly}
       size={size}
+      data-float={
+        (variant === "floating" &&
+          (state.isOpen || state.selectionManager.selectedKeys.size > 0)) ||
+        undefined
+      }
     >
-      <FieldWrapper
+      <FloatingInputWrapper
         label={label}
         labelProps={labelProps}
         message={message}
         messageProps={descriptionProps}
         error={error}
+        isInvalid={isInvalid}
         errorProps={errorMessageProps}
-        hideLabel={hideLabel}
         floating={variant === "floating"}
       >
         <Button
@@ -121,7 +125,7 @@ export function MultiSelect<T extends object>(props: MultiSelectProps<T>) {
           <ButtonText {...valueProps}>{buttonText}</ButtonText>
           <MaterialIcon icon="arrow_drop_down" />
         </Button>
-      </FieldWrapper>
+      </FloatingInputWrapper>
       {state.isOpen && (
         <Popover state={state} triggerRef={ref} placement="bottom start">
           {/* @ts-ignore */}

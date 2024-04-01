@@ -2,17 +2,18 @@ import React from "react";
 import cn from "classnames";
 
 import { useIds } from "../../../hooks";
-import { FieldBaseProps } from "../../../types";
-import { ComponentWrapper, FieldError } from "../../../styles/utils";
+import { FieldInputProps } from "../../../types";
 import {
   FileInputLabel,
   FileInputSpan,
   FileInputStrong,
   StyledFileInput,
 } from "./FileInput.styles";
+import { FieldWrapper } from "../../Internal/FieldWrapper";
+import { ErrorMessage } from "../../Atoms/Field";
 
 export interface FileInputProps
-  extends Omit<FieldBaseProps, "hideLabel" | "message" | "isReadOnly">,
+  extends Omit<FieldInputProps, "message" | "isReadOnly">,
     React.AriaAttributes {
   file?: File | null;
   onChange?: (f: File | null) => void;
@@ -39,11 +40,11 @@ export const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
     } = props;
 
     return (
-      <ComponentWrapper
-        className={cn("aje-input--file", className)}
-        disabled={isDisabled}
-        required={isRequired}
-        error={isInvalid}
+      <FieldWrapper
+        className={cn("aje-input__file", className)}
+        isDisabled={isDisabled}
+        isRequired={isRequired}
+        isInvalid={isInvalid}
         size={size}
       >
         <StyledFileInput
@@ -66,8 +67,10 @@ export const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
             {isRequired && <span aria-hidden="true"> *</span>}
           </FileInputStrong>
         </FileInputLabel>
-        {error && <FieldError id={errorId}>{error}</FieldError>}
-      </ComponentWrapper>
+        {isInvalid && error && (
+          <ErrorMessage id={errorId}>{error}</ErrorMessage>
+        )}
+      </FieldWrapper>
     );
   }
 );

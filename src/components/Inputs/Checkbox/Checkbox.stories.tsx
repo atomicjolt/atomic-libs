@@ -10,9 +10,6 @@ const meta: Meta<typeof CheckBox> = {
   },
   argTypes: {
     ...InputControls,
-    // @ts-ignore
-    label: {},
-    hideLabel: {},
     isReadOnly: {
       table: {
         category: "Field State",

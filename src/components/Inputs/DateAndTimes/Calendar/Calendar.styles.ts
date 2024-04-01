@@ -87,8 +87,8 @@ export const CalendarFooter = styled.div`
 `;
 
 export const CalendarWeekDay = styled.th`
-  ${mixins.Unselectable}
   ${mixins.Bold}
+  user-select: none;
   font-size: var(--font-size);
   color: var(--neutral600);
 `;

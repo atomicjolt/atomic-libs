@@ -16,12 +16,12 @@ import {
   SectionTitle,
   SubList,
 } from "./ListBox.styles";
-import Label from "../Label";
 import { BaseProps } from "../../../types";
 import classNames from "classnames";
 import useForwardedRef from "../../../hooks/useForwardedRef";
 import SearchInput from "../../Inputs/SearchInput";
 import MaterialIcon from "../../Icons/MaterialIcon";
+import { Label } from "../Field";
 
 export type ListBoxProps<T> = AriaListBoxProps<T> &
   BaseProps & {
@@ -88,8 +88,7 @@ export const UnmanagedListBox = React.forwardRef<
       >
         {isSearchable && (
           <SearchInput
-            label="Search"
-            hideLabel
+            aria-label="Search"
             value={searchValue}
             onChange={setSearchValue}
             placeholder={searchPlaceholder}

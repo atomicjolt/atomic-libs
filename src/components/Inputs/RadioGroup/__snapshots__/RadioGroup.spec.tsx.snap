@@ -5,65 +5,65 @@ exports[`matches snapshot 1`] = `
   <fieldset
     aria-labelledby="react-aria-:r1:"
     aria-orientation="vertical"
-    class="sc-jrsKJM HcSNa aje-radio-group"
+    class="sc-iemXqs fdTySU aje-radio-group"
     id="react-aria-:r0:"
     role="radiogroup"
   >
     <legend
-      class="sc-gtsqUy hMTsbS aje-label aje-radio-group__label"
+      class="sc-bdnyFh hQZKgx aje-radio-group__label"
       id="react-aria-:r1:"
     >
       Label
     </legend>
-    <label
-      class="sc-iCoHzw sc-kEqXeH hKJGof hBBYWL aje-radio"
+    <div
+      class="sc-hBMVwJ sc-bkbjWr bgVkQY lPusJ aje-radio"
     >
       <input
         checked=""
-        class="sc-fujznN kzHtgv"
+        class="sc-fnVZQs iubuxm"
         name="radiogroup"
         tabindex="0"
         type="radio"
         value="opt1"
       />
       <span
-        class="sc-pNWRh keHyrK aje-checkbox__label"
+        class="sc-fFSPgy kVjNrY aje-checkbox__label"
       >
         Option 1
       </span>
-    </label>
-    <label
-      class="sc-iCoHzw sc-kEqXeH hKJGof hBBYWL aje-radio"
+    </div>
+    <div
+      class="sc-hBMVwJ sc-bkbjWr bgVkQY lPusJ aje-radio"
     >
       <input
-        class="sc-fujznN kzHtgv"
+        class="sc-fnVZQs iubuxm"
         name="radiogroup"
         tabindex="-1"
         type="radio"
         value="opt2"
       />
       <span
-        class="sc-pNWRh keHyrK aje-checkbox__label"
+        class="sc-fFSPgy kVjNrY aje-checkbox__label"
       >
         Option 2
       </span>
-    </label>
-    <label
-      class="sc-iCoHzw sc-kEqXeH hKJGof hBBYWL aje-radio"
+    </div>
+    <div
+      class="sc-hBMVwJ sc-bkbjWr bgVkQY lPusJ aje-radio"
     >
       <input
-        class="sc-fujznN kzHtgv"
+        class="sc-fnVZQs iubuxm"
         name="radiogroup"
         tabindex="-1"
         type="radio"
         value="opt3"
       />
       <span
-        class="sc-pNWRh keHyrK aje-checkbox__label"
+        class="sc-fFSPgy kVjNrY aje-checkbox__label"
       >
         Option 3
       </span>
-    </label>
+    </div>
   </fieldset>
 </DocumentFragment>
 `;

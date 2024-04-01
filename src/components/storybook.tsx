@@ -1,15 +1,9 @@
-import { FieldBaseProps } from "../types";
+import { FieldInputProps } from "../types";
 import { createGlobalStyle } from "styled-components";
 
 export const CommonInputControls = {
   label: {
     control: "text",
-    table: {
-      category: "Helper Text",
-    },
-  },
-  hideLabel: {
-    control: "boolean",
     table: {
       category: "Helper Text",
     },

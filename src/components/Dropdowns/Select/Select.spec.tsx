@@ -1,15 +1,14 @@
 import React from "react";
 import { describe, test, expect } from "vitest";
 import { render } from "@testing-library/react";
-import Select from ".";
-import Option from "../Option";
+import { Select } from ".";
 
 test("matches snapshot", () => {
   const result = render(
     <Select value="none" label="Label" onChange={() => {}}>
-      <Option value="none">- Select an option -</Option>
-      <Option value="value1">Option 1</Option>
-      <Option value="value2">Option 2</Option>
+      <option value="none">- Select an option -</option>
+      <option value="value1">option 1</option>
+      <option value="value2">option 2</option>
     </Select>
   );
   expect(result.asFragment()).toMatchSnapshot();

@@ -8,83 +8,80 @@ import {
   useLocale,
 } from "react-aria";
 import { createCalendar } from "@internationalized/date";
-import { AriaProps, FieldBaseProps } from "../../../../types";
-import {
-  DateInputWrapper,
-  DateSegments,
-  StyledDateSegment,
-} from "./DateInput.styles";
-import useForwardedRef from "../../../../hooks/useForwardedRef";
+import { AriaProps, FieldInputProps } from "../../../../types";
+import { DateInputWrapper, StyledDateSegment } from "./DateInput.styles";
 import {
   DateFieldState,
   DateSegment as ReactStatelyDateSegment,
   useDateFieldState,
 } from "react-stately";
-import { FieldWrapper } from "../../../Atoms/FieldWrapper";
+import {
+  Label,
+  Message,
+  VirtualInput,
+  ErrorMessage,
+} from "../../../Atoms/Field";
 
 export interface DateInputProps<T extends DateValue>
   extends AriaProps<AriaDateFieldProps<T>>,
-    Omit<FieldBaseProps, "label"> {
+    Omit<FieldInputProps, "label"> {
   // Optional because DatePicker renders it's own label
   label?: React.ReactNode;
 }
 
 /** Date Input Component. Accepts a `ref` */
-export const DateInput = React.forwardRef(
-  <T extends DateValue>(
-    props: DateInputProps<T>,
-    ref: React.Ref<HTMLDivElement>
-  ) => {
-    let { locale } = useLocale();
-    let state = useDateFieldState({
-      ...props,
-      locale,
-      createCalendar,
-    });
+export function DateInput<T extends DateValue>(props: DateInputProps<T>) {
+  const { locale } = useLocale();
+  const state = useDateFieldState({
+    ...props,
+    locale,
+    createCalendar,
+  });
 
-    const internalRef = useForwardedRef(ref);
-    let { labelProps, fieldProps } = useDateField(props, state, internalRef);
+  const ref = useRef(null);
+  const { labelProps, fieldProps, descriptionProps, errorMessageProps } =
+    useDateField(props, state, ref);
 
-    const {
-      label,
-      size = "medium",
-      error,
-      message,
-      hideLabel,
-      className,
-    } = props;
+  const {
+    label,
+    size = "medium",
+    error,
+    message,
+    className,
+    isInvalid,
+    isDisabled,
+    isReadOnly,
+    isRequired,
+  } = props;
 
-    return (
-      <DateInputWrapper
-        className={cn("aje-input__date", className)}
-        error={props.isInvalid}
-        disabled={props.isDisabled}
-        required={props.isRequired}
-        size={size}
+  return (
+    <DateInputWrapper
+      className={cn("aje-input__date", className)}
+      size={size}
+      isDisabled={isDisabled}
+      isInvalid={isInvalid}
+      isReadOnly={isReadOnly}
+      isRequired={isRequired}
+    >
+      {label && <Label {...labelProps}>{label}</Label>}
+      {message && <Message {...descriptionProps}>{message}</Message>}
+
+      <VirtualInput
+        {...fieldProps}
+        ref={ref}
+        className={"aje-input__date-segments"}
       >
-        <FieldWrapper
-          label={label}
-          labelProps={labelProps}
-          message={message}
-          error={error}
-          hideLabel={hideLabel}
-        >
-          <DateSegments
-            {...fieldProps}
-            ref={ref}
-            className={cn("aje-input__date-segments", {
-              "read-only": props.isReadOnly,
-            })}
-          >
-            {state.segments.map((segment, i) => (
-              <DateSegment key={i} segment={segment} state={state} />
-            ))}
-          </DateSegments>
-        </FieldWrapper>
-      </DateInputWrapper>
-    );
-  }
-);
+        {state.segments.map((segment, i) => (
+          <DateSegment key={i} segment={segment} state={state} />
+        ))}
+      </VirtualInput>
+
+      {isInvalid && error && (
+        <ErrorMessage {...errorMessageProps}>{error}</ErrorMessage>
+      )}
+    </DateInputWrapper>
+  );
+}
 
 interface DateSegmentProps {
   readonly segment: ReactStatelyDateSegment;
@@ -93,8 +90,8 @@ interface DateSegmentProps {
 
 export function DateSegment(props: DateSegmentProps) {
   const { segment, state } = props;
-  let ref = useRef(null);
-  let { segmentProps } = useDateSegment(segment, state, ref);
+  const ref = useRef(null);
+  const { segmentProps } = useDateSegment(segment, state, ref);
 
   const className = cn("aje-input__segment", {
     placeholder: segment.isPlaceholder,

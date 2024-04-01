@@ -1,0 +1,24 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-gKAaef iJKtbz aje-input__undefined sc-bqGGcD dGtOfy aje-input__textarea is-medium"
+    data-resize="both"
+  >
+    <label
+      class="sc-bdnyFh hQZKgx"
+      for="react-aria-:r0:"
+      id="react-aria-:r1:"
+    >
+      label
+    </label>
+    <textarea
+      aria-labelledby="react-aria-:r1:"
+      class="sc-jSFipO cflAow"
+      data-resize="both"
+      id="react-aria-:r0:"
+    />
+  </div>
+</DocumentFragment>
+`;

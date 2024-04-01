@@ -1,74 +1,55 @@
 import React from "react";
-import cn from "classnames";
 import { useVariantClass } from "../../../hooks";
-import { AriaProps, FieldBaseProps, HasVariant } from "../../../types";
-import { Input, InputWrapper } from "../Inputs.styles";
-import useForwardedRef from "../../../hooks/useForwardedRef";
-import { AriaTextFieldProps, useTextField } from "react-aria";
-import { FieldWrapper } from "../../Atoms/FieldWrapper";
+import { AriaProps, FieldInputProps, HasVariant } from "../../../types";
+import { StyledTextField } from "../Inputs.styles";
+import { AriaTextFieldProps } from "react-aria";
+import { FieldInput } from "../../Atoms/Field";
+import FloatingFieldInputWrapper from "../../Internal/FloatingFieldInputWrapper";
+import classNames from "classnames";
 
 type Variants = "default" | "floating";
 
 export interface TextInputProps
   extends AriaProps<AriaTextFieldProps>,
-    FieldBaseProps,
+    FieldInputProps,
     HasVariant<Variants> {}
 
-/** TextInput component. Fowards a `ref` to the internal input element */
-export const TextInput = React.forwardRef(
-  (props: TextInputProps, ref: React.Ref<HTMLInputElement>) => {
-    const {
-      type = "text",
-      label,
-      hideLabel,
-      size = "medium",
-      error,
-      message,
-      variant = "default",
-      className,
-      isDisabled,
-      isRequired,
-    } = props;
+/** TextInput component. */
+export const TextInput = React.forwardRef(function TextInput(
+  props: TextInputProps,
+  ref: React.Ref<HTMLInputElement>
+) {
+  const {
+    type = "text",
+    size = "medium",
+    variant = "default",
+    className,
+    label,
+    message,
+    error,
+    ...rest
+  } = props;
 
-    const internalRef = useForwardedRef(ref);
+  const variantClassName = useVariantClass("aje-input", variant);
 
-    const {
-      labelProps,
-      inputProps,
-      descriptionProps,
-      errorMessageProps,
-      isInvalid,
-    } = useTextField(props, internalRef);
-
-    const variantClassName = useVariantClass("aje-input", variant);
-
-    return (
-      <InputWrapper
-        className={cn("aje-input__text", variantClassName, className, {
-          "float-label": inputProps.value,
-        })}
-        size={size}
-        disabled={isDisabled}
-        required={isRequired}
-        error={isInvalid}
+  return (
+    <StyledTextField
+      type={type}
+      size={size}
+      className={classNames(variantClassName, className)}
+      data-float={(Boolean(props.value) && variant === "floating") || undefined}
+      {...rest}
+    >
+      <FloatingFieldInputWrapper
+        floating={variant === "floating"}
+        label={label}
+        message={message}
+        error={error}
       >
-        <FieldWrapper
-          label={label}
-          labelProps={labelProps}
-          message={message}
-          messageProps={descriptionProps}
-          error={error}
-          errorProps={errorMessageProps}
-          hideLabel={hideLabel}
-          floating={variant === "floating"}
-        >
-          <Input ref={internalRef} type={type} {...inputProps} />
-        </FieldWrapper>
-      </InputWrapper>
-    );
-  }
-);
-
-TextInput.displayName = "TextInput";
+        <FieldInput ref={ref} />
+      </FloatingFieldInputWrapper>
+    </StyledTextField>
+  );
+});
 
 export default TextInput;

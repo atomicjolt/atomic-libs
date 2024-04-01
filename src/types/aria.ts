@@ -9,6 +9,7 @@ export type AriaProps<P> = Omit<
   | "isReadOnly"
   | "id"
   | "name"
+  | "pattern"
 >;
 
 export type Key = string | number;

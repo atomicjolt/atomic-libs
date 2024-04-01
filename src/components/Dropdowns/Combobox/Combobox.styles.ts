@@ -1,12 +1,17 @@
 import styled from "styled-components";
 import mixins from "../../../styles/mixins";
 import { DropdownWrapper } from "../Dropdowns.styles";
+import { VirtualInput } from "../../Atoms/Field";
 
 export const ComboboxWrapper = styled(DropdownWrapper)`
   ${mixins.SizingX}
-  ${mixins.InputWrapper}
+  ${mixins.FieldStatus}
+`;
 
-  &.read-only {
-    --input-bg-clr: var(--neutral100);
+export const ComboboxVirtualInput = styled(VirtualInput)`
+  padding-left: 0px;
+
+  input {
+    padding-left: var(--input-padding-horiz);
   }
 `;

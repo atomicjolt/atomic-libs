@@ -1,15 +1,15 @@
 import React from "react";
 import cn from "classnames";
-import { HasChildren, AriaProps, FieldBaseProps } from "../../../types";
+import { HasChildren, AriaProps, FieldInputProps } from "../../../types";
 import RadioContext from "./context";
-import { FieldSet } from "./RadioGroup.styles";
-import { FieldError, Label, FieldMessage } from "../../../styles/utils";
+import { RadioGroupWrapper } from "./RadioGroup.styles";
 import { useRadioGroupState } from "react-stately";
 import { AriaRadioGroupProps, useRadioGroup } from "react-aria";
+import { Label, ErrorMessage, Message } from "../../Atoms/Field";
 
 export interface RadioGroupsProps
   extends AriaProps<AriaRadioGroupProps>,
-    FieldBaseProps,
+    FieldInputProps,
     HasChildren {}
 
 /**
@@ -24,33 +24,36 @@ export interface RadioGroupsProps
  * between the over-lying `<RadioGroup />` and it's `<Radio />`s
  * */
 export function RadioGroup(props: RadioGroupsProps) {
-  const { label, message, error, children, hideLabel, className } = props;
+  const { label, message, error, children, className } = props;
 
   const state = useRadioGroupState(props);
   const { radioGroupProps, labelProps, descriptionProps, errorMessageProps } =
     useRadioGroup(props, state);
 
   return (
-    <FieldSet
-      className={cn("aje-radio-group", className, {
-        "is-disabled": state.isDisabled,
-      })}
+    <RadioGroupWrapper
+      as="fieldset"
+      className={cn("aje-radio-group", className)}
+      isDisabled={state.isDisabled}
+      isInvalid={state.isInvalid}
+      isRequired={state.isRequired}
+      isReadOnly={state.isReadOnly}
       {...radioGroupProps}
     >
       <Label
         as="legend"
-        className={cn("aje-radio-group__label", { "aje-hidden": hideLabel })}
+        className={cn("aje-radio-group__label")}
         {...labelProps}
       >
         {label}
         {state.isRequired && <span aria-hidden="true"> *</span>}
-        {message && (
-          <FieldMessage {...descriptionProps}>{message}</FieldMessage>
+        {message && <Message {...descriptionProps}>{message}</Message>}
+        {error && state.isInvalid && (
+          <ErrorMessage {...errorMessageProps}>{error}</ErrorMessage>
         )}
-        {error && <FieldError {...errorMessageProps}>{error}</FieldError>}
       </Label>
       <RadioContext.Provider value={state}>{children}</RadioContext.Provider>
-    </FieldSet>
+    </RadioGroupWrapper>
   );
 }
 

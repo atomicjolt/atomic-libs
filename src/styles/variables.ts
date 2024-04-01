@@ -102,12 +102,12 @@ export const CssVariables = createGlobalStyle`
   --input-outline: 1px solid var(--outline-clr-primary);
   --input-height: 40px;
   --input-padding-horiz: 12px;
+  --input-gap: 12px;
   --input-font-size: 1.6rem;
   --input-icon-size: 2.4rem;
   --input-icon-clr: var(--neutral600);
   --input-text-clr: var(--text-clr);
-  --input-border-color: var(--input-border-clr);
-  --input-border: 1px solid var(--input-border-color);
+  --input-border: 1px solid var(--input-border-clr);
   --input-border-radius: var(--radius);
   --input-bg-clr: none;
   --input-transition: none;
