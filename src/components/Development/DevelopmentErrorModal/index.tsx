@@ -6,9 +6,9 @@ import {
   ErrorSymbol,
   StackTrace,
 } from "./DevelopmentErrorModal.styles";
-import IconButton from "../../Buttons/IconButton";
-import MaterialIcon from "../../Icons/MaterialIcon";
-import { CheckBox } from "../..";
+import { IconButton } from "../../Buttons/IconButton";
+import { MaterialIcon } from "../../Icons/MaterialIcon";
+import { CheckBox } from "../../Inputs/Checkbox";
 import { errorMatchers } from "./errorHelpers";
 
 export interface DevelopmentErrorModalProps {

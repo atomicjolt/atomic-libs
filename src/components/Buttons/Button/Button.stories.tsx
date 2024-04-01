@@ -49,6 +49,7 @@ const meta: Meta<typeof Button> = {
     // },
     onPress: {
       control: false,
+      action: "onPress",
       description:
         "Similar to onClick, but preferred for better accessibility. It is called when the button is pressed.",
       table: {
@@ -57,6 +58,7 @@ const meta: Meta<typeof Button> = {
     },
     onPressStart: {
       control: false,
+      action: "onPressStart",
       description:
         "Called when the button is pressed down. This is called before onPress.",
       table: {
@@ -65,6 +67,7 @@ const meta: Meta<typeof Button> = {
     },
     onPressEnd: {
       control: false,
+      action: "onPressEnd",
       description:
         "Called when the button is released. This is called after onPress.",
       table: {
@@ -73,6 +76,7 @@ const meta: Meta<typeof Button> = {
     },
     onPressChange: {
       control: false,
+      action: "onPressChange",
       description: "Called when the pressed state of the button changes.",
       table: {
         category: "Events",

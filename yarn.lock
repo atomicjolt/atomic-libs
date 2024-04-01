@@ -41,7 +41,7 @@ __metadata:
     "@babel/preset-env": ^7.23.2
     "@babel/preset-react": ^7.22.15
     "@babel/preset-typescript": ^7.23.2
-    "@internationalized/date": ^3.5.1
+    "@internationalized/date": ^3.5.2
     "@ljcl/storybook-addon-cssprops": ^3.1.0
     "@rollup/plugin-commonjs": ^22.0.0
     "@rollup/plugin-node-resolve": ^13.3.0
@@ -2707,15 +2707,6 @@ __metadata:
   dependencies:
     tslib: ^2.4.0
   checksum: a741d69e9d3b71bee19726484de4a296711d96dc27f588d995b9e2079d3bc5d06370b6e84136003197d558d45f9faf507321627a78d8cd986705b78ec701c016
-  languageName: node
-  linkType: hard
-
-"@internationalized/date@npm:^3.5.1":
-  version: 3.5.1
-  resolution: "@internationalized/date@npm:3.5.1"
-  dependencies:
-    "@swc/helpers": ^0.5.0
-  checksum: d61db2529e5a2e5012d6f5924051d75b4cf9482374043b14f574757d2008c89b638365d66baef62badbdcdd6b99481af8d235a03006ff68832b6be8c17cbcecd
   languageName: node
   linkType: hard
 
