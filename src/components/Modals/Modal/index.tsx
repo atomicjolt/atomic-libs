@@ -27,10 +27,8 @@ export interface ModalProps extends BaseModalProps {
   variant?: string;
 }
 
-/** The most basic Modal that atomic-element offers. Makes no assumptiosn or enforcements on how / where
- * the content of the modal should be rendered.
- *
- * Unless you absolutely need to, you are probably better served using one of the other modals provided
+/**
+ * Modal Component to render content overlayed on top of the page content.
  */
 export function Modal(props: ModalProps) {
   const { children, centered = false, variant = "default", className } = props;
