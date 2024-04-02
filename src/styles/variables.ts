@@ -256,5 +256,7 @@ export const CssVariables = createGlobalStyle`
   --card-panel-bg-clr: var(--background-clr);
   --card-panel-text-clr: var(--text-clr);
   --card-panel-padding: 10px;
+  --card-divider-border: 1px solid var(--neutral300);
+  --card-divider-margin: 10px;
 }
 `;

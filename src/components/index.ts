@@ -43,6 +43,7 @@ export { MaterialIcon } from "./Icons/MaterialIcon";
 
 export { Table } from "./Tables/Table";
 export { Tabs } from "./Tabs/Tabs";
+export { Card } from "./Atoms/Card";
 
 export { Item, Section } from "./Atoms/Collection";
 export { Popover, PopoverWrapper } from "./Atoms/Popover";

@@ -65,3 +65,12 @@ export const CardColumns = styled.div`
   flex-direction: row;
   gap: var(--card-padding);
 `;
+
+export const CardDivider = styled.hr`
+  border-top: var(--card-divider-border);
+  border-bottom: none;
+  margin-top: var(--card-divider-margin);
+  margin-bottom: var(--card-divider-margin);
+  margin-left: calc(var(--card-panel-padding) * -1);
+  margin-right: calc(var(--card-panel-padding) * -1);
+`;

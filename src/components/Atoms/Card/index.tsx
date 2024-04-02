@@ -5,6 +5,7 @@ import {
   CardTitle,
   CardWrapper,
   CardHeader,
+  CardDivider,
 } from "./Card.styles";
 import { BaseProps, ExtendedSize, HasChildren } from "../../../types";
 import classNames from "classnames";
@@ -43,3 +44,5 @@ Card.Columns = CardColumns;
 CardColumns.displayName = "Card.Columns";
 Card.Header = CardHeader;
 CardHeader.displayName = "Card.Header";
+Card.Divider = CardDivider;
+CardDivider.displayName = "Card.Divider";
