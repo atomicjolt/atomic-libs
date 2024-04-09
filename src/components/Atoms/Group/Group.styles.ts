@@ -6,7 +6,6 @@ interface GroupWrapperProps {
 
 export const GroupWrapper = styled.div<GroupWrapperProps>`
   display: flex;
-  align-items: end;
   gap: ${({ gap }) => (gap === undefined ? 8 : gap)}px;
 
   &.is-merged {
