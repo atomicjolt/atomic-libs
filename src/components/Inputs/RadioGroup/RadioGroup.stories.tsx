@@ -1,10 +1,13 @@
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
-import RadioGroup, { Radio } from ".";
+import { RadioGroup, Radio } from ".";
 import { InputControls } from "../../storybook";
 
 const meta: Meta<typeof RadioGroup> = {
   title: "Inputs/Choose State/RadioGroup",
+  parameters: {
+    layout: "centered",
+  },
   component: RadioGroup,
   // @ts-ignore
   subcomponents: { Radio },
