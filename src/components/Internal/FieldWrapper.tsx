@@ -1,12 +1,18 @@
 import classNames, { Argument } from "classnames";
 import React from "react";
-import { ExtendedSize, FieldStatusProps } from "../../types";
+import {
+  ExtendedSize,
+  FieldStatusProps,
+  HasChildren,
+  HasClassName,
+} from "../../types";
 import { StyledTarget } from "styled-components/dist/types";
 
-export interface FieldWrapperProps extends FieldStatusProps {
-  className: Argument | Argument[];
+export interface FieldWrapperProps
+  extends FieldStatusProps,
+    HasClassName,
+    HasChildren {
   size?: ExtendedSize;
-  children: React.ReactNode;
   as?: StyledTarget<"web">;
 }
 
@@ -22,6 +28,7 @@ export function FieldWrapper(props: FieldWrapperProps) {
     as: Component = "div",
     ...rest
   } = props;
+
   return (
     <Component
       className={classNames(className, {

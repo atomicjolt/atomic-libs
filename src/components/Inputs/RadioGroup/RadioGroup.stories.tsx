@@ -43,9 +43,15 @@ export const Primary: Story = {
   args: {
     label: "Radio Group Label",
     children: [
-      <Radio value="opt1">Option 1</Radio>,
-      <Radio value="opt2">Option 2</Radio>,
-      <Radio value="opt3">Option 3</Radio>,
+      <Radio key="1" value="opt1">
+        Option 1
+      </Radio>,
+      <Radio key="2" value="opt2">
+        Option 2
+      </Radio>,
+      <Radio key="3" value="opt3">
+        Option 3
+      </Radio>,
     ],
   },
 };
@@ -54,11 +60,15 @@ export const WithDisabledOptions: Story = {
   args: {
     label: "Radio Group Label",
     children: [
-      <Radio value="opt1">Option 1</Radio>,
-      <Radio value="opt2" isDisabled>
+      <Radio key="1" value="opt1">
+        Option 1
+      </Radio>,
+      <Radio key="2" value="opt2" isDisabled>
         Option 2
       </Radio>,
-      <Radio value="opt3">Option 3</Radio>,
+      <Radio key="3" value="opt3">
+        Option 3
+      </Radio>,
     ],
   },
 };
