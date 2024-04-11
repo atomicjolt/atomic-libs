@@ -3,11 +3,10 @@ import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import dts from "rollup-plugin-dts";
-import pkg from "./package.json";
 
 const formatEntryPoint = (format) => ({
   input: "src/index.ts",
-  external: ["react", "react-dom", ...Object.keys(pkg.dependencies)],
+  external: [/node_modules/],
   output: [
     {
       dir: `dist/${format}`,

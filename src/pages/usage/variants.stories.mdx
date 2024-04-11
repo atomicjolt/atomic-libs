@@ -15,10 +15,8 @@ Some components in Atomic Elements have what we call _variants_.
 A component variant is a preset configuration of a component that changes it's appearance or behavior in some way. There are two types of variants:
 
 - **Visual Variants** only modify the visual presentation for a component via CSS. These can be easily modified / additional ones may be added.
-- **Semantic Variants** modify the actual structure of a component's markup. These need to be added to the code explicitly. Only a few components currently have this kind of variant:
-  - `TextInput`
-  - `CustomSelect`
-  - `ComboBox`
+- **Semantic Variants** modify the actual structure of a component's markup. These need to be added to the code explicitly. Note that any component that
+  has semantic variants can also have visual variants
 
 ## Visual Variants
 
@@ -29,6 +27,8 @@ Visual variants are variants that only modify the visual appearance of a compone
   <Button variant="secondary">Secondary</Button>
   <Button variant="success">Success!</Button>
   <Button variant="error">Error!</Button>
+  <Button variant="border">Border</Button>
+  <Button variant="ghost">Ghost</Button>
   <Button variant="inverted">Inverted</Button>
   <Button variant="content">Content</Button>
 </Canvas>
@@ -86,3 +86,11 @@ of the text input component moves the label _below_ the input rather than above 
 </Canvas>
 
 If you're interested in adding a new semantic variant to a component, you can look at the source code for the `TextInput` component to see how it's done.
+
+The following components have semantic variants built in:
+
+- `TextInput`
+- `NumberInput`
+- `SearchInput`
+- `CustomSelect`
+- `ComboBox`

@@ -1,85 +1,75 @@
-import React, { FormEvent } from "react";
-import cn from "classnames";
-import { useIds } from "../../../hooks";
-import { EventHandler, InputProps } from "../../../types";
-import InputError from "../../Utility/InputError";
-import Label from "../../Utility/Label";
-import MaterialIcon from "../../Icons/MaterialIcon";
-import { makeEventHandler } from "../../../utils";
-import { InputWrapper } from "../Inputs.styles";
-import { StyledSearchInput } from "./SearchInput.styles";
+import React from "react";
+import { AriaProps, FieldInputProps } from "../../../types";
+import useForwardedRef from "../../../hooks/useForwardedRef";
+import { AriaSearchFieldProps, useSearchField } from "react-aria";
+import { useSearchFieldState } from "react-stately";
+import IconButton from "../../Buttons/IconButton";
+import {
+  ErrorMessage,
+  Input,
+  Label,
+  Message,
+  VirtualInput,
+} from "../../Atoms/Field";
+import { StyledField } from "../../Atoms/Field/Field.styles";
+import classNames from "classnames";
 
-export interface SearchInputProps extends Omit<InputProps<string>, "required"> {
-  /** When the user hits enter, or presses the submit button, this event will fire
-   * with the current value of the input element. */
-  onSubmit?: EventHandler<
-    string | undefined,
-    React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>
-  >;
+export interface SearchInputProps
+  extends AriaProps<AriaSearchFieldProps>,
+    FieldInputProps {}
 
-  /** Display a button to click on to search, instead of just hitting enter */
-  submitButton?: boolean;
-}
+/** Essentially the same as the text input, but with an `onSubmit`
+ * handler when the user clicks the search button or hits the enter key
+ * */
+export const SearchInput = React.forwardRef(function SearchInput(
+  props: SearchInputProps,
+  ref: React.Ref<HTMLInputElement>
+) {
+  const {
+    label,
+    size = "medium",
+    error,
+    message,
+    className,
+    isDisabled,
+    isRequired,
+    isReadOnly,
+    onSubmit,
+  } = props;
 
-/** Search Input Component. Accepts a `ref`
- *
- * Essentially the same as the `TextInput` component, but
- * has an `onSumbit()` handler that gets called when the user
- * hits enter
- */
-const SearchInput = React.forwardRef<HTMLInputElement, SearchInputProps>(
-  (props, ref) => {
-    const {
-      value,
-      size = "medium",
-      label,
-      placeholder,
-      hideLabel = false,
-      submitButton = false,
-      disabled = false,
-      error,
-      onSubmit,
-      onChange,
-      className,
-      message,
-    } = props;
+  const internalRef = useForwardedRef(ref);
+  const searchState = useSearchFieldState(props);
 
-    const [inputId, errorId] = useIds("SearchInput", ["input", "error"]);
+  const {
+    labelProps,
+    inputProps,
+    descriptionProps,
+    errorMessageProps,
+    isInvalid,
+  } = useSearchField(props, searchState, internalRef);
 
-    return (
-      <InputWrapper
-        as="form"
-        className={cn("aje-input", className)}
-        size={size}
-        error={error}
-        disabled={disabled}
-        onSubmit={(e: FormEvent<HTMLFormElement>) => {
-          e.preventDefault();
-          onSubmit && onSubmit(value, e);
-        }}
-      >
-        <Label hidden={hideLabel} htmlFor={inputId} message={message}>
-          {label}
-        </Label>
-        <StyledSearchInput
-          id={inputId}
-          type="search"
-          role="search"
-          placeholder={placeholder}
-          value={value}
-          onChange={makeEventHandler(onChange)}
-          disabled={disabled}
-          ref={ref}
+  return (
+    <StyledField
+      className={classNames(`aje-input__search`, className)}
+      size={size}
+      isDisabled={isDisabled}
+      isInvalid={isInvalid}
+      isRequired={isRequired}
+      isReadOnly={isReadOnly}
+    >
+      {label && <Label {...labelProps}>{label}</Label>}
+      {message && <Message {...descriptionProps}>{message}</Message>}
+      <VirtualInput>
+        <Input {...inputProps} />
+        <IconButton
+          icon="search"
+          variant="content"
+          onPress={() => onSubmit && onSubmit(searchState.value)}
         />
-        {submitButton && (
-          <button type="submit" aria-label="submit search">
-            <MaterialIcon icon="search" />
-          </button>
-        )}
-        <InputError error={error} id={errorId} />
-      </InputWrapper>
-    );
-  }
-);
+      </VirtualInput>
+      {isInvalid && <ErrorMessage {...errorMessageProps}>{error}</ErrorMessage>}
+    </StyledField>
+  );
+});
 
 export default SearchInput;

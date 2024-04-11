@@ -1,52 +1,8 @@
-import { RefObject, useEffect, useId, useMemo, useRef, useState } from "react";
+import { useEffect, useId, useMemo, useRef } from "react";
 
 export function useIds(base: string, args: string[], deps: any[] = []) {
   const id = useId();
   return useMemo(() => args.map((arg) => `${base}-${id}-${arg}`), deps);
-}
-
-export function useBool(
-  initialState: boolean = false
-): [boolean, () => void, () => void, () => void] {
-  const [bool, setBool] = useState(initialState);
-
-  return [
-    bool,
-    () => setBool(!bool),
-    () => setBool(true),
-    () => setBool(false),
-  ];
-}
-
-interface UseClickOutsideOptions {
-  enabled: boolean;
-}
-
-const defaultOptions: UseClickOutsideOptions = {
-  enabled: true,
-};
-
-// https://www.30secondsofcode.org/react/s/use-click-outside
-export function useClickOutside<E extends HTMLElement>(
-  ref: RefObject<E>,
-  callback: () => void,
-  options: Partial<UseClickOutsideOptions> = {}
-) {
-  const onClick = (event: MouseEvent) => {
-    if (ref.current && !ref.current.contains(event.target as Node)) {
-      callback();
-    }
-  };
-
-  useEffect(() => {
-    const opts: UseClickOutsideOptions = { ...defaultOptions, ...options };
-    if (opts.enabled) {
-      window.addEventListener("click", onClick);
-      return () => window.removeEventListener("click", onClick);
-    } else {
-      window.removeEventListener("click", onClick);
-    }
-  }, [options]);
 }
 
 /** Tracks whether or not a state change has

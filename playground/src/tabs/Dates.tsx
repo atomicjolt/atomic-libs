@@ -19,7 +19,7 @@ export default function Dates() {
       <div>
         <h1>Current Date: {date?.toLocaleString()}</h1>
       </div>
-      <Button onClick={reset}>Reset</Button>
+      <Button onPress={reset}>Reset</Button>
       <hr />
       <h2>Calendar</h2>
       <Calendar date={date} onSelect={(v) => setDate(v)} withTime />

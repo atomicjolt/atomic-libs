@@ -2,30 +2,26 @@ import React from "react";
 import cn from "classnames";
 
 import { useIds } from "../../../hooks";
-import {
-  EventHandler,
-  InputComponentProps,
-  InputElementProps,
-} from "../../../types";
-import InputError from "../../Utility/InputError";
-import { makeEventHandler } from "../../../utils";
-import { ComponentWrapper } from "../../../styles/utils";
+import { FieldInputProps } from "../../../types";
 import {
   FileInputLabel,
   FileInputSpan,
   FileInputStrong,
   StyledFileInput,
 } from "./FileInput.styles";
+import { FieldWrapper } from "../../Internal/FieldWrapper";
+import { ErrorMessage } from "../../Atoms/Field";
 
 export interface FileInputProps
-  extends Omit<InputComponentProps, "size" | "hideLabel" | "message">,
-    InputElementProps<HTMLInputElement> {
+  extends Omit<FieldInputProps, "message" | "isReadOnly">,
+    React.AriaAttributes {
   file?: File | null;
-  onChange?: EventHandler<File | null, React.ChangeEvent<HTMLInputElement>>;
+  onChange?: (f: File | null) => void;
+  placeholder?: string;
 }
 
 /** FileInput component. Used to select singular files */
-const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
+export const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
   (props, ref) => {
     const [inputId, errorId] = useIds("FileInput", ["input", "error"]);
 
@@ -34,39 +30,47 @@ const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
       onChange,
       label,
       error,
-      disabled = false,
-      required = false,
+      isDisabled = false,
+      isRequired = false,
+      isInvalid = false,
       className,
       placeholder,
+      size = "medium",
       ...inputProps
     } = props;
 
     return (
-      <ComponentWrapper
-        className={cn("aje-input--file", className)}
-        disabled={disabled}
-        required={required}
+      <FieldWrapper
+        className={cn("aje-input__file", className)}
+        isDisabled={isDisabled}
+        isRequired={isRequired}
+        isInvalid={isInvalid}
+        size={size}
       >
         <StyledFileInput
           id={inputId}
           ref={ref}
           aria-describedby={error ? errorId : ""}
           type="file"
-          disabled={disabled}
-          required={required}
-          onChange={makeEventHandler(onChange, (e) =>
-            e.target.files ? e.target.files[0] : null
-          )}
+          disabled={isDisabled}
+          required={isRequired}
+          onChange={(e) => {
+            const file = e.target.files ? e.target.files[0] : null;
+            onChange && onChange(file);
+          }}
           {...inputProps}
         />
         <FileInputLabel htmlFor={inputId}>
           <FileInputSpan>{file ? file.name : placeholder}</FileInputSpan>
-          <FileInputStrong>{label}</FileInputStrong>
+          <FileInputStrong>
+            {label}
+            {isRequired && <span aria-hidden="true"> *</span>}
+          </FileInputStrong>
         </FileInputLabel>
-        <InputError error={error} id={errorId} />
-      </ComponentWrapper>
+        {isInvalid && error && (
+          <ErrorMessage id={errorId}>{error}</ErrorMessage>
+        )}
+      </FieldWrapper>
     );
   }
 );
-
-export default FileInput;

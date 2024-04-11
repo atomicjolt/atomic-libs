@@ -1,32 +1,43 @@
 import { Meta, StoryObj } from "@storybook/react";
-import {
-  InputControls,
-  inputProperties,
-  disableControl,
-} from "../../storybook";
-import Checkbox, { CheckboxProps } from ".";
+import { InputControls } from "../../storybook";
+import CheckBox from ".";
 
-const meta: Meta<CheckboxProps> = {
+const meta: Meta<typeof CheckBox> = {
   title: "Inputs/Choose State/Checkbox",
-  component: Checkbox,
+  component: CheckBox,
   parameters: {
     layout: "centered",
   },
   argTypes: {
     ...InputControls,
-    ...disableControl("readOnly"),
-    ...disableControl("placeholder"),
+    isReadOnly: {
+      table: {
+        category: "Field State",
+      },
+    },
+    defaultSelected: {
+      type: "boolean",
+      description:
+        "Default selected state of the checkbox in an uncontrolled component.",
+    },
+    isSelected: {
+      type: "boolean",
+      description: "Selected state of the checkbox in a controlled component.",
+    },
+    isIndeterminate: {
+      type: "boolean",
+      description:
+        "Indeterminate state of the checkbox. When true, the checkbox will always be displayed in an indeterminate state, regardless of the selected state.",
+    },
   },
 };
 
 export default meta;
 
-type Story = StoryObj<CheckboxProps>;
+type Story = StoryObj<typeof CheckBox>;
 
 export const Primary: Story = {
   args: {
-    checked: false,
-    ...inputProperties({ filter: ["placeholder", "readOnly", "defaultValue"] }),
-    label: "Checkbox label",
+    children: "Checkbox Label",
   },
 };

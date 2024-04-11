@@ -1,93 +1,93 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import mixins from "../../styles/mixins";
-import { ComponentWrapper } from "../../styles/utils";
+import { DirectionProps } from "../../types";
+import { NumberField, TextField } from "../Atoms/Field";
+import { StyledInputWrapper } from "../Atoms/Field/VirtualInput";
+import { FieldWrapper } from "../Internal/FieldWrapper";
 
-export const InputWrapper = styled(ComponentWrapper)`
-  &.is-small {
-    input,
-    select {
-      width: var(--input-width-sm, 100px);
-    }
-    textarea {
-      min-height: var(--textarea-height-sm);
-    }
-  }
-  &.is-medium {
-    input,
-    select {
-      width: var(--input-width-md, 200px);
-    }
-    textarea {
-      min-height: var(--textarea-height-md);
-    }
-  }
-  &.is-large {
-    input,
-    select {
-      width: var(--input-width-lg, 300px);
-    }
-    textarea {
-      min-height: var(--textarea-height-lg);
-    }
-  }
-  &.is-full {
-    .aje-input__select {
-      width: 100%;
-    }
-  }
-  &.is-auto {
-    input,
-    select {
-      max-width: none;
-      width: auto;
-    }
-  }
+// TODO: consider if we want all these styled compiled together like this
 
-  &.has-error {
-    input,
-    select {
-      --input-border-color: var(--error700);
+const InputVariants = css`
+  &.aje-input--floating {
+    --input-height: 48px;
+    --input-padding-horiz: 1em;
+    --input-bg-clr: var(--neutral100);
+    --input-transition: 100ms ease;
 
-      &:focus {
-        outline-color: var(--error700);
+    --floating-font-size: 1.6rem;
+    --floating-label-clr: var(--text-clr-alt);
+
+    label {
+      ${mixins.Regular}
+      z-index: 2;
+      position: absolute;
+      top: 50%;
+      left: calc(1em - 4px);
+      transform: translateY(-50%);
+      background-color: var(--input-bg-clr);
+      color: var(--floating-label-clr);
+      text-align: center;
+      transition: 200ms ease;
+      font-size: var(--floating-font-size);
+      pointer-events: none;
+      padding: 1px 4px;
+    }
+
+    input:focus {
+      --input-border-clr: var(--primary700);
+      --input-bg-clr: var(--neutral50);
+      box-shadow: 0 0 0 1px var(--input-border-clr);
+      outline: none;
+    }
+
+    ${StyledInputWrapper}:focus-within, &[data-float] {
+      --input-bg-clr: var(--neutral50);
+      input {
+        --input-border-clr: none;
+      }
+    }
+
+    input:focus ~ label,
+    &[data-float] label,
+    ${StyledInputWrapper}:focus-within ~ label {
+      top: 0px;
+      left: 1em;
+      --floating-font-size: 1.3rem;
+      --input-bg-clr: var(--neutral50);
+      --floating-label-clr: var(--text-clr);
+    }
+
+    input:hover {
+      --input-border-clr: var(--neutral500);
+      box-shadow: 0 0 0 1px var(--input-border-clr);
+    }
+
+    ${StyledInputWrapper} input:hover {
+      --input-border-clr: none;
+      box-shadow: none;
+    }
+
+    &[data-invalid] {
+      --input-border-clr: var(--error700);
+
+      input:not(:placeholder-shown) ~ label,
+      input:focus ~ label,
+      ${StyledInputWrapper}:focus-within ~ label {
+        --floating-label-clr: var(--error800);
       }
     }
   }
-
-  &.is-disabled {
-    opacity: 0.5;
-  }
-
-  &.is-required {
-    label::after {
-      content: " *";
-    }
-  }
 `;
 
-export const Input = styled.input`
-  ${mixins.Regular}
-  border: var(--input-border);
-  border-radius: var(--input-border-radius);
-  min-height: var(--input-height);
-  width: 100%;
-  padding: 0 var(--input-padding-horiz);
-  font-size: var(--input-font-size);
-  color: var(--input-text-clr);
-  background-color: var(--input-bg-clr);
-  text-align: left;
-
-  &:read-only {
-    border-color: var(--neutral100);
-    --input-bg-clr: var(--neutral100);
-  }
-  &:focus {
-    --input-border-color: var(--outline-clr-primary);
-    outline: var(--input-outline);
-  }
+export const StyledTextField = styled(TextField)`
+  ${InputVariants}
 `;
 
-export const ChooseInputWrapper = styled.label`
+export const StyledNumberField = styled(NumberField)`
+  ${InputVariants}
+`;
+
+export const ChooseInputWrapper = styled(FieldWrapper)`
   display: block;
 
   :is(input):focus-visible ~ .aje-checkbox__label:before {
@@ -99,7 +99,7 @@ export const ChooseInputWrapper = styled.label`
     outline: none;
   }
 
-  &.has-error span::before {
+  &[data-invalid] span::before {
     border-color: var(--error700);
   }
 `;
@@ -112,7 +112,7 @@ export const ChooseInput = styled.input`
   position: absolute;
 `;
 
-export const ChooseLabel = styled.span`
+export const ChooseLabel = styled.span<DirectionProps>`
   ${mixins.Regular}
   display: inline-block;
   cursor: pointer;
@@ -121,14 +121,18 @@ export const ChooseLabel = styled.span`
   line-height: 1.5;
   color: var(--text-clr);
   padding-top: var(--choose-label-padding-top);
-  padding-left: var(--choose-label-padding-left);
   min-height: var(--choose-label-height);
+
+  ${({ $rtl }) =>
+    $rtl
+      ? "padding-right: var(--choose-label-padding-left);"
+      : "padding-left: var(--choose-label-padding-left);"}
 
   &:before {
     content: "";
     position: absolute;
     top: 2px;
-    left: 2px;
+    ${({ $rtl }) => ($rtl ? "right: 2px;" : "left: 2px;")}
     width: var(--choose-check-size);
     height: var(--choose-check-size);
     box-sizing: border-box;

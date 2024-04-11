@@ -37,7 +37,6 @@ export const CircularLoader = styled.svg`
 export const LoaderPath = styled.circle`
   fill: none;
   stroke: var(--loader-clr);
-  stroke-width: 0.5em;
   stroke-linecap: round;
   animation: ${animateStroke} 1.5s ease-in-out infinite;
 `;

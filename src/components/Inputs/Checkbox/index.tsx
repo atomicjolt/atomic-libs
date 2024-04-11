@@ -1,59 +1,62 @@
 import React from "react";
 import cn from "classnames";
-import { useIds } from "../../../hooks";
-import { CheckedInputProps } from "../../../types";
-import { makeEventHandler } from "../../../utils";
+import { useToggleState } from "react-stately";
+import { AriaCheckboxProps, useCheckbox, useLocale } from "react-aria";
+import useForwardedRef from "../../../hooks/useForwardedRef";
+import { AriaProps, FieldInputProps } from "../../../types";
 import { ChooseInput, ChooseLabel } from "../Inputs.styles";
-import { ErrorLabel, MessageLabel } from "../../../styles/utils";
 import { CheckboxWrapper } from "./Checkbox.styles";
+import { ErrorMessage, Message } from "../../Atoms/Field";
 
-export type CheckboxProps = CheckedInputProps;
+export interface CheckBoxProps
+  extends AriaProps<AriaCheckboxProps>,
+    Omit<FieldInputProps, "label"> {}
 
 /** Checkbox Component. Accepts a `ref` */
-const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
+export const CheckBox = React.forwardRef<HTMLInputElement, CheckBoxProps>(
   (props, ref) => {
     const {
-      label,
+      children,
       error,
       message,
-      checked,
-      onClick,
-      onChange,
-      required,
       className,
-      ...inputProps
+      isRequired,
+      isInvalid,
+      isDisabled,
+      isReadOnly,
+      size = "medium",
+      isIndeterminate = false,
     } = props;
-    const [inputId] = useIds("Checkbox", ["input"]);
+    const internalRef = useForwardedRef(ref);
+    const state = useToggleState(props);
+    const { direction } = useLocale();
+    const { inputProps, labelProps } = useCheckbox(props, state, internalRef);
 
     return (
       <CheckboxWrapper
-        className={cn("aje-checkbox", className, {
-          "has-error": error,
-          "is-required": required,
-        })}
-        htmlFor={inputId}
+        className={cn("aje-checkbox", className)}
+        size={size}
+        isDisabled={isDisabled}
+        isInvalid={isInvalid}
+        isReadOnly={isReadOnly}
+        isRequired={isRequired}
+        $rtl={direction === "rtl"}
+        {...labelProps}
       >
         <ChooseInput
-          id={inputId}
           ref={ref}
-          type="checkbox"
-          checked={checked}
-          onClick={makeEventHandler(
-            onClick,
-            (e) => (e.target as HTMLInputElement).checked
-          )}
-          onChange={makeEventHandler(onChange, (e) => e.target.checked)}
-          required={required}
           {...inputProps}
+          data-indeterminate={isIndeterminate || null}
         />
-        <ChooseLabel className="aje-checkbox__label">
-          {label}
-          {message && <MessageLabel as="p">{message}</MessageLabel>}
-          {error && <ErrorLabel as="p">{error}</ErrorLabel>}
+        <ChooseLabel className="aje-checkbox__label" $rtl={direction === "rtl"}>
+          {children}
+          {isRequired && <span aria-hidden="true"> *</span>}
+          {message && <Message>{message}</Message>}
+          {isInvalid && <ErrorMessage>{error}</ErrorMessage>}
         </ChooseLabel>
       </CheckboxWrapper>
     );
   }
 );
 
-export default Checkbox;
+export default CheckBox;

@@ -12,6 +12,7 @@ type Story = StoryObj<typeof ThreeDotLoader>;
 
 export const Primary: Story = {
   args: {
-    loading: true,
+    isLoading: true,
+    isCentered: true,
   },
 };

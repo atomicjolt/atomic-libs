@@ -1,29 +1,21 @@
 import React from "react";
-import { describe, test, expect } from "vitest";
+import { test, expect } from "vitest";
 import { render } from "@testing-library/react";
-import Tab from "./Tab";
-import TabsNavigation, { TabLink } from "./TabNavigation";
-import Tabs, { TabsContent } from "./Tabs";
+import  {Tabs  } from ".";
+import { Item } from '../../Atoms/Collection';
 
 test("matches snapshot", () => {
   const res = render(
-    <Tabs currentTab="tab1" onChange={() => {}}>
-      <TabsNavigation key="nav">
-        <TabLink to="tab1">Tab One</TabLink>
-        <TabLink to="tab2">Tab Two</TabLink>
-      </TabsNavigation>
-      <TabsContent key="content">
-        <Tab name="tab1">
-          <div>
-            <h2>First Tab</h2>
-          </div>
-        </Tab>
-        <Tab name="tab2">
-          <div>
-            <h2>Second Tab</h2>
-          </div>
-        </Tab>
-      </TabsContent>
+    <Tabs selectedKey="tab1">
+      <Item key="tab1" title="Tab 1">
+        <h1>Tab One</h1>
+      </Item>
+      <Item key="tab2" title="Tab 2">
+        <h1>Tab Two</h1>
+      </Item>
+      <Item key="tab3" title="Tab 3">
+        <h1>Tab Three</h1>
+      </Item>
     </Tabs>
   );
 

@@ -1,6 +1,8 @@
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import IconMenu from ".";
+import { PlacementArgType } from "../../storybook";
+import { MaterialIcon, Section } from "../../";
 
 const meta: Meta<typeof IconMenu> = {
   title: "Dropdowns/IconMenu",
@@ -9,6 +11,7 @@ const meta: Meta<typeof IconMenu> = {
     layout: "centered",
   },
   argTypes: {
+    ...PlacementArgType,
     buttonVariant: {
       control: "select",
       options: [
@@ -24,18 +27,28 @@ const meta: Meta<typeof IconMenu> = {
       control: "select",
       options: ["default", "outlined", "round", "sharp", "two-tone"],
     },
-    position: {
-      control: "select",
-      options: [
-        "top",
-        "bottom",
-        "left",
-        "right",
-        "bottom-right",
-        "bottom-left",
-        "top-right",
-        "top-left",
-      ],
+    children: {
+      control: false,
+    },
+    onClose: {
+      description: "Callback for when the menu is closed.",
+      table: {
+        category: "Events",
+      },
+    },
+    onOpenChange: {
+      description: "Callback for when the menu is opened or closed.",
+      table: {
+        category: "Events",
+      },
+    },
+    isOpen: {
+      control: "boolean",
+      description: "Control the open state of the menu externally.",
+    },
+    defaultOpen: {
+      control: "boolean",
+      description: "Whether the menu is open by default.",
     },
   },
 };
@@ -45,24 +58,52 @@ export default meta;
 type Story = StoryObj<typeof IconMenu>;
 
 export const Primary: Story = {
-  render: (args) => (
-    <IconMenu {...args}>
-      <IconMenu.Item icon="add_alert" onClick={() => {}}>
-        Option 1
-      </IconMenu.Item>
-      <IconMenu.Item icon="info" onClick={() => {}}>
-        Option 2
-      </IconMenu.Item>
-      <IconMenu.Item icon="alarm_on" onClick={() => {}}>
-        Option 3
-      </IconMenu.Item>
-    </IconMenu>
-  ),
   args: {
     icon: "more_vert",
-    label: "Custom dropdown label",
-    disabled: false,
-    position: "bottom-left",
-    iconVariant: "default",
+    children: [
+      <IconMenu.Item key="item1" onAction={() => alert("Item 1")}>
+        Item 1
+      </IconMenu.Item>,
+      <IconMenu.Item key="item2" onAction={() => alert("Item 2")}>
+        Item 2
+      </IconMenu.Item>,
+      <IconMenu.Item key="item3" onAction={() => alert("Item 3")}>
+        Item 3
+      </IconMenu.Item>,
+    ],
+  },
+};
+
+export const WithSections: Story = {
+  args: {
+    ...Primary.args,
+    children: [
+      <IconMenu.Item key="item1">Item 1</IconMenu.Item>,
+      <IconMenu.Item key="item2">Item 2</IconMenu.Item>,
+      <Section>
+        <IconMenu.Item key="item3">Item 3</IconMenu.Item>
+        <IconMenu.Item key="item4">Item 4</IconMenu.Item>
+      </Section>,
+    ],
+  },
+};
+
+export const WithIcons: Story = {
+  args: {
+    ...Primary.args,
+    children: [
+      <IconMenu.Item key="item1">
+        <MaterialIcon icon="edit" />
+        Edit
+      </IconMenu.Item>,
+      <IconMenu.Item key="item2">
+        <MaterialIcon icon="delete" />
+        Delete
+      </IconMenu.Item>,
+      <IconMenu.Item key="item3">
+        <MaterialIcon icon="archive" />
+        Archive
+      </IconMenu.Item>,
+    ],
   },
 };

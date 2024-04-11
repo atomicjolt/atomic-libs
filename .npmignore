@@ -1,0 +1,9 @@
+.storybook
+.github
+.vscode
+.yarn
+bin
+docs
+node_modules
+public
+src

@@ -1,120 +1,41 @@
-import React from "react";
-import { InputComponentProps, InputElementProps } from "../types";
+import { FieldInputProps } from "../types";
 import { createGlobalStyle } from "styled-components";
-
-export const DefaultInputProperties: InputElementProps<Element> &
-  InputComponentProps = {
-  label: "",
-  hideLabel: false,
-  error: "",
-  message: "",
-  disabled: false,
-  required: false,
-  readOnly: false,
-  placeholder: "",
-  size: "medium",
-  autoFocus: false,
-};
-
-interface Options {
-  filter?: string[];
-  merge?: Object;
-}
-
-export function inputProperties({ filter = [], merge = {} }: Options) {
-  return Object.fromEntries(
-    Object.entries({ ...DefaultInputProperties, ...merge }).filter(
-      ([k, _]) => !filter.includes(k)
-    )
-  );
-}
-
-export function disableControl(name: string) {
-  return {
-    [name]: { table: { disable: true } },
-  };
-}
-
-export const CallbackControls = {
-  onChange: {
-    control: false,
-    table: {
-      category: "Events",
-    },
-  },
-  onClick: {
-    control: false,
-    table: {
-      category: "Events",
-    },
-  },
-  onFocus: {
-    control: false,
-    table: {
-      category: "Events",
-    },
-  },
-  onBlur: {
-    control: false,
-    table: {
-      category: "Events",
-    },
-  },
-  onKeyDown: {
-    control: false,
-    table: {
-      category: "Events",
-    },
-  },
-  onKeyUp: {
-    control: false,
-    table: {
-      category: "Events",
-    },
-  },
-};
 
 export const CommonInputControls = {
   label: {
     control: "text",
     table: {
-      category: "Common",
-    },
-  },
-  hideLabel: {
-    control: "boolean",
-    table: {
-      category: "Common",
+      category: "Helper Text",
     },
   },
   error: {
     control: "text",
     table: {
-      category: "Common",
+      category: "Helper Text",
     },
   },
   message: {
     control: "text",
     table: {
-      category: "Common",
+      category: "Helper Text",
     },
   },
-  disabled: {
+  isDisabled: {
     control: "boolean",
     table: {
-      category: "Common",
+      category: "Field State",
     },
   },
-  required: {
+  isRequired: {
     control: "boolean",
     table: {
-      category: "Common",
+      category: "Field State",
     },
   },
-  size: {
-    control: "select",
+  isInvalid: {
+    control: "boolean",
     table: {
-      category: "Common",
+      category: "Field State",
     },
   },
   placeholder: {
@@ -129,16 +50,20 @@ export const CommonInputControls = {
       category: "Common",
     },
   },
-  autoFocus: {
-    control: "boolean",
+};
+
+export const VariantArgType = {
+  variant: {
+    control: "select",
+    description:
+      "Visual variant of the component. Defines what preset styles to use for the component.",
     table: {
-      category: "Common",
+      category: "Presentation",
     },
   },
 };
 
 export const InputControls = {
-  ...CallbackControls,
   ...CommonInputControls,
 };
 
@@ -151,23 +76,37 @@ export const TextInputControls = {
     },
   },
   defaultValue: {
-    control: "text",
+    control: false,
+    description: "Set the initial value of an uncontrolled input",
     table: {
       category: "Common",
     },
   },
-  readOnly: {
+  isReadOnly: {
     control: "boolean",
     table: {
-      category: "Common",
+      category: "Field State",
     },
   },
 };
 
-export const UncontrolledInputControls = {
-  ...InputControls,
-  value: {
-    control: false,
+export const PlacementArgType = {
+  placement: {
+    control: "select",
+    options: [
+      "bottom",
+      "bottom start",
+      "bottom end",
+      "top",
+      "top start",
+      "top end",
+      "left",
+      "left start",
+      "left end",
+      "right",
+      "right start",
+      "right end",
+    ],
   },
 };
 

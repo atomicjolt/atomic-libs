@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import ToggleSwitch from ".";
+import { ToggleSwitch } from ".";
 
 const meta: Meta<typeof ToggleSwitch> = {
   title: "Inputs/Choose State/ToggleSwitch",
@@ -14,6 +14,15 @@ const meta: Meta<typeof ToggleSwitch> = {
         category: "Events",
       },
     },
+    defaultSelected: {
+      control: "boolean",
+      description:
+        "Whether the switch is checked by default for an uncontrolled component",
+    },
+    isSelected: {
+      control: "boolean",
+      description: "Whether the switch is checked for a controlled component",
+    },
   },
 };
 
@@ -23,8 +32,6 @@ type Story = StoryObj<typeof ToggleSwitch>;
 
 export const Primary: Story = {
   args: {
-    checked: false,
-    label: "Toggle switch",
-    disabled: false,
+    children: "Toggle switch",
   },
 };

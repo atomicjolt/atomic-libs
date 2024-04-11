@@ -15,13 +15,13 @@ describe("matches snapshots", () => {
   });
 
   test("loading state", () => {
-    const result2 = render(<Button loading={true}>Click Me</Button>);
+    const result2 = render(<Button isLoading>Click Me</Button>);
     expect(result2.asFragment()).toMatchSnapshot();
   });
 
   test("loading completed state", () => {
     const result2 = render(
-      <Button loading={true} loadingComplete={true}>
+      <Button isLoading loadingComplete={true}>
         Click Me
       </Button>
     );
@@ -31,7 +31,7 @@ describe("matches snapshots", () => {
 
 test("is clickable", () => {
   const onClick = vi.fn((e) => e);
-  render(<Button onClick={onClick}>Click me</Button>);
+  render(<Button onPress={onClick}>Click me</Button>);
 
   fireEvent.click(screen.getByText("Click me"));
 
@@ -40,7 +40,7 @@ test("is clickable", () => {
 
 test("displays loading displays spinner", () => {
   const { rerender } = render(
-    <Button loading={true} loadingComplete={false}>
+    <Button isLoading loadingComplete={false}>
       Click Me
     </Button>
   );
@@ -48,10 +48,10 @@ test("displays loading displays spinner", () => {
   expect(screen.getByTestId("spinner-svg")).not.toBeNull();
 
   rerender(
-    <Button loading={true} loadingComplete={true}>
+    <Button isLoading loadingComplete={true}>
       Click Me
     </Button>
   );
 
-  expect(screen.queryByTestId("spinner-svg")).not.toBeInTheDocument();
+  expect(screen.queryByTestId("spinner-svg")).toBeNull();
 });

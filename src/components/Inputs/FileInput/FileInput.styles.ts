@@ -13,6 +13,11 @@ export const StyledFileInput = styled.input.attrs({ type: "file" })`
     --border-clr: var(--outline-clr-primary);
     outline: var(--input-outline);
   }
+
+  &:disabled + label {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
 `;
 
 export const FileInputLabel = styled.label`
@@ -53,8 +58,8 @@ export const FileInputSpan = styled.span`
 `;
 
 export const FileInputStrong = styled.strong`
-  background-color: var(--neutral100);
   ${mixins.Bold}
+  background-color: var(--neutral100);
   color: var(--text-clr-alt);
   min-height: 38px;
   padding: 8px 16px;

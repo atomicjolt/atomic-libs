@@ -3,7 +3,7 @@
 exports[`matches snapshots > changes variant 1`] = `
 <DocumentFragment>
   <button
-    class="sc-eCAqax sc-jSFipO iFCWcu aje-btn aje-btn--secondary"
+    class="sc-jSFipO sc-gKAaef dENvOr aje-btn aje-btn--secondary is-auto"
     type="button"
   >
     Click Me
@@ -14,15 +14,14 @@ exports[`matches snapshots > changes variant 1`] = `
 exports[`matches snapshots > loading completed state 1`] = `
 <DocumentFragment>
   <button
-    aria-label="loading"
-    class="sc-eCAqax sc-jSFipO iFCWcu aje-btn aje-btn--primary is-loading"
+    class="sc-jSFipO sc-gKAaef dENvOr aje-btn aje-btn--primary is-auto is-loading"
     type="button"
   >
     <div
-      class="sc-bdnyFh xtELr aje-spinner"
+      class="sc-eCAqax gIGjcs aje-spinner is-medium is-centered"
     >
       <span
-        class="sc-hKFymg joaTQl"
+        class="sc-hKFymg qxLuF"
       />
     </div>
     Click Me
@@ -33,12 +32,11 @@ exports[`matches snapshots > loading completed state 1`] = `
 exports[`matches snapshots > loading state 1`] = `
 <DocumentFragment>
   <button
-    aria-label="loading"
-    class="sc-eCAqax sc-jSFipO iFCWcu aje-btn aje-btn--primary is-loading"
+    class="sc-jSFipO sc-gKAaef dENvOr aje-btn aje-btn--primary is-auto is-loading"
     type="button"
   >
     <div
-      class="sc-bdnyFh xtELr aje-spinner"
+      class="sc-eCAqax gIGjcs aje-spinner is-medium is-centered"
     >
       <svg
         class="sc-gtsqUy fELEhR circular-loader"
@@ -46,11 +44,12 @@ exports[`matches snapshots > loading state 1`] = `
         viewBox="25 25 50 50"
       >
         <circle
-          class="sc-dlniIP jXXXQL loader-path"
+          class="sc-dlniIP eFniRo loader-path"
           cx="50"
           cy="50"
           fill="none"
           r="20"
+          stroke-width="0.5em"
         />
       </svg>
     </div>
@@ -62,7 +61,7 @@ exports[`matches snapshots > loading state 1`] = `
 exports[`matches snapshots > normal display 1`] = `
 <DocumentFragment>
   <button
-    class="sc-eCAqax sc-jSFipO iFCWcu aje-btn aje-btn--primary"
+    class="sc-jSFipO sc-gKAaef dENvOr aje-btn aje-btn--primary is-auto"
     type="button"
   >
     Click Me

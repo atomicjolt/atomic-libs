@@ -1,6 +1,7 @@
 import React from "react";
 import cn from "classnames";
 import {
+  ExtendedSize,
   HasClassName,
   MaterialIcons,
   MaterialIconVariants,
@@ -16,35 +17,47 @@ export interface MaterialIconProps
     HasClassName {
   icon: MaterialIcons;
   /** The type of material icon to
-   * render. Note that the font for that style needs to be in scope for it to render properly*/
+   * render. Note that the font for that
+   * style needs to be in scope for it to render properly */
   variant?: MaterialIconVariants;
-  size?: "small" | "medium" | "large";
+  size?: ExtendedSize;
   disabled?: boolean;
 }
 
 /** Small Utility component for rendering out
  * material-icons with some sensible defaults */
-export default function MaterialIcon(props: MaterialIconProps) {
-  const {
-    icon,
-    className,
-    variant = "default",
-    size = "medium",
-    disabled = false,
-    ...rest
-  } = props;
+export const MaterialIcon = React.forwardRef<HTMLElement, MaterialIconProps>(
+  (props, ref) => {
+    const {
+      icon,
+      className,
+      variant = "default",
+      size = "medium",
+      disabled = false,
+      ...rest
+    } = props;
 
-  const variantClass = useVariantClass("material-icons", variant, "-");
+    let variantClass = useVariantClass("material-icons", variant, "-");
 
-  return (
-    <StyledIcon
-      className={cn(variantClass, className, `is-${size}`, {
-        "is-disabled": disabled,
-      })}
-      aria-hidden={true}
-      {...rest}
-    >
-      {icon}
-    </StyledIcon>
-  );
-}
+    if (variant === "default") {
+      variantClass = "material-icons";
+    }
+
+    return (
+      <StyledIcon
+        ref={ref}
+        className={cn(variantClass, className, `is-${size}`, {
+          "is-disabled": disabled,
+        })}
+        aria-hidden={true}
+        {...rest}
+      >
+        {icon}
+      </StyledIcon>
+    );
+  }
+);
+
+MaterialIcon.displayName = "MaterialIcon";
+
+export default MaterialIcon;

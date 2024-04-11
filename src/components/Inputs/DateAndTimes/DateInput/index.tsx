@@ -1,81 +1,108 @@
-import React from "react";
+import React, { useRef } from "react";
 import cn from "classnames";
-
 import {
-  EventHandler,
-  InputComponentProps,
-  InputElementProps,
-} from "../../../../types";
-import Calendar from "../Calendar";
-import Popover from "../../../Utility/Popover";
-import { DateLike } from "../Date.types";
-import { StyledDatePicker } from "./DateInput.styles";
-import TextInput from "../../TextInput";
-import { useDateInput } from "../../../../hooks/useDateInput";
+  AriaDateFieldProps,
+  DateValue,
+  useDateField,
+  useDateSegment,
+  useLocale,
+} from "react-aria";
+import { createCalendar } from "@internationalized/date";
+import { AriaProps, FieldInputProps } from "../../../../types";
+import { DateInputWrapper, StyledDateSegment } from "./DateInput.styles";
+import {
+  DateFieldState,
+  DateSegment as ReactStatelyDateSegment,
+  useDateFieldState,
+} from "react-stately";
+import {
+  Label,
+  Message,
+  VirtualInput,
+  ErrorMessage,
+} from "../../../Atoms/Field";
 
-export interface DateInputProps
-  extends InputElementProps<HTMLInputElement>,
-    InputComponentProps {
-  value?: DateLike | null;
-  onChange?: EventHandler<DateLike | null, React.SyntheticEvent<Element>>;
+export interface DateInputProps<T extends DateValue>
+  extends AriaProps<AriaDateFieldProps<T>>,
+    Omit<FieldInputProps, "label"> {
+  // Optional because DatePicker renders it's own label
+  label?: React.ReactNode;
 }
 
 /** Date Input Component. Accepts a `ref` */
-const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
-  (props, ref) => {
-    const {
-      value,
-      onChange,
-      error,
-      size = "medium",
-      disabled = false,
-      onFocus,
-      onBlur,
-      ...rest
-    } = props;
+export function DateInput<T extends DateValue>(props: DateInputProps<T>) {
+  const { locale } = useLocale();
+  const state = useDateFieldState({
+    ...props,
+    locale,
+    createCalendar,
+  });
 
-    const { containerRef, input, calendar } = useDateInput({
-      value: value || null,
-      dateFormat: "MM/dd/yyy",
-      onChange,
-    });
+  const ref = useRef(null);
+  const { labelProps, fieldProps, descriptionProps, errorMessageProps } =
+    useDateField(props, state, ref);
 
-    return (
-      <StyledDatePicker
-        className={cn("aje-input", "aje-input__date", `is-${size}`, {
-          "has-error": error,
-          "is-disabled": disabled,
-        })}
-        ref={containerRef}
+  const {
+    label,
+    size = "medium",
+    error,
+    message,
+    className,
+    isInvalid,
+    isDisabled,
+    isReadOnly,
+    isRequired,
+  } = props;
+
+  return (
+    <DateInputWrapper
+      className={cn("aje-input__date", className)}
+      size={size}
+      isDisabled={isDisabled}
+      isInvalid={isInvalid}
+      isReadOnly={isReadOnly}
+      isRequired={isRequired}
+    >
+      {label && <Label {...labelProps}>{label}</Label>}
+      {message && <Message {...descriptionProps}>{message}</Message>}
+
+      <VirtualInput
+        {...fieldProps}
+        ref={ref}
+        className={"aje-input__date-segments"}
       >
-        <TextInput
-          ref={ref}
-          value={input.value}
-          disabled={disabled}
-          onChange={input.onChange}
-          size={size}
-          onFocus={(e) => {
-            calendar.open();
-            input.toggleEditing();
-            onFocus && onFocus(e);
-          }}
-          onBlur={(e) => {
-            input.toggleEditing();
-            onBlur && onBlur(e);
-          }}
-          {...rest}
-        />
+        {state.segments.map((segment, i) => (
+          <DateSegment key={i} segment={segment} state={state} />
+        ))}
+      </VirtualInput>
 
-        <Popover show={calendar.isOpen}>
-          <Calendar
-            date={calendar.value}
-            onSelect={calendar.onSelect}
-            size="small"
-          />
-        </Popover>
-      </StyledDatePicker>
-    );
-  }
-);
+      {isInvalid && error && (
+        <ErrorMessage {...errorMessageProps}>{error}</ErrorMessage>
+      )}
+    </DateInputWrapper>
+  );
+}
 
+interface DateSegmentProps {
+  readonly segment: ReactStatelyDateSegment;
+  readonly state: DateFieldState;
+}
+
+export function DateSegment(props: DateSegmentProps) {
+  const { segment, state } = props;
+  const ref = useRef(null);
+  const { segmentProps } = useDateSegment(segment, state, ref);
+
+  const className = cn("aje-input__segment", {
+    placeholder: segment.isPlaceholder,
+  });
+
+  return (
+    <StyledDateSegment {...segmentProps} ref={ref} className={className}>
+      {segment.text}
+    </StyledDateSegment>
+  );
+}
+
+DateInput.displayName = "DateInput";
 export default DateInput;

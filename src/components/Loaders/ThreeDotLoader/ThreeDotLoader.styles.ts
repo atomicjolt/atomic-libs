@@ -1,16 +1,5 @@
 import styled, { keyframes } from "styled-components";
 
-export const ThreeDotLoaderWrapper = styled.div`
-  --loader-clr: var(--neutral500);
-  --loader-size: 20px;
-
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  font-size: var(--loader-size);
-`;
-
 export const DotsContainer = styled.div`
   display: flex;
   align-items: center;

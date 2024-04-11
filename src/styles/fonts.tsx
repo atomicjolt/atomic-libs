@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { createGlobalStyle } from "styled-components";
-import { HeadProvider, Link } from "react-head";
+
+// This is a very lazy approach, and probably shouldn't actually be used in any apps
+// But it's fine for getting set up quickly
 
 type SupportedFont =
   | "lato"
@@ -37,18 +39,13 @@ const fontUrls: Record<SupportedFont, string> = {
     "https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,300,0,0",
 };
 const FontCSS = createGlobalStyle`
-
-
-:root {
-  --font-family: "Lato", sans-serif;
-  --font-weight-light: 200;
-  --font-weight-regular: 400;
-  --font-weight-bold: 700;
+/* Hide the icon fonts until they fully load */
+.material-icons {
+  display: none;
+  font-size: 0px;
 }
 
-/* Hide the icon fonts until they fully load */
-
-.material-icons {
+.material-icons-outlined {
   display: none;
   font-size: 0px;
 }
@@ -73,12 +70,14 @@ const FontCSS = createGlobalStyle`
 export function LoadFonts(props: LoadFontsProps) {
   const { fonts = ["lato", "material-icons"] } = props;
 
-  return (
-    <HeadProvider>
-      <FontCSS />
-      {fonts.map((font) => (
-        <Link href={fontUrls[font]} key={font} rel="stylesheet" />
-      ))}
-    </HeadProvider>
-  );
+  useEffect(() => {
+    fonts.forEach((font) => {
+      const link = document.createElement("link");
+      link.href = fontUrls[font];
+      link.rel = "stylesheet";
+      document.head.appendChild(link);
+    });
+  }, [])
+
+  return <FontCSS />;
 }

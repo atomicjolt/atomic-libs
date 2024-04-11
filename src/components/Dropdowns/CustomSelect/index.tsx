@@ -1,171 +1,130 @@
-import React from "react";
-import cn from "classnames";
-
-import FloatingCustomSelect from "./variants/FloatingCustomSelect";
-import DefaultCustomSelect from "./variants/DefaultCustomSelect";
-import { useIds, useVariant } from "../../../hooks";
-import { VariantRecord } from "../../../types";
-import InputError from "../../Utility/InputError";
-import Popover from "../../Utility/Popover";
-import useSelect from "./useSelect";
+import React, { useRef } from "react";
+import { SelectProps, useSelectState } from "react-stately";
+import { HiddenSelect, useSelect } from "react-aria";
+import classNames from "classnames";
+import {
+  AriaProps,
+  ExtendedSize,
+  FieldInputProps,
+  HasVariant,
+} from "../../../types";
+import { DropdownWrapper } from "../Dropdowns.styles";
+import { useVariantClass } from "../../../hooks";
+import { ButtonText } from "./CustomSelect.styles";
+import { FloatingInputWrapper } from "../../Internal/FloatingInputWrapper";
+import Button from "../../Buttons/Button";
 import MaterialIcon from "../../Icons/MaterialIcon";
-import { fallbackValue, handleUndefined } from "../../../utils";
-import { strategies } from "../../../filter";
-import {
-  DropdownInputWrapper,
-  DropdownMenu,
-  DropdownOption,
-  Wrapper,
-} from "../Dropdowns.styles";
-import { SearchInput, SearchListItem } from "./CustomSelect.styles";
-import {
-  CustomSelectProps,
-  CustomSelectVariantProps,
-  CustomSelectVariants,
-} from "./CustomSelect.types";
+import { Popover } from "../../Atoms/Popover";
+import { UnmanagedListBox } from "../../Atoms/ListBox";
 
-const variants: VariantRecord<
-  CustomSelectVariants,
-  CustomSelectVariantProps<any>
-> = {
-  default: DefaultCustomSelect,
-  floating: FloatingCustomSelect,
-};
+export type CustomSelectVariants = "default" | "floating";
 
-/**
- * CustomSelect
- * Intended for when you want to render custom content in the dropdown of a Select. Additionally, the values
- * for the select can be any object, not just strings or numbers.
- *
- * https://www.w3.org/TR/wai-aria-practices/examples/combobox/combobox-select-only.html for accessibility implementation.
- *
- * The CustomSelect supports multiple selection. If you want single selection, pass a single value in for `value`
- * If you want multi-select, pass in an array of values.
- * */
-export default function CustomSelect<T extends {} | Array<any>>(
-  props: CustomSelectProps<T>
-) {
+export interface CustomSelectProps<T extends object>
+  extends AriaProps<SelectProps<T>>,
+    FieldInputProps,
+    HasVariant<CustomSelectVariants> {
+  /** The size of the menu. Defaults to `auto` */
+  menuSize?: ExtendedSize;
+
+  /** Allows the items in the select to be filtered */
+  isSearchable?: boolean;
+
+  /** The placeholder text for the search input*/
+  searchPlaceholder?: string;
+}
+
+/** A custom version of the builtin `select` component to
+ * allow for consistent styling & an extended feature set */
+export function CustomSelect<T extends object>(props: CustomSelectProps<T>) {
+  const state = useSelectState<T>(props);
+  const ref = useRef(null);
   const {
-    size = "medium",
+    labelProps,
+    triggerProps,
+    valueProps,
+    menuProps,
+    errorMessageProps,
+    descriptionProps,
+  } = useSelect(props, state, ref);
+
+  const {
+    className,
     label,
     error,
     message,
-    hideLabel = false,
-    disabled = false,
-    variant = "default",
-    required,
-    searchable = false,
-    placeholder = "",
+    isInvalid,
+    isDisabled,
+    isRequired,
+    isReadOnly,
+    name,
+    isSearchable,
     searchPlaceholder,
-    className,
-    filterStrategy = strategies.defaultStrategy,
+    size = "medium",
+    placeholder = "Select an option",
+    variant = "default",
   } = props;
 
-  const [inputId, listBoxId, errorId, labelId] = useIds("CustomSelect", [
-    "combo",
-    "list",
-    "errors",
-    "label",
-  ]);
+  const menuSize = props.menuSize || size;
 
-  const [Variant, variantClassName] = useVariant(
-    variants,
-    "aje-dropdown",
-    variant
-  );
-
-  const {
-    selectedOption,
-    multiselect,
-    menu,
-    handleKeyPress,
-    isFocused,
-    isSelected,
-    onChange,
-    options,
-    ref,
-    search,
-  } = useSelect({
-    value: handleUndefined(props.value),
-    children: props.children,
-    onChange: props.onChange,
-    searchable,
-    filterStrategy,
-  });
+  const variantClassName = useVariantClass("aje-dropdown", variant);
 
   return (
-    <Wrapper
-      className={cn(variantClassName, className)}
+    <DropdownWrapper
+      className={classNames("aje-dropdown", variantClassName, className)}
       size={size}
-      error={error}
-      disabled={disabled}
-      required={required}
-      ref={ref}
+      isInvalid={isInvalid}
+      isDisabled={isDisabled}
+      isRequired={isRequired}
+      isReadOnly={isReadOnly}
+      data-float={(variant === "floating" && state.selectedKey) || undefined}
     >
-      <Variant
-        message={message}
-        hideLabel={hideLabel}
+      <HiddenSelect
+        isDisabled={isDisabled}
+        state={state}
+        triggerRef={ref}
         label={label}
+        name={name}
+      />
+
+      <FloatingInputWrapper
+        label={label}
+        labelProps={labelProps}
+        message={message}
+        messageProps={descriptionProps}
         error={error}
-        inputId={inputId}
-        labelId={labelId}
+        errorProps={errorMessageProps}
+        isInvalid={isInvalid}
+        floating={variant === "floating"}
       >
-        <DropdownInputWrapper
-          className="aje-combobox__input"
-          aria-controls={listBoxId}
-          aria-expanded={menu.opened}
-          aria-haspopup="listbox"
-          aria-labelledby={labelId}
-          aria-describedby={error ? errorId : ""}
-          id={inputId}
-          role="combobox"
-          tabIndex={0}
-          onClick={menu.toggle}
-          onKeyDown={handleKeyPress}
+        <Button
+          {...triggerProps}
+          ref={ref}
+          variant="dropdown"
+          size={size}
+          isDisabled={isDisabled || isReadOnly}
         >
-          <span>
-            {multiselect
+          <ButtonText {...valueProps}>
+            {state.selectedItem
+              ? state.selectedItem.rendered
+              : variant === "default"
               ? placeholder
-              : fallbackValue(selectedOption?.children, placeholder)}
-          </span>
-        </DropdownInputWrapper>
-        <Popover show={menu.opened} size="full">
-          <DropdownMenu
-            className={cn("aje-combobox__menu", {
-              "is-multiselect": multiselect,
-            })}
-            role="listbox"
-            id={listBoxId}
-            aria-labelledby={labelId}
-            tabIndex={-1}
-          >
-            {searchable && (
-              <SearchListItem className="aje-combobox__search">
-                <SearchInput
-                  type="text"
-                  {...search}
-                  placeholder={searchPlaceholder}
-                />
-                <MaterialIcon icon="search" />
-              </SearchListItem>
-            )}
-            {options.map(({ value: optionValue, children }) => (
-              <DropdownOption
-                className={cn("aje-combobox__option", {
-                  "is-focused": isFocused(optionValue),
-                })}
-                role="option"
-                aria-selected={isSelected(optionValue)}
-                onClick={(e) => onChange(optionValue, e)}
-                key={String(optionValue)}
-              >
-                {children}
-              </DropdownOption>
-            ))}
-          </DropdownMenu>
+              : ""}
+          </ButtonText>
+          <MaterialIcon icon="arrow_drop_down" />
+        </Button>
+      </FloatingInputWrapper>
+      {state.isOpen && (
+        <Popover state={state} triggerRef={ref} placement="bottom start">
+          {/* @ts-ignore */}
+          <UnmanagedListBox
+            {...menuProps}
+            state={state}
+            size={menuSize}
+            isSearchable={isSearchable}
+            searchPlaceholder={searchPlaceholder}
+          />
         </Popover>
-      </Variant>
-      <InputError error={error} id={errorId} />
-    </Wrapper>
+      )}
+    </DropdownWrapper>
   );
 }

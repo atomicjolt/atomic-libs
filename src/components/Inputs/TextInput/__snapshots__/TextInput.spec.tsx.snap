@@ -3,38 +3,30 @@
 exports[`matches snapshot > default variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-bdnyFh sc-jSFipO sc-jrsKJM helJTd hgyRup has-error aje-input"
-    error="some error"
+    class="sc-gKAaef iJKtbz aje-input__text sc-bqGGcD hCFqor aje-input--default is-medium"
   >
     <label
-      class="sc-dlniIP coPbkZ aje-label aje-label"
-      for="TextInput-:r0:-input"
+      class="sc-bdnyFh hQZKgx"
+      for="react-aria-:r0:"
+      id="react-aria-:r1:"
     >
       Text Label
     </label>
     <p
-      class="sc-hKFymg kNRMRh aje-label--message"
+      class="sc-gtsqUy eWkPNm"
+      id="react-aria-:r3:"
     >
       message
     </p>
-    <div
-      class="aje-input__container"
-    >
-      <input
-        aria-describedby="TextInput-:r0:-error"
-        class="sc-gKAaef fSDxJC"
-        id="TextInput-:r0:-input"
-        placeholder="placeholder"
-        type="text"
-        value="content"
-      />
-    </div>
-    <p
-      class="sc-eCAqax dNYzUp aje-label--error"
-      id="TextInput-:r0:-error"
-    >
-      some error
-    </p>
+    <input
+      aria-describedby="react-aria-:r3:"
+      aria-labelledby="react-aria-:r1:"
+      class="sc-hKFymg iJvJd"
+      id="react-aria-:r0:"
+      placeholder="placeholder"
+      type="text"
+      value="content"
+    />
   </div>
 </DocumentFragment>
 `;
@@ -42,37 +34,35 @@ exports[`matches snapshot > default variant 1`] = `
 exports[`matches snapshot > floating variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-bdnyFh sc-jSFipO sc-jrsKJM helJTd hgyRup has-error aje-input--floating"
-    error="some error"
+    class="sc-gKAaef iJKtbz aje-input__text sc-bqGGcD hCFqor aje-input--floating is-medium"
+    data-float="true"
   >
     <div
-      class="aje-input__container"
+      class="sc-bkbjWr bivRPJ"
     >
       <input
-        aria-describedby="TextInput-:r1:-error"
-        class="sc-gKAaef fSDxJC"
-        id="TextInput-:r1:-input"
+        aria-describedby="react-aria-:r8:"
+        aria-labelledby="react-aria-:r6:"
+        class="sc-hKFymg iJvJd"
+        data-float="true"
+        id="react-aria-:r5:"
         placeholder="placeholder"
         type="text"
         value="content"
       />
       <label
-        class="sc-dlniIP coPbkZ aje-label"
-        for="TextInput-:r1:-input"
+        class="sc-bdnyFh hQZKgx"
+        for="react-aria-:r5:"
+        id="react-aria-:r6:"
       >
         Text Label
       </label>
     </div>
     <p
-      class="aje-label--message"
+      class="sc-gtsqUy eWkPNm"
+      id="react-aria-:r8:"
     >
       message
-    </p>
-    <p
-      class="sc-eCAqax dNYzUp aje-label--error"
-      id="TextInput-:r1:-error"
-    >
-      some error
     </p>
   </div>
 </DocumentFragment>

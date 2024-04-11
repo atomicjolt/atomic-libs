@@ -1,8 +1,6 @@
 import React from "react";
 import Button from "../../Buttons/Button";
-import PopupModal from "../PopupModal";
-import { makeOptionalCallback } from "../../../utils";
-import { BaseModalProps } from "../BasicModal";
+import Modal, { BaseModalProps } from "../Modal";
 
 export interface ConfirmationModalProps extends BaseModalProps {
   /** Must include a title. Titles are always in Title case. */
@@ -25,11 +23,12 @@ export interface ConfirmationModalProps extends BaseModalProps {
 }
 
 /**
- * Confirmation Modal Component
+ * Confirmation Modal Component. For when you need a small modal to confirm an action, like deleting a record
  *
- * For when you need a small modal to confirm an action, like deleting a record
+ * Keep in mind that the `ConfirmationModal` is a simple wrapper around the `Modal` component for a simple default
+ * If you need a more complex modal, you can use the `Modal` component directly. [Check the ConfirmationModal implementation for a starting point](https://github.com/atomicjolt/atomic-elements/blob/next/src/components/Modals/ConfirmationModal/index.tsx)
  * */
-export default function ConfirmationModal({
+export function ConfirmationModal({
   title,
   children,
   confirmText,
@@ -38,25 +37,22 @@ export default function ConfirmationModal({
   onReject,
   ...rest
 }: ConfirmationModalProps) {
-  const onRejectCallback = makeOptionalCallback(onReject);
-
   return (
-    <PopupModal
-      {...rest}
-      title={title}
-      onOutsideClick={onRejectCallback}
-      actions={
-        <>
-          <Button variant="secondary" onClick={onRejectCallback}>
-            {rejectText}
-          </Button>
-          <Button variant="primary" onClick={makeOptionalCallback(onConfirm)}>
-            {confirmText}
-          </Button>
-        </>
-      }
-    >
-      {children}
-    </PopupModal>
+    <Modal {...rest} variant="popup">
+      <Modal.Header>
+        <Modal.Title>{title}</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>{children}</Modal.Body>
+      <Modal.Footer>
+        <Button variant="secondary" onPress={() => onReject && onReject()}>
+          {rejectText}
+        </Button>
+        <Button variant="primary" onPress={() => onConfirm && onConfirm()}>
+          {confirmText}
+        </Button>
+      </Modal.Footer>
+    </Modal>
   );
 }
+
+export default ConfirmationModal;

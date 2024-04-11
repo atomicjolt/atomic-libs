@@ -1,66 +1,60 @@
 import React from "react";
-import cn from "classnames";
-import { useIds } from "../../../hooks";
-import { InputProps } from "../../../types";
-import Label from "../../Utility/Label";
-import InputError from "../../Utility/InputError";
-import { makeEventHandler } from "../../../utils";
-import { Input, InputWrapper } from "../Inputs.styles";
-import { StyledNumberInput } from "./NumberInput.styles";
+import { AriaNumberFieldProps } from "react-aria";
+import { AriaProps, FieldInputProps, HasVariant } from "../../../types";
+import { useVariantClass } from "../../../hooks";
+import { FieldInput, NumberField, VirtualInput } from "../../Atoms/Field";
+import { Group } from "../../Atoms/Group";
+import FloatingFieldInputWrapper from "../../Internal/FloatingFieldInputWrapper";
+import classNames from "classnames";
+import { StyledNumberField } from "../Inputs.styles";
 
-export interface NumberInputProps extends InputProps<number> {
-  min?: number | string;
-  max?: number | string;
-}
+export interface NumberInputProps
+  extends AriaProps<AriaNumberFieldProps>,
+    FieldInputProps,
+    HasVariant<"default" | "floating"> {}
 
-/** Number Input Component. Accepts a `ref` */
-const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
-  (props, ref) => {
-    const [inputId, errorId] = useIds("NumberInput", ["input", "error"]);
-
+/** Input for number values. Fowards a `ref` to the internal input element */
+export const NumberInput = React.forwardRef(
+  (props: NumberInputProps, ref: React.Ref<HTMLInputElement>) => {
     const {
-      value,
-      min,
-      max,
-      onChange,
       label,
+      size = "medium",
       error,
       message,
-      size = "small",
-      hideLabel,
       className,
-      ...inputProps
+      variant = "default",
+      ...rest
     } = props;
 
-    const { disabled, required } = inputProps;
+    const variantClass = useVariantClass("aje-input", variant);
 
     return (
-      <InputWrapper
-        className={cn("aje-input", className)}
+      <StyledNumberField
         size={size}
-        disabled={disabled}
-        required={required}
-        error={error}
+        className={classNames(variantClass, className)}
+        data-float={
+          (props.value !== undefined &&
+            props.value !== null &&
+            variant === "floating") ||
+          undefined
+        }
+        {...rest}
       >
-        <Label message={message} htmlFor={inputId} hidden={hideLabel}>
-          {label}
-        </Label>
-        <StyledNumberInput
-          id={inputId}
-          ref={ref}
-          aria-describedby={error ? errorId : ""}
-          min={min}
-          max={max}
-          value={value}
-          onChange={makeEventHandler(onChange, (e) =>
-            parseInt(e.target.value, 10)
-          )}
-          {...inputProps}
-        />
-        <InputError error={error} id={errorId} />
-      </InputWrapper>
+        <FloatingFieldInputWrapper
+          floating={variant === "floating"}
+          label={label}
+          message={message}
+          error={error}
+        >
+          <VirtualInput>
+            <FieldInput />
+            <Group direction="column" isMerged>
+              <NumberField.IncrementButton />
+              <NumberField.DecrementButton />
+            </Group>
+          </VirtualInput>
+        </FloatingFieldInputWrapper>
+      </StyledNumberField>
     );
   }
 );
-
-export default NumberInput;

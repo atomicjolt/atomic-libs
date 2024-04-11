@@ -4,6 +4,12 @@ export const CssVariables = createGlobalStyle`
 :root {
   color-scheme: base;
 
+  /* # Fonts */
+  --font-family: "Lato", sans-serif;
+  --font-weight-light: 200;
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+
   /* # Global Colors */
   /* ## Neutral */
   --neutral50: hsl(0, 0%, 100%);
@@ -16,7 +22,6 @@ export const CssVariables = createGlobalStyle`
   --neutral700: hsl(217, 19%, 27%);
   --neutral800: hsl(215, 28%, 17%);
   --neutral900: hsl(221, 39%, 11%);
-
   /* ## Error */
   --error100: hsl(0, 93%, 94%);
   --error200: hsl(0, 96%, 89%);
@@ -58,17 +63,54 @@ export const CssVariables = createGlobalStyle`
   --primary800: hsl(192, 70%, 27%);
   --primary900: hsl(193, 64%, 24%);
 
-  /* # General */
+  /* # Semantic Colors */
   --text-clr: var(--neutral800);
   --text-clr-alt: var(--neutral600);
   --text-clr-inverted: var(--neutral50);
-  --border-clr-primary: var(--neutral400);
-  --border: 1px solid var(--border-clr-primary);
-  --input-border-clr: var(--neutral500);
+
+  --background-clr: var(--neutral50);
+  --background-clr-alt: var(--neutral100);
+  --background-clr-inverted: var(--neutral800);
+
+  --accent-clr: var(--primary700);
+  --accent-clr-alt: var(--primary600);
+  --error-clr: var(--error600);
+  --success-clr: var(--success600);
+  --warning-clr: var(--warning600);
+
+  --border-clr-primary: var(--neutral500);
   --outline-clr-primary: var(--neutral600);
+
+  /* # Sizing */
+  --size-sm-x: 100px;
+  --size-md-x: 200px;
+  --size-lg-x: 300px;
+  --size-full-x: 100%;
+
+  --size-sm-y: 40px;
+  --size-md-y: 60px;
+  --size-lg-y: 80px;
+  --size-full-y: 100%;
+
+  /* # General */
+  --border: 1px solid var(--border-clr-primary);
   --outline: 2px solid var(--outline-clr-primary);
-  --input-outline: 1px solid var(--outline-clr-primary);
   --radius: 5px;
+
+  /* # Input variables */
+  --input-border-clr: var(--neutral500);
+  --input-outline: 1px solid var(--outline-clr-primary);
+  --input-height: 40px;
+  --input-padding-horiz: 12px;
+  --input-gap: 12px;
+  --input-font-size: 1.6rem;
+  --input-icon-size: 2.4rem;
+  --input-icon-clr: var(--neutral600);
+  --input-text-clr: var(--text-clr);
+  --input-border: 1px solid var(--input-border-clr);
+  --input-border-radius: var(--radius);
+  --input-bg-clr: none;
+  --input-transition: none;
 
   /* # Button Variables */
   --btn-font-size: 1.6rem;
@@ -117,30 +159,22 @@ export const CssVariables = createGlobalStyle`
   --menu-max-height: 300px;
   --menu-padding-top: calc(var(--option-height) / 8);
 
+  /* # Listbox variables */
+  --listbox-text-clr: inherit;
+  --listbox-bg-clr: var(--background-clr);
+  --listbox-selected-clr: var(--text-clr-inverted);
+  --listbox-icon-clr: var(--neutral600);
+  --listbox-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.5);
+
   /* # Option variables */
   --option-font-size: var(--dropdown-text-size);
   --option-icon-size: var(--dropdown-icon-size);
   --option-height: 32px;
-  --option-bg-clr: none;
-  --option-text-clr: inherit;
-  --option-icon-clr: var(--neutral600);
-  --option-selected-clr: var(--text-clr-inverted);
   --option-padding: var(--dropdown-padding);
   --option-padding-horizontal: calc(var(--dropdown-padding) * 2);
   --option-icon-gap: 8px;
   --option-border-clr: var(--neutral50, transparent);
 
-  /* # Input variables */
-  --input-height: 40px;
-  --input-padding-horiz: 12px;
-  --input-font-size: 1.6rem;
-  --input-icon-size: 2.4rem;
-  --input-text-clr: var(--text-clr);
-  --input-border-color: var(--input-border-clr);
-  --input-border: 1px solid var(--input-border-color);
-  --input-border-radius: var(--radius);
-  --input-bg-clr: none;
-  --input-transition: none;
 
   /* # Textare variables */
   --textarea-height-sm: 80px;
@@ -150,19 +184,28 @@ export const CssVariables = createGlobalStyle`
   /* # Toggle switch variables */
   --toggle-unchecked: var(--neutral400);
   --toggle-checked: var(--primary700);
+  --toggle-error: var(--error600);
   --toggle-size: 2.4rem;
   --toggle-travel: calc(var(--toggle-size) * 0.666);
 
   /* # Loader variables */
   --loader-clr: var(--neutral500);
   --loader-size: 16px;
+  --animation-duration: 2000ms;
+
+  /* # Skeleton Loader variables */
+  --skeleton-bg-clr: var(--neutral200);
+  --skeleton-fg-clr: var(--neutral100);
+  --skeleton-bg-opacity: 1;
+  --skeleton-fg-opacity: 1;
 
   /* # Table variables */
   --table-border-clr: var(--neutral300);
   --table-border-width: 1px;
   --table-bg-clr: var(--neutral50);
   --table-font-size: 1.6rem;
-  --table-header-font-size: 0.812em;
+  --table-header-font-size: 1.4rem;
+  --table-cell-font-size: 1em;
   --table-border-radius: var(--radius);
   --table-padding-vert: 8px;
   --table-padding-horz: 12px;
@@ -171,14 +214,13 @@ export const CssVariables = createGlobalStyle`
 
   /* # Tab variables */
   --tab-border-width: 1px;
-  --tab-border-clr: var(--border-clr-primary);
   --tab-padding-hori: 16px;
   --tab-padding-vert: 8px;
   --tab-radius: var(--radius);
-  --tab-bg-clr: var(--neutral100);
   --tab-border-width: 1px;
-  --tab-border-clr: transparent;
   --tab-text-clr: var(--text-clr-alt);
+  --tab-bg-clr: var(--neutral50);
+  --tab-border-clr: var(--border-clr-primary);
 
   /* # Icon variables */
   --icon-size-sm: 18px;
@@ -204,5 +246,17 @@ export const CssVariables = createGlobalStyle`
   --time-clr: var(--neutral200);
   --time-selected-back-clr: var(--primary600);
   --time-selected-text-clr: var(--neutral100);
+
+  /* # Card variables */
+  --card-bg-clr: var(--background-clr-alt);
+  --card-text-clr: var(--text-clr);
+  --card-radius: var(--radius);
+  --card-border: none;
+  --card-padding: 10px;
+  --card-panel-bg-clr: var(--background-clr);
+  --card-panel-text-clr: var(--text-clr);
+  --card-panel-padding: 10px;
+  --card-divider-border: 1px solid var(--neutral300);
+  --card-divider-margin: 10px;
 }
 `;

@@ -1,43 +1,35 @@
 import React, { useState } from "react";
-import "./playground.scss";
+// import "./playground.scss";
 
-import { Tabs } from "./elements";
-import Inputs from "./tabs/Inputs";
+import { Item, Tabs } from "./elements";
 import Buttons from "./tabs/Buttons";
 import Modals from "./tabs/Modals";
-import Scrollings from "./tabs/Scrollings";
-import Dates from "./tabs/Dates";
+import Tables from "./tabs/Tables";
+import Aria from "./tabs/Aria";
+import Localization from "./tabs/Localization";
 
 function Playground() {
-  const [currentTab, setCurrentTab] = useState("buttons");
+  const [currentTab, setCurrentTab] = useState<React.Key>("aria");
 
   return (
     <div className="padder" style={{ height: "100%" }}>
-      <Tabs currentTab={currentTab} onChange={setCurrentTab}>
-        <Tabs.Navigation>
-          <Tabs.Link to="inputs">Inputs</Tabs.Link>
-          <Tabs.Link to="dates">Dates</Tabs.Link>
-          <Tabs.Link to="buttons">Buttons</Tabs.Link>
-          <Tabs.Link to="modal">Modals</Tabs.Link>
-          <Tabs.Link to="scrolling">Scrolling</Tabs.Link>
-        </Tabs.Navigation>
-        <Tabs.Content>
-          <Tabs.Tab name="inputs">
-            <Inputs />
-          </Tabs.Tab>
-          <Tabs.Tab name="dates">
-            <Dates />
-          </Tabs.Tab>
-          <Tabs.Tab name="buttons">
-            <Buttons />
-          </Tabs.Tab>
-          <Tabs.Tab name="modal">
-            <Modals />
-          </Tabs.Tab>
-          <Tabs.Tab name="scrolling">
-            <Scrollings />
-          </Tabs.Tab>
-        </Tabs.Content>
+      <Tabs selectedKey={currentTab} onSelectionChange={setCurrentTab}>
+        <Item key="buttons" title="Buttons">
+          <Buttons />
+        </Item>
+        <Item key="modal" title="Modals">
+          <Modals />
+        </Item>
+        <Item key="tables" title="Tables">
+          <Tables />
+        </Item>
+        <Item key="localization" title="Localization">
+          <Localization />
+        </Item>
+
+        <Item key="aria" title="Aria">
+          <Aria />
+        </Item>
       </Tabs>
     </div>
   );

@@ -1,14 +1,8 @@
 import React from "react";
+import { RadioGroupState } from "react-stately";
 
-export interface RadioContextData {
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  currentValue?: string;
-  name: string;
-  disabled: boolean;
-}
-
-const RadioContext = React.createContext<RadioContextData>(
-  {} as RadioContextData
+const RadioContext = React.createContext<RadioGroupState>(
+  {} as RadioGroupState
 );
 
 export default RadioContext;

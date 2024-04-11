@@ -1,62 +1,57 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import cn from "classnames";
-import {
-  HasClassName,
-  HasIcon,
-  LoadingProps,
-  SuggestStrings,
-} from "../../../types";
+import { HasIcon } from "../../../types";
 import Spinner from "../../Loaders/Spinner";
 import MaterialIcon from "../../Icons/MaterialIcon";
-import { useIds, useVariantClass } from "../../../hooks";
+import { useVariantClass } from "../../../hooks";
 import { StyledIconButton } from "./IconButton.styles";
-import { ButtonVariants } from "../Buttons.types";
+import { useButton } from "react-aria";
+import useForwardedRef from "../../../hooks/useForwardedRef";
+import { ButtonProps } from "../Button";
 
-interface BaseProps extends HasClassName, HasIcon {
-  /** Label for the button, because IconButton does not contain text, this should always be present */
-  ariaLabel: string;
-  disabled?: boolean;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
-  variant?: ButtonVariants;
-}
+export type IconButtonProps = Omit<ButtonProps, "children"> & HasIcon;
 
-export type IconButtonProps = BaseProps & LoadingProps & React.AriaAttributes;
+/** Similar to the Button component, but is intended to display just an icon instead of text.
+ * Because of this, you should provide an `aria-label` for accessiblity */
+export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
+  (props, ref) => {
+    const {
+      icon,
+      isLoading,
+      loadingComplete,
+      loadingLabel,
+      variant = "border",
+      iconVariant = "default",
+      className,
+      size = "medium",
+    } = props;
+    const innerRef = useForwardedRef<HTMLButtonElement>(ref);
+    const { buttonProps, isPressed } = useButton(
+      {
+        ...props,
+        "aria-label": isLoading ? loadingLabel : props["aria-label"],
+      },
+      innerRef
+    );
+    const variantClass = useVariantClass("aje-btn", variant);
 
-/** Icon Button Component */
-export default function IconButton(props: IconButtonProps) {
-  const {
-    icon,
-    ariaLabel,
-    disabled,
-    onClick,
-    loading,
-    loadingComplete,
-    loadingLabel,
-    variant = "primary",
-    iconVariant = "default",
-    className,
-    ...rest
-  } = props;
+    return (
+      <StyledIconButton
+        className={cn("aje-btn aje-btn--icon", variantClass, className, {
+          "is-loading": isLoading,
+          "is-active": isPressed,
+        })}
+        type="button"
+        ref={innerRef}
+        {...buttonProps}
+      >
+        {isLoading && <Spinner isLoading={!loadingComplete} isCentered />}
+        <MaterialIcon icon={icon} variant={iconVariant} size={size} />
+      </StyledIconButton>
+    );
+  }
+);
 
-  const [buttonId] = useIds("IconButton", ["button"]);
+IconButton.displayName = "IconButton";
 
-  const variantClass = useVariantClass("aje-btn", variant);
-
-  return (
-    <StyledIconButton
-      id={buttonId}
-      className={cn("aje-btn aje-btn--icon", variantClass, className)}
-      type="button"
-      onClick={onClick}
-      disabled={disabled}
-      aria-label={loading && loadingLabel ? loadingLabel : ariaLabel}
-      {...rest}
-    >
-      {loading ? (
-        <Spinner loading={!loadingComplete} />
-      ) : (
-        <MaterialIcon icon={icon} variant={iconVariant} />
-      )}
-    </StyledIconButton>
-  );
-}
+export default IconButton;

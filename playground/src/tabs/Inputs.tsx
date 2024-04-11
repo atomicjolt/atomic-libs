@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import {
-  Combobox,
+  ComboBox,
   CustomSelect,
   MaterialIcon,
   NumberInput,
@@ -24,7 +24,7 @@ export default function Inputs() {
         <TextInput label="Text Input" size="medium" />
       </div>
       <div className="padder">
-        <Combobox
+        <ComboBox
           options={["Option 1", "Option 2", "Third Thing"]}
           label="Combobox"
           value={comboxValue}

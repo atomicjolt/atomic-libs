@@ -2,7 +2,6 @@ import styled from "styled-components";
 import mixins from "../../../styles/mixins";
 
 export const SearchListItem = styled.li`
-  position: relative;
   border-bottom: 1px solid var(--option-border-clr);
 
   i {
@@ -29,4 +28,15 @@ export const SearchInput = styled.input`
     outline: 2px solid var(--outline-clr-primary);
     outline-offset: -2px;
   }
+`;
+
+export const ButtonText = styled.span`
+  margin-right: auto;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+`;
+
+export const SelectButtonWrapper = styled.div`
+  position: relative;
 `;

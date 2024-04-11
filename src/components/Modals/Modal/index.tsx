@@ -1,89 +1,93 @@
-import React from "react";
-import { modalInitializer, useModal } from "../utils";
-import Button from "../../Buttons/Button";
-import BasicModal, { BaseModalProps } from "../BasicModal";
-import { makeOptionalCallback } from "../../../utils";
+import React, { useRef } from "react";
+import { AriaModalOverlayProps, Overlay, useModalOverlay } from "react-aria";
 import {
-  ModalBottom,
-  ModalClose,
-  ModalMain,
+  OverlayTriggerProps,
+  OverlayTriggerState,
+  useOverlayTriggerState,
+} from "react-stately";
+import { useVariantClass } from "../../../hooks";
+import { HasClassName } from "../../../types";
+import {
+  ModalBackground,
+  ModalWrapper,
+  ModalBody,
+  ModalFooter,
+  ModalHeader,
   ModalTitle,
-  ModalTop,
-} from "../Modals.styles";
-import MaterialIcon from "../../Icons/MaterialIcon";
+} from "./Modal.styles";
+import classNames from "classnames";
+
+export interface BaseModalProps extends HasClassName, OverlayTriggerProps {
+  children?: React.ReactNode;
+  /** Centers the modal within the viewport */
+  centered?: boolean;
+}
 
 export interface ModalProps extends BaseModalProps {
-  /** Must include a title. Titles are always in Title case. */
-  title: string;
-  children: React.ReactNode;
-  /** Should be descriptive instead of yes or no.
-   * If you're confirming you want to delete something,
-   * Delete is an appropriate string to use. */
-  primaryButton?: string;
-  /** This will replace 'Cancel' as the negative action.
-   * Sometimes you might need it to say 'Close' or something instead. */
-  secondaryButton?: string;
-
-  /** Callback when the priamry button is pressed */
-  primaryAction?: () => void;
-  /** Callback when the secondary button is pressed */
-  secondaryAction?: () => void;
-  /** Callback when the close button is pressed, or the background is clicked on */
-  onClose?: () => void;
+  variant?: string;
 }
 
 /**
- * Modal Component
- *
- * For when you need a large modal with somewhat complex actions.
- * */
-function Modal(props: ModalProps) {
-  const {
-    title,
-    children,
-    primaryButton,
-    secondaryButton = "Cancel",
-    primaryAction,
-    secondaryAction,
-    onClose,
-    ...rest
-  } = props;
+ * Modal Component to render content overlayed on top of the page content.
+ */
+export function Modal(props: ModalProps) {
+  const { children, centered = false, variant = "default", className } = props;
+  const state = useOverlayTriggerState(props);
+  // const { overlayProps } = useOverlayTrigger({ type: "dialog" }, state);
 
-  const onCloseCallback = makeOptionalCallback(onClose);
+  const variantClassName = useVariantClass("aje-modal", variant);
+
+  if (!state.isOpen) {
+    return null;
+  }
 
   return (
-    <BasicModal onOutsideClick={onCloseCallback} {...rest}>
-      <ModalTop>
-        <ModalTitle>{title}</ModalTitle>
-        <ModalClose aria-label="close modal" onClick={onCloseCallback}>
-          <MaterialIcon icon="close" />
-        </ModalClose>
-      </ModalTop>
-      <ModalMain>{children}</ModalMain>
-      <ModalBottom>
-        {secondaryButton && (
-          <Button
-            variant="secondary"
-            type="button"
-            onClick={makeOptionalCallback(secondaryAction)}
-          >
-            {secondaryButton}
-          </Button>
-        )}
-        {primaryButton && (
-          <Button
-            variant="primary"
-            type="button"
-            onClick={makeOptionalCallback(primaryAction)}
-          >
-            {primaryButton}
-          </Button>
-        )}
-      </ModalBottom>
-    </BasicModal>
+    <ModalOverlay
+      {...props}
+      state={state}
+      className={classNames(className, variantClassName)}
+      centered={centered}
+    >
+      {children}
+    </ModalOverlay>
   );
 }
 
-Modal.init = modalInitializer;
+interface ModalOverlayProps extends BaseModalProps, AriaModalOverlayProps {
+  state: OverlayTriggerState;
+}
+
+function ModalOverlay(props: ModalOverlayProps) {
+  const { children, state, centered, className } = props;
+  const ref = useRef(null);
+  const { modalProps, underlayProps } = useModalOverlay(props, state, ref);
+
+  return (
+    <Overlay>
+      <ModalBackground
+        {...underlayProps}
+        className={classNames({ "is-centered": centered })}
+      >
+        <ModalWrapper
+          className={classNames("aje-modal", className)}
+          onClick={(e) => e.stopPropagation()}
+          ref={ref}
+          {...modalProps}
+        >
+          {children}
+        </ModalWrapper>
+      </ModalBackground>
+    </Overlay>
+  );
+}
+
+ModalHeader.displayName = "Modal.Header";
+Modal.Header = ModalHeader;
+ModalTitle.displayName = "Modal.Title";
+Modal.Title = ModalTitle;
+ModalBody.displayName = "Modal.Body";
+Modal.Body = ModalBody;
+ModalFooter.displayName = "Modal.Footer";
+Modal.Footer = ModalFooter;
 
 export default Modal;

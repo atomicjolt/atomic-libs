@@ -54,9 +54,42 @@ export const StyledBanner = styled.div`
       --banner-btn-active-clr: var(--success300);
     }
   }
+
+  .aje-btn--banner {
+    border: none;
+    background: none;
+    width: var(--banner-btn-size);
+    height: var(--banner-btn-size);
+    border-radius: var(--banner-border-radius);
+    color: var(--banner-text-clr);
+    display: grid;
+    place-items: center;
+    transition: background 100ms ease;
+
+    i {
+      transition: color 100ms ease;
+    }
+
+    &.is-active {
+      transform: translateY(0px);
+    }
+
+    &:hover {
+      color: var(--banner-text-clr);
+      background-color: var(--banner-btn-hover-clr);
+      cursor: pointer;
+    }
+    &:active {
+      background-color: var(--banner-btn-active-clr);
+    }
+    &:focus-visible {
+      outline: var(--outline);
+      outline-offset: 2px;
+    }
+  }
 `;
 
-export const BannerMain = styled.div`
+export const BannerContent = styled.div`
   flex: 1;
   padding: 10px 0;
   line-height: 1.4;
@@ -68,7 +101,6 @@ export const BannerDismiss = styled.button`
   width: var(--banner-btn-size);
   height: var(--banner-btn-size);
   border-radius: var(--banner-border-radius);
-  font-size: 2.4rem;
   color: var(--banner-text-clr);
   display: grid;
   place-items: center;

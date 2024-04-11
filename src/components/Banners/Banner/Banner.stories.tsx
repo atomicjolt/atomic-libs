@@ -1,5 +1,7 @@
+import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
-import Banner from ".";
+import { Banner } from ".";
+import MaterialIcon from "../../Icons/MaterialIcon";
 
 export default {
   title: "Banners/Banner",
@@ -9,22 +11,42 @@ export default {
       control: "select",
       options: ["info", "error", "success", "warning"],
     },
-    beforeContent: {
-      control: "text",
-    },
-    afterContent: {
-      control: "text",
-    },
   },
 } as Meta<typeof Banner>;
 
 type Story = StoryObj<typeof Banner>;
 
-export const Default: Story = {
+export const Primary: Story = {
   args: {
     children: "Content of the banner goes here",
-    beforeContent: "",
-    afterContent: "",
-    className: "",
+  },
+};
+
+export const WithIcon: Story = {
+  args: {
+    children: [
+      <MaterialIcon icon="info" />,
+      <Banner.Content>This is a banner</Banner.Content>,
+    ],
+  },
+};
+
+export const WithIconButton: Story = {
+  args: {
+    children: [
+      <MaterialIcon icon="info" />,
+      <Banner.Content>This is a banner</Banner.Content>,
+      <Banner.IconButton icon="close" />,
+    ],
+  },
+};
+
+export const WithButton: Story = {
+  args: {
+    children: [
+      <MaterialIcon icon="info" />,
+      <Banner.Content>This is a banner</Banner.Content>,
+      <Banner.Button>Click Me</Banner.Button>,
+    ],
   },
 };

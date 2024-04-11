@@ -1,5 +1,0 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
-
-exports[`matches snapshots > is not visible 1`] = `<DocumentFragment />`;
-
-exports[`matches snapshots > is visible 1`] = `<DocumentFragment />`;

@@ -1,72 +1,74 @@
-import React from "react";
+import React, { DetailedHTMLProps, SelectHTMLAttributes } from "react";
 import cn from "classnames";
-import { InputProps } from "../../../types";
-import Label from "../../Utility/Label";
+import { FieldInputProps } from "../../../types";
 import { useIds } from "../../../hooks";
-import InputError from "../../Utility/InputError";
-import { makeEventHandler } from "../../../utils";
-import Option, { OptionProps } from "../Option";
-import { ComponentWrapper } from "../../../styles/utils";
 import { SelectWrapper, StyledSelect } from "./Select.styles";
+import { ErrorMessage, Label, Message } from "../../Atoms/Field";
+import { FieldWrapper } from "../../Internal/FieldWrapper";
 
-type OptionChild = React.ReactElement<
-  OptionProps<string | number | readonly string[] | undefined>,
-  typeof Option
+type LimitedSelectProps = Omit<
+  DetailedHTMLProps<SelectHTMLAttributes<HTMLSelectElement>, HTMLSelectElement>,
+  "className" | "id" | "size" | "onChange"
 >;
 
-export interface SelectProps
-  extends Omit<
-    InputProps<string, HTMLSelectElement>,
-    "placeholder" | "readOnly"
-  > {
-  children: OptionChild[] | OptionChild;
+export type SelectValue = string | number | readonly string[] | undefined;
+
+export interface SelectProps<T extends SelectValue>
+  extends Omit<FieldInputProps, "placeholder" | "isReadOnly">,
+    LimitedSelectProps {
+  onChange?: (value: T) => void;
 }
 
 /** Select Component. Simple wrapper around native `<select>` */
-const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
-  (props, ref) => {
-    const [inputId, errorId] = useIds("select", ["select", "error"]);
+export const Select = React.forwardRef<
+  HTMLSelectElement,
+  SelectProps<SelectValue>
+>((props, ref) => {
+  const [inputId, messageId, errorId] = useIds("select", [
+    "select",
+    "message",
+    "error",
+  ]);
 
-    const {
-      children,
-      onChange,
-      size = "medium",
-      label,
-      error,
-      message,
-      hideLabel = false,
-      disabled = false,
-      required = false,
-      className,
-      ...selectProps
-    } = props;
+  const {
+    children,
+    onChange,
+    size = "medium",
+    label,
+    error,
+    message,
+    isDisabled = false,
+    isRequired = false,
+    isInvalid = false,
+    className,
+    ...selectProps
+  } = props;
 
-    return (
-      <ComponentWrapper
-        className={cn("aje-input", className)}
-        size={size}
-        error={error}
-        required={required}
-        disabled={disabled}
-      >
-        <Label message={message} htmlFor={inputId} hidden={hideLabel}>
-          {label}
-        </Label>
-        <SelectWrapper className="aje-input__select">
-          <StyledSelect
-            id={inputId}
-            aria-describedby={error ? errorId : ""}
-            onChange={makeEventHandler(onChange)}
-            ref={ref}
-            {...selectProps}
-          >
-            {children}
-          </StyledSelect>
-        </SelectWrapper>
-        <InputError error={error} id={errorId} />
-      </ComponentWrapper>
-    );
-  }
-);
+  return (
+    <FieldWrapper
+      className={cn("aje-input__select", className)}
+      size={size}
+      isInvalid={isInvalid}
+      isRequired={isRequired}
+      isDisabled={isDisabled}
+    >
+      {label && <Label htmlFor={inputId}>{label}</Label>}
+      {message && <Message id={messageId}>{message}</Message>}
+
+      <SelectWrapper className="aje-input__select">
+        <StyledSelect
+          id={inputId}
+          aria-describedby={isInvalid && error ? errorId : messageId}
+          onChange={(e) => onChange && onChange(e.target.value)}
+          ref={ref}
+          {...selectProps}
+        >
+          {children}
+        </StyledSelect>
+      </SelectWrapper>
+      {isInvalid && error && <ErrorMessage id={errorId}>{error}</ErrorMessage>}
+    </FieldWrapper>
+  );
+});
 
 export default Select;
