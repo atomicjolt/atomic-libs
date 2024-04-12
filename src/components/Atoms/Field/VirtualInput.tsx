@@ -34,8 +34,8 @@ export const VirtualInput = React.forwardRef(function VirtualInput(
   props: VirtualInputProps,
   ref: React.Ref<HTMLDivElement>
 ) {
-  const { children, className, ...rest } = props;
-  const { inputRef } = useContext(FieldInputContext);
+  const { children, className, inputRef: passedInputRef, ...rest } = props;
+  const { inputRef = passedInputRef } = useContext(FieldInputContext);
 
   return (
     <StyledInputWrapper

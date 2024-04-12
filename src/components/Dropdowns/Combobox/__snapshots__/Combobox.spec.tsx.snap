@@ -3,24 +3,23 @@
 exports[`matches snapshots > matches default variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-bdnyFh sc-ksltVi dFsGYa irTQOn aje-combobox aje-dropdown--default is-medium"
+    class="sc-dlMCtj ccunZJ aje-combobox aje-dropdown--default is-medium"
   >
     <label
-      class="sc-gtsqUy jNpFzP aje-label"
+      class="sc-ksltVi LGhJJ aje-label"
       for="react-aria-:r2:"
       id="react-aria-:r3:"
     >
       Text Label
     </label>
     <p
-      class="sc-dlniIP jVWAsB"
+      class="sc-hBMVwJ hqVjbv"
       id="react-aria-:r5:"
     >
       message
     </p>
     <div
-      class="sc-jSFipO bTUvzS sc-hBMVwJ cWIM"
-      inputref="[object Object]"
+      class="sc-bkbjWr bEvixr sc-kfYpNk jobCEl"
     >
       <input
         aria-autocomplete="list"
@@ -29,7 +28,7 @@ exports[`matches snapshots > matches default variant 1`] = `
         aria-labelledby="react-aria-:r3:"
         autocomplete="off"
         autocorrect="off"
-        class="sc-eCAqax fCVRXs"
+        class="sc-fFSPgy glFDwC"
         id="react-aria-:r2:"
         role="combobox"
         spellcheck="false"
@@ -41,14 +40,14 @@ exports[`matches snapshots > matches default variant 1`] = `
         aria-haspopup="listbox"
         aria-label="Show suggestions"
         aria-labelledby="react-aria-:r0: react-aria-:r3:"
-        class="sc-dItHI sc-bqGGcD gSWXoi iTXvDT aje-btn aje-btn--icon aje-btn--content"
+        class="sc-gKAaef sc-iCoHzw falFkp jermjb aje-btn aje-btn--icon aje-btn--content"
         id="react-aria-:r0:"
         tabindex="-1"
         type="button"
       >
         <i
           aria-hidden="true"
-          class="sc-crzpnZ AiCDI material-icons is-medium"
+          class="sc-jSFipO eeJbpe material-icons is-medium"
         >
           arrow_drop_down
         </i>
@@ -61,14 +60,13 @@ exports[`matches snapshots > matches default variant 1`] = `
 exports[`matches snapshots > matches floating variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-bdnyFh sc-ksltVi dFsGYa irTQOn aje-combobox aje-dropdown--floating is-medium"
+    class="sc-dlMCtj ccunZJ aje-combobox aje-dropdown--floating is-medium"
   >
     <div
-      class="sc-fKgKDd yOFvo"
+      class="sc-hHEhDq dMVzRV"
     >
       <div
-        class="sc-jSFipO bTUvzS sc-hBMVwJ cWIM"
-        inputref="[object Object]"
+        class="sc-bkbjWr bEvixr sc-kfYpNk jobCEl"
       >
         <input
           aria-autocomplete="list"
@@ -77,7 +75,7 @@ exports[`matches snapshots > matches floating variant 1`] = `
           aria-labelledby="react-aria-:rc:"
           autocomplete="off"
           autocorrect="off"
-          class="sc-eCAqax fCVRXs"
+          class="sc-fFSPgy glFDwC"
           id="react-aria-:rb:"
           role="combobox"
           spellcheck="false"
@@ -89,21 +87,21 @@ exports[`matches snapshots > matches floating variant 1`] = `
           aria-haspopup="listbox"
           aria-label="Show suggestions"
           aria-labelledby="react-aria-:r9: react-aria-:rc:"
-          class="sc-dItHI sc-bqGGcD gSWXoi iTXvDT aje-btn aje-btn--icon aje-btn--content"
+          class="sc-gKAaef sc-iCoHzw falFkp jermjb aje-btn aje-btn--icon aje-btn--content"
           id="react-aria-:r9:"
           tabindex="-1"
           type="button"
         >
           <i
             aria-hidden="true"
-            class="sc-crzpnZ AiCDI material-icons is-medium"
+            class="sc-jSFipO eeJbpe material-icons is-medium"
           >
             arrow_drop_down
           </i>
         </button>
       </div>
       <label
-        class="sc-gtsqUy jNpFzP aje-label"
+        class="sc-ksltVi LGhJJ aje-label"
         for="react-aria-:rb:"
         id="react-aria-:rc:"
       >
@@ -111,7 +109,7 @@ exports[`matches snapshots > matches floating variant 1`] = `
       </label>
     </div>
     <p
-      class="sc-dlniIP jVWAsB"
+      class="sc-hBMVwJ hqVjbv"
       id="react-aria-:re:"
     >
       message

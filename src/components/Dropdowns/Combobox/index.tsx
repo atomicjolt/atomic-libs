@@ -7,7 +7,6 @@ import {
   FieldInputProps,
   HasVariant,
 } from "../../../types";
-import { ComboboxVirtualInput, ComboboxWrapper } from "./Combobox.styles";
 import classNames from "classnames";
 import { useVariantClass } from "../../../hooks";
 import IconButton from "../../Buttons/IconButton";
@@ -15,6 +14,8 @@ import { Popover } from "../../Atoms/Popover";
 import { UnmanagedListBox } from "../../Atoms/ListBox";
 import { Input } from "../../Atoms/Field";
 import { FloatingInputWrapper } from "../../Internal/FloatingInputWrapper";
+import { DropdownWrapper } from "../Dropdowns.styles";
+import { ComboboxVirtualInput } from "./Combobox.styles";
 
 export interface ComboBoxProps<T>
   extends AriaProps<AriaComboBoxProps<T>>,
@@ -67,7 +68,7 @@ export function ComboBox<T extends object>(props: ComboBoxProps<T>) {
   const variantClass = useVariantClass("aje-dropdown", variant);
 
   return (
-    <ComboboxWrapper
+    <DropdownWrapper
       className={classNames("aje-combobox", variantClass, className)}
       size={size}
       isDisabled={isDisabled}
@@ -114,6 +115,6 @@ export function ComboBox<T extends object>(props: ComboBoxProps<T>) {
           <UnmanagedListBox {...listBoxProps} state={state} ref={listBoxRef} />
         </Popover>
       )}
-    </ComboboxWrapper>
+    </DropdownWrapper>
   );
 }

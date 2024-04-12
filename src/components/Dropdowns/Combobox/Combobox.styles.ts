@@ -1,13 +1,8 @@
 import styled from "styled-components";
-import mixins from "../../../styles/mixins";
-import { DropdownWrapper } from "../Dropdowns.styles";
 import { VirtualInput } from "../../Atoms/Field";
 
-export const ComboboxWrapper = styled(DropdownWrapper)`
-  ${mixins.SizingX}
-  ${mixins.FieldStatus}
-`;
-
+// The popover lines up with the start of the input field, so we want to make sure we don't
+// have any padding outside of the input field
 export const ComboboxVirtualInput = styled(VirtualInput)`
   padding-left: 0px;
 

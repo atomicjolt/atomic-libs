@@ -2,9 +2,9 @@ import React from "react";
 import cn from "classnames";
 import { HasChildren, AriaProps, FieldInputProps } from "../../../types";
 import RadioContext from "./context";
-import { RadioGroupWrapper } from "./RadioGroup.styles";
 import { useRadioGroupState } from "react-stately";
 import { AriaRadioGroupProps, useRadioGroup } from "react-aria";
+import { RadioGroupWrapper } from "./RadioGroup.styles";
 import { Label, ErrorMessage, Message } from "../../Atoms/Field";
 
 export interface RadioGroupsProps
@@ -13,11 +13,12 @@ export interface RadioGroupsProps
     HasChildren {}
 
 /**
- * Radio Group
  *
- * - For a choice selection of 3-5 options. There may be a few cases where you can use these for more than 5, but it isn't common.
- * - For 2 choices, use a checkbox instead.
- * - For more than 5 options, use a select.
+ * Radio groups should be used for a choice selection of 3-5 options. There may be a few cases where you can use
+ * these for more than 5, but it isn't common.
+ *
+ * - For 2 choices, use a [CheckBox](/docs/inputs-choose-state-checkbox--overview) or [ToggleSwitch](/docs/inputs-choose-state-toggleswitch--overview) instead.
+ * - For more than 5 options, use a [select](/docs/dropdowns-customselect--overview).
  *
  * Any `<Radio />` element nested under a `<RadioGroup />` will be considered part of that group,
  * do note that it does not need to nested directly under. As such, you can add additional strucuture
@@ -32,7 +33,7 @@ export function RadioGroup(props: RadioGroupsProps) {
 
   return (
     <RadioGroupWrapper
-      as="fieldset"
+      forwardedAs="fieldset"
       className={cn("aje-radio-group", className)}
       isDisabled={state.isDisabled}
       isInvalid={state.isInvalid}
