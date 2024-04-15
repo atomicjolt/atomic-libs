@@ -7,7 +7,7 @@ import {
   FieldStatusProps,
   HasChildren,
 } from "../../../types";
-import { Provider } from "./Provider";
+import { Provider } from "../Provider";
 import {
   FieldErrorContext,
   FieldInputContext,
