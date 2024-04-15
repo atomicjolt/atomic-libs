@@ -10,7 +10,7 @@ import {
 import classNames from "classnames";
 import DateInput from "../DateInput";
 import IconButton from "../../../Buttons/IconButton";
-import { Popover } from "../../../Atoms/Popover";
+import { Popover } from "../../../Internal/Popover";
 import { Dialog } from "../../../Atoms/Dialog";
 import Calendar from "../Calendar";
 import { ErrorMessage, Label, Message } from "../../../Atoms/Field";

@@ -46,7 +46,6 @@ export { Tabs } from "./Tabs/Tabs";
 export { Card } from "./Atoms/Card";
 
 export { Item, Section } from "./Atoms/Collection";
-export { Popover, PopoverWrapper } from "./Atoms/Popover";
 export { ToolTip } from "./Atoms/ToolTip";
 export { Dialog } from "./Atoms/Dialog";
 export { ListBox, UnmanagedListBox } from "./Atoms/ListBox";
@@ -73,6 +72,10 @@ export {
 } from "./Development/DevelopmentErrorModal";
 
 export { LocaleProvider } from "./locale";
+
+// These are technically internal componnets and as such are not documented,
+// but they are exported here if you need to use them.
+export { Popover, PopoverWrapper } from "./Internal/Popover";
 
 /* ---- Types ---- */
 
@@ -106,7 +109,6 @@ export type { MaterialIconProps } from "./Icons/MaterialIcon";
 export type { TableProps } from "./Tables/Table";
 export type { TabsProps } from "./Tabs/Tabs";
 export type { LoadingStatusProps } from "./Loaders/LoadingStatus";
-export type { PopoverProps } from "./Atoms/Popover";
 export type { ToolTipProps } from "./Atoms/ToolTip";
 export type { CalendarProps } from "./Inputs/DateAndTimes/Calendar";
 export type { DateInputProps } from "./Inputs/DateAndTimes/DateInput";
@@ -116,3 +118,4 @@ export type { ListBoxProps } from "./Atoms/ListBox";
 export type { SkeletonLoaderProps } from "./Loaders/SkeletonLoader";
 export type { DevelopmentErrorModalProps } from "./Development/DevelopmentErrorModal";
 export type { MultiSelectProps } from "./Dropdowns/MultiSelect";
+export type { PopoverProps } from "./Internal/Popover";
