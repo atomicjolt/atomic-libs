@@ -1,0 +1,48 @@
+import {
+  Canvas,
+  Meta,
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  ArgsTable,
+  Stories,
+  ArgTypes,
+  Controls,
+  Story,
+} from "@storybook/blocks";
+
+import * as ToolTipStories from "./ToolTip.stories";
+
+<Meta of={ToolTipStories} />
+
+<Title />
+<Subtitle />
+<Description />
+<Primary />
+<Controls />
+
+There are three things that compose a tooltip:
+
+1. The `Tooltip` component itself. This is the element that will be displayed when the target element is hovered over.
+2. The `ToolTipTrigger` component. This component handles the logic of displaying the tooltip when the target element is hovered over.
+3. The target component. This is a focusable element that will trigger the tooltip to be displayed when hovered over or foucsed on via keyboard navigation.
+
+In the following example, the `Button` component is the target element:
+
+<Canvas of={ToolTipStories.Primary} />
+
+Note than when using `ToolTipTrigger`, it handles setting up the refs and event listeners for you. Any components in this library
+that are "focusable" can be used out of the box as the target of a tooltip. So you can use `Button`, `TextInput`, etc. as the target.
+
+<Canvas of={ToolTipStories.InputTarget} />
+
+## Custom ToolTip target
+
+If you need to use a custom component as the target of a tooltip, you can wrap your component with the `ToolTipTarget` component. Note that doing
+this will add a new element to the DOM, so it is recommended to use this only when necessary. You can customize what element is actually rendered
+by passing a `as` prop to `ToolTipTarget`.
+
+<Canvas of={ToolTipStories.WithCustomTarget} />
+
+<Canvas of={ToolTipStories.IconWithTooltip} />

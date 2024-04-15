@@ -55,7 +55,7 @@ export { Card } from "./Layout/Card";
 
 export { Item, Section } from "./Collection";
 
-export { ToolTip } from "./Overlays/ToolTip";
+export { ToolTipTrigger, ToolTip, ToolTipTarget } from "./Overlays/ToolTip";
 
 export { LocaleProvider } from "./locale";
 
@@ -111,13 +111,17 @@ export type { MaterialIconProps } from "./Icons/MaterialIcon";
 export type { TableProps } from "./Layout/Table";
 export type { TabsProps } from "./Layout/Tabs";
 export type { LoadingStatusProps } from "./Loaders/LoadingStatus";
-export type { ToolTipProps } from "./Overlays/ToolTip";
+export type {
+  ToolTipProps,
+  ToolTipTargetProps,
+  ToolTipTriggerProps,
+} from "./Overlays/ToolTip";
 export type { CalendarProps } from "./Inputs/DateAndTimes/Calendar";
 export type { DateInputProps } from "./Inputs/DateAndTimes/DateInput";
 export type { TimeInputProps } from "./Inputs/DateAndTimes/TimeInput";
 export type { DatePickerProps } from "./Inputs/DateAndTimes/DatePicker";
 export type { ListBoxProps } from "./Dropdowns/ListBox";
 export type { SkeletonLoaderProps } from "./Loaders/SkeletonLoader";
-export type { DevelopmentErrorModalProps } from "./Development/DevelopmentErrorModal";
+export type { DevelopmentErrorModalProps } from "./Overlays/DevelopmentErrorModal";
 export type { MultiSelectProps } from "./Dropdowns/MultiSelect";
 export type { PopoverProps } from "./Internal/Popover";
