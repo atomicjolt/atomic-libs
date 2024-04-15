@@ -1,8 +1,8 @@
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import { Tabs } from ".";
-import { Item } from "../../Atoms/Collection";
-import { Card } from '../../Atoms/Card';
+import { Item } from "../../Collection";
+import { Card } from "../../Atoms/Card";
 
 const meta: Meta<typeof Tabs> = {
   title: "Layouts/Tabs",
@@ -37,8 +37,8 @@ const meta: Meta<typeof Tabs> = {
       description: "Whether the entire tab component is disabled.",
     },
     info: {
-      control: 'text'
-    }
+      control: "text",
+    },
   },
 };
 
@@ -62,28 +62,33 @@ export const Primary: Story = {
   },
 };
 
-
 export const Cards: Story = {
   args: {
     ...Primary.args,
-    variant: "card"
-  }
-}
+    variant: "card",
+  },
+};
 
 export const Toggle: Story = {
   args: {
     ...Primary.args,
-    variant: 'toggle',
-  }
-}
-
+    variant: "toggle",
+  },
+};
 
 export const NestedTabs: Story = {
   args: {
-    variant: 'card',
+    variant: "card",
     children: [
       <Item key="tab1" title="Users">
-        <Tabs variant="toggle" info={<span>Licensed Users: <strong>1000/1000</strong></span>}>
+        <Tabs
+          variant="toggle"
+          info={
+            <span>
+              Licensed Users: <strong>1000/1000</strong>
+            </span>
+          }
+        >
           <Item key="total" title="Total">
             <h1>Total Users</h1>
           </Item>
@@ -93,7 +98,14 @@ export const NestedTabs: Story = {
         </Tabs>
       </Item>,
       <Item key="tab2" title="Courses">
-        <Tabs variant="toggle" info={<span>Total Courses: <strong>123/1231</strong></span>}>
+        <Tabs
+          variant="toggle"
+          info={
+            <span>
+              Total Courses: <strong>123/1231</strong>
+            </span>
+          }
+        >
           <Item key="total" title="Total">
             <h1>Total Courses</h1>
           </Item>
@@ -103,7 +115,14 @@ export const NestedTabs: Story = {
         </Tabs>
       </Item>,
       <Item key="tab3" title="Assignments">
-        <Tabs variant="toggle" info={<span>Total Assignments: <strong>123414</strong></span>}>
+        <Tabs
+          variant="toggle"
+          info={
+            <span>
+              Total Assignments: <strong>123414</strong>
+            </span>
+          }
+        >
           <Item key="total" title="Total">
             <h1>Total Courses</h1>
           </Item>
@@ -112,6 +131,6 @@ export const NestedTabs: Story = {
           </Item>
         </Tabs>
       </Item>,
-    ]
-  }
-}
+    ],
+  },
+};

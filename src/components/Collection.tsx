@@ -4,7 +4,7 @@ import {
   ItemProps,
   SectionProps,
 } from "react-stately";
-import { cloneComponent } from "../../clone";
+import { cloneComponent } from "../clone";
 
 // We re-define the react-stately Item and Section components
 // Because for some reason storybook doesn't like to pickup the

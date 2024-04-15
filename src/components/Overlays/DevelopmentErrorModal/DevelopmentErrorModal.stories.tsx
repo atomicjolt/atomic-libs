@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import { DevelopmentErrorModal } from ".";
 
 export default {
-  title: "Dev/DevelopmentErrorModal",
+  title: "Overlays/DevelopmentErrorModal",
   component: DevelopmentErrorModal,
   parameters: {
     docs: {

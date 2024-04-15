@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import ConfirmationModal from ".";
 
 const meta: Meta<typeof ConfirmationModal> = {
-  title: "Modals/ConfirmationModal",
+  title: "Overlays/ConfirmationModal",
   component: ConfirmationModal,
   parameters: {
     docs: {

@@ -16,7 +16,7 @@ import { ButtonText } from "../CustomSelect/CustomSelect.styles";
 import MaterialIcon from "../../Icons/MaterialIcon";
 import { Popover } from "../../Internal/Popover";
 import classNames from "classnames";
-import { UnmanagedListBox } from "../../Atoms/ListBox";
+import { UnmanagedListBox } from "../ListBox";
 
 export interface MultiSelectProps<T extends object>
   extends AriaProps<AriaMultiSelectProps<T>>,

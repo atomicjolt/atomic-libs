@@ -24,7 +24,7 @@ export interface MaterialSymbolProps
 /** Render out material-symbols with sensible defaults. No Material
  * Symbol Font variant is loaded when using <LoadFonts /> by default,
  * so you need to include it explictly, or load it another way */
-export default function MaterialSymbol(props: MaterialSymbolProps) {
+export function MaterialSymbol(props: MaterialSymbolProps) {
   const {
     symbol,
     className,

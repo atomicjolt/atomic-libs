@@ -13,7 +13,7 @@ interface DialogProps extends AriaDialogProps, HasChildren {
 /**Provides the behavior and accessibility implementation for a dialog component.
  * A dialog is an overlay shown above other content in an application.
  * This component is intended to be combined with either `<Popover/>` for
- * inline dialogs, or with a trigger element and `useOverlay` for modal dialogs.
+ * inline dialogs, or with `<Modal/>` for modal dialogs.
  * */
 export function Dialog(props: DialogProps) {
   const { title, top, children, ...rest } = props;

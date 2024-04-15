@@ -3,7 +3,7 @@ import cn from "classnames";
 import { FieldInputProps } from "../../../types";
 import { useIds } from "../../../hooks";
 import { SelectWrapper, StyledSelect } from "./Select.styles";
-import { ErrorMessage, Label, Message } from "../../Atoms/Field";
+import { ErrorMessage, Label, Message } from "../../Internal/Field";
 import { FieldWrapper } from "../../Internal/FieldWrapper";
 
 type LimitedSelectProps = Omit<

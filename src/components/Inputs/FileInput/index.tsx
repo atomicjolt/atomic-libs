@@ -10,7 +10,7 @@ import {
   StyledFileInput,
 } from "./FileInput.styles";
 import { FieldWrapper } from "../../Internal/FieldWrapper";
-import { ErrorMessage } from "../../Atoms/Field";
+import { ErrorMessage } from "../../Internal/Field";
 
 export interface FileInputProps
   extends Omit<FieldInputProps, "message" | "isReadOnly">,

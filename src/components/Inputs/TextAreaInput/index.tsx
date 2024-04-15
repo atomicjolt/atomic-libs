@@ -4,12 +4,11 @@ import { AriaProps, FieldInputProps } from "../../../types";
 import { TextAreaWrapper } from "./TextAreaInput.styles";
 import { AriaTextFieldProps } from "react-aria";
 import {
-  FieldInput,
   FieldLabel,
   FieldMessage,
   FieldTextArea,
   FieldErrorMessage,
-} from "../../Atoms/Field";
+} from "../../Internal/Field";
 
 export interface TextareaProps
   extends FieldInputProps,

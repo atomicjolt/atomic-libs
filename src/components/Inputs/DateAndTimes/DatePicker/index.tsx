@@ -11,9 +11,9 @@ import classNames from "classnames";
 import DateInput from "../DateInput";
 import IconButton from "../../../Buttons/IconButton";
 import { Popover } from "../../../Internal/Popover";
-import { Dialog } from "../../../Atoms/Dialog";
+import { Dialog } from "../../../Overlays/Dialog";
 import Calendar from "../Calendar";
-import { ErrorMessage, Label, Message } from "../../../Atoms/Field";
+import { ErrorMessage, Label, Message } from "../../../Internal/Field";
 
 export type DatePickerProps<T extends DateValue> = AriaProps<
   AriaDatePickerProps<T>

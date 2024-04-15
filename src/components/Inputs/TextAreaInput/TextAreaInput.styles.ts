@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import mixins from "../../../styles/mixins";
-import { TextField } from "../../Atoms/Field";
+import { TextField } from "../../Internal/Field";
 
 export const TextAreaWrapper = styled(TextField)`
   ${mixins.FieldStatus}

@@ -2,7 +2,7 @@ import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import { TextInputControls } from "../../storybook";
 import { ComboBox } from ".";
-import { Item } from "../../Atoms/Collection";
+import { Item } from "../../Collection";
 
 const meta: Meta<typeof ComboBox> = {
   title: "Dropdowns/Combobox",

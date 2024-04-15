@@ -3,7 +3,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import { ToolTip } from ".";
 
 const meta: Meta<typeof ToolTip> = {
-  title: "Atoms/ToolTip",
+  title: "Overlays/ToolTip",
   component: ToolTip,
   parameters: {
     layout: "centered",

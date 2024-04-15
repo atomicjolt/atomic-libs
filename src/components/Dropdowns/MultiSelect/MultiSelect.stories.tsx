@@ -2,7 +2,7 @@ import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import { InputControls } from "../../storybook";
 import { MultiSelect } from ".";
-import { Item } from "../../Atoms/Collection";
+import { Item } from "../../Collection";
 
 export default {
   title: "Dropdowns/MultiSelect",

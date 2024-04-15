@@ -3,7 +3,7 @@ import { useVariantClass } from "../../../hooks";
 import { AriaProps, FieldInputProps, HasVariant } from "../../../types";
 import { StyledTextField } from "../Inputs.styles";
 import { AriaTextFieldProps } from "react-aria";
-import { FieldInput } from "../../Atoms/Field";
+import { FieldInput } from "../../Internal/Field";
 import FloatingFieldInputWrapper from "../../Internal/FloatingFieldInputWrapper";
 import classNames from "classnames";
 
