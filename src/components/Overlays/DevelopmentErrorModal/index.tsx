@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react";
-import Modal from "../../Modals/Modal";
+import Modal from "../../Overlays/Modal";
 import {
   ErrorName,
   ErrorPath,

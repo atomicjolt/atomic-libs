@@ -1,8 +1,8 @@
 import styled, { css } from "styled-components";
 import mixins from "../../styles/mixins";
 import { DirectionProps } from "../../types";
-import { NumberField, TextField } from "../Atoms/Field";
-import { StyledInputWrapper } from "../Atoms/Field/VirtualInput";
+import { NumberField, TextField } from "../Internal/Field";
+import { StyledInputWrapper } from "../Internal/Field/VirtualInput";
 import { FieldWrapper } from "../Internal/FieldWrapper";
 
 // TODO: consider if we want all these styled compiled together like this

@@ -17,6 +17,7 @@ export { MultiSelect } from "./Dropdowns/MultiSelect";
 export { Select } from "./Dropdowns/Select";
 export { IconMenu } from "./Dropdowns/IconMenu";
 export { Menu } from "./Dropdowns/Menu";
+export { ListBox, UnmanagedListBox } from "./Dropdowns/ListBox";
 
 export { CheckBox } from "./Inputs/Checkbox";
 export { NumberInput } from "./Inputs/NumberInput";
@@ -36,20 +37,31 @@ export { ThreeDotLoader } from "./Loaders/ThreeDotLoader";
 export { SkeletonLoader } from "./Loaders/SkeletonLoader";
 export { LoadingStatus } from "./Loaders/LoadingStatus";
 
-export { Modal } from "./Modals/Modal";
-export { ConfirmationModal } from "./Modals/ConfirmationModal";
-export { ErrorModal } from "./Modals/ErrorModal";
+export { Modal } from "./Overlays/Modal";
+export { ConfirmationModal } from "./Overlays/ConfirmationModal";
+export { ErrorModal } from "./Overlays/ErrorModal";
+export { Dialog } from "./Overlays/Dialog";
+export {
+  DevelopmentErrorModal,
+  DevelopmentErrorBoundary,
+} from "./Overlays/DevelopmentErrorModal";
+
 export { MaterialIcon } from "./Icons/MaterialIcon";
+export { MaterialSymbol } from "./Icons/MaterialSymbol";
 
-export { Table } from "./Tables/Table";
-export { Tabs } from "./Tabs/Tabs";
-export { Card } from "./Atoms/Card";
+export { Table } from "./Layout/Table";
+export { Tabs } from "./Layout/Tabs";
+export { Card } from "./Layout/Card";
 
-export { Item, Section } from "./Atoms/Collection";
-export { Popover, PopoverWrapper } from "./Atoms/Popover";
-export { ToolTip } from "./Atoms/ToolTip";
-export { Dialog } from "./Atoms/Dialog";
-export { ListBox, UnmanagedListBox } from "./Atoms/ListBox";
+export { Item, Section } from "./Collection";
+
+export { ToolTip } from "./Overlays/ToolTip";
+
+export { LocaleProvider } from "./locale";
+
+// These are technically internal componnets and as such are not documented,
+// but they are exported here if you need to use them.
+export { Popover, PopoverWrapper } from "./Internal/Popover";
 export {
   Field,
   TextField,
@@ -65,14 +77,7 @@ export {
   FieldTextArea,
   TextArea,
   VirtualInput,
-} from "./Atoms/Field";
-
-export {
-  DevelopmentErrorModal,
-  DevelopmentErrorBoundary,
-} from "./Development/DevelopmentErrorModal";
-
-export { LocaleProvider } from "./locale";
+} from "./Internal/Field";
 
 /* ---- Types ---- */
 
@@ -99,20 +104,20 @@ export type { TextareaProps } from "./Inputs/TextAreaInput";
 export type { ToggleSwitchProps } from "./Inputs/ToggleSwitch";
 export type { SpinnerProps } from "./Loaders/Spinner";
 export type { ThreeDotLoaderProps } from "./Loaders/ThreeDotLoader";
-export type { ModalProps } from "./Modals/Modal";
-export type { ConfirmationModalProps } from "./Modals/ConfirmationModal";
-export type { ErrorModalProps } from "./Modals/ErrorModal";
+export type { ModalProps } from "./Overlays/Modal";
+export type { ConfirmationModalProps } from "./Overlays/ConfirmationModal";
+export type { ErrorModalProps } from "./Overlays/ErrorModal";
 export type { MaterialIconProps } from "./Icons/MaterialIcon";
-export type { TableProps } from "./Tables/Table";
-export type { TabsProps } from "./Tabs/Tabs";
+export type { TableProps } from "./Layout/Table";
+export type { TabsProps } from "./Layout/Tabs";
 export type { LoadingStatusProps } from "./Loaders/LoadingStatus";
-export type { PopoverProps } from "./Atoms/Popover";
-export type { ToolTipProps } from "./Atoms/ToolTip";
+export type { ToolTipProps } from "./Overlays/ToolTip";
 export type { CalendarProps } from "./Inputs/DateAndTimes/Calendar";
 export type { DateInputProps } from "./Inputs/DateAndTimes/DateInput";
 export type { TimeInputProps } from "./Inputs/DateAndTimes/TimeInput";
 export type { DatePickerProps } from "./Inputs/DateAndTimes/DatePicker";
-export type { ListBoxProps } from "./Atoms/ListBox";
+export type { ListBoxProps } from "./Dropdowns/ListBox";
 export type { SkeletonLoaderProps } from "./Loaders/SkeletonLoader";
 export type { DevelopmentErrorModalProps } from "./Development/DevelopmentErrorModal";
 export type { MultiSelectProps } from "./Dropdowns/MultiSelect";
+export type { PopoverProps } from "./Internal/Popover";

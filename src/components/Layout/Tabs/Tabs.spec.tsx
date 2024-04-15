@@ -1,8 +1,8 @@
 import React from "react";
 import { test, expect } from "vitest";
 import { render } from "@testing-library/react";
-import  {Tabs  } from ".";
-import { Item } from '../../Atoms/Collection';
+import { Tabs } from ".";
+import { Item } from "../../Collection";
 
 test("matches snapshot", () => {
   const res = render(

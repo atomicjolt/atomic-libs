@@ -10,9 +10,9 @@ import {
 import classNames from "classnames";
 import { useVariantClass } from "../../../hooks";
 import IconButton from "../../Buttons/IconButton";
-import { Popover } from "../../Atoms/Popover";
-import { UnmanagedListBox } from "../../Atoms/ListBox";
-import { Input } from "../../Atoms/Field";
+import { Popover } from "../../Internal/Popover";
+import { UnmanagedListBox } from "../ListBox";
+import { Input } from "../../Internal/Field";
 import { FloatingInputWrapper } from "../../Internal/FloatingInputWrapper";
 import { DropdownWrapper } from "../Dropdowns.styles";
 import { ComboboxVirtualInput } from "./Combobox.styles";

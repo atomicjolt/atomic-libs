@@ -1,7 +1,7 @@
 import React from "react";
 import { HasVariant } from "../../../types";
 import { ButtonVariants } from "../Buttons.types";
-import { Group, GroupProps } from "../../Atoms/Group";
+import { Group, GroupProps } from "../../Layout/Group";
 
 export interface SharedProps extends HasVariant<ButtonVariants> {
   isDisabled?: boolean;

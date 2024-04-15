@@ -14,8 +14,8 @@ import { ButtonText } from "./CustomSelect.styles";
 import { FloatingInputWrapper } from "../../Internal/FloatingInputWrapper";
 import Button from "../../Buttons/Button";
 import MaterialIcon from "../../Icons/MaterialIcon";
-import { Popover } from "../../Atoms/Popover";
-import { UnmanagedListBox } from "../../Atoms/ListBox";
+import { Popover } from "../../Internal/Popover";
+import { UnmanagedListBox } from "../ListBox";
 
 export type CustomSelectVariants = "default" | "floating";
 

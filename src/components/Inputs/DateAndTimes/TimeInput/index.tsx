@@ -15,7 +15,7 @@ import {
   Label,
   Message,
   VirtualInput,
-} from "../../../Atoms/Field";
+} from "../../../Internal/Field";
 
 export interface TimeInputProps<T extends TimeValue>
   extends AriaProps<AriaTimeFieldProps<T>>,

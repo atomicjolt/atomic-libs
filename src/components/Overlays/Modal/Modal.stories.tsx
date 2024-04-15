@@ -6,7 +6,7 @@ import Button from "../../Buttons/Button";
 import MaterialIcon from "../../Icons/MaterialIcon";
 
 const meta: Meta<typeof Modal> = {
-  title: "Modals/Modal",
+  title: "Overlays/Modal",
   component: Modal,
   parameters: {
     docs: {

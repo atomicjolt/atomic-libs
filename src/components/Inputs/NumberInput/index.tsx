@@ -1,11 +1,11 @@
 import React from "react";
 import { AriaNumberFieldProps } from "react-aria";
+import classNames from "classnames";
 import { AriaProps, FieldInputProps, HasVariant } from "../../../types";
 import { useVariantClass } from "../../../hooks";
-import { FieldInput, NumberField, VirtualInput } from "../../Atoms/Field";
-import { Group } from "../../Atoms/Group";
+import { FieldInput, NumberField, VirtualInput } from "../../Internal/Field";
+import { Group } from "../../Layout/Group";
 import FloatingFieldInputWrapper from "../../Internal/FloatingFieldInputWrapper";
-import classNames from "classnames";
 import { StyledNumberField } from "../Inputs.styles";
 
 export interface NumberInputProps
