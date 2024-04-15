@@ -2,8 +2,8 @@ import styled from "styled-components";
 import { scaleAnimation } from "../../../../styles/animations";
 import mixins from "../../../../styles/mixins";
 import { FieldWrapper } from "../../../Internal/FieldWrapper";
-import { VirtualInput } from "../../../Internal/Field";
-import { StyledInputWrapper } from "../../../Internal/Field/VirtualInput";
+import { VirtualInput } from "../../../Fields";
+import { StyledInputWrapper } from "../../../Fields/VirtualInput";
 
 export const DatePickerWrapper = styled(FieldWrapper)`
   ${mixins.FieldStatus}

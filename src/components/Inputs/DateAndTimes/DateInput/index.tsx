@@ -15,12 +15,7 @@ import {
   DateSegment as ReactStatelyDateSegment,
   useDateFieldState,
 } from "react-stately";
-import {
-  Label,
-  Message,
-  VirtualInput,
-  ErrorMessage,
-} from "../../../Internal/Field";
+import { Label, Message, VirtualInput, ErrorMessage } from "../../../Fields";
 
 export interface DateInputProps<T extends DateValue>
   extends AriaProps<AriaDateFieldProps<T>>,

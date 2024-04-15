@@ -59,9 +59,6 @@ export { ToolTipTrigger, ToolTip, ToolTipTarget } from "./Overlays/ToolTip";
 
 export { LocaleProvider } from "./locale";
 
-// These are technically internal componnets and as such are not documented,
-// but they are exported here if you need to use them.
-export { Popover, PopoverWrapper } from "./Internal/Popover";
 export {
   Field,
   TextField,
@@ -77,7 +74,11 @@ export {
   FieldTextArea,
   TextArea,
   VirtualInput,
-} from "./Internal/Field";
+} from "./Fields";
+
+// These are technically internal componnets and as such are not documented,
+// but they are exported here if you need to use them.
+export { Popover, PopoverWrapper } from "./Internal/Popover";
 
 /* ---- Types ---- */
 
@@ -125,3 +126,14 @@ export type { SkeletonLoaderProps } from "./Loaders/SkeletonLoader";
 export type { DevelopmentErrorModalProps } from "./Overlays/DevelopmentErrorModal";
 export type { MultiSelectProps } from "./Dropdowns/MultiSelect";
 export type { PopoverProps } from "./Internal/Popover";
+export type {
+  FieldProps,
+  FieldErrorMessageProps,
+  FieldInputProps,
+  FieldLabelProps,
+  FieldMessageProps,
+  FieldTextAreaProps,
+  TextFieldProps,
+  NumberFieldProps,
+  VirtualInputProps,
+} from "./Fields";

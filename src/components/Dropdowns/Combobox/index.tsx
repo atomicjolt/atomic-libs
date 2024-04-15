@@ -12,7 +12,7 @@ import { useVariantClass } from "../../../hooks";
 import IconButton from "../../Buttons/IconButton";
 import { Popover } from "../../Internal/Popover";
 import { UnmanagedListBox } from "../ListBox";
-import { Input } from "../../Internal/Field";
+import { Input } from "../../Fields";
 import { FloatingInputWrapper } from "../../Internal/FloatingInputWrapper";
 import { DropdownWrapper } from "../Dropdowns.styles";
 import { ComboboxVirtualInput } from "./Combobox.styles";

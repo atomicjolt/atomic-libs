@@ -10,8 +10,8 @@ import {
   Label,
   Message,
   VirtualInput,
-} from "../../Internal/Field";
-import { StyledField } from "../../Internal/Field/Field.styles";
+} from "../../Fields";
+import { StyledField } from "../../Fields/Field.styles";
 import classNames from "classnames";
 
 export interface SearchInputProps

@@ -1,0 +1,46 @@
+import { Meta, Canvas } from "@storybook/blocks";
+import { SensibleDefaults } from "../../styles/defaults";
+import {
+  TextField,
+  FieldLabel,
+  FieldMessage,
+  FieldErrorMessage,
+  FieldInput,
+} from "../../components/Fields";
+
+import { Group } from "../../components/Layout/Group";
+import { Button } from "../../components/Buttons/Button";
+
+<SensibleDefaults />
+
+<Meta title="Fields/Docs/Fields vs Inputs" />
+
+# Fields vs Inputs
+
+You may have noticed that we have two components for text fields: `TextField` and `TextInput` that look very similar. This true, but they have different use cases.
+
+- `TextInput` is **specific**. It defines the layout of the input field, and is meant to be used in the majority of cirucmstances. It also includes some bells and whistles that `TextField` does not. In essense, `TextInput` is a `TextField` with a specific layout & style.
+- `TextField` is **generic**. It is meant to be used when you want to customize the presentation of a field, but still want to take advantage of the accessibility features of the `FieldInput`.
+
+This usage of `TextInput`:
+
+```jsx
+<TextInput
+  label="Label"
+  message="Message"
+  value="Error"
+  value=""
+  onChange={() => {}}
+/>
+```
+
+is essentially equivalent to the following use of `TextField`:
+
+```jsx
+<TextField value="" onChange={() => {}}>
+  <FieldLabel>Label</FieldLabel>
+  <FieldMessage>Message</FieldMessage>
+  <FieldInput />
+  <FieldErrorMessage>Error</FieldErrorMessage>
+</TextField>
+```

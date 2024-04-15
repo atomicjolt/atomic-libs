@@ -108,4 +108,6 @@ function NumberFieldDecrementButton(props: IconButtonProps) {
 }
 
 NumberField.IncrementButton = NumberFieldIncrementButton;
+NumberFieldDecrementButton.displayName = "NumberField.DecrementButton";
 NumberField.DecrementButton = NumberFieldDecrementButton;
+NumberFieldIncrementButton.displayName = "NumberField.IncrementButton";

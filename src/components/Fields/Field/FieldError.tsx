@@ -13,10 +13,10 @@ export const ErrorMessage = styled.p`
   color: var(--error-clr);
 `;
 
-export interface FieldErrorProps
+export interface FieldErrorMessageProps
   extends FieldComponentProps<HTMLAttributes<HTMLParagraphElement>> {}
 
-export function FieldErrorMessage(props: FieldErrorProps) {
+export function FieldErrorMessage(props: FieldErrorMessageProps) {
   const { as, children, className, ...rest } = props;
   const { errorMessageProps, isInvalid } = useContext(FieldErrorContext);
   if (!isInvalid) return null;

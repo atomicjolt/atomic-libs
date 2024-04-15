@@ -5,7 +5,7 @@ import { FieldLabel } from "../Field/FieldLabel";
 import { FieldMessage } from "../Field/FieldMessage";
 import { FieldInput } from "../Field/FieldInput";
 import { FieldErrorMessage } from "../Field/FieldError";
-import { Group } from "../../Atoms/Group";
+import { Group } from "../../Layout/Group";
 import { FieldStateControls } from "../../storybook";
 
 export default {

@@ -1,25 +1,6 @@
-import { FieldInputProps } from "../types";
 import { createGlobalStyle } from "styled-components";
 
-export const CommonInputControls = {
-  label: {
-    control: "text",
-    table: {
-      category: "Helper Text",
-    },
-  },
-  error: {
-    control: "text",
-    table: {
-      category: "Helper Text",
-    },
-  },
-  message: {
-    control: "text",
-    table: {
-      category: "Helper Text",
-    },
-  },
+export const FieldStateControls = {
   isDisabled: {
     control: "boolean",
     table: {
@@ -36,6 +17,33 @@ export const CommonInputControls = {
     control: "boolean",
     table: {
       category: "Field State",
+    },
+  },
+  isReadOnly: {
+    control: "boolean",
+    table: {
+      category: "Field State",
+    },
+  },
+};
+export const InputControls = {
+  ...FieldStateControls,
+  label: {
+    control: "text",
+    table: {
+      category: "Helper Text",
+    },
+  },
+  error: {
+    control: "text",
+    table: {
+      category: "Helper Text",
+    },
+  },
+  message: {
+    control: "text",
+    table: {
+      category: "Helper Text",
     },
   },
   placeholder: {
@@ -63,10 +71,6 @@ export const VariantArgType = {
   },
 };
 
-export const InputControls = {
-  ...CommonInputControls,
-};
-
 export const TextInputControls = {
   ...InputControls,
   autoFocus: {
@@ -80,12 +84,6 @@ export const TextInputControls = {
     description: "Set the initial value of an uncontrolled input",
     table: {
       category: "Common",
-    },
-  },
-  isReadOnly: {
-    control: "boolean",
-    table: {
-      category: "Field State",
     },
   },
 };

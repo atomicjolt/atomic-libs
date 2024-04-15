@@ -3,7 +3,7 @@ import { AriaNumberFieldProps } from "react-aria";
 import classNames from "classnames";
 import { AriaProps, FieldInputProps, HasVariant } from "../../../types";
 import { useVariantClass } from "../../../hooks";
-import { FieldInput, NumberField, VirtualInput } from "../../Internal/Field";
+import { FieldInput, NumberField, VirtualInput } from "../../Fields";
 import { Group } from "../../Layout/Group";
 import FloatingFieldInputWrapper from "../../Internal/FloatingFieldInputWrapper";
 import { StyledNumberField } from "../Inputs.styles";

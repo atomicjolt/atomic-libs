@@ -22,7 +22,7 @@ import {
   VirtualInput,
   FieldLabel,
   TextField,
-} from "../../../src/components/Internal/Field";
+} from "../../../src/components/Fields";
 
 export default function Aria() {
   const [value, setValue] = useState("");

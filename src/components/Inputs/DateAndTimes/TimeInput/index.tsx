@@ -10,12 +10,7 @@ import classNames from "classnames";
 import { DateSegment } from "../DateInput";
 import { TimeInputWrapper } from "./TimeInput.styles";
 import { AriaProps, FieldInputProps } from "../../../../types";
-import {
-  ErrorMessage,
-  Label,
-  Message,
-  VirtualInput,
-} from "../../../Internal/Field";
+import { ErrorMessage, Label, Message, VirtualInput } from "../../../Fields";
 
 export interface TimeInputProps<T extends TimeValue>
   extends AriaProps<AriaTimeFieldProps<T>>,

@@ -2,7 +2,7 @@ import React from "react";
 import { DOMAttributes } from "@react-types/shared";
 import cn from "classnames";
 import { HelpTextProps } from "../../types";
-import { ErrorMessage, Label, Message } from "../Internal/Field";
+import { ErrorMessage, Label, Message } from "../Fields";
 import styled from "styled-components";
 
 const FloatingLabelWrapper = styled.div`
