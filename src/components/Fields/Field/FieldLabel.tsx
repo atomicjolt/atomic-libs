@@ -1,10 +1,11 @@
 import React, { LabelHTMLAttributes, useContext } from "react";
-import { FieldLabelContext } from "./contexts";
+import { FieldLabelContext } from "../contexts";
 import { FieldComponentProps } from "../../../types";
 import styled from "styled-components";
 import mixins from "../../../styles/mixins";
 import classNames from "classnames";
 
+/** A styled label */
 export const Label = styled.label`
   ${mixins.Bold}
   display: block;

@@ -7,14 +7,14 @@ import {
   FieldStatusProps,
   HasChildren,
 } from "../../../types";
-import { Provider } from "../Provider";
+import { Provider } from "../../Internal/Provider";
 import {
   FieldErrorContext,
   FieldInputContext,
   FieldLabelContext,
   FieldMessageContext,
-} from "./contexts";
-import { StyledField } from "./Field.styles";
+} from "../contexts";
+import { StyledField } from "../Field.styles";
 import { FieldLabel } from "./FieldLabel";
 
 export interface FieldProps
@@ -24,6 +24,12 @@ export interface FieldProps
     AriaProps<AriaFieldProps>,
     DomProps {}
 
+/** Provides the accessbility implementation for a
+ * form field and its associated label, error message, and description.
+ *
+ * Note that when using `Field` you manage the staate of the input directly.
+ * You may opt to use one of the other more specific field components if they suite your needs.
+ */
 export function Field(props: FieldProps) {
   const {
     size,

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { FieldComponentProps } from "../../../types";
 import { useMultipleDomRefs } from "../../../hooks/useMultipleDomRefs";
-import { FieldInputContext } from "./contexts";
+import { FieldInputContext } from "../contexts";
 import mixins from "../../../styles/mixins";
 import styled from "styled-components";
 import classNames from "classnames";
@@ -21,6 +21,18 @@ export const TextArea = styled.textarea`
   color: var(--input-text-clr);
   background-color: var(--input-bg-clr);
   resize: none;
+
+  &[data-resize="horizontal"] {
+    resize: horizontal;
+  }
+
+  &[data-resize="vertical"] {
+    resize: vertical;
+  }
+
+  &[data-resize="both"] {
+    resize: both;
+  }
 
   &:focus {
     box-shadow: 0 0 0 1px var(--input-border-clr);

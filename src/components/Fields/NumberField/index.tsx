@@ -1,27 +1,28 @@
 import React, { useContext, useRef } from "react";
-import { FieldProps } from "./Field";
-import { AriaProps } from "../../../types";
 import { AriaNumberFieldProps, useLocale, useNumberField } from "react-aria";
-import { StyledField } from "./Field.styles";
-import { Provider } from "../Provider";
+import classNames from "classnames";
+import { useNumberFieldState } from "react-stately";
+import { FieldProps } from "../Field";
+import { AriaProps } from "../../../types";
+import { StyledField } from "../Field.styles";
+import { Provider } from "../../Internal/Provider";
 import {
   FieldErrorContext,
   FieldInputContext,
   FieldLabelContext,
   FieldMessageContext,
   NumberFieldButtonContext,
-} from "./contexts";
-import classNames from "classnames";
-import { useNumberFieldState } from "react-stately";
+} from "../contexts";
 import IconButton, { IconButtonProps } from "../../Buttons/IconButton";
 
-export interface TextFieldProps
+export interface NumberFieldProps
   extends FieldProps,
     Omit<AriaProps<AriaNumberFieldProps>, "placeholder"> {
   "data-float"?: boolean;
 }
 
-export function NumberField(props: TextFieldProps) {
+/** Provides the accessbility implementation for a number field and its associated label, error message, and description. */
+export function NumberField(props: NumberFieldProps) {
   const {
     size,
     children,
@@ -94,44 +95,16 @@ export function NumberField(props: TextFieldProps) {
   );
 }
 
-function NumberFieldIncrementButton(props: Partial<IconButtonProps>) {
-  const {
-    icon = "arrow_drop_up",
-    variant = "content",
-    size = "small",
-    ...rest
-  } = props;
+function NumberFieldIncrementButton(props: IconButtonProps) {
   const { incrementButtonProps } = useContext(NumberFieldButtonContext);
 
-  return (
-    <IconButton
-      icon={icon}
-      variant={variant}
-      size={size}
-      {...rest}
-      {...incrementButtonProps}
-    />
-  );
+  return <IconButton {...props} {...incrementButtonProps} />;
 }
 
-function NumberFieldDecrementButton(props: Partial<IconButtonProps>) {
-  const {
-    icon = "arrow_drop_down",
-    variant = "content",
-    size = "small",
-    ...rest
-  } = props;
+function NumberFieldDecrementButton(props: IconButtonProps) {
   const { decrementButtonProps } = useContext(NumberFieldButtonContext);
 
-  return (
-    <IconButton
-      icon={icon}
-      variant={variant}
-      size={size}
-      {...rest}
-      {...decrementButtonProps}
-    />
-  );
+  return <IconButton {...props} {...decrementButtonProps} />;
 }
 
 NumberField.IncrementButton = NumberFieldIncrementButton;

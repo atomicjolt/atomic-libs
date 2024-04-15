@@ -1,10 +1,11 @@
 import React, { HTMLAttributes, HtmlHTMLAttributes, useContext } from "react";
 import styled from "styled-components";
 import { FieldComponentProps } from "../../../types";
-import { FieldMessageContext } from "./contexts";
+import { FieldMessageContext } from "../contexts";
 import mixins from "../../../styles/mixins";
 import classNames from "classnames";
 
+/** A styled field message */
 export const Message = styled.p`
   ${mixins.Regular}
   font-size: 1.3rem;

@@ -1,15 +1,15 @@
-import React, { useCallback, useRef } from "react";
-import { FieldProps } from "./Field";
+import React, { useCallback, useRef, useState } from "react";
+import { FieldProps } from "../Field";
 import { AriaProps } from "../../../types";
 import { AriaTextFieldProps, useTextField } from "react-aria";
-import { StyledField } from "./Field.styles";
-import { Provider } from "../Provider";
+import { StyledField } from "../Field.styles";
+import { Provider } from "../../Internal/Provider";
 import {
   FieldErrorContext,
   FieldInputContext,
   FieldLabelContext,
   FieldMessageContext,
-} from "./contexts";
+} from "../contexts";
 import classNames from "classnames";
 
 export interface TextFieldProps
@@ -19,6 +19,10 @@ export interface TextFieldProps
   "data-resize"?: "none" | "both" | "horizontal" | "vertical";
 }
 
+/** Provides the accessbility implementation for a
+ * text field and its associated label, error message, and description.
+ *
+ * */
 export function TextField(props: TextFieldProps) {
   const {
     type,
@@ -33,7 +37,7 @@ export function TextField(props: TextFieldProps) {
     "data-resize": dataResize,
   } = props;
 
-  const [inputElementType, setInputElementType] = React.useState<
+  const [inputElementType, setInputElementType] = useState<
     "input" | "textarea" | null
   >(null);
   const inputRef = useRef<HTMLInputElement | HTMLTextAreaElement | null>(null);

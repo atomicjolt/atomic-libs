@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import { FieldInputContext } from "./contexts";
+import { FieldInputContext } from "../contexts";
 import mixins from "../../../styles/mixins";
 import { FieldComponentProps } from "../../../types";
 import classNames from "classnames";
