@@ -8,7 +8,7 @@ import { Menu } from "../Menu";
 import { ButtonVariants } from "../../Buttons/Buttons.types";
 import { cloneComponent } from "../../../clone";
 
-export type IconMenuProps<T> = Omit<AriaMenuProps<T>, "onAction"> &
+export type IconMenuProps = Omit<AriaMenuProps<IconMenuItemProps>, "onAction"> &
   MenuTriggerProps &
   BaseProps &
   CanHaveIcon &
@@ -16,15 +16,12 @@ export type IconMenuProps<T> = Omit<AriaMenuProps<T>, "onAction"> &
     isDisabled?: boolean;
     buttonVariant?: ButtonVariants;
     menuPlacement?: Placement;
-    children:
-      | React.ReactElement<IconMenuItemProps<T>>[]
-      | React.ReactElement<IconMenuItemProps<T>>;
   };
 
-export function IconMenu<T extends {}>(props: IconMenuProps<T>) {
+export function IconMenu(props: IconMenuProps) {
   const state = useMenuTriggerState(props);
   const ref = useRef<HTMLButtonElement>(null);
-  const { menuTriggerProps, menuProps } = useMenuTrigger<T>(
+  const { menuTriggerProps, menuProps } = useMenuTrigger<IconMenuItemProps>(
     { trigger: props.trigger },
     state,
     ref
@@ -65,25 +62,19 @@ export function IconMenu<T extends {}>(props: IconMenuProps<T>) {
   );
 }
 
-interface IconMenuItemProps<T> {
+interface IconMenuItemProps {
   /** Rendered contents of the item or child items. */
   children: React.ReactNode;
-  /** Rendered contents of the item if `children` contains child items. */
-  title?: React.ReactNode; // label?? contents?
   /** A string representation of the item's contents, used for features like typeahead. */
   textValue?: string;
   /** An accessibility label for this item. */
   "aria-label"?: string;
-  /** A list of child item objects. Used for dynamic collections. */
-  childItems?: Iterable<T>;
-  /** Whether this item has children, even if not loaded yet. */
-  hasChildItems?: boolean;
   /** Callback when the item is selected from the menu */
   onAction?: () => void;
 }
 
 const IconMenuItem = cloneComponent(Item, "IconMenu.Item") as <T>(
-  props: IconMenuItemProps<T>
+  props: IconMenuItemProps
 ) => JSX.Element;
 
 IconMenu.Item = IconMenuItem;
