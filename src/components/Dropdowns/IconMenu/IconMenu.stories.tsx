@@ -50,6 +50,11 @@ const meta: Meta<typeof IconMenu> = {
       control: "boolean",
       description: "Whether the menu is open by default.",
     },
+    disabledKeys: {
+      control: "multi-select",
+      options: ["item1", "item2", "item3"],
+      description: "Keys of items that should be disabled.",
+    },
   },
 };
 
@@ -105,5 +110,12 @@ export const WithIcons: Story = {
         Archive
       </IconMenu.Item>,
     ],
+  },
+};
+
+export const DisabledItems: Story = {
+  args: {
+    ...Primary.args,
+    disabledKeys: ["item2"],
   },
 };
