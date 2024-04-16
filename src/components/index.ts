@@ -118,6 +118,6 @@ export type { TimeInputProps } from "./Inputs/DateAndTimes/TimeInput";
 export type { DatePickerProps } from "./Inputs/DateAndTimes/DatePicker";
 export type { ListBoxProps } from "./Dropdowns/ListBox";
 export type { SkeletonLoaderProps } from "./Loaders/SkeletonLoader";
-export type { DevelopmentErrorModalProps } from "./Development/DevelopmentErrorModal";
+export type { DevelopmentErrorModalProps } from "./Overlays/DevelopmentErrorModal";
 export type { MultiSelectProps } from "./Dropdowns/MultiSelect";
 export type { PopoverProps } from "./Internal/Popover";
