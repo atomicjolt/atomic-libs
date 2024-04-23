@@ -1,5 +1,7 @@
+import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import Button from ".";
+import { MaterialIcon } from "../../Icons/MaterialIcon";
 
 const meta: Meta<typeof Button> = {
   title: "Buttons/Button",
@@ -148,5 +150,18 @@ export const LoadingCompleteButton: Story = {
     isLoading: true,
     loadingLabel: "Now Loading",
     loadingComplete: true,
+  },
+};
+
+export const WithIcon: Story = {
+  argTypes: {
+    children: {
+      control: false,
+    },
+  },
+  args: {
+    ...Primary.args,
+    children: [<MaterialIcon icon="add" />, "Primary"],
+    variant: "primary",
   },
 };
