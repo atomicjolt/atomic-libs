@@ -72,7 +72,7 @@
     "typescript": "^4.5.5",
     "vite": "^3.2.8",
     "vite-plugin-svgr": "^2.2.1",
-    "vitest": "^0.34.6"
+    "vitest": "^1.4.0"
   },
   "scripts": {
     "storybook:dev": "storybook dev -p 6006 ",
