@@ -40,7 +40,7 @@ export function ListBox<T extends object>(props: ListBoxProps<T>) {
   return <UnmanagedListBox {...props} state={state} />;
 }
 
-export type UnmanagedListBoxProps<T> = ListBoxProps<T> & {
+export type UnmanagedListBoxProps<T> = Omit<ListBoxProps<T>, "children"> & {
   state: ListState<T>;
 };
 
