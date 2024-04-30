@@ -14,6 +14,12 @@ export const LoadingWrapper = styled.div`
   }
 `;
 
+export const LoadingContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+`;
+
 export const LoadingMessage = styled.p`
   ${mixins.Regular}
   font-size: var(--loader-size);
