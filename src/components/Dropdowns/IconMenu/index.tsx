@@ -8,7 +8,10 @@ import { Menu } from "../Menu";
 import { ButtonVariants } from "../../Buttons/Buttons.types";
 import { cloneComponent } from "../../../clone";
 
-export type IconMenuProps = Omit<AriaMenuProps<IconMenuItemProps>, "onAction"> &
+export type IconMenuProps<T extends object> = Omit<
+  AriaMenuProps<T>,
+  "onAction"
+> &
   MenuTriggerProps &
   BaseProps &
   CanHaveIcon &
@@ -18,10 +21,10 @@ export type IconMenuProps = Omit<AriaMenuProps<IconMenuItemProps>, "onAction"> &
     menuPlacement?: Placement;
   };
 
-export function IconMenu(props: IconMenuProps) {
+export function IconMenu<T extends object>(props: IconMenuProps<T>) {
   const state = useMenuTriggerState(props);
   const ref = useRef<HTMLButtonElement>(null);
-  const { menuTriggerProps, menuProps } = useMenuTrigger<IconMenuItemProps>(
+  const { menuTriggerProps, menuProps } = useMenuTrigger<T>(
     { trigger: props.trigger },
     state,
     ref
