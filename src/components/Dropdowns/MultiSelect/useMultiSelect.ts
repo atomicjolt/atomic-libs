@@ -82,6 +82,8 @@ export function useMultiSelect<T>(
       new ListKeyboardDelegate(
         state.collection,
         state.disabledKeys,
+        // @ts-ignore
+        // TODO: I pulled this from react-aria and it doesn't type correctly
         null,
         collator
       ),

@@ -60,7 +60,9 @@ export const Select = React.forwardRef<
         <StyledSelect
           id={id}
           aria-describedby={isInvalid && error ? errorId : messageId}
-          onChange={(e) => onChange && onChange(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+            onChange?.(e.target.value)
+          }
           ref={ref}
           {...selectProps}
         >
