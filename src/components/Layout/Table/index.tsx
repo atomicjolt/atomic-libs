@@ -340,11 +340,15 @@ function TableSelectAllCell<T>(props: TableSelectAllCellProps<T>) {
  * using a function based on the data passed to the `columns` prop. */
 Table.Header = cloneComponent(TableHeader, "Table.Header");
 
-interface TableColumnProps<T> extends ColumnProps<T> {
-  /** Whether the column can be re-orderd by dragging and dropping an another re-orderable column */
+interface TableColumnProps<T> extends Omit<ColumnProps<T>, "children"> {
+  /** Whether the column can be re-orderd by dragging and dropping on another re-orderable column */
   allowsReordering?: boolean;
 
+  /** Whether the column can be searched on */
   allowsSearching?: boolean;
+
+  /** Static child columns or content to render as the column header. */
+  children?: ColumnProps<T>["children"];
 }
 
 /** A `Table.Column` represents a single column in a Table.
