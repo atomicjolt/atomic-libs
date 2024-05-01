@@ -66,3 +66,10 @@ export interface HasClassName {
 export interface DirectionProps {
   $rtl?: boolean;
 }
+
+export interface SearchDescriptor {
+  /** Column that is currently being searched on */
+  column: React.Key | null;
+  /** Search string */
+  search: string;
+}

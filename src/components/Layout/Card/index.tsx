@@ -10,7 +10,7 @@ import {
 import { BaseProps, ExtendedSize, HasChildren } from "../../../types";
 import classNames from "classnames";
 
-interface CardProps extends HasChildren, Omit<BaseProps, "size"> {}
+export interface CardProps extends HasChildren, Omit<BaseProps, "size"> {}
 
 export function Card(props: CardProps) {
   const { children, id, className } = props;
