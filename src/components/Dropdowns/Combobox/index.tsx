@@ -10,7 +10,7 @@ import {
 import classNames from "classnames";
 import { useVariantClass } from "../../../hooks";
 import IconButton from "../../Buttons/IconButton";
-import { Popover } from "../../Internal/Popover";
+import { Popover } from "../../Overlays/Popover";
 import { UnmanagedListBox } from "../ListBox";
 import { Input } from "../../Internal/Field";
 import { FloatingInputWrapper } from "../../Internal/FloatingInputWrapper";
@@ -102,19 +102,16 @@ export function ComboBox<T extends object>(props: ComboBoxProps<T>) {
           />
         </ComboboxVirtualInput>
       </FloatingInputWrapper>
-
-      {state.isOpen && (
-        <Popover
-          state={state}
-          triggerRef={inputRef}
-          ref={popoverRef}
-          isNonModal
-          placement="bottom start"
-        >
-          {/* @ts-ignore */}
-          <UnmanagedListBox {...listBoxProps} state={state} ref={listBoxRef} />
-        </Popover>
-      )}
+      <Popover
+        state={state}
+        triggerRef={inputRef}
+        ref={popoverRef}
+        isNonModal
+        placement="bottom start"
+      >
+        {/* @ts-ignore */}
+        <UnmanagedListBox {...listBoxProps} state={state} ref={listBoxRef} />
+      </Popover>
     </DropdownWrapper>
   );
 }

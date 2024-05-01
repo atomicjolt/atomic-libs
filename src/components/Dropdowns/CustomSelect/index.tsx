@@ -14,8 +14,13 @@ import { ButtonText } from "./CustomSelect.styles";
 import { FloatingInputWrapper } from "../../Internal/FloatingInputWrapper";
 import Button from "../../Buttons/Button";
 import MaterialIcon from "../../Icons/MaterialIcon";
-import { Popover } from "../../Internal/Popover";
+import { Popover } from "../../Overlays/Popover";
 import { UnmanagedListBox } from "../ListBox";
+import { PopoverContent } from "../../Overlays/Popover/Popover.styles";
+import {
+  OverlayTriggerStateContext,
+  PopoverContext,
+} from "../../Overlays/Popover/context";
 
 export type CustomSelectVariants = "default" | "floating";
 
@@ -113,18 +118,16 @@ export function CustomSelect<T extends object>(props: CustomSelectProps<T>) {
           <MaterialIcon icon="arrow_drop_down" />
         </Button>
       </FloatingInputWrapper>
-      {state.isOpen && (
-        <Popover state={state} triggerRef={ref} placement="bottom start">
-          {/* @ts-ignore */}
-          <UnmanagedListBox
-            {...menuProps}
-            state={state}
-            size={menuSize}
-            isSearchable={isSearchable}
-            searchPlaceholder={searchPlaceholder}
-          />
-        </Popover>
-      )}
+      <Popover placement="bottom start" triggerRef={ref} state={state}>
+        {/* @ts-ignore */}
+        <UnmanagedListBox
+          {...menuProps}
+          state={state}
+          size={menuSize}
+          isSearchable={isSearchable}
+          searchPlaceholder={searchPlaceholder}
+        />
+      </Popover>
     </DropdownWrapper>
   );
 }

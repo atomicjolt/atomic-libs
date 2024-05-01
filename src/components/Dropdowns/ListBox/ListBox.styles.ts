@@ -3,7 +3,6 @@ import mixins from "../../../styles/mixins";
 import { scaleAnimation } from "../../../styles/animations";
 
 export const List = styled.ul`
-  ${mixins.SizingX}
   ${scaleAnimation}
   list-style: none;
   border-radius: var(--radius);
@@ -11,6 +10,8 @@ export const List = styled.ul`
   background-color: var(--listbox-bg-clr);
   padding: 8px 0;
   z-index: 100;
+
+  min-width: var(--trigger-width, auto);
 
   // For the search input
   --input-border: none;

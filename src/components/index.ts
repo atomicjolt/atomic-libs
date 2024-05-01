@@ -17,6 +17,7 @@ export { MultiSelect } from "./Dropdowns/MultiSelect";
 export { Select } from "./Dropdowns/Select";
 export { IconMenu } from "./Dropdowns/IconMenu";
 export { Menu } from "./Dropdowns/Menu";
+export { MenuTrigger } from "./Dropdowns/Menu/MenuTrigger";
 export { ListBox, UnmanagedListBox } from "./Dropdowns/ListBox";
 
 export { CheckBox } from "./Inputs/Checkbox";
@@ -41,6 +42,7 @@ export { Modal } from "./Overlays/Modal";
 export { ConfirmationModal } from "./Overlays/ConfirmationModal";
 export { ErrorModal } from "./Overlays/ErrorModal";
 export { Dialog } from "./Overlays/Dialog";
+export { Popover } from "./Overlays/Popover";
 export {
   DevelopmentErrorModal,
   DevelopmentErrorBoundary,
@@ -62,7 +64,6 @@ export { LocaleProvider } from "./locale";
 
 // These are technically internal componnets and as such are not documented,
 // but they are exported here if you need to use them.
-export { Popover, PopoverWrapper } from "./Internal/Popover";
 export {
   Field,
   TextField,
@@ -123,7 +124,7 @@ export type { ListBoxProps } from "./Dropdowns/ListBox";
 export type { SkeletonLoaderProps } from "./Loaders/SkeletonLoader";
 export type { DevelopmentErrorModalProps } from "./Overlays/DevelopmentErrorModal";
 export type { MultiSelectProps } from "./Dropdowns/MultiSelect";
-export type { PopoverProps } from "./Internal/Popover";
+export type { PopoverProps } from "./Overlays/Popover";
 export type { TableProps } from "./Layout/Table";
 export type { TabsProps } from "./Layout/Tabs";
 export type { CardProps } from "./Layout/Card";

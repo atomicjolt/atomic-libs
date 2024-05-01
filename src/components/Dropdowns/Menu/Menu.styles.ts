@@ -2,16 +2,6 @@ import styled, { keyframes } from "styled-components";
 import mixins from "../../../styles/mixins";
 import { scaleAnimation } from "../../../styles/animations";
 
-const scale = keyframes`
-  from {
-    transform: scaleY(0.9);
-  }
-
-  to {
-    transform: scaleY(1);
-  }
-`;
-
 export const MenuList = styled.ul`
   list-style: none;
   border-radius: var(--radius);
@@ -20,6 +10,8 @@ export const MenuList = styled.ul`
   padding: 8px 0;
   z-index: 100;
   ${scaleAnimation}
+
+  min-width: var(--trigger-width, auto);
 `;
 
 export const SubMenuList = styled.ul`
