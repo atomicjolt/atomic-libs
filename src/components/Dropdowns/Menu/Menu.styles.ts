@@ -77,4 +77,13 @@ export const MenuOption = styled.li`
     --option-icon-clr: var(--text-clr-inverted);
     --option-selected-clr: var(--text-clr-inverted);
   }
+
+  &[aria-disabled] {
+    cursor: not-allowed;
+    opacity: 0.5;
+
+    &:hover {
+      background: none;
+    }
+  }
 `;

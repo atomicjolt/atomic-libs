@@ -1,6 +1,6 @@
 {
   "name": "@atomicjolt/atomic-elements",
-  "version": "2.0.1",
+  "version": "2.0.3",
   "sideEffects": false,
   "module": "dist/esm/index.js",
   "main": "dist/cjs/index.js",
@@ -54,7 +54,7 @@
     "babel-loader": "^8.2.3",
     "babel-plugin-polyfill-corejs3": "^0.5.2",
     "css-loader": "^6.6.0",
-    "gh-pages": "^4.0.0",
+    "gh-pages": "^5.0.0",
     "highlightjs-copy": "^1.0.3",
     "identity-obj-proxy": "^3.0.0",
     "jsdom": "^22.1.0",
@@ -72,7 +72,7 @@
     "typescript": "^4.5.5",
     "vite": "^3.2.8",
     "vite-plugin-svgr": "^2.2.1",
-    "vitest": "^0.34.6"
+    "vitest": "^1.4.0"
   },
   "scripts": {
     "storybook:dev": "storybook dev -p 6006 ",

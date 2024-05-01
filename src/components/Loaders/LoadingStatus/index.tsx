@@ -1,7 +1,11 @@
 import React from "react";
 import ThreeDotLoader from "../ThreeDotLoader";
 import { ErrorBanner } from "../../Banners/DismissableBanner";
-import { LoadingMessage, LoadingWrapper } from "./LoadingStatus.styles";
+import {
+  LoadingContent,
+  LoadingMessage,
+  LoadingWrapper,
+} from "./LoadingStatus.styles";
 
 export interface LoadingStatusProps {
   /** Loading status, when true, a loading animation is displayed  */
@@ -24,10 +28,10 @@ export interface LoadingStatusProps {
 const renderLoadingDefault = (isLoading: boolean, message: React.ReactNode) => {
   return (
     <LoadingWrapper className="aje-loading-status-loading">
-      <div>
-        <ThreeDotLoader isLoading={isLoading} />
+      <LoadingContent>
+        <ThreeDotLoader isLoading={isLoading} isCentered />
         {message && <LoadingMessage>{message}</LoadingMessage>}
-      </div>
+      </LoadingContent>
     </LoadingWrapper>
   );
 };
