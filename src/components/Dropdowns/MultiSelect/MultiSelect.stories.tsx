@@ -13,10 +13,10 @@ export default {
   argTypes: {
     ...InputControls,
     selectedKeys: {
-      control: "select",
+      control: "multi-select",
       description:
         "Control the value of the selected keys in a controlled component",
-      options: [["val1"], ["val2"], ["val3"], null],
+      options: ["val1", "val2", "val3"],
     },
     defaultSelectedKeys: {
       control: "false",

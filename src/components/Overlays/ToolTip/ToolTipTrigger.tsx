@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import type { DOMAttributes } from "@react-types/shared";
 import { useTooltipTriggerState } from "react-stately";
 import {
@@ -20,7 +20,8 @@ export interface ToolTipTriggerProps<P extends DOMAttributes = DOMAttributes>
 export function ToolTipTrigger<P extends DOMAttributes>(
   props: ToolTipTriggerProps<P>
 ) {
-  const state = useTooltipTriggerState(props);
+  const { delay = 0, closeDelay = 0, ...rest } = props;
+  const state = useTooltipTriggerState({ delay, closeDelay, ...rest });
   const ref = useRef<HTMLElement>(null);
   const { triggerProps, tooltipProps } = useTooltipTrigger(props, state, ref);
 

@@ -41,8 +41,8 @@ const meta: Meta<typeof ComboBox> = {
       description: "Key of the selected item for a controlled component.",
     },
     disabledKeys: {
-      control: "select",
-      options: [["1"], ["1", "2"]],
+      control: "multi-select",
+      options: ["1", "2", "3"],
       description: "Array of the disabled keys.",
     },
     menuTrigger: {

@@ -52,6 +52,7 @@ export { MaterialSymbol } from "./Icons/MaterialSymbol";
 export { Table } from "./Layout/Table";
 export { Tabs } from "./Layout/Tabs";
 export { Card } from "./Layout/Card";
+export { Group } from "./Layout/Group";
 
 export { Item, Section } from "./Collection";
 
@@ -109,8 +110,6 @@ export type { ModalProps } from "./Overlays/Modal";
 export type { ConfirmationModalProps } from "./Overlays/ConfirmationModal";
 export type { ErrorModalProps } from "./Overlays/ErrorModal";
 export type { MaterialIconProps } from "./Icons/MaterialIcon";
-export type { TableProps } from "./Layout/Table";
-export type { TabsProps } from "./Layout/Tabs";
 export type { LoadingStatusProps } from "./Loaders/LoadingStatus";
 export type {
   ToolTipProps,
@@ -137,3 +136,7 @@ export type {
   NumberFieldProps,
   VirtualInputProps,
 } from "./Fields";
+export type { TableProps } from "./Layout/Table";
+export type { TabsProps } from "./Layout/Tabs";
+export type { CardProps } from "./Layout/Card";
+export type { GroupProps } from "./Layout/Group";

@@ -44,8 +44,8 @@ export const CheckBox = React.forwardRef<HTMLInputElement, CheckBoxProps>(
         {...labelProps}
       >
         <ChooseInput
-          ref={ref}
           {...inputProps}
+          ref={internalRef}
           data-indeterminate={isIndeterminate || null}
         />
         <ChooseLabel className="aje-checkbox__label" $rtl={direction === "rtl"}>

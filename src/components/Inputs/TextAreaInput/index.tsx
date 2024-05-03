@@ -15,6 +15,8 @@ export interface TextareaProps
     AriaProps<AriaTextFieldProps> {
   /** The user is given the ability to resize the input */
   resize?: "none" | "both" | "horizontal" | "vertical";
+  rows?: number;
+  cols?: number;
 }
 
 /** Textarea Component. Accepts a `ref` */
@@ -33,6 +35,8 @@ export const TextAreaInput = React.forwardRef(function TextAreaInput(
     isInvalid,
     isRequired,
     isReadOnly,
+    rows,
+    cols,
     ...rest
   } = props;
 
@@ -49,7 +53,7 @@ export const TextAreaInput = React.forwardRef(function TextAreaInput(
     >
       {label && <FieldLabel>{label}</FieldLabel>}
       {message && <FieldMessage>{message}</FieldMessage>}
-      <FieldTextArea ref={ref} />
+      <FieldTextArea ref={ref} rows={rows} cols={cols} />
       <FieldErrorMessage>{error}</FieldErrorMessage>
     </TextAreaWrapper>
   );

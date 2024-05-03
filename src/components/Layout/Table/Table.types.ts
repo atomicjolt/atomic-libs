@@ -1,9 +1,4 @@
-export interface SearchDescriptor {
-  /** Column that is currently being searched on */
-  column: React.Key | null;
-  /** Search string */
-  search: string;
-}
+import { SearchDescriptor } from "../../../types";
 
 export interface Searchable {
   /** Object representing the current search state of the table */
