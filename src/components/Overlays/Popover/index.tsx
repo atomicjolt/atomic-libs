@@ -1,23 +1,26 @@
-import React, { useCallback, useContext, useState } from "react";
-import { DismissButton, Overlay, mergeProps, usePopover } from "react-aria";
+import React, { useCallback, useContext, useRef, useState } from "react";
+import { DismissButton, Overlay, usePopover } from "react-aria";
 import type { AriaPopoverProps } from "react-aria";
 import { type OverlayTriggerState } from "react-stately";
-import { HasClassName } from "../../../types";
 import cn from "classnames";
+import { HasClassName } from "../../../types";
 import { PopoverUnderlay, PopoverContent } from "./Popover.styles";
 import useForwardedRef from "../../../hooks/useForwardedRef";
-import { OverlayTriggerStateContext, PopoverContext } from "./context";
+import { PopoverContext } from "./context";
 import { useContextProps } from "../../../hooks/useContextProps";
 import { useResizeObserver } from "../../../hooks/useResizeObserver";
+import { OverlayTriggerStateContext } from "../OverlayTrigger/context";
 
 export interface PopoverProps
   extends Omit<AriaPopoverProps, "popoverRef" | "triggerRef">,
     HasClassName {
   children: React.ReactNode;
-  /** A ref to the element that triggers the popover to appear. Not necessary when used with `<MenuTrigger>` */
+  /** A ref to the element that triggers the popover to appear. Not necessary when used with trigger wrapper */
   triggerRef?: React.RefObject<HTMLElement>;
-  /** State that handles overlays. Not necessary when used with `<MenuTrigger>` */
+  /** State that handles overlays. Not necessary when used with a rrigger wrapper */
   state?: OverlayTriggerState;
+
+  id?: string;
 }
 
 /** A popover is an overlay element positioned relative to a target. */
@@ -62,6 +65,7 @@ export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(
         <PopoverContent
           ref={internalRef}
           className={cn("aje-popover", props.className)}
+          id={rest.id}
           {...popoverProps}
           style={{
             ...popoverProps.style,

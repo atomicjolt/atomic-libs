@@ -48,6 +48,7 @@ export function ComboBox<T extends object>(props: ComboBoxProps<T>) {
   const state = useComboBoxState({ ...props, defaultFilter: contains });
 
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const inputWrapperRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const listBoxRef = useRef<HTMLUListElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
@@ -96,7 +97,7 @@ export function ComboBox<T extends object>(props: ComboBoxProps<T>) {
         isInvalid={isInvalid}
         floating={variant === "floating"}
       >
-        <ComboboxVirtualInput inputRef={inputRef}>
+        <ComboboxVirtualInput inputRef={inputRef} ref={inputWrapperRef}>
           <Input {...inputProps} ref={inputRef} />
           <IconButton
             icon={icon}
@@ -109,12 +110,18 @@ export function ComboBox<T extends object>(props: ComboBoxProps<T>) {
       </FloatingInputWrapper>
       <Popover
         state={state}
-        triggerRef={inputRef}
+        // We pass the wrapper instead of the actual input here
+        // so that the popover can size itself based on the wrapper
+        // which visually is the entire input field
+        triggerRef={inputWrapperRef}
         ref={popoverRef}
-        isNonModal
+        // FIXME: isNonModal is technially correct, but it means
+        // the popover will not close when clicking outside of it
+        // I don't think this is the intended behavior and it doesn't happen
+        // in the docs, so I'm flipping it off for now
+        // isNonModal
         placement="bottom start"
       >
-        {/* @ts-ignore */}
         <UnmanagedListBox {...listBoxProps} state={state} ref={listBoxRef} />
       </Popover>
     </DropdownWrapper>

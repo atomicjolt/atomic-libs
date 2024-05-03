@@ -4,7 +4,7 @@ import { ListBox } from ".";
 import { Item, Section } from "../..";
 
 const meta: Meta<typeof ListBox> = {
-  title: "Dropdowns/ListBox",
+  title: "Dropdowns/Selection/ListBox",
   component: ListBox,
   argTypes: {
     children: {

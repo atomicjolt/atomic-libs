@@ -1,18 +1,15 @@
 import React, { useRef } from "react";
 import { useMenuTrigger } from "react-aria";
 import {
-  Item,
   MenuTriggerProps as AriaMenuTriggerProps,
   useMenuTriggerState,
 } from "react-stately";
 import { PressResponder } from "@react-aria/interactions";
 import { HasChildren } from "../../../types";
 import { Provider } from "../../Internal/Provider";
-import {
-  OverlayTriggerStateContext,
-  PopoverContext,
-} from "../../Overlays/Popover/context";
+import { PopoverContext } from "../../Overlays/Popover/context";
 import { MenuContext } from "./context";
+import { OverlayTriggerStateContext } from "../../Overlays/OverlayTrigger/context";
 
 interface MenuTriggerProps<T> extends AriaMenuTriggerProps, HasChildren {}
 

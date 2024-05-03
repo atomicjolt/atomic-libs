@@ -5,7 +5,7 @@ import { ComboBox } from ".";
 import { Item } from "../../Collection";
 
 const meta: Meta<typeof ComboBox> = {
-  title: "Dropdowns/Combobox",
+  title: "Dropdowns/Selection/Combobox",
   component: ComboBox,
   parameters: {
     layout: "centered",

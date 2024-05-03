@@ -41,7 +41,6 @@ type Story = StoryObj<typeof MenuTrigger>;
 
 export const Primary: Story = {
   args: {
-    isOpen: true,
     children: [
       <Button key="button">
         Open Me

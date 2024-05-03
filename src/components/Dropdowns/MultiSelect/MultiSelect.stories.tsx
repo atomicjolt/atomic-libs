@@ -5,7 +5,7 @@ import { MultiSelect } from ".";
 import { Item } from "../../Collection";
 
 export default {
-  title: "Dropdowns/MultiSelect",
+  title: "Dropdowns/Selection/MultiSelect",
   component: MultiSelect,
   parameters: {
     layout: "centered",

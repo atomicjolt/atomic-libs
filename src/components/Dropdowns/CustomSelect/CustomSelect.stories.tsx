@@ -5,7 +5,7 @@ import { CustomSelect } from ".";
 import { Item, Section } from "../../Collection";
 
 const meta: Meta<typeof CustomSelect> = {
-  title: "Dropdowns/CustomSelect",
+  title: "Dropdowns/Selection/CustomSelect",
   component: CustomSelect,
   parameters: {
     layout: "centered",

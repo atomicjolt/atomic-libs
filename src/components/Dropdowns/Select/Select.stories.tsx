@@ -4,7 +4,7 @@ import { InputControls } from "../../storybook";
 import Select from ".";
 
 const meta: Meta<typeof Select> = {
-  title: "Dropdowns/Select",
+  title: "Dropdowns/Selection/Select",
   component: Select,
   parameters: {
     layout: "centered",

@@ -19,6 +19,8 @@ export { IconMenu } from "./Dropdowns/IconMenu";
 export { Menu } from "./Dropdowns/Menu";
 export { MenuTrigger } from "./Dropdowns/Menu/MenuTrigger";
 export { ListBox, UnmanagedListBox } from "./Dropdowns/ListBox";
+export { OverlayTrigger } from "./Overlays/OverlayTrigger";
+export { Pressable } from "./Overlays/OverlayTrigger/Pressable";
 
 export { CheckBox } from "./Inputs/Checkbox";
 export { NumberInput } from "./Inputs/NumberInput";
