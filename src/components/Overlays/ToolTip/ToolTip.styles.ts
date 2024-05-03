@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const ToolTipArrow = styled.div`
   position: absolute;
-  background-color: var(--background-clr-inverted);
-  border-radius: var(--radius);
+  background-color: var(--tooltip-bg-clr);
+  border-radius: var(--tooltip-radius);
   width: 12px;
   height: 12px;
   transform: rotate(45deg);
@@ -11,10 +11,10 @@ export const ToolTipArrow = styled.div`
 `;
 
 export const ToolTipOverlay = styled.div`
-  background-color: var(--background-clr-inverted);
-  color: var(--text-clr-inverted);
-  border-radius: var(--radius);
-  padding: 8px;
+  background-color: var(--tooltip-bg-clr);
+  color: var(--tooltip-text-clr);
+  border-radius: var(--tooltip-radius);
+  padding: var(--tooltip-padding);
   font-size: 1.4rem;
   opacity: 0;
   z-index: 1000;

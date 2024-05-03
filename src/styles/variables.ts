@@ -258,5 +258,13 @@ export const CssVariables = createGlobalStyle`
   --card-panel-padding: 10px;
   --card-divider-border: 1px solid var(--neutral300);
   --card-divider-margin: 10px;
+
+  /* # ToolTip variables */
+
+  --tooltip-bg-clr: var(--background-clr-inverted);
+  --tooltip-text-clr: var(--text-clr-inverted);
+  --tooltip-radius: var(--radius);
+  --tooltip-padding: 8px;
+  --tooltip-font-size: 1.4rem;
 }
 `;

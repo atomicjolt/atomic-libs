@@ -69,6 +69,10 @@ const meta: Meta<ToolTipProps & ToolTipTriggerProps> = {
         category: "Events",
       },
     },
+    offset: {
+      control: "number",
+      description: "The offset of the tooltip from the trigger",
+    },
   },
 };
 
@@ -136,7 +140,11 @@ export const WithCustomTarget: Story = {
   ...Primary,
   args: {
     ...Primary.args,
-    target: <ToolTipTarget as="h1">Hover Me</ToolTipTarget>,
+    target: (
+      <ToolTipTarget>
+        <h1>Hover Me</h1>
+      </ToolTipTarget>
+    ),
   },
 };
 

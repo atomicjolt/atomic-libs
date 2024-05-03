@@ -7,28 +7,19 @@ import { HasChildren, HasClassName } from "../../../types";
 import classNames from "classnames";
 import { StyledToolTipTarget } from "./ToolTip.styles";
 
-export type ToolTipTargetProps<P extends DOMAttributes> = HasClassName &
-  FocusableOptions &
-  HasChildren &
-  P & {
-    as?: StyledTarget<"web">;
-  };
+export type ToolTipTargetProps = {
+  children: React.ReactElement;
+};
 
-export function ToolTipTarget<P extends DOMAttributes>(
-  props: ToolTipTargetProps<P>
-) {
-  const { className, as, children, ...rest } = props;
+export function ToolTipTarget(props: ToolTipTargetProps) {
+  const { children } = props;
+  const child = React.Children.only(children);
   const ref = useRef(null);
-  const { focusableProps } = useFocusable(rest, ref);
+  const { focusableProps } = useFocusable({}, ref);
 
-  return (
-    <StyledToolTipTarget
-      {...focusableProps}
-      as={as}
-      className={classNames(className)}
-      ref={ref}
-    >
-      {children}
-    </StyledToolTipTarget>
-  );
+  return React.cloneElement(child, {
+    ...child.props,
+    ...focusableProps,
+    ref,
+  });
 }

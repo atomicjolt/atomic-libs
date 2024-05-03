@@ -36,7 +36,7 @@ export function ToolTip(props: ToolTipProps) {
     overlayRef: ref,
     isOpen: state.isOpen,
     placement: props.placement || "top",
-    offset: props.offset,
+    offset: props.offset ?? 2,
     crossOffset: props.crossOffset,
     arrowBoundaryOffset: props.arrowBoundaryOffset,
     shouldFlip: props.shouldFlip,
