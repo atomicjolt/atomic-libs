@@ -49,7 +49,7 @@ exports[`matches snapshots > matches default variant 1`] = `
           aria-hidden="true"
           class="sc-jSFipO eeJbpe material-icons is-medium"
         >
-          arrow_drop_down
+          search
         </i>
       </button>
     </div>
@@ -96,7 +96,7 @@ exports[`matches snapshots > matches floating variant 1`] = `
             aria-hidden="true"
             class="sc-jSFipO eeJbpe material-icons is-medium"
           >
-            arrow_drop_down
+            search
           </i>
         </button>
       </div>

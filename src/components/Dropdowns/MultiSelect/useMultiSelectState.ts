@@ -27,7 +27,7 @@ export interface MultiSelectState<T>
   readonly isFocused: boolean;
 
   /** Controls which item will be auto focused when the menu opens. */
-  readonly focusStrategy: FocusStrategy | null;
+  readonly focusStrategy: FocusStrategy;
 
   /** Sets the selected keys. */
   setSelectedKeys(keys: Selection | null): void;
@@ -53,9 +53,7 @@ export function useMultiSelectState<T extends object>(
   props: MultiSelectStateOptions<T>
 ): MultiSelectState<T> {
   const triggerState = useOverlayTriggerState(props);
-  const [focusStrategy, setFocusStrategy] = useState<FocusStrategy | null>(
-    null
-  );
+  const [focusStrategy, setFocusStrategy] = useState<FocusStrategy>("first");
   const listState = useListState({
     ...props,
     selectionMode: "multiple",
@@ -85,14 +83,14 @@ export function useMultiSelectState<T extends object>(
         listState.selectionManager.setSelectedKeys(keys);
       }
     },
-    open(focusStrategy: FocusStrategy | null = null) {
+    open(focusStrategy: FocusStrategy = "first") {
       // Don't open if the collection is empty.
       if (listState.collection.size !== 0) {
         setFocusStrategy(focusStrategy);
         triggerState.open();
       }
     },
-    toggle(focusStrategy: FocusStrategy | null = null) {
+    toggle(focusStrategy: FocusStrategy = "first") {
       if (listState.collection.size !== 0) {
         setFocusStrategy(focusStrategy);
         triggerState.toggle();

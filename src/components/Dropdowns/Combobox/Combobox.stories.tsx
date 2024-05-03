@@ -66,8 +66,6 @@ export const Primary: Story = {
       <Item key="2">Option 2</Item>,
       <Item key="3">Option 3</Item>,
     ],
-    icon: "arrow_drop_down",
-    iconVariant: "default",
   },
 };
 

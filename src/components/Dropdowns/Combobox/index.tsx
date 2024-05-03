@@ -4,6 +4,7 @@ import { useComboBoxState } from "react-stately";
 import {
   AriaProps,
   CanHaveIcon,
+  ExtendedSize,
   FieldInputProps,
   HasVariant,
 } from "../../../types";
@@ -21,18 +22,22 @@ export interface ComboBoxProps<T>
   extends AriaProps<AriaComboBoxProps<T>>,
     FieldInputProps,
     CanHaveIcon,
-    HasVariant<"default" | "floating"> {}
+    HasVariant<"default" | "floating"> {
+  /** The size of the combobox dropdown. Defaults to `size` if not given */
+  menuSize?: ExtendedSize;
+}
 
 /** Combox combinds a text input field with a dropdown list of options for the user to select from */
 export function ComboBox<T extends object>(props: ComboBoxProps<T>) {
   const {
     className,
     size = "medium",
+    menuSize = size,
     isDisabled,
     isReadOnly,
     isRequired,
     isInvalid,
-    icon = "arrow_drop_down",
+    icon = "search",
     iconVariant,
     label,
     message,
@@ -42,10 +47,10 @@ export function ComboBox<T extends object>(props: ComboBoxProps<T>) {
   const { contains } = useFilter({ sensitivity: "base" });
   const state = useComboBoxState({ ...props, defaultFilter: contains });
 
-  const buttonRef = useRef(null);
-  const inputRef = useRef(null);
-  const listBoxRef = useRef(null);
-  const popoverRef = useRef(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const listBoxRef = useRef<HTMLUListElement>(null);
+  const popoverRef = useRef<HTMLDivElement>(null);
 
   const {
     buttonProps,

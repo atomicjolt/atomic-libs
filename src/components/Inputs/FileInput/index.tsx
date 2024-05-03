@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 import cn from "classnames";
 
 import { useIds } from "../../../hooks";
@@ -36,6 +36,7 @@ export const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
       className,
       placeholder,
       size = "medium",
+      id = inputId,
       ...inputProps
     } = props;
 
@@ -48,19 +49,19 @@ export const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
         size={size}
       >
         <StyledFileInput
-          id={inputId}
+          id={id}
           ref={ref}
           aria-describedby={error ? errorId : ""}
           type="file"
           disabled={isDisabled}
           required={isRequired}
-          onChange={(e) => {
+          onChange={(e: ChangeEvent<HTMLInputElement>) => {
             const file = e.target.files ? e.target.files[0] : null;
             onChange && onChange(file);
           }}
           {...inputProps}
         />
-        <FileInputLabel htmlFor={inputId}>
+        <FileInputLabel htmlFor={id}>
           <FileInputSpan>{file ? file.name : placeholder}</FileInputSpan>
           <FileInputStrong>
             {label}
