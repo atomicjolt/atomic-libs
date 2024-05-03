@@ -8,6 +8,7 @@ import Tables from "./tabs/Tables";
 import Aria from "./tabs/Aria";
 import Localization from "./tabs/Localization";
 import Overlays from "./tabs/Overlays";
+import Fields from "./tabs/Fields";
 
 function Playground() {
   const [currentTab, setCurrentTab] = useState<React.Key>("overlays");
@@ -29,6 +30,9 @@ function Playground() {
         </Item>
         <Item key="overlays" title="Overlays">
           <Overlays />
+        </Item>
+        <Item key="fields" title="Fields">
+          <Fields />
         </Item>
 
         <Item key="aria" title="Aria">
