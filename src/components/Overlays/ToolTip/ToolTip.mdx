@@ -13,6 +13,9 @@ import {
 } from "@storybook/blocks";
 
 import * as ToolTipStories from "./ToolTip.stories";
+import { Button } from "../../Buttons/Button";
+import { ToolTipTrigger } from "./ToolTipTrigger";
+import { ToolTip } from ".";
 
 <Meta of={ToolTipStories} />
 
@@ -43,4 +46,17 @@ If you need to use a custom component as the target of a tooltip, you can wrap y
 
 <Canvas of={ToolTipStories.WithCustomTarget} />
 
-<Canvas of={ToolTipStories.IconWithTooltip} />
+## Tooltip Warmup and Cooldown
+
+ToolTips have a warmup / cooldown time. If one tooltip is triggered, and then another is triggered within the cooldown time, the second tooltip will appear immediately.
+
+<div style={{ display: "flex", gap: "12px" }}>
+  <ToolTipTrigger delay={1500} closeDelay={1000}>
+    <Button>Hover me</Button>
+    <ToolTip>I come up after a delay.</ToolTip>
+  </ToolTipTrigger>
+  <ToolTipTrigger delay={1500} closeDelay={1000}>
+    <Button>Then hover me</Button>
+    <ToolTip>If you did it quickly, I appear immediately.</ToolTip>
+  </ToolTipTrigger>
+</div>

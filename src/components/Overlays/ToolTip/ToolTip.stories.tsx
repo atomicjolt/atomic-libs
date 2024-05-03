@@ -19,7 +19,6 @@ const meta: Meta<ToolTipProps & ToolTipTriggerProps> = {
     layout: "centered",
   },
   argTypes: {
-    ...PlacementArgType,
     // @ts-ignore
     size: {
       table: {

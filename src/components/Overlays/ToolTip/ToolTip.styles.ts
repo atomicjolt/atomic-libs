@@ -61,13 +61,13 @@ export const ToolTipOverlay = styled.div`
   &[data-entering] {
     opacity: 1;
     translate: var(--translateX, 0) var(--translateY, 0);
-    transition: all 300ms;
+    transition: translate 300ms, opacity 300ms;
   }
 
   &[data-exiting] {
     opacity: 0;
     translate: 0 0;
-    transition: all 300ms;
+    transition: translate 300ms, opacity 300ms;
   }
 `;
 
