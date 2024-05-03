@@ -264,7 +264,10 @@ export const CssVariables = createGlobalStyle`
   --tooltip-bg-clr: var(--background-clr-inverted);
   --tooltip-text-clr: var(--text-clr-inverted);
   --tooltip-radius: var(--radius);
-  --tooltip-padding: 8px;
-  --tooltip-font-size: 1.4rem;
+  --tooltip-arrow-radius: 2px;
+  --tooltip-padding-vert: 8px;
+  --tooltip-padding-horiz: 8px;
+  --tooltip-font-size: 1.3rem;
+  --tooltip-font-weight: normal;
 }
 `;
