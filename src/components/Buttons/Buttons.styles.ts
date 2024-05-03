@@ -116,6 +116,6 @@ export const BaseStyledButton = styled.button`
   & > i {
     color: inherit;
     font-size: var(--btn-icon-size);
-    margin-left: calc(var(--btn-padding-horiz) / -2);
+    margin-left: calc(var(--btn-padding-horiz) / -2.5);
   }
 `;
