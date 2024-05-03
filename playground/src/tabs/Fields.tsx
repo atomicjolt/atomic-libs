@@ -12,15 +12,13 @@ import {
   TextAreaInput,
   TextInput,
   TimeInput,
-} from "../elements";
-import {
   FieldErrorMessage,
   FieldMessage,
   FieldInput,
   VirtualInput,
   FieldLabel,
   TextField,
-} from "../../../src/components/Internal/Field";
+} from "../elements";
 
 export default function Fields() {
   const [value, setValue] = useState("");

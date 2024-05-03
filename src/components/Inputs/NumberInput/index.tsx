@@ -49,8 +49,16 @@ export const NumberInput = React.forwardRef(
           <VirtualInput>
             <FieldInput />
             <Group direction="column" isMerged>
-              <NumberField.IncrementButton />
-              <NumberField.DecrementButton />
+              <NumberField.IncrementButton
+                icon="arrow_drop_up"
+                variant="content"
+                size="small"
+              />
+              <NumberField.DecrementButton
+                icon="arrow_drop_down"
+                variant="content"
+                size="small"
+              />
             </Group>
           </VirtualInput>
         </FloatingFieldInputWrapper>
