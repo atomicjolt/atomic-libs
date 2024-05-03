@@ -41,6 +41,7 @@ export const Select = React.forwardRef<
     isRequired = false,
     isInvalid = false,
     className,
+    id = inputId,
     ...selectProps
   } = props;
 
@@ -52,14 +53,16 @@ export const Select = React.forwardRef<
       isRequired={isRequired}
       isDisabled={isDisabled}
     >
-      {label && <Label htmlFor={inputId}>{label}</Label>}
+      {label && <Label htmlFor={id}>{label}</Label>}
       {message && <Message id={messageId}>{message}</Message>}
 
       <SelectWrapper className="aje-input__select">
         <StyledSelect
-          id={inputId}
+          id={id}
           aria-describedby={isInvalid && error ? errorId : messageId}
-          onChange={(e) => onChange && onChange(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+            onChange?.(e.target.value)
+          }
           ref={ref}
           {...selectProps}
         >

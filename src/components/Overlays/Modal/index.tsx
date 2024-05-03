@@ -70,7 +70,7 @@ function ModalOverlay(props: ModalOverlayProps) {
       >
         <ModalWrapper
           className={classNames("aje-modal", className)}
-          onClick={(e) => e.stopPropagation()}
+          onClick={(e: React.MouseEvent<HTMLDivElement>) => e.stopPropagation()}
           ref={ref}
           {...modalProps}
         >
