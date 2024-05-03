@@ -1,8 +1,5 @@
 import React, { useRef } from "react";
-import {
-  useOverlayTrigger,
-  OverlayTriggerProps as RAOverlayTriggerProps,
-} from "react-aria";
+import { useOverlayTrigger } from "react-aria";
 import {
   OverlayTriggerProps as RSOverlayTriggerProps,
   useOverlayTriggerState,
@@ -12,20 +9,27 @@ import { PopoverContext } from "../Popover/context";
 import { Provider } from "../../Internal/Provider";
 import { HasChildren } from "../../../types";
 import { OverlayTriggerStateContext } from "./context";
+import { ModalContext } from "../Modal/context";
 
 export interface OverlayTriggerProps
   extends RSOverlayTriggerProps,
-    RAOverlayTriggerProps,
-    HasChildren {}
+    HasChildren {
+  type?: "dialog" | "menu" | "listbox" | "tree" | "grid";
+}
 
 /**
- * Overlay trigger wraps a trigger target & a popover element.
- * When the target is clicked, the overlay will be opened
+ * OverlayTrigger wraps a trigger target & a overlay element.
+ * When the target is clicked, the overlay will be opened.
  * */
 export function OverlayTrigger(props: OverlayTriggerProps) {
   const state = useOverlayTriggerState(props);
   const ref = useRef<HTMLElement>(null);
-  const { overlayProps, triggerProps } = useOverlayTrigger(props, state, ref);
+  const { type = "dialog" } = props;
+  const { overlayProps, triggerProps } = useOverlayTrigger(
+    { type },
+    state,
+    ref
+  );
 
   return (
     <Provider
@@ -34,6 +38,13 @@ export function OverlayTrigger(props: OverlayTriggerProps) {
         [
           PopoverContext.Provider,
           { triggerRef: ref, isOpen: state.isOpen, ...overlayProps },
+        ],
+        [
+          ModalContext.Provider,
+          {
+            triggerRef: ref,
+            ...overlayProps,
+          },
         ],
       ]}
     >

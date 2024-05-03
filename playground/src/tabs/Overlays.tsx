@@ -11,6 +11,8 @@ import {
   Popover,
   OverlayTrigger,
   Pressable,
+  Modal,
+  IconButton,
 } from "../elements";
 
 export default function Overlays() {
@@ -67,6 +69,25 @@ export default function Overlays() {
             Hi There
           </div>
         </Popover>
+      </OverlayTrigger>
+
+      <br />
+
+      <OverlayTrigger>
+        <Button>Open Modal</Button>
+        <Modal>
+          {(close) => (
+            <>
+              <Modal.Header>
+                <Modal.Title>Modal Title</Modal.Title>
+                <IconButton icon="close" onPress={close} />
+              </Modal.Header>
+              <Modal.Body>
+                <p>Modal Body</p>
+              </Modal.Body>
+            </>
+          )}
+        </Modal>
       </OverlayTrigger>
     </div>
   );
