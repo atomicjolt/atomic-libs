@@ -17,6 +17,7 @@ import { Input } from "../../Internal/Field";
 import { FloatingInputWrapper } from "../../Internal/FloatingInputWrapper";
 import { DropdownWrapper } from "../Dropdowns.styles";
 import { ComboboxVirtualInput } from "./Combobox.styles";
+import { OverlayTriggerStateContext } from "../../Overlays/OverlayTrigger/context";
 
 export interface ComboBoxProps<T>
   extends AriaProps<AriaComboBoxProps<T>>,
@@ -108,22 +109,23 @@ export function ComboBox<T extends object>(props: ComboBoxProps<T>) {
           />
         </ComboboxVirtualInput>
       </FloatingInputWrapper>
-      <Popover
-        state={state}
-        // We pass the wrapper instead of the actual input here
-        // so that the popover can size itself based on the wrapper
-        // which visually is the entire input field
-        triggerRef={inputWrapperRef}
-        ref={popoverRef}
-        // FIXME: isNonModal is technially correct, but it means
-        // the popover will not close when clicking outside of it
-        // I don't think this is the intended behavior and it doesn't happen
-        // in the docs, so I'm flipping it off for now
-        // isNonModal
-        placement="bottom start"
-      >
-        <UnmanagedListBox {...listBoxProps} state={state} ref={listBoxRef} />
-      </Popover>
+      <OverlayTriggerStateContext.Provider value={state}>
+        <Popover
+          // We pass the wrapper instead of the actual input here
+          // so that the popover can size itself based on the wrapper
+          // which visually is the entire input field
+          triggerRef={inputWrapperRef}
+          ref={popoverRef}
+          // FIXME: isNonModal is technially correct, but it means
+          // the popover will not close when clicking outside of it
+          // I don't think this is the intended behavior and it doesn't happen
+          // in the docs, so I'm flipping it off for now
+          // isNonModal
+          placement="bottom start"
+        >
+          <UnmanagedListBox {...listBoxProps} state={state} ref={listBoxRef} />
+        </Popover>
+      </OverlayTriggerStateContext.Provider>
     </DropdownWrapper>
   );
 }

@@ -19,6 +19,18 @@ export default {
         "The distance in pixels between the popover and the target element.",
       defaultValue: 4,
     },
+    isOpen: {
+      control: "boolean",
+      description:
+        "Whether the popover is open or not. Not needed when paired with a Trigger Wrapper",
+      defaultValue: false,
+    },
+    defaultOpen: {
+      control: "boolean",
+      description:
+        "Whether the popover is open by default. Not needed when paired with a Trigger Wrapper",
+      defaultValue: false,
+    },
     ...PlacementArgType,
   },
 } as Meta<typeof Popover>;

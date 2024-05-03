@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import {
   Button,
   ComboBox,
@@ -16,24 +16,14 @@ import {
 } from "../elements";
 
 export default function Overlays() {
+  const ref = useRef<HTMLButtonElement>(null);
+  const [isOpen, setIsOpen] = useState(false);
+  console.log(ref);
+
   return (
     <div>
-      <MenuTrigger>
-        <Button>
-          Open Menu
-          <MaterialIcon icon="arrow_drop_down" />
-        </Button>
-        <Popover placement="bottom left">
-          <Menu>
-            <Menu.Item>Item 1</Menu.Item>
-            <Menu.Item>Item 2</Menu.Item>
-            <Menu.Item>Item 3</Menu.Item>
-          </Menu>
-        </Popover>
-      </MenuTrigger>
-
-      <br />
-
+      <hr />
+      <h2> Components that user overlays internally</h2>
       <IconMenu>
         <IconMenu.Item onAction={() => alert("hi")}>Item 1</IconMenu.Item>
         <IconMenu.Item>Item 2</IconMenu.Item>
@@ -53,10 +43,12 @@ export default function Overlays() {
         <Item key="string">Item 1</Item>
       </ComboBox>
 
+      <hr />
+
+      <h2>Popover Management</h2>
+
       <OverlayTrigger type="dialog">
-        <Pressable>
-          <button>Open Popover</button>
-        </Pressable>
+        <Button>OverlayTrigger</Button>
         <Popover>
           <div
             style={{
@@ -73,6 +65,62 @@ export default function Overlays() {
 
       <br />
 
+      <OverlayTrigger type="dialog">
+        <Pressable>
+          <button>Custom Element OverlayTrigger</button>
+        </Pressable>
+        <Popover>
+          <div
+            style={{
+              backgroundColor: "var(--background-clr-inverted",
+              color: "var(--text-clr-inverted)",
+              width: "var(--trigger-width)",
+              fontSize: "20px",
+            }}
+          >
+            Hi There
+          </div>
+        </Popover>
+      </OverlayTrigger>
+
+      <div>
+        <button ref={ref} onClick={() => setIsOpen(!isOpen)}>
+          Manually Managed Popover
+        </button>
+        <Popover isOpen={isOpen} triggerRef={ref}>
+          <div
+            style={{
+              backgroundColor: "var(--background-clr-inverted",
+              color: "var(--text-clr-inverted)",
+              width: "var(--trigger-width)",
+              fontSize: "20px",
+            }}
+          >
+            Hi There
+          </div>
+        </Popover>
+      </div>
+
+      <hr />
+
+      <h2>MenuTrigger</h2>
+      <MenuTrigger>
+        <Button>
+          Open Menu
+          <MaterialIcon icon="arrow_drop_down" />
+        </Button>
+        <Popover placement="bottom left">
+          <Menu>
+            <Menu.Item>Item 1</Menu.Item>
+            <Menu.Item>Item 2</Menu.Item>
+            <Menu.Item>Item 3</Menu.Item>
+          </Menu>
+        </Popover>
+      </MenuTrigger>
+
+      <hr />
+
+      <h2>OverlayTrigger + Modal</h2>
       <OverlayTrigger>
         <Button>Open Modal</Button>
         <Modal>
