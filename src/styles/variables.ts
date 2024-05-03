@@ -124,7 +124,8 @@ export const CssVariables = createGlobalStyle`
   --btn-border: none;
   --btn-border-radius: var(--radius);
   --btn-height: 40px;
-  --btn-padding: 0.5em;
+  --btn-padding-vert: 0.25em;
+  --btn-padding-horiz: 1em;
 
   /* # Banner Variables */
   --banner-bg-clr: var(--neutral100);
