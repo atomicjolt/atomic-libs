@@ -56,7 +56,7 @@ export { Group } from "./Layout/Group";
 
 export { Item, Section } from "./Collection";
 
-export { ToolTip } from "./Overlays/ToolTip";
+export { ToolTipTrigger, ToolTip, ToolTipTarget } from "./Overlays/ToolTip";
 
 export { LocaleProvider } from "./locale";
 
@@ -110,7 +110,11 @@ export type { ConfirmationModalProps } from "./Overlays/ConfirmationModal";
 export type { ErrorModalProps } from "./Overlays/ErrorModal";
 export type { MaterialIconProps } from "./Icons/MaterialIcon";
 export type { LoadingStatusProps } from "./Loaders/LoadingStatus";
-export type { ToolTipProps } from "./Overlays/ToolTip";
+export type {
+  ToolTipProps,
+  ToolTipTargetProps,
+  ToolTipTriggerProps,
+} from "./Overlays/ToolTip";
 export type { CalendarProps } from "./Inputs/DateAndTimes/Calendar";
 export type { DateInputProps } from "./Inputs/DateAndTimes/DateInput";
 export type { TimeInputProps } from "./Inputs/DateAndTimes/TimeInput";

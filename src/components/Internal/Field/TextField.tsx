@@ -3,7 +3,7 @@ import { FieldProps } from "./Field";
 import { AriaProps } from "../../../types";
 import { AriaTextFieldProps, useTextField } from "react-aria";
 import { StyledField } from "./Field.styles";
-import { Provider } from "./Provider";
+import { Provider } from "../Provider";
 import {
   FieldErrorContext,
   FieldInputContext,

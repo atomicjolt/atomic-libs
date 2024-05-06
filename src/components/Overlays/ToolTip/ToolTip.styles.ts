@@ -1,17 +1,74 @@
 import styled from "styled-components";
 
-export const TooltipWrapper = styled.span`
-  position: relative;
+export const ToolTipArrow = styled.div`
+  position: absolute;
+  background-color: var(--tooltip-bg-clr);
+  border-radius: var(--tooltip-arrow-radius, 2px);
+  width: 12px;
+  height: 12px;
+  rotate: 45deg;
+  z-index: 999;
 `;
 
-export const StyledToolTipBox = styled.span`
-  position: absolute;
-  left: 5px;
-  top: 100%;
-  max-width: 150px;
-  margin-top: 10px;
-  background-color: white;
-  color: black;
-  padding: 5px;
-  border: 1px solid gray;
+export const ToolTipOverlay = styled.div`
+  background-color: var(--tooltip-bg-clr);
+  color: var(--tooltip-text-clr);
+  border-radius: var(--tooltip-radius, 5px);
+  padding: var(--tooltip-padding-vert, 8px) var(--tooltip-padding-horiz, 8px);
+  font-size: var(--tooltip-font-size, 1.3rem);
+  font-weight: var(--tooltip-font-weight, normal);
+  line-height: 1.4;
+  max-width: 300px;
+  opacity: 0;
+  z-index: 1000;
+
+  &[data-placement="top"] {
+    --translateY: -4px;
+
+    ${ToolTipArrow} {
+      translate: -50% 0;
+      bottom: -4px;
+    }
+  }
+
+  &[data-placement="bottom"] {
+    --translateY: 4px;
+
+    ${ToolTipArrow} {
+      translate: -50% 0;
+      top: -4px;
+    }
+  }
+
+  &[data-placement="left"] {
+    --translateX: -4px;
+
+    ${ToolTipArrow} {
+      translate: 0 -50%;
+      right: -4px;
+    }
+  }
+
+  &[data-placement="right"] {
+    --translateX: 4px;
+
+    ${ToolTipArrow} {
+      translate: 0 -50%;
+      left: -4px;
+    }
+  }
+
+  &[data-entering] {
+    opacity: 1;
+    translate: var(--translateX, 0) var(--translateY, 0);
+    transition: translate 300ms, opacity 300ms;
+  }
+
+  &[data-exiting] {
+    opacity: 0;
+    translate: 0 0;
+    transition: translate 300ms, opacity 300ms;
+  }
 `;
+
+export const StyledToolTipTarget = styled.span``;
