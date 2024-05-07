@@ -22,6 +22,7 @@ const meta: Meta<typeof Button> = {
       options: [
         "primary",
         "secondary",
+        "link",
         "error",
         "success",
         "inverted",
@@ -106,6 +107,14 @@ export const Secondary: Story = {
     ...Primary.args,
     children: "Secondary",
     variant: "secondary",
+  },
+};
+
+export const Link: Story = {
+  args: {
+    ...Primary.args,
+    children: "Link",
+    variant: "link",
   },
 };
 

@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import mixins from "../../styles/mixins";
+import styled from "styled-components"
+import mixins from "../../styles/mixins"
 
 export const BaseStyledButton = styled.button`
   ${mixins.Bold}
@@ -63,6 +63,14 @@ export const BaseStyledButton = styled.button`
     --btn-border: var(--border);
   }
 
+  &.aje-btn--link {
+    --btn-text-clr: var(--primary700);
+    --btn-bg-clr: var(--neutral50);
+    --btn-hover-text-clr: var(--text-clr);
+    --btn-hover-bg-clr: var(--neutral100);
+    text-decoration: underline;
+  }
+
   &.aje-btn--error {
     --btn-text-clr: var(--text-clr-inverted);
     --btn-bg-clr: var(--error700);
@@ -118,4 +126,4 @@ export const BaseStyledButton = styled.button`
     font-size: var(--btn-icon-size);
     margin-left: calc(var(--btn-padding-horiz) / -2.5);
   }
-`;
+`
