@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import Table from ".";
-import { SearchDescriptor } from "./Table.types";
+import { SearchDescriptor } from "../../../types";
 
 const meta: Meta<typeof Table> = {
   title: "Layouts/Table",

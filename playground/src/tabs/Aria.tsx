@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {
   Button,
   CheckBox,
+  ChipGroup,
   ComboBox,
   CustomSelect,
   DateInput,
@@ -28,16 +29,19 @@ import {
 export default function Aria() {
   return (
     <div>
-      <ToolTipTrigger delay={1500}>
-        <Button>Hover Me</Button>
-        <ToolTip placement="right">Test Content</ToolTip>
-      </ToolTipTrigger>
-      <br />
-      <br />
-      <ToolTipTrigger delay={1500}>
-        <Button>Hover Me</Button>
-        <ToolTip placement="right">Test Content</ToolTip>
-      </ToolTipTrigger>
+      <ChipGroup
+        onRemove={(key) => console.log(key)}
+        label="Label"
+        message="message"
+        error="error"
+        disabledKeys={["shopping"]}
+        selectionMode="multiple"
+      >
+        <Item key="news">News</Item>
+        <Item key="travel">Travel</Item>
+        <Item key="gaming">Gaming</Item>
+        <Item key="shopping">Shopping</Item>
+      </ChipGroup>
     </div>
   );
 }
