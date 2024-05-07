@@ -1,8 +1,30 @@
-import styled from "styled-components"
-import mixins from "../../styles/mixins"
-import { FieldWrapper } from "../Internal/FieldWrapper"
+import styled from "styled-components";
+import mixins from "../../styles/mixins";
+import { FieldWrapper } from "../Internal/FieldWrapper";
 
-export const ChipCell = styled.div`
+export const ChipGroupWrapper = styled(FieldWrapper)`
+  ${mixins.FieldStatus}
+  ${mixins.SizingX}
+
+  --size-sm-x: 20rem;
+  --size-md-x: 30rem;
+  --size-lg-x: 40rem;
+  --size-full-x: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+`;
+
+export const ChipsWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0;
+`;
+
+export const ChipContent = styled.div`
   ${mixins.Regular}
   min-height: 2.2rem;
   padding: 0.3rem 0.6rem;
@@ -43,28 +65,9 @@ export const ChipCell = styled.div`
       }
     }
   }
-`
+`;
 
-export const ChipGroupWrapper = styled(FieldWrapper)`
-  ${mixins.FieldStatus}
-  ${mixins.SizingX}
-
-  --size-sm-x: 20rem;
-  --size-md-x: 30rem;
-  --size-lg-x: 40rem;
-  --size-full-x: 100%;
-`
-
-export const StyledChipGroup = styled.div`
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  padding: 0.8rem 0;
-  margin: 0;
-`
-
-export const ChipRow = styled.div`
+export const ChipWrapper = styled.div`
   display: inline-block;
   background-color: var(--chip-bg-clr);
   color: var(--chip-text-clr);
@@ -104,10 +107,10 @@ export const ChipRow = styled.div`
   &[aria-disabled] {
     opacity: 0.5;
 
-    ${ChipCell} button::hover {
+    ${ChipContent} button::hover {
       &::before {
         background-color: var(--neutral100);
       }
     }
   }
-`
+`;

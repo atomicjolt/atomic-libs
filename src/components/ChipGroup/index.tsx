@@ -7,9 +7,9 @@ import { AriaProps, FieldInputProps, HasClassName } from "../../types";
 import { ErrorMessage, Label, Message } from "../Internal/Field";
 import IconButton from "../Buttons/IconButton";
 import {
-  ChipRow,
-  ChipCell,
-  StyledChipGroup,
+  ChipWrapper,
+  ChipContent,
+  ChipsWrapper,
   ChipGroupWrapper,
 } from "./ChipGroup.styles";
 import classNames from "classnames";
@@ -18,7 +18,11 @@ import { Item } from "../Collection";
 
 interface ChipGroupProps<T extends object>
   extends AriaProps<AriaTagGroupProps<T>>,
-    Omit<FieldInputProps, "isReadOnly"> {}
+    Omit<FieldInputProps, "isReadOnly"> {
+  /** Whether the label is placed above the
+   * group, or inline with the chips */
+  labelPlacement: "above" | "inline";
+}
 
 /** Collection Component for displaying a group of chips.
  * Chips can be selected and removed by the user.
@@ -32,6 +36,7 @@ export function ChipGroup<T extends object>(props: ChipGroupProps<T>) {
     isDisabled,
     isRequired,
     className,
+    labelPlacement = "above",
     size = "full",
   } = props;
 
@@ -49,12 +54,21 @@ export function ChipGroup<T extends object>(props: ChipGroupProps<T>) {
       isRequired={isRequired}
       size={size}
     >
-      <Label {...labelProps}>{label}</Label>
-      <StyledChipGroup {...gridProps} ref={ref}>
+      {labelPlacement === "above" && label && (
+        <Label {...labelProps} $paddingBottom="0px">
+          {label}
+        </Label>
+      )}
+      <ChipsWrapper {...gridProps} ref={ref}>
+        {labelPlacement === "inline" && label && (
+          <Label {...labelProps} $paddingBottom="0px">
+            {label}
+          </Label>
+        )}
         {[...state.collection].map((item) => (
           <ChipInternal key={item.key} item={item} state={state} />
         ))}
-      </StyledChipGroup>
+      </ChipsWrapper>
       {message && <Message {...descriptionProps}>{message}</Message>}
       {isInvalid && error && (
         <ErrorMessage {...errorMessageProps}>{error}</ErrorMessage>
@@ -81,14 +95,14 @@ function ChipInternal<T>(props: ChipInternalProps<T>) {
   );
 
   return (
-    <ChipRow
+    <ChipWrapper
       className={classNames("aj-chip", item.props.className)}
       ref={ref}
       {...rowProps}
       {...focusProps}
       data-focus-visible={isFocusVisible}
     >
-      <ChipCell {...gridCellProps}>
+      <ChipContent {...gridCellProps}>
         {item.rendered}
         {allowsRemoving && (
           <IconButton
@@ -99,8 +113,8 @@ function ChipInternal<T>(props: ChipInternalProps<T>) {
             {...removeButtonProps}
           />
         )}
-      </ChipCell>
-    </ChipRow>
+      </ChipContent>
+    </ChipWrapper>
   );
 }
 
@@ -111,9 +125,9 @@ export function Chip<T>(props: ChipProps<T>) {
   const { className, ...rest } = props;
 
   return (
-    <ChipRow className={classNames("aj-chip", className)} {...rest}>
-      <ChipCell>{props.children}</ChipCell>
-    </ChipRow>
+    <ChipWrapper className={classNames("aj-chip", className)} {...rest}>
+      <ChipContent>{props.children}</ChipContent>
+    </ChipWrapper>
   );
 }
 
