@@ -1,12 +1,14 @@
-import styled from "styled-components";
-import mixins from "../../styles/mixins";
-import { FieldWrapper } from "../Internal/FieldWrapper";
+import styled from "styled-components"
+import mixins from "../../styles/mixins"
+import { FieldWrapper } from "../Internal/FieldWrapper"
 
 export const ChipCell = styled.div`
   ${mixins.Regular}
-  min-height: 2.4rem;
-  padding: 0.4rem 0.6rem;
-  font-size: 1.3rem;
+  min-height: 2.2rem;
+  padding: 0.3rem 0.6rem;
+  line-height: 1;
+  font-size: 1.2rem;
+  font-weight: var(--font-weight-bold);
   display: flex;
   align-items: center;
   gap: 0.6rem;
@@ -19,6 +21,7 @@ export const ChipCell = styled.div`
     border: none;
     position: relative;
     isolation: isolate;
+    margin-right: -3px;
 
     i {
       color: var(--chip-text-clr);
@@ -27,7 +30,7 @@ export const ChipCell = styled.div`
     &::before {
       content: "";
       position: absolute;
-      inset: -4px;
+      inset: -3px;
       border-radius: var(--chip-radius);
       background-color: var(--chip-bg-color);
       z-index: -1;
@@ -40,7 +43,7 @@ export const ChipCell = styled.div`
       }
     }
   }
-`;
+`
 
 export const ChipGroupWrapper = styled(FieldWrapper)`
   ${mixins.FieldStatus}
@@ -50,7 +53,7 @@ export const ChipGroupWrapper = styled(FieldWrapper)`
   --size-md-x: 30rem;
   --size-lg-x: 40rem;
   --size-full-x: 100%;
-`;
+`
 
 export const StyledChipGroup = styled.div`
   display: flex;
@@ -59,13 +62,18 @@ export const StyledChipGroup = styled.div`
   gap: 0.4rem;
   padding: 0.8rem 0;
   margin: 0;
-`;
+`
 
 export const ChipRow = styled.div`
   display: inline-block;
   background-color: var(--chip-bg-clr);
   color: var(--chip-text-clr);
   border-radius: var(--chip-radius);
+
+  &[aria-selected]:hover {
+    cursor: pointer;
+    --chip-bg-clr: var(--chip-hover-bg-clr);
+  }
 
   /* For some reason, when you click the remove button on a
     chip, the focus moves to the last keyboard-focused element.
@@ -87,6 +95,10 @@ export const ChipRow = styled.div`
   &[aria-selected="true"] {
     --chip-bg-clr: var(--chip-selected-bg-clr);
     --chip-text-clr: var(--chip-selected-text-clr);
+
+    &:hover {
+      --chip-hover-bg-clr: var(--chip-selected-hover-bg-clr);
+    }
   }
 
   &[aria-disabled] {
@@ -98,4 +110,4 @@ export const ChipRow = styled.div`
       }
     }
   }
-`;
+`
