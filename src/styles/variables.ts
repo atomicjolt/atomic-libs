@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "styled-components"
 
 export const CssVariables = createGlobalStyle`
 :root {
@@ -270,5 +270,16 @@ export const CssVariables = createGlobalStyle`
   --tooltip-padding-horiz: 8px;
   --tooltip-font-size: 1.3rem;
   --tooltip-font-weight: normal;
+
+  /* # ChipGroup variables */
+
+  --chip-bg-clr: var(--neutral100);
+  --chip-text-clr: var(--text-clr-alt);
+  --chip-radius: var(--radius);
+  --chip-hover-bg-clr: var(--neutral200);
+  --chip-selected-bg-clr: var(--accent-clr);
+  --chip-selected-hover-bg-clr: var(--primary800);
+  --chip-selected-text-clr: var(--text-clr-inverted);
+  --chip-btn-hover-bg-clr: var(--neutral200);
 }
-`;
+`
