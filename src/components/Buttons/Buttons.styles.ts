@@ -63,6 +63,14 @@ export const BaseStyledButton = styled.button`
     --btn-border: var(--border);
   }
 
+  &.aje-btn--link {
+    --btn-text-clr: var(--primary700);
+    --btn-bg-clr: var(--neutral50);
+    --btn-hover-text-clr: var(--text-clr);
+    --btn-hover-bg-clr: var(--neutral100);
+    text-decoration: underline;
+  }
+
   &.aje-btn--error {
     --btn-text-clr: var(--text-clr-inverted);
     --btn-bg-clr: var(--error700);
