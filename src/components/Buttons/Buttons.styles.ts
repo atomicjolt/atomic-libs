@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import mixins from "../../styles/mixins"
+import styled from "styled-components";
+import mixins from "../../styles/mixins";
 
 export const BaseStyledButton = styled.button`
   ${mixins.Bold}
@@ -126,4 +126,4 @@ export const BaseStyledButton = styled.button`
     font-size: var(--btn-icon-size);
     margin-left: calc(var(--btn-padding-horiz) / -2.5);
   }
-`
+`;

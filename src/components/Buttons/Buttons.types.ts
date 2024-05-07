@@ -1,4 +1,4 @@
-import { SuggestStrings } from "../../types"
+import { SuggestStrings } from "../../types";
 
 export type ButtonVariants = SuggestStrings<
   | "primary"
@@ -10,4 +10,4 @@ export type ButtonVariants = SuggestStrings<
   | "content"
   | "border"
   | "ghost"
->
+>;
