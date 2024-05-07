@@ -62,6 +62,7 @@ export const StyledChipGroup = styled.div`
 `;
 
 export const ChipRow = styled.div`
+  display: inline-block;
   background-color: var(--chip-bg-clr);
   color: var(--chip-text-clr);
   border-radius: var(--chip-radius);

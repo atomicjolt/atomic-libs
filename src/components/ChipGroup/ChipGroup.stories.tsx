@@ -1,6 +1,6 @@
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
-import { ChipGroup } from ".";
+import { ChipGroup, Chip } from ".";
 import {
   InputControls,
   MultiSelectItemChildren,
@@ -35,7 +35,12 @@ type Story = StoryObj<typeof ChipGroup>;
 export const Primary: Story = {
   args: {
     label: "Chip Group",
-    children: MultiSelectItemChildren,
+    children: [
+      <Chip key="news">News</Chip>,
+      <Chip key="travel">Travel</Chip>,
+      <Chip key="gaming">Gaming</Chip>,
+      <Chip key="shopping">Shopping</Chip>,
+    ],
   },
 };
 

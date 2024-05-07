@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
-import type { ListState } from "react-stately";
+import type { ItemProps, ListState } from "react-stately";
 import type { AriaTagGroupProps, AriaTagProps } from "react-aria";
 import { useListState } from "react-stately";
 import { useFocusRing, useTag, useTagGroup } from "react-aria";
-import { AriaProps, FieldInputProps } from "../../types";
+import { AriaProps, FieldInputProps, HasClassName } from "../../types";
 import { ErrorMessage, Label, Message } from "../Internal/Field";
 import IconButton from "../Buttons/IconButton";
 import {
@@ -13,6 +13,8 @@ import {
   ChipGroupWrapper,
 } from "./ChipGroup.styles";
 import classNames from "classnames";
+import { copyStaticProperties } from "../../clone";
+import { Item } from "../Collection";
 
 interface ChipGroupProps<T extends object>
   extends AriaProps<AriaTagGroupProps<T>>,
@@ -32,6 +34,7 @@ export function ChipGroup<T extends object>(props: ChipGroupProps<T>) {
     className,
     size = "full",
   } = props;
+
   const ref = useRef(null);
 
   const state = useListState(props);
@@ -49,7 +52,7 @@ export function ChipGroup<T extends object>(props: ChipGroupProps<T>) {
       <Label {...labelProps}>{label}</Label>
       <StyledChipGroup {...gridProps} ref={ref}>
         {[...state.collection].map((item) => (
-          <Chip key={item.key} item={item} state={state} />
+          <ChipInternal key={item.key} item={item} state={state} />
         ))}
       </StyledChipGroup>
       {message && <Message {...descriptionProps}>{message}</Message>}
@@ -60,11 +63,14 @@ export function ChipGroup<T extends object>(props: ChipGroupProps<T>) {
   );
 }
 
-interface ChipProps<T> extends AriaTagProps<T> {
+// NOTE: when Chip is rendered standalone, it renders the actual Chip component
+// When rendered within a ChipGroup, it actually renders the ChipInternal component
+
+interface ChipInternalProps<T> extends AriaTagProps<T> {
   state: ListState<T>;
 }
 
-function Chip<T>(props: ChipProps<T>) {
+function ChipInternal<T>(props: ChipInternalProps<T>) {
   const { item, state } = props;
   const ref = useRef(null);
   const { focusProps, isFocusVisible } = useFocusRing({ within: true });
@@ -76,11 +82,10 @@ function Chip<T>(props: ChipProps<T>) {
 
   return (
     <ChipRow
-      className={classNames("aj-chip-row", item.props.className)}
+      className={classNames("aj-chip", item.props.className)}
       ref={ref}
       {...rowProps}
       {...focusProps}
-      aria-disabled={rowProps["aria-disabled"]}
       data-focus-visible={isFocusVisible}
     >
       <ChipCell {...gridCellProps}>
@@ -98,3 +103,18 @@ function Chip<T>(props: ChipProps<T>) {
     </ChipRow>
   );
 }
+
+interface ChipProps<T> extends Omit<ItemProps<T>, "title">, HasClassName {}
+
+/** Chip component can be used either within a `<ChipGroup />` or standalone */
+export function Chip<T>(props: ChipProps<T>) {
+  const { className, ...rest } = props;
+
+  return (
+    <ChipRow className={classNames("aj-chip", className)} {...rest}>
+      <ChipCell>{props.children}</ChipCell>
+    </ChipRow>
+  );
+}
+
+copyStaticProperties(Item, Chip);

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {
   Button,
   CheckBox,
+  Chip,
   ChipGroup,
   ComboBox,
   CustomSelect,
@@ -27,6 +28,12 @@ import {
 } from "../../../src/components/Internal/Field";
 
 export default function Aria() {
+  const chips = [
+    { key: "news", text: "News" },
+    { key: "travel", text: "Travel" },
+    { key: "gaming", text: "Gaming" },
+    { key: "shopping", text: "Shopping" },
+  ];
   return (
     <div>
       <ChipGroup
@@ -37,11 +44,12 @@ export default function Aria() {
         disabledKeys={["shopping"]}
         selectionMode="multiple"
       >
-        <Item key="news">News</Item>
-        <Item key="travel">Travel</Item>
-        <Item key="gaming">Gaming</Item>
-        <Item key="shopping">Shopping</Item>
+        <Chip key="news">News</Chip>
+        <Chip key="travel">Travel</Chip>
+        <Chip key="gaming">Gaming</Chip>
+        <Chip key="shopping">Shopping</Chip>
       </ChipGroup>
+      <Chip>Test Chip</Chip>
     </div>
   );
 }
