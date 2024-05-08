@@ -8,6 +8,7 @@ import { StyledIconButton } from "./IconButton.styles";
 import { useButton } from "react-aria";
 import useForwardedRef from "../../../hooks/useForwardedRef";
 import { ButtonProps } from "../Button";
+import { useFocusRing } from "../../../hooks/useFocusRing";
 
 export type IconButtonProps = Omit<ButtonProps, "children"> & HasIcon;
 
@@ -35,6 +36,8 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
     );
     const variantClass = useVariantClass("aje-btn", variant);
 
+    const { focusProps } = useFocusRing();
+
     return (
       <StyledIconButton
         className={cn("aje-btn aje-btn--icon", variantClass, className, {
@@ -44,6 +47,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
         type="button"
         ref={innerRef}
         {...buttonProps}
+        {...focusProps}
       >
         {isLoading && <Spinner isLoading={!loadingComplete} isCentered />}
         <MaterialIcon icon={icon} variant={iconVariant} size={size} />

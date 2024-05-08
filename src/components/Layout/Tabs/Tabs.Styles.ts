@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import mixins from "../../../styles/mixins";
 
-
 export const TabList = styled.div`
   margin-bottom: calc(var(--tab-border-width) * -1);
   display: flex;
@@ -48,6 +47,7 @@ export const TabLink = styled.div`
     --tab-border-clr: var(--border-clr-primary);
     cursor: pointer;
   }
+
   &:focus-visible {
     outline: var(--outline);
     outline-offset: -1px;
@@ -80,14 +80,13 @@ export const TabContentWrapper = styled.div`
 `;
 
 export const TabsWrapper = styled.div`
-
   &.aje-tabs--default {
     ${TabLink}[aria-selected="true"] {
       --tab-bg-clr: var(--neutral50);
       --tab-border-clr: var(--border-clr-primary);
       --tab-text-clr: var(--text-clr);
 
-        &::after {
+      &::after {
         content: "";
         position: absolute;
         height: calc(var(--tab-border-width) + 2px);
