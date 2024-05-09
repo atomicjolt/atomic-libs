@@ -1,5 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import mixins from "../../../styles/mixins";
+import { FieldWrapper } from "../../Internal/FieldWrapper";
 
 const squishy = keyframes`
   0% {
@@ -50,6 +51,7 @@ const squishyIconBack = keyframes`
 `;
 
 export const ToggleSwitchContainer = styled.div`
+  ${mixins.FocusVisible(2)}
   position: relative;
   width: calc(var(--toggle-size) * 1.666);
   height: var(--toggle-size);
@@ -57,11 +59,6 @@ export const ToggleSwitchContainer = styled.div`
   background-color: var(--toggle-unchecked);
   transition: background-color 200ms linear;
   overflow: hidden;
-
-  &.focus-visible {
-    outline: var(--outline);
-    outline-offset: 2px;
-  }
 `;
 
 export const ToggleSwitchLabel = styled.span`
@@ -117,8 +114,8 @@ export const ToggleSwitchLabel = styled.span`
   }
 `;
 
-export const ToggleSwitchWrapper = styled.label`
-  &.has-error ${ToggleSwitchContainer} {
+export const ToggleSwitchWrapper = styled(FieldWrapper)`
+  &[data-invalid] ${ToggleSwitchContainer} {
     background-color: var(--toggle-error);
 
     i {
@@ -130,7 +127,7 @@ export const ToggleSwitchWrapper = styled.label`
     }
   }
 
-  &.is-disabled {
+  &[data-disabled] {
     cursor: auto;
     opacity: 0.5;
   }

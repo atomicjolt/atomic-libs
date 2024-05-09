@@ -1,6 +1,7 @@
 import React from "react";
 import { createGlobalStyle } from "styled-components";
 import { Item } from "./Collection";
+import { PressEvents } from "react-aria";
 
 export const CommonInputControls = {
   label: {
@@ -168,6 +169,46 @@ export const MultiSelectItemChildren = [
   <Item key="gaming">Gaming</Item>,
   <Item key="shopping">Shopping</Item>,
 ];
+
+export const PressableArgTypes: Record<keyof PressEvents, object> = {
+  onPress: {
+    action: "onPress",
+    description: "Callback when a press event is released over the element.",
+    table: {
+      category: "Events",
+    },
+  },
+  onPressStart: {
+    action: "onPressStart",
+    description: "Callback when a press event starts.",
+    table: {
+      category: "Events",
+    },
+  },
+  onPressEnd: {
+    action: "onPressEnd",
+    description:
+      "Callback when a press event ends. Either by releasing the press or leaving the element.",
+    table: {
+      category: "Events",
+    },
+  },
+  onPressChange: {
+    action: "onPressChange",
+    description: "Callback when the pressed state changes.",
+    table: {
+      category: "Events",
+    },
+  },
+  onPressUp: {
+    action: "onPressUp",
+    description:
+      "Callback when a press event is released over the element, regardless of where it started on that target or not.",
+    table: {
+      category: "Events",
+    },
+  },
+};
 
 export const PurpleButtonStyles = createGlobalStyle`
 .aje-btn--purple {

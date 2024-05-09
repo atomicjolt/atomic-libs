@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import type { ItemProps, ListState } from "react-stately";
 import type { AriaTagGroupProps, AriaTagProps } from "react-aria";
 import { useListState } from "react-stately";
-import { useFocusRing, useTag, useTagGroup } from "react-aria";
+import { usePress, useTag, useTagGroup } from "react-aria";
 import { AriaProps, FieldInputProps, HasClassName } from "../../types";
 import { ErrorMessage, Label, Message } from "../Internal/Field";
 import IconButton from "../Buttons/IconButton";
@@ -15,6 +15,7 @@ import {
 import classNames from "classnames";
 import { copyStaticProperties } from "../../clone";
 import { Item } from "../Collection";
+import { useFocusRing } from "../../hooks/useFocusRing";
 
 interface ChipGroupProps<T extends object>
   extends AriaProps<AriaTagGroupProps<T>>,
@@ -87,12 +88,13 @@ interface ChipInternalProps<T> extends AriaTagProps<T> {
 function ChipInternal<T>(props: ChipInternalProps<T>) {
   const { item, state } = props;
   const ref = useRef(null);
-  const { focusProps, isFocusVisible } = useFocusRing({ within: true });
   const { rowProps, gridCellProps, removeButtonProps, allowsRemoving } = useTag(
     props,
     state,
     ref
   );
+
+  const { focusProps } = useFocusRing({ within: true });
 
   return (
     <ChipWrapper
@@ -100,7 +102,6 @@ function ChipInternal<T>(props: ChipInternalProps<T>) {
       ref={ref}
       {...rowProps}
       {...focusProps}
-      data-focus-visible={isFocusVisible}
     >
       <ChipContent {...gridCellProps}>
         {item.rendered}
