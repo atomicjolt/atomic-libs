@@ -215,6 +215,7 @@ export const CssVariables = createGlobalStyle`
 
   /* # Tab variables */
   --tab-border-width: 1px;
+  --tab-border-clr: transparent;
   --tab-padding-hori: 16px;
   --tab-padding-vert: 8px;
   --tab-radius: var(--radius);
