@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import type { DOMAttributes } from "@react-types/shared";
 import { useTooltipTriggerState } from "react-stately";
 import {

@@ -1,15 +1,5 @@
 import { StyledTarget } from "styled-components/dist/types";
-import { BaseProps, HasChildren, HasClassName } from "./common";
-import { HTMLAttributes } from "react";
-
-export type FieldComponentProps<
-  T extends HTMLAttributes<unknown>,
-  AsTarget extends StyledTarget<"web"> = StyledTarget<"web">
-> = HasChildren &
-  HasClassName &
-  Omit<T, "className"> & {
-    as?: AsTarget;
-  };
+import { BaseProps } from "./common";
 
 /** Type for props that are used to provide
  * information to the consumer of a field */

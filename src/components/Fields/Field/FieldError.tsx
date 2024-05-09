@@ -1,21 +1,11 @@
-import React, { HTMLAttributes, useContext } from "react";
-import styled from "styled-components";
-import { FieldComponentProps } from "../../../types";
+import React, { useContext } from "react";
 import { FieldErrorContext } from "../contexts";
-import mixins from "../../../styles/mixins";
 import classNames from "classnames";
+import { ErrorMessage, ErrorMessageProps } from "../Atoms/ErrorMessage";
 
-/** A styled error message */
-export const ErrorMessage = styled.p`
-  ${mixins.Bold}
-  font-size: 1.3rem;
-  margin: 3px 0 0;
-  color: var(--error-clr);
-`;
+export interface FieldErrorMessageProps extends ErrorMessageProps {}
 
-export interface FieldErrorMessageProps
-  extends FieldComponentProps<HTMLAttributes<HTMLParagraphElement>> {}
-
+/** An Error Message component that should be nested within a field */
 export function FieldErrorMessage(props: FieldErrorMessageProps) {
   const { as, children, className, ...rest } = props;
   const { errorMessageProps, isInvalid } = useContext(FieldErrorContext);

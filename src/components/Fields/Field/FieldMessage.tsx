@@ -1,22 +1,11 @@
-import React, { HTMLAttributes, HtmlHTMLAttributes, useContext } from "react";
-import styled from "styled-components";
-import { FieldComponentProps } from "../../../types";
+import React, { useContext } from "react";
 import { FieldMessageContext } from "../contexts";
-import mixins from "../../../styles/mixins";
 import classNames from "classnames";
+import { Message, MessageProps } from "../Atoms/Message";
 
-/** A styled field message */
-export const Message = styled.p`
-  ${mixins.Regular}
-  font-size: 1.3rem;
-  padding-bottom: 5px;
-  margin: 2px 0 0;
-  color: var(--text-clr-alt);
-`;
+export interface FieldMessageProps extends MessageProps {}
 
-export interface FieldMessageProps
-  extends FieldComponentProps<HTMLAttributes<HTMLParagraphElement>> {}
-
+/** A Message that should be nested within a field */
 export function FieldMessage(props: FieldMessageProps) {
   const { as, children, className, ...rest } = props;
   const messageProps = useContext(FieldMessageContext);

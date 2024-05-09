@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useLayoutEffect } from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import { NumberField } from ".";
 import { FieldLabel } from "../Field/FieldLabel";
@@ -8,9 +8,17 @@ import { FieldErrorMessage } from "../Field/FieldError";
 import { Group } from "../../Layout/Group";
 import { FieldStateControls } from "../../storybook";
 
+// For some reason, without this line NumberField has the
+// incorrect display name in the storybook docs
+// @ts-ignore
+NumberField.displayName = "NumberField";
+
 export default {
   title: "Fields/NumberField",
   component: NumberField,
+  parameters: {
+    layout: "centered",
+  },
   argTypes: {
     ...FieldStateControls,
     onChange: { action: "onChange", table: { category: "Events" } },
@@ -55,7 +63,7 @@ export const Primary: Story = {
     children: [
       <FieldLabel key="label">Label</FieldLabel>,
       <FieldMessage key="message">Message</FieldMessage>,
-      <Group isMerged>
+      <Group isMerged key="group">
         <NumberField.DecrementButton icon="remove" />
         <FieldInput key="input" />
         <NumberField.IncrementButton icon="add" />

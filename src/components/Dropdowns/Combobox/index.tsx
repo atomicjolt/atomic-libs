@@ -15,7 +15,7 @@ import { UnmanagedListBox } from "../ListBox";
 import { Input } from "../../Fields";
 import { FloatingInputWrapper } from "../../Internal/FloatingInputWrapper";
 import { DropdownWrapper } from "../Dropdowns.styles";
-import { ComboboxVirtualInput } from "./Combobox.styles";
+import { ComboboxComboInput } from "./Combobox.styles";
 
 export interface ComboBoxProps<T>
   extends AriaProps<AriaComboBoxProps<T>>,
@@ -91,7 +91,7 @@ export function ComboBox<T extends object>(props: ComboBoxProps<T>) {
         isInvalid={isInvalid}
         floating={variant === "floating"}
       >
-        <ComboboxVirtualInput inputRef={inputRef}>
+        <ComboboxComboInput inputRef={inputRef}>
           <Input {...inputProps} ref={inputRef} />
           <IconButton
             icon={icon}
@@ -100,7 +100,7 @@ export function ComboBox<T extends object>(props: ComboBoxProps<T>) {
             ref={buttonRef}
             {...buttonProps}
           />
-        </ComboboxVirtualInput>
+        </ComboboxComboInput>
       </FloatingInputWrapper>
 
       {state.isOpen && (

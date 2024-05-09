@@ -21,11 +21,10 @@ export interface TextFieldProps
 
 /** Provides the accessbility implementation for a
  * text field and its associated label, error message, and description.
- *
  * */
 export function TextField(props: TextFieldProps) {
   const {
-    type,
+    type = "text",
     size,
     children,
     className,

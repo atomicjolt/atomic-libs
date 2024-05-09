@@ -3,7 +3,7 @@ import { AriaNumberFieldProps } from "react-aria";
 import classNames from "classnames";
 import { AriaProps, FieldInputProps, HasVariant } from "../../../types";
 import { useVariantClass } from "../../../hooks";
-import { FieldInput, NumberField, VirtualInput } from "../../Fields";
+import { FieldInput, NumberField, ComboInput } from "../../Fields";
 import { Group } from "../../Layout/Group";
 import FloatingFieldInputWrapper from "../../Internal/FloatingFieldInputWrapper";
 import { StyledNumberField } from "../Inputs.styles";
@@ -46,7 +46,7 @@ export const NumberInput = React.forwardRef(
           message={message}
           error={error}
         >
-          <VirtualInput>
+          <ComboInput>
             <FieldInput />
             <Group direction="column" isMerged>
               <NumberField.IncrementButton
@@ -60,7 +60,7 @@ export const NumberInput = React.forwardRef(
                 size="small"
               />
             </Group>
-          </VirtualInput>
+          </ComboInput>
         </FloatingFieldInputWrapper>
       </StyledNumberField>
     );

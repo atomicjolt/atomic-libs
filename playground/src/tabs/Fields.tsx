@@ -15,7 +15,7 @@ import {
   FieldErrorMessage,
   FieldMessage,
   FieldInput,
-  VirtualInput,
+  ComboInput,
   FieldLabel,
   TextField,
 } from "../elements";
@@ -59,10 +59,10 @@ export default function Fields() {
       >
         <FieldLabel>Label</FieldLabel>
         <FieldMessage>Message</FieldMessage>
-        <VirtualInput>
+        <ComboInput>
           <MaterialIcon icon="search" />
           <FieldInput placeholder="placeholder" />
-        </VirtualInput>
+        </ComboInput>
         <FieldErrorMessage>Error</FieldErrorMessage>
       </TextField>
 

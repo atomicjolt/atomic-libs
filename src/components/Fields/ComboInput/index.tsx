@@ -5,9 +5,10 @@ import { FieldInputContext } from "../contexts";
 import { BaseProps, HasChildren } from "../../../types";
 import classNames from "classnames";
 
-export const StyledInputWrapper = styled.div`
-  ${mixins.InputLike}
+export const StyledComboInput = styled.div`
   ${mixins.Regular}
+  ${mixins.InputLike}
+  padding: 0 var(--input-padding-horiz);
   display: flex;
   align-items: center;
   gap: var(--input-gap);
@@ -16,6 +17,8 @@ export const StyledInputWrapper = styled.div`
   input {
     border: none;
     padding: 0px;
+    width: 100%;
+    flex: 1;
 
     &:focus {
       outline: none;
@@ -23,33 +26,33 @@ export const StyledInputWrapper = styled.div`
   }
 `;
 
-export interface VirtualInputProps
+export interface ComboInputProps
   extends Omit<BaseProps, "size">,
     HasChildren,
     Omit<HTMLAttributes<HTMLDivElement>, "className" | "id" | "children"> {
   /** ref to the input element that this virtual input should focus when clicked
-   * When `VirtualInput` is used within a `Field` component, this prop is automatically
+   * When `ComboInput` is used within a `Field` component, this prop is automatically
    * provided
    */
   inputRef?: React.RefObject<HTMLInputElement>;
 }
 
 /**
- * VirtualInput is a wrapper component that allows you present a input-like component
+ * ComboInput is a wrapper component that allows you present a input-like component
  * that can be clicked to focus the actual input element. It is useful for creating
  * custom input components that are not actually input elements & inputs that include
  * other elements like icons or buttons.
  */
-export const VirtualInput = React.forwardRef(function VirtualInput(
-  props: VirtualInputProps,
+export const ComboInput = React.forwardRef(function ComboInput(
+  props: ComboInputProps,
   ref: React.Ref<HTMLDivElement>
 ) {
   const { children, className, inputRef: passedInputRef, ...rest } = props;
   const { inputRef = passedInputRef } = useContext(FieldInputContext);
 
   return (
-    <StyledInputWrapper
-      className={classNames(className)}
+    <StyledComboInput
+      className={classNames("aje-combo-input", className)}
       ref={ref}
       onClick={() => {
         inputRef?.current?.focus();
@@ -57,6 +60,6 @@ export const VirtualInput = React.forwardRef(function VirtualInput(
       {...rest}
     >
       {children}
-    </StyledInputWrapper>
+    </StyledComboInput>
   );
 });

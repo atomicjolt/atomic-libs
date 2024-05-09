@@ -4,7 +4,7 @@ import { useDatePickerState } from "react-stately";
 import { Size, AriaProps, FieldInputProps } from "../../../../types";
 import {
   CalendarWrapper,
-  DatePickerVirtualInput,
+  DatePickerComboInput,
   DatePickerWrapper,
 } from "./DatePicker.styles";
 import classNames from "classnames";
@@ -63,14 +63,14 @@ export function DatePicker<T extends DateValue>(props: DatePickerProps<T>) {
       {label && <Label {...labelProps}>{label}</Label>}
       {message && <Message {...descriptionProps}>{message}</Message>}
 
-      <DatePickerVirtualInput
+      <DatePickerComboInput
         {...groupProps}
         ref={ref}
         className={"aje-input__date-segments"}
       >
         <DateInput {...fieldProps} size="full" isRequired={isRequired} />
         <IconButton icon="today" variant="content" {...buttonProps} />
-      </DatePickerVirtualInput>
+      </DatePickerComboInput>
 
       {isInvalid && error && (
         <ErrorMessage {...errorMessageProps}>{error}</ErrorMessage>

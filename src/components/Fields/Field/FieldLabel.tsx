@@ -1,29 +1,17 @@
-import React, { LabelHTMLAttributes, useContext } from "react";
+import React, { useContext } from "react";
 import { FieldLabelContext } from "../contexts";
-import { FieldComponentProps } from "../../../types";
-import styled from "styled-components";
-import mixins from "../../../styles/mixins";
 import classNames from "classnames";
+import { Label, LabelProps } from "../Atoms/Label";
 
-/** A styled label */
-export const Label = styled.label`
-  ${mixins.Bold}
-  display: block;
-  padding-bottom: 5px;
-  font-size: 1.3rem;
-  line-height: 1.1;
-  color: var(--text-clr);
-`;
+export interface FieldLabelProps extends LabelProps {}
 
-export interface FieldLabelProps
-  extends FieldComponentProps<LabelHTMLAttributes<HTMLLabelElement>> {}
-
+/** A Label component that should be nested within a Field */
 export function FieldLabel(props: FieldLabelProps) {
-  const { as, children, className, ...rest } = props;
+  const { children, className, ...rest } = props;
   const labelProps = useContext(FieldLabelContext);
 
   return (
-    <Label as={as} className={classNames(className)} {...rest} {...labelProps}>
+    <Label className={classNames(className)} {...rest} {...labelProps}>
       {children}
     </Label>
   );

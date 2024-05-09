@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import mixins from "../../styles/mixins";
 import { DirectionProps } from "../../types";
 import { NumberField, TextField } from "../Fields";
-import { StyledInputWrapper } from "../Fields/VirtualInput";
+import { StyledComboInput } from "../Fields/ComboInput";
 import { FieldWrapper } from "../Internal/FieldWrapper";
 
 // TODO: consider if we want all these styled compiled together like this
@@ -40,7 +40,7 @@ const InputVariants = css`
       outline: none;
     }
 
-    ${StyledInputWrapper}:focus-within, &[data-float] {
+    ${StyledComboInput}:focus-within, &[data-float] {
       --input-bg-clr: var(--neutral50);
       input {
         --input-border-clr: none;
@@ -49,7 +49,7 @@ const InputVariants = css`
 
     input:focus ~ label,
     &[data-float] label,
-    ${StyledInputWrapper}:focus-within ~ label {
+    ${StyledComboInput}:focus-within ~ label {
       top: 0px;
       left: 1em;
       --floating-font-size: 1.3rem;
@@ -62,7 +62,7 @@ const InputVariants = css`
       box-shadow: 0 0 0 1px var(--input-border-clr);
     }
 
-    ${StyledInputWrapper} input:hover {
+    ${StyledComboInput} input:hover {
       --input-border-clr: none;
       box-shadow: none;
     }
@@ -72,7 +72,7 @@ const InputVariants = css`
 
       input:not(:placeholder-shown) ~ label,
       input:focus ~ label,
-      ${StyledInputWrapper}:focus-within ~ label {
+      ${StyledComboInput}:focus-within ~ label {
         --floating-label-clr: var(--error800);
       }
     }

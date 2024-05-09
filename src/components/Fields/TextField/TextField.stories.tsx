@@ -7,10 +7,15 @@ import { FieldInput } from "../Field/FieldInput";
 import { FieldErrorMessage } from "../Field/FieldError";
 import { FieldTextArea } from "../Field/FieldTextArea";
 import { FieldStateControls } from "../../storybook";
+import { Group } from "../../Layout/Group";
+import IconButton from "../../Buttons/IconButton";
 
 export default {
   title: "Fields/TextField",
   component: TextField,
+  parameters: {
+    layout: "centered",
+  },
   argTypes: {
     ...FieldStateControls,
     defaultValue: {
@@ -43,6 +48,7 @@ type Story = StoryObj<typeof TextField>;
 
 export const Primary: Story = {
   args: {
+    size: "large",
     children: [
       <FieldLabel key="label">Label</FieldLabel>,
       <FieldMessage key="message">Message</FieldMessage>,
@@ -54,10 +60,25 @@ export const Primary: Story = {
 
 export const ForTextArea: Story = {
   args: {
+    ...Primary.args,
     children: [
       <FieldLabel key="label">Label</FieldLabel>,
       <FieldMessage key="message">Message</FieldMessage>,
       <FieldTextArea key="textarea" />,
+      <FieldErrorMessage key="error">Error Message</FieldErrorMessage>,
+    ],
+  },
+};
+
+export const WithButton: Story = {
+  args: {
+    ...Primary.args,
+    children: [
+      <FieldLabel key="label">Username</FieldLabel>,
+      <Group isMerged key="group">
+        <FieldInput key="input" placeholder="Jon@then" />
+        <IconButton key="button" icon="add" aria-label="add user" />
+      </Group>,
       <FieldErrorMessage key="error">Error Message</FieldErrorMessage>,
     ],
   },

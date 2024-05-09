@@ -74,7 +74,7 @@ export {
   Message,
   FieldTextArea,
   TextArea,
-  VirtualInput,
+  ComboInput,
 } from "./Fields";
 
 // These are technically internal componnets and as such are not documented,
@@ -134,7 +134,7 @@ export type {
   FieldTextAreaProps,
   TextFieldProps,
   NumberFieldProps,
-  VirtualInputProps,
+  ComboInputProps,
 } from "./Fields";
 export type { TableProps } from "./Layout/Table";
 export type { TabsProps } from "./Layout/Tabs";
