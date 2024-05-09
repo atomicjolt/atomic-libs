@@ -4,7 +4,7 @@ import type { AriaTagGroupProps, AriaTagProps } from "react-aria";
 import { useListState } from "react-stately";
 import { useFocusRing, useTag, useTagGroup } from "react-aria";
 import { AriaProps, FieldInputProps, HasClassName } from "../../types";
-import { ErrorMessage, Label, Message } from "../Internal/Field";
+import { ErrorMessage, Label, Message } from "../Fields";
 import IconButton from "../Buttons/IconButton";
 import {
   ChipWrapper,
@@ -21,7 +21,7 @@ interface ChipGroupProps<T extends object>
     Omit<FieldInputProps, "isReadOnly"> {
   /** Whether the label is placed above the
    * group, or inline with the chips */
-  labelPlacement: "above" | "inline";
+  labelPlacement?: "above" | "inline";
 }
 
 /** Collection Component for displaying a group of chips.

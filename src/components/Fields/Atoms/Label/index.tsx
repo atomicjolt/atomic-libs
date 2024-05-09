@@ -4,18 +4,21 @@ import React from "react";
 import { ElementWrapperProps } from "../../../../types";
 import classNames from "classnames";
 
-const StyledLabel = styled.label`
+const StyledLabel = styled.label<{ $paddingBottom: string }>`
   ${mixins.Bold}
   display: block;
-  padding-bottom: 5px;
   font-size: 1.3rem;
   line-height: 1.1;
   color: var(--text-clr);
+
+  ${({ $paddingBottom = "5px" }) =>
+    $paddingBottom && `padding-bottom: ${$paddingBottom};`}
 `;
 
 export interface LabelProps
   extends ElementWrapperProps<React.LabelHTMLAttributes<HTMLLabelElement>> {
   as?: React.ElementType;
+  $paddingBottom?: string;
 }
 
 /** A wrapper around an `<label />`  component with styles. */
