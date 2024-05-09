@@ -4,6 +4,7 @@ import mixins from "../../styles/mixins";
 export const BaseStyledButton = styled.button`
   ${mixins.Bold}
   ${mixins.SizingX}
+  ${mixins.FocusVisible(2)}
   padding: var(--btn-padding-vert) var(--btn-padding-horiz);
   border-radius: var(--btn-border-radius);
   font-size: var(--btn-font-size);
@@ -25,13 +26,11 @@ export const BaseStyledButton = styled.button`
     background-color: var(--btn-hover-bg-clr);
     box-shadow: var(--btn-hover-shadow);
   }
+
   &.is-active {
     transform: translateY(1px);
   }
-  &:focus-visible {
-    outline: var(--outline);
-    outline-offset: 2px;
-  }
+
   &:disabled {
     opacity: 0.5;
     pointer-events: none;

@@ -18,9 +18,13 @@ export function cloneComponent<T extends Function>(
   // React Stately binds some static properties to their
   // data structures, so we need to copy them over to the
   // new component
-  for (const key in component) {
-    ClonedComponent[key] = component[key];
-  }
+  copyStaticProperties(component, ClonedComponent);
 
   return ClonedComponent;
+}
+
+export function copyStaticProperties(component: any, newComponent: any): void {
+  for (const key in component) {
+    newComponent[key] = component[key];
+  }
 }

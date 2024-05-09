@@ -5,13 +5,14 @@ import styled from "styled-components";
 import mixins from "../../../styles/mixins";
 import classNames from "classnames";
 
-export const Label = styled.label`
+export const Label = styled.label<{ $paddingBottom?: string }>`
   ${mixins.Bold}
   display: block;
-  padding-bottom: 5px;
   font-size: 1.3rem;
   line-height: 1.1;
   color: var(--text-clr);
+
+  ${({ $paddingBottom = "5px" }) => ` padding-bottom: ${$paddingBottom};`}
 `;
 
 export interface FieldLabelProps

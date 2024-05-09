@@ -48,6 +48,7 @@ export const TabLink = styled.div`
     --tab-bg-clr: var(--neutral200);
     cursor: pointer;
   }
+
   &:focus-visible {
     outline: var(--outline);
     outline-offset: -1px;
