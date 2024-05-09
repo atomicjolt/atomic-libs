@@ -1,11 +1,11 @@
 {
   "name": "@atomicjolt/atomic-elements",
-  "version": "2.0.3",
+  "version": "2.1.0",
   "sideEffects": false,
   "module": "dist/esm/index.js",
   "main": "dist/cjs/index.js",
   "type": "module",
-  "types": "dist/index.d.ts",
+  "types": "dist/types/index.d.ts",
   "files": [
     "dist"
   ],
@@ -64,12 +64,11 @@
     "react-highlight": "^0.14.0",
     "react-hook-form": "^7.36.1",
     "rollup": "^2.75.7",
-    "rollup-plugin-dts": "^4.2.2",
     "storybook": "^7.5.0",
     "style-loader": "^3.3.1",
     "ts-jest": "^28.0.2",
     "ts-node": "^10.7.0",
-    "typescript": "^4.5.5",
+    "typescript": "^5.4.5",
     "vite": "^3.2.8",
     "vite-plugin-svgr": "^2.2.1",
     "vitest": "^1.4.0"
@@ -80,7 +79,7 @@
     "storybook:build": "yarn storybook:cssprops && storybook build -o docs/${0} && python3 bin/update-doc-index.py",
     "storybook:publish": "yarn storybook:build ${0} && gh-pages -d docs -m ${0}",
     "storybook:publish:next": "yarn storybook:build next && gh-pages -d docs/next -m next -e next",
-    "build": "rm -rf dist && rollup --config rollup.config.ts --configPlugin typescript",
+    "build": "rm -rf dist && rollup --config rollup.config.ts --configPlugin typescript && rm -rf dist/cjs/types && mv dist/esm/types dist/types",
     "test": "vitest run",
     "test:ui": "vitest --ui",
     "playground": "vite --config playground/vite.config.ts"

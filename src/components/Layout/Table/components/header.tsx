@@ -1,4 +1,4 @@
-import React, { forwardRef, useRef } from "react";
+import React, { ChangeEvent, forwardRef, useRef } from "react";
 import {
   mergeProps,
   useDrag,
@@ -201,7 +201,7 @@ const ColumnSearch = forwardRef(function ColumnSearch<T>(
         <SearchInput
           aria-label={`Search ${title || column.key}`}
           value={state.searchDescriptor?.search}
-          onChange={(e) => {
+          onChange={(e: ChangeEvent<HTMLInputElement>) => {
             state.onSearchChange?.({
               column: column.key,
               search: e.target.value,
@@ -211,7 +211,9 @@ const ColumnSearch = forwardRef(function ColumnSearch<T>(
           // like flipping to sorting when pressing the spacebar
           // so we need to stop propagation to prevent that
           // when the input is focused
-          onKeyDown={(e) => e.stopPropagation()}
+          onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) =>
+            e.stopPropagation()
+          }
           ref={ref}
           // Stops react-aria from focusing the input
           // when clicking on the column header

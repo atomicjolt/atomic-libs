@@ -77,6 +77,8 @@ export {
   ComboInput,
 } from "./Fields";
 
+export { ChipGroup, Chip } from "./ChipGroup";
+
 // These are technically internal componnets and as such are not documented,
 // but they are exported here if you need to use them.
 export { Popover, PopoverWrapper } from "./Internal/Popover";

@@ -2,7 +2,6 @@ import { defineConfig } from "rollup";
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
-import dts from "rollup-plugin-dts";
 
 const formatEntryPoint = (format) => ({
   input: "src/index.ts",
@@ -31,13 +30,4 @@ const formatEntryPoint = (format) => ({
   ],
 });
 
-export default defineConfig([
-  formatEntryPoint("esm"),
-  formatEntryPoint("cjs"),
-  {
-    input: "dist/esm/types/index.d.ts",
-    output: [{ file: "dist/index.d.ts", format: "esm" }],
-    plugins: [dts()],
-    external: [/\.[s]?css$/], // Exclude stylesheets from type compilation
-  },
-]);
+export default defineConfig([formatEntryPoint("esm"), formatEntryPoint("cjs")]);

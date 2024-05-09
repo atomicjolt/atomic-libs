@@ -4,7 +4,7 @@ import mixins from "../../styles/mixins";
 export const BaseStyledButton = styled.button`
   ${mixins.Bold}
   ${mixins.SizingX}
-  padding: var(--btn-padding) calc(var(--btn-padding) * 2);
+  padding: var(--btn-padding-vert) var(--btn-padding-horiz);
   border-radius: var(--btn-border-radius);
   font-size: var(--btn-font-size);
   min-height: var(--btn-height);
@@ -63,6 +63,14 @@ export const BaseStyledButton = styled.button`
     --btn-border: var(--border);
   }
 
+  &.aje-btn--link {
+    --btn-text-clr: var(--primary700);
+    --btn-bg-clr: var(--neutral50);
+    --btn-hover-text-clr: var(--text-clr);
+    --btn-hover-bg-clr: var(--neutral100);
+    text-decoration: underline;
+  }
+
   &.aje-btn--error {
     --btn-text-clr: var(--text-clr-inverted);
     --btn-bg-clr: var(--error700);
@@ -91,7 +99,8 @@ export const BaseStyledButton = styled.button`
     --btn-hover-text-clr: var(--btn-text-clr);
     --btn-hover-bg-clr: transparent;
     --btn-hover-shadow: none;
-    --btn-padding: 0px;
+    --btn-padding-horiz: 0px;
+    --btn-padding-vert: 0px;
     --btn-height: auto;
     outline: none;
   }
@@ -115,6 +124,6 @@ export const BaseStyledButton = styled.button`
   & > i {
     color: inherit;
     font-size: var(--btn-icon-size);
-    margin-left: calc(var(--btn-padding) / -2);
+    margin-left: calc(var(--btn-padding-horiz) / -2.5);
   }
 `;
