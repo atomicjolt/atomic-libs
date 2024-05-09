@@ -1,32 +1,31 @@
-import styled from "styled-components";
-import mixins from "../../../styles/mixins";
-
+import styled from "styled-components"
+import mixins from "../../../styles/mixins"
 
 export const TabList = styled.div`
   margin-bottom: calc(var(--tab-border-width) * -1);
   display: flex;
   justify-content: space-between;
-`;
+`
 
 export const TabLinksWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 2px;
-`;
+`
 
 export const TabInfoWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
-`;
+`
 
 export const TabInfo = styled.div`
   font-size: 1.4rem;
-`;
+`
 
 export const TabLinkWrapper = styled.div`
   position: relative;
-`;
+`
 
 export const TabLink = styled.div`
   ${mixins.Regular}
@@ -36,7 +35,7 @@ export const TabLink = styled.div`
   padding: var(--tab-padding-vert) var(--tab-padding-hori);
   background-color: var(--tab-bg-clr);
   border-radius: var(--tab-radius) var(--tab-radius) 0 0;
-  border: var(--tab-border-width) solid;
+  border: 0 solid;
   border-color: var(--tab-border-clr);
   position: relative;
   font-size: 1.6rem;
@@ -46,6 +45,7 @@ export const TabLink = styled.div`
   &:hover {
     --tab-text-clr: var(--text-clr);
     --tab-border-clr: var(--border-clr-primary);
+    --tab-bg-clr: var(--neutral200);
     cursor: pointer;
   }
   &:focus-visible {
@@ -61,13 +61,13 @@ export const TabLink = styled.div`
       cursor: not-allowed;
     }
   }
-`;
+`
 
 export const TabContentWrapper = styled.div`
   position: relative;
   z-index: 2;
   background-color: var(--tab-bg-clr);
-  border-top: 1px solid var(--tab-border-clr);
+  border-top: var(--border);
   min-height: 4px;
 
   &:focus {
@@ -77,17 +77,17 @@ export const TabContentWrapper = styled.div`
     outline: var(--outline);
     outline-offset: -2px;
   }
-`;
+`
 
 export const TabsWrapper = styled.div`
-
   &.aje-tabs--default {
     ${TabLink}[aria-selected="true"] {
       --tab-bg-clr: var(--neutral50);
-      --tab-border-clr: var(--border-clr-primary);
       --tab-text-clr: var(--text-clr);
 
-        &::after {
+      border: var(--border);
+
+      &::after {
         content: "";
         position: absolute;
         height: calc(var(--tab-border-width) + 2px);
@@ -212,4 +212,4 @@ export const TabsWrapper = styled.div`
       align-items: center;
     }
   }
-`;
+`
