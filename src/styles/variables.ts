@@ -98,7 +98,7 @@ export const CssVariables = createGlobalStyle`
   --radius: 5px;
 
   /* # Input variables */
-  --input-border-clr: var(--neutral500);
+  --input-border-clr: var(--neutral300);
   --input-outline: 1px solid var(--outline-clr-primary);
   --input-height: 40px;
   --input-padding-horiz: 12px;
