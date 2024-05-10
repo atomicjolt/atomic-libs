@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components"
+import { createGlobalStyle } from "styled-components";
 
 export const CssVariables = createGlobalStyle`
 :root {
@@ -78,7 +78,7 @@ export const CssVariables = createGlobalStyle`
   --success-clr: var(--success600);
   --warning-clr: var(--warning600);
 
-  --border-clr-primary: var(--neutral500);
+  --border-clr-primary: var(--neutral300);
   --outline-clr-primary: var(--neutral600);
 
   /* # Sizing */
@@ -98,7 +98,7 @@ export const CssVariables = createGlobalStyle`
   --radius: 5px;
 
   /* # Input variables */
-  --input-border-clr: var(--neutral500);
+  --input-border-clr: var(--neutral300);
   --input-outline: 1px solid var(--outline-clr-primary);
   --input-height: 40px;
   --input-padding-horiz: 12px;
@@ -215,13 +215,13 @@ export const CssVariables = createGlobalStyle`
 
   /* # Tab variables */
   --tab-border-width: 1px;
+  --tab-border-clr: transparent;
   --tab-padding-hori: 16px;
   --tab-padding-vert: 8px;
   --tab-radius: var(--radius);
   --tab-border-width: 1px;
   --tab-text-clr: var(--text-clr-alt);
   --tab-bg-clr: var(--neutral50);
-  --tab-border-clr: var(--border-clr-primary);
 
   /* # Icon variables */
   --icon-size-sm: 18px;
@@ -282,4 +282,4 @@ export const CssVariables = createGlobalStyle`
   --chip-selected-text-clr: var(--text-clr-inverted);
   --chip-btn-hover-bg-clr: var(--neutral200);
 }
-`
+`;

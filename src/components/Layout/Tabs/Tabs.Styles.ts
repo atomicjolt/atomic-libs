@@ -35,7 +35,7 @@ export const TabLink = styled.div`
   padding: var(--tab-padding-vert) var(--tab-padding-hori);
   background-color: var(--tab-bg-clr);
   border-radius: var(--tab-radius) var(--tab-radius) 0 0;
-  border: var(--tab-border-width) solid;
+  border: 0 solid;
   border-color: var(--tab-border-clr);
   position: relative;
   font-size: 1.6rem;
@@ -45,6 +45,7 @@ export const TabLink = styled.div`
   &:hover {
     --tab-text-clr: var(--text-clr);
     --tab-border-clr: var(--border-clr-primary);
+    --tab-bg-clr: var(--neutral200);
     cursor: pointer;
   }
 
@@ -67,7 +68,7 @@ export const TabContentWrapper = styled.div`
   position: relative;
   z-index: 2;
   background-color: var(--tab-bg-clr);
-  border-top: 1px solid var(--tab-border-clr);
+  border-top: var(--border);
   min-height: 4px;
 
   &:focus {
@@ -83,8 +84,9 @@ export const TabsWrapper = styled.div`
   &.aje-tabs--default {
     ${TabLink}[aria-selected="true"] {
       --tab-bg-clr: var(--neutral50);
-      --tab-border-clr: var(--border-clr-primary);
       --tab-text-clr: var(--text-clr);
+
+      border: var(--border);
 
       &::after {
         content: "";
