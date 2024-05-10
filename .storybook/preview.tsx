@@ -90,7 +90,6 @@ const preview: Preview = {
     },
   },
   parameters: {
-    // actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {
       matchers: {
         date: /date/,
@@ -100,7 +99,7 @@ const preview: Preview = {
     cssprops: props,
     options: {
       storySort: {
-        order: ["Introduction", "Installation", "Usage", "Buttons", "Inputs"],
+        order: ["Introduction", "Installation", "Usage"],
       },
     },
   },

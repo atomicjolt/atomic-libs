@@ -58,4 +58,4 @@ export function RadioGroup(props: RadioGroupsProps) {
   );
 }
 
-export { default as Radio } from "./Radio";
+export { Radio } from "./Radio";

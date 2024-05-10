@@ -8,7 +8,6 @@ const config: StorybookConfig = {
     "@storybook/addon-essentials",
     "@storybook/addon-docs",
     "@ljcl/storybook-addon-cssprops",
-    "@storybook/addon-mdx-gfm",
   ],
 
   staticDirs: ["../public"],
