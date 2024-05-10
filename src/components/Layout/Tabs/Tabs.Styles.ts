@@ -1,31 +1,31 @@
-import styled from "styled-components"
-import mixins from "../../../styles/mixins"
+import styled from "styled-components";
+import mixins from "../../../styles/mixins";
 
 export const TabList = styled.div`
   margin-bottom: calc(var(--tab-border-width) * -1);
   display: flex;
   justify-content: space-between;
-`
+`;
 
 export const TabLinksWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 2px;
-`
+`;
 
 export const TabInfoWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
-`
+`;
 
 export const TabInfo = styled.div`
   font-size: 1.4rem;
-`
+`;
 
 export const TabLinkWrapper = styled.div`
   position: relative;
-`
+`;
 
 export const TabLink = styled.div`
   ${mixins.Regular}
@@ -62,7 +62,7 @@ export const TabLink = styled.div`
       cursor: not-allowed;
     }
   }
-`
+`;
 
 export const TabContentWrapper = styled.div`
   position: relative;
@@ -78,7 +78,7 @@ export const TabContentWrapper = styled.div`
     outline: var(--outline);
     outline-offset: -2px;
   }
-`
+`;
 
 export const TabsWrapper = styled.div`
   &.aje-tabs--default {
@@ -213,4 +213,4 @@ export const TabsWrapper = styled.div`
       align-items: center;
     }
   }
-`
+`;

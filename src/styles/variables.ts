@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components"
+import { createGlobalStyle } from "styled-components";
 
 export const CssVariables = createGlobalStyle`
 :root {
@@ -282,4 +282,4 @@ export const CssVariables = createGlobalStyle`
   --chip-selected-text-clr: var(--text-clr-inverted);
   --chip-btn-hover-bg-clr: var(--neutral200);
 }
-`
+`;
