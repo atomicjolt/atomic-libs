@@ -1,14 +1,15 @@
-import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import Button from ".";
-import { MaterialIcon } from "../../Icons/MaterialIcon";
-import { PressableArgTypes } from "../../storybook";
+import { PressableArgTypes } from "@sb/helpers";
+import MaterialIcon from "@/components/Icons/MaterialIcon";
+import { getCssProps } from "@sb/cssprops";
 
 const meta: Meta<typeof Button> = {
   title: "Buttons/Button",
   component: Button,
   parameters: {
     layout: "centered",
+    cssprops: getCssProps("Button"),
   },
   argTypes: {
     ...PressableArgTypes,

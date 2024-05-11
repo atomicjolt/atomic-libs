@@ -17,7 +17,7 @@ import { copyStaticProperties } from "../../clone";
 import { Item } from "../Collection";
 import { useFocusRing } from "../../hooks/useFocusRing";
 
-interface ChipGroupProps<T extends object>
+export interface ChipGroupProps<T extends object>
   extends AriaProps<AriaTagGroupProps<T>>,
     Omit<FieldInputProps, "isReadOnly"> {
   /** Whether the label is placed above the
@@ -119,7 +119,9 @@ function ChipInternal<T>(props: ChipInternalProps<T>) {
   );
 }
 
-interface ChipProps<T> extends Omit<ItemProps<T>, "title">, HasClassName {}
+export interface ChipProps<T>
+  extends Omit<ItemProps<T>, "title">,
+    HasClassName {}
 
 /** Chip component can be used either within a `<ChipGroup />` or standalone */
 export function Chip<T>(props: ChipProps<T>) {

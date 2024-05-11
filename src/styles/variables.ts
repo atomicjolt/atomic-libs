@@ -4,14 +4,23 @@ export const CssVariables = createGlobalStyle`
 :root {
   color-scheme: base;
 
-  /* # Fonts */
+  /* # General */
+
+  /* ## Borders */
+  --border: 1px solid var(--border-clr-primary);
+  --outline: 2px solid var(--outline-clr-primary);
+  --border-clr-primary: var(--neutral300);
+  --outline-clr-primary: var(--neutral600);
+  --radius: 5px;
+
+  /* ## Fonts */
   --font-family: "Lato", sans-serif;
   --font-weight-light: 200;
   --font-weight-regular: 400;
   --font-weight-bold: 700;
 
-  /* # Global Colors */
-  /* ## Neutral */
+  /* ## Global Colors */
+  /* ### Neutral */
   --neutral50: hsl(0, 0%, 100%);
   --neutral100: hsl(220, 14%, 96%);
   --neutral200: hsl(220, 13%, 91%);
@@ -22,7 +31,7 @@ export const CssVariables = createGlobalStyle`
   --neutral700: hsl(217, 19%, 27%);
   --neutral800: hsl(215, 28%, 17%);
   --neutral900: hsl(221, 39%, 11%);
-  /* ## Error */
+  /* ### Error */
   --error100: hsl(0, 93%, 94%);
   --error200: hsl(0, 96%, 89%);
   --error300: hsl(0, 94%, 82%);
@@ -32,7 +41,7 @@ export const CssVariables = createGlobalStyle`
   --error700: hsl(0, 74%, 42%);
   --error800: hsl(0, 70%, 35%);
   --error900: hsl(0, 63%, 31%);
-  /* ## Warning */
+  /* ### Warning */
   --warning100: hsl(55, 97%, 90%);
   --warning200: hsl(53, 98%, 83%);
   --warning300: hsl(50, 98%, 75%);
@@ -42,7 +51,7 @@ export const CssVariables = createGlobalStyle`
   --warning700: hsl(35, 92%, 33%);
   --warning800: hsl(32, 81%, 29%);
   --warning900: hsl(28, 73%, 26%);
-  /* ## Success */
+  /* ### Success */
   --success100: hsl(100, 89%, 89%);
   --success200: hsl(101, 88%, 80%);
   --success300: hsl(102, 85%, 67%);
@@ -52,7 +61,7 @@ export const CssVariables = createGlobalStyle`
   --success700: hsl(106, 78%, 27%);
   --success800: hsl(107, 69%, 23%);
   --success900: hsl(108, 61%, 20%);
-  /* ## Primary */
+  /* ### Primary */
   --primary100: hsl(185, 96%, 94%);
   --primary200: hsl(186, 94%, 88%);
   --primary300: hsl(187, 92%, 75%);
@@ -63,41 +72,34 @@ export const CssVariables = createGlobalStyle`
   --primary800: hsl(192, 70%, 27%);
   --primary900: hsl(193, 64%, 24%);
 
-  /* # Semantic Colors */
+  /* ## Text Colors */
   --text-clr: var(--neutral800);
   --text-clr-alt: var(--neutral600);
   --text-clr-inverted: var(--neutral50);
 
+  /* ## Background Colors */
   --background-clr: var(--neutral50);
   --background-clr-alt: var(--neutral100);
   --background-clr-inverted: var(--neutral800);
 
+  /* ## Accent Colors */
   --accent-clr: var(--primary700);
   --accent-clr-alt: var(--primary600);
   --error-clr: var(--error600);
   --success-clr: var(--success600);
   --warning-clr: var(--warning600);
 
-  --border-clr-primary: var(--neutral300);
-  --outline-clr-primary: var(--neutral600);
-
-  /* # Sizing */
+  /* ## Sizing */
   --size-sm-x: 100px;
   --size-md-x: 200px;
   --size-lg-x: 300px;
   --size-full-x: 100%;
-
   --size-sm-y: 40px;
   --size-md-y: 60px;
   --size-lg-y: 80px;
   --size-full-y: 100%;
 
-  /* # General */
-  --border: 1px solid var(--border-clr-primary);
-  --outline: 2px solid var(--outline-clr-primary);
-  --radius: 5px;
-
-  /* # Input variables */
+  /* # Input */
   --input-border-clr: var(--neutral300);
   --input-outline: 1px solid var(--outline-clr-primary);
   --input-height: 40px;
@@ -112,7 +114,7 @@ export const CssVariables = createGlobalStyle`
   --input-bg-clr: none;
   --input-transition: none;
 
-  /* # Button Variables */
+  /* # Button */
   --btn-font-size: 1.6rem;
   --btn-icon-size: 2.4rem;
   --btn-icon-gap: 8px;
@@ -127,7 +129,7 @@ export const CssVariables = createGlobalStyle`
   --btn-padding-vert: 0.25em;
   --btn-padding-horiz: 1em;
 
-  /* # Banner Variables */
+  /* # Banner */
   --banner-bg-clr: var(--neutral100);
   --banner-text-clr: var(--text-clr);
   --banner-icon-clr: var(--primary700);
@@ -136,7 +138,7 @@ export const CssVariables = createGlobalStyle`
   --banner-btn-size: 40px;
   --banner-border-radius: var(--radius);
 
-  /* # Dropdown variables */
+  /* # Dropdown */
   --dropdown-border-radius: var(--radius);
   --dropdown-border-clr: var(--input-border-clr);
   --dropdown-height: 40px;
@@ -153,21 +155,21 @@ export const CssVariables = createGlobalStyle`
   );
   --dropdown-icon-clr: var(--neutral600);
 
-  /* # Menu variables */
+  /* # Menu */
   --menu-box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.5);
   --menu-bg-clr: var(--neutral50);
   --menu-border-radius: var(--radius);
   --menu-max-height: 300px;
   --menu-padding-top: calc(var(--option-height) / 8);
 
-  /* # Listbox variables */
+  /* # Listbox */
   --listbox-text-clr: inherit;
   --listbox-bg-clr: var(--background-clr);
   --listbox-selected-clr: var(--text-clr-inverted);
   --listbox-icon-clr: var(--neutral600);
   --listbox-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.5);
 
-  /* # Option variables */
+  /* # Option */
   --option-font-size: var(--dropdown-text-size);
   --option-icon-size: var(--dropdown-icon-size);
   --option-height: 32px;
@@ -176,31 +178,30 @@ export const CssVariables = createGlobalStyle`
   --option-icon-gap: 8px;
   --option-border-clr: var(--neutral50, transparent);
 
-
-  /* # Textare variables */
+  /* # TextArea */
   --textarea-height-sm: 80px;
   --textarea-height-md: 140px;
   --textarea-height-lg: 200px;
 
-  /* # Toggle switch variables */
+  /* # Toggle */
   --toggle-unchecked: var(--neutral400);
   --toggle-checked: var(--primary700);
   --toggle-error: var(--error600);
   --toggle-size: 2.4rem;
   --toggle-travel: calc(var(--toggle-size) * 0.666);
 
-  /* # Loader variables */
+  /* # Loader */
   --loader-clr: var(--neutral500);
   --loader-size: 16px;
   --animation-duration: 2000ms;
 
-  /* # Skeleton Loader variables */
+  /* # SkeletonLoader */
   --skeleton-bg-clr: var(--neutral200);
   --skeleton-fg-clr: var(--neutral100);
   --skeleton-bg-opacity: 1;
   --skeleton-fg-opacity: 1;
 
-  /* # Table variables */
+  /* # Table */
   --table-border-clr: var(--neutral300);
   --table-border-width: 1px;
   --table-bg-clr: var(--neutral50);
@@ -213,7 +214,7 @@ export const CssVariables = createGlobalStyle`
   --table-sort-icon-clr: var(--text-clr);
   --table-sort-icon-hover-clr: var(--neutral400);
 
-  /* # Tab variables */
+  /* # Tab */
   --tab-border-width: 1px;
   --tab-border-clr: transparent;
   --tab-padding-hori: 16px;
@@ -223,16 +224,16 @@ export const CssVariables = createGlobalStyle`
   --tab-text-clr: var(--text-clr-alt);
   --tab-bg-clr: var(--neutral50);
 
-  /* # Icon variables */
+  /* # Icon */
   --icon-size-sm: 18px;
   --icon-size-md: 24px;
   --icon-size-lg: 36px;
 
-  /* # Popover Variables */
+  /* # Popover */
   --popover-animation: transform 200ms ease, opacity 200ms;
   --popover-distance: 5px;
 
-  /* # Choose variables */
+  /* # Choose */
   --choose-unchecked: var(--neutral600);
   --choose-checked: var(--primary700);
   --choose-check-border-clr: var(--choose-unchecked);
@@ -243,12 +244,12 @@ export const CssVariables = createGlobalStyle`
   --choose-label-padding-left: 32px;
   --choose-label-height: 24px;
 
-  /* # Calendar variables */
+  /* # Calendar */
   --time-clr: var(--neutral200);
   --time-selected-back-clr: var(--primary600);
   --time-selected-text-clr: var(--neutral100);
 
-  /* # Card variables */
+  /* # Card */
   --card-bg-clr: var(--background-clr-alt);
   --card-text-clr: var(--text-clr);
   --card-radius: var(--radius);
@@ -260,8 +261,7 @@ export const CssVariables = createGlobalStyle`
   --card-divider-border: 1px solid var(--neutral300);
   --card-divider-margin: 10px;
 
-  /* # ToolTip variables */
-
+  /* # ToolTip */
   --tooltip-bg-clr: var(--background-clr-inverted);
   --tooltip-text-clr: var(--text-clr-inverted);
   --tooltip-radius: var(--radius);
@@ -271,8 +271,7 @@ export const CssVariables = createGlobalStyle`
   --tooltip-font-size: 1.3rem;
   --tooltip-font-weight: normal;
 
-  /* # ChipGroup variables */
-
+  /* # ChipGroup */
   --chip-bg-clr: var(--neutral100);
   --chip-text-clr: var(--text-clr-alt);
   --chip-radius: var(--radius);

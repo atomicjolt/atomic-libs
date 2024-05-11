@@ -1,12 +1,14 @@
 import { Meta, StoryObj } from "@storybook/react";
 import TextInput from ".";
-import { TextInputControls } from "../../storybook";
+import { TextInputControls } from "@sb/helpers";
+import { getCssProps } from "@sb/cssprops";
 
 const meta: Meta<typeof TextInput> = {
   title: "Inputs/User Input/TextInput",
   component: TextInput,
   parameters: {
     layout: "centered",
+    cssprops: getCssProps("Input"),
   },
   argTypes: {
     ...TextInputControls,

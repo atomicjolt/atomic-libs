@@ -130,3 +130,4 @@ export type { TableProps } from "./Layout/Table";
 export type { TabsProps } from "./Layout/Tabs";
 export type { CardProps } from "./Layout/Card";
 export type { GroupProps } from "./Layout/Group";
+export type { ChipGroupProps, ChipProps } from "./ChipGroup";

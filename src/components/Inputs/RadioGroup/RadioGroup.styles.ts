@@ -4,9 +4,6 @@ import { FieldWrapper } from "../../Internal/FieldWrapper";
 import { DirectionProps } from "../../../types";
 
 export const RadioWrapper = styled(ChooseInputWrapper)<DirectionProps>`
-  --choose-unchecked: var(--neutral600);
-  --choose-checked: var(--primary700);
-
   input[type="radio"] + .aje-checkbox__label:before {
     border-radius: 50%;
   }

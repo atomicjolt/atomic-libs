@@ -12,10 +12,10 @@ import { DropdownWrapper } from "../Dropdowns.styles";
 import { useVariantClass } from "../../../hooks";
 import { ButtonText } from "./CustomSelect.styles";
 import { FloatingInputWrapper } from "../../Internal/FloatingInputWrapper";
-import Button from "../../Buttons/Button";
 import MaterialIcon from "../../Icons/MaterialIcon";
 import { Popover } from "../../Internal/Popover";
 import { UnmanagedListBox } from "../ListBox";
+import Button from "@/components/Buttons/Button";
 
 export type CustomSelectVariants = "default" | "floating";
 
@@ -107,8 +107,8 @@ export function CustomSelect<T extends object>(props: CustomSelectProps<T>) {
             {state.selectedItem
               ? state.selectedItem.rendered
               : variant === "default"
-              ? placeholder
-              : ""}
+                ? placeholder
+                : ""}
           </ButtonText>
           <MaterialIcon icon="arrow_drop_down" />
         </Button>

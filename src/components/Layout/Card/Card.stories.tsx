@@ -2,9 +2,14 @@ import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import { Card } from ".";
 import { ExtendedSize } from "../../../types";
+import { getCssProps } from "@sb/cssprops";
+
 export default {
   title: "Layouts/Card",
   component: Card,
+  parameters: {
+    cssprops: getCssProps("Card"),
+  },
   subcomponents: {
     "Card.Title": Card.Title,
     "Card.Panel": Card.Panel,

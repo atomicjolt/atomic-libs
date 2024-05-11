@@ -1,17 +1,14 @@
-import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import { ChipGroup, Chip } from ".";
-import {
-  InputControls,
-  MultiSelectItemChildren,
-  MultiSelectionArgTypes,
-} from "../storybook";
+import { InputControls, MultiSelectionArgTypes } from "@sb/helpers";
+import { getCssProps } from "@sb/cssprops";
 
 export default {
   title: "Inputs/ChipGroup",
   component: ChipGroup,
   parameters: {
     layout: "centered",
+    cssprops: getCssProps("ChipGroup"),
   },
   argTypes: {
     ...InputControls,

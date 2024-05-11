@@ -1,12 +1,14 @@
 import { Meta, StoryObj } from "@storybook/react";
 import SearchInput from ".";
-import { TextInputControls } from "../../storybook";
+import { TextInputControls } from "@sb/helpers";
+import { getCssProps } from "@sb/cssprops";
 
 const meta: Meta<typeof SearchInput> = {
   title: "Inputs/User Input/SearchInput",
   component: SearchInput,
   parameters: {
     layout: "centered",
+    cssprops: getCssProps("Input"),
   },
   argTypes: {
     onSubmit: { control: false, table: { category: "Events" } },

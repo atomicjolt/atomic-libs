@@ -1,10 +1,14 @@
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import { SkeletonLoader } from ".";
+import { getCssProps } from "@sb/cssprops";
 
 export default {
   title: "Loaders/SkeletonLoader",
   component: SkeletonLoader,
+  parameters: {
+    cssprops: getCssProps("SkeletonLoader"),
+  },
 } as Meta<typeof SkeletonLoader>;
 
 type Story = StoryObj<typeof SkeletonLoader>;
