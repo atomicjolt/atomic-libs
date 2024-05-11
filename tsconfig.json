@@ -15,17 +15,12 @@
     "declaration": true,
     "sourceMap": true,
     "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "@/*": ["./src/*"],
+      "@sb/*": ["./.storybook/utils/*"]
+    }
   },
-  "include": [
-    "src/**/*.tsx",
-    "src/**/*.ts",
-    "src/components/Buttons/Buttons.types.ts"
-  ],
-  "exclude": [
-    "src/**/*.stories.tsx",
-    "src/**/*.spec.tsx",
-    "node_modules",
-    "dist"
-  ]
+  "include": ["src/**/*.tsx", "src/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
 }
