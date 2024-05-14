@@ -73,6 +73,18 @@ export const ChipWrapper = styled.div`
   color: var(--chip-text-clr);
   border-radius: var(--chip-radius);
 
+  &.aje-chip--warning {
+    --chip-bg-clr: var(--warning100);
+    --chip-hover-bg-clr: var(--warning200);
+    --chip-btn-hover-bg-clr: var(--warning200);
+  }
+
+  &.aje-chip--success {
+    --chip-bg-clr: var(--success100);
+    --chip-hover-bg-clr: var(--success200);
+    --chip-btn-hover-bg-clr: var(--success200);
+  }
+
   &[aria-selected]:hover {
     cursor: pointer;
     --chip-bg-clr: var(--chip-hover-bg-clr);
