@@ -1,9 +1,9 @@
-import React from "react";
+import { ArgTypes } from "@storybook/react";
 import { createGlobalStyle } from "styled-components";
-import { Item } from "./Collection";
 import { PressEvents } from "react-aria";
+import { Item } from "../../src/components/Collection";
 
-export const CommonInputControls = {
+export const InputControls: ArgTypes = {
   label: {
     control: "text",
     table: {
@@ -54,7 +54,7 @@ export const CommonInputControls = {
   },
 };
 
-export const VariantArgType = {
+export const VariantArgType: ArgTypes = {
   variant: {
     control: "select",
     description:
@@ -65,11 +65,7 @@ export const VariantArgType = {
   },
 };
 
-export const InputControls = {
-  ...CommonInputControls,
-};
-
-export const TextInputControls = {
+export const TextInputControls: ArgTypes = {
   ...InputControls,
   autoFocus: {
     control: "boolean",
@@ -112,7 +108,7 @@ export const PlacementArgType = {
   },
 };
 
-export const MultiSelectionArgTypes = {
+export const MultiSelectionArgTypes: ArgTypes = {
   selectionMode: {
     control: "select",
     options: ["single", "multiple", "none"],

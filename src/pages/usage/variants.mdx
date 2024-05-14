@@ -2,7 +2,7 @@ import { Meta, Canvas } from "@storybook/blocks";
 import Button from "../../components/Buttons/Button";
 import TextInput from "../../components/Inputs/TextInput";
 import { SensibleDefaults } from "../../styles/defaults";
-import { PurpleButtonStyles } from "../../components/storybook";
+import { PurpleButtonStyles } from "../../../.storybook/utils/helpers";
 
 <SensibleDefaults />
 <PurpleButtonStyles />
@@ -22,16 +22,17 @@ A component variant is a preset configuration of a component that changes it's a
 
 Visual variants are variants that only modify the visual appearance of a component. For example, the button component has several visual variants built-in that you can use:
 
-<Canvas>
+<div style={{ display: "flex", gap: "10px" }}>
   <Button variant="primary">Primary</Button>
   <Button variant="secondary">Secondary</Button>
   <Button variant="success">Success!</Button>
   <Button variant="error">Error!</Button>
   <Button variant="border">Border</Button>
+  <Button variant="link">Link</Button>
   <Button variant="ghost">Ghost</Button>
   <Button variant="inverted">Inverted</Button>
   <Button variant="content">Content</Button>
-</Canvas>
+</div>
 
 Visual variants are easy to create, you just need to add a new CSS declaration that targets the new classname.
 For example, if you wanted to create a new variant called "purple" for the button component, you could do it like this:
@@ -47,9 +48,11 @@ For example, if you wanted to create a new variant called "purple" for the butto
 
 And then, you can use it like this:
 
-<Canvas>
-  <Button variant="purple">Purple!</Button>
-</Canvas>
+```jsx
+<Button variant="purple">Purple!</Button>
+```
+
+<Button variant="purple">Purple!</Button>
 
 #### Modify Built in Variants
 
@@ -80,10 +83,9 @@ is by adding an id to your selector (like the ID of the root of your React app),
 Semantic variants change the actual structure of the HTML, and as such, are implmented in the component specifically. For example, the "floating" variant
 of the text input component moves the label _below_ the input rather than above it, you can see this by inspecting the following elements:
 
-<Canvas>
-  <TextInput variant="default" label="Default Variant" />
-  <TextInput variant="floating" label="Floating Variant" />
-</Canvas>
+<TextInput variant="default" label="Default Variant" />
+<br />
+<TextInput variant="floating" label="Floating Variant" />
 
 If you're interested in adding a new semantic variant to a component, you can look at the source code for the `TextInput` component to see how it's done.
 

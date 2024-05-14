@@ -1,27 +1,27 @@
-import { StorybookConfig } from "@storybook/react-webpack5";
+import { StorybookConfig } from "@storybook/react-vite";
 
 const config: StorybookConfig = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
-
 
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-docs",
     "@ljcl/storybook-addon-cssprops",
-    "@storybook/addon-mdx-gfm",
   ],
 
   staticDirs: ["../public"],
 
   framework: {
-    name: "@storybook/react-webpack5",
+    name: "@storybook/react-vite",
     options: {},
+  },
+  core: {
+    disableTelemetry: true,
   },
 
   typescript: {
     check: false,
-    checkOptions: {},
     reactDocgen: "react-docgen-typescript",
     reactDocgenTypescriptOptions: {
       compilerOptions: {

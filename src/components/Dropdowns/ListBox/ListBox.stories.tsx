@@ -2,14 +2,15 @@ import React from "react";
 import { StoryObj, Meta } from "@storybook/react";
 import { ListBox } from ".";
 import { Item, Section } from "../..";
-import {
-  MultiSelectItemChildren,
-  MultiSelectionArgTypes,
-} from "../../storybook";
+import { MultiSelectItemChildren, MultiSelectionArgTypes } from "@sb/helpers";
+import { getCssProps } from "@sb/cssprops";
 
 const meta: Meta<typeof ListBox> = {
   title: "Dropdowns/ListBox",
   component: ListBox,
+  parameters: {
+    cssprops: getCssProps("Listbox"),
+  },
   argTypes: {
     ...MultiSelectionArgTypes,
     children: {

@@ -13,8 +13,12 @@ export const BaseStyledButton = styled.button`
   align-items: center;
   justify-content: center;
   gap: var(--btn-icon-gap);
-  transition: background 100ms ease, color 100ms ease, transform 100ms ease,
+  transition:
+    background 100ms ease,
+    color 100ms ease,
+    transform 100ms ease,
     box-shadow 100ms ease;
+
   color: var(--btn-text-clr);
   background-color: var(--btn-bg-clr);
   border: var(--btn-border, none);
@@ -49,9 +53,9 @@ export const BaseStyledButton = styled.button`
 
   &.aje-btn--primary {
     --btn-text-clr: var(--text-clr-inverted);
-    --btn-bg-clr: var(--primary700);
+    --btn-bg-clr: var(--accent-clr);
     --btn-hover-text-clr: var(--btn-text-clr);
-    --btn-hover-bg-clr: var(--primary800);
+    --btn-hover-bg-clr: var(--accent-clr-alt);
   }
 
   &.aje-btn--secondary {

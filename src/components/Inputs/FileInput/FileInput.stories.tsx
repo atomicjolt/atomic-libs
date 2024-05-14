@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { FileInput } from ".";
-import { InputControls } from "../../storybook";
+import { InputControls } from "@sb/helpers";
 
 const meta: Meta<typeof FileInput> = {
   title: "Inputs/Choose State/FileInput",

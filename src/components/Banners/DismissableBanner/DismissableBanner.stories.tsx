@@ -1,10 +1,14 @@
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import { DismissableBanner, ErrorBanner, WarningBanner } from ".";
+import { getCssProps } from "@sb/cssprops";
 
 export default {
   title: "Banners/DismissableBanner",
   component: DismissableBanner,
+  parameters: {
+    cssprops: getCssProps("Banner"),
+  },
   argTypes: {
     variant: {
       control: "select",

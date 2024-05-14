@@ -1,10 +1,14 @@
 import { Meta, StoryObj } from "@storybook/react";
 import TextAreaInput from ".";
-import { TextInputControls } from "../../storybook";
+import { TextInputControls } from "@sb/helpers";
+import { getCssProps } from "@sb/cssprops";
 
 const meta: Meta<typeof TextAreaInput> = {
   title: "Inputs/User Input/TextAreaInput",
   component: TextAreaInput,
+  parameters: {
+    cssprops: getCssProps("Input", "TextArea"),
+  },
   argTypes: {
     ...TextInputControls,
     onChange: { action: "changed", table: { category: "Events" } },

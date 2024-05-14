@@ -1,12 +1,14 @@
 import { Meta, StoryObj } from "@storybook/react";
 import IconButton from ".";
 import buttonMeta from "../Button/Button.stories";
+import { getCssProps } from "@sb/cssprops";
 
 const meta: Meta<typeof IconButton> = {
   title: "Buttons/IconButton",
   component: IconButton,
   parameters: {
     layout: "centered",
+    cssprops: getCssProps("Button"),
   },
   argTypes: {
     ...buttonMeta.argTypes,
