@@ -66,6 +66,7 @@
     "storybook:publish:next": "yarn storybook:build next && gh-pages -d docs/next -m next -e next",
     "build": "rm -rf dist && rollup --config rollup.config.ts --configPlugin typescript && rm -rf dist/cjs/types && mv dist/esm/types dist/types",
     "test": "vitest run",
+    "test:watch": "vitest",
     "test:ui": "vitest --ui",
     "playground": "vite --config playground/vite.config.ts"
   },

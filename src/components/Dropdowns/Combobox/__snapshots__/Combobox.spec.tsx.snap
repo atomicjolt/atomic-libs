@@ -3,10 +3,10 @@
 exports[`matches snapshots > matches default variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-dlMCtj ccunZJ aje-combobox aje-dropdown--default is-medium"
+    class="sc-dlMCtj hqBqib aje-combobox aje-dropdown--default is-medium"
   >
     <label
-      class="sc-ksltVi LGhJJ aje-label"
+      class="sc-ksltVi ghwvzY aje-label"
       for="react-aria-:r2:"
       id="react-aria-:r3:"
     >
@@ -40,7 +40,8 @@ exports[`matches snapshots > matches default variant 1`] = `
         aria-haspopup="listbox"
         aria-label="Show suggestions"
         aria-labelledby="react-aria-:r0: react-aria-:r3:"
-        class="sc-gKAaef sc-iCoHzw kmNmoE kJUKHc aje-btn aje-btn--icon aje-btn--content"
+        class="sc-gKAaef sc-iCoHzw bcVLIb kJUKHc aje-btn aje-btn--icon aje-btn--content"
+        data-focus-visible="false"
         id="react-aria-:r0:"
         tabindex="-1"
         type="button"
@@ -60,7 +61,7 @@ exports[`matches snapshots > matches default variant 1`] = `
 exports[`matches snapshots > matches floating variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-dlMCtj ccunZJ aje-combobox aje-dropdown--floating is-medium"
+    class="sc-dlMCtj hqBqib aje-combobox aje-dropdown--floating is-medium"
   >
     <div
       class="sc-hHEhDq dMVzRV"
@@ -87,7 +88,8 @@ exports[`matches snapshots > matches floating variant 1`] = `
           aria-haspopup="listbox"
           aria-label="Show suggestions"
           aria-labelledby="react-aria-:r9: react-aria-:rc:"
-          class="sc-gKAaef sc-iCoHzw kmNmoE kJUKHc aje-btn aje-btn--icon aje-btn--content"
+          class="sc-gKAaef sc-iCoHzw bcVLIb kJUKHc aje-btn aje-btn--icon aje-btn--content"
+          data-focus-visible="false"
           id="react-aria-:r9:"
           tabindex="-1"
           type="button"
@@ -101,7 +103,7 @@ exports[`matches snapshots > matches floating variant 1`] = `
         </button>
       </div>
       <label
-        class="sc-ksltVi LGhJJ aje-label"
+        class="sc-ksltVi ghwvzY aje-label"
         for="react-aria-:rb:"
         id="react-aria-:rc:"
       >
