@@ -84,7 +84,7 @@ export const CssVariables = createGlobalStyle`
 
   /* ## Accent Colors */
   --accent-clr: var(--primary700);
-  --accent-clr-alt: var(--primary600);
+  --accent-clr-alt: var(--primary800);
   --error-clr: var(--error600);
   --success-clr: var(--success600);
   --warning-clr: var(--warning600);
@@ -235,7 +235,7 @@ export const CssVariables = createGlobalStyle`
 
   /* # Choose */
   --choose-unchecked: var(--neutral600);
-  --choose-checked: var(--primary700);
+  --choose-checked: var(--accent-clr);
   --choose-check-border-clr: var(--choose-unchecked);
   --choose-check-bg-clr: none;
   --choose-check-size: 20px;
