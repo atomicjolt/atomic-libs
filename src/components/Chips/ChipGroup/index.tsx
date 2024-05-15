@@ -1,22 +1,18 @@
 import React, { useRef } from "react";
-import type { ItemProps, ListState } from "react-stately";
+import type { ListState } from "react-stately";
 import type { AriaTagGroupProps, AriaTagProps } from "react-aria";
 import { useListState } from "react-stately";
 import { usePress, useTag, useTagGroup } from "react-aria";
-import { AriaProps, FieldInputProps, HasClassName } from "../../types";
-import { ErrorMessage, Label, Message } from "../Internal/Field";
-import IconButton from "../Buttons/IconButton";
-import {
-  ChipWrapper,
-  ChipContent,
-  ChipsWrapper,
-  ChipGroupWrapper,
-} from "./ChipGroup.styles";
+import { AriaProps, FieldInputProps } from "../../../types";
+import { ErrorMessage, Label, Message } from "../../Internal/Field";
+import IconButton from "../../Buttons/IconButton";
+import { ChipsWrapper, ChipGroupWrapper } from "./ChipGroup.styles";
 import classNames from "classnames";
-import { copyStaticProperties } from "../../clone";
-import { Item } from "../Collection";
-import { useFocusRing } from "../../hooks/useFocusRing";
+import { useFocusRing } from "../../../hooks/useFocusRing";
 import { useVariantClass } from "@/hooks";
+import { ChipContent, ChipWrapper } from "../Chip/Chip.styles";
+import { Chip } from "../Chip";
+import { WrapperChipGroupContext } from "../Chip/contexts";
 
 export interface ChipGroupProps<T extends object>
   extends AriaProps<AriaTagGroupProps<T>>,
@@ -96,51 +92,22 @@ function ChipInternal<T>(props: ChipInternalProps<T>) {
   );
 
   const { focusProps } = useFocusRing({ within: true });
-  const variantClass = useVariantClass("aje-chip", item.props.variant);
 
   return (
-    <ChipWrapper
-      className={classNames("aje-chip", variantClass, item.props.className)}
-      ref={ref}
-      {...rowProps}
-      {...focusProps}
+    <WrapperChipGroupContext.Provider
+      value={{
+        wrapperProps: { ...rowProps, ...focusProps },
+        contentProps: gridCellProps,
+        removeButtonProps: {
+          ...removeButtonProps,
+          isDisabled: state.disabledKeys.has(item.key),
+        },
+        allowsRemoving,
+      }}
     >
-      <ChipContent {...gridCellProps}>
+      <Chip ref={ref} {...item.props}>
         {item.rendered}
-        {allowsRemoving && (
-          <IconButton
-            icon="close"
-            size="small"
-            variant="content"
-            isDisabled={state.disabledKeys.has(item.key)}
-            {...removeButtonProps}
-          />
-        )}
-      </ChipContent>
-    </ChipWrapper>
+      </Chip>
+    </WrapperChipGroupContext.Provider>
   );
 }
-
-export interface ChipProps<T>
-  extends Omit<ItemProps<T>, "title">,
-    HasClassName {
-  variant?: "default" | "warning" | "success";
-}
-
-/** Chip component can be used either within a `<ChipGroup />` or standalone */
-export function Chip<T>(props: ChipProps<T>) {
-  const { className, variant = "default", ...rest } = props;
-
-  const variantClass = useVariantClass("aje-chip", variant);
-
-  return (
-    <ChipWrapper
-      className={classNames("aje-chip", variantClass, className)}
-      {...rest}
-    >
-      <ChipContent>{props.children}</ChipContent>
-    </ChipWrapper>
-  );
-}
-
-copyStaticProperties(Item, Chip);

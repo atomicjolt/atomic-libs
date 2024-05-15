@@ -49,7 +49,14 @@ export default function Aria() {
         <Chip key="gaming">Gaming</Chip>
         <Chip key="shopping">Shopping</Chip>
       </ChipGroup>
-      <Chip>Test Chip</Chip>
+
+      <Chip
+        onPress={() => console.log("hi")}
+        onRemove={() => console.log("remove")}
+        variant="warning"
+      >
+        Test Chip
+      </Chip>
     </div>
   );
 }

@@ -1,7 +1,7 @@
-import React from "react";
-import { describe, test, expect, it } from "vitest";
+import { describe, test, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
-import { ChipGroup, Chip } from ".";
+import { ChipGroup } from ".";
+import { Chip } from "../Chip";
 
 describe("ChipGroup", () => {
   test("matches snapshot", () => {
@@ -36,12 +36,5 @@ describe("ChipGroup", () => {
     chips.forEach((chip) => {
       expect(screen.getByText(chip.rendered)).not.toBeNull();
     });
-  });
-});
-
-describe("Chip", () => {
-  test("matches snapshot", () => {
-    const result = render(<Chip>Item</Chip>);
-    expect(result.asFragment()).toMatchSnapshot();
   });
 });
