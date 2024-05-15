@@ -16,13 +16,14 @@ import classNames from "classnames";
 import { copyStaticProperties } from "../../clone";
 import { Item } from "../Collection";
 import { useFocusRing } from "../../hooks/useFocusRing";
+import { useVariantClass } from "@/hooks";
 
 export interface ChipGroupProps<T extends object>
   extends AriaProps<AriaTagGroupProps<T>>,
     Omit<FieldInputProps, "isReadOnly"> {
   /** Whether the label is placed above the
    * group, or inline with the chips */
-  labelPlacement: "above" | "inline";
+  labelPlacement?: "above" | "inline";
 }
 
 /** Collection Component for displaying a group of chips.
@@ -49,7 +50,7 @@ export function ChipGroup<T extends object>(props: ChipGroupProps<T>) {
 
   return (
     <ChipGroupWrapper
-      className={classNames(className, "aj-chip-group")}
+      className={classNames(className, "aje-chip-group")}
       isDisabled={isDisabled}
       isInvalid={isInvalid}
       isRequired={isRequired}
@@ -95,10 +96,11 @@ function ChipInternal<T>(props: ChipInternalProps<T>) {
   );
 
   const { focusProps } = useFocusRing({ within: true });
+  const variantClass = useVariantClass("aje-chip", item.props.variant);
 
   return (
     <ChipWrapper
-      className={classNames("aj-chip", item.props.className)}
+      className={classNames("aje-chip", variantClass, item.props.className)}
       ref={ref}
       {...rowProps}
       {...focusProps}
@@ -121,14 +123,21 @@ function ChipInternal<T>(props: ChipInternalProps<T>) {
 
 export interface ChipProps<T>
   extends Omit<ItemProps<T>, "title">,
-    HasClassName {}
+    HasClassName {
+  variant?: "default" | "warning" | "success";
+}
 
 /** Chip component can be used either within a `<ChipGroup />` or standalone */
 export function Chip<T>(props: ChipProps<T>) {
-  const { className, ...rest } = props;
+  const { className, variant = "default", ...rest } = props;
+
+  const variantClass = useVariantClass("aje-chip", variant);
 
   return (
-    <ChipWrapper className={classNames("aj-chip", className)} {...rest}>
+    <ChipWrapper
+      className={classNames("aje-chip", variantClass, className)}
+      {...rest}
+    >
       <ChipContent>{props.children}</ChipContent>
     </ChipWrapper>
   );
