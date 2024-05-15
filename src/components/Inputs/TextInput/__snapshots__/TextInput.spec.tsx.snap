@@ -6,7 +6,7 @@ exports[`matches snapshot > default variant 1`] = `
     class="sc-gKAaef iJKtbz aje-input__text sc-bqGGcD hCFqor aje-input--default is-medium"
   >
     <label
-      class="sc-bdnyFh hQZKgx"
+      class="sc-bdnyFh KCKAU"
       for="react-aria-:r0:"
       id="react-aria-:r1:"
     >
@@ -51,7 +51,7 @@ exports[`matches snapshot > floating variant 1`] = `
         value="content"
       />
       <label
-        class="sc-bdnyFh hQZKgx"
+        class="sc-bdnyFh KCKAU"
         for="react-aria-:r5:"
         id="react-aria-:r6:"
       >

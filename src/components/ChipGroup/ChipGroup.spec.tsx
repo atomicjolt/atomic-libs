@@ -29,7 +29,7 @@ describe("ChipGroup", () => {
       { key: "3", rendered: "Chip 3" },
     ];
     render(
-      <ChipGroup items={chips}>
+      <ChipGroup items={chips} label="Label">
         {({ key, rendered }) => <Chip key={key}>{rendered}</Chip>}
       </ChipGroup>
     );

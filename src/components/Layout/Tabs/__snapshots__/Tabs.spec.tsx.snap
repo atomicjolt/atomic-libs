@@ -3,7 +3,7 @@
 exports[`matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-iCoHzw jbvELD aje-tabs aje-tabs--default"
+    class="sc-iCoHzw nCdhE aje-tabs aje-tabs--default"
   >
     <div
       aria-orientation="horizontal"
@@ -20,7 +20,7 @@ exports[`matches snapshot 1`] = `
           <div
             aria-controls="react-aria-:r0:-tabpanel-tab1"
             aria-selected="true"
-            class="sc-jSFipO biXgJe"
+            class="sc-jSFipO eQbmbq"
             data-key="tab1"
             id="react-aria-:r0:-tab-tab1"
             role="tab"
@@ -34,7 +34,7 @@ exports[`matches snapshot 1`] = `
         >
           <div
             aria-selected="false"
-            class="sc-jSFipO biXgJe"
+            class="sc-jSFipO eQbmbq"
             data-key="tab2"
             id="react-aria-:r0:-tab-tab2"
             role="tab"
@@ -48,7 +48,7 @@ exports[`matches snapshot 1`] = `
         >
           <div
             aria-selected="false"
-            class="sc-jSFipO biXgJe"
+            class="sc-jSFipO eQbmbq"
             data-key="tab3"
             id="react-aria-:r0:-tab-tab3"
             role="tab"
@@ -64,7 +64,7 @@ exports[`matches snapshot 1`] = `
     </div>
     <div
       aria-labelledby="react-aria-:r0:-tab-tab1"
-      class="sc-gKAaef cghWb"
+      class="sc-gKAaef fWeaKp"
       id="react-aria-:r0:-tabpanel-tab1"
       role="tabpanel"
       tabindex="0"

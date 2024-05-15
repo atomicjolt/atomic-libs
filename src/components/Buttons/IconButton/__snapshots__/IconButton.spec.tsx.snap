@@ -3,7 +3,8 @@
 exports[`matches snapshot 1`] = `
 <DocumentFragment>
   <button
-    class="sc-gKAaef sc-iCoHzw kmNmoE kJUKHc aje-btn aje-btn--icon aje-btn--border"
+    class="sc-gKAaef sc-iCoHzw bcVLIb kJUKHc aje-btn aje-btn--icon aje-btn--border"
+    data-focus-visible="false"
     type="button"
   >
     <i
