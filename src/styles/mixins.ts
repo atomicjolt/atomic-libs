@@ -34,7 +34,6 @@ const mixins = {
     border-color: var(--input-border-clr);
     border-radius: var(--input-border-radius);
     min-height: var(--input-height);
-    width: 100%;
     padding: 0 var(--input-padding-horiz);
     font-size: var(--input-font-size);
     color: var(--input-text-clr);
