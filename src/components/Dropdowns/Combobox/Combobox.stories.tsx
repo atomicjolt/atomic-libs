@@ -1,14 +1,16 @@
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
-import { TextInputControls } from "../../storybook";
+import { TextInputControls } from "@sb/helpers";
 import { ComboBox } from ".";
 import { Item } from "../../Collection";
+import { getCssProps } from "@sb/cssprops";
 
 const meta: Meta<typeof ComboBox> = {
   title: "Dropdowns/Selection/Combobox",
   component: ComboBox,
   parameters: {
     layout: "centered",
+    cssprops: getCssProps("Dropdown"),
   },
   argTypes: {
     ...TextInputControls,

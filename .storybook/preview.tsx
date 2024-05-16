@@ -1,6 +1,14 @@
 import React from "react";
-import props from "./props";
 import { Preview } from "@storybook/react";
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  Controls,
+  Stories,
+} from "@storybook/blocks";
+import { CssPropsBlock } from "@ljcl/storybook-addon-cssprops";
 
 import { LoadFonts } from "../src/styles/fonts";
 import { CssVariables } from "../src/styles/variables";
@@ -97,11 +105,24 @@ const preview: Preview = {
         text: /className/,
       },
     },
-    cssprops: props,
+    // cssprops: props,
     options: {
       storySort: {
-        order: ["Introduction", "Installation", "Usage", "Buttons", "Inputs"],
+        order: ["Introduction", "Installation", "Usage"],
       },
+    },
+    docs: {
+      page: () => (
+        <>
+          <Title />
+          <Subtitle />
+          <Description />
+          <Primary />
+          <Controls />
+          <CssPropsBlock />
+          <Stories />
+        </>
+      ),
     },
   },
 };

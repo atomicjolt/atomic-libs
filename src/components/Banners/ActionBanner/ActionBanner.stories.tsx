@@ -1,9 +1,13 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { ActionBanner } from ".";
+import { getCssProps } from "@sb/cssprops";
 
 export default {
   title: "Banners/ActionBanner",
   component: ActionBanner,
+  parameters: {
+    cssprops: getCssProps("Banner"),
+  },
   argTypes: {
     onPress: {
       control: false,

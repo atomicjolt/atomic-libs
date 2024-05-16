@@ -2,11 +2,14 @@ import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import { Tabs } from ".";
 import { Item } from "../../Collection";
-import { Card } from "../../Atoms/Card";
+import { getCssProps } from "@sb/cssprops";
 
 const meta: Meta<typeof Tabs> = {
   title: "Layouts/Tabs",
   component: Tabs,
+  parameters: {
+    cssprops: getCssProps("Tab"),
+  },
   argTypes: {
     selectedKey: {
       control: "select",

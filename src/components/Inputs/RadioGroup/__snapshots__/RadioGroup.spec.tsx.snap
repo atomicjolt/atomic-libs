@@ -10,13 +10,13 @@ exports[`matches snapshot 1`] = `
     role="radiogroup"
   >
     <legend
-      class="sc-bdnyFh hQZKgx aje-radio-group__label"
+      class="sc-bdnyFh KCKAU aje-radio-group__label"
       id="react-aria-:r1:"
     >
       Label
     </legend>
     <div
-      class="sc-hBMVwJ sc-bkbjWr bgVkQY lPusJ aje-radio"
+      class="sc-hBMVwJ sc-bkbjWr bgVkQY hPxwdM aje-radio"
     >
       <input
         checked=""
@@ -33,7 +33,7 @@ exports[`matches snapshot 1`] = `
       </span>
     </div>
     <div
-      class="sc-hBMVwJ sc-bkbjWr bgVkQY lPusJ aje-radio"
+      class="sc-hBMVwJ sc-bkbjWr bgVkQY hPxwdM aje-radio"
     >
       <input
         class="sc-fnVZQs iubuxm"
@@ -49,7 +49,7 @@ exports[`matches snapshot 1`] = `
       </span>
     </div>
     <div
-      class="sc-hBMVwJ sc-bkbjWr bgVkQY lPusJ aje-radio"
+      class="sc-hBMVwJ sc-bkbjWr bgVkQY hPxwdM aje-radio"
     >
       <input
         class="sc-fnVZQs iubuxm"

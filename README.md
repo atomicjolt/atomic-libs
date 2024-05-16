@@ -6,6 +6,16 @@ Atomic Elements is a React component library
 
 Atomic Element uses storybook for development / documentation. [Access here](https://atomicjolt.github.io/atomic-elements/)
 
+To run the Atomic Elements storybook itself
+```
+$ yarn storybook:dev
+```
+
+To spin up a React playground to test components
+```
+$ yarn playground
+```
+
 ## Quickstart
 
 ```

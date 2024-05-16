@@ -4,7 +4,8 @@ import mixins from "../../styles/mixins";
 export const BaseStyledButton = styled.button`
   ${mixins.Bold}
   ${mixins.SizingX}
-  padding: var(--btn-padding) calc(var(--btn-padding) * 2);
+  ${mixins.FocusVisible(2)}
+  padding: var(--btn-padding-vert) var(--btn-padding-horiz);
   border-radius: var(--btn-border-radius);
   font-size: var(--btn-font-size);
   min-height: var(--btn-height);
@@ -12,8 +13,12 @@ export const BaseStyledButton = styled.button`
   align-items: center;
   justify-content: center;
   gap: var(--btn-icon-gap);
-  transition: background 100ms ease, color 100ms ease, transform 100ms ease,
+  transition:
+    background 100ms ease,
+    color 100ms ease,
+    transform 100ms ease,
     box-shadow 100ms ease;
+
   color: var(--btn-text-clr);
   background-color: var(--btn-bg-clr);
   border: var(--btn-border, none);
@@ -25,13 +30,11 @@ export const BaseStyledButton = styled.button`
     background-color: var(--btn-hover-bg-clr);
     box-shadow: var(--btn-hover-shadow);
   }
+
   &.is-active {
     transform: translateY(1px);
   }
-  &:focus-visible {
-    outline: var(--outline);
-    outline-offset: 2px;
-  }
+
   &:disabled {
     opacity: 0.5;
     pointer-events: none;
@@ -50,9 +53,9 @@ export const BaseStyledButton = styled.button`
 
   &.aje-btn--primary {
     --btn-text-clr: var(--text-clr-inverted);
-    --btn-bg-clr: var(--primary700);
+    --btn-bg-clr: var(--accent-clr);
     --btn-hover-text-clr: var(--btn-text-clr);
-    --btn-hover-bg-clr: var(--primary800);
+    --btn-hover-bg-clr: var(--accent-clr-alt);
   }
 
   &.aje-btn--secondary {
@@ -61,6 +64,14 @@ export const BaseStyledButton = styled.button`
     --btn-hover-text-clr: var(--text-clr);
     --btn-hover-bg-clr: var(--neutral200);
     --btn-border: var(--border);
+  }
+
+  &.aje-btn--link {
+    --btn-text-clr: var(--primary700);
+    --btn-bg-clr: var(--neutral50);
+    --btn-hover-text-clr: var(--text-clr);
+    --btn-hover-bg-clr: var(--neutral100);
+    text-decoration: underline;
   }
 
   &.aje-btn--error {
@@ -91,7 +102,8 @@ export const BaseStyledButton = styled.button`
     --btn-hover-text-clr: var(--btn-text-clr);
     --btn-hover-bg-clr: transparent;
     --btn-hover-shadow: none;
-    --btn-padding: 0px;
+    --btn-padding-horiz: 0px;
+    --btn-padding-vert: 0px;
     --btn-height: auto;
     outline: none;
   }
@@ -115,6 +127,6 @@ export const BaseStyledButton = styled.button`
   & > i {
     color: inherit;
     font-size: var(--btn-icon-size);
-    margin-left: calc(var(--btn-padding) / -2);
+    margin-left: calc(var(--btn-padding-horiz) / -2.5);
   }
 `;

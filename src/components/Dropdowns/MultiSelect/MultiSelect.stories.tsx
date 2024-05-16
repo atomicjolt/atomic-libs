@@ -1,14 +1,16 @@
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
-import { InputControls } from "../../storybook";
+import { InputControls } from "@sb/helpers";
 import { MultiSelect } from ".";
 import { Item } from "../../Collection";
+import { getCssProps } from "@sb/cssprops";
 
 export default {
   title: "Dropdowns/Selection/MultiSelect",
   component: MultiSelect,
   parameters: {
     layout: "centered",
+    cssprops: getCssProps("Dropdown"),
   },
   argTypes: {
     ...InputControls,
@@ -19,7 +21,7 @@ export default {
       options: ["val1", "val2", "val3"],
     },
     defaultSelectedKeys: {
-      control: "false",
+      control: false,
       description:
         "Control the value of the selected keys in an uncontrolled component",
     },

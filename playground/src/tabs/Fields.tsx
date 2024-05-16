@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {
   CheckBox,
+  ChipGroup,
   ComboBox,
   CustomSelect,
   DateInput,
@@ -47,6 +48,24 @@ export default function Fields() {
       <CheckBox isSelected={isInvalid} onChange={setIsInvalid}>
         Invalid
       </CheckBox>
+      <hr />
+
+      <ChipGroup
+        onRemove={(key) => console.log(key)}
+        label="Label"
+        message="message"
+        error="error"
+        disabledKeys={["shopping"]}
+        selectionMode="multiple"
+        isDisabled={isDisabled}
+        isInvalid={isInvalid}
+        isRequired={isRequired}
+      >
+        <Item key="news">News</Item>
+        <Item key="travel">Travel</Item>
+        <Item key="gaming">Gaming</Item>
+        <Item key="shopping">Shopping</Item>
+      </ChipGroup>
 
       <hr />
 

@@ -29,7 +29,8 @@ export const DropdownWrapper = styled(FieldWrapper)<FieldWrapperProps>`
 
     // To match the actual select element
     --btn-border: 1px solid var(--input-border-clr);
-    padding-right: 8px;
+    padding-right: 0.8rem;
+    justify-content: space-between;
 
     &.is-active {
       transform: translateY(0px);

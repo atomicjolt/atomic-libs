@@ -1,11 +1,13 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { ToggleSwitch } from ".";
+import { getCssProps } from "@sb/cssprops";
 
 const meta: Meta<typeof ToggleSwitch> = {
   title: "Inputs/Choose State/ToggleSwitch",
   component: ToggleSwitch,
   parameters: {
     layout: "centered",
+    cssprops: getCssProps("Toggle"),
   },
   argTypes: {
     onChange: {

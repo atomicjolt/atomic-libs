@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import {
   Button,
   CheckBox,
+  Chip,
+  ChipGroup,
   ComboBox,
   CustomSelect,
   IconMenu,
@@ -17,18 +19,28 @@ import {
 } from "../elements";
 
 export default function Aria() {
+  const chips = [
+    { key: "news", text: "News" },
+    { key: "travel", text: "Travel" },
+    { key: "gaming", text: "Gaming" },
+    { key: "shopping", text: "Shopping" },
+  ];
   return (
     <div>
-      <ToolTipTrigger delay={1500}>
-        <Button>Hover Me</Button>
-        <ToolTip placement="right">Test Content</ToolTip>
-      </ToolTipTrigger>
-      <br />
-      <br />
-      <ToolTipTrigger delay={1500}>
-        <Button>Hover Me</Button>
-        <ToolTip placement="right">Test Content</ToolTip>
-      </ToolTipTrigger>
+      <ChipGroup
+        onRemove={(key) => console.log(key)}
+        label="Label"
+        message="message"
+        error="error"
+        disabledKeys={["shopping"]}
+        selectionMode="multiple"
+      >
+        <Chip key="news">News</Chip>
+        <Chip key="travel">Travel</Chip>
+        <Chip key="gaming">Gaming</Chip>
+        <Chip key="shopping">Shopping</Chip>
+      </ChipGroup>
+      <Chip>Test Chip</Chip>
     </div>
   );
 }

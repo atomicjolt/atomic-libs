@@ -1,7 +1,7 @@
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import IconMenu from ".";
-import { PlacementArgType } from "../../storybook";
+import { PlacementArgType } from "@sb/helpers";
 import { MaterialIcon, Section } from "../../";
 
 const meta: Meta<typeof IconMenu> = {

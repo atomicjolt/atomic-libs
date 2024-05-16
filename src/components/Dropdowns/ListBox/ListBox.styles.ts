@@ -9,9 +9,14 @@ export const List = styled.ul`
   box-shadow: var(--listbox-shadow);
   background-color: var(--listbox-bg-clr);
   padding: 8px 0;
+  margin: 0;
   z-index: 100;
 
   min-width: var(--trigger-width, auto);
+
+  &:focus {
+    outline: none;
+  }
 
   // For the search input
   --input-border: none;

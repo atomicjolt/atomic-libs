@@ -1,6 +1,6 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { SelectProps, useSelectState } from "react-stately";
-import { HiddenSelect, Overlay, useSelect } from "react-aria";
+import { HiddenSelect, useSelect } from "react-aria";
 import classNames from "classnames";
 import {
   AriaProps,
@@ -12,11 +12,11 @@ import { DropdownWrapper } from "../Dropdowns.styles";
 import { useVariantClass } from "../../../hooks";
 import { ButtonText } from "./CustomSelect.styles";
 import { FloatingInputWrapper } from "../../Internal/FloatingInputWrapper";
-import Button from "../../Buttons/Button";
-import MaterialIcon from "../../Icons/MaterialIcon";
+import { MaterialIcon } from "../../Icons/MaterialIcon";
 import { Popover } from "../../Overlays/Popover";
 import { UnmanagedListBox } from "../ListBox";
 import { OverlayTriggerStateContext } from "../../Overlays/OverlayTrigger/context";
+import { Button } from "@/components/Buttons/Button";
 
 export type CustomSelectVariants = "default" | "floating";
 
@@ -108,8 +108,8 @@ export function CustomSelect<T extends object>(props: CustomSelectProps<T>) {
             {state.selectedItem
               ? state.selectedItem.rendered
               : variant === "default"
-              ? placeholder
-              : ""}
+                ? placeholder
+                : ""}
           </ButtonText>
           <MaterialIcon icon="arrow_drop_down" />
         </Button>

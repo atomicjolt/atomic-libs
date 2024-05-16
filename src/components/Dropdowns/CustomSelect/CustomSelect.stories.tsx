@@ -1,14 +1,16 @@
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
-import { InputControls } from "../../storybook";
+import { InputControls } from "@sb/helpers";
 import { CustomSelect } from ".";
 import { Item, Section } from "../../Collection";
+import { getCssProps } from "@sb/cssprops";
 
 const meta: Meta<typeof CustomSelect> = {
   title: "Dropdowns/Selection/CustomSelect",
   component: CustomSelect,
   parameters: {
     layout: "centered",
+    cssprops: getCssProps("Dropdown", "Option"),
   },
   argTypes: {
     ...InputControls,
@@ -19,7 +21,7 @@ const meta: Meta<typeof CustomSelect> = {
       options: ["val1", "val2", "val3", null],
     },
     defaultSelectedKey: {
-      control: "false",
+      control: false,
       description:
         "Control the value of the selected key in an uncontrolled component",
     },

@@ -1,4 +1,6 @@
 import { Meta } from "@storybook/blocks";
+import { CssPropsBlock } from "@ljcl/storybook-addon-cssprops";
+import { cssprops } from "../../../.storybook/utils/cssprops.generated";
 
 <Meta title="Usage/Customizing Appearance/CSS Variables" />
 
@@ -8,3 +10,10 @@ Each component's CSS is built using CSS variables. This allows you to easily mod
 [You can look at the variables.css file for the full list](https://github.com/atomicjolt/atomic-elements/blob/main/src/styles/variables.ts). These
 variables should allow you the easily modify components on an app-wide scale, or on a instance-by-instance basis. If you feel like something should expose
 a CSS variable that doesn't currently, feel free to open up a PR with the change.
+
+## General CSS Properties
+
+These are the general CSS properties that are used across all components. You can use these to modify the appearance of all components at once.
+If a component exposes it's own CSS variables, it will call them out in it's documentation.
+
+<CssPropsBlock customProperties={cssprops.General} />

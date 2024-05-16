@@ -1,6 +1,6 @@
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
-import { InputControls } from "../../storybook";
+import { InputControls } from "@sb/helpers";
 import Select from ".";
 
 const meta: Meta<typeof Select> = {

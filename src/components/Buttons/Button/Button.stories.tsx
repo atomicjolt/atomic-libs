@@ -1,15 +1,18 @@
-import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import Button from ".";
-import { MaterialIcon } from "../../Icons/MaterialIcon";
+import { PressableArgTypes } from "@sb/helpers";
+import MaterialIcon from "@/components/Icons/MaterialIcon";
+import { getCssProps } from "@sb/cssprops";
 
 const meta: Meta<typeof Button> = {
   title: "Buttons/Button",
   component: Button,
   parameters: {
     layout: "centered",
+    cssprops: getCssProps("Button"),
   },
   argTypes: {
+    ...PressableArgTypes,
     children: {
       control: "text",
     },
@@ -22,6 +25,7 @@ const meta: Meta<typeof Button> = {
       options: [
         "primary",
         "secondary",
+        "link",
         "error",
         "success",
         "inverted",
@@ -49,41 +53,6 @@ const meta: Meta<typeof Button> = {
     //   description:
     //     "The type of element to render. By default, it will render a button element.",
     // },
-    onPress: {
-      control: false,
-      action: "onPress",
-      description:
-        "Similar to onClick, but preferred for better accessibility. It is called when the button is pressed.",
-      table: {
-        category: "Events",
-      },
-    },
-    onPressStart: {
-      control: false,
-      action: "onPressStart",
-      description:
-        "Called when the button is pressed down. This is called before onPress.",
-      table: {
-        category: "Events",
-      },
-    },
-    onPressEnd: {
-      control: false,
-      action: "onPressEnd",
-      description:
-        "Called when the button is released. This is called after onPress.",
-      table: {
-        category: "Events",
-      },
-    },
-    onPressChange: {
-      control: false,
-      action: "onPressChange",
-      description: "Called when the pressed state of the button changes.",
-      table: {
-        category: "Events",
-      },
-    },
   },
 };
 
@@ -106,6 +75,14 @@ export const Secondary: Story = {
     ...Primary.args,
     children: "Secondary",
     variant: "secondary",
+  },
+};
+
+export const Link: Story = {
+  args: {
+    ...Primary.args,
+    children: "Link",
+    variant: "link",
   },
 };
 
@@ -161,7 +138,7 @@ export const WithIcon: Story = {
   },
   args: {
     ...Primary.args,
-    children: [<MaterialIcon icon="add" />, "Primary"],
+    children: [<MaterialIcon icon="add" key="add" />, "Primary"],
     variant: "primary",
   },
 };

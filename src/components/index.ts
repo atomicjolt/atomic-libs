@@ -64,6 +64,8 @@ export { ToolTipTrigger, ToolTip, ToolTipTarget } from "./Overlays/ToolTip";
 
 export { LocaleProvider } from "./locale";
 
+export { ChipGroup, Chip } from "./ChipGroup";
+
 // These are technically internal componnets and as such are not documented,
 // but they are exported here if you need to use them.
 export {
@@ -131,3 +133,4 @@ export type { TableProps } from "./Layout/Table";
 export type { TabsProps } from "./Layout/Tabs";
 export type { CardProps } from "./Layout/Card";
 export type { GroupProps } from "./Layout/Group";
+export type { ChipGroupProps, ChipProps } from "./ChipGroup";

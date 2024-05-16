@@ -3,7 +3,8 @@
 exports[`matches snapshots > changes variant 1`] = `
 <DocumentFragment>
   <button
-    class="sc-jSFipO sc-gKAaef dENvOr aje-btn aje-btn--secondary is-auto"
+    class="sc-jSFipO sc-gKAaef ejtmmp aje-btn aje-btn--secondary is-auto"
+    data-focus-visible="false"
     type="button"
   >
     Click Me
@@ -14,7 +15,8 @@ exports[`matches snapshots > changes variant 1`] = `
 exports[`matches snapshots > loading completed state 1`] = `
 <DocumentFragment>
   <button
-    class="sc-jSFipO sc-gKAaef dENvOr aje-btn aje-btn--primary is-auto is-loading"
+    class="sc-jSFipO sc-gKAaef ejtmmp aje-btn aje-btn--primary is-auto is-loading"
+    data-focus-visible="false"
     type="button"
   >
     <div
@@ -32,7 +34,8 @@ exports[`matches snapshots > loading completed state 1`] = `
 exports[`matches snapshots > loading state 1`] = `
 <DocumentFragment>
   <button
-    class="sc-jSFipO sc-gKAaef dENvOr aje-btn aje-btn--primary is-auto is-loading"
+    class="sc-jSFipO sc-gKAaef ejtmmp aje-btn aje-btn--primary is-auto is-loading"
+    data-focus-visible="false"
     type="button"
   >
     <div
@@ -61,7 +64,8 @@ exports[`matches snapshots > loading state 1`] = `
 exports[`matches snapshots > normal display 1`] = `
 <DocumentFragment>
   <button
-    class="sc-jSFipO sc-gKAaef dENvOr aje-btn aje-btn--primary is-auto"
+    class="sc-jSFipO sc-gKAaef ejtmmp aje-btn aje-btn--primary is-auto"
+    data-focus-visible="false"
     type="button"
   >
     Click Me

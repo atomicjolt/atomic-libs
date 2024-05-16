@@ -4,14 +4,18 @@ import { scaleAnimation } from "../../../styles/animations";
 
 export const MenuList = styled.ul`
   list-style: none;
+  margin: 0;
   border-radius: var(--radius);
   box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.5);
   background-color: var(--neutral50);
   padding: 8px 0;
   z-index: 100;
+  min-width: var(--trigger-width, auto);
   ${scaleAnimation}
 
-  min-width: var(--trigger-width, auto);
+  &:focus {
+    outline: none;
+  }
 `;
 
 export const SubMenuList = styled.ul`

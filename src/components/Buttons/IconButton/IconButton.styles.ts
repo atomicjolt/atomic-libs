@@ -4,7 +4,8 @@ import { BaseStyledButton } from "../Buttons.styles";
 export const StyledIconButton = styled(BaseStyledButton)`
   position: relative;
   height: var(--btn-height);
-  padding: var(--btn-padding);
+  width: var(--btn-height);
+  padding: 0 0;
 
   i {
     margin-left: 0;
