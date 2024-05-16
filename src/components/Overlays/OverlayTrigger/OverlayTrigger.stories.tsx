@@ -1,11 +1,9 @@
-import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import { OverlayTrigger } from ".";
 import { Pressable } from "./Pressable";
 import { Popover } from "../Popover";
 import Button from "../../Buttons/Button";
-import Modal from "../Modal";
-import IconButton from "../../Buttons/IconButton";
+import { OverlayTriggerArgTypes } from "@sb/helpers";
 
 export default {
   title: "Overlays/OverlayTrigger",
@@ -14,23 +12,9 @@ export default {
     layout: "centered",
   },
   argTypes: {
+    ...OverlayTriggerArgTypes,
     children: {
       control: false,
-    },
-    isOpen: {
-      control: "boolean",
-      description: "Control the open state of the overlay",
-    },
-    defaultOpen: {
-      control: "boolean",
-      description: "Set the default open state of the overlay. (uncontrolled)",
-    },
-    onOpenChange: {
-      action: "onOpenChange",
-      description: "Callback for when the overlay open state changes",
-      table: {
-        category: "Events",
-      },
     },
     type: {
       control: "select",

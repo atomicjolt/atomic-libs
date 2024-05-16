@@ -1,4 +1,3 @@
-import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import { Menu } from ".";
 import { MenuTrigger } from "./MenuTrigger";
@@ -6,6 +5,7 @@ import Button from "../../Buttons/Button";
 import IconButton from "../../Buttons/IconButton";
 import MaterialIcon from "../../Icons/MaterialIcon";
 import { Popover } from "../../Overlays/Popover";
+import { OverlayTriggerArgTypes } from "@sb/helpers";
 
 export default {
   title: "Dropdowns/Menu/MenuTrigger",
@@ -14,21 +14,7 @@ export default {
     layout: "centered",
   },
   argTypes: {
-    isOpen: {
-      control: "boolean",
-      description: "Control the open state of the menu externally.",
-    },
-    defaultOpen: {
-      control: "boolean",
-      description: "Whether the menu is open by default.",
-    },
-    onOpenChange: {
-      action: "onOpenChange",
-      description: "Callback for when the menu is opened or closed.",
-      table: {
-        category: "Events",
-      },
-    },
+    ...OverlayTriggerArgTypes,
     trigger: {
       control: "select",
       options: ["press", "longPress"],

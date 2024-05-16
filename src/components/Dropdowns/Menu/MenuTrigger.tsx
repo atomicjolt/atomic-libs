@@ -11,7 +11,9 @@ import { PopoverContext } from "../../Overlays/Popover/context";
 import { MenuContext } from "./context";
 import { OverlayTriggerStateContext } from "../../Overlays/OverlayTrigger/context";
 
-interface MenuTriggerProps<T> extends AriaMenuTriggerProps, HasChildren {}
+export interface MenuTriggerProps<T>
+  extends AriaMenuTriggerProps,
+    HasChildren {}
 
 /**
  * MenuTrigger wraps a menu target element and a menu, and manages the open state of the menu.
