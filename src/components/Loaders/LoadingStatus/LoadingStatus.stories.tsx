@@ -1,10 +1,15 @@
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import LoadingStatus from ".";
+import { getCssProps } from "@sb/cssprops";
 
 const meta: Meta<typeof LoadingStatus> = {
   title: "Loaders/LoadingStatus",
   component: LoadingStatus,
+  parameters: {
+    layout: "centered",
+    cssprops: getCssProps("Loader"),
+  },
   argTypes: {
     loadingMessage: {
       type: "string",

@@ -1,11 +1,13 @@
 import { Meta, StoryObj } from "@storybook/react";
 import Spinner from ".";
+import { getCssProps } from "@sb/cssprops";
 
 const meta: Meta<typeof Spinner> = {
   title: "Loaders/Spinner",
   component: Spinner,
   parameters: {
     layout: "centered",
+    cssprops: getCssProps("Loader"),
   },
 };
 

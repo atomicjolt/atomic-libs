@@ -21,7 +21,7 @@ const formatEntryPoint = (format) => ({
     resolve(),
     commonjs(),
     typescript({
-      tsconfig: "./tsconfig.json",
+      tsconfig: "./tsconfig.build.json",
       compilerOptions: {
         outDir: `dist/${format}`,
         declarationDir: `dist/${format}/types`,

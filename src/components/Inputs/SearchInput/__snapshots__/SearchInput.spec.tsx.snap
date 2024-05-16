@@ -6,7 +6,7 @@ exports[`matches snapshot > displays with search button 1`] = `
     class="sc-dItHI fUOhmQ aje-input__search is-medium"
   >
     <label
-      class="sc-fujznN hBvbIB"
+      class="sc-fujznN cKa-DUc"
       for="react-aria-:r5:"
       id="react-aria-:r6:"
     >
@@ -23,7 +23,8 @@ exports[`matches snapshot > displays with search button 1`] = `
         value=""
       />
       <button
-        class="sc-gKAaef sc-iCoHzw kmNmoE kJUKHc aje-btn aje-btn--icon aje-btn--content"
+        class="sc-gKAaef sc-iCoHzw bcVLIb kJUKHc aje-btn aje-btn--icon aje-btn--content"
+        data-focus-visible="false"
         type="button"
       >
         <i
@@ -44,7 +45,7 @@ exports[`matches snapshot > displays without button 1`] = `
     class="sc-dItHI fUOhmQ aje-input__search is-medium"
   >
     <label
-      class="sc-fujznN hBvbIB"
+      class="sc-fujznN cKa-DUc"
       for="react-aria-:r0:"
       id="react-aria-:r1:"
     >
@@ -61,7 +62,8 @@ exports[`matches snapshot > displays without button 1`] = `
         value=""
       />
       <button
-        class="sc-gKAaef sc-iCoHzw kmNmoE kJUKHc aje-btn aje-btn--icon aje-btn--content"
+        class="sc-gKAaef sc-iCoHzw bcVLIb kJUKHc aje-btn aje-btn--icon aje-btn--content"
+        data-focus-visible="false"
         type="button"
       >
         <i

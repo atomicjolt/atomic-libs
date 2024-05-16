@@ -12,6 +12,7 @@ import {
 import { StyledButton } from "./Button.styles";
 import { ButtonVariants } from "../Buttons.types";
 import useForwardedRef from "../../../hooks/useForwardedRef";
+import { useFocusRing } from "../../../hooks/useFocusRing";
 
 export type ButtonProps = AriaButtonOptions<"button"> &
   LoadingProps &
@@ -39,6 +40,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       internalRef
     );
 
+    const { focusProps } = useFocusRing();
+
     return (
       <StyledButton
         className={cn(
@@ -53,6 +56,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         )}
         ref={internalRef}
         {...buttonProps}
+        {...focusProps}
       >
         {isLoading && <Spinner isLoading={!loadingComplete} isCentered />}
         {children}

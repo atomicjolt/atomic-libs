@@ -110,6 +110,16 @@ const mixins = {
       height: var(--size-full-y);
     }
   `,
+  FocusVisible: (oultineOffset: number = 0) => css`
+    &:focus-visible {
+      outline: none;
+    }
+
+    &[data-focus-visible="true"] {
+      outline: var(--outline);
+      outline-offset: ${oultineOffset}px;
+    }
+  `,
 };
 
 export default mixins;

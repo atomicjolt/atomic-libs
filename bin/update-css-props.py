@@ -1,12 +1,14 @@
 import re
 
-category_regex = re.compile(r"/\* # (.+) \*/")
-subcategory_regex = re.compile(r"/\* ## (.+) \*/")
-css_property_regex = re.compile(r"--(.+): (.+);")
+group_regex = re.compile(r"/\* # (.+) \*/")
+category_regex = re.compile(r"/\* ## (.+) \*/")
+subcategory_regex = re.compile(r"/\* ### (.+) \*/")
+css_property_regex = re.compile(r"--(.+): (.+);( // .+)?")
 props_regex = re.compile("const props = .+\n", re.MULTILINE)
 
 
 def get_css_props(contents: list[str]) -> dict:
+    group = None
     category = None
     subcategory = None
 
@@ -14,22 +16,31 @@ def get_css_props(contents: list[str]) -> dict:
 
     for line in contents:
         line = line.strip()
-        if match := category_regex.match(line):
+        if match := group_regex.match(line):
+            group = match.groups()[0]
+            group = group.replace(" ", "")
+            category = None
+            subcategory = None
+        elif match := category_regex.match(line):
             category = match.groups()[0]
             subcategory = None
         elif match := subcategory_regex.match(line):
             subcategory = match.groups()[0]
         elif match := css_property_regex.match(line):
-            name, value = match.groups()
+            name, value, comment = match.groups()
+            comment = (comment[3:] if comment else "").strip()
 
-            data = {"value": value}
+            data = {"value": value, "description": comment}
 
             if category:
                 data["category"] = category
+            else:
+                data["category"] = f"{group} Properties"
+
             if subcategory:
                 data["subcategory"] = subcategory
 
-            props[name] = data
+            props.setdefault(group, {})[name] = data
 
     return props
 
@@ -40,8 +51,8 @@ def main() -> None:
 
     props = get_css_props(contents)
 
-    with open(".storybook/props.js", "w") as f:
-        f.write(f"export default {props}")
+    with open(".storybook/utils/cssprops.generated.ts", "w") as f:
+        f.write(f"export const cssprops = {props}")
 
 
 main()

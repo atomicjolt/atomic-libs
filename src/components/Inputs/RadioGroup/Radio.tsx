@@ -15,7 +15,7 @@ export interface RadioProps
 }
 
 /** Radio Elements, must be a descendant of a `<RadioGroup>` */
-export default function Radio(props: RadioProps) {
+export function Radio(props: RadioProps) {
   const { className, message, error, children } = props;
 
   const state = useContext(RadioContext);
