@@ -6,9 +6,9 @@ import { FieldMessage } from "../Field/FieldMessage";
 import { FieldInput } from "../Field/FieldInput";
 import { FieldErrorMessage } from "../Field/FieldError";
 import { FieldTextArea } from "../Field/FieldTextArea";
-import { FieldStateControls } from "../../storybook";
 import { Group } from "../../Layout/Group";
 import IconButton from "../../Buttons/IconButton";
+import { FieldStateControls } from "@sb/helpers";
 
 export default {
   title: "Fields/TextField",

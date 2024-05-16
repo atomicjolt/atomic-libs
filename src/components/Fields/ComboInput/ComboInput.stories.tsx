@@ -13,6 +13,12 @@ export default {
   parameters: {
     layout: "centered",
   },
+  argTypes: {
+    padding: {
+      control: "multi-select",
+      options: ["left", "right"],
+    },
+  },
 } as Meta<typeof ComboInput>;
 
 type Story = StoryObj<typeof ComboInput>;
@@ -36,4 +42,7 @@ export const NumberInputWithSearch: Story = {
       </ComboInput>
     </NumberField>
   ),
+  args: {
+    padding: ["left"],
+  },
 };

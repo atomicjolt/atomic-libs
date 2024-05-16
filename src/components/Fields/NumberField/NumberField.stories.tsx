@@ -6,7 +6,7 @@ import { FieldMessage } from "../Field/FieldMessage";
 import { FieldInput } from "../Field/FieldInput";
 import { FieldErrorMessage } from "../Field/FieldError";
 import { Group } from "../../Layout/Group";
-import { FieldStateControls } from "../../storybook";
+import { FieldStateControls } from "@sb/helpers";
 
 // For some reason, without this line NumberField has the
 // incorrect display name in the storybook docs

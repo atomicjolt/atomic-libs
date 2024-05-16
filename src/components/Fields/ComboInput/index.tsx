@@ -8,11 +8,19 @@ import classNames from "classnames";
 export const StyledComboInput = styled.div`
   ${mixins.Regular}
   ${mixins.InputLike}
-  padding: 0 var(--input-padding-horiz);
+  padding: 0px;
   display: flex;
   align-items: center;
   gap: var(--input-gap);
   cursor: text;
+
+  &.padding-left {
+    padding-left: var(--input-padding-horiz);
+  }
+
+  &.padding-right {
+    padding-right: var(--input-padding-horiz);
+  }
 
   input {
     border: none;
@@ -35,6 +43,8 @@ export interface ComboInputProps
    * provided
    */
   inputRef?: React.RefObject<HTMLInputElement>;
+
+  padding?: ("left" | "right")[];
 }
 
 /**
@@ -47,12 +57,21 @@ export const ComboInput = React.forwardRef(function ComboInput(
   props: ComboInputProps,
   ref: React.Ref<HTMLDivElement>
 ) {
-  const { children, className, inputRef: passedInputRef, ...rest } = props;
+  const {
+    children,
+    className,
+    inputRef: passedInputRef,
+    padding = ["left", "right"],
+    ...rest
+  } = props;
   const { inputRef = passedInputRef } = useContext(FieldInputContext);
 
   return (
     <StyledComboInput
-      className={classNames("aje-combo-input", className)}
+      className={classNames("aje-combo-input", className, {
+        "padding-left": padding.includes("left"),
+        "padding-right": padding.includes("right"),
+      })}
       ref={ref}
       onClick={() => {
         inputRef?.current?.focus();
