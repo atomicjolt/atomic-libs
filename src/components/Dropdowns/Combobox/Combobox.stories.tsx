@@ -63,6 +63,7 @@ type Story = StoryObj<typeof ComboBox>;
 export const Primary: Story = {
   args: {
     label: "Combobox label",
+    menuTrigger: "focus",
     children: [
       <Item key="1">Option 1</Item>,
       <Item key="2">Option 2</Item>,
