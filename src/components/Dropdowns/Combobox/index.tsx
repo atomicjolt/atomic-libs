@@ -13,10 +13,9 @@ import { useVariantClass } from "../../../hooks";
 import IconButton from "../../Buttons/IconButton";
 import { Popover } from "../../Overlays/Popover";
 import { UnmanagedListBox } from "../ListBox";
-import { Input } from "../../Internal/Field";
+import { ComboInput, Input } from "../../Fields";
 import { FloatingInputWrapper } from "../../Internal/FloatingInputWrapper";
 import { DropdownWrapper } from "../Dropdowns.styles";
-import { ComboboxVirtualInput } from "./Combobox.styles";
 import { OverlayTriggerStateContext } from "../../Overlays/OverlayTrigger/context";
 
 export interface ComboBoxProps<T>
@@ -98,8 +97,8 @@ export function ComboBox<T extends object>(props: ComboBoxProps<T>) {
         isInvalid={isInvalid}
         floating={variant === "floating"}
       >
-        <ComboboxVirtualInput inputRef={inputRef} ref={inputWrapperRef}>
-          <Input {...inputProps} ref={inputRef} />
+        <ComboInput inputRef={inputRef} ref={inputWrapperRef}>
+          <Input {...inputProps} size="full" ref={inputRef} />
           <IconButton
             icon={icon}
             variant="content"
@@ -107,7 +106,7 @@ export function ComboBox<T extends object>(props: ComboBoxProps<T>) {
             ref={buttonRef}
             {...buttonProps}
           />
-        </ComboboxVirtualInput>
+        </ComboInput>
       </FloatingInputWrapper>
       <OverlayTriggerStateContext.Provider value={state}>
         <Popover

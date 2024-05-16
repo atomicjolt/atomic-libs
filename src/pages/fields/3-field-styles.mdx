@@ -1,0 +1,46 @@
+import { Meta, Canvas } from "@storybook/blocks";
+
+<Meta title="Fields/Docs/Field Styles" />
+
+# Field Styles
+
+There may come times where you want the styles of a field, but not the functionality. You are able to make use of the styles by using the non field-prefixed components.
+
+```jsx
+import React, { useState } from "react";
+import {
+  Label,
+  Message,
+  ErrorMessage,
+  Input,
+} from "@atomicjolt/atomic-elements";
+
+function MyComponent({ isInvalid }) {
+  const [name, setName] = useState("John Doe");
+
+  return (
+    <div>
+      <Label htmlFor="input">Name</Label>
+      <Message id="input-message">Enter your name</Messagee>
+      <Input
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        id="input"
+        aria-describedby={isInvalid ? "input-error" : "input-message"}
+      />
+      {isInvalid && <ErrorMessage id="input-error">Invalid name</ErrorMessage>}
+    </div>
+  );
+}
+```
+
+Note that the `Label`, `Message`, `ErrorMessage`, and `Input` components are used instead of the `FieldLabel`, `FieldMessage`, `FieldErrorMessage`, and `FieldInput` components.
+These components are simple wrappers around HTML elements that apply the correct styles.
+
+Also note that you need to manage the following things yourself:
+
+- The `htmlFor` prop on the `Label` component
+- The `id` props for the `Message`, `ErrorMessage`, and `Input` components
+- The `aria-describedby` prop on the `Input` component
+- The visibility of the `ErrorMessage` component
+- The `value` and `onChange` props on the `Input` component

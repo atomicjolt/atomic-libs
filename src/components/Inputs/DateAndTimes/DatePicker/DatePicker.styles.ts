@@ -2,8 +2,8 @@ import styled from "styled-components";
 import { scaleAnimation } from "../../../../styles/animations";
 import mixins from "../../../../styles/mixins";
 import { FieldWrapper } from "../../../Internal/FieldWrapper";
-import { VirtualInput } from "../../../Internal/Field";
-import { StyledInputWrapper } from "../../../Internal/Field/VirtualInput";
+import { ComboInput } from "../../../Fields";
+import { StyledComboInput } from "../../../Fields/ComboInput";
 
 export const DatePickerWrapper = styled(FieldWrapper)`
   ${mixins.FieldStatus}
@@ -17,8 +17,8 @@ export const DatePickerWrapper = styled(FieldWrapper)`
   flex-direction: column;
 `;
 
-export const DatePickerVirtualInput = styled(VirtualInput)`
-  ${StyledInputWrapper} {
+export const DatePickerComboInput = styled(ComboInput)`
+  ${StyledComboInput} {
     border: none;
     padding: 0px;
 

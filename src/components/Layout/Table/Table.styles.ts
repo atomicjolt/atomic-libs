@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import mixins from "../../../styles/mixins";
-import { Input, InputWrapper } from "../../../styles/input";
+import { ComboInput, Input } from "../../Fields";
 
 export const StyledTable = styled.table`
   ${mixins.Regular}
@@ -204,13 +204,12 @@ export const StyledRow = styled.tr`
   }
 `;
 
-export const SearchInputWrapper = styled(InputWrapper)`
+export const SeachComboInput = styled(ComboInput)`
   --input-height: 30px;
   --input-padding-horiz: 0px;
   --btn-padding: 0px 5px;
 
-  height: 30px;
-  /* display: none; */
+  height: 3rem;
   width: 0;
   transition: width 0.3s ease;
   align-items: center;
@@ -220,10 +219,10 @@ export const SearchInputWrapper = styled(InputWrapper)`
     display: none;
   }
 
-  &.is-expanded {
+  &[aria-expanded="true"] {
     --input-padding-horiz: 12px;
     border: var(--input-border);
-    width: 200px;
+    width: 20rem;
 
     button {
       display: flex;

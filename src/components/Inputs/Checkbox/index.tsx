@@ -6,7 +6,7 @@ import useForwardedRef from "../../../hooks/useForwardedRef";
 import { AriaProps, FieldInputProps } from "../../../types";
 import { ChooseInput, ChooseLabel } from "../Inputs.styles";
 import { CheckboxWrapper } from "./Checkbox.styles";
-import { ErrorMessage, Message } from "../../Internal/Field";
+import { ErrorMessage, Message } from "../../Fields";
 
 export interface CheckBoxProps
   extends AriaProps<AriaCheckboxProps>,

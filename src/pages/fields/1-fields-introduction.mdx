@@ -1,0 +1,116 @@
+import { Meta, Canvas } from "@storybook/blocks";
+import { SensibleDefaults } from "../../styles/defaults";
+import {
+  TextField,
+  FieldLabel,
+  FieldMessage,
+  FieldErrorMessage,
+  FieldInput,
+  ComboInput,
+} from "../../components/Fields";
+
+import { Group } from "../../components/Layout/Group";
+import { Button } from "../../components/Buttons/Button";
+import { IconButton } from "../../components/Buttons/IconButton";
+
+<SensibleDefaults />
+
+<Meta title="Fields/Docs/Fields Introduction" />
+
+# Fields Introduction
+
+Fields are a lower-level API for building interactive forms. They are desgined to be composable and flexible, giving you a lot of control over the look and feel of your inputs, while still providing
+the necessary accessibility features.
+
+## Example
+
+The `TextField` components handles the details of managing the input and accessibility, while you provide the semantic structure of the field.
+Here's an example of how you might use the `TextField` component to mimic the look of the [TextInput component](?path=/docs/inputs-user-input-textinput--overview):
+
+```jsx
+import React, { useState } from "react";
+import {
+  TextField,
+  FieldLabel,
+  FieldMessage,
+  FieldErrorMessage,
+  FieldInput,
+} from "@atomicjolt/atomic-elements";
+
+function MyComponent() {
+  const [name, setName] = useState("John Doe");
+
+  return (
+    <TextField value={name} onChange={setName}>
+      <FieldLabel>Name</FieldLabel>
+      <FieldMessage>Enter your name</FieldMessage>
+      <FieldInput />
+      <FieldErrorMessage>Invalid name</FieldErrorMessage>
+    </TextField>
+  );
+}
+```
+
+Which, when rendered, will look like this:
+
+<TextField size="large">
+  <FieldLabel>Name</FieldLabel>
+  <FieldMessage className="sb-unstyled">Enter your name</FieldMessage>
+  <FieldInput />
+  <FieldErrorMessage>Invalid name</FieldErrorMessage>
+</TextField>
+
+<br />
+<br />
+
+### Group Fields & Buttons
+
+Because you are defining the markup for the field, you can customize the layout and appearance of the field to suit your needs.
+For example, you can use the `Group` component to create a field with a button and input:
+
+```jsx
+<TextField size="large">
+  <FieldLabel>Name</FieldLabel>
+  <FieldMessage>Enter your name</FieldMessage>
+  <Group isMerged>
+    <FieldInput />
+    <Button variant="border">Save</Button>
+  </Group>
+  <FieldErrorMessage>Invalid name</FieldErrorMessage>
+</TextField>
+```
+
+Which will in turn render like this:
+
+<TextField size="large">
+  <FieldLabel>Name</FieldLabel>
+  <FieldMessage className="sb-unstyled">Enter your name</FieldMessage>
+  <Group isMerged>
+    <FieldInput />
+    <Button variant="border">Save</Button>
+  </Group>
+  <FieldErrorMessage>Invalid name</FieldErrorMessage>
+</TextField>
+
+### ComboInput
+
+The `ComboInput` is an input component wrapper that allows you to combine multiple elements into a single visual input.
+This is useful for creating more complex inputs, like a date picker or a search input.
+
+```jsx
+<TextField size="large">
+  <ComboInput padding="left">
+    <FieldInput placeholder="search" />
+    <IconButton icon="search" />
+  </ComboInput>
+  <FieldErrorMessage>Invalid name</FieldErrorMessage>
+</TextField>
+```
+
+<TextField size="large">
+  <ComboInput padding="left">
+    <FieldInput placeholder="Search" />
+    <IconButton icon="search" variant="ghost" />
+  </ComboInput>
+  <FieldErrorMessage>Invalid name</FieldErrorMessage>
+</TextField>

@@ -4,14 +4,8 @@ import useForwardedRef from "../../../hooks/useForwardedRef";
 import { AriaSearchFieldProps, useSearchField } from "react-aria";
 import { useSearchFieldState } from "react-stately";
 import IconButton from "../../Buttons/IconButton";
-import {
-  ErrorMessage,
-  Input,
-  Label,
-  Message,
-  VirtualInput,
-} from "../../Internal/Field";
-import { StyledField } from "../../Internal/Field/Field.styles";
+import { ErrorMessage, Input, Label, Message, ComboInput } from "../../Fields";
+import { StyledField } from "../../Fields/Field.styles";
 import classNames from "classnames";
 
 export interface SearchInputProps
@@ -59,14 +53,14 @@ export const SearchInput = React.forwardRef(function SearchInput(
     >
       {label && <Label {...labelProps}>{label}</Label>}
       {message && <Message {...descriptionProps}>{message}</Message>}
-      <VirtualInput>
+      <ComboInput>
         <Input {...inputProps} />
         <IconButton
           icon="search"
           variant="content"
           onPress={() => onSubmit && onSubmit(searchState.value)}
         />
-      </VirtualInput>
+      </ComboInput>
       {isInvalid && <ErrorMessage {...errorMessageProps}>{error}</ErrorMessage>}
     </StyledField>
   );

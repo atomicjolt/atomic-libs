@@ -81,8 +81,8 @@ export {
   Message,
   FieldTextArea,
   TextArea,
-  VirtualInput,
-} from "./Internal/Field";
+  ComboInput,
+} from "./Fields";
 
 /* ---- Types ---- */
 
@@ -131,6 +131,17 @@ export type { SkeletonLoaderProps } from "./Loaders/SkeletonLoader";
 export type { DevelopmentErrorModalProps } from "./Overlays/DevelopmentErrorModal";
 export type { MultiSelectProps } from "./Dropdowns/MultiSelect";
 export type { PopoverProps } from "./Overlays/Popover";
+export type {
+  FieldProps,
+  FieldErrorMessageProps,
+  FieldInputProps,
+  FieldLabelProps,
+  FieldMessageProps,
+  FieldTextAreaProps,
+  TextFieldProps,
+  NumberFieldProps,
+  ComboInputProps,
+} from "./Fields";
 export type { TableProps } from "./Layout/Table";
 export type { TabsProps } from "./Layout/Tabs";
 export type { CardProps } from "./Layout/Card";

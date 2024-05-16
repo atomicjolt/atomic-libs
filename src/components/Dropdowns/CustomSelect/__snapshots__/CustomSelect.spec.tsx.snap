@@ -36,7 +36,7 @@ exports[`matches snapshots > matches default variant 1`] = `
       </label>
     </div>
     <label
-      class="sc-jSFipO gZJhFK aje-label"
+      class="sc-jSFipO bElDLS aje-label is-auto"
       id="react-aria-:r3:"
     >
       Custom dropdown label
@@ -126,7 +126,7 @@ exports[`matches snapshots > matches floating variant 1`] = `
         </i>
       </button>
       <label
-        class="sc-jSFipO gZJhFK aje-label"
+        class="sc-jSFipO bElDLS aje-label is-auto"
         id="react-aria-:rb:"
       >
         Custom dropdown label

@@ -6,14 +6,14 @@ exports[`matches snapshot > default variant 1`] = `
     class="sc-gKAaef iJKtbz aje-input__text sc-bqGGcD hCFqor aje-input--default is-medium"
   >
     <label
-      class="sc-bdnyFh KCKAU"
+      class="sc-bdnyFh jXqOhQ is-auto"
       for="react-aria-:r0:"
       id="react-aria-:r1:"
     >
       Text Label
     </label>
     <p
-      class="sc-gtsqUy eWkPNm"
+      class="sc-gtsqUy eWkPNm is-auto"
       id="react-aria-:r3:"
     >
       message
@@ -21,7 +21,7 @@ exports[`matches snapshot > default variant 1`] = `
     <input
       aria-describedby="react-aria-:r3:"
       aria-labelledby="react-aria-:r1:"
-      class="sc-hKFymg iJvJd"
+      class="sc-hKFymg jjMHZv"
       id="react-aria-:r0:"
       placeholder="placeholder"
       type="text"
@@ -43,7 +43,7 @@ exports[`matches snapshot > floating variant 1`] = `
       <input
         aria-describedby="react-aria-:r8:"
         aria-labelledby="react-aria-:r6:"
-        class="sc-hKFymg iJvJd"
+        class="sc-hKFymg jjMHZv"
         data-float="true"
         id="react-aria-:r5:"
         placeholder="placeholder"
@@ -51,7 +51,7 @@ exports[`matches snapshot > floating variant 1`] = `
         value="content"
       />
       <label
-        class="sc-bdnyFh KCKAU"
+        class="sc-bdnyFh jXqOhQ is-auto"
         for="react-aria-:r5:"
         id="react-aria-:r6:"
       >
@@ -59,7 +59,7 @@ exports[`matches snapshot > floating variant 1`] = `
       </label>
     </div>
     <p
-      class="sc-gtsqUy eWkPNm"
+      class="sc-gtsqUy eWkPNm is-auto"
       id="react-aria-:r8:"
     >
       message

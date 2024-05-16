@@ -5,7 +5,7 @@ import { ChooseInput, ChooseLabel } from "../Inputs.styles";
 import RadioContext from "./context";
 import { RadioWrapper } from "./RadioGroup.styles";
 import { AriaRadioProps, useLocale, useRadio } from "react-aria";
-import { ErrorMessage, Message } from "../../Internal/Field";
+import { ErrorMessage, Message } from "../../Fields";
 
 export interface RadioProps
   extends AriaRadioProps,
