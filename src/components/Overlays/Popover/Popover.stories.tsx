@@ -4,7 +4,7 @@ import { MenuTrigger } from "../../Dropdowns/Menu/MenuTrigger";
 import { Popover } from ".";
 import { Menu } from "../../Dropdowns/Menu";
 import { Button } from "../../Buttons/Button";
-import { PlacementArgType } from "../../storybook";
+import { PlacementArgType } from "@sb/helpers";
 
 export default {
   title: "Overlays/Popover",

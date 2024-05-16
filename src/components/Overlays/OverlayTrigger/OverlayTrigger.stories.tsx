@@ -83,24 +83,3 @@ export const CustomTriggerTarget: Story = {
     ],
   },
 };
-
-export const ModalOverlay: Story = {
-  args: {
-    children: [
-      <Button>Open Modal</Button>,
-      <Modal>
-        {(close) => (
-          <>
-            <Modal.Header>
-              <Modal.Title>Modal Title</Modal.Title>
-              <IconButton icon="close" onPress={close} />
-            </Modal.Header>
-            <Modal.Body>
-              <p>Modal Body</p>
-            </Modal.Body>
-          </>
-        )}
-      </Modal>,
-    ],
-  },
-};

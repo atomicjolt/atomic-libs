@@ -11,7 +11,6 @@ export const List = styled.ul`
   padding: 8px 0;
   margin: 0;
   z-index: 100;
-
   min-width: var(--trigger-width, auto);
 
   &:focus {

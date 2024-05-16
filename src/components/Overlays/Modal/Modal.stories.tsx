@@ -4,9 +4,10 @@ import Modal from ".";
 import IconButton from "../../Buttons/IconButton";
 import Button from "../../Buttons/Button";
 import MaterialIcon from "../../Icons/MaterialIcon";
+import { OverlayTrigger } from "../OverlayTrigger";
 
 const meta: Meta<typeof Modal> = {
-  title: "Overlays/Modal",
+  title: "Overlays/Modals/Modal",
   component: Modal,
   parameters: {
     docs: {
@@ -73,6 +74,66 @@ export const Primary: Story = {
     <Button variant="primary">Save</Button>
   </Modal.Footer>
 </Modal>
+        `,
+      },
+    },
+  },
+};
+
+export const WithOverlayTrigger: Story = {
+  render: (args) => {
+    return (
+      <OverlayTrigger>
+        <Button>Open Modal</Button>
+        <Modal {...args}>
+          {(close) => (
+            <>
+              <Modal.Header>
+                <Modal.Title>Modal Title</Modal.Title>
+                <IconButton icon="close" variant="ghost" onPress={close} />
+              </Modal.Header>
+              <Modal.Body>
+                <p>Modal Body</p>
+              </Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onPress={close}>
+                  Cancel
+                </Button>
+                <Button variant="primary" onPress={close}>
+                  Save
+                </Button>
+              </Modal.Footer>
+            </>
+          )}
+        </Modal>
+      </OverlayTrigger>
+    );
+  },
+  parameters: {
+    docs: {
+      source: {
+        language: "jsx",
+        code: `
+<OverlayTrigger>
+  <Button>Open Modal</Button>
+  <Modal>
+    {(close) => (
+      <>
+        <Modal.Header>
+          <Modal.Title>Modal Title</Modal.Title>
+          <IconButton icon="close" variant="ghost" onPress={close} />
+        </Modal.Header>
+        <Modal.Body>
+          <p>Modal Body</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onPress={close}>Cancel</Button>
+          <Button variant="primary" onPress={close}>Save</Button>
+        </Modal.Footer>
+      </>
+    )}
+  </Modal>
+</OverlayTrigger>
         `,
       },
     },

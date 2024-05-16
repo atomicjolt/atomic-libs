@@ -18,7 +18,6 @@ import {
 export default function Overlays() {
   const ref = useRef<HTMLButtonElement>(null);
   const [isOpen, setIsOpen] = useState(false);
-  console.log(ref);
 
   return (
     <div>

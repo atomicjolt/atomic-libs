@@ -108,7 +108,16 @@ const preview: Preview = {
     // cssprops: props,
     options: {
       storySort: {
-        order: ["Introduction", "Installation", "Usage"],
+        order: [
+          "Introduction",
+          "Installation",
+          "Usage",
+          "Inputs",
+          "Fields",
+          "Buttons",
+          "Overlays",
+          "Dropdowns",
+        ],
       },
     },
     docs: {
