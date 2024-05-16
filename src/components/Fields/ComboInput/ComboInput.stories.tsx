@@ -1,11 +1,11 @@
-import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import { ComboInput } from ".";
-import { FieldInput } from "../Field/FieldInput";
 import { MaterialIcon } from "../../Icons/MaterialIcon";
-import { NumberField } from "../NumberField";
 import IconButton from "../../Buttons/IconButton";
 import { Input } from "../Atoms/Input";
+import { NumberField } from "../NumberField";
+import { FieldInput } from "../Field/FieldInput";
+import { Group } from "@/components/Layout/Group";
 
 export default {
   title: "Fields/ComboInput",
@@ -33,16 +33,38 @@ export const Primary: Story = {
 };
 
 export const NumberInputWithSearch: Story = {
+  render: (args) => <ComboInput {...args}></ComboInput>,
+  args: {
+    padding: "left",
+    children: [
+      <Input key="input" />,
+      <span key="total">/10</span>,
+      <IconButton icon="search" variant="ghost" key="icon" />,
+    ],
+  },
+};
+
+export const NumberFieldWithButtons: Story = {
   render: (args) => (
-    <NumberField size="medium">
+    <NumberField>
       <ComboInput {...args}>
         <FieldInput />
-        <span>/10</span>
-        <IconButton icon="search" variant="ghost" />
+        <Group gap={0}>
+          <NumberField.DecrementButton
+            icon="remove"
+            variant="ghost"
+            size="small"
+          />
+          <NumberField.IncrementButton
+            icon="add"
+            variant="ghost"
+            size="small"
+          />
+        </Group>
       </ComboInput>
     </NumberField>
   ),
   args: {
-    padding: ["left"],
+    padding: "left",
   },
 };

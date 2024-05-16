@@ -6,10 +6,12 @@ import {
   FieldMessage,
   FieldErrorMessage,
   FieldInput,
+  ComboInput,
 } from "../../components/Fields";
 
 import { Group } from "../../components/Layout/Group";
 import { Button } from "../../components/Buttons/Button";
+import { IconButton } from "../../components/Buttons/IconButton";
 
 <SensibleDefaults />
 
@@ -51,26 +53,64 @@ function MyComponent() {
 
 Which, when rendered, will look like this:
 
-<Canvas>
-  <TextField size="large">
-    <FieldLabel>Name</FieldLabel>
-    <FieldMessage>Enter your name</FieldMessage>
-    <FieldInput />
-    <FieldErrorMessage>Invalid name</FieldErrorMessage>
-  </TextField>
-</Canvas>
+<TextField size="large">
+  <FieldLabel>Name</FieldLabel>
+  <FieldMessage className="sb-unstyled">Enter your name</FieldMessage>
+  <FieldInput />
+  <FieldErrorMessage>Invalid name</FieldErrorMessage>
+</TextField>
+
+<br />
+<br />
+
+### Group Fields & Buttons
 
 Because you are defining the markup for the field, you can customize the layout and appearance of the field to suit your needs.
 For example, you can use the `Group` component to create a field with a button and input:
 
-<Canvas>
-  <TextField size="large">
-    <FieldLabel>Name</FieldLabel>
-    <FieldMessage>Enter your name</FieldMessage>
-    <Group isMerged>
-      <FieldInput />
-      <Button variant="border">Save</Button>
-    </Group>
-    <FieldErrorMessage>Invalid name</FieldErrorMessage>
-  </TextField>
-</Canvas>
+```jsx
+<TextField size="large">
+  <FieldLabel>Name</FieldLabel>
+  <FieldMessage>Enter your name</FieldMessage>
+  <Group isMerged>
+    <FieldInput />
+    <Button variant="border">Save</Button>
+  </Group>
+  <FieldErrorMessage>Invalid name</FieldErrorMessage>
+</TextField>
+```
+
+Which will in turn render like this:
+
+<TextField size="large">
+  <FieldLabel>Name</FieldLabel>
+  <FieldMessage className="sb-unstyled">Enter your name</FieldMessage>
+  <Group isMerged>
+    <FieldInput />
+    <Button variant="border">Save</Button>
+  </Group>
+  <FieldErrorMessage>Invalid name</FieldErrorMessage>
+</TextField>
+
+### ComboInput
+
+The `ComboInput` is an input component wrapper that allows you to combine multiple elements into a single visual input.
+This is useful for creating more complex inputs, like a date picker or a search input.
+
+```jsx
+<TextField size="large">
+  <ComboInput padding="left">
+    <FieldInput placeholder="search" />
+    <IconButton icon="search" />
+  </ComboInput>
+  <FieldErrorMessage>Invalid name</FieldErrorMessage>
+</TextField>
+```
+
+<TextField size="large">
+  <ComboInput padding="left">
+    <FieldInput placeholder="Search" />
+    <IconButton icon="search" variant="ghost" />
+  </ComboInput>
+  <FieldErrorMessage>Invalid name</FieldErrorMessage>
+</TextField>

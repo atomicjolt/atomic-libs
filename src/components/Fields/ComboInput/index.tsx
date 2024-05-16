@@ -34,6 +34,8 @@ export const StyledComboInput = styled.div`
   }
 `;
 
+type PaddingSide = "left" | "right";
+
 export interface ComboInputProps
   extends Omit<BaseProps, "size">,
     HasChildren,
@@ -44,7 +46,7 @@ export interface ComboInputProps
    */
   inputRef?: React.RefObject<HTMLInputElement>;
 
-  padding?: ("left" | "right")[];
+  padding?: PaddingSide[] | PaddingSide;
 }
 
 /**
