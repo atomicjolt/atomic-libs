@@ -10,7 +10,7 @@ exports[`matches snapshot 1`] = `
     role="radiogroup"
   >
     <legend
-      class="sc-bdnyFh KCKAU aje-radio-group__label"
+      class="sc-bdnyFh jXqOhQ aje-radio-group__label is-auto"
       id="react-aria-:r1:"
     >
       Label

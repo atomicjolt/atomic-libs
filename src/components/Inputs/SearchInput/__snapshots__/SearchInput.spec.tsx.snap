@@ -6,18 +6,18 @@ exports[`matches snapshot > displays with search button 1`] = `
     class="sc-dItHI fUOhmQ aje-input__search is-medium"
   >
     <label
-      class="sc-fujznN cKa-DUc"
+      class="sc-fujznN hocOQc is-auto"
       for="react-aria-:r5:"
       id="react-aria-:r6:"
     >
       search
     </label>
     <div
-      class="sc-iqAbyq jxUoiQ"
+      class="sc-iqAbyq gNEuKS aje-combo-input padding-left padding-right"
     >
       <input
         aria-labelledby="react-aria-:r6:"
-        class="sc-kEqXeH LVqat"
+        class="sc-kEqXeH iWwgZi"
         id="react-aria-:r5:"
         type="search"
         value=""
@@ -45,18 +45,18 @@ exports[`matches snapshot > displays without button 1`] = `
     class="sc-dItHI fUOhmQ aje-input__search is-medium"
   >
     <label
-      class="sc-fujznN cKa-DUc"
+      class="sc-fujznN hocOQc is-auto"
       for="react-aria-:r0:"
       id="react-aria-:r1:"
     >
       search
     </label>
     <div
-      class="sc-iqAbyq jxUoiQ"
+      class="sc-iqAbyq gNEuKS aje-combo-input padding-left padding-right"
     >
       <input
         aria-labelledby="react-aria-:r1:"
-        class="sc-kEqXeH LVqat"
+        class="sc-kEqXeH iWwgZi"
         id="react-aria-:r0:"
         type="search"
         value=""

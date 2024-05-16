@@ -6,20 +6,20 @@ exports[`matches snapshots > matches default variant 1`] = `
     class="sc-dlMCtj hqBqib aje-combobox aje-dropdown--default is-medium"
   >
     <label
-      class="sc-ksltVi ghwvzY aje-label"
+      class="sc-ksltVi cEoMgE aje-label is-auto"
       for="react-aria-:r2:"
       id="react-aria-:r3:"
     >
       Text Label
     </label>
     <p
-      class="sc-hBMVwJ hqVjbv"
+      class="sc-hBMVwJ hqVjbv is-auto"
       id="react-aria-:r5:"
     >
       message
     </p>
     <div
-      class="sc-bkbjWr bEvixr sc-kfYpNk jobCEl"
+      class="sc-bkbjWr doMEWl aje-combo-input sc-kfYpNk jobCEl padding-left padding-right"
     >
       <input
         aria-autocomplete="list"
@@ -28,7 +28,7 @@ exports[`matches snapshots > matches default variant 1`] = `
         aria-labelledby="react-aria-:r3:"
         autocomplete="off"
         autocorrect="off"
-        class="sc-fFSPgy glFDwC"
+        class="sc-fFSPgy cYuhmZ"
         id="react-aria-:r2:"
         role="combobox"
         spellcheck="false"
@@ -67,7 +67,7 @@ exports[`matches snapshots > matches floating variant 1`] = `
       class="sc-hHEhDq dMVzRV"
     >
       <div
-        class="sc-bkbjWr bEvixr sc-kfYpNk jobCEl"
+        class="sc-bkbjWr doMEWl aje-combo-input sc-kfYpNk jobCEl padding-left padding-right"
       >
         <input
           aria-autocomplete="list"
@@ -76,7 +76,7 @@ exports[`matches snapshots > matches floating variant 1`] = `
           aria-labelledby="react-aria-:rc:"
           autocomplete="off"
           autocorrect="off"
-          class="sc-fFSPgy glFDwC"
+          class="sc-fFSPgy cYuhmZ"
           id="react-aria-:rb:"
           role="combobox"
           spellcheck="false"
@@ -103,7 +103,7 @@ exports[`matches snapshots > matches floating variant 1`] = `
         </button>
       </div>
       <label
-        class="sc-ksltVi ghwvzY aje-label"
+        class="sc-ksltVi cEoMgE aje-label is-auto"
         for="react-aria-:rb:"
         id="react-aria-:rc:"
       >
@@ -111,7 +111,7 @@ exports[`matches snapshots > matches floating variant 1`] = `
       </label>
     </div>
     <p
-      class="sc-hBMVwJ hqVjbv"
+      class="sc-hBMVwJ hqVjbv is-auto"
       id="react-aria-:re:"
     >
       message
