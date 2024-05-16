@@ -6,7 +6,7 @@ export function useResizeObserver(
   options: ResizeObserverOptions = {}
 ) {
   useLayoutEffect(() => {
-    if (!elem) return;
+    if (!elem || !window.ResizeObserver) return;
 
     const observer = new ResizeObserver(onResize);
     observer.observe(elem, options);
