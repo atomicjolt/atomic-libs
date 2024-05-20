@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import classNames from "classnames";
 import type { ItemProps } from "react-stately";
 import { copyStaticProperties } from "@/clone";
@@ -6,9 +6,13 @@ import { useVariantClass } from "@/hooks";
 import { HasClassName } from "@/types";
 import { Item } from "@/components/Collection";
 import { ChipContent, ChipWrapper } from "./Chip.styles";
-import { PressEvent, PressProps, mergeProps, usePress } from "react-aria";
+import {
+  AriaButtonProps,
+  PressEvent,
+  PressProps,
+  mergeProps,
+} from "react-aria";
 import IconButton from "@/components/Buttons/IconButton";
-import { WrapperChipGroupContext } from "./contexts";
 import { useConditionalPress } from "@/hooks/useConditionalPress";
 
 export interface ChipProps<T> extends ItemProps<T>, HasClassName, PressProps {
@@ -20,28 +24,42 @@ export interface ChipProps<T> extends ItemProps<T>, HasClassName, PressProps {
 }
 
 /** Chip component */
-const Chip = React.forwardRef<HTMLDivElement, ChipProps<any>>(function Chip(
-  props: ChipProps<any>,
-  ref: React.Ref<HTMLDivElement>
-) {
+export const Chip = React.forwardRef<HTMLDivElement, ChipProps<any>>(
+  function Chip(props: ChipProps<any>, ref: React.Ref<HTMLDivElement>) {
+    return (
+      <ChipInternal {...props} allowsRemoving={!!props.onRemove} ref={ref} />
+    );
+  }
+);
+
+copyStaticProperties(Item, Chip);
+
+interface ChipInternalProps<T> extends ChipProps<T> {
+  wrapperProps?: React.DOMAttributes<HTMLDivElement>;
+  contentProps?: React.DOMAttributes<HTMLDivElement>;
+  removeButtonProps?: AriaButtonProps<"button">;
+  allowsRemoving?: boolean;
+}
+
+export const ChipInternal = React.forwardRef<
+  HTMLDivElement,
+  ChipInternalProps<any>
+>(function ChipInternal(props: ChipInternalProps<any>, ref) {
   const {
     className,
     variant = "default",
     onRemove,
     isDisabled,
     children,
+    wrapperProps = {},
+    contentProps = {},
+    removeButtonProps = {},
+    allowsRemoving = false,
     ...rest
   } = props;
 
   const variantClass = useVariantClass("aje-chip", variant);
   const { pressProps } = useConditionalPress(rest);
-
-  const {
-    wrapperProps = {},
-    contentProps = {},
-    removeButtonProps = {},
-    allowsRemoving = false,
-  } = useContext(WrapperChipGroupContext);
 
   return (
     <ChipWrapper
@@ -54,7 +72,7 @@ const Chip = React.forwardRef<HTMLDivElement, ChipProps<any>>(function Chip(
       <ChipContent {...contentProps}>
         {children}
 
-        {(allowsRemoving || onRemove) && (
+        {allowsRemoving && (
           <IconButton
             icon="close"
             size="small"
@@ -72,7 +90,3 @@ const Chip = React.forwardRef<HTMLDivElement, ChipProps<any>>(function Chip(
     </ChipWrapper>
   );
 });
-
-copyStaticProperties(Item, Chip);
-
-export { Chip };

@@ -1,18 +1,14 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import type { ListState } from "react-stately";
+import classNames from "classnames";
 import type { AriaTagGroupProps, AriaTagProps } from "react-aria";
 import { useListState } from "react-stately";
-import { usePress, useTag, useTagGroup } from "react-aria";
+import { useTag, useTagGroup } from "react-aria";
 import { AriaProps, FieldInputProps } from "../../../types";
 import { ErrorMessage, Label, Message } from "../../Internal/Field";
-import IconButton from "../../Buttons/IconButton";
 import { ChipsWrapper, ChipGroupWrapper } from "./ChipGroup.styles";
-import classNames from "classnames";
 import { useFocusRing } from "../../../hooks/useFocusRing";
-import { useVariantClass } from "@/hooks";
-import { ChipContent, ChipWrapper } from "../Chip/Chip.styles";
-import { Chip } from "../Chip";
-import { WrapperChipGroupContext } from "../Chip/contexts";
+import { ChipInternal } from "../Chip";
 
 export interface ChipGroupProps<T extends object>
   extends AriaProps<AriaTagGroupProps<T>>,
@@ -64,7 +60,7 @@ export function ChipGroup<T extends object>(props: ChipGroupProps<T>) {
           </Label>
         )}
         {[...state.collection].map((item) => (
-          <ChipInternal key={item.key} item={item} state={state} />
+          <ChipGroupChip key={item.key} item={item} state={state} />
         ))}
       </ChipsWrapper>
       {message && <Message {...descriptionProps}>{message}</Message>}
@@ -78,11 +74,11 @@ export function ChipGroup<T extends object>(props: ChipGroupProps<T>) {
 // NOTE: when Chip is rendered standalone, it renders the actual Chip component
 // When rendered within a ChipGroup, it actually renders the ChipInternal component
 
-interface ChipInternalProps<T> extends AriaTagProps<T> {
+interface ChipGroupChipProps<T> extends AriaTagProps<T> {
   state: ListState<T>;
 }
 
-function ChipInternal<T>(props: ChipInternalProps<T>) {
+function ChipGroupChip<T>(props: ChipGroupChipProps<T>) {
   const { item, state } = props;
   const ref = useRef(null);
   const { rowProps, gridCellProps, removeButtonProps, allowsRemoving } = useTag(
@@ -94,20 +90,17 @@ function ChipInternal<T>(props: ChipInternalProps<T>) {
   const { focusProps } = useFocusRing({ within: true });
 
   return (
-    <WrapperChipGroupContext.Provider
-      value={{
-        wrapperProps: { ...rowProps, ...focusProps },
-        contentProps: gridCellProps,
-        removeButtonProps: {
-          ...removeButtonProps,
-          isDisabled: state.disabledKeys.has(item.key),
-        },
-        allowsRemoving,
+    <ChipInternal
+      ref={ref}
+      wrapperProps={{ ...rowProps, ...focusProps }}
+      contentProps={gridCellProps}
+      removeButtonProps={{
+        ...removeButtonProps,
+        isDisabled: state.disabledKeys.has(item.key),
       }}
+      allowsRemoving={allowsRemoving}
     >
-      <Chip ref={ref} {...item.props}>
-        {item.rendered}
-      </Chip>
-    </WrapperChipGroupContext.Provider>
+      {item.rendered}
+    </ChipInternal>
   );
 }

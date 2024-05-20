@@ -12,6 +12,9 @@ export default {
     onRemove: {
       description: "Function to call when the chip is removed",
     },
+    children: {
+      type: "string",
+    },
   },
 } as Meta<typeof Chip>;
 
