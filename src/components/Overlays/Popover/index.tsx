@@ -54,11 +54,6 @@ export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(
       )
     );
 
-    if (contextState === null) {
-      console.log(state);
-      console.log(triggerRef?.current);
-    }
-
     if (!state.isOpen) {
       return null;
     }

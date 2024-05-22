@@ -132,7 +132,6 @@ export type { PopoverProps } from "./Overlays/Popover";
 export type {
   FieldProps,
   FieldErrorMessageProps,
-  FieldInputProps,
   FieldLabelProps,
   FieldMessageProps,
   FieldTextAreaProps,

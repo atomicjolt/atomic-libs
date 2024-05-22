@@ -54,7 +54,7 @@ export const SearchInput = React.forwardRef(function SearchInput(
       {label && <Label {...labelProps}>{label}</Label>}
       {message && <Message {...descriptionProps}>{message}</Message>}
       <ComboInput>
-        <Input {...inputProps} />
+        <Input {...inputProps} size={undefined} />
         <IconButton
           icon="search"
           variant="content"

@@ -3,12 +3,13 @@ import Button from "../../Buttons/Button";
 import MaterialIcon from "../../Icons/MaterialIcon";
 import Modal, { BaseModalProps } from "../Modal";
 
-export interface ErrorModalProps extends BaseModalProps {
+export interface ErrorModalProps extends Omit<BaseModalProps, "children"> {
+  children: React.ReactNode;
   /** Must include a title. Titles are always in Title case. */
   title: string;
   /** Text of the button to close the modal. */
   buttonText?: string;
-  onClose: () => void;
+  onClose?: () => void;
 }
 
 /**
@@ -22,16 +23,27 @@ export function ErrorModal(props: ErrorModalProps) {
 
   return (
     <Modal {...rest} variant="error">
-      <Modal.Header>
-        <MaterialIcon icon="error" />
-        <Modal.Title>{title}</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>{children}</Modal.Body>
-      <Modal.Footer>
-        <Button variant="error" type="button" onPress={onClose}>
-          {buttonText}
-        </Button>
-      </Modal.Footer>
+      {(close) => (
+        <>
+          <Modal.Header>
+            <MaterialIcon icon="error" />
+            <Modal.Title>{title}</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>{children}</Modal.Body>
+          <Modal.Footer>
+            <Button
+              variant="error"
+              type="button"
+              onPress={() => {
+                onClose?.();
+                close();
+              }}
+            >
+              {buttonText}
+            </Button>
+          </Modal.Footer>
+        </>
+      )}
     </Modal>
   );
 }
