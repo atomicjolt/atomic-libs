@@ -2,6 +2,7 @@ import { ArgTypes } from "@storybook/react";
 import { createGlobalStyle } from "styled-components";
 import { PressEvents } from "react-aria";
 import { Item } from "../../src/components/Collection";
+import { OverlayTriggerProps } from "react-stately";
 
 export const FieldStateControls: ArgTypes = {
   isDisabled: {
@@ -209,6 +210,23 @@ export const PressableArgTypes: Record<keyof PressEvents, object> = {
     },
   },
 };
+
+export const OverlayTriggerArgTypes: Record<keyof OverlayTriggerProps, object> =
+  {
+    defaultOpen: {
+      control: "boolean",
+      description:
+        "Whether the overlay should be open by default (uncontrolled)",
+    },
+    isOpen: {
+      control: "boolean",
+      description: "Whether the overlay should be open (controlled)",
+    },
+    onOpenChange: {
+      action: "onOpenChange",
+      description: "Callback when the overlay open state changes",
+    },
+  };
 
 export const PurpleButtonStyles = createGlobalStyle`
 .aje-btn--purple {

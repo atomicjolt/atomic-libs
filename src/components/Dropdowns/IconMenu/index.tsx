@@ -1,12 +1,13 @@
-import React, { useRef } from "react";
-import { Item, MenuTriggerProps, useMenuTriggerState } from "react-stately";
-import { AriaMenuProps, Placement, useMenuTrigger } from "react-aria";
+import React from "react";
+import { Item, MenuTriggerProps } from "react-stately";
+import { AriaMenuProps, Placement } from "react-aria";
 import IconButton from "../../Buttons/IconButton";
 import { BaseProps, CanHaveIcon, LoadingProps } from "../../../types";
-import { Popover } from "../../Internal/Popover";
-import { Menu } from "../Menu";
+import { Popover } from "../../Overlays/Popover";
+import { MenuItemProps, Menu } from "../Menu";
 import { ButtonVariants } from "../../Buttons/Buttons.types";
 import { cloneComponent } from "../../../clone";
+import { MenuTrigger } from "../Menu/MenuTrigger";
 
 export type IconMenuProps<T extends object> = Omit<
   AriaMenuProps<T>,
@@ -19,17 +20,11 @@ export type IconMenuProps<T extends object> = Omit<
     isDisabled?: boolean;
     buttonVariant?: ButtonVariants;
     menuPlacement?: Placement;
+    children:
+      | React.ReactElement<MenuItemProps<T>>[]
+      | React.ReactElement<MenuItemProps<T>>;
   };
-
-export function IconMenu<T extends object>(props: IconMenuProps<T>) {
-  const state = useMenuTriggerState(props);
-  const ref = useRef<HTMLButtonElement>(null);
-  const { menuTriggerProps, menuProps } = useMenuTrigger<T>(
-    { trigger: props.trigger },
-    state,
-    ref
-  );
-
+export function IconMenu<T extends {}>(props: IconMenuProps<T>) {
   const {
     icon = "more_vert",
     className,
@@ -40,44 +35,30 @@ export function IconMenu<T extends object>(props: IconMenuProps<T>) {
     isLoading,
     loadingComplete,
     loadingLabel,
+    ...rest
   } = props;
 
   return (
-    <>
+    <MenuTrigger {...rest}>
       <IconButton
         icon={icon}
         iconVariant={iconVariant}
         variant={buttonVariant}
-        ref={ref}
         className={className}
         isDisabled={isDisabled}
         isLoading={isLoading}
         loadingComplete={loadingComplete}
         loadingLabel={loadingLabel}
-        {...menuTriggerProps}
       />
-      {state.isOpen && (
-        <Popover state={state} triggerRef={ref} placement={menuPlacement}>
-          <Menu {...props} {...menuProps} />
-        </Popover>
-      )}
-    </>
+      <Popover placement={menuPlacement}>
+        <Menu {...props}>{props.children}</Menu>
+      </Popover>
+    </MenuTrigger>
   );
 }
 
-interface IconMenuItemProps {
-  /** Rendered contents of the item or child items. */
-  children: React.ReactNode;
-  /** A string representation of the item's contents, used for features like typeahead. */
-  textValue?: string;
-  /** An accessibility label for this item. */
-  "aria-label"?: string;
-  /** Callback when the item is selected from the menu */
-  onAction?: () => void;
-}
-
 const IconMenuItem = cloneComponent(Item, "IconMenu.Item") as <T>(
-  props: IconMenuItemProps
+  props: MenuItemProps<T>
 ) => JSX.Element;
 
 IconMenu.Item = IconMenuItem;

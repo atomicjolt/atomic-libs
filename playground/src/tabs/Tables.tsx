@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { Table } from "../elements";
+import { SearchDescriptor, Table } from "../elements";
 import { SortDescriptor } from "react-stately";
-import { SearchDescriptor } from "../../../src/components/Tables/Table/Table.types";
 
 export default function Tables() {
   const [sortDescriptor, setSortDescriptor] = useState<SortDescriptor>({

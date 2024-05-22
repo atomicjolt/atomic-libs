@@ -19,7 +19,7 @@ exports[`matches snapshots > matches default variant 1`] = `
       message
     </p>
     <div
-      class="sc-bkbjWr conuuI aje-combo-input sc-kfYpNk jobCEl padding-left padding-right"
+      class="sc-bkbjWr conuuI aje-combo-input padding-left padding-right"
     >
       <input
         aria-autocomplete="list"
@@ -28,7 +28,7 @@ exports[`matches snapshots > matches default variant 1`] = `
         aria-labelledby="react-aria-:r3:"
         autocomplete="off"
         autocorrect="off"
-        class="sc-fFSPgy kQVNrM"
+        class="sc-fFSPgy kQVNrM is-full"
         id="react-aria-:r2:"
         role="combobox"
         spellcheck="false"
@@ -67,7 +67,7 @@ exports[`matches snapshots > matches floating variant 1`] = `
       class="sc-hHEhDq dMVzRV"
     >
       <div
-        class="sc-bkbjWr conuuI aje-combo-input sc-kfYpNk jobCEl padding-left padding-right"
+        class="sc-bkbjWr conuuI aje-combo-input padding-left padding-right"
       >
         <input
           aria-autocomplete="list"
@@ -76,7 +76,7 @@ exports[`matches snapshots > matches floating variant 1`] = `
           aria-labelledby="react-aria-:rc:"
           autocomplete="off"
           autocorrect="off"
-          class="sc-fFSPgy kQVNrM"
+          class="sc-fFSPgy kQVNrM is-full"
           id="react-aria-:rb:"
           role="combobox"
           spellcheck="false"

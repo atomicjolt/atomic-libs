@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { SelectProps, useSelectState } from "react-stately";
 import { HiddenSelect, useSelect } from "react-aria";
 import classNames from "classnames";
@@ -12,10 +12,11 @@ import { DropdownWrapper } from "../Dropdowns.styles";
 import { useVariantClass } from "../../../hooks";
 import { ButtonText } from "./CustomSelect.styles";
 import { FloatingInputWrapper } from "../../Internal/FloatingInputWrapper";
-import MaterialIcon from "../../Icons/MaterialIcon";
-import { Popover } from "../../Internal/Popover";
+import { MaterialIcon } from "../../Icons/MaterialIcon";
+import { Popover } from "../../Overlays/Popover";
 import { UnmanagedListBox } from "../ListBox";
-import Button from "@/components/Buttons/Button";
+import { OverlayTriggerStateContext } from "../../Overlays/OverlayTrigger/context";
+import { Button } from "@/components/Buttons/Button";
 
 export type CustomSelectVariants = "default" | "floating";
 
@@ -113,9 +114,8 @@ export function CustomSelect<T extends object>(props: CustomSelectProps<T>) {
           <MaterialIcon icon="arrow_drop_down" />
         </Button>
       </FloatingInputWrapper>
-      {state.isOpen && (
-        <Popover state={state} triggerRef={ref} placement="bottom start">
-          {/* @ts-ignore */}
+      <OverlayTriggerStateContext.Provider value={state}>
+        <Popover placement="bottom start" triggerRef={ref}>
           <UnmanagedListBox
             {...menuProps}
             state={state}
@@ -124,7 +124,7 @@ export function CustomSelect<T extends object>(props: CustomSelectProps<T>) {
             searchPlaceholder={searchPlaceholder}
           />
         </Popover>
-      )}
+      </OverlayTriggerStateContext.Provider>
     </DropdownWrapper>
   );
 }
