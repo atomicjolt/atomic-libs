@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import Button from "../../Buttons/Button";
 import Modal, { BaseModalProps } from "../Modal";
+import { OverlayTriggerStateContext } from "../OverlayTrigger/context";
 
-export interface ConfirmationModalProps extends BaseModalProps {
+export interface ConfirmationModalProps
+  extends Omit<BaseModalProps, "children"> {
+  children: React.ReactNode;
   /** Must include a title. Titles are always in Title case. */
   title: string;
   /** Should be descriptive instead of yes or no.
@@ -39,18 +42,34 @@ export function ConfirmationModal({
 }: ConfirmationModalProps) {
   return (
     <Modal {...rest} variant="popup">
-      <Modal.Header>
-        <Modal.Title>{title}</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>{children}</Modal.Body>
-      <Modal.Footer>
-        <Button variant="secondary" onPress={() => onReject && onReject()}>
-          {rejectText}
-        </Button>
-        <Button variant="primary" onPress={() => onConfirm && onConfirm()}>
-          {confirmText}
-        </Button>
-      </Modal.Footer>
+      {(close) => (
+        <>
+          <Modal.Header>
+            <Modal.Title>{title}</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>{children}</Modal.Body>
+          <Modal.Footer>
+            <Button
+              variant="secondary"
+              onPress={() => {
+                onReject?.();
+                close();
+              }}
+            >
+              {rejectText}
+            </Button>
+            <Button
+              variant="primary"
+              onPress={() => {
+                onConfirm?.();
+                close();
+              }}
+            >
+              {confirmText}
+            </Button>
+          </Modal.Footer>
+        </>
+      )}
     </Modal>
   );
 }

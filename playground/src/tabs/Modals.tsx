@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { Button, Modal, IconButton, OverlayTrigger } from "../elements";
+import {
+  Button,
+  Modal,
+  IconButton,
+  OverlayTrigger,
+  ErrorModal,
+  ConfirmationModal,
+} from "../elements";
 
 export default function Modals() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -45,6 +52,31 @@ export default function Modals() {
               </>
             )}
           </Modal>
+        </OverlayTrigger>
+      </div>
+
+      <br />
+      <div>
+        <OverlayTrigger>
+          <Button>Error Modal</Button>
+          <ErrorModal title="Error!" onClose={() => console.log("close")}>
+            This is an error message
+          </ErrorModal>
+        </OverlayTrigger>
+      </div>
+      <br />
+      <div>
+        <OverlayTrigger>
+          <Button>Confirmation Modal</Button>
+          <ConfirmationModal
+            isOpen
+            title="Error!"
+            confirmText="Yes"
+            onConfirm={() => console.log("confirm")}
+            onReject={() => console.log("reject")}
+          >
+            Are you sure you want to delete this?
+          </ConfirmationModal>
         </OverlayTrigger>
       </div>
     </div>

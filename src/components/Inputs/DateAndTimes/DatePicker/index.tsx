@@ -14,6 +14,7 @@ import { Popover } from "../../../Overlays/Popover";
 import { Dialog } from "../../../Overlays/Dialog";
 import Calendar from "../Calendar";
 import { ErrorMessage, Label, Message } from "../../../Fields";
+import { OverlayTriggerStateContext } from "@/components/Overlays/OverlayTrigger/context";
 
 export type DatePickerProps<T extends DateValue> = AriaProps<
   AriaDatePickerProps<T>
@@ -76,13 +77,15 @@ export function DatePicker<T extends DateValue>(props: DatePickerProps<T>) {
         <ErrorMessage {...errorMessageProps}>{error}</ErrorMessage>
       )}
 
-      <Popover state={state} triggerRef={ref} placement="bottom start">
-        <Dialog {...dialogProps}>
-          <CalendarWrapper>
-            <Calendar {...calendarProps} size={calendarSize} />
-          </CalendarWrapper>
-        </Dialog>
-      </Popover>
+      <OverlayTriggerStateContext.Provider value={state}>
+        <Popover triggerRef={ref} placement="bottom start">
+          <Dialog {...dialogProps}>
+            <CalendarWrapper>
+              <Calendar {...calendarProps} size={calendarSize} />
+            </CalendarWrapper>
+          </Dialog>
+        </Popover>
+      </OverlayTriggerStateContext.Provider>
     </DatePickerWrapper>
   );
 }
