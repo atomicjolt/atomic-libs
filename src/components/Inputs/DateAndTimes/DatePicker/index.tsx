@@ -4,16 +4,16 @@ import { useDatePickerState } from "react-stately";
 import { Size, AriaProps, FieldInputProps } from "../../../../types";
 import {
   CalendarWrapper,
-  DatePickerVirtualInput,
+  DatePickerComboInput,
   DatePickerWrapper,
 } from "./DatePicker.styles";
 import classNames from "classnames";
 import DateInput from "../DateInput";
 import IconButton from "../../../Buttons/IconButton";
-import { Popover } from "../../../Internal/Popover";
+import { Popover } from "../../../Overlays/Popover";
 import { Dialog } from "../../../Overlays/Dialog";
 import Calendar from "../Calendar";
-import { ErrorMessage, Label, Message } from "../../../Internal/Field";
+import { ErrorMessage, Label, Message } from "../../../Fields";
 
 export type DatePickerProps<T extends DateValue> = AriaProps<
   AriaDatePickerProps<T>
@@ -63,28 +63,26 @@ export function DatePicker<T extends DateValue>(props: DatePickerProps<T>) {
       {label && <Label {...labelProps}>{label}</Label>}
       {message && <Message {...descriptionProps}>{message}</Message>}
 
-      <DatePickerVirtualInput
+      <DatePickerComboInput
         {...groupProps}
         ref={ref}
         className={"aje-input__date-segments"}
       >
         <DateInput {...fieldProps} size="full" isRequired={isRequired} />
         <IconButton icon="today" variant="content" {...buttonProps} />
-      </DatePickerVirtualInput>
+      </DatePickerComboInput>
 
       {isInvalid && error && (
         <ErrorMessage {...errorMessageProps}>{error}</ErrorMessage>
       )}
 
-      {state.isOpen && (
-        <Popover state={state} triggerRef={ref} placement="bottom start">
-          <Dialog {...dialogProps}>
-            <CalendarWrapper>
-              <Calendar {...calendarProps} size={calendarSize} />
-            </CalendarWrapper>
-          </Dialog>
-        </Popover>
-      )}
+      <Popover state={state} triggerRef={ref} placement="bottom start">
+        <Dialog {...dialogProps}>
+          <CalendarWrapper>
+            <Calendar {...calendarProps} size={calendarSize} />
+          </CalendarWrapper>
+        </Dialog>
+      </Popover>
     </DatePickerWrapper>
   );
 }

@@ -12,7 +12,7 @@ import {
   ColumnDragIndicator,
   DraggableTh,
   SearchInput,
-  SearchInputWrapper,
+  SearchComboInput,
   StyledTh,
   ThContent,
 } from "../Table.styles";
@@ -197,9 +197,7 @@ const ColumnSearch = forwardRef(function ColumnSearch<T>(
 
   return (
     <>
-      <SearchInputWrapper
-        className={classNames({ "is-expanded": isSearching })}
-      >
+      <SearchComboInput aria-expanded={isSearching}>
         <SearchInput
           aria-label={`Search ${title || column.key}`}
           value={state.searchDescriptor?.search}
@@ -232,7 +230,7 @@ const ColumnSearch = forwardRef(function ColumnSearch<T>(
             });
           }}
         />
-      </SearchInputWrapper>
+      </SearchComboInput>
 
       {!isSearching && (
         <IconButton

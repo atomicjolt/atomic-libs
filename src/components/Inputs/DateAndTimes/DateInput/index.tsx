@@ -15,12 +15,7 @@ import {
   DateSegment as ReactStatelyDateSegment,
   useDateFieldState,
 } from "react-stately";
-import {
-  Label,
-  Message,
-  VirtualInput,
-  ErrorMessage,
-} from "../../../Internal/Field";
+import { Label, Message, ComboInput, ErrorMessage } from "../../../Fields";
 
 export interface DateInputProps<T extends DateValue>
   extends AriaProps<AriaDateFieldProps<T>>,
@@ -66,7 +61,7 @@ export function DateInput<T extends DateValue>(props: DateInputProps<T>) {
       {label && <Label {...labelProps}>{label}</Label>}
       {message && <Message {...descriptionProps}>{message}</Message>}
 
-      <VirtualInput
+      <ComboInput
         {...fieldProps}
         ref={ref}
         className={"aje-input__date-segments"}
@@ -74,7 +69,7 @@ export function DateInput<T extends DateValue>(props: DateInputProps<T>) {
         {state.segments.map((segment, i) => (
           <DateSegment key={i} segment={segment} state={state} />
         ))}
-      </VirtualInput>
+      </ComboInput>
 
       {isInvalid && error && (
         <ErrorMessage {...errorMessageProps}>{error}</ErrorMessage>

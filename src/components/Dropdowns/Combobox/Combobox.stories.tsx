@@ -6,7 +6,7 @@ import { Item } from "../../Collection";
 import { getCssProps } from "@sb/cssprops";
 
 const meta: Meta<typeof ComboBox> = {
-  title: "Dropdowns/Combobox",
+  title: "Dropdowns/Selection/Combobox",
   component: ComboBox,
   parameters: {
     layout: "centered",
@@ -63,6 +63,7 @@ type Story = StoryObj<typeof ComboBox>;
 export const Primary: Story = {
   args: {
     label: "Combobox label",
+    menuTrigger: "focus",
     children: [
       <Item key="1">Option 1</Item>,
       <Item key="2">Option 2</Item>,

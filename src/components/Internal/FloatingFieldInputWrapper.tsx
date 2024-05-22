@@ -1,5 +1,5 @@
 import React from "react";
-import { FieldErrorMessage, FieldLabel, FieldMessage } from "../Internal/Field";
+import { FieldErrorMessage, FieldLabel, FieldMessage } from "../Fields";
 import { HelpTextProps } from "../../types";
 import styled from "styled-components";
 

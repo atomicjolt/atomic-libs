@@ -5,13 +5,12 @@ import { PlacementArgType } from "@sb/helpers";
 import { MaterialIcon, Section } from "../../";
 
 const meta: Meta<typeof IconMenu> = {
-  title: "Dropdowns/IconMenu",
+  title: "Dropdowns/Menu/IconMenu",
   component: IconMenu,
   parameters: {
     layout: "centered",
   },
   argTypes: {
-    ...PlacementArgType,
     buttonVariant: {
       control: "select",
       options: [

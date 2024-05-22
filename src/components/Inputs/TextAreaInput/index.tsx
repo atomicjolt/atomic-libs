@@ -8,7 +8,7 @@ import {
   FieldMessage,
   FieldTextArea,
   FieldErrorMessage,
-} from "../../Internal/Field";
+} from "../../Fields";
 
 export interface TextareaProps
   extends FieldInputProps,

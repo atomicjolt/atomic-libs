@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
 import { AriaModalOverlayProps, Overlay, useModalOverlay } from "react-aria";
 import {
   OverlayTriggerProps,
@@ -16,9 +16,15 @@ import {
   ModalTitle,
 } from "./Modal.styles";
 import classNames from "classnames";
+import { useContextProps } from "../../../hooks/useContextProps";
+import { ModalContext } from "./context";
+import { OverlayTriggerStateContext } from "../OverlayTrigger/context";
 
+type CloseModal = () => void;
 export interface BaseModalProps extends HasClassName, OverlayTriggerProps {
-  children?: React.ReactNode;
+  id?: string;
+  children?: React.ReactNode | ((close: CloseModal) => React.ReactNode);
+
   /** Centers the modal within the viewport */
   centered?: boolean;
 }
@@ -31,9 +37,17 @@ export interface ModalProps extends BaseModalProps {
  * Modal Component to render content overlayed on top of the page content.
  */
 export function Modal(props: ModalProps) {
-  const { children, centered = false, variant = "default", className } = props;
-  const state = useOverlayTriggerState(props);
-  // const { overlayProps } = useOverlayTrigger({ type: "dialog" }, state);
+  const {
+    children,
+    centered = false,
+    variant = "default",
+    className,
+    ...rest
+  } = useContextProps(ModalContext, props);
+
+  const contextState = useContext(OverlayTriggerStateContext);
+  const localState = useOverlayTriggerState(props);
+  const state = contextState ?? localState;
 
   const variantClassName = useVariantClass("aje-modal", variant);
 
@@ -43,7 +57,7 @@ export function Modal(props: ModalProps) {
 
   return (
     <ModalOverlay
-      {...props}
+      {...rest}
       state={state}
       className={classNames(className, variantClassName)}
       centered={centered}
@@ -72,9 +86,10 @@ function ModalOverlay(props: ModalOverlayProps) {
           className={classNames("aje-modal", className)}
           onClick={(e: React.MouseEvent<HTMLDivElement>) => e.stopPropagation()}
           ref={ref}
+          id={props.id}
           {...modalProps}
         >
-          {children}
+          {typeof children === "function" ? children(state.close) : children}
         </ModalWrapper>
       </ModalBackground>
     </Overlay>

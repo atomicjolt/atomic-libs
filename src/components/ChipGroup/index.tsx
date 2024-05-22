@@ -4,7 +4,7 @@ import type { AriaTagGroupProps, AriaTagProps } from "react-aria";
 import { useListState } from "react-stately";
 import { usePress, useTag, useTagGroup } from "react-aria";
 import { AriaProps, FieldInputProps, HasClassName } from "../../types";
-import { ErrorMessage, Label, Message } from "../Internal/Field";
+import { ErrorMessage, Label, Message } from "../Fields";
 import IconButton from "../Buttons/IconButton";
 import {
   ChipWrapper,

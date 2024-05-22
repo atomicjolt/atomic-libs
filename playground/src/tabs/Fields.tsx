@@ -13,15 +13,13 @@ import {
   TextAreaInput,
   TextInput,
   TimeInput,
-} from "../elements";
-import {
   FieldErrorMessage,
   FieldMessage,
   FieldInput,
-  VirtualInput,
+  ComboInput,
   FieldLabel,
   TextField,
-} from "../../../src/components/Internal/Field";
+} from "../elements";
 
 export default function Fields() {
   const [value, setValue] = useState("");
@@ -80,10 +78,10 @@ export default function Fields() {
       >
         <FieldLabel>Label</FieldLabel>
         <FieldMessage>Message</FieldMessage>
-        <VirtualInput>
+        <ComboInput>
           <MaterialIcon icon="search" />
           <FieldInput placeholder="placeholder" />
-        </VirtualInput>
+        </ComboInput>
         <FieldErrorMessage>Error</FieldErrorMessage>
       </TextField>
 

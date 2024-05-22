@@ -11,12 +11,12 @@ import {
 import classNames from "classnames";
 import { useVariantClass } from "../../../hooks";
 import IconButton from "../../Buttons/IconButton";
-import { Popover } from "../../Internal/Popover";
+import { Popover } from "../../Overlays/Popover";
 import { UnmanagedListBox } from "../ListBox";
-import { Input } from "../../Internal/Field";
+import { ComboInput, Input } from "../../Fields";
 import { FloatingInputWrapper } from "../../Internal/FloatingInputWrapper";
 import { DropdownWrapper } from "../Dropdowns.styles";
-import { ComboboxVirtualInput } from "./Combobox.styles";
+import { OverlayTriggerStateContext } from "../../Overlays/OverlayTrigger/context";
 
 export interface ComboBoxProps<T>
   extends AriaProps<AriaComboBoxProps<T>>,
@@ -48,6 +48,7 @@ export function ComboBox<T extends object>(props: ComboBoxProps<T>) {
   const state = useComboBoxState({ ...props, defaultFilter: contains });
 
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const inputWrapperRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const listBoxRef = useRef<HTMLUListElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
@@ -96,8 +97,8 @@ export function ComboBox<T extends object>(props: ComboBoxProps<T>) {
         isInvalid={isInvalid}
         floating={variant === "floating"}
       >
-        <ComboboxVirtualInput inputRef={inputRef}>
-          <Input {...inputProps} ref={inputRef} />
+        <ComboInput inputRef={inputRef} ref={inputWrapperRef}>
+          <Input {...inputProps} size="full" ref={inputRef} />
           <IconButton
             icon={icon}
             variant="content"
@@ -105,29 +106,25 @@ export function ComboBox<T extends object>(props: ComboBoxProps<T>) {
             ref={buttonRef}
             {...buttonProps}
           />
-        </ComboboxVirtualInput>
+        </ComboInput>
       </FloatingInputWrapper>
-
-      {state.isOpen && (
+      <OverlayTriggerStateContext.Provider value={state}>
         <Popover
-          state={state}
-          triggerRef={inputRef}
+          // We pass the wrapper instead of the actual input here
+          // so that the popover can size itself based on the wrapper
+          // which visually is the entire input field
+          triggerRef={inputWrapperRef}
           ref={popoverRef}
-          // FIXME: isNonModal is technically correct for accessibility, but
-          // when it's set the popover isn't dismissable when clicking outside
-          // This does appear to be intentional on react-aria's part, but I'm
-          // not sure why. Disabling for now.
+          // FIXME: isNonModal is technially correct, but it means
+          // the popover will not close when clicking outside of it
+          // I don't think this is the intended behavior and it doesn't happen
+          // in the docs, so I'm flipping it off for now
           // isNonModal
           placement="bottom start"
         >
-          <UnmanagedListBox
-            {...listBoxProps}
-            state={state}
-            ref={listBoxRef}
-            size={menuSize}
-          />
+          <UnmanagedListBox {...listBoxProps} state={state} ref={listBoxRef} />
         </Popover>
-      )}
+      </OverlayTriggerStateContext.Provider>
     </DropdownWrapper>
   );
 }
