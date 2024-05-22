@@ -204,7 +204,7 @@ export const StyledRow = styled.tr`
   }
 `;
 
-export const SeachComboInput = styled(ComboInput)`
+export const SearchComboInput = styled(ComboInput)`
   --input-height: 30px;
   --input-padding-horiz: 0px;
   --btn-padding: 0px 5px;
