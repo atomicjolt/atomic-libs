@@ -21,7 +21,7 @@ import classNames from "classnames";
 import useForwardedRef from "../../../hooks/useForwardedRef";
 import SearchInput from "../../Inputs/SearchInput";
 import MaterialIcon from "../../Icons/MaterialIcon";
-import { Label } from "../../Internal/Field";
+import { Label } from "../../Fields";
 
 export type ListBoxProps<T> = AriaListBoxProps<T> &
   BaseProps & {

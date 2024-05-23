@@ -6,7 +6,7 @@ import { Item } from "../../Collection";
 import { getCssProps } from "@sb/cssprops";
 
 export default {
-  title: "Dropdowns/MultiSelect",
+  title: "Dropdowns/Selection/MultiSelect",
   component: MultiSelect,
   parameters: {
     layout: "centered",

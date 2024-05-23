@@ -216,7 +216,7 @@ export const WithColumnReordering: Story = {
       columns.find((c) => c.key === key)
     ) as typeof columns;
 
-    const pokemons = [
+    const pokemons: Record<string, string | number>[] = [
       {
         name: "Charizard",
         type: "Fire, Flying",
@@ -275,26 +275,26 @@ export const WithColumnSearch: Story = {
       search: "",
     });
 
-    const pokemons = [
+    const pokemons: Record<string, string>[] = [
       {
         name: "Charizard",
         type: "Fire, Flying",
-        level: 67,
+        level: "67",
       },
       {
         name: "Blastoise",
         type: "Water",
-        level: 56,
+        level: "56",
       },
       {
         name: "Venusaur",
         type: "Grass, Poison",
-        level: 83,
+        level: "83",
       },
       {
         name: "Pikachu",
         type: "Electric",
-        level: 100,
+        level: "100",
       },
     ];
 

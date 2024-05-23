@@ -10,9 +10,7 @@ describe("matches snapshot", () => {
   });
 
   test("displays with search button", () => {
-    const result = render(
-      <SearchInput label="search" onSubmit={() => {}} submitButton />
-    );
+    const result = render(<SearchInput label="search" onSubmit={() => {}} />);
     expect(result.asFragment()).toMatchSnapshot();
   });
 });
@@ -31,9 +29,7 @@ describe("matches snapshot", () => {
 
 test("button calls onSumbit()", () => {
   const onSubmit = vi.fn(() => {});
-  const result = render(
-    <SearchInput label="label" onSubmit={onSubmit} submitButton />
-  );
+  const result = render(<SearchInput label="label" onSubmit={onSubmit} />);
   fireEvent.click(screen.getByText("search"));
 
   expect(onSubmit.mock.calls.length).toEqual(1);

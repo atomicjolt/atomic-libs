@@ -22,6 +22,10 @@ export interface BaseProps {
   readonly size?: ExtendedSize;
 }
 
+/* Props for a component that directly wraps an element */
+export type ElementWrapperProps<WrappedElements> = BaseProps &
+  Omit<WrappedElements, keyof BaseProps>;
+
 export interface HasChildren {
   children: React.ReactNode;
 }

@@ -6,7 +6,7 @@ import { Item, Section } from "../../Collection";
 import { getCssProps } from "@sb/cssprops";
 
 const meta: Meta<typeof CustomSelect> = {
-  title: "Dropdowns/CustomSelect",
+  title: "Dropdowns/Selection/CustomSelect",
   component: CustomSelect,
   parameters: {
     layout: "centered",

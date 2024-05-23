@@ -6,7 +6,7 @@ import { MultiSelectItemChildren, MultiSelectionArgTypes } from "@sb/helpers";
 import { getCssProps } from "@sb/cssprops";
 
 const meta: Meta<typeof ListBox> = {
-  title: "Dropdowns/ListBox",
+  title: "Dropdowns/Selection/ListBox",
   component: ListBox,
   parameters: {
     cssprops: getCssProps("Listbox"),

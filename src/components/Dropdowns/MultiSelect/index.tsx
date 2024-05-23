@@ -14,9 +14,10 @@ import { FloatingInputWrapper } from "../../Internal/FloatingInputWrapper";
 import Button from "../../Buttons/Button";
 import { ButtonText } from "../CustomSelect/CustomSelect.styles";
 import MaterialIcon from "../../Icons/MaterialIcon";
-import { Popover } from "../../Internal/Popover";
+import { Popover } from "../../Overlays/Popover";
 import classNames from "classnames";
 import { UnmanagedListBox } from "../ListBox";
+import { OverlayTriggerStateContext } from "@/components/Overlays/OverlayTrigger/context";
 
 export interface MultiSelectProps<T extends object>
   extends AriaProps<AriaMultiSelectProps<T>>,
@@ -126,9 +127,8 @@ export function MultiSelect<T extends object>(props: MultiSelectProps<T>) {
           <MaterialIcon icon="arrow_drop_down" />
         </Button>
       </FloatingInputWrapper>
-      {state.isOpen && (
-        <Popover state={state} triggerRef={ref} placement="bottom start">
-          {/* @ts-ignore */}
+      <OverlayTriggerStateContext.Provider value={state}>
+        <Popover triggerRef={ref} placement="bottom start">
           <UnmanagedListBox
             {...menuProps}
             state={state}
@@ -138,7 +138,7 @@ export function MultiSelect<T extends object>(props: MultiSelectProps<T>) {
             showCheckmark
           />
         </Popover>
-      )}
+      </OverlayTriggerStateContext.Provider>
     </DropdownWrapper>
   );
 }

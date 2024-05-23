@@ -2,16 +2,6 @@ import styled, { keyframes } from "styled-components";
 import mixins from "../../../styles/mixins";
 import { scaleAnimation } from "../../../styles/animations";
 
-const scale = keyframes`
-  from {
-    transform: scaleY(0.9);
-  }
-
-  to {
-    transform: scaleY(1);
-  }
-`;
-
 export const MenuList = styled.ul`
   list-style: none;
   margin: 0;
@@ -20,6 +10,7 @@ export const MenuList = styled.ul`
   background-color: var(--neutral50);
   padding: 8px 0;
   z-index: 100;
+  min-width: var(--trigger-width, auto);
   ${scaleAnimation}
 
   &:focus {

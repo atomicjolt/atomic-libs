@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import ErrorModal from ".";
 
 const meta: Meta<typeof ErrorModal> = {
-  title: "Overlays/ErrorModal",
+  title: "Overlays/Modals/ErrorModal",
   component: ErrorModal,
   parameters: {
     docs: {

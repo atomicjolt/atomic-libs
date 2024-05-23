@@ -5,7 +5,7 @@ import IconButton from ".";
 
 test("matches snapshot", () => {
   const result = render(
-    <IconButton ariaLabel="More Button" icon="more_vert" />
+    <IconButton aria-label="More Button" icon="more_vert" />
   );
   expect(result.asFragment()).toMatchSnapshot();
 });

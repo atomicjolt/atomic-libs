@@ -10,12 +10,7 @@ import classNames from "classnames";
 import { DateSegment } from "../DateInput";
 import { TimeInputWrapper } from "./TimeInput.styles";
 import { AriaProps, FieldInputProps } from "../../../../types";
-import {
-  ErrorMessage,
-  Label,
-  Message,
-  VirtualInput,
-} from "../../../Internal/Field";
+import { ErrorMessage, Label, Message, ComboInput } from "../../../Fields";
 
 export interface TimeInputProps<T extends TimeValue>
   extends AriaProps<AriaTimeFieldProps<T>>,
@@ -56,7 +51,7 @@ export function TimeInput<T extends TimeValue>(props: TimeInputProps<T>) {
       {label && <Label {...labelProps}>{label}</Label>}
       {message && <Message {...descriptionProps}>{message}</Message>}
 
-      <VirtualInput
+      <ComboInput
         {...fieldProps}
         ref={ref}
         className={"aje-input__date-segments"}
@@ -64,7 +59,7 @@ export function TimeInput<T extends TimeValue>(props: TimeInputProps<T>) {
         {state.segments.map((segment, i) => (
           <DateSegment key={i} segment={segment} state={state} />
         ))}
-      </VirtualInput>
+      </ComboInput>
 
       {isInvalid && error && (
         <ErrorMessage {...errorMessageProps}>{error}</ErrorMessage>

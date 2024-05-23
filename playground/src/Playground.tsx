@@ -7,10 +7,11 @@ import Modals from "./tabs/Modals";
 import Tables from "./tabs/Tables";
 import Aria from "./tabs/Aria";
 import Localization from "./tabs/Localization";
+import Overlays from "./tabs/Overlays";
 import Fields from "./tabs/Fields";
 
 function Playground() {
-  const [currentTab, setCurrentTab] = useState<React.Key>("aria");
+  const [currentTab, setCurrentTab] = useState<React.Key>("overlays");
 
   return (
     <div className="padder" style={{ height: "100%" }}>
@@ -26,6 +27,9 @@ function Playground() {
         </Item>
         <Item key="localization" title="Localization">
           <Localization />
+        </Item>
+        <Item key="overlays" title="Overlays">
+          <Overlays />
         </Item>
         <Item key="fields" title="Fields">
           <Fields />

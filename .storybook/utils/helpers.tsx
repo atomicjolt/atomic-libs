@@ -2,26 +2,9 @@ import { ArgTypes } from "@storybook/react";
 import { createGlobalStyle } from "styled-components";
 import { PressEvents } from "react-aria";
 import { Item } from "../../src/components/Collection";
+import { OverlayTriggerProps } from "react-stately";
 
-export const InputControls: ArgTypes = {
-  label: {
-    control: "text",
-    table: {
-      category: "Helper Text",
-    },
-  },
-  error: {
-    control: "text",
-    table: {
-      category: "Helper Text",
-    },
-  },
-  message: {
-    control: "text",
-    table: {
-      category: "Helper Text",
-    },
-  },
+export const FieldStateControls: ArgTypes = {
   isDisabled: {
     control: "boolean",
     table: {
@@ -38,6 +21,34 @@ export const InputControls: ArgTypes = {
     control: "boolean",
     table: {
       category: "Field State",
+    },
+  },
+  isReadOnly: {
+    control: "boolean",
+    table: {
+      category: "Field State",
+    },
+  },
+};
+
+export const InputControls: ArgTypes = {
+  ...FieldStateControls,
+  label: {
+    control: "text",
+    table: {
+      category: "Helper Text",
+    },
+  },
+  error: {
+    control: "text",
+    table: {
+      category: "Helper Text",
+    },
+  },
+  message: {
+    control: "text",
+    table: {
+      category: "Helper Text",
     },
   },
   placeholder: {
@@ -78,12 +89,6 @@ export const TextInputControls: ArgTypes = {
     description: "Set the initial value of an uncontrolled input",
     table: {
       category: "Common",
-    },
-  },
-  isReadOnly: {
-    control: "boolean",
-    table: {
-      category: "Field State",
     },
   },
 };
@@ -205,6 +210,23 @@ export const PressableArgTypes: Record<keyof PressEvents, object> = {
     },
   },
 };
+
+export const OverlayTriggerArgTypes: Record<keyof OverlayTriggerProps, object> =
+  {
+    defaultOpen: {
+      control: "boolean",
+      description:
+        "Whether the overlay should be open by default (uncontrolled)",
+    },
+    isOpen: {
+      control: "boolean",
+      description: "Whether the overlay should be open (controlled)",
+    },
+    onOpenChange: {
+      action: "onOpenChange",
+      description: "Callback when the overlay open state changes",
+    },
+  };
 
 export const PurpleButtonStyles = createGlobalStyle`
 .aje-btn--purple {
