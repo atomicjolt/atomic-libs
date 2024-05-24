@@ -17,14 +17,12 @@ import {
   TableState,
   Node,
   TableHeader,
-  Row,
   Column,
   TableBody,
   Cell,
   TableHeaderProps,
   TableBodyProps,
   ColumnProps,
-  CellProps,
 } from "react-stately";
 import {
   SelectionMode,
@@ -32,6 +30,7 @@ import {
   Sortable,
   MultipleSelection,
 } from "@react-types/shared";
+import { GridNode } from "@react-types/grid";
 import {
   RowHeader,
   StyledRow,
@@ -57,6 +56,7 @@ import {
   DraggableTableColumnHeader,
   TableColumnHeader,
 } from "./components/header";
+import { Row } from "./components/Row";
 
 type TableVariants = SuggestStrings<"default" | "grid" | "full-borders">;
 
@@ -74,7 +74,7 @@ export interface TableProps<T>
 
   children?: [
     React.ReactElement<TableHeaderProps<T>>,
-    React.ReactElement<TableBodyProps<T>>
+    React.ReactElement<TableBodyProps<T>>,
   ];
 
   onColumnReorder?: (newOrder: React.Key[]) => void;
@@ -128,15 +128,11 @@ export function Table<T extends object>(props: TableProps<T>) {
     onColumnReorder?.(columnKeys);
   };
 
-  // TODO: I'm not sure why, but the focus handling seems to be broken
-  // It always fouses the last row in the table for some reason initially
-  // Which is confusing. Disabling it for now.
-  delete gridProps.onFocus;
-
-  // When searching, the table's key down listener
-  // breaks the input's ability to type in the search box
-  if (props.searchDescriptor?.column) {
-    delete gridProps.onKeyDownCapture;
+  if (state.searchDescriptor?.column) {
+    // TODO: I'm not sure why, but the focus handling seems to be broken
+    // It always fouses the last row in the table for some reason initially
+    // Which is confusing. Disabling it for now.
+    delete gridProps.onFocus;
   }
 
   return (
@@ -255,7 +251,7 @@ function TableRow<T>(props: TableRowProps<T>) {
 }
 
 interface TableCellProps<T> {
-  cell: Node<T>;
+  cell: GridNode<T>;
   state: TableState<T>;
 }
 
@@ -269,7 +265,9 @@ function TableCell<T>(props: TableCellProps<T>) {
   if (cell?.props?.isRowHeader) {
     return (
       <RowHeader
-        {...mergeProps(gridCellProps, focusProps)}
+        {...mergeProps(gridCellProps, focusProps, {
+          colSpan: cell.props.colSpan,
+        })}
         ref={ref}
         scope="row"
       >
@@ -278,8 +276,15 @@ function TableCell<T>(props: TableCellProps<T>) {
     );
   }
 
+  console.log(cell);
+
   return (
-    <StyledTd {...mergeProps(gridCellProps, focusProps)} ref={ref}>
+    <StyledTd
+      {...mergeProps(gridCellProps, focusProps, {
+        colSpan: cell.props.colSpan,
+      })}
+      ref={ref}
+    >
       {cell.rendered}
     </StyledTd>
   );
@@ -363,16 +368,22 @@ Table.Column = cloneComponent(Column, "Table.Column") as <T>(
  * for each column. Cells can be statically defined as children, or
  * generated dynamically using a function based on the columns defined
  * in the `Table.Header`. */
-Table.Row = cloneComponent(Row, "Table.Row");
+Table.Row = Row;
 /** A `Table.Body` is a container for the `Table.Row` elements in a Table.
  * Rows can be statically defined as children, or generated dynamically
  * using a function based on the data passed to the `items` prop.
  */
 Table.Body = cloneComponent(TableBody, "Table.Body");
 
-interface PublicTableCellProps extends CellProps {
+interface PublicTableCellProps {
   /** Whether the cell is a header for the row. When true, the cell will be a th instead of a td */
   isRowHeader?: boolean;
+  /** The contents of the cell. */
+  children?: React.ReactNode;
+  /** A string representation of the cell's contents, used for features like typeahead. */
+  textValue?: string;
+
+  colSpan?: number;
 }
 
 /** A `Table.Cell` represents a single cell in a Table. */

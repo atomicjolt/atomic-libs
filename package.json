@@ -11,6 +11,7 @@
   ],
   "license": "MIT",
   "dependencies": {
+    "@adobe/react-spectrum": "^3.35.1",
     "@internationalized/date": "^3.5.2",
     "@storybook/test": "^8.0.10",
     "classnames": "^2.3.1",

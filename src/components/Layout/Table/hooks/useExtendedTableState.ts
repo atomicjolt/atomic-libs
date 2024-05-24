@@ -1,4 +1,3 @@
-import React from "react";
 import { TableState, TableStateProps, useTableState } from "react-stately";
 import { Searchable } from "../Table.types";
 

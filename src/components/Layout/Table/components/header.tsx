@@ -1,12 +1,5 @@
 import React, { ChangeEvent, forwardRef, useRef } from "react";
-import {
-  mergeProps,
-  useDrag,
-  useDrop,
-  useFocusRing,
-  useTableColumnHeader,
-  TextDropItem,
-} from "react-aria";
+import { mergeProps, useDrag, useDrop, TextDropItem } from "react-aria";
 import { TableState, Node } from "react-stately";
 import {
   ColumnDragIndicator,
@@ -21,6 +14,7 @@ import MaterialIcon from "../../../Icons/MaterialIcon";
 import IconButton from "../../../Buttons/IconButton";
 import { ExtendedTableState } from "../hooks/useExtendedTableState";
 import { useExtendedTableColumnHeader } from "../hooks/useExtendedTableColumnHeader";
+import { useFocusRing } from "@/hooks/useFocusRing";
 
 interface TableColumnHeaderProps<T> {
   column: Node<T>;
@@ -201,6 +195,8 @@ const ColumnSearch = forwardRef(function ColumnSearch<T>(
         <SearchInput
           aria-label={`Search ${title || column.key}`}
           value={state.searchDescriptor?.search}
+          onFocus={() => state.setKeyboardNavigationDisabled?.(true)}
+          onBlur={() => state.setKeyboardNavigationDisabled?.(false)}
           onChange={(e: ChangeEvent<HTMLInputElement>) => {
             state.onSearchChange?.({
               column: column.key,
