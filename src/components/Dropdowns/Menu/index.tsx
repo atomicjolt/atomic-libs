@@ -1,10 +1,9 @@
 import React, { useRef } from "react";
-import { Item, TreeState, useTreeState } from "react-stately";
+import { Item, ItemProps, TreeState, useTreeState } from "react-stately";
 import cn from "classnames";
 import { Node } from "@react-types/shared";
 import {
   AriaMenuProps,
-  mergeProps,
   useMenu,
   useMenuItem,
   useMenuSection,
@@ -103,12 +102,12 @@ function MenuSection<T>(props: MenuSectionProps<T>) {
   );
 }
 
-interface MenuItemImplProps {
-  item: any;
-  state: any;
+interface MenuItemImplProps<T> {
+  item: Node<T>;
+  state: TreeState<T>;
 }
 
-function MenuItemImpl(props: MenuItemImplProps) {
+function MenuItemImpl<T>(props: MenuItemImplProps<T>) {
   const { item, state } = props;
   const ref = useRef<HTMLLIElement>(null);
 
@@ -119,27 +118,14 @@ function MenuItemImpl(props: MenuItemImplProps) {
   );
 
   return (
-    <MenuOption {...menuItemProps} ref={ref}>
+    <MenuOption {...menuItemProps} ref={ref} as={item.props.href ? "a" : "li"}>
       {item.rendered}
       {isSelected && <span aria-hidden="true">✅</span>}
     </MenuOption>
   );
 }
 
-export interface MenuItemProps<T> {
-  /** Rendered contents of the item or child items. */
-  children: React.ReactNode;
-  /** Rendered contents of the item if `children` contains child items. */
-  title?: React.ReactNode; // label?? contents?
-  /** A string representation of the item's contents, used for features like typeahead. */
-  textValue?: string;
-  /** An accessibility label for this item. */
-  "aria-label"?: string;
-  /** A list of child item objects. Used for dynamic collections. */
-  childItems?: Iterable<T>;
-  /** Whether this item has children, even if not loaded yet. */
-  hasChildItems?: boolean;
-  /** Callback when the item is selected from the menu */
+export interface MenuItemProps<T> extends ItemProps<T> {
   onAction?: () => void;
 }
 

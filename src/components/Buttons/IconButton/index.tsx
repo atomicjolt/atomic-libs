@@ -5,7 +5,7 @@ import Spinner from "../../Loaders/Spinner";
 import MaterialIcon from "../../Icons/MaterialIcon";
 import { useVariantClass } from "../../../hooks";
 import { StyledIconButton } from "./IconButton.styles";
-import { useButton } from "react-aria";
+import { mergeProps, useButton } from "react-aria";
 import useForwardedRef from "../../../hooks/useForwardedRef";
 import { ButtonProps } from "../Button";
 import { useFocusRing } from "../../../hooks/useFocusRing";
@@ -46,8 +46,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
         })}
         type="button"
         ref={innerRef}
-        {...buttonProps}
-        {...focusProps}
+        {...mergeProps(buttonProps, focusProps)}
       >
         {isLoading && <Spinner isLoading={!loadingComplete} isCentered />}
         <MaterialIcon icon={icon} variant={iconVariant} size={size} />

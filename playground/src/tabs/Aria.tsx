@@ -1,15 +1,21 @@
 import React, { useState } from "react";
 import {
   Button,
+  ButtonGroup,
   CheckBox,
   Chip,
   ChipGroup,
   ComboBox,
   CustomSelect,
+  IconButton,
   IconMenu,
   Item,
   MaterialIcon,
+  Menu,
+  MenuTrigger,
   NumberInput,
+  OverlayTrigger,
+  Popover,
   SearchInput,
   TextAreaInput,
   TextInput,
@@ -17,30 +23,31 @@ import {
   ToolTip,
   ToolTipTrigger,
 } from "../elements";
+import { Link } from "../../../src/components/Routing/Link";
+import { RouterProvider } from "react-aria";
 
 export default function Aria() {
-  const chips = [
-    { key: "news", text: "News" },
-    { key: "travel", text: "Travel" },
-    { key: "gaming", text: "Gaming" },
-    { key: "shopping", text: "Shopping" },
-  ];
   return (
     <div>
-      <ChipGroup
-        onRemove={(key) => console.log(key)}
-        label="Label"
-        message="message"
-        error="error"
-        disabledKeys={["shopping"]}
-        selectionMode="multiple"
-      >
-        <Chip key="news">News</Chip>
-        <Chip key="travel">Travel</Chip>
-        <Chip key="gaming">Gaming</Chip>
-        <Chip key="shopping">Shopping</Chip>
-      </ChipGroup>
-      <Chip>Test Chip</Chip>
+      <RouterProvider navigate={console.log}>
+        <IconMenu icon="more_vert" aria-label="More options">
+          <IconMenu.Item href="/somewhere">Google</IconMenu.Item>
+          <IconMenu.Item>Facebook</IconMenu.Item>
+          <IconMenu.Item>Twitter</IconMenu.Item>
+        </IconMenu>
+
+        <OverlayTrigger>
+          <Button>Press ME</Button>
+          <Popover>
+            <Menu>
+              <Menu.Item>Google</Menu.Item>
+              <Menu.Item>Facebook</Menu.Item>
+              <Menu.Item>Twitter</Menu.Item>
+            </Menu>
+          </Popover>
+        </OverlayTrigger>
+        <Link href="/somewhere">Google</Link>
+      </RouterProvider>
     </div>
   );
 }
