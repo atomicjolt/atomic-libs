@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useRef } from "react";
 import { Overlay, useOverlayPosition, useTooltip } from "react-aria";
 import { ToolTipArrow, ToolTipOverlay } from "./ToolTip.styles";
 import { RefObject } from "react";
@@ -48,7 +48,7 @@ export function ToolTip(props: ToolTipProps) {
     <Overlay>
       <ToolTipOverlay
         ref={ref}
-        className={classNames(props.className)}
+        className={classNames("aje-tooltip", props.className)}
         data-placement={placement}
         data-entering={state.isOpen || undefined}
         data-exiting={!state.isOpen || undefined}
@@ -56,7 +56,6 @@ export function ToolTip(props: ToolTipProps) {
         {...overlayProps}
       >
         {props.children}
-
         <ToolTipArrow {...arrowProps} />
       </ToolTipOverlay>
     </Overlay>
