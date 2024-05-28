@@ -3,7 +3,7 @@
 exports[`matches snapshot > displays with search button 1`] = `
 <DocumentFragment>
   <div
-    class="sc-dItHI fUOhmQ aje-input__search is-medium"
+    class="sc-dItHI gCcSdt aje-input__search is-medium"
   >
     <label
       class="sc-fujznN hocOQc is-auto"
@@ -42,7 +42,7 @@ exports[`matches snapshot > displays with search button 1`] = `
 exports[`matches snapshot > displays without button 1`] = `
 <DocumentFragment>
   <div
-    class="sc-dItHI fUOhmQ aje-input__search is-medium"
+    class="sc-dItHI gCcSdt aje-input__search is-medium"
   >
     <label
       class="sc-fujznN hocOQc is-auto"
