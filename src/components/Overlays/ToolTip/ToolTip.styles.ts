@@ -1,3 +1,4 @@
+import mixins from "@/styles/mixins";
 import styled from "styled-components";
 
 export const ToolTipArrow = styled.div`
@@ -11,6 +12,7 @@ export const ToolTipArrow = styled.div`
 `;
 
 export const ToolTipOverlay = styled.div`
+  ${mixins.Regular}
   background-color: var(--tooltip-bg-clr);
   color: var(--tooltip-text-clr);
   border-radius: var(--tooltip-radius, 5px);
