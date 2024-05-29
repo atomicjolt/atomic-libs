@@ -58,6 +58,8 @@ export { Table } from "./Layout/Table";
 export { Tabs } from "./Layout/Tabs";
 export { Card } from "./Layout/Card";
 export { Group } from "./Layout/Group";
+export { Flex } from "./Layout/Flex/Flex";
+export { FlexItem } from "./Layout/Flex/FlexItem";
 
 export { Item, Section } from "./Collection";
 

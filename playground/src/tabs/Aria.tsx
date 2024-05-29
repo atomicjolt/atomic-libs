@@ -1,46 +1,27 @@
-import React, { useState } from "react";
-import {
-  Button,
-  CheckBox,
-  Chip,
-  ChipGroup,
-  ComboBox,
-  CustomSelect,
-  IconMenu,
-  Item,
-  MaterialIcon,
-  NumberInput,
-  SearchInput,
-  TextAreaInput,
-  TextInput,
-  TimeInput,
-  ToolTip,
-  ToolTipTrigger,
-} from "../elements";
+import React from "react";
+import { Flex } from "../elements";
+
+function CustomComponent({ className, children }) {
+  return (
+    <div className={className}>
+      hi there
+      {children}
+    </div>
+  );
+}
 
 export default function Aria() {
-  const chips = [
-    { key: "news", text: "News" },
-    { key: "travel", text: "Travel" },
-    { key: "gaming", text: "Gaming" },
-    { key: "shopping", text: "Shopping" },
-  ];
   return (
-    <div>
-      <ChipGroup
-        onRemove={(key) => console.log(key)}
-        label="Label"
-        message="message"
-        error="error"
-        disabledKeys={["shopping"]}
-        selectionMode="multiple"
-      >
-        <Chip key="news">News</Chip>
-        <Chip key="travel">Travel</Chip>
-        <Chip key="gaming">Gaming</Chip>
-        <Chip key="shopping">Shopping</Chip>
-      </ChipGroup>
-      <Chip>Test Chip</Chip>
-    </div>
+    <Flex direction="row" alignContent="s">
+      <Flex.Item grow={1} basis={500}>
+        <div style={{ backgroundColor: "red", height: "200px" }} />
+      </Flex.Item>
+      <Flex.Item basis={200}>
+        <div style={{ backgroundColor: "blue", height: "200px" }} />
+      </Flex.Item>
+      <Flex.Item grow={2}>
+        <div style={{ backgroundColor: "green", height: "200px" }} />
+      </Flex.Item>
+    </Flex>
   );
 }

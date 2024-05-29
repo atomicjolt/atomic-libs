@@ -9,6 +9,7 @@ import {
 } from "./Card.styles";
 import { BaseProps, ExtendedSize, HasChildren } from "../../../types";
 import classNames from "classnames";
+import { Flex } from "../Flex/Flex";
 
 export interface CardProps extends HasChildren, Omit<BaseProps, "size"> {}
 
