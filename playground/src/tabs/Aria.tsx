@@ -1,5 +1,5 @@
 import React from "react";
-import { Flex } from "../elements";
+import { Flex, FlexItem } from "../elements";
 
 function CustomComponent({ className, children }) {
   return (
@@ -12,16 +12,16 @@ function CustomComponent({ className, children }) {
 
 export default function Aria() {
   return (
-    <Flex direction="row" alignContent="s">
-      <Flex.Item grow={1} basis={500}>
+    <Flex direction="row" alignContent="center">
+      <FlexItem grow={1} basis={500}>
         <div style={{ backgroundColor: "red", height: "200px" }} />
-      </Flex.Item>
-      <Flex.Item basis={200}>
+      </FlexItem>
+      <FlexItem basis={200}>
         <div style={{ backgroundColor: "blue", height: "200px" }} />
-      </Flex.Item>
-      <Flex.Item grow={2}>
+      </FlexItem>
+      <FlexItem grow={2}>
         <div style={{ backgroundColor: "green", height: "200px" }} />
-      </Flex.Item>
+      </FlexItem>
     </Flex>
   );
 }
