@@ -1,14 +1,13 @@
-import React from "react";
+import classNames from "classnames";
 import {
   StyledCardPanel,
   CardTitle,
   CardWrapper,
   CardHeader,
-  CardDivider,
 } from "./Card.styles";
 import { BaseProps, ExtendedSize, HasChildren } from "../../../types";
-import classNames from "classnames";
 import { Flex } from "../Flex/Flex";
+import { Divider } from "../Divider";
 
 export interface CardProps extends HasChildren, Omit<BaseProps, "size"> {}
 
@@ -50,5 +49,4 @@ Card.Columns = CardColumns;
 CardColumns.displayName = "Card.Columns";
 Card.Header = CardHeader;
 CardHeader.displayName = "Card.Header";
-Card.Divider = CardDivider;
-CardDivider.displayName = "Card.Divider";
+Card.Divider = Divider;
