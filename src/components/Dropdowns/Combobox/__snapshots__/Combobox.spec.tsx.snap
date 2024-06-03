@@ -3,23 +3,23 @@
 exports[`matches snapshots > matches default variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-dlMCtj hqBqib aje-combobox aje-dropdown--default is-medium"
+    class="sc-hHEhDq jNGMVv aje-combobox aje-dropdown--default is-medium"
   >
     <label
-      class="sc-ksltVi cEoMgE aje-label is-auto"
+      class="sc-kEqXeH WopYl aje-label is-auto"
       for="react-aria-:r2:"
       id="react-aria-:r3:"
     >
       Text Label
     </label>
     <p
-      class="sc-hBMVwJ hqVjbv is-auto"
+      class="sc-iqAbyq eFEZfs is-auto"
       id="react-aria-:r5:"
     >
       message
     </p>
     <div
-      class="sc-bkbjWr conuuI aje-combo-input padding-left padding-right"
+      class="sc-bqGGcD bGHis aje-combo-input padding-left padding-right"
     >
       <input
         aria-autocomplete="list"
@@ -28,7 +28,7 @@ exports[`matches snapshots > matches default variant 1`] = `
         aria-labelledby="react-aria-:r3:"
         autocomplete="off"
         autocorrect="off"
-        class="sc-fFSPgy kQVNrM is-full"
+        class="sc-dItHI eFIkJt is-full"
         id="react-aria-:r2:"
         role="combobox"
         spellcheck="false"
@@ -61,13 +61,13 @@ exports[`matches snapshots > matches default variant 1`] = `
 exports[`matches snapshots > matches floating variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-dlMCtj hqBqib aje-combobox aje-dropdown--floating is-medium"
+    class="sc-hHEhDq jNGMVv aje-combobox aje-dropdown--floating is-medium"
   >
     <div
-      class="sc-hHEhDq dMVzRV"
+      class="sc-iwaiBT hccWol"
     >
       <div
-        class="sc-bkbjWr conuuI aje-combo-input padding-left padding-right"
+        class="sc-bqGGcD bGHis aje-combo-input padding-left padding-right"
       >
         <input
           aria-autocomplete="list"
@@ -76,7 +76,7 @@ exports[`matches snapshots > matches floating variant 1`] = `
           aria-labelledby="react-aria-:rc:"
           autocomplete="off"
           autocorrect="off"
-          class="sc-fFSPgy kQVNrM is-full"
+          class="sc-dItHI eFIkJt is-full"
           id="react-aria-:rb:"
           role="combobox"
           spellcheck="false"
@@ -103,7 +103,7 @@ exports[`matches snapshots > matches floating variant 1`] = `
         </button>
       </div>
       <label
-        class="sc-ksltVi cEoMgE aje-label is-auto"
+        class="sc-kEqXeH WopYl aje-label is-auto"
         for="react-aria-:rb:"
         id="react-aria-:rc:"
       >
@@ -111,7 +111,7 @@ exports[`matches snapshots > matches floating variant 1`] = `
       </label>
     </div>
     <p
-      class="sc-hBMVwJ hqVjbv is-auto"
+      class="sc-iqAbyq eFEZfs is-auto"
       id="react-aria-:re:"
     >
       message
