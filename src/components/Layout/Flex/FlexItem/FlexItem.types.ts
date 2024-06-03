@@ -1,14 +1,14 @@
-import { Property } from "csstype";
+import React from "react";
 
 export interface FlexBoxItemProperties {
   /** How the flexbox item is aligned on the cross axis */
-  align?: Property.AlignSelf;
+  align?: React.CSSProperties["alignSelf"];
   /** The order of the flexbox item */
-  order?: Property.Order;
+  order?: React.CSSProperties["order"];
   /** How much the flexbox item can grow */
-  grow?: Property.FlexGrow;
+  grow?: React.CSSProperties["flexGrow"];
   /** How much the flexbox item can shrink */
-  shrink?: Property.FlexShrink;
+  shrink?: React.CSSProperties["flexShrink"];
   /** The size of the flexbox item */
-  basis?: Property.FlexBasis | number;
+  basis?: React.CSSProperties["flexBasis"];
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Divider, Flex } from "../elements";
+import { Flex, FlexItem } from "../elements";
 
 function CustomComponent({ className, children }) {
   return (
@@ -12,28 +12,16 @@ function CustomComponent({ className, children }) {
 
 export default function Aria() {
   return (
-    <div style={{ height: "40px" }}>
-      <Flex>
-        <p>Here is some content</p>
-        <Divider orientation="vertical" />
-        <p>Here is some below content</p>
-      </Flex>
-
-      <p>Here is some content</p>
-      <Divider />
-      <p>Here is some below content</p>
-
-      <Card>
-        <Card.Columns>
-          <Card.Panel>
-            <p>Above</p>
-          </Card.Panel>
-          <Divider orientation="vertical" />
-          <Card.Panel>
-            <p>Below</p>
-          </Card.Panel>
-        </Card.Columns>
-      </Card>
-    </div>
+    <Flex direction="row" alignContent="center">
+      <FlexItem grow={1} basis={500}>
+        <div style={{ backgroundColor: "red", height: "200px" }} />
+      </FlexItem>
+      <FlexItem basis={200}>
+        <div style={{ backgroundColor: "blue", height: "200px" }} />
+      </FlexItem>
+      <FlexItem grow={2}>
+        <div style={{ backgroundColor: "green", height: "200px" }} />
+      </FlexItem>
+    </Flex>
   );
 }

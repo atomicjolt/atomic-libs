@@ -1,20 +1,20 @@
-import type { Property } from "csstype";
+import React from "react";
 
 export interface FlexBoxProperties {
-  /** Direction of the flexbox's primary axix */
-  direction?: Property.FlexDirection;
+  /** Direction of the flexbox's primary axis */
+  direction?: React.CSSProperties["flexDirection"];
   /** How the flexbox items are aligned on the cross axis */
-  alignItems?: Property.AlignItems;
+  alignItems?: React.CSSProperties["alignItems"];
   /** How the flexbox items are aligned on the main axis */
-  justifyContent?: Property.JustifyContent;
+  justifyContent?: React.CSSProperties["justifyContent"];
   /** How the flexbox items are aligned when there is extra space in the cross axis */
-  alignContent?: Property.AlignContent;
+  alignContent?: React.CSSProperties["alignContent"];
   /** Whether the flexbox items should wrap */
-  wrap?: Property.FlexWrap | boolean;
+  wrap?: React.CSSProperties["flexWrap"] | boolean;
   /** The gap between flexbox items */
-  gap?: Property.Gap | number;
+  gap?: React.CSSProperties["gap"] | number;
   /** The gap between flexbox items on the cross axis */
-  rowGap?: Property.RowGap | number;
+  rowGap?: React.CSSProperties["rowGap"] | number;
   /** The gap between flexbox items on the main axis */
-  columnGap?: Property.ColumnGap | number;
+  columnGap?: React.CSSProperties["columnGap"] | number;
 }
