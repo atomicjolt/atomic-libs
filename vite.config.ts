@@ -8,7 +8,9 @@ import path from "path";
 export default defineConfig({
   plugins: [react()],
   optimizeDeps: {
-    exclude: ["storybook"],
+    exclude: ["storybook", "sb-vite"],
+    noDiscovery: true,
+    include: [],
   },
   resolve: {
     alias: {

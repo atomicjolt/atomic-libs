@@ -65,7 +65,8 @@ export { Item, Section } from "./Collection";
 
 export { LocaleProvider } from "./locale";
 
-export { ChipGroup, Chip } from "./ChipGroup";
+export { ChipGroup } from "./Chips/ChipGroup";
+export { Chip } from "./Chips/Chip";
 
 export {
   Field,
@@ -147,4 +148,5 @@ export type { CardProps } from "./Layout/Card";
 export type { GroupProps } from "./Layout/Group";
 export type { FlexProps } from "./Layout/Flex/Flex";
 export type { FlexItemProps } from "./Layout/Flex/FlexItem";
-export type { ChipGroupProps, ChipProps } from "./ChipGroup";
+export type { ChipGroupProps } from "./Chips/ChipGroup";
+export type { ChipProps } from "./Chips/Chip";

@@ -1,22 +1,14 @@
-import React, { useRef } from "react";
-import type { ItemProps, ListState } from "react-stately";
+import { useRef } from "react";
+import type { ListState } from "react-stately";
+import classNames from "classnames";
 import type { AriaTagGroupProps, AriaTagProps } from "react-aria";
 import { useListState } from "react-stately";
-import { usePress, useTag, useTagGroup } from "react-aria";
-import { AriaProps, FieldInputProps, HasClassName } from "../../types";
-import { ErrorMessage, Label, Message } from "../Fields";
-import IconButton from "../Buttons/IconButton";
-import {
-  ChipWrapper,
-  ChipContent,
-  ChipsWrapper,
-  ChipGroupWrapper,
-} from "./ChipGroup.styles";
-import classNames from "classnames";
-import { copyStaticProperties } from "../../clone";
-import { Item } from "../Collection";
-import { useFocusRing } from "../../hooks/useFocusRing";
-import { useVariantClass } from "@/hooks";
+import { useTag, useTagGroup } from "react-aria";
+import { AriaProps, FieldInputProps } from "../../../types";
+import { ErrorMessage, Label, Message } from "@/components/Fields";
+import { ChipsWrapper, ChipGroupWrapper } from "./ChipGroup.styles";
+import { useFocusRing } from "../../../hooks/useFocusRing";
+import { ChipInternal } from "../Chip";
 
 export interface ChipGroupProps<T extends object>
   extends AriaProps<AriaTagGroupProps<T>>,
@@ -68,7 +60,7 @@ export function ChipGroup<T extends object>(props: ChipGroupProps<T>) {
           </Label>
         )}
         {[...state.collection].map((item) => (
-          <ChipInternal key={item.key} item={item} state={state} />
+          <ChipGroupChip key={item.key} item={item} state={state} />
         ))}
       </ChipsWrapper>
       {message && <Message {...descriptionProps}>{message}</Message>}
@@ -82,11 +74,11 @@ export function ChipGroup<T extends object>(props: ChipGroupProps<T>) {
 // NOTE: when Chip is rendered standalone, it renders the actual Chip component
 // When rendered within a ChipGroup, it actually renders the ChipInternal component
 
-interface ChipInternalProps<T> extends AriaTagProps<T> {
+interface ChipGroupChipProps<T> extends AriaTagProps<T> {
   state: ListState<T>;
 }
 
-function ChipInternal<T>(props: ChipInternalProps<T>) {
+function ChipGroupChip<T>(props: ChipGroupChipProps<T>) {
   const { item, state } = props;
   const ref = useRef(null);
   const { rowProps, gridCellProps, removeButtonProps, allowsRemoving } = useTag(
@@ -96,51 +88,23 @@ function ChipInternal<T>(props: ChipInternalProps<T>) {
   );
 
   const { focusProps } = useFocusRing({ within: true });
-  const variantClass = useVariantClass("aje-chip", item.props.variant);
+
+  const isDisabled = state.disabledKeys.has(item.key);
 
   return (
-    <ChipWrapper
-      className={classNames("aje-chip", variantClass, item.props.className)}
+    <ChipInternal
       ref={ref}
-      {...rowProps}
-      {...focusProps}
+      wrapperProps={{ ...rowProps, ...focusProps }}
+      contentProps={gridCellProps}
+      removeButtonProps={{
+        ...removeButtonProps,
+        isDisabled,
+      }}
+      {...item.props}
+      allowsRemoving={allowsRemoving}
+      isDisabled={isDisabled}
     >
-      <ChipContent {...gridCellProps}>
-        {item.rendered}
-        {allowsRemoving && (
-          <IconButton
-            icon="close"
-            size="small"
-            variant="content"
-            isDisabled={state.disabledKeys.has(item.key)}
-            {...removeButtonProps}
-          />
-        )}
-      </ChipContent>
-    </ChipWrapper>
+      {item.rendered}
+    </ChipInternal>
   );
 }
-
-export interface ChipProps<T>
-  extends Omit<ItemProps<T>, "title">,
-    HasClassName {
-  variant?: "default" | "warning" | "success";
-}
-
-/** Chip component can be used either within a `<ChipGroup />` or standalone */
-export function Chip<T>(props: ChipProps<T>) {
-  const { className, variant = "default", ...rest } = props;
-
-  const variantClass = useVariantClass("aje-chip", variant);
-
-  return (
-    <ChipWrapper
-      className={classNames("aje-chip", variantClass, className)}
-      {...rest}
-    >
-      <ChipContent>{props.children}</ChipContent>
-    </ChipWrapper>
-  );
-}
-
-copyStaticProperties(Item, Chip);
