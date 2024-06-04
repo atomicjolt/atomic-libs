@@ -4,22 +4,20 @@ import cn from "classnames";
 import { Node } from "@react-types/shared";
 import {
   AriaMenuProps,
-  mergeProps,
   useMenu,
   useMenuItem,
   useMenuSection,
-  useSeparator,
 } from "react-aria";
 import {
   MenuList,
   MenuOption,
-  MenuSectionSeperator,
   MenuSectionTitle,
   SubMenuList,
 } from "./Menu.styles";
 import { BaseProps } from "../../../types";
 import { useContextProps } from "../../../hooks/useContextProps";
 import { cloneComponent } from "../../../clone";
+import { Divider } from "@/components/Layout/Divider";
 import { MenuContext } from "./context";
 
 export type MenuProps<T> = Omit<AriaMenuProps<T>, "onAction"> &
@@ -74,18 +72,12 @@ function MenuSection<T>(props: MenuSectionProps<T>) {
     "aria-label": section["aria-label"],
   });
 
-  let { separatorProps } = useSeparator({
-    elementType: "li",
-  });
-
   // If the section is not the first, add a separator element.
   // The heading is rendered inside an <li> element, which contains
   // a <ul> with the child items.
   return (
     <>
-      {section.key !== state.collection.getFirstKey() && (
-        <MenuSectionSeperator {...separatorProps} />
-      )}
+      {section.key !== state.collection.getFirstKey() && <Divider as="li" />}
       <li {...itemProps}>
         {section.rendered && (
           <MenuSectionTitle {...headingProps}>

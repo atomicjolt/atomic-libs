@@ -60,6 +60,7 @@ export { Card } from "./Layout/Card";
 export { Group } from "./Layout/Group";
 export { Flex } from "./Layout/Flex/Flex";
 export { FlexItem } from "./Layout/Flex/FlexItem";
+export { Divider } from "./Layout/Divider";
 
 export { Item, Section } from "./Collection";
 
@@ -146,6 +147,7 @@ export type { TableProps } from "./Layout/Table";
 export type { TabsProps } from "./Layout/Tabs";
 export type { CardProps } from "./Layout/Card";
 export type { GroupProps } from "./Layout/Group";
+export type { DividerProps } from "./Layout/Divider";
 export type { FlexProps } from "./Layout/Flex/Flex";
 export type { FlexItemProps } from "./Layout/Flex/FlexItem";
 export type { ChipGroupProps } from "./Chips/ChipGroup";
