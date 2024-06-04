@@ -93,3 +93,49 @@ export const Default: Story = {
     ],
   },
 };
+
+export const Grid: Story = {
+  args: {
+    direction: "row",
+    gap: 16,
+    wrap: true,
+    children: [
+      <FlexItem basis={200}>
+        <div style={{ backgroundColor: "powderblue", height: "200px" }} />
+      </FlexItem>,
+      <FlexItem basis={200}>
+        <div style={{ backgroundColor: "rebeccapurple", height: "200px" }} />
+      </FlexItem>,
+      <FlexItem basis={200}>
+        <div style={{ backgroundColor: "goldenrod", height: "200px" }} />
+      </FlexItem>,
+      <FlexItem basis={200}>
+        <div style={{ backgroundColor: "powderblue", height: "200px" }} />
+      </FlexItem>,
+      <FlexItem basis={200}>
+        <div style={{ backgroundColor: "rebeccapurple", height: "200px" }} />
+      </FlexItem>,
+      <FlexItem basis={200}>
+        <div style={{ backgroundColor: "goldenrod", height: "200px" }} />
+      </FlexItem>,
+      <FlexItem basis={200}>
+        <div style={{ backgroundColor: "powderblue", height: "200px" }} />
+      </FlexItem>,
+      <FlexItem basis={200}>
+        <div style={{ backgroundColor: "rebeccapurple", height: "200px" }} />
+      </FlexItem>,
+      <FlexItem basis={200}>
+        <div style={{ backgroundColor: "goldenrod", height: "200px" }} />
+      </FlexItem>,
+      <FlexItem basis={200}>
+        <div style={{ backgroundColor: "powderblue", height: "200px" }} />
+      </FlexItem>,
+      <FlexItem basis={200}>
+        <div style={{ backgroundColor: "rebeccapurple", height: "200px" }} />
+      </FlexItem>,
+      <FlexItem basis={200}>
+        <div style={{ backgroundColor: "goldenrod", height: "200px" }} />
+      </FlexItem>,
+    ],
+  },
+};
