@@ -1,36 +1,35 @@
 import React from "react";
 import classNames from "classnames";
 import type { ItemProps } from "react-stately";
-import { copyStaticProperties } from "@/clone";
-import { useVariantClass } from "@/hooks";
-import { HasClassName } from "@/types";
-import { Item } from "@/components/Collection";
-import { ChipContent, ChipWrapper } from "./Chip.styles";
 import {
   AriaButtonProps,
   PressEvent,
   PressProps,
   mergeProps,
 } from "react-aria";
+import { copyStaticProperties } from "@/clone";
+import { useVariantClass } from "@/hooks";
+import { HasClassName, SuggestStrings } from "@/types";
+import { Item } from "@/components/Collection";
 import IconButton from "@/components/Buttons/IconButton";
 import { useConditionalPress } from "@/hooks/useConditionalPress";
+import { ChipContent, ChipWrapper } from "./Chip.styles";
 
-export interface ChipProps<T> extends ItemProps<T>, HasClassName, PressProps {
+type ChipVariants = SuggestStrings<"default" | "warning" | "success">;
+
+export interface ChipProps<T> extends ItemProps<T>, PressProps, HasClassName {
   children: React.ReactNode;
-  variant?: "default" | "warning" | "success";
-  /** Handler that is called when the user clicks the remove button */
+  variant?: ChipVariants;
+  /** Handler that is called when the user
+   * clicks the remove button for the chip */
   onRemove?: (e: PressEvent) => void;
   isDisabled?: boolean;
 }
 
 /** Chip component */
-export const Chip = React.forwardRef<HTMLDivElement, ChipProps<any>>(
-  function Chip(props: ChipProps<any>, ref: React.Ref<HTMLDivElement>) {
-    return (
-      <ChipInternal {...props} allowsRemoving={!!props.onRemove} ref={ref} />
-    );
-  }
-);
+export function Chip<T>(props: ChipProps<T>) {
+  return <ChipInternal {...props} allowsRemoving={!!props.onRemove} />;
+}
 
 copyStaticProperties(Item, Chip);
 
@@ -44,7 +43,10 @@ interface ChipInternalProps<T> extends ChipProps<T> {
 export const ChipInternal = React.forwardRef<
   HTMLDivElement,
   ChipInternalProps<any>
->(function ChipInternal(props: ChipInternalProps<any>, ref) {
+>(function ChipInternal<T>(
+  props: ChipInternalProps<T>,
+  ref: React.Ref<HTMLDivElement>
+) {
   const {
     className,
     variant = "default",
@@ -61,13 +63,20 @@ export const ChipInternal = React.forwardRef<
   const variantClass = useVariantClass("aje-chip", variant);
   const { pressProps } = useConditionalPress(rest);
 
+  const allWrapperProps = [
+    wrapperProps,
+    { "aria-disabled": isDisabled || undefined },
+  ];
+
+  if (!isDisabled) {
+    allWrapperProps.push(pressProps);
+  }
+
   return (
     <ChipWrapper
       className={classNames("aje-chip", variantClass, className)}
       ref={ref}
-      {...mergeProps(wrapperProps, pressProps, {
-        "aria-disabled": isDisabled || undefined,
-      })}
+      {...mergeProps(...allWrapperProps)}
     >
       <ChipContent {...contentProps}>
         {children}

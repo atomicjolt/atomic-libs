@@ -44,7 +44,7 @@ export default function Aria() {
       <Chip
         onPress={() => console.log("hi")}
         onRemove={() => console.log("remove")}
-        variant="warning"
+        isDisabled
       >
         Test Chip
       </Chip>

@@ -15,6 +15,10 @@ export default {
     children: {
       type: "string",
     },
+    variant: {
+      control: "select",
+      options: ["default", "warning", "success"],
+    },
   },
 } as Meta<typeof Chip>;
 

@@ -89,6 +89,8 @@ function ChipGroupChip<T>(props: ChipGroupChipProps<T>) {
 
   const { focusProps } = useFocusRing({ within: true });
 
+  const isDisabled = state.disabledKeys.has(item.key);
+
   return (
     <ChipInternal
       ref={ref}
@@ -96,9 +98,11 @@ function ChipGroupChip<T>(props: ChipGroupChipProps<T>) {
       contentProps={gridCellProps}
       removeButtonProps={{
         ...removeButtonProps,
-        isDisabled: state.disabledKeys.has(item.key),
+        isDisabled,
       }}
+      {...item.props}
       allowsRemoving={allowsRemoving}
+      isDisabled={isDisabled}
     >
       {item.rendered}
     </ChipInternal>
