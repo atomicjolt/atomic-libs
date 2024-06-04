@@ -8,6 +8,7 @@ exports[`matches snapshots > matches default variant 1`] = `
     <div
       aria-hidden="true"
       data-a11y-ignore="aria-hidden-focus"
+      data-react-aria-prevent-focus="true"
       data-testid="hidden-select-container"
       style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
     >
@@ -75,6 +76,7 @@ exports[`matches snapshots > matches floating variant 1`] = `
     <div
       aria-hidden="true"
       data-a11y-ignore="aria-hidden-focus"
+      data-react-aria-prevent-focus="true"
       data-testid="hidden-select-container"
       style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
     >
