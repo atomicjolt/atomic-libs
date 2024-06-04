@@ -3,23 +3,23 @@
 exports[`matches snapshots > matches default variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-hHEhDq jNGMVv aje-combobox aje-dropdown--default is-medium"
+    class="sc-dAbbbq lbzbap aje-combobox aje-dropdown--default is-medium"
   >
     <label
-      class="sc-kEqXeH WopYl aje-label is-auto"
+      class="sc-kpDprT jfpflK aje-label is-auto"
       for="react-aria-:r2:"
       id="react-aria-:r3:"
     >
       Text Label
     </label>
     <p
-      class="sc-iqAbyq eFEZfs is-auto"
+      class="sc-dAlxHm kbRAVf is-auto"
       id="react-aria-:r5:"
     >
       message
     </p>
     <div
-      class="sc-bqGGcD bGHis aje-combo-input padding-left padding-right"
+      class="sc-jEABJj fYLrjg aje-combo-input padding-left padding-right"
     >
       <input
         aria-autocomplete="list"
@@ -28,7 +28,7 @@ exports[`matches snapshots > matches default variant 1`] = `
         aria-labelledby="react-aria-:r3:"
         autocomplete="off"
         autocorrect="off"
-        class="sc-dItHI eFIkJt is-full"
+        class="sc-cwHqhk kitKnL is-full"
         id="react-aria-:r2:"
         role="combobox"
         spellcheck="false"
@@ -40,7 +40,7 @@ exports[`matches snapshots > matches default variant 1`] = `
         aria-haspopup="listbox"
         aria-label="Show suggestions"
         aria-labelledby="react-aria-:r0: react-aria-:r3:"
-        class="sc-gKAaef sc-iCoHzw bcVLIb kJUKHc aje-btn aje-btn--icon aje-btn--content"
+        class="sc-gsFSjX sc-kAycRU jyEbEn kRWXiH aje-btn aje-btn--icon aje-btn--content"
         data-focus-visible="false"
         id="react-aria-:r0:"
         tabindex="-1"
@@ -48,7 +48,7 @@ exports[`matches snapshots > matches default variant 1`] = `
       >
         <i
           aria-hidden="true"
-          class="sc-jSFipO eeJbpe material-icons is-medium"
+          class="sc-iGgVNO kmewPZ material-icons is-medium"
         >
           search
         </i>
@@ -61,13 +61,13 @@ exports[`matches snapshots > matches default variant 1`] = `
 exports[`matches snapshots > matches floating variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-hHEhDq jNGMVv aje-combobox aje-dropdown--floating is-medium"
+    class="sc-dAbbbq lbzbap aje-combobox aje-dropdown--floating is-medium"
   >
     <div
-      class="sc-iwaiBT hccWol"
+      class="sc-hmdnzv cpuyuG"
     >
       <div
-        class="sc-bqGGcD bGHis aje-combo-input padding-left padding-right"
+        class="sc-jEABJj fYLrjg aje-combo-input padding-left padding-right"
       >
         <input
           aria-autocomplete="list"
@@ -76,7 +76,7 @@ exports[`matches snapshots > matches floating variant 1`] = `
           aria-labelledby="react-aria-:rc:"
           autocomplete="off"
           autocorrect="off"
-          class="sc-dItHI eFIkJt is-full"
+          class="sc-cwHqhk kitKnL is-full"
           id="react-aria-:rb:"
           role="combobox"
           spellcheck="false"
@@ -88,7 +88,7 @@ exports[`matches snapshots > matches floating variant 1`] = `
           aria-haspopup="listbox"
           aria-label="Show suggestions"
           aria-labelledby="react-aria-:r9: react-aria-:rc:"
-          class="sc-gKAaef sc-iCoHzw bcVLIb kJUKHc aje-btn aje-btn--icon aje-btn--content"
+          class="sc-gsFSjX sc-kAycRU jyEbEn kRWXiH aje-btn aje-btn--icon aje-btn--content"
           data-focus-visible="false"
           id="react-aria-:r9:"
           tabindex="-1"
@@ -96,14 +96,14 @@ exports[`matches snapshots > matches floating variant 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-jSFipO eeJbpe material-icons is-medium"
+            class="sc-iGgVNO kmewPZ material-icons is-medium"
           >
             search
           </i>
         </button>
       </div>
       <label
-        class="sc-kEqXeH WopYl aje-label is-auto"
+        class="sc-kpDprT jfpflK aje-label is-auto"
         for="react-aria-:rb:"
         id="react-aria-:rc:"
       >
@@ -111,7 +111,7 @@ exports[`matches snapshots > matches floating variant 1`] = `
       </label>
     </div>
     <p
-      class="sc-iqAbyq eFEZfs is-auto"
+      class="sc-dAlxHm kbRAVf is-auto"
       id="react-aria-:re:"
     >
       message
