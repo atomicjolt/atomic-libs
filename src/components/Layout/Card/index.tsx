@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  CardColumns,
   StyledCardPanel,
   CardTitle,
   CardWrapper,
@@ -9,6 +8,7 @@ import {
 } from "./Card.styles";
 import { BaseProps, ExtendedSize, HasChildren } from "../../../types";
 import classNames from "classnames";
+import { Flex } from "../Flex/Flex";
 
 export interface CardProps extends HasChildren, Omit<BaseProps, "size"> {}
 
@@ -34,6 +34,12 @@ function CardPanel(props: CardPanelProps) {
       {children}
     </StyledCardPanel>
   );
+}
+
+function CardColumns(props: HasChildren) {
+  const { children } = props;
+
+  return <Flex gap="var(--card-padding)">{children}</Flex>;
 }
 
 Card.Title = CardTitle;
