@@ -9,9 +9,9 @@ export default defineConfig({
   plugins: [react()],
   optimizeDeps: {
     exclude: ["storybook", "sb-vite"],
-    noDiscovery: true,
-    include: [],
+    noDiscovery: false,
   },
+
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),

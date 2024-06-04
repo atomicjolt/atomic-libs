@@ -3,11 +3,12 @@
 exports[`matches snapshots > matches default variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-bdnyFh kugdiw aje-dropdown aje-dropdown--default is-medium"
+    class="sc-aYaIB kOcmct aje-dropdown aje-dropdown--default is-medium"
   >
     <div
       aria-hidden="true"
       data-a11y-ignore="aria-hidden-focus"
+      data-react-aria-prevent-focus="true"
       data-testid="hidden-select-container"
       style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
     >
@@ -36,7 +37,7 @@ exports[`matches snapshots > matches default variant 1`] = `
       </label>
     </div>
     <label
-      class="sc-jSFipO bElDLS aje-label is-auto"
+      class="sc-iGgVNO bvCEzt aje-label is-auto"
       id="react-aria-:r3:"
     >
       Custom dropdown label
@@ -45,20 +46,20 @@ exports[`matches snapshots > matches default variant 1`] = `
       aria-expanded="false"
       aria-haspopup="listbox"
       aria-labelledby="react-aria-:r7: react-aria-:r3:"
-      class="sc-fnVZQs sc-bCwene maaTm aje-btn aje-btn--dropdown is-medium"
+      class="sc-eDPFhE sc-fHjqbK cKqMem aje-btn aje-btn--dropdown is-medium"
       data-focus-visible="false"
       id="react-aria-:r2:"
       type="button"
     >
       <span
-        class="sc-hKFymg gWfDDf"
+        class="sc-fqkwJk dYEyfX"
         id="react-aria-:r7:"
       >
         Select an option
       </span>
       <i
         aria-hidden="true"
-        class="sc-hBMVwJ ktTEon material-icons is-medium"
+        class="sc-dLNtp ckbTgt material-icons is-medium"
       >
         arrow_drop_down
       </i>
@@ -70,11 +71,12 @@ exports[`matches snapshots > matches default variant 1`] = `
 exports[`matches snapshots > matches floating variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-bdnyFh kugdiw aje-dropdown aje-dropdown--floating is-medium"
+    class="sc-aYaIB kOcmct aje-dropdown aje-dropdown--floating is-medium"
   >
     <div
       aria-hidden="true"
       data-a11y-ignore="aria-hidden-focus"
+      data-react-aria-prevent-focus="true"
       data-testid="hidden-select-container"
       style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
     >
@@ -103,30 +105,30 @@ exports[`matches snapshots > matches floating variant 1`] = `
       </label>
     </div>
     <div
-      class="sc-bkbjWr bivRPJ"
+      class="sc-fPXMhL khXgbG"
     >
       <button
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-labelledby="react-aria-:rf: react-aria-:rb:"
-        class="sc-fnVZQs sc-bCwene maaTm aje-btn aje-btn--dropdown is-medium"
+        class="sc-eDPFhE sc-fHjqbK cKqMem aje-btn aje-btn--dropdown is-medium"
         data-focus-visible="false"
         id="react-aria-:ra:"
         type="button"
       >
         <span
-          class="sc-hKFymg gWfDDf"
+          class="sc-fqkwJk dYEyfX"
           id="react-aria-:rf:"
         />
         <i
           aria-hidden="true"
-          class="sc-hBMVwJ ktTEon material-icons is-medium"
+          class="sc-dLNtp ckbTgt material-icons is-medium"
         >
           arrow_drop_down
         </i>
       </button>
       <label
-        class="sc-jSFipO bElDLS aje-label is-auto"
+        class="sc-iGgVNO bvCEzt aje-label is-auto"
         id="react-aria-:rb:"
       >
         Custom dropdown label

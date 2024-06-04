@@ -37,6 +37,7 @@ const preview: Preview = {
       </>
     ),
   ],
+
   argTypes: {
     className: {
       control: "text",
@@ -97,6 +98,7 @@ const preview: Preview = {
       },
     },
   },
+
   parameters: {
     actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {
@@ -134,6 +136,8 @@ const preview: Preview = {
       ),
     },
   },
+
+  tags: ["autodocs"],
 };
 
 export default preview;

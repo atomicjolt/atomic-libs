@@ -9,6 +9,7 @@ import { OverlayTrigger } from "../OverlayTrigger";
 const meta: Meta<typeof Modal> = {
   title: "Overlays/Modals/Modal",
   component: Modal,
+  tags: ["!autodocs"],
   parameters: {
     docs: {
       story: {
