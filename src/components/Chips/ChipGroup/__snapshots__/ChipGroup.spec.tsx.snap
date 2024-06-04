@@ -1,19 +1,5 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Chip > matches snapshot 1`] = `
-<DocumentFragment>
-  <div
-    class="sc-fnVZQs jHXWwt aje-chip aje-chip--default"
-  >
-    <div
-      class="sc-hBMVwJ iggzeN"
-    >
-      Item
-    </div>
-  </div>
-</DocumentFragment>
-`;
-
 exports[`ChipGroup > matches snapshot 1`] = `
 <DocumentFragment>
   <div
@@ -37,7 +23,7 @@ exports[`ChipGroup > matches snapshot 1`] = `
     >
       <div
         aria-label="Item"
-        class="sc-fnVZQs jHXWwt aje-chip aje-chip--undefined"
+        class="sc-fnVZQs bDsxbQ aje-chip aje-chip--default"
         data-focus-visible="false"
         data-key="$.0"
         id="react-aria-:r0:-$.0"
