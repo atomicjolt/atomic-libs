@@ -3,7 +3,7 @@ import { AriaFieldProps, useField } from "react-aria";
 import {
   AriaProps,
   BaseProps,
-  DomProps,
+  FieldDomProps,
   FieldStatusProps,
   HasChildren,
 } from "../../../types";
@@ -22,7 +22,7 @@ export interface FieldProps
     FieldStatusProps,
     HasChildren,
     AriaProps<AriaFieldProps>,
-    DomProps {}
+    FieldDomProps {}
 
 /** Provides the accessbility implementation for a
  * form field and its associated label, error message, and description.

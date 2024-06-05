@@ -8,7 +8,7 @@ const meta: Meta<typeof IconMenu> = {
   component: IconMenu,
   parameters: {
     layout: "centered",
-    cssprops: getCssProps("Dropdown", "Menu"),
+    cssprops: getCssProps("Dropdown", "Menu", "Button"),
   },
   argTypes: {
     buttonVariant: {

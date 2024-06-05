@@ -37,7 +37,7 @@ export interface FieldStatusProps {
   readonly isInvalid?: boolean;
 }
 
-export interface DomProps {
+export interface FieldDomProps {
   /** Name of the Field */
   name?: string;
 }
@@ -47,4 +47,4 @@ export interface FieldInputProps
   extends BaseProps,
     HelpTextProps,
     FieldStatusProps,
-    DomProps {}
+    FieldDomProps {}

@@ -20,7 +20,12 @@ export default function Aria() {
         <div style={{ backgroundColor: "blue", height: "200px" }} />
       </FlexItem>
       <FlexItem grow={2}>
-        <div style={{ backgroundColor: "green", height: "200px" }} />
+        <div
+          style={{
+            backgroundColor: "green",
+            height: "200px",
+          }}
+        />
       </FlexItem>
     </Flex>
   );
