@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import mixins from "../../../styles/mixins";
 import { scaleAnimation } from "../../../styles/animations";
 
@@ -6,11 +6,12 @@ export const MenuList = styled.ul`
   list-style: none;
   margin: 0;
   border-radius: var(--radius);
-  box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.5);
+  box-shadow: var(--menu-box-shadow);
   background-color: var(--neutral50);
   padding: 8px 0;
   z-index: 100;
   min-width: var(--trigger-width, auto);
+
   ${scaleAnimation}
 
   &:focus {
@@ -40,33 +41,33 @@ export const MenuOption = styled.li`
   width: 100%;
   gap: 12px;
   padding: 6px 24px 6px 16px;
-  min-height: 36px;
+  min-height: var(--menu-item-height);
   line-height: 1;
-  color: var(--option-text-clr, inherit);
+  color: var(--menu-item-text-clr, inherit);
   font-size: 1.6rem;
   white-space: nowrap;
-  background-color: var(--option-bg-clr);
+  background-color: var(--menu-item-bg-clr);
 
-  --option-icon-clr: var(--neutral600);
+  --menu-item-icon-clr: var(--neutral600);
   i {
     font-size: 2rem;
-    color: var(--option-icon-clr);
+    color: var(--menu-item-icon-clr);
   }
 
   &:hover {
-    --option-bg-clr: var(--neutral100);
+    --menu-item-bg-clr: var(--neutral100);
     cursor: pointer;
   }
   &:active,
   &:focus-visible {
-    --option-bg-clr: var(--neutral200);
+    --menu-item-bg-clr: var(--neutral200);
     outline: none;
   }
   &.is-focused {
-    --option-bg-clr: var(--primary700);
-    --option-text-clr: var(--text-clr-inverted);
-    --option-icon-clr: var(--text-clr-inverted);
-    --option-selected-clr: var(--text-clr-inverted);
+    --menu-item-bg-clr: var(--primary700);
+    --menu-item-text-clr: var(--text-clr-inverted);
+    --menu-item-icon-clr: var(--text-clr-inverted);
+    --menu-item-selected-clr: var(--text-clr-inverted);
   }
 
   &[aria-disabled] {

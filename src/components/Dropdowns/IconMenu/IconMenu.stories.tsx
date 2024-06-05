@@ -1,14 +1,14 @@
-import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import IconMenu from ".";
-import { PlacementArgType } from "@sb/helpers";
 import { MaterialIcon, Section } from "../../";
+import { getCssProps } from "@sb/cssprops";
 
 const meta: Meta<typeof IconMenu> = {
   title: "Dropdowns/Menu/IconMenu",
   component: IconMenu,
   parameters: {
     layout: "centered",
+    cssprops: getCssProps("Dropdown", "Menu"),
   },
   argTypes: {
     buttonVariant: {

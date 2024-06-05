@@ -10,7 +10,7 @@ const meta: Meta<typeof CustomSelect> = {
   component: CustomSelect,
   parameters: {
     layout: "centered",
-    cssprops: getCssProps("Dropdown", "Option"),
+    cssprops: getCssProps("Dropdown", "Listbox", "Button"),
   },
   argTypes: {
     ...InputControls,

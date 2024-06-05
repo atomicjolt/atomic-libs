@@ -111,7 +111,7 @@ export function MultiSelect<T extends object>(props: MultiSelectProps<T>) {
           ref={ref}
           variant="dropdown"
           size={size}
-          isDisabled={isDisabled}
+          isDisabled={isDisabled || isReadOnly}
         >
           <ButtonText {...valueProps}>{buttonText}</ButtonText>
           <MaterialIcon icon="arrow_drop_down" />

@@ -139,10 +139,6 @@ export const CssVariables = createGlobalStyle`
   --banner-border-radius: var(--radius);
 
   /* # Dropdown */
-  --dropdown-border-radius: var(--radius);
-  --dropdown-border-clr: var(--input-border-clr);
-  --dropdown-height: 40px;
-  --dropdown-input-height: calc(var(--dropdown-height) - 2px);
   --dropdown-padding: 6px;
   --dropdown-padding-left: calc(var(--dropdown-padding) * 2);
   --dropdown-padding-right: var(--dropdown-height);
@@ -154,29 +150,31 @@ export const CssVariables = createGlobalStyle`
     (var(--dropdown-height) - var(--dropdown-icon-size)) / 2
   );
   --dropdown-icon-clr: var(--neutral600);
+  --dropdown-box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.5);
+  --dropdown-max-height: 300px;
 
   /* # Menu */
-  --menu-box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.5);
+  --menu-box-shadow: var(--dropdown-box-shadow);
   --menu-bg-clr: var(--neutral50);
   --menu-border-radius: var(--radius);
-  --menu-max-height: 300px;
-  --menu-padding-top: calc(var(--option-height) / 8);
+  --menu-padding-top: calc(var(--menu-item-height) / 8);
+  --menu-item-font-size: var(--dropdown-text-size);
+  --menu-item-icon-size: var(--dropdown-icon-size);
+  --menu-item-height: 32px;
+  --menu-item-padding: var(--dropdown-padding);
+  --menu-item-padding-horizontal: calc(var(--dropdown-padding) * 2);
+  --menu-item-icon-gap: 8px;
+  --menu-item-border-clr: var(--neutral50, transparent);
 
   /* # Listbox */
-  --listbox-text-clr: inherit;
+  --listbox-text-clr: var(--dropdown-text-clr);
   --listbox-bg-clr: var(--background-clr);
   --listbox-selected-clr: var(--text-clr-inverted);
+  --listbox-box-shadow: var(--dropdown-box-shadow);
+  --listbox-item-height: 36px;
+  --listbox-font-size: var(--dropdown-text-size);
   --listbox-icon-clr: var(--neutral600);
-  --listbox-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.5);
-
-  /* # Option */
-  --option-font-size: var(--dropdown-text-size);
-  --option-icon-size: var(--dropdown-icon-size);
-  --option-height: 32px;
-  --option-padding: var(--dropdown-padding);
-  --option-padding-horizontal: calc(var(--dropdown-padding) * 2);
-  --option-icon-gap: 8px;
-  --option-border-clr: var(--neutral50, transparent);
+  --listbox-max-height: var(--dropdown-max-height);
 
   /* # TextArea */
   --textarea-height-sm: 80px;

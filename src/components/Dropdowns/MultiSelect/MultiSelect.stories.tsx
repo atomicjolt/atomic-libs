@@ -10,7 +10,7 @@ export default {
   component: MultiSelect,
   parameters: {
     layout: "centered",
-    cssprops: getCssProps("Dropdown"),
+    cssprops: getCssProps("Dropdown", "Listbox"),
   },
   argTypes: {
     ...InputControls,
