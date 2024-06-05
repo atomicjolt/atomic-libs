@@ -1,5 +1,5 @@
 import React from "react";
-import { Flex, FlexItem } from "../elements";
+import { ComboBox, Flex, FlexItem } from "../elements";
 
 function CustomComponent({ className, children }) {
   return (

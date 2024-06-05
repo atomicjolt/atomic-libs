@@ -39,7 +39,7 @@ export interface HasChildren {
 }
 
 export interface HasVariant<Variants> {
-  variant?: Variants;
+  variant?: SuggestStrings<Variants>;
 }
 
 export type CanHaveVariant<Variants> = Partial<HasVariant<Variants>>;

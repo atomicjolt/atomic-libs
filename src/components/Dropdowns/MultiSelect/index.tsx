@@ -1,33 +1,22 @@
-import React, { useMemo, useRef } from "react";
-import {
-  AriaProps,
-  ExtendedSize,
-  FieldInputProps,
-  HasVariant,
-} from "../../../types";
+import { useMemo, useRef } from "react";
+import { AriaProps, FieldInputProps, HasVariant } from "../../../types";
 import { useMultiSelectState } from "./useMultiSelectState";
 import { AriaMultiSelectProps } from "./MutliSelect.types";
 import { useMultiSelect } from "./useMultiSelect";
-import { DropdownWrapper } from "../Dropdowns.styles";
-import { useVariantClass } from "../../../hooks";
+import { DropdownButton } from "../Dropdowns.styles";
 import { FloatingInputWrapper } from "../../Internal/FloatingInputWrapper";
-import Button from "../../Buttons/Button";
 import { ButtonText } from "../CustomSelect/CustomSelect.styles";
 import MaterialIcon from "../../Icons/MaterialIcon";
 import { Popover } from "../../Overlays/Popover";
-import classNames from "classnames";
 import { UnmanagedListBox } from "../ListBox";
 import { OverlayTriggerStateContext } from "@/components/Overlays/OverlayTrigger/context";
+import { useRenderProps } from "@/hooks/useRenderProps";
+import { MultiSelectWrapper } from "./MultiSelect.styles";
 
 export interface MultiSelectProps<T extends object>
   extends AriaProps<AriaMultiSelectProps<T>>,
     FieldInputProps,
     HasVariant<"default" | "floating"> {
-  /** The size of the menu. Defaults to `size` if not provided.
-   * If the content of the dropdown is likely to be large,
-   * you should set this to `auto` so it sizes to the length of the content */
-  menuSize?: ExtendedSize;
-
   /** Allows the items in the select to be filtered */
   isSearchable?: boolean;
 
@@ -63,7 +52,6 @@ export function MultiSelect<T extends object>(props: MultiSelectProps<T>) {
     isSearchable,
     searchPlaceholder,
     size = "medium",
-    menuSize = size,
     placeholder = "Select an option",
     selectionPlaceholder = placeholder,
     variant = "default",
@@ -90,22 +78,24 @@ export function MultiSelect<T extends object>(props: MultiSelectProps<T>) {
     variant,
   ]);
 
-  const variantClassName = useVariantClass("aje-dropdown", variant);
+  const renderProps = useRenderProps({
+    componentClassName: "aje-multiselect",
+    className,
+    size,
+    variant,
+    selectors: {
+      "data-invalid": isInvalid,
+      "data-disabled": isDisabled,
+      "data-required": isRequired,
+      "data-readonly": isReadOnly,
+      "data-float":
+        variant === "floating" &&
+        (state.isOpen || state.selectionManager.selectedKeys.size > 0),
+    },
+  });
 
   return (
-    <DropdownWrapper
-      className={classNames("aje-dropdown", variantClassName, className)}
-      isInvalid={isInvalid}
-      isDisabled={isDisabled}
-      isRequired={isRequired}
-      isReadOnly={isReadOnly}
-      size={size}
-      data-float={
-        (variant === "floating" &&
-          (state.isOpen || state.selectionManager.selectedKeys.size > 0)) ||
-        undefined
-      }
-    >
+    <MultiSelectWrapper {...renderProps}>
       <FloatingInputWrapper
         label={label}
         labelProps={labelProps}
@@ -116,7 +106,7 @@ export function MultiSelect<T extends object>(props: MultiSelectProps<T>) {
         errorProps={errorMessageProps}
         floating={variant === "floating"}
       >
-        <Button
+        <DropdownButton
           {...triggerProps}
           ref={ref}
           variant="dropdown"
@@ -125,20 +115,19 @@ export function MultiSelect<T extends object>(props: MultiSelectProps<T>) {
         >
           <ButtonText {...valueProps}>{buttonText}</ButtonText>
           <MaterialIcon icon="arrow_drop_down" />
-        </Button>
+        </DropdownButton>
       </FloatingInputWrapper>
       <OverlayTriggerStateContext.Provider value={state}>
         <Popover triggerRef={ref} placement="bottom start">
           <UnmanagedListBox
             {...menuProps}
             state={state}
-            size={menuSize}
             isSearchable={isSearchable}
             searchPlaceholder={searchPlaceholder}
             showCheckmark
           />
         </Popover>
       </OverlayTriggerStateContext.Provider>
-    </DropdownWrapper>
+    </MultiSelectWrapper>
   );
 }

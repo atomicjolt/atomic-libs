@@ -14,6 +14,10 @@ const meta: Meta<typeof CustomSelect> = {
   },
   argTypes: {
     ...InputControls,
+    variant: {
+      control: "select",
+      options: ["default", "floating"],
+    },
     selectedKey: {
       control: "select",
       description:
@@ -62,7 +66,6 @@ type Story = StoryObj<typeof CustomSelect>;
 export const Primary: Story = {
   args: {
     size: "medium",
-    menuSize: "medium",
     variant: "default",
     label: "Custom Select Label",
     children: [
