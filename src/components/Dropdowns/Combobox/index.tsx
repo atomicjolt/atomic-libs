@@ -1,38 +1,32 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { AriaComboBoxProps, useComboBox, useFilter } from "react-aria";
 import { useComboBoxState } from "react-stately";
 import {
   AriaProps,
   CanHaveIcon,
-  ExtendedSize,
   FieldInputProps,
   HasVariant,
 } from "../../../types";
-import classNames from "classnames";
-import { useVariantClass } from "../../../hooks";
 import IconButton from "../../Buttons/IconButton";
 import { Popover } from "../../Overlays/Popover";
 import { UnmanagedListBox } from "../ListBox";
 import { ComboInput, Input } from "../../Fields";
 import { FloatingInputWrapper } from "../../Internal/FloatingInputWrapper";
-import { DropdownWrapper } from "../Dropdowns.styles";
 import { OverlayTriggerStateContext } from "../../Overlays/OverlayTrigger/context";
+import { useRenderProps } from "@/hooks/useRenderProps";
+import { ComboBoxWrapper } from "./Combobox.styles";
 
 export interface ComboBoxProps<T>
   extends AriaProps<AriaComboBoxProps<T>>,
     FieldInputProps,
     CanHaveIcon,
-    HasVariant<"default" | "floating"> {
-  /** The size of the combobox dropdown. Defaults to `size` if not given */
-  menuSize?: ExtendedSize;
-}
+    HasVariant<"default" | "floating"> {}
 
 /** Combox combinds a text input field with a dropdown list of options for the user to select from */
 export function ComboBox<T extends object>(props: ComboBoxProps<T>) {
   const {
     className,
     size = "medium",
-    menuSize = size,
     isDisabled,
     isReadOnly,
     isRequired,
@@ -71,22 +65,24 @@ export function ComboBox<T extends object>(props: ComboBoxProps<T>) {
     state
   );
 
-  const variantClass = useVariantClass("aje-dropdown", variant);
+  const renderProps = useRenderProps({
+    componentClassName: "aje-combobox",
+    className,
+    size,
+    variant,
+    selectors: {
+      "data-disabled": isDisabled,
+      "data-readonly": isReadOnly,
+      "data-required": isRequired,
+      "data-invalid": isInvalid,
+      "data-float":
+        variant === "floating" &&
+        (state.isFocused || !!state.inputValue || !!state.selectedKey),
+    },
+  });
 
   return (
-    <DropdownWrapper
-      className={classNames("aje-combobox", variantClass, className)}
-      size={size}
-      isDisabled={isDisabled}
-      isRequired={isRequired}
-      isInvalid={isInvalid}
-      isReadOnly={isReadOnly}
-      data-float={
-        (variant === "floating" &&
-          (state.isFocused || state.inputValue || state.selectedKey)) ||
-        undefined
-      }
-    >
+    <ComboBoxWrapper {...renderProps}>
       <FloatingInputWrapper
         label={label}
         labelProps={labelProps}
@@ -125,6 +121,6 @@ export function ComboBox<T extends object>(props: ComboBoxProps<T>) {
           <UnmanagedListBox {...listBoxProps} state={state} ref={listBoxRef} />
         </Popover>
       </OverlayTriggerStateContext.Provider>
-    </DropdownWrapper>
+    </ComboBoxWrapper>
   );
 }
