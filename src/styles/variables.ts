@@ -283,9 +283,9 @@ export const CssVariables = createGlobalStyle`
   --divider-margin-secondary: 0px;
 
   /* # Link */
-  --link-text-clr: var(--primary700);
+  --link-text-clr: var(--accent-clr);
   --link-bg-clr: var(--neutral50);
-  --link-hover-text-clr: var(--primary800);
+  --link-hover-text-clr: var(--accent-clr-alt);
   --link-hover-bg-clr: transparent;
   --link-text-decoration: underline;
 }

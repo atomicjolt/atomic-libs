@@ -1,5 +1,4 @@
-import React, { forwardRef } from "react";
-import cn from "classnames";
+import { forwardRef } from "react";
 import { AriaButtonOptions, mergeProps, useButton, useLink } from "react-aria";
 
 import Spinner from "../../Loaders/Spinner";
@@ -33,7 +32,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       loadingLabel,
       loadingComplete = false,
       className,
-      as = "button",
+      as = props.href ? "a" : "button",
     } = props;
     const internalRef = useForwardedRef<HTMLButtonElement>(ref);
     const { buttonProps, isPressed } = useButton(
@@ -57,6 +56,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     const renderProps = useRenderProps({
       componentClassName: "aje-btn",
+      className,
       variant,
       size,
       selectors: {
