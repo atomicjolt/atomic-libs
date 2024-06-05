@@ -6,17 +6,17 @@ exports[`matches snapshot 1`] = `
     class="aje-input__select is-medium"
   >
     <label
-      class="sc-dlniIP hVGEOF is-auto"
+      class="sc-eqUzNf citWII is-auto"
       for="select-:r0:-select"
     >
       Label
     </label>
     <div
-      class="sc-bdnyFh djAVTD aje-input__select"
+      class="sc-aYaIB gtqEha aje-input__select"
     >
       <select
         aria-describedby="select-:r0:-message"
-        class="sc-gtsqUy jkkzTo"
+        class="sc-gEvDqW cvFBBT"
         id="select-:r0:-select"
       >
         <option

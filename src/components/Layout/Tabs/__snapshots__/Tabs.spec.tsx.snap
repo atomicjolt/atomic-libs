@@ -3,24 +3,24 @@
 exports[`matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-iCoHzw nCdhE aje-tabs aje-tabs--default"
+    class="sc-kAycRU iOmgiD aje-tabs aje-tabs--default"
   >
     <div
       aria-orientation="horizontal"
-      class="sc-bdnyFh hwvQxE"
+      class="sc-aYaIB iOHgsp"
       id="react-aria-:r0:"
       role="tablist"
     >
       <div
-        class="sc-gtsqUy earHip"
+        class="sc-gEvDqW kYrhgC"
       >
         <div
-          class="sc-eCAqax kebOaS"
+          class="sc-dcJtft cGwrWi"
         >
           <div
             aria-controls="react-aria-:r0:-tabpanel-tab1"
             aria-selected="true"
-            class="sc-jSFipO eQbmbq"
+            class="sc-iGgVNO PPQuZ"
             data-key="tab1"
             id="react-aria-:r0:-tab-tab1"
             role="tab"
@@ -30,11 +30,11 @@ exports[`matches snapshot 1`] = `
           </div>
         </div>
         <div
-          class="sc-eCAqax kebOaS"
+          class="sc-dcJtft cGwrWi"
         >
           <div
             aria-selected="false"
-            class="sc-jSFipO eQbmbq"
+            class="sc-iGgVNO PPQuZ"
             data-key="tab2"
             id="react-aria-:r0:-tab-tab2"
             role="tab"
@@ -44,11 +44,11 @@ exports[`matches snapshot 1`] = `
           </div>
         </div>
         <div
-          class="sc-eCAqax kebOaS"
+          class="sc-dcJtft cGwrWi"
         >
           <div
             aria-selected="false"
-            class="sc-jSFipO eQbmbq"
+            class="sc-iGgVNO PPQuZ"
             data-key="tab3"
             id="react-aria-:r0:-tab-tab3"
             role="tab"
@@ -59,12 +59,12 @@ exports[`matches snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-dlniIP bMMCXk"
+        class="sc-eqUzNf dAyzKR"
       />
     </div>
     <div
       aria-labelledby="react-aria-:r0:-tab-tab1"
-      class="sc-gKAaef fWeaKp"
+      class="sc-gsFSjX hyLuVh"
       id="react-aria-:r0:-tabpanel-tab1"
       role="tabpanel"
       tabindex="0"

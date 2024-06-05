@@ -1,28 +1,5 @@
 import styled from "styled-components";
-import mixins from "../../styles/mixins";
-import { FieldWrapper } from "../Internal/FieldWrapper";
-
-export const ChipGroupWrapper = styled(FieldWrapper)`
-  ${mixins.FieldStatus}
-  ${mixins.SizingX}
-
-  --size-sm-x: 20rem;
-  --size-md-x: 30rem;
-  --size-lg-x: 40rem;
-  --size-full-x: 100%;
-
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-`;
-
-export const ChipsWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin: 0;
-`;
+import mixins from "@/styles/mixins";
 
 export const ChipContent = styled.div`
   ${mixins.Regular}
@@ -73,6 +50,19 @@ export const ChipWrapper = styled.div`
   color: var(--chip-text-clr);
   border-radius: var(--chip-radius);
 
+  &.aje-chip--warning {
+    --chip-bg-clr: var(--warning100);
+    --chip-hover-bg-clr: var(--warning200);
+    --chip-btn-hover-bg-clr: var(--warning200);
+  }
+
+  &.aje-chip--success {
+    --chip-bg-clr: var(--success100);
+    --chip-hover-bg-clr: var(--success200);
+    --chip-btn-hover-bg-clr: var(--success200);
+  }
+
+  &[role="button"]:hover,
   &[aria-selected]:hover {
     cursor: pointer;
     --chip-bg-clr: var(--chip-hover-bg-clr);

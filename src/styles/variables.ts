@@ -280,5 +280,11 @@ export const CssVariables = createGlobalStyle`
   --chip-selected-hover-bg-clr: var(--primary800);
   --chip-selected-text-clr: var(--text-clr-inverted);
   --chip-btn-hover-bg-clr: var(--neutral200);
+
+  /* # Divider */
+  --divider-bg-clr: var(--neutral300);
+  --divider-width: 1px;
+  --divider-margin-main: 5px;
+  --divider-margin-secondary: 0px;
 }
 `;

@@ -1,10 +1,12 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { ChipGroup, Chip } from ".";
+import { ChipGroup } from ".";
 import { InputControls, MultiSelectionArgTypes } from "@sb/helpers";
 import { getCssProps } from "@sb/cssprops";
+import { Chip } from "../Chip";
+import { fn } from "@storybook/test";
 
 export default {
-  title: "Inputs/ChipGroup",
+  title: "Chips/ChipGroup",
   component: ChipGroup,
   parameters: {
     layout: "centered",
@@ -15,11 +17,6 @@ export default {
     ...MultiSelectionArgTypes,
     children: {
       control: false,
-    },
-    disabledKeys: {
-      control: "multi-select",
-      options: ["news", "travel", "gaming", "shopping"],
-      description: "Keys of the items that should be disabled",
     },
     onRemove: {
       description: "Function to call when a chip is removed",
@@ -44,7 +41,7 @@ export const Primary: Story = {
 export const RemoveChip: Story = {
   args: {
     ...Primary.args,
-    onRemove: (key) => console.log(key),
+    onRemove: fn(),
   },
 };
 

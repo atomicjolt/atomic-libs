@@ -7,6 +7,7 @@ import { getCssProps } from "@sb/cssprops";
 const meta: Meta<typeof Table> = {
   title: "Layouts/Table",
   component: Table,
+  tags: ["!autodocs"],
   parameters: {
     cssprops: getCssProps("Table"),
   },

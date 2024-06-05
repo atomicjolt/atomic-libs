@@ -1,9 +1,8 @@
 import {
   Item as ReactStatelyItem,
   Section as ReactStatelySection,
-  ItemProps,
-  SectionProps,
 } from "react-stately";
+import { ItemProps, SectionProps } from "react-stately";
 import { cloneComponent } from "../clone";
 
 // We re-define the react-stately Item and Section components
@@ -36,3 +35,5 @@ export const Item = cloneComponent(ReactStatelyItem, "Item");
  * </ListBox>
  */
 export const Section = cloneComponent(ReactStatelySection, "Section");
+
+export type { ItemProps, SectionProps };

@@ -23,11 +23,6 @@ export const SubMenuList = styled.ul`
   padding: 0px;
 `;
 
-export const MenuSectionSeperator = styled.li`
-  margin: 2px 5px;
-  border-top: 1px solid var(--neutral300);
-`;
-
 export const MenuSectionTitle = styled.span`
   ${mixins.Regular}
   margin: 8px 16px;

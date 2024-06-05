@@ -27,12 +27,6 @@ export const SubList = styled.ul`
   padding: 0px;
 `;
 
-export const SectionSeperator = styled.li`
-  margin: 2px 5px;
-  padding-top: 10px;
-  border-top: var(--border);
-`;
-
 export const SectionTitle = styled.span`
   ${mixins.Regular}
   color: var(--text-clr-alt);
