@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import cn from "classnames";
-import { AriaButtonOptions, useButton } from "react-aria";
+import { AriaButtonOptions, mergeProps, useButton, useLink } from "react-aria";
 
 import Spinner from "../../Loaders/Spinner";
 import {
@@ -13,12 +13,15 @@ import { StyledButton } from "./Button.styles";
 import { ButtonVariants } from "../Buttons.types";
 import useForwardedRef from "../../../hooks/useForwardedRef";
 import { useFocusRing } from "../../../hooks/useFocusRing";
+import { useRenderProps } from "@/hooks/useRenderProps";
 
 export type ButtonProps = AriaButtonOptions<"button"> &
   LoadingProps &
   BaseProps &
   HasChildren &
-  HasVariant<ButtonVariants>;
+  HasVariant<ButtonVariants> & {
+    as?: "button" | "a";
+  };
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (props, ref) => {
@@ -30,33 +33,43 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       loadingLabel,
       loadingComplete = false,
       className,
+      as = "button",
     } = props;
     const internalRef = useForwardedRef<HTMLButtonElement>(ref);
     const { buttonProps, isPressed } = useButton(
       {
         ...props,
+        elementType: as,
         "aria-label": isLoading ? loadingLabel : props["aria-label"],
+      },
+      internalRef
+    );
+
+    const { linkProps } = useLink(
+      {
+        ...props,
+        elementType: as,
       },
       internalRef
     );
 
     const { focusProps } = useFocusRing();
 
+    const renderProps = useRenderProps({
+      componentClassName: "aje-btn",
+      variant,
+      size,
+      selectors: {
+        "data-pressed": isPressed,
+        "data-loading": isLoading,
+      },
+    });
+
     return (
       <StyledButton
-        className={cn(
-          "aje-btn",
-          `aje-btn--${variant}`,
-          className,
-          `is-${size}`,
-          {
-            "is-loading": isLoading,
-            "is-active": isPressed,
-          }
-        )}
+        as={as}
         ref={internalRef}
-        {...buttonProps}
-        {...focusProps}
+        {...mergeProps(buttonProps, linkProps, focusProps, renderProps)}
       >
         {isLoading && <Spinner isLoading={!loadingComplete} isCentered />}
         {children}

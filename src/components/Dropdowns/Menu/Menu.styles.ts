@@ -47,6 +47,7 @@ export const MenuOption = styled.li`
   font-size: 1.6rem;
   white-space: nowrap;
   background-color: var(--menu-item-bg-clr);
+  text-decoration: none;
 
   --menu-item-icon-clr: var(--neutral600);
   i {

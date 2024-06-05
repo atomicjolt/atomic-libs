@@ -31,22 +31,32 @@ export default function Aria() {
     <div>
       <RouterProvider navigate={console.log}>
         <IconMenu icon="more_vert" aria-label="More options">
-          <IconMenu.Item href="/somewhere">Google</IconMenu.Item>
-          <IconMenu.Item>Facebook</IconMenu.Item>
+          <IconMenu.Item href="https://www.google.com">Google</IconMenu.Item>
+          <IconMenu.Item href="/somewhere">Internal</IconMenu.Item>
           <IconMenu.Item>Twitter</IconMenu.Item>
         </IconMenu>
+        <br />
+        <br />
+        <Link href="https://www.google.com">External</Link>
+        <br />
+        <Link href="/somewhere">Internal</Link>
+        <br />
+        <br />
+        <Button href="https://www.google.com" as="a">
+          External
+        </Button>
+        <br />
+        <br />
+        <Button href="/somewhere" as="a">
+          Internal
+        </Button>
 
-        <OverlayTrigger>
-          <Button>Press ME</Button>
-          <Popover>
-            <Menu>
-              <Menu.Item>Google</Menu.Item>
-              <Menu.Item>Facebook</Menu.Item>
-              <Menu.Item>Twitter</Menu.Item>
-            </Menu>
-          </Popover>
-        </OverlayTrigger>
-        <Link href="/somewhere">Google</Link>
+        <IconButton
+          icon="add"
+          aria-label="Add"
+          as="a"
+          href="https://www.google.com"
+        />
       </RouterProvider>
     </div>
   );

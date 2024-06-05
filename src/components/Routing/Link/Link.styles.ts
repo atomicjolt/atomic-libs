@@ -3,15 +3,10 @@ import styled from "styled-components";
 
 export const StyledLink = styled.a`
   ${mixins.Regular}
-  font-size: 1rem;
-  --link-text-clr: var(--primary700);
-  --link-bg-clr: var(--neutral50);
-  --link-hover-text-clr: var(--primary800);
-  --link-hover-bg-clr: transparent;
 
   color: var(--link-text-clr);
   background-color: var(--link-bg-clr);
-  text-decoration: underline;
+  text-decoration: var(--link-text-decoration);
 
   &:hover {
     color: var(--link-hover-text-clr);

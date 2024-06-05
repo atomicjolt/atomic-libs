@@ -281,5 +281,12 @@ export const CssVariables = createGlobalStyle`
   --divider-width: 1px;
   --divider-margin-main: 5px;
   --divider-margin-secondary: 0px;
+
+  /* # Link */
+  --link-text-clr: var(--primary700);
+  --link-bg-clr: var(--neutral50);
+  --link-hover-text-clr: var(--primary800);
+  --link-hover-bg-clr: transparent;
+  --link-text-decoration: underline;
 }
 `;
