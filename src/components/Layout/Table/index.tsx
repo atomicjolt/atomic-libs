@@ -47,6 +47,7 @@ import {
   HasChildren,
   HasClassName,
   HasVariant,
+  Key,
   SuggestStrings,
 } from "../../../types";
 import { cloneComponent } from "../../../clone";
@@ -74,10 +75,10 @@ export interface TableProps<T>
 
   children?: [
     React.ReactElement<TableHeaderProps<T>>,
-    React.ReactElement<TableBodyProps<T>>
+    React.ReactElement<TableBodyProps<T>>,
   ];
 
-  onColumnReorder?: (newOrder: React.Key[]) => void;
+  onColumnReorder?: (newOrder: Key[]) => void;
 
   isSticky?: boolean;
 }
@@ -104,7 +105,7 @@ export function Table<T extends object>(props: TableProps<T>) {
 
   const variantClass = useVariantClass("aje-table", variant);
 
-  const reorderColumns = (droppedKey: React.Key, nextKey: React.Key) => {
+  const reorderColumns = (droppedKey: Key, nextKey: React.Key) => {
     const columnKeys = collection.headerRows
       .flatMap((row) => [...row.childNodes])
       .map((column) => column.key);

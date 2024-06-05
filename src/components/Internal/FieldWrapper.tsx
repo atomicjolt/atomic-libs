@@ -1,5 +1,4 @@
-import classNames, { Argument } from "classnames";
-import React from "react";
+import classNames from "classnames";
 import {
   ExtendedSize,
   FieldStatusProps,

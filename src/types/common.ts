@@ -1,4 +1,5 @@
 import { Argument } from "classnames";
+import { Key } from "./aria";
 
 export type Size = "small" | "medium" | "large";
 export type ExtendedSize = Size | "auto" | "full";
@@ -39,7 +40,7 @@ export interface HasChildren {
 }
 
 export interface HasVariant<Variants> {
-  variant?: Variants;
+  variant?: SuggestStrings<Variants>;
 }
 
 export type CanHaveVariant<Variants> = Partial<HasVariant<Variants>>;
@@ -76,7 +77,7 @@ export interface DirectionProps {
 
 export interface SearchDescriptor {
   /** Column that is currently being searched on */
-  column: React.Key | null;
+  column: Key | null;
   /** Search string */
   search: string;
 }

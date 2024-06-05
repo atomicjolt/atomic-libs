@@ -10,7 +10,7 @@ const meta: Meta<typeof ComboBox> = {
   component: ComboBox,
   parameters: {
     layout: "centered",
-    cssprops: getCssProps("Dropdown"),
+    cssprops: getCssProps("Dropdown", "Input", "Listbox"),
   },
   argTypes: {
     ...TextInputControls,
