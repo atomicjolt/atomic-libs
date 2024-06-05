@@ -5,9 +5,9 @@ import { scaleAnimation } from "../../../styles/animations";
 export const MenuList = styled.ul`
   list-style: none;
   margin: 0;
-  border-radius: var(--radius);
+  border-radius: var(--menu-border-radius);
   box-shadow: var(--menu-box-shadow);
-  background-color: var(--neutral50);
+  background-color: var(--menu-bg-clr);
   padding: 8px 0;
   z-index: 100;
   min-width: var(--trigger-width, auto);

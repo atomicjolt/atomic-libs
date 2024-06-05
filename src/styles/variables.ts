@@ -139,11 +139,9 @@ export const CssVariables = createGlobalStyle`
   --banner-border-radius: var(--radius);
 
   /* # Dropdown */
-  --dropdown-padding: 6px;
-  --dropdown-padding-left: calc(var(--dropdown-padding) * 2);
-  --dropdown-padding-right: var(--dropdown-height);
+  --dropdown-max-height: 300px
   --dropdown-text-clr: var(--text-clr);
-  --dropdown-bg-clr: none;
+  --dropdown-bg-clr: var(--background-clr);
   --dropdown-text-size: 1.6rem;
   --dropdown-icon-size: 2.4rem;
   --dropdown-icon-gap: calc(
@@ -151,30 +149,29 @@ export const CssVariables = createGlobalStyle`
   );
   --dropdown-icon-clr: var(--neutral600);
   --dropdown-box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.5);
-  --dropdown-max-height: 300px;
+  --dropdown-border-radius: var(--radius);
 
   /* # Menu */
+  --menu-bg-clr: var(--dropdown-bg-clr);
   --menu-box-shadow: var(--dropdown-box-shadow);
-  --menu-bg-clr: var(--neutral50);
-  --menu-border-radius: var(--radius);
-  --menu-padding-top: calc(var(--menu-item-height) / 8);
+  --menu-border-radius: var(--dropdown-border-radius);
   --menu-item-font-size: var(--dropdown-text-size);
   --menu-item-icon-size: var(--dropdown-icon-size);
-  --menu-item-height: 32px;
   --menu-item-padding: var(--dropdown-padding);
   --menu-item-padding-horizontal: calc(var(--dropdown-padding) * 2);
-  --menu-item-icon-gap: 8px;
-  --menu-item-border-clr: var(--neutral50, transparent);
+  --menu-item-border-clr: var(--dropdown-bg-clr, transparent);
+  --menu-item-height: 32px;
+  --menu-padding-top: calc(var(--menu-item-height) / 8);
 
   /* # Listbox */
   --listbox-text-clr: var(--dropdown-text-clr);
-  --listbox-bg-clr: var(--background-clr);
+  --listbox-bg-clr: var(--dropdown-bg-clr);
   --listbox-selected-clr: var(--text-clr-inverted);
   --listbox-box-shadow: var(--dropdown-box-shadow);
-  --listbox-item-height: 36px;
   --listbox-font-size: var(--dropdown-text-size);
-  --listbox-icon-clr: var(--neutral600);
+  --listbox-icon-clr: var(--dropdown-icon-clr);
   --listbox-max-height: var(--dropdown-max-height);
+  --listbox-item-height: 36px;
 
   /* # TextArea */
   --textarea-height-sm: 80px;
