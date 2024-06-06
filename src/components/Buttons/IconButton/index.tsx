@@ -39,7 +39,9 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
 
     const { linkProps } = useLink(
       {
-        ...props,
+        href: props.href,
+        rel: props.rel,
+        target: props.target,
         elementType: as,
       },
       innerRef

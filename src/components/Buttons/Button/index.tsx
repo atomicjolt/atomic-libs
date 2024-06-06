@@ -46,7 +46,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     const { linkProps } = useLink(
       {
-        ...props,
+        href: props.href,
+        rel: props.rel,
+        target: props.target,
         elementType: as,
       },
       internalRef
