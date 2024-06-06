@@ -3,7 +3,7 @@
 exports[`MultiSelect > matches default variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-dExXmK ghLbNd aje-multiselect aje-multiselect--default is-medium"
+    class="sc-iapVNj lhWDqc aje-multiselect aje-multiselect--default is-medium"
   >
     <label
       class="sc-imWZod gWbIwJ aje-label is-auto"
@@ -43,7 +43,7 @@ exports[`MultiSelect > matches default variant 1`] = `
 exports[`MultiSelect > matches floating variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-dExXmK ghLbNd aje-multiselect aje-multiselect--floating is-medium"
+    class="sc-iapVNj lhWDqc aje-multiselect aje-multiselect--floating is-medium"
   >
     <div
       class="sc-dLNtp hcuREP"
