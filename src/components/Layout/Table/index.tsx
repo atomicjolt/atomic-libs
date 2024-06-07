@@ -6,10 +6,11 @@ import {
   SelectionBehavior,
   Sortable,
   MultipleSelection,
+  Expandable,
 } from "@react-types/shared";
 
 import { StyledTable } from "./Table.styles";
-import { HasClassName, HasVariant } from "@/types";
+import { HasClassName } from "@/types";
 import { useExtendedTableState } from "./hooks/useExtendedTableState";
 import { ColumnReorder, Searchable, TableVariants } from "./Table.types";
 
@@ -22,7 +23,6 @@ import { TableHeader } from "./components/public/TableHeader";
 import { TableColumn } from "./components/public/TableColumn";
 import { TableBody } from "./components/public/TableBody";
 import { useRenderProps } from "@/hooks/useRenderProps";
-import { c } from "vite/dist/node/types.d-aGj9QkWt";
 
 export interface TableProps<T>
   extends AriaTableProps<T>,
@@ -31,7 +31,8 @@ export interface TableProps<T>
     Searchable,
     HasClassName,
     ColumnReorder,
-    HasVariant<TableVariants> {
+    Expandable {
+  variant?: TableVariants;
   /** The selection mode for the table. */
   selectionMode?: SelectionMode;
   /** The selection behavior for the table. */
@@ -55,13 +56,14 @@ export function Table<T extends object>(props: TableProps<T>) {
     isSticky = false,
   } = props;
 
+  const ref = useRef(null);
+
   const state = useExtendedTableState({
     ...props,
     showSelectionCheckboxes:
       selectionMode === "multiple" && selectionBehavior !== "replace",
   });
 
-  const ref = useRef(null);
   const { gridProps } = useTable(props, state, ref);
 
   // TODO: I'm not sure why, but the focus handling seems to be broken

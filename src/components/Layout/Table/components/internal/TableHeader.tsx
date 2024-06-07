@@ -5,7 +5,7 @@ import { Node, TableState } from "react-stately";
 import { TableRowGroup } from "./TableRowGroup";
 import { StyledTh, StyledThead } from "../../Table.styles";
 import { TableSelectAllCell } from "./TableCheckbox";
-import { DraggableTableColumnHeader, TableColumnHeader } from "./TableColumn";
+import { TableColumn } from "./TableColumn";
 import { ExtendedTableState } from "../../hooks/useExtendedTableState";
 
 interface TableHeaderRowProps<T> extends HasChildren {
@@ -39,41 +39,47 @@ export function TableHeader<T extends object>(props: TableHeaderProps<T>) {
 
   return (
     <TableRowGroup type={StyledThead}>
-      {collection.headerRows.map((headerRow) => (
-        <TableHeaderRow key={headerRow.key} item={headerRow} state={state}>
-          {hasGroupedRows && <StyledTh style={{ width: "48px" }} />}
-          {[...headerRow.childNodes].map((column) => {
-            if (column?.props?.isSelectionCell) {
-              return (
-                <TableSelectAllCell
-                  key={column.key}
-                  column={column}
-                  state={state}
-                />
-              );
-            } else if (column?.props?.allowsReordering) {
-              return (
-                <DraggableTableColumnHeader
-                  key={column.key}
-                  column={column}
-                  state={state}
-                  onDrop={(columnKey) =>
-                    state.reorderColumns(columnKey, column.key)
-                  }
-                />
-              );
-            } else {
-              return (
-                <TableColumnHeader
-                  key={column.key}
-                  column={column}
-                  state={state}
-                />
-              );
-            }
-          })}
-        </TableHeaderRow>
-      ))}
+      {collection.headerRows.map((headerRow) => {
+        const columns = [...headerRow.childNodes];
+        const prefixNodes: Node<T>[] = [];
+        const cellNodes: Node<T>[] = [];
+
+        columns.forEach((col) => {
+          if (col.props?.isSelectionCell || col.props?.isDragButtonCell) {
+            prefixNodes.push(col);
+          } else {
+            cellNodes.push(col);
+          }
+        });
+
+        return (
+          <TableHeaderRow key={headerRow.key} item={headerRow} state={state}>
+            {prefixNodes.map((column) => {
+              if (column?.props?.isSelectionCell) {
+                return (
+                  <TableSelectAllCell
+                    key={column.key}
+                    column={column}
+                    state={state}
+                  />
+                );
+              }
+              // TODO: drag handlers
+            })}
+            {hasGroupedRows && <StyledTh style={{ width: "48px" }} />}
+            {cellNodes.map((column) => (
+              <TableColumn
+                key={column.key}
+                column={column}
+                state={state}
+                onDrop={(columnKey) =>
+                  state.reorderColumns(columnKey, column.key)
+                }
+              />
+            ))}
+          </TableHeaderRow>
+        );
+      })}
     </TableRowGroup>
   );
 }

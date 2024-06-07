@@ -10,6 +10,9 @@ export interface TableColumnProps<T> extends Omit<ColumnProps<T>, "children"> {
 
   /** Static child columns or content to render as the column header. */
   children?: ColumnProps<T>["children"];
+
+  /** Whether to show a divider between this column and the next */
+  showDivider?: boolean;
 }
 
 /** A `Table.Column` represents a single column in a Table.

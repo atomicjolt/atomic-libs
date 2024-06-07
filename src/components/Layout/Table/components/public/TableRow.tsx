@@ -13,7 +13,14 @@
 import React from "react";
 import { CollectionBuilderContext } from "@react-stately/table";
 import { PartialNode } from "@react-stately/collections";
-import { RowProps } from "@react-types/table";
+import { RowProps as AriaRowProps } from "@react-types/table";
+
+// Modified from: https://github.com/adobe/react-spectrum/blob/main/packages/%40react-stately/table/src/Row.ts
+
+export interface RowProps<T> extends AriaRowProps<T> {
+  "aria-label"?: string;
+  colSpan?: number;
+}
 
 function Row<T>(props: RowProps<T>): React.ReactElement {
   return <></>;
@@ -91,7 +98,7 @@ Row.getCollectionNode = function* getCollectionNode<T>(
               element: node,
             });
           } else {
-            colSpanCount += node.props.colSpan || 1;
+            colSpanCount += (node.props as any).colSpan || 1;
             cells.push({
               type: "cell",
               element: node,
@@ -108,7 +115,7 @@ Row.getCollectionNode = function* getCollectionNode<T>(
         if (childRows.length > 0) {
           yield {
             type: "cell",
-            key: "expander",
+            key: "header-expand",
             props: {
               isExpanderCell: true,
             },
@@ -119,6 +126,7 @@ Row.getCollectionNode = function* getCollectionNode<T>(
         yield* childRows;
       }
     },
+    // @ts-expect-error
     shouldInvalidate(newContext: CollectionBuilderContext<T>) {
       // Invalidate all rows if the columns changed.
       return (

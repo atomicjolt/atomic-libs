@@ -9,6 +9,7 @@ import {
 } from "react-aria";
 import CheckBox from "@/components/Inputs/Checkbox";
 import { StyledTd, StyledTh } from "../../Table.styles";
+import { Key } from "@/types";
 
 interface TableCheckboxCellProps<T> {
   cell: Node<T>;

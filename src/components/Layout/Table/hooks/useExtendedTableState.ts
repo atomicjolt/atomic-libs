@@ -12,12 +12,11 @@ export interface ExtendedTableState<T> extends TableState<T>, Searchable {
 
 export function useExtendedTableState<T extends object>(
   props: ExtendedTableStateProps<T>
-) {
+): ExtendedTableState<T> {
   const state = useTableState(props);
-  const { onSearchChange, searchDescriptor } = props;
-
-  const { onColumnReorder } = props;
   const { collection } = state;
+
+  const { onSearchChange, searchDescriptor, onColumnReorder } = props;
 
   const reorderColumns = (droppedKey: Key, nextKey: Key) => {
     const columnKeys = collection.headerRows

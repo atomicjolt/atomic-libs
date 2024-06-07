@@ -88,12 +88,7 @@ export default function Tables() {
             >
               Type
             </Table.Column>
-            <Table.Column
-              key="level"
-              allowsSorting
-              allowsReordering
-              width={100}
-            >
+            <Table.Column key="level" allowsReordering width={100}>
               Level
             </Table.Column>
           </Table.Column>

@@ -1,107 +1,23 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import mixins from "../../../styles/mixins";
 import { ComboInput, Input } from "../../Fields";
 
+const ShowVerticalDividerMixin = css`
+  &[data-divider] {
+    border-right: var(--table-border-width) solid var(--table-border-clr);
+  }
+`;
+
 export const StyledTable = styled.table`
   ${mixins.Regular}
-  border-collapse: separate;
   border-spacing: 0;
-  border: solid var(--table-border-clr);
   border-width: 0;
   width: 100%;
   font-size: var(--table-font-size);
   color: var(--text-clr);
-
-  &.is-sticky {
-    thead {
-      th {
-        &:first-of-type {
-          position: sticky;
-          left: var(--table-border-width);
-          z-index: 2;
-          box-shadow: calc(var(--table-border-width) * -1) 0 0
-            var(--table-border-clr);
-        }
-      }
-    }
-    tbody {
-      th {
-        position: sticky;
-        left: var(--table-border-width);
-        z-index: 2;
-        box-shadow: calc(var(--table-border-width) * -1) 0 0
-          var(--table-border-clr);
-      }
-    }
-  }
-
-  &.aje-table--full-borders {
-    border-width: var(--table-border-width) 0 0 var(--table-border-width);
-    border-radius: var(--table-border-radius);
-
-    th,
-    td {
-      border-width: 0 var(--table-border-width) var(--table-border-width) 0;
-    }
-    thead {
-      th {
-        &:first-of-type {
-          border-radius: var(--table-border-radius) 0 0 0;
-          button {
-            border-radius: var(--table-border-radius) 0 0 0;
-          }
-        }
-        &:last-of-type {
-          border-radius: 0 var(--table-border-radius) 0 0;
-          button {
-            border-radius: 0 var(--table-border-radius) 0 0;
-          }
-        }
-      }
-    }
-    tbody {
-      tr:last-of-type {
-        th {
-          border-radius: 0 0 0 var(--table-border-radius);
-        }
-        td:last-of-type {
-          border-radius: 0 0 var(--table-border-radius) 0;
-        }
-      }
-    }
-  }
-
-  &.aje-table--sheet {
-    border-collapse: collapse;
-
-    --table-header-font-size: 1.4rem;
-    --table-cell-font-size: 1.4rem;
-
-    th {
-      ${mixins.Bold}
-      background: var(--neutral100);
-      border: 0.1rem solid var(--table-border-clr);
-      height: 4rem;
-      color: var(--text-clr-alt);
-      padding: 0 1rem 0 1.2rem;
-      text-transform: uppercase;
-
-      &.is-sortable:hover {
-        background-color: var(--neutral200);
-      }
-    }
-
-    td {
-      ${mixins.Regular}
-      height: 3rem;
-      padding: 1rem 4rem 1rem 1.2rem;
-      border: 0.1rem solid var(--neutral300);
-    }
-
-    tbody tr:hover td {
-      background-color: var(--neutral100);
-    }
-  }
+  border: solid var(--table-border-clr);
+  border-width: var(--table-border-width);
+  border-radius: var(--table-border-radius);
 `;
 
 export const StyledTh = styled.th`
@@ -114,7 +30,9 @@ export const StyledTh = styled.th`
   text-transform: uppercase;
   padding: calc(var(--table-padding-vert) + 0.25em) var(--table-padding-horz);
 
-  &.is-sortable {
+  ${ShowVerticalDividerMixin}
+
+  &[data-sortable] {
     .swap-icon {
       visibility: hidden;
     }
@@ -134,12 +52,10 @@ export const StyledTh = styled.th`
       outline-offset: -2px;
     }
   }
-`;
 
-export const DraggableTh = styled(StyledTh)`
-  &:hover {
+  &[data-draggable]:hover {
     background-color: var(--neutral100);
-    cursor: grab;
+    cursor: pointer;
   }
 `;
 
@@ -172,6 +88,8 @@ export const StyledTd = styled.td`
   vertical-align: middle;
   padding: var(--table-padding-vert) var(--table-padding-horz);
   outline: none;
+
+  ${ShowVerticalDividerMixin}
 `;
 
 export const RowHeader = styled.th`
@@ -184,6 +102,8 @@ export const RowHeader = styled.th`
   height: 48px;
   vertical-align: middle;
   padding: var(--table-padding-vert) var(--table-padding-horz);
+
+  ${ShowVerticalDividerMixin}
 `;
 
 export const StyledThead = styled.thead`

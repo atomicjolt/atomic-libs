@@ -1,101 +1,41 @@
 import React, { ChangeEvent, forwardRef, useRef } from "react";
 import { mergeProps, useDrag, useDrop, TextDropItem } from "react-aria";
-import { TableState, Node } from "react-stately";
+import { Node } from "react-stately";
 import {
   ColumnDragIndicator,
-  DraggableTh,
   SearchInput,
   SearchComboInput,
-  StyledTh,
   ThContent,
+  StyledTh,
 } from "../../Table.styles";
-import classNames from "classnames";
 import MaterialIcon from "../../../../Icons/MaterialIcon";
 import IconButton from "../../../../Buttons/IconButton";
 import { ExtendedTableState } from "../../hooks/useExtendedTableState";
 import { useExtendedTableColumnHeader } from "../../hooks/useExtendedTableColumnHeader";
 import { useFocusRing } from "@/hooks/useFocusRing";
+import { useRenderProps } from "@/hooks/useRenderProps";
 
-interface TableColumnHeaderProps<T> {
+interface TableColumnProps<T> {
   column: Node<T>;
   state: ExtendedTableState<T>;
-}
-
-export function TableColumnHeader<T extends object>(
-  props: TableColumnHeaderProps<T>
-) {
-  const { column, state } = props;
-  const {
-    props: { allowsSearching = false, allowsSorting = false } = {},
-    hasChildNodes = false,
-  } = column;
-
-  // Columns without some properties are given an undefined
-  // props object which causes the table to throw an error
-  column.props = column.props || {};
-
-  // @ts-ignore
-  const colspan: number = column.colspan;
-
-  const ref = useRef(null);
-  const inputRef = useRef(null);
-
-  const { focusProps } = useFocusRing();
-
-  const { columnHeaderProps, isSearching } = useExtendedTableColumnHeader(
-    { node: column },
-    state,
-    ref,
-    inputRef
-  );
-
-  const arrowIcon =
-    state?.sortDescriptor?.direction === "ascending"
-      ? "arrow_drop_up"
-      : "arrow_drop_down";
-
-  const headerProps = mergeProps(columnHeaderProps, focusProps);
-
-  return (
-    <StyledTh
-      {...headerProps}
-      colSpan={colspan}
-      className={classNames({ "is-sortable": allowsSorting })}
-      ref={ref}
-    >
-      <ThContent className={classNames({ "is-centered": hasChildNodes })}>
-        {column.rendered}
-        {allowsSorting && state.sortDescriptor?.column === column.key && (
-          <MaterialIcon icon={arrowIcon} />
-        )}
-        {allowsSorting && state.sortDescriptor?.column !== column.key && (
-          <MaterialIcon icon="swap_vert" className="swap-icon" />
-        )}
-        {allowsSearching && (
-          <ColumnSearch
-            column={column}
-            state={state}
-            ref={inputRef}
-            isSearching={isSearching}
-          />
-        )}
-      </ThContent>
-    </StyledTh>
-  );
-}
-
-interface DraggableTableColumnHeaderProps<T> {
-  column: Node<T>;
-  state: TableState<T>;
   onDrop?: (columnKey: string) => void;
 }
 
-export function DraggableTableColumnHeader<T extends object>(
-  props: DraggableTableColumnHeaderProps<T>
-) {
+export function TableColumn<T extends object>(props: TableColumnProps<T>) {
   const { column, state } = props;
 
-  const { props: { allowsSearching = false } = {} } = column;
+  // Placeholder cells don't have props
+  column.props = column.props || {};
+
+  const {
+    props: {
+      allowsSearching = false,
+      className,
+      showDivider = false,
+      allowsSorting = false,
+      allowsReordering = false,
+    },
+  } = column;
 
   // @ts-ignore
   const colspan = column.colspan as number;
@@ -142,13 +82,25 @@ export function DraggableTableColumnHeader<T extends object>(
       ? "arrow_drop_down"
       : "arrow_drop_up";
 
+  const renderProps = useRenderProps({
+    componentClassName: "aje-table-column",
+    className,
+    style: column.props.style,
+    selectors: {
+      "data-divider": showDivider,
+      "data-sortable": allowsSorting,
+      "data-draggable": allowsReordering,
+    },
+  });
+
+  const headerProps = [columnHeaderProps, focusProps, renderProps];
+
+  if (column.props.allowsReordering) {
+    headerProps.push(dragProps, dropProps);
+  }
+
   return (
-    <DraggableTh
-      className={classNames({ "is-sortable": column.props.allowsSorting })}
-      colSpan={colspan}
-      ref={ref}
-      {...mergeProps(columnHeaderProps, focusProps, dragProps, dropProps)}
-    >
+    <StyledTh colSpan={colspan} ref={ref} {...mergeProps(...headerProps)}>
       <ThContent>
         <ColumnDragIndicator
           style={{ visibility: isDropTarget ? "visible" : "hidden" }}
@@ -171,7 +123,7 @@ export function DraggableTableColumnHeader<T extends object>(
           />
         )}
       </ThContent>
-    </DraggableTh>
+    </StyledTh>
   );
 }
 

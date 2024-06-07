@@ -4,6 +4,7 @@ import { useFocusRing } from "@/hooks/useFocusRing";
 import { TableState } from "react-stately";
 import { GridNode } from "@react-types/grid";
 import { RowHeader, StyledTd } from "../../Table.styles";
+import { useRenderProps } from "@/hooks/useRenderProps";
 
 interface TableCellProps<T> {
   cell: GridNode<T>;
@@ -17,10 +18,22 @@ export function TableCell<T>(props: TableCellProps<T>) {
   const { gridCellProps } = useTableCell({ node: cell }, state, ref);
   const { focusProps } = useFocusRing();
 
+  const showDivider =
+    cell.props.showDivider ?? cell.column?.props?.showDivider ?? false;
+
+  const renderProps = useRenderProps({
+    componentClassName: "aje-table-cell",
+    className: cell.props.className,
+    style: cell.props.style,
+    selectors: {
+      "data-divider": showDivider,
+    },
+  });
+
   if (cell?.props?.isRowHeader) {
     return (
       <RowHeader
-        {...mergeProps(gridCellProps, focusProps, {
+        {...mergeProps(gridCellProps, focusProps, renderProps, {
           colSpan: cell.props.colSpan,
         })}
         ref={ref}
@@ -33,7 +46,7 @@ export function TableCell<T>(props: TableCellProps<T>) {
 
   return (
     <StyledTd
-      {...mergeProps(gridCellProps, focusProps, {
+      {...mergeProps(gridCellProps, focusProps, renderProps, {
         colSpan: cell.props.colSpan,
       })}
       ref={ref}
