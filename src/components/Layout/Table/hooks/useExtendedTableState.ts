@@ -6,7 +6,9 @@ export interface ExtendedTableStateProps<T extends object>
     Searchable,
     ColumnReorder {}
 
-export interface ExtendedTableState<T> extends TableState<T>, Searchable {}
+export interface ExtendedTableState<T> extends TableState<T>, Searchable {
+  reorderColumns: (droppedKey: Key, nextKey: Key) => void;
+}
 
 export function useExtendedTableState<T extends object>(
   props: ExtendedTableStateProps<T>

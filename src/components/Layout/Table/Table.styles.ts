@@ -194,15 +194,6 @@ export const StyledTBody = styled.tbody``;
 
 export const StyledRow = styled.tr`
   background-color: var(--table-bg-clr);
-
-  &.is-selected {
-    /* --table-bg-clr: var(--neutral300); */
-  }
-
-  &:focus-within,
-  &.is-focused {
-    /* --table-bg-clr: var(--neutral200); */
-  }
 `;
 
 export const SearchComboInput = styled(ComboInput)`

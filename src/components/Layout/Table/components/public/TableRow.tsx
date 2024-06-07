@@ -105,6 +105,16 @@ Row.getCollectionNode = function* getCollectionNode<T>(
           );
         }
 
+        if (childRows.length > 0) {
+          yield {
+            type: "cell",
+            key: "expander",
+            props: {
+              isExpanderCell: true,
+            },
+          };
+        }
+
         yield* cells;
         yield* childRows;
       }

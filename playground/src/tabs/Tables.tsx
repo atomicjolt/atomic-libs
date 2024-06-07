@@ -104,44 +104,18 @@ export default function Tables() {
               <Table.Cell colSpan={2}>{pokemon.name}</Table.Cell>
               <Table.Cell>{pokemon.type}</Table.Cell>
               <Table.Cell>{pokemon.level}</Table.Cell>
+
+              <Table.Row>
+                <Table.Cell colSpan={2}>
+                  Nested Row for {pokemon.name}
+                </Table.Cell>
+                <Table.Cell>Another Nested Cell</Table.Cell>
+                <Table.Cell>Another Nested Cell</Table.Cell>
+              </Table.Row>
             </Table.Row>
           )}
         </Table.Body>
       </Table>
-      {/* <Provider theme={defaultTheme}>
-        <TableView
-          aria-label="Example table with static contents"
-          selectionMode="multiple"
-        >
-          <TableHeader>
-            <Column>Name</Column>
-            <Column>Type</Column>
-            <Column align="end">Date Modified</Column>
-          </TableHeader>
-          <TableBody>
-            <Row>
-              <Cell>Games</Cell>
-              <Cell>File folder</Cell>
-              <Cell>6/7/2020</Cell>
-            </Row>
-            <Row>
-              <Cell>Program Files</Cell>
-              <Cell>File folder</Cell>
-              <Cell>4/7/2021</Cell>
-            </Row>
-            <Row>
-              <Cell>bootmgr</Cell>
-              <Cell>System file</Cell>
-              <Cell>11/20/2010</Cell>
-            </Row>
-            <Row>
-              <Cell>log.txt</Cell>
-              <Cell>Text Document</Cell>
-              <Cell>1/18/2016</Cell>
-            </Row>
-          </TableBody>
-        </TableView>
-      </Provider> */}
     </div>
   );
 }

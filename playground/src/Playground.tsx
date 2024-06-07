@@ -11,7 +11,7 @@ import Overlays from "./tabs/Overlays";
 import Fields from "./tabs/Fields";
 
 function Playground() {
-  const [currentTab, setCurrentTab] = useState<Key>("aria");
+  const [currentTab, setCurrentTab] = useState<Key>("tables");
 
   return (
     <div className="padder" style={{ height: "100%" }}>
