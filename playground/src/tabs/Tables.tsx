@@ -84,7 +84,9 @@ export default function Tables() {
         <Table.Body items={sortedPokemons} className="string">
           {(pokemon) => (
             <Table.Row key={pokemon.name} className="test">
-              <Table.Cell className="test">{pokemon.name}</Table.Cell>
+              <Table.Cell className="test" colSpan={1}>
+                {pokemon.name}
+              </Table.Cell>
               <Table.Cell>{pokemon.type}</Table.Cell>
               <Table.Cell>{pokemon.level}</Table.Cell>
 

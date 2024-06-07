@@ -32,7 +32,7 @@ export function TableCell<T>(props: TableCellProps<T>) {
     },
   });
 
-  const colSpan = props.colSpan ?? cell.colspan;
+  const colSpan = props.colSpan ?? cell.colspan ?? cell.props.colSpan;
 
   if (cell?.props?.isRowHeader) {
     return (
