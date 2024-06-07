@@ -20,7 +20,7 @@ export function TableHeaderRow<T>(props: TableHeaderRowProps<T>) {
   const { rowProps } = useTableHeaderRow({ node: item }, state, ref);
 
   const renderProps = useRenderProps({
-    componentClassName: "aje-table-header",
+    componentClassName: "aje-table__header",
     ...item.props,
   });
 
@@ -43,8 +43,6 @@ export function TableHeader<T extends object>(props: TableHeaderProps<T>) {
     <TableRowGroup type={StyledThead}>
       {collection.headerRows.map((headerRow) => {
         const columns = [...collection.getChildren!(headerRow.key)];
-
-        console.log(collection.headerRows, headerRow);
 
         return (
           <TableHeaderRow key={headerRow.key} item={headerRow} state={state}>

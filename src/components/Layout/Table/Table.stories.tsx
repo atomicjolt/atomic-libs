@@ -86,13 +86,6 @@ export const Primary: Story = {
   },
 };
 
-export const SheetVariant: Story = {
-  args: {
-    ...Primary.args,
-    variant: "sheet",
-  },
-};
-
 export const MultipleSelection: Story = {
   args: {
     ...Primary.args,
@@ -353,69 +346,6 @@ export const WithColumnSearch: Story = {
 
 export const WithNestedRows: Story = {
   render: (args) => {
-    const pokemon = [
-      {
-        type: "Fire, Flying",
-        pokemon: [
-          {
-            name: "Charizard",
-            level: 67,
-            specialMove: "Flamethrower",
-          },
-          {
-            name: "Moltres",
-            level: 60,
-            specialMove: "Fire Spin",
-          },
-        ],
-      },
-      {
-        type: "Water",
-        pokemon: [
-          {
-            name: "Blastoise",
-            level: 56,
-            specialMove: "Hydro Pump",
-          },
-          {
-            name: "Vaporeon",
-            level: 65,
-            specialMove: "Aqua Tail",
-          },
-        ],
-      },
-      {
-        type: "Grass, Poison",
-        pokemon: [
-          {
-            name: "Venusaur",
-            level: 83,
-            specialMove: "Solar Beam",
-          },
-          {
-            name: "Victreebel",
-            level: 70,
-            specialMove: "Leaf Blade",
-          },
-        ],
-      },
-      {
-        type: "Electric",
-        pokemon: [
-          {
-            name: "Pikachu",
-            level: 100,
-            specialMove: "Thunderbolt",
-          },
-          {
-            name: "Raichu",
-            level: 90,
-            specialMove: "Thunder Punch",
-          },
-        ],
-      },
-    ];
-
     return (
       <Table {...args}>
         <Table.Header>
@@ -423,20 +353,67 @@ export const WithNestedRows: Story = {
           <Table.Column key="specialMove">Special Move</Table.Column>
           <Table.Column key="level">Level</Table.Column>
         </Table.Header>
-        <Table.Body items={pokemon}>
-          {(pokemonGroup) => (
-            <Table.Row key={pokemonGroup.type}>
-              <Table.Cell colSpan={3}>{pokemonGroup.type}</Table.Cell>
-
-              {pokemonGroup.pokemon.map((pokemon) => (
-                <Table.Row key={pokemon.name}>
-                  <Table.Cell isRowHeader>{pokemon.name}</Table.Cell>
-                  <Table.Cell>{pokemon.specialMove}</Table.Cell>
-                  <Table.Cell>{pokemon.level}</Table.Cell>
-                </Table.Row>
-              ))}
+        <Table.Body>
+          <Table.Row key="Fire, Flying">
+            <Table.Cell colSpan={3}>Fire, Flying </Table.Cell>
+            <Table.Row>
+              <Table.Cell isRowHeader>Charizard</Table.Cell>
+              <Table.Cell>Flamethrower</Table.Cell>
+              <Table.Cell>67</Table.Cell>
             </Table.Row>
-          )}
+
+            <Table.Row>
+              <Table.Cell isRowHeader>Moltres</Table.Cell>
+              <Table.Cell>Fire Spin</Table.Cell>
+              <Table.Cell>60</Table.Cell>
+            </Table.Row>
+          </Table.Row>
+          <Table.Row key="Water">
+            <Table.Cell colSpan={3}>Water</Table.Cell>
+
+            <Table.Row>
+              <Table.Cell isRowHeader>Blastoise</Table.Cell>
+              <Table.Cell>Hydro Pump</Table.Cell>
+              <Table.Cell>56</Table.Cell>
+            </Table.Row>
+
+            <Table.Row>
+              <Table.Cell isRowHeader>Vaporeon</Table.Cell>
+              <Table.Cell>Aqua Tail</Table.Cell>
+              <Table.Cell>65</Table.Cell>
+            </Table.Row>
+          </Table.Row>
+          <Table.Row key="Grass, Poison">
+            <Table.Cell colSpan={3}>Grass, Poison</Table.Cell>
+
+            <Table.Row>
+              <Table.Cell isRowHeader>Venusaur</Table.Cell>
+              <Table.Cell>Solar Beam</Table.Cell>
+              <Table.Cell>83</Table.Cell>
+            </Table.Row>
+
+            <Table.Row>
+              <Table.Cell isRowHeader>Victreebel</Table.Cell>
+              <Table.Cell>Leaf Blade</Table.Cell>
+              <Table.Cell>70</Table.Cell>
+            </Table.Row>
+          </Table.Row>
+
+          <Table.Row key="Electric">
+            <Table.Cell colSpan={3}>Electric</Table.Cell>
+
+            <Table.Row>
+              <Table.Cell isRowHeader>Pikachu</Table.Cell>
+              <Table.Cell>Thunderbolt</Table.Cell>
+              <Table.Cell>100</Table.Cell>
+            </Table.Row>
+
+            <Table.Row>
+              <Table.Cell isRowHeader>Raichu</Table.Cell>
+              <Table.Cell>Thunder Punch</Table.Cell>
+              <Table.Cell>90</Table.Cell>
+            </Table.Row>
+          </Table.Row>
         </Table.Body>
       </Table>
     );

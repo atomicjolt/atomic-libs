@@ -26,7 +26,7 @@ export function TableBody<T extends object>(props: TableBodyProps<T>) {
   });
 
   const renderProps = useRenderProps({
-    componentClassName: "aje-table-body",
+    componentClassName: "aje-table__body",
     ...collection.body.props,
   });
 
@@ -61,7 +61,12 @@ function TableBodyRow<T>(props: TableBodyRowProps<T>) {
 
   return (
     <React.Fragment key={`group-${row.key}`}>
-      <TableRow key={row.key} item={row} state={state}>
+      <TableRow
+        key={row.key}
+        item={row}
+        state={state}
+        hasChildren={childRows.length > 0}
+      >
         {childNodes.map((cell) => {
           if (cell.props.isSelectionCell) {
             return (

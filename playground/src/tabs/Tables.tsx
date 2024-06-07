@@ -66,6 +66,7 @@ export default function Tables() {
         onSortChange={setSortDescriptor}
         searchDescriptor={searchDescriptor}
         onSearchChange={setSearchDescriptor}
+        isExpandable
       >
         <Table.Header>
           <Table.Column key="name" allowsSorting showDivider>
@@ -87,11 +88,11 @@ export default function Tables() {
               <Table.Cell>{pokemon.type}</Table.Cell>
               <Table.Cell>{pokemon.level}</Table.Cell>
 
-              {/* <Table.Row>
+              <Table.Row>
                 <Table.Cell>Nested Row for {pokemon.name}</Table.Cell>
                 <Table.Cell>Another Nested Cell</Table.Cell>
                 <Table.Cell>Another Nested Cell</Table.Cell>
-              </Table.Row> */}
+              </Table.Row>
             </Table.Row>
           )}
         </Table.Body>

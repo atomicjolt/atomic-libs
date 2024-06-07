@@ -83,7 +83,7 @@ export function TableColumn<T extends object>(props: TableColumnProps<T>) {
       : "arrow_drop_up";
 
   const renderProps = useRenderProps({
-    componentClassName: "aje-table-column",
+    componentClassName: "aje-table__column",
     className,
     style: column.props.style,
     selectors: {

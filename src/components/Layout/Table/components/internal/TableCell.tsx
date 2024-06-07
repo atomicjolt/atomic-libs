@@ -22,7 +22,7 @@ export function TableCell<T>(props: TableCellProps<T>) {
     cell.props.showDivider ?? cell.column?.props?.showDivider ?? false;
 
   const renderProps = useRenderProps({
-    componentClassName: "aje-table-cell",
+    componentClassName: "aje-table__cell",
     className: cell.props.className,
     style: cell.props.style,
     selectors: {

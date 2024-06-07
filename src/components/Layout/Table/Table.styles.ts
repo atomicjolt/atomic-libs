@@ -113,6 +113,7 @@ export const StyledRow = styled.tr`
   background-color: var(--table-bg-clr);
 
   &[data-selected] {
+    --table-bg-clr: var(--neutral100);
   }
 
   &[data-focus-visible] {
