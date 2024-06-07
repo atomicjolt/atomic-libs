@@ -16,6 +16,7 @@ import { CollectionBuilderContext } from "@react-stately/table";
 import { PartialNode } from "@react-stately/collections";
 import React, { JSX, ReactElement } from "react";
 import { TableHeaderProps } from "@react-types/table";
+import { TableCollectionBuilderContext } from "../../Table.types";
 
 function TableHeader<T>(props: TableHeaderProps<T>): ReactElement {
   return <></>;
@@ -23,9 +24,9 @@ function TableHeader<T>(props: TableHeaderProps<T>): ReactElement {
 
 TableHeader.getCollectionNode = function* getCollectionNode<T>(
   props: TableHeaderProps<T>,
-  context: CollectionBuilderContext<T>
+  context: TableCollectionBuilderContext<T>
 ): Generator<PartialNode<T>, void, any> {
-  let { children, columns } = props;
+  const { children, columns } = props;
 
   // Clear columns so they aren't double added in strict mode.
   context.columns = [];
@@ -37,6 +38,15 @@ TableHeader.getCollectionNode = function* getCollectionNode<T>(
       );
     }
 
+    if (context.showExpandButtons) {
+      yield {
+        type: "column",
+        props: {
+          isExpanderCell: true,
+        },
+      };
+    }
+
     for (let column of columns) {
       yield {
         type: "column",
@@ -46,6 +56,17 @@ TableHeader.getCollectionNode = function* getCollectionNode<T>(
     }
   } else {
     let columns: PartialNode<T>[] = [];
+
+    if (context.showExpandButtons) {
+      columns.push({
+        type: "column",
+        key: "test",
+        props: {
+          isExpanderCell: true,
+        },
+      });
+    }
+
     React.Children.forEach(children, (column) => {
       columns.push({
         type: "column",

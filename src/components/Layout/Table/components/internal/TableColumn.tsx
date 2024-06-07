@@ -90,6 +90,7 @@ export function TableColumn<T extends object>(props: TableColumnProps<T>) {
       "data-divider": showDivider,
       "data-sortable": allowsSorting,
       "data-draggable": allowsReordering,
+      "data-has-children": column.hasChildNodes,
     },
   });
 

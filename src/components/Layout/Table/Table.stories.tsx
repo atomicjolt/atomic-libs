@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Meta, StoryObj } from "@storybook/react";
+import { fn } from "@storybook/test";
 import Table from ".";
 import { Key, SearchDescriptor } from "../../../types";
 import { getCssProps } from "@sb/cssprops";
@@ -104,7 +105,9 @@ export const NestedColumns: Story = {
     variant: "full-borders",
     children: [
       <Table.Header key="header">
-        <Table.Column key="name">Name</Table.Column>
+        <Table.Column key="name" showDivider>
+          Name
+        </Table.Column>
         <Table.Column title="Details">
           <Table.Column key="type">Type</Table.Column>
           <Table.Column key="level">Level</Table.Column>
@@ -345,5 +348,121 @@ export const WithColumnSearch: Story = {
   args: {
     variant: "full-borders",
     "aria-label": "Table with searching",
+  },
+};
+
+export const WithNestedRows: Story = {
+  render: (args) => {
+    const pokemon = [
+      {
+        type: "Fire, Flying",
+        pokemon: [
+          {
+            name: "Charizard",
+            level: 67,
+            specialMove: "Flamethrower",
+          },
+          {
+            name: "Moltres",
+            level: 60,
+            specialMove: "Fire Spin",
+          },
+        ],
+      },
+      {
+        type: "Water",
+        pokemon: [
+          {
+            name: "Blastoise",
+            level: 56,
+            specialMove: "Hydro Pump",
+          },
+          {
+            name: "Vaporeon",
+            level: 65,
+            specialMove: "Aqua Tail",
+          },
+        ],
+      },
+      {
+        type: "Grass, Poison",
+        pokemon: [
+          {
+            name: "Venusaur",
+            level: 83,
+            specialMove: "Solar Beam",
+          },
+          {
+            name: "Victreebel",
+            level: 70,
+            specialMove: "Leaf Blade",
+          },
+        ],
+      },
+      {
+        type: "Electric",
+        pokemon: [
+          {
+            name: "Pikachu",
+            level: 100,
+            specialMove: "Thunderbolt",
+          },
+          {
+            name: "Raichu",
+            level: 90,
+            specialMove: "Thunder Punch",
+          },
+        ],
+      },
+    ];
+
+    return (
+      <Table {...args}>
+        <Table.Header>
+          <Table.Column key="name">Name</Table.Column>
+          <Table.Column key="specialMove">Special Move</Table.Column>
+          <Table.Column key="level">Level</Table.Column>
+        </Table.Header>
+        <Table.Body items={pokemon}>
+          {(pokemonGroup) => (
+            <Table.Row key={pokemonGroup.type}>
+              <Table.Cell colSpan={3}>{pokemonGroup.type}</Table.Cell>
+
+              {pokemonGroup.pokemon.map((pokemon) => (
+                <Table.Row key={pokemon.name}>
+                  <Table.Cell isRowHeader>{pokemon.name}</Table.Cell>
+                  <Table.Cell>{pokemon.specialMove}</Table.Cell>
+                  <Table.Cell>{pokemon.level}</Table.Cell>
+                </Table.Row>
+              ))}
+            </Table.Row>
+          )}
+        </Table.Body>
+      </Table>
+    );
+  },
+  argTypes: {
+    defaultExpandedKeys: {
+      description: "The default expanded keys",
+      control: false,
+    },
+    expandedKeys: {
+      description: "The expanded keys",
+      control: "multi-select",
+      options: ["Fire, Flying", "Water", "Grass, Poison", "Electric"],
+    },
+    onExpandedChange: {
+      action: "expandedChange",
+      description: "Fires when the expanded keys change",
+      table: {
+        category: "Events",
+      },
+    },
+  },
+  args: {
+    "aria-label": "Table with nested rows",
+    isExpandable: true,
+    defaultExpandedKeys: ["Fire, Flying", "Water"],
+    onExpandedChange: fn(),
   },
 };

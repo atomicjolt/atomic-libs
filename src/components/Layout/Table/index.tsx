@@ -12,7 +12,12 @@ import {
 import { StyledTable } from "./Table.styles";
 import { HasClassName } from "@/types";
 import { useExtendedTableState } from "./hooks/useExtendedTableState";
-import { ColumnReorder, Searchable, TableVariants } from "./Table.types";
+import {
+  ChildRowBehavior,
+  ColumnReorder,
+  Searchable,
+  TableVariants,
+} from "./Table.types";
 
 import { TableBody as TableBodyInternal } from "./components/internal/TableBody";
 import { TableHeader as TableHeaderInternal } from "./components/internal/TableHeader";
@@ -44,6 +49,9 @@ export interface TableProps<T>
   ];
 
   isSticky?: boolean;
+
+  /** Whether nested rows are expandable */
+  isExpandable?: boolean;
 }
 
 /** Table component that supports sorting, row selection, and column reordering.  */
@@ -87,7 +95,7 @@ export function Table<T extends object>(props: TableProps<T>) {
   return (
     <StyledTable {...gridProps} {...renderProps} ref={ref}>
       <TableHeaderInternal state={state} />
-      <TableBodyInternal state={state} />
+      <TableBodyInternal state={state} {...props} />
     </StyledTable>
   );
 }

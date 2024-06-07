@@ -1,3 +1,4 @@
+import { CollectionBuilderContext } from "@react-stately/table";
 import { Key, SearchDescriptor, SuggestStrings } from "../../../types";
 
 export interface Searchable {
@@ -13,3 +14,10 @@ export interface ColumnReorder {
 }
 
 export type TableVariants = SuggestStrings<"default" | "grid" | "full-borders">;
+
+export type ChildRowBehavior = "hide" | "nest" | "show";
+
+export interface TableCollectionBuilderContext<T>
+  extends CollectionBuilderContext<T> {
+  showExpandButtons: boolean;
+}

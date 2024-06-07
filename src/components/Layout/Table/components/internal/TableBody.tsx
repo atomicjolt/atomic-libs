@@ -64,12 +64,14 @@ function TableBodyRow<T>(props: TableBodyRowProps<T>) {
           } else if (cell.props.isExpanderCell) {
             return (
               <StyledTd key={cell.key}>
-                <IconButton
-                  variant="ghost"
-                  icon={isExpanded ? "expand_more" : "chevron_right"}
-                  aria-label="Expand group"
-                  onPress={onToggleExpanded}
-                />
+                {childRows.length > 0 && (
+                  <IconButton
+                    variant="ghost"
+                    icon={isExpanded ? "expand_more" : "chevron_right"}
+                    aria-label="Expand group"
+                    onPress={onToggleExpanded}
+                  />
+                )}
               </StyledTd>
             );
           } else if (cell.type === "cell") {
@@ -80,23 +82,11 @@ function TableBodyRow<T>(props: TableBodyRowProps<T>) {
 
       {isExpanded &&
         childRows.map((node) => {
-          // TODO: this should be cleaner when I figure out how the pass additional context
-          // to the collection context
           const children = [...collection.getChildren!(node.key)];
-          const prefixNodes: Node<T>[] = [];
-          const cellNodes: Node<T>[] = [];
-
-          children.forEach((child) => {
-            if (child.props.isSelectionCell || child.props.isDragButtonCell) {
-              prefixNodes.push(child);
-            } else {
-              cellNodes.push(child);
-            }
-          });
 
           return (
             <TableRow key={node.key} item={node} state={state}>
-              {prefixNodes.map((cell) => {
+              {children.map((cell) => {
                 if (cell.props.isSelectionCell) {
                   return (
                     <TableCheckboxCell
@@ -105,14 +95,12 @@ function TableBodyRow<T>(props: TableBodyRowProps<T>) {
                       state={state}
                     />
                   );
+                } else if (cell.props.isExpanderCell) {
+                  return <StyledTd key={cell.key} />;
+                } else if (cell.type === "cell") {
+                  return <TableCell key={cell.key} cell={cell} state={state} />;
                 }
               })}
-
-              <StyledTd />
-
-              {cellNodes.map((cell) => (
-                <TableCell key={cell.key} cell={cell} state={state} />
-              ))}
             </TableRow>
           );
         })}

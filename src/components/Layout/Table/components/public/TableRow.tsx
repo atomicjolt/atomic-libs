@@ -11,16 +11,19 @@
  */
 
 import React from "react";
-import { CollectionBuilderContext } from "@react-stately/table";
 import { PartialNode } from "@react-stately/collections";
 import { RowProps as AriaRowProps } from "@react-types/table";
+import { TableCollectionBuilderContext } from "../../Table.types";
 
 // Modified from: https://github.com/adobe/react-spectrum/blob/main/packages/%40react-stately/table/src/Row.ts
 
-export interface RowProps<T> extends AriaRowProps<T> {
+export interface RowProps<T> extends Omit<AriaRowProps<T>, "children"> {
   "aria-label"?: string;
   colSpan?: number;
+  children: any;
 }
+
+type RowElement<T> = React.ReactElement<RowProps<T>>;
 
 function Row<T>(props: RowProps<T>): React.ReactElement {
   return <></>;
@@ -30,7 +33,7 @@ Row.displayName = "Table.Row";
 
 Row.getCollectionNode = function* getCollectionNode<T>(
   props: RowProps<T>,
-  context: CollectionBuilderContext<T>
+  context: TableCollectionBuilderContext<T>
 ): Generator<PartialNode<T>> {
   let { children, textValue, UNSTABLE_childItems } = props;
 
@@ -98,7 +101,7 @@ Row.getCollectionNode = function* getCollectionNode<T>(
               element: node,
             });
           } else {
-            colSpanCount += (node.props as any).colSpan || 1;
+            colSpanCount += (node.props as any).colSpan ?? 1;
             cells.push({
               type: "cell",
               element: node,
@@ -112,7 +115,7 @@ Row.getCollectionNode = function* getCollectionNode<T>(
           );
         }
 
-        if (childRows.length > 0) {
+        if (context.showExpandButtons) {
           yield {
             type: "cell",
             key: "header-expand",
@@ -127,7 +130,7 @@ Row.getCollectionNode = function* getCollectionNode<T>(
       }
     },
     // @ts-expect-error
-    shouldInvalidate(newContext: CollectionBuilderContext<T>) {
+    shouldInvalidate(newContext: TableCollectionBuilderContext<T>) {
       // Invalidate all rows if the columns changed.
       return (
         newContext.columns.length !== context.columns.length ||
@@ -135,7 +138,8 @@ Row.getCollectionNode = function* getCollectionNode<T>(
         newContext.showSelectionCheckboxes !==
           context.showSelectionCheckboxes ||
         newContext.showDragButtons !== context.showDragButtons ||
-        newContext.selectionMode !== context.selectionMode
+        newContext.selectionMode !== context.selectionMode ||
+        newContext.showExpandButtons !== context.showExpandButtons
       );
     },
   };

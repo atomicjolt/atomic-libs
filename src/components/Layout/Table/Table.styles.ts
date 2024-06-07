@@ -20,6 +20,13 @@ export const StyledTable = styled.table`
   border-radius: var(--table-border-radius);
 `;
 
+export const ThContent = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  position: relative;
+`;
+
 export const StyledTh = styled.th`
   ${mixins.Bold}
   border: solid var(--table-border-clr);
@@ -57,15 +64,8 @@ export const StyledTh = styled.th`
     background-color: var(--neutral100);
     cursor: pointer;
   }
-`;
 
-export const ThContent = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  position: relative;
-
-  &.is-centered {
+  &[data-has-children] ${ThContent} {
     justify-content: center;
   }
 `;

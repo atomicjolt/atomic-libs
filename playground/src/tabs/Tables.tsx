@@ -66,7 +66,8 @@ export default function Tables() {
         onSortChange={setSortDescriptor}
         searchDescriptor={searchDescriptor}
         onSearchChange={setSearchDescriptor}
-        variant="full-borders"
+        isExpandable
+        defaultExpandedKeys={["Charizard"]}
       >
         <Table.Header>
           <Table.Column
@@ -74,11 +75,11 @@ export default function Tables() {
             allowsSorting
             allowsSearching
             allowsReordering
+            showDivider
           >
             Name
           </Table.Column>
-          <Table.Column>Another Column</Table.Column>
-          <Table.Column title="Title" key="title">
+          <Table.Column title="Title">
             <Table.Column
               key="type"
               allowsSorting
@@ -96,14 +97,12 @@ export default function Tables() {
         <Table.Body items={sortedPokemons}>
           {(pokemon) => (
             <Table.Row key={pokemon.name}>
-              <Table.Cell colSpan={2}>{pokemon.name}</Table.Cell>
+              <Table.Cell>{pokemon.name}</Table.Cell>
               <Table.Cell>{pokemon.type}</Table.Cell>
               <Table.Cell>{pokemon.level}</Table.Cell>
 
               <Table.Row>
-                <Table.Cell colSpan={2}>
-                  Nested Row for {pokemon.name}
-                </Table.Cell>
+                <Table.Cell>Nested Row for {pokemon.name}</Table.Cell>
                 <Table.Cell>Another Nested Cell</Table.Cell>
                 <Table.Cell>Another Nested Cell</Table.Cell>
               </Table.Row>

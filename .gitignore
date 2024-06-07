@@ -6,3 +6,4 @@ docs
 .storybook/utils/cssprops.generate.ts
 .yarn/cache
 .yarn/install-state.gz
+.DS_Store
