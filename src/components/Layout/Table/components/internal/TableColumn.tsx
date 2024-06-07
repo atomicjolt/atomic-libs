@@ -8,12 +8,12 @@ import {
   SearchComboInput,
   StyledTh,
   ThContent,
-} from "../Table.styles";
+} from "../../Table.styles";
 import classNames from "classnames";
-import MaterialIcon from "../../../Icons/MaterialIcon";
-import IconButton from "../../../Buttons/IconButton";
-import { ExtendedTableState } from "../hooks/useExtendedTableState";
-import { useExtendedTableColumnHeader } from "../hooks/useExtendedTableColumnHeader";
+import MaterialIcon from "../../../../Icons/MaterialIcon";
+import IconButton from "../../../../Buttons/IconButton";
+import { ExtendedTableState } from "../../hooks/useExtendedTableState";
+import { useExtendedTableColumnHeader } from "../../hooks/useExtendedTableColumnHeader";
 import { useFocusRing } from "@/hooks/useFocusRing";
 
 interface TableColumnHeaderProps<T> {

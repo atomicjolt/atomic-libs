@@ -10,14 +10,16 @@
  * governing permissions and limitations under the License.
  */
 
+import React from "react";
 import { CollectionBuilderContext } from "@react-stately/table";
 import { PartialNode } from "@react-stately/collections";
-import React from "react";
 import { RowProps } from "@react-types/table";
 
 function Row<T>(props: RowProps<T>): React.ReactElement {
   return <></>;
 }
+
+Row.displayName = "Table.Row";
 
 Row.getCollectionNode = function* getCollectionNode<T>(
   props: RowProps<T>,
@@ -73,11 +75,12 @@ Row.getCollectionNode = function* getCollectionNode<T>(
           }
         }
       } else {
+        let colSpanCount = 0;
         let cells: PartialNode<T>[] = [];
         let childRows: PartialNode<T>[] = [];
         React.Children.forEach(children, (node) => {
           if (node.type === Row) {
-            if (cells.length < context.columns.length) {
+            if (colSpanCount < context.columns.length) {
               throw new Error(
                 "All of a Row's child Cells must be positioned before any child Rows."
               );
@@ -88,6 +91,7 @@ Row.getCollectionNode = function* getCollectionNode<T>(
               element: node,
             });
           } else {
+            colSpanCount += node.props.colSpan || 1;
             cells.push({
               type: "cell",
               element: node,
@@ -95,11 +99,11 @@ Row.getCollectionNode = function* getCollectionNode<T>(
           }
         });
 
-        // if (cells.length !== context.columns.length) {
-        //   throw new Error(
-        //     `Cell count must match column count. Found ${cells.length} cells and ${context.columns.length} columns.`
-        //   );
-        // }
+        if (colSpanCount !== context.columns.length) {
+          throw new Error(
+            `Cells must span all columns. Cells currently span ${colSpanCount} out of ${context.columns.length} columns.`
+          );
+        }
 
         yield* cells;
         yield* childRows;

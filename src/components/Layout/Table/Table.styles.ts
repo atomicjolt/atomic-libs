@@ -171,6 +171,7 @@ export const StyledTd = styled.td`
   height: 48px;
   vertical-align: middle;
   padding: var(--table-padding-vert) var(--table-padding-horz);
+  outline: none;
 `;
 
 export const RowHeader = styled.th`
@@ -195,12 +196,12 @@ export const StyledRow = styled.tr`
   background-color: var(--table-bg-clr);
 
   &.is-selected {
-    --table-bg-clr: var(--neutral300);
+    /* --table-bg-clr: var(--neutral300); */
   }
 
   &:focus-within,
   &.is-focused {
-    --table-bg-clr: var(--neutral200);
+    /* --table-bg-clr: var(--neutral200); */
   }
 `;
 

@@ -1,16 +1,6 @@
 import React, { useState } from "react";
 import { SearchDescriptor, Table } from "../elements";
 import { SortDescriptor } from "react-stately";
-import {
-  Cell,
-  Column,
-  Provider,
-  Row,
-  TableBody,
-  TableHeader,
-  TableView,
-  defaultTheme,
-} from "@adobe/react-spectrum";
 
 export default function Tables() {
   const [sortDescriptor, setSortDescriptor] = useState<SortDescriptor>({
@@ -112,7 +102,6 @@ export default function Tables() {
           {(pokemon) => (
             <Table.Row key={pokemon.name}>
               <Table.Cell colSpan={2}>{pokemon.name}</Table.Cell>
-              {/* <Table.Cell></Table.Cell> */}
               <Table.Cell>{pokemon.type}</Table.Cell>
               <Table.Cell>{pokemon.level}</Table.Cell>
             </Table.Row>
