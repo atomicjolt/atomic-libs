@@ -15,7 +15,7 @@ import useForwardedRef from "../../../hooks/useForwardedRef";
 import SearchInput from "../../Inputs/SearchInput";
 import MaterialIcon from "../../Icons/MaterialIcon";
 import { Label } from "../../Fields";
-import { Divider } from "@/components";
+import { Divider } from "@/components/Layout/Divider";
 import { List, ListItem, SectionTitle, SubList } from "./ListBox.styles";
 
 export type ListBoxProps<T> = AriaListBoxProps<T> &
