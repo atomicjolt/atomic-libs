@@ -2,9 +2,13 @@ import {
   TableBody as StatelyTableBody,
   TableBodyProps as StatelyTableBodyProps,
 } from "react-stately";
+import { Argument } from "classnames";
 import { cloneComponent } from "@/clone";
 
-export interface TableBodyProps<T> extends StatelyTableBodyProps<T> {}
+export interface TableBodyProps<T> extends StatelyTableBodyProps<T> {
+  className?: Argument | Argument[];
+  id?: string;
+}
 
 /** A `Table.Body` is a container for the `Table.Row` elements in a Table.
  * Rows can be statically defined as children, or generated dynamically

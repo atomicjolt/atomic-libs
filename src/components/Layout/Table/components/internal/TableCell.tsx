@@ -16,7 +16,7 @@ export function TableCell<T>(props: TableCellProps<T>) {
 
   const ref = useRef(null);
   const { gridCellProps } = useTableCell({ node: cell }, state, ref);
-  const { focusProps } = useFocusRing();
+  const { focusProps, isFocusVisible } = useFocusRing();
 
   const showDivider =
     cell.props.showDivider ?? cell.column?.props?.showDivider ?? false;
@@ -27,6 +27,7 @@ export function TableCell<T>(props: TableCellProps<T>) {
     style: cell.props.style,
     selectors: {
       "data-divider": showDivider,
+      "data-focused": isFocusVisible,
     },
   });
 

@@ -52,12 +52,6 @@ export const StyledTh = styled.th`
         visibility: visible;
       }
     }
-
-    &:focus-visible {
-      background-color: var(--neutral100);
-      outline: 2px solid var(--neutral600);
-      outline-offset: -2px;
-    }
   }
 
   &[data-draggable]:hover {
@@ -87,7 +81,10 @@ export const StyledTd = styled.td`
   height: 48px;
   vertical-align: middle;
   padding: var(--table-padding-vert) var(--table-padding-horz);
-  outline: none;
+
+  &[data-focus-visible] {
+    // Styles when a cell is focused
+  }
 
   ${ShowVerticalDividerMixin}
 `;
@@ -114,6 +111,12 @@ export const StyledTBody = styled.tbody``;
 
 export const StyledRow = styled.tr`
   background-color: var(--table-bg-clr);
+
+  &[data-selected] {
+  }
+
+  &[data-focus-visible] {
+  }
 `;
 
 export const SearchComboInput = styled(ComboInput)`

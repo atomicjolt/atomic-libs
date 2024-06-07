@@ -7,6 +7,7 @@ import { StyledTh, StyledThead } from "../../Table.styles";
 import { TableSelectAllCell } from "./TableCheckbox";
 import { TableColumn } from "./TableColumn";
 import { ExtendedTableState } from "../../hooks/useExtendedTableState";
+import { useRenderProps } from "@/hooks/useRenderProps";
 
 interface TableHeaderRowProps<T> extends HasChildren {
   item: Node<T>;
@@ -18,8 +19,13 @@ export function TableHeaderRow<T>(props: TableHeaderRowProps<T>) {
   const ref = useRef(null);
   const { rowProps } = useTableHeaderRow({ node: item }, state, ref);
 
+  const renderProps = useRenderProps({
+    componentClassName: "aje-table-header",
+    ...item.props,
+  });
+
   return (
-    <tr {...rowProps} ref={ref}>
+    <tr {...rowProps} {...renderProps} ref={ref}>
       {children}
     </tr>
   );
@@ -36,7 +42,9 @@ export function TableHeader<T extends object>(props: TableHeaderProps<T>) {
   return (
     <TableRowGroup type={StyledThead}>
       {collection.headerRows.map((headerRow) => {
-        const columns = [...headerRow.childNodes];
+        const columns = [...collection.getChildren!(headerRow.key)];
+
+        console.log(collection.headerRows, headerRow);
 
         return (
           <TableHeaderRow key={headerRow.key} item={headerRow} state={state}>

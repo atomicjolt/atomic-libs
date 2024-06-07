@@ -91,6 +91,8 @@ export function TableColumn<T extends object>(props: TableColumnProps<T>) {
       "data-sortable": allowsSorting,
       "data-draggable": allowsReordering,
       "data-has-children": column.hasChildNodes,
+      "data-searchable": allowsSearching,
+      "data-searching": isSearching,
     },
   });
 
@@ -147,22 +149,24 @@ const ColumnSearch = forwardRef(function ColumnSearch<T>(
       <SearchComboInput aria-expanded={isSearching}>
         <SearchInput
           aria-label={`Search ${title || column.key}`}
-          value={state.searchDescriptor?.search}
+          value={state.search.text}
           onFocus={() => state.setKeyboardNavigationDisabled?.(true)}
           onBlur={() => state.setKeyboardNavigationDisabled?.(false)}
           onChange={(e: ChangeEvent<HTMLInputElement>) => {
-            state.onSearchChange?.({
-              column: column.key,
-              search: e.target.value,
-            });
+            state.search.set(column.key, e.target.value);
           }}
-          // Table listens for keydown events for things
-          // like flipping to sorting when pressing the spacebar
-          // so we need to stop propagation to prevent that
-          // when the input is focused
           onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) =>
+            // Table listens for keydown events for things
+            // like flipping to sorting when pressing the spacebar
+            // so we need to stop propagation to prevent that
+            // when the input is focused
             e.stopPropagation()
           }
+          onKeyUp={(e) => {
+            if (e.key === "Escape") {
+              state.search.clear();
+            }
+          }}
           ref={ref}
           // Stops react-aria from focusing the input
           // when clicking on the column header
@@ -173,10 +177,7 @@ const ColumnSearch = forwardRef(function ColumnSearch<T>(
           variant="content"
           size="small"
           onPress={() => {
-            state.onSearchChange?.({
-              column: null,
-              search: "",
-            });
+            state.search.clear();
           }}
         />
       </SearchComboInput>
@@ -187,10 +188,7 @@ const ColumnSearch = forwardRef(function ColumnSearch<T>(
           variant="content"
           size="small"
           onPress={() => {
-            state.onSearchChange?.({
-              column: column.key,
-              search: "",
-            });
+            state.search.set(column.key, "");
 
             // Focus the input after the search icon is clicked
             // We have to do this in a timeout because the input

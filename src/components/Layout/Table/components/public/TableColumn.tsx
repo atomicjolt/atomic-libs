@@ -1,4 +1,5 @@
 import { cloneComponent } from "@/clone";
+import { Argument } from "classnames";
 import { Column, ColumnProps } from "react-stately";
 
 export interface TableColumnProps<T> extends Omit<ColumnProps<T>, "children"> {
@@ -13,6 +14,10 @@ export interface TableColumnProps<T> extends Omit<ColumnProps<T>, "children"> {
 
   /** Whether to show a divider between this column and the next */
   showDivider?: boolean;
+
+  className?: Argument | Argument[];
+
+  id?: string;
 }
 
 /** A `Table.Column` represents a single column in a Table.

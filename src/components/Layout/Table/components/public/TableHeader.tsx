@@ -12,11 +12,17 @@
 
 // Modified from: https://github.com/adobe/react-spectrum/blob/main/packages/%40react-stately/table/src/TableHeader.ts
 
-import { CollectionBuilderContext } from "@react-stately/table";
-import { PartialNode } from "@react-stately/collections";
 import React, { JSX, ReactElement } from "react";
-import { TableHeaderProps } from "@react-types/table";
+import { PartialNode } from "@react-stately/collections";
+import { TableHeaderProps as StatelyTableHeaderProps } from "@react-types/table";
+import { Argument } from "classnames";
 import { TableCollectionBuilderContext } from "../../Table.types";
+
+export interface TableHeaderProps<T> extends StatelyTableHeaderProps<T> {
+  className?: Argument | Argument[];
+
+  id?: string;
+}
 
 function TableHeader<T>(props: TableHeaderProps<T>): ReactElement {
   return <></>;

@@ -23,10 +23,9 @@ export function useExtendedTableColumnHeader<T>(
 
   const column = props.node;
 
-  const allowsSearching = state.searchDescriptor?.column === column.key;
+  const allowsSearching = state.search.column === column.key;
 
-  const isSearching =
-    state.searchDescriptor?.column === column.key && allowsSearching;
+  const isSearching = state.search.column === column.key && allowsSearching;
 
   if (isSearching) {
     const headerProps = tableColumnHeader.columnHeaderProps;

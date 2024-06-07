@@ -1,6 +1,13 @@
 import { CollectionBuilderContext } from "@react-stately/table";
 import { Key, SearchDescriptor, SuggestStrings } from "../../../types";
 
+export interface SearchState {
+  column: Key | null;
+  text: string;
+  clear: () => void;
+  set: (column: Key | null, text: string) => void;
+}
+
 export interface Searchable {
   /** Object representing the current search state of the table */
   searchDescriptor?: SearchDescriptor;

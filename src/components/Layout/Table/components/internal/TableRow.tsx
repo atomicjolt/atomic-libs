@@ -17,19 +17,22 @@ export function TableRow<T>(props: TableRowProps<T>) {
   const ref = useRef(null);
   const isSelected = state.selectionManager.isSelected(item.key);
   const { rowProps } = useTableRow({ node: item }, state, ref);
-  const { isFocusVisible, focusProps } = useFocusRing();
+  const { focusProps } = useFocusRing();
 
   const renderProps = useRenderProps({
     componentClassName: "aje-table-row",
     className: item.props.className,
     selectors: {
       "data-selected": isSelected,
-      "data-focused": isFocusVisible,
     },
   });
 
   return (
-    <StyledRow {...mergeProps(rowProps, focusProps, renderProps)} ref={ref}>
+    <StyledRow
+      {...mergeProps(rowProps, focusProps, renderProps)}
+      ref={ref}
+      id={item.props.id}
+    >
       {children}
     </StyledRow>
   );

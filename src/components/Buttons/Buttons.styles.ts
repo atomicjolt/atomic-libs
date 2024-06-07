@@ -105,7 +105,6 @@ export const BaseStyledButton = styled.button`
     --btn-padding-horiz: 0px;
     --btn-padding-vert: 0px;
     --btn-height: auto;
-    outline: none;
   }
 
   &.aje-btn--border {

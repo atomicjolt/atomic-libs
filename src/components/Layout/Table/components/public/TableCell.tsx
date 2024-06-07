@@ -1,4 +1,5 @@
 import { cloneComponent } from "@/clone";
+import { Argument } from "classnames";
 import { Cell } from "react-stately";
 
 export interface TableCellProps {
@@ -13,6 +14,13 @@ export interface TableCellProps {
 
   /** Whether to show a divider between this cell and the next cell */
   showDivider?: boolean;
+
+  /** Callback when a user clicks on or otherwise interacts with the cell */
+  onAction?: () => void;
+
+  className?: Argument | Argument[];
+
+  id?: string;
 }
 
 /** A `Table.Cell` represents a single cell in a Table. */

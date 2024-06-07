@@ -8,6 +8,7 @@ import { TableCell } from "./TableCell";
 import { TableCheckboxCell } from "./TableCheckbox";
 import { IconButton } from "@/components/Buttons/IconButton";
 import { ExtendedTableState } from "../../hooks/useExtendedTableState";
+import { useRenderProps } from "@/hooks/useRenderProps";
 
 interface TableBodyProps<T> extends Expandable {
   state: ExtendedTableState<T>;
@@ -24,8 +25,13 @@ export function TableBody<T extends object>(props: TableBodyProps<T>) {
     collection,
   });
 
+  const renderProps = useRenderProps({
+    componentClassName: "aje-table-body",
+    ...collection.body.props,
+  });
+
   return (
-    <TableRowGroup type={StyledTBody} ref={ref}>
+    <TableRowGroup type={StyledTBody} ref={ref} {...renderProps}>
       {childNodes.map((row) => (
         <TableBodyRow
           key={row.key}

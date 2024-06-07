@@ -4,7 +4,7 @@ import { SortDirection, useCollection } from "react-stately";
 import { TableCollection as ITableCollection } from "@react-types/table";
 import { TableCollection } from "@react-stately/table";
 import { useGridState } from "@react-stately/grid";
-import { ColumnReorder, Searchable } from "../Table.types";
+import { ColumnReorder, SearchState, Searchable } from "../Table.types";
 import { Key } from "@/types";
 
 // Modified from: https://github.com/adobe/react-spectrum/blob/main/packages/%40react-stately/table/src/useTableState.ts
@@ -19,25 +19,35 @@ export interface ExtendedTableStateProps<T extends object>
     Searchable,
     ColumnReorder {
   isExpandable?: boolean;
+  keyboardNavigationDisabled?: boolean;
 }
 
-export interface ExtendedTableState<T>
-  extends TableState<T>,
-    Searchable,
-    ColumnReorder {}
+export interface ExtendedTableState<T> extends TableState<T>, ColumnReorder {
+  search: SearchState;
+}
 
 export function useExtendedTableState<T extends object>(
   props: ExtendedTableStateProps<T>
 ): ExtendedTableState<T> {
-  const [isKeyboardNavigationDisabled, setKeyboardNavigationDisabled] =
-    useState(false);
-
   const {
     isExpandable = false,
     selectionMode = "none",
     showSelectionCheckboxes = false,
     showDragButtons,
+    keyboardNavigationDisabled = false,
   } = props;
+
+  const [isKeyboardNavigationDisabled, _setKeyboardNavigationDisabled] =
+    useState(keyboardNavigationDisabled);
+
+  const setKeyboardNavigationDisabled = useCallback(
+    (isDisabled: boolean) => {
+      if (!keyboardNavigationDisabled) {
+        _setKeyboardNavigationDisabled(isDisabled);
+      }
+    },
+    [keyboardNavigationDisabled]
+  );
 
   const context = useMemo(
     () => ({
@@ -100,8 +110,12 @@ export function useExtendedTableState<T extends object>(
 
   return {
     collection,
-    searchDescriptor,
-    onSearchChange,
+    search: {
+      column: searchDescriptor?.column ?? null,
+      text: searchDescriptor?.search ?? "",
+      clear: () => onSearchChange?.({ column: null, search: "" }),
+      set: (column, text) => onSearchChange?.({ column, search: text }),
+    },
     reorderColumns,
     disabledKeys,
     selectionManager,

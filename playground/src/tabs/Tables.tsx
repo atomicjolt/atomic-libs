@@ -66,46 +66,32 @@ export default function Tables() {
         onSortChange={setSortDescriptor}
         searchDescriptor={searchDescriptor}
         onSearchChange={setSearchDescriptor}
-        isExpandable
-        defaultExpandedKeys={["Charizard"]}
       >
         <Table.Header>
-          <Table.Column
-            key="name"
-            allowsSorting
-            allowsSearching
-            allowsReordering
-            showDivider
-          >
+          <Table.Column key="name" allowsSorting showDivider>
             Name
           </Table.Column>
           <Table.Column title="Title">
-            <Table.Column
-              key="type"
-              allowsSorting
-              allowsReordering
-              width={200}
-              allowsSearching
-            >
+            <Table.Column key="type" allowsSorting width={200} allowsSearching>
               Type
             </Table.Column>
-            <Table.Column key="level" allowsReordering width={100}>
+            <Table.Column key="level" width={100}>
               Level
             </Table.Column>
           </Table.Column>
         </Table.Header>
-        <Table.Body items={sortedPokemons}>
+        <Table.Body items={sortedPokemons} className="string">
           {(pokemon) => (
-            <Table.Row key={pokemon.name}>
-              <Table.Cell>{pokemon.name}</Table.Cell>
+            <Table.Row key={pokemon.name} className="test">
+              <Table.Cell className="test">{pokemon.name}</Table.Cell>
               <Table.Cell>{pokemon.type}</Table.Cell>
               <Table.Cell>{pokemon.level}</Table.Cell>
 
-              <Table.Row>
+              {/* <Table.Row>
                 <Table.Cell>Nested Row for {pokemon.name}</Table.Cell>
                 <Table.Cell>Another Nested Cell</Table.Cell>
                 <Table.Cell>Another Nested Cell</Table.Cell>
-              </Table.Row>
+              </Table.Row> */}
             </Table.Row>
           )}
         </Table.Body>
