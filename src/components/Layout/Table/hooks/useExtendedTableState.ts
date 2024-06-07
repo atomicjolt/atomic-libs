@@ -5,7 +5,7 @@ import { TableCollection as ITableCollection } from "@react-types/table";
 import { TableCollection } from "@react-stately/table";
 import { useGridState } from "@react-stately/grid";
 import { ColumnReorder, SearchState, Searchable } from "../Table.types";
-import { Key } from "@/types";
+import { Key } from "../../../../types";
 
 // Modified from: https://github.com/adobe/react-spectrum/blob/main/packages/%40react-stately/table/src/useTableState.ts
 

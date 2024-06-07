@@ -14,19 +14,18 @@ import React from "react";
 import { PartialNode } from "@react-stately/collections";
 import { RowProps as AriaRowProps } from "@react-types/table";
 import { TableCollectionBuilderContext } from "../../Table.types";
-import { BaseProps, DomProps, HasClassName } from "@/types";
+import { BaseProps } from "../../../../../types";
 import { Argument } from "classnames";
 
 // Modified from: https://github.com/adobe/react-spectrum/blob/main/packages/%40react-stately/table/src/Row.ts
 
-export interface RowProps<T> extends Omit<AriaRowProps<T>, "children"> {
+export interface RowProps<T>
+  extends Omit<AriaRowProps<T>, "children">,
+    BaseProps {
   "aria-label"?: string;
   /** Callback when a user clicks on or otherwise interacts with the cell */
   onAction?: () => void;
   children: any;
-
-  className?: Argument | Argument[];
-  id?: string;
 }
 
 function Row<T>(props: RowProps<T>): React.ReactElement {

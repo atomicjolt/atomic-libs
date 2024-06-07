@@ -1,4 +1,3 @@
-import { HasChildren } from "@/types";
 import React from "react";
 import { useTableRowGroup } from "react-aria";
 

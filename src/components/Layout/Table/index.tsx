@@ -10,7 +10,7 @@ import {
 } from "@react-types/shared";
 
 import { StyledTable } from "./Table.styles";
-import { BaseProps } from "@/types";
+import { BaseProps } from "../../../types";
 import { useExtendedTableState } from "./hooks/useExtendedTableState";
 import { ColumnReorder, Searchable, TableVariants } from "./Table.types";
 

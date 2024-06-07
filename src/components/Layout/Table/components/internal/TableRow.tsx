@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { mergeProps, useTableRow } from "react-aria";
 import classNames from "classnames";
 import { useFocusRing } from "@/hooks/useFocusRing";
-import { HasChildren } from "@/types";
+import { HasChildren } from "../../../../../types";
 import { Node, TableState } from "react-stately";
 import { StyledRow } from "../../Table.styles";
 import { useRenderProps } from "@/hooks/useRenderProps";

@@ -1,7 +1,7 @@
-import { HasChildren } from "@/types";
 import { useRef } from "react";
 import { useTableHeaderRow } from "react-aria";
 import { Node, TableState } from "react-stately";
+import { HasChildren } from "../../../../../types";
 import { TableRowGroup } from "./TableRowGroup";
 import { StyledTh, StyledThead } from "../../Table.styles";
 import { TableSelectAllCell } from "./TableCheckbox";
