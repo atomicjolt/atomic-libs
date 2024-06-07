@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import Table from ".";
-import { SearchDescriptor } from "../../../types";
+import { Key, SearchDescriptor } from "../../../types";
 import { getCssProps } from "@sb/cssprops";
 
 const meta: Meta<typeof Table> = {
   title: "Layouts/Table",
   component: Table,
+  tags: ["!autodocs"],
   parameters: {
     cssprops: getCssProps("Table"),
   },
@@ -188,7 +189,7 @@ export const SortableHeaders: Story = {
 
 export const WithColumnReordering: Story = {
   render: (args) => {
-    const [columnOrder, setColumnOrder] = useState<React.Key[]>([
+    const [columnOrder, setColumnOrder] = useState<Key[]>([
       "name",
       "type",
       "level",

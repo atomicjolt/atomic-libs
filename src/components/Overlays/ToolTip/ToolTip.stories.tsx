@@ -15,6 +15,7 @@ import { getCssProps } from "@sb/cssprops";
 const meta: Meta<ToolTipProps & ToolTipTriggerProps> = {
   title: "Overlays/ToolTip",
   component: ToolTip,
+  tags: ["!autodocs"],
   parameters: {
     layout: "centered",
     cssprops: getCssProps("ToolTip"),

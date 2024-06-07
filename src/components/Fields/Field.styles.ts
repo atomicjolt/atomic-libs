@@ -5,4 +5,8 @@ import { FieldWrapper } from "../Internal/FieldWrapper";
 export const StyledField = styled(FieldWrapper)`
   ${mixins.SizingX}
   ${mixins.FieldStatus}
+
+  & input {
+    width: 100%;
+  }
 `;

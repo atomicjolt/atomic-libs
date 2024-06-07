@@ -1,0 +1,74 @@
+import classNames, { Argument } from "classnames";
+import { useMemo } from "react";
+import { ExtendedSize } from "..";
+
+interface UseRenderPropsOptions<T extends {}> {
+  readonly componentClassName: Argument;
+  readonly className?: Argument | Argument[];
+  readonly style?: React.CSSProperties;
+  readonly children?: React.ReactNode | ((props: T) => React.ReactNode);
+  readonly defaultChildren?: React.ReactNode;
+  readonly values?: T;
+  readonly size?: ExtendedSize;
+  readonly variant?: string;
+  readonly selectors?: Record<string, boolean | undefined | null>;
+}
+
+export function useRenderProps<T extends {}>(
+  options: UseRenderPropsOptions<T>
+) {
+  const {
+    componentClassName,
+    className,
+    style,
+    children,
+    defaultChildren,
+    size,
+    values = {},
+    variant,
+    selectors,
+  } = options;
+
+  return useMemo(() => {
+    const actualClassName = classNames(componentClassName, className, {
+      [`${componentClassName}--${variant}`]: variant,
+      [`is-${size}`]: size,
+    });
+
+    let actualChildren = children;
+
+    if (typeof children === "function") {
+      actualChildren = children(values as T);
+    } else if (children === undefined) {
+      actualChildren = defaultChildren;
+    }
+
+    const actualSelectors = Object.entries(selectors || {}).reduce(
+      (acc, [key, value]) => {
+        if (value) {
+          acc[key] = "true";
+        }
+
+        return acc;
+      },
+      {} as Record<string, string>
+    );
+
+    return {
+      className: actualClassName,
+      children: actualChildren,
+      style,
+      ...actualSelectors,
+    };
+  }, [
+    componentClassName,
+    className,
+    style,
+    children,
+    size,
+    defaultChildren,
+    values,
+    variant,
+    selectors,
+  ]);
+}

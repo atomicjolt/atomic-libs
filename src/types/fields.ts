@@ -18,18 +18,26 @@ export interface HelpTextProps {
 
 /** Props that indicate that status that a field is in */
 export interface FieldStatusProps {
-  /** Field cannot be interacted with, should be de-emphasized in the UI */
+  /** Field cannot be interacted with, should be de-emphasized in the UI
+   * @selector [data-disabled]
+   */
   readonly isDisabled?: boolean;
-  /** Field cannot be modified. Should be made to not look like a editable field */
+  /** Field cannot be modified. Should be made to not look like a editable field
+   * @selector [data-readonly]
+   */
   readonly isReadOnly?: boolean;
-  /** Field must be interacted with. Should be indicated in the UI */
+  /** Field must be interacted with. Should be indicated in the UI
+   * @selector [data-required]
+   */
   readonly isRequired?: boolean;
   /** Field has an error. Should be made to look like an error.
-   * Controls whether the value of `error` is displayed */
+   * Controls whether the value of `error` is displayed
+   * @selector [data-invalid]
+   * */
   readonly isInvalid?: boolean;
 }
 
-export interface DomProps {
+export interface FieldDomProps {
   /** Name of the Field */
   name?: string;
 }
@@ -39,4 +47,4 @@ export interface FieldInputProps
   extends BaseProps,
     HelpTextProps,
     FieldStatusProps,
-    DomProps {}
+    FieldDomProps {}

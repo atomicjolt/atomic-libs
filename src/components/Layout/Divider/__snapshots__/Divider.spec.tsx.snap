@@ -1,0 +1,21 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Divider > renders correctly horizontally 1`] = `
+<DocumentFragment>
+  <div
+    aria-orientation="horizontal"
+    class="sc-aYaIB bTFOAr aje-divider"
+    role="separator"
+  />
+</DocumentFragment>
+`;
+
+exports[`Divider > renders correctly vertically 1`] = `
+<DocumentFragment>
+  <div
+    aria-orientation="vertical"
+    class="sc-aYaIB bTFOAr aje-divider"
+    role="separator"
+  />
+</DocumentFragment>
+`;

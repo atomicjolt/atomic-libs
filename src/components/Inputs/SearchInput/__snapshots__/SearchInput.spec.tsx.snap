@@ -3,33 +3,33 @@
 exports[`matches snapshot > displays with search button 1`] = `
 <DocumentFragment>
   <div
-    class="sc-dItHI fUOhmQ aje-input__search is-medium"
+    class="sc-cwHqhk iViyj aje-input__search is-medium"
   >
     <label
-      class="sc-fujznN hocOQc is-auto"
+      class="sc-imWZod gWbIwJ is-auto"
       for="react-aria-:r5:"
       id="react-aria-:r6:"
     >
       search
     </label>
     <div
-      class="sc-iqAbyq dBRVrH aje-combo-input padding-left padding-right"
+      class="sc-dAlxHm glWJKs aje-combo-input padding-left padding-right"
     >
       <input
         aria-labelledby="react-aria-:r6:"
-        class="sc-kEqXeH cfkQfz"
+        class="sc-kpDprT haMdrk"
         id="react-aria-:r5:"
         type="search"
         value=""
       />
       <button
-        class="sc-gKAaef sc-iCoHzw bcVLIb kJUKHc aje-btn aje-btn--icon aje-btn--content"
+        class="sc-gsFSjX sc-kAycRU jyEbEn kRWXiH aje-btn aje-btn--icon aje-btn--content"
         data-focus-visible="false"
         type="button"
       >
         <i
           aria-hidden="true"
-          class="sc-jSFipO eeJbpe material-icons is-medium"
+          class="sc-iGgVNO kmewPZ material-icons is-medium"
         >
           search
         </i>
@@ -42,33 +42,33 @@ exports[`matches snapshot > displays with search button 1`] = `
 exports[`matches snapshot > displays without button 1`] = `
 <DocumentFragment>
   <div
-    class="sc-dItHI fUOhmQ aje-input__search is-medium"
+    class="sc-cwHqhk iViyj aje-input__search is-medium"
   >
     <label
-      class="sc-fujznN hocOQc is-auto"
+      class="sc-imWZod gWbIwJ is-auto"
       for="react-aria-:r0:"
       id="react-aria-:r1:"
     >
       search
     </label>
     <div
-      class="sc-iqAbyq dBRVrH aje-combo-input padding-left padding-right"
+      class="sc-dAlxHm glWJKs aje-combo-input padding-left padding-right"
     >
       <input
         aria-labelledby="react-aria-:r1:"
-        class="sc-kEqXeH cfkQfz"
+        class="sc-kpDprT haMdrk"
         id="react-aria-:r0:"
         type="search"
         value=""
       />
       <button
-        class="sc-gKAaef sc-iCoHzw bcVLIb kJUKHc aje-btn aje-btn--icon aje-btn--content"
+        class="sc-gsFSjX sc-kAycRU jyEbEn kRWXiH aje-btn aje-btn--icon aje-btn--content"
         data-focus-visible="false"
         type="button"
       >
         <i
           aria-hidden="true"
-          class="sc-jSFipO eeJbpe material-icons is-medium"
+          class="sc-iGgVNO kmewPZ material-icons is-medium"
         >
           search
         </i>

@@ -1,0 +1,15 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Chip > matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-jXbVAB emyrkB aje-chip aje-chip--default"
+  >
+    <div
+      class="sc-imWZod ktSdlT"
+    >
+      Item
+    </div>
+  </div>
+</DocumentFragment>
+`;

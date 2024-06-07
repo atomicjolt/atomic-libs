@@ -9,7 +9,7 @@ import {
 } from "@react-types/shared";
 import { StyledTBody, StyledTable, StyledThead } from "./Table.styles";
 import classNames from "classnames";
-import { HasClassName, HasVariant, Key } from "@/types";
+import { HasClassName, HasVariant } from "@/types";
 import { useVariantClass } from "../../../hooks";
 import { useExtendedTableState } from "./hooks/useExtendedTableState";
 import { ColumnReorder, Searchable, TableVariants } from "./Table.types";
@@ -75,11 +75,13 @@ export function Table<T extends object>(props: TableProps<T>) {
 
   const variantClass = useVariantClass("aje-table", variant);
 
+  // TODO: I'm not sure why, but the focus handling seems to be broken
+  // It always focuse the last row in the table for some reason initially
+  // Which is confusing. Disabling it for now.
+  delete gridProps.onFocus;
+
   if (state.searchDescriptor?.column) {
-    // TODO: I'm not sure why, but the focus handling seems to be broken
-    // It always focuse the last row in the table for some reason initially
-    // Which is confusing. Disabling it for now.
-    delete gridProps.onFocus;
+    delete gridProps.onKeyDownCapture;
   }
 
   return (

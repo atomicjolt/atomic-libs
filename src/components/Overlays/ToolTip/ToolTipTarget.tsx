@@ -1,11 +1,5 @@
 import React, { useRef } from "react";
-import type { DOMAttributes } from "@react-types/shared";
-import { FocusableOptions } from "react-aria";
 import { useFocusable } from "@react-aria/focus";
-import { StyledTarget } from "styled-components/dist/types";
-import { HasChildren, HasClassName } from "../../../types";
-import classNames from "classnames";
-import { StyledToolTipTarget } from "./ToolTip.styles";
 
 export type ToolTipTargetProps = {
   children: React.ReactElement;

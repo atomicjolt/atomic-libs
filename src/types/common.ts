@@ -1,4 +1,5 @@
 import { Argument } from "classnames";
+import { Key } from "./aria";
 
 export type Size = "small" | "medium" | "large";
 export type ExtendedSize = Size | "auto" | "full";
@@ -10,17 +11,25 @@ export interface AriaLabelProps {
   readonly "aria-details"?: string;
 }
 
-export interface BaseProps {
+export interface DomProps {
   /** Unique id for the component */
   readonly id?: string;
+}
 
+export interface PresentationProps {
   /** Add classes to the root element of the component.
    * Refer to this for possible values: https://github.com/JedWatson/classnames#readme*/
   readonly className?: Argument[] | Argument;
 
   /** Size of the component */
   readonly size?: ExtendedSize;
+
+  /** Style of the component */
+  // TODO: support this in the future
+  // readonly style?: React.CSSProperties;
 }
+
+export interface BaseProps extends DomProps, PresentationProps {}
 
 /* Props for a component that directly wraps an element */
 export type ElementWrapperProps<WrappedElements> = BaseProps &
@@ -30,13 +39,8 @@ export interface HasChildren {
   children: React.ReactNode;
 }
 
-export type VariantRecord<Variants extends string, ComponentProps> = Record<
-  Variants,
-  React.ComponentType<ComponentProps>
-> & { default: React.ComponentType<ComponentProps> };
-
 export interface HasVariant<Variants> {
-  variant?: Variants;
+  variant?: SuggestStrings<Variants>;
 }
 
 export type CanHaveVariant<Variants> = Partial<HasVariant<Variants>>;
@@ -73,7 +77,7 @@ export interface DirectionProps {
 
 export interface SearchDescriptor {
   /** Column that is currently being searched on */
-  column: React.Key | null;
+  column: Key | null;
   /** Search string */
   search: string;
 }

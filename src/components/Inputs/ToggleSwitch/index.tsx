@@ -4,7 +4,12 @@ import { useToggleState } from "react-stately";
 import type { ToggleProps } from "@react-types/checkbox";
 import type { AriaLabelingProps } from "@react-types/shared";
 import { useSwitch, VisuallyHidden } from "react-aria";
-import { AriaProps, BaseProps, DomProps, HasChildren } from "../../../types";
+import {
+  AriaProps,
+  BaseProps,
+  FieldDomProps,
+  HasChildren,
+} from "../../../types";
 import {
   ToggleSwitchIcon,
   ToggleSwitchContainer,
@@ -18,7 +23,7 @@ import { useFocusRing } from "../../../hooks/useFocusRing";
 export interface ToggleSwitchProps
   extends AriaProps<ToggleProps>,
     AriaLabelingProps,
-    DomProps,
+    FieldDomProps,
     BaseProps {
   /** The position of the children relative to the switch */
   childrenPosition?: "left" | "right";

@@ -6,8 +6,10 @@ export const List = styled.ul`
   ${scaleAnimation}
   list-style: none;
   border-radius: var(--radius);
-  box-shadow: var(--listbox-shadow);
+  box-shadow: var(--listbox-box-shadow);
   background-color: var(--listbox-bg-clr);
+  max-height: var(--listbox-max-height);
+  overflow-y: auto;
   padding: 8px 0;
   margin: 0;
   z-index: 100;
@@ -25,12 +27,6 @@ export const List = styled.ul`
 export const SubList = styled.ul`
   list-style: none;
   padding: 0px;
-`;
-
-export const SectionSeperator = styled.li`
-  margin: 2px 5px;
-  padding-top: 10px;
-  border-top: var(--border);
 `;
 
 export const SectionTitle = styled.span`
@@ -52,9 +48,9 @@ export const ListItem = styled.li`
   width: 100%;
   gap: 12px;
   padding: 6px 24px 6px 16px;
-  min-height: 36px;
+  min-height: var(--listbox-item-height);
   line-height: 1;
-  font-size: 1.6rem;
+  font-size: var(--listbox-font-size);
   white-space: nowrap;
   margin: 2px 0px;
   background-color: var(--listbox-bg-clr);

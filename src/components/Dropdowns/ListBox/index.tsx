@@ -9,19 +9,14 @@ import {
   useListBoxSection,
   useOption,
 } from "react-aria";
-import {
-  List,
-  ListItem,
-  SectionSeperator,
-  SectionTitle,
-  SubList,
-} from "./ListBox.styles";
-import { BaseProps } from "../../../types";
 import classNames from "classnames";
+import { BaseProps } from "../../../types";
 import useForwardedRef from "../../../hooks/useForwardedRef";
 import SearchInput from "../../Inputs/SearchInput";
 import MaterialIcon from "../../Icons/MaterialIcon";
 import { Label } from "../../Fields";
+import { Divider } from "@/components";
+import { List, ListItem, SectionTitle, SubList } from "./ListBox.styles";
 
 export type ListBoxProps<T> = AriaListBoxProps<T> &
   BaseProps & {
@@ -147,9 +142,7 @@ function ListBoxSection<T>(props: ListBoxSectionProps<T>) {
   // a <ul> with the child items.
   return (
     <>
-      {section.key !== state.collection.getFirstKey() && (
-        <SectionSeperator role="presentation" />
-      )}
+      {section.key !== state.collection.getFirstKey() && <Divider as="li" />}
       <li {...itemProps}>
         {section.rendered && (
           <SectionTitle {...headingProps}>{section.rendered}</SectionTitle>

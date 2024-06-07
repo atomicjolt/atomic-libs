@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 // import "./playground.scss";
 
-import { Item, Tabs } from "./elements";
+import { Item, Key, Tabs } from "./elements";
 import Buttons from "./tabs/Buttons";
 import Modals from "./tabs/Modals";
 import Tables from "./tabs/Tables";
@@ -11,7 +11,7 @@ import Overlays from "./tabs/Overlays";
 import Fields from "./tabs/Fields";
 
 function Playground() {
-  const [currentTab, setCurrentTab] = useState<React.Key>("tables");
+  const [currentTab, setCurrentTab] = useState<Key>("aria");
 
   return (
     <div className="padder" style={{ height: "100%" }}>

@@ -3,7 +3,7 @@
 exports[`matches snapshots > changes variant 1`] = `
 <DocumentFragment>
   <button
-    class="sc-jSFipO sc-gKAaef ejtmmp aje-btn aje-btn--secondary is-auto"
+    class="sc-iGgVNO sc-gsFSjX jevMPK aje-btn aje-btn--secondary is-auto"
     data-focus-visible="false"
     type="button"
   >
@@ -15,15 +15,15 @@ exports[`matches snapshots > changes variant 1`] = `
 exports[`matches snapshots > loading completed state 1`] = `
 <DocumentFragment>
   <button
-    class="sc-jSFipO sc-gKAaef ejtmmp aje-btn aje-btn--primary is-auto is-loading"
+    class="sc-iGgVNO sc-gsFSjX jevMPK aje-btn aje-btn--primary is-auto is-loading"
     data-focus-visible="false"
     type="button"
   >
     <div
-      class="sc-eCAqax gIGjcs aje-spinner is-medium is-centered"
+      class="sc-dcJtft A-dPcg aje-spinner is-medium is-centered"
     >
       <span
-        class="sc-hKFymg qxLuF"
+        class="sc-fqkwJk gxsDBN"
       />
     </div>
     Click Me
@@ -34,20 +34,20 @@ exports[`matches snapshots > loading completed state 1`] = `
 exports[`matches snapshots > loading state 1`] = `
 <DocumentFragment>
   <button
-    class="sc-jSFipO sc-gKAaef ejtmmp aje-btn aje-btn--primary is-auto is-loading"
+    class="sc-iGgVNO sc-gsFSjX jevMPK aje-btn aje-btn--primary is-auto is-loading"
     data-focus-visible="false"
     type="button"
   >
     <div
-      class="sc-eCAqax gIGjcs aje-spinner is-medium is-centered"
+      class="sc-dcJtft A-dPcg aje-spinner is-medium is-centered"
     >
       <svg
-        class="sc-gtsqUy fELEhR circular-loader"
+        class="sc-gEvDqW bLOUJq circular-loader"
         data-testid="spinner-svg"
         viewBox="25 25 50 50"
       >
         <circle
-          class="sc-dlniIP eFniRo loader-path"
+          class="sc-eqUzNf dbYigh loader-path"
           cx="50"
           cy="50"
           fill="none"
@@ -64,7 +64,7 @@ exports[`matches snapshots > loading state 1`] = `
 exports[`matches snapshots > normal display 1`] = `
 <DocumentFragment>
   <button
-    class="sc-jSFipO sc-gKAaef ejtmmp aje-btn aje-btn--primary is-auto"
+    class="sc-iGgVNO sc-gsFSjX jevMPK aje-btn aje-btn--primary is-auto"
     data-focus-visible="false"
     type="button"
   >

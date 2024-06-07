@@ -35,7 +35,7 @@ export function SkeletonLoader(props: SkeletonLoaderProps) {
     gradientRatio = 2,
     duration = 1.2,
     title = "",
-    viewBox: providedViewProx,
+    viewBox,
     width,
     height,
     className,
@@ -53,14 +53,6 @@ export function SkeletonLoader(props: SkeletonLoaderProps) {
 
     return "";
   }, []);
-
-  const viewBox = useMemo(() => {
-    if (providedViewProx) {
-      return providedViewProx;
-    }
-
-    return `0 0 ${width} ${height}`;
-  }, [providedViewProx, width, height]);
 
   const fixedId = useId();
   const idClip = `${fixedId}-diff`;

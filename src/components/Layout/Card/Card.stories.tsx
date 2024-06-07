@@ -63,3 +63,14 @@ export const WithColumns: Story = {
     },
   },
 };
+
+export const WithDivider: Story = {
+  args: {
+    ...Primary.args,
+    children: [
+      <Card.Panel key="panel1">Here is some content within a panel</Card.Panel>,
+      <Card.Divider key="divider" />,
+      <Card.Panel key="panel2">Here is some content within a panel</Card.Panel>,
+    ],
+  },
+};

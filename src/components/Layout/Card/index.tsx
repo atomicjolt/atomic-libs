@@ -1,14 +1,13 @@
-import React from "react";
+import classNames from "classnames";
 import {
-  CardColumns,
   StyledCardPanel,
   CardTitle,
   CardWrapper,
   CardHeader,
-  CardDivider,
 } from "./Card.styles";
 import { BaseProps, ExtendedSize, HasChildren } from "../../../types";
-import classNames from "classnames";
+import { Flex } from "../Flex/Flex";
+import { Divider } from "../Divider";
 
 export interface CardProps extends HasChildren, Omit<BaseProps, "size"> {}
 
@@ -36,6 +35,12 @@ function CardPanel(props: CardPanelProps) {
   );
 }
 
+function CardColumns(props: HasChildren) {
+  const { children } = props;
+
+  return <Flex gap="var(--card-padding)">{children}</Flex>;
+}
+
 Card.Title = CardTitle;
 CardTitle.displayName = "Card.Title";
 Card.Panel = CardPanel;
@@ -44,5 +49,4 @@ Card.Columns = CardColumns;
 CardColumns.displayName = "Card.Columns";
 Card.Header = CardHeader;
 CardHeader.displayName = "Card.Header";
-Card.Divider = CardDivider;
-CardDivider.displayName = "Card.Divider";
+Card.Divider = Divider;

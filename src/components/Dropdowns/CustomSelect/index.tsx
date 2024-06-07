@@ -1,22 +1,15 @@
 import { useRef } from "react";
 import { SelectProps, useSelectState } from "react-stately";
 import { HiddenSelect, useSelect } from "react-aria";
-import classNames from "classnames";
-import {
-  AriaProps,
-  ExtendedSize,
-  FieldInputProps,
-  HasVariant,
-} from "../../../types";
-import { DropdownWrapper } from "../Dropdowns.styles";
-import { useVariantClass } from "../../../hooks";
-import { ButtonText } from "./CustomSelect.styles";
+import { AriaProps, FieldInputProps, HasVariant } from "../../../types";
+import { ButtonText, CustomSelectWrapper } from "./CustomSelect.styles";
 import { FloatingInputWrapper } from "../../Internal/FloatingInputWrapper";
 import { MaterialIcon } from "../../Icons/MaterialIcon";
 import { Popover } from "../../Overlays/Popover";
 import { UnmanagedListBox } from "../ListBox";
 import { OverlayTriggerStateContext } from "../../Overlays/OverlayTrigger/context";
-import { Button } from "@/components/Buttons/Button";
+import { useRenderProps } from "@/hooks/useRenderProps";
+import { DropdownButton } from "../Dropdowns.styles";
 
 export type CustomSelectVariants = "default" | "floating";
 
@@ -24,9 +17,6 @@ export interface CustomSelectProps<T extends object>
   extends AriaProps<SelectProps<T>>,
     FieldInputProps,
     HasVariant<CustomSelectVariants> {
-  /** The size of the menu. Defaults to `auto` */
-  menuSize?: ExtendedSize;
-
   /** Allows the items in the select to be filtered */
   isSearchable?: boolean;
 
@@ -65,20 +55,22 @@ export function CustomSelect<T extends object>(props: CustomSelectProps<T>) {
     variant = "default",
   } = props;
 
-  const menuSize = props.menuSize || size;
-
-  const variantClassName = useVariantClass("aje-dropdown", variant);
+  const renderProps = useRenderProps({
+    componentClassName: "aje-select",
+    className,
+    size,
+    variant,
+    selectors: {
+      "data-invalid": isInvalid,
+      "data-disabled": isDisabled,
+      "data-required": isRequired,
+      "data-readonly": isReadOnly,
+      "data-float": variant === "floating" && !!state.selectedKey,
+    },
+  });
 
   return (
-    <DropdownWrapper
-      className={classNames("aje-dropdown", variantClassName, className)}
-      size={size}
-      isInvalid={isInvalid}
-      isDisabled={isDisabled}
-      isRequired={isRequired}
-      isReadOnly={isReadOnly}
-      data-float={(variant === "floating" && state.selectedKey) || undefined}
-    >
+    <CustomSelectWrapper {...renderProps}>
       <HiddenSelect
         isDisabled={isDisabled}
         state={state}
@@ -97,10 +89,10 @@ export function CustomSelect<T extends object>(props: CustomSelectProps<T>) {
         isInvalid={isInvalid}
         floating={variant === "floating"}
       >
-        <Button
+        <DropdownButton
           {...triggerProps}
-          ref={ref}
           variant="dropdown"
+          ref={ref}
           size={size}
           isDisabled={isDisabled || isReadOnly}
         >
@@ -112,19 +104,18 @@ export function CustomSelect<T extends object>(props: CustomSelectProps<T>) {
                 : ""}
           </ButtonText>
           <MaterialIcon icon="arrow_drop_down" />
-        </Button>
+        </DropdownButton>
       </FloatingInputWrapper>
       <OverlayTriggerStateContext.Provider value={state}>
         <Popover placement="bottom start" triggerRef={ref}>
           <UnmanagedListBox
             {...menuProps}
             state={state}
-            size={menuSize}
             isSearchable={isSearchable}
             searchPlaceholder={searchPlaceholder}
           />
         </Popover>
       </OverlayTriggerStateContext.Provider>
-    </DropdownWrapper>
+    </CustomSelectWrapper>
   );
 }
