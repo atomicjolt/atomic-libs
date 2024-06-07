@@ -3,7 +3,7 @@ import { useTableHeaderRow } from "react-aria";
 import { Node, TableState } from "react-stately";
 import { HasChildren } from "../../../../../types";
 import { TableRowGroup } from "./TableRowGroup";
-import { StyledTh, StyledThead } from "../../Table.styles";
+import { StyledThead } from "../../Table.styles";
 import { TableSelectAllCell } from "./TableCheckbox";
 import { TableColumn } from "./TableColumn";
 import { ExtendedTableState } from "../../hooks/useExtendedTableState";
@@ -43,6 +43,7 @@ export function TableHeader<T extends object>(props: TableHeaderProps<T>) {
     <TableRowGroup type={StyledThead}>
       {collection.headerRows.map((headerRow) => {
         const columns = [...collection.getChildren!(headerRow.key)];
+        let needsExpander = false;
 
         return (
           <TableHeaderRow key={headerRow.key} item={headerRow} state={state}>
@@ -56,10 +57,23 @@ export function TableHeader<T extends object>(props: TableHeaderProps<T>) {
                   />
                 );
               } else if (column?.props?.isExpanderCell) {
-                return <StyledTh key={column.key} style={{ width: "48px" }} />;
+                // return <StyledTh key={column.key} style={{ width: "48px" }} />;
+                needsExpander = true;
+                return null;
               } else {
+                let colSpan: number = column.colspan || 1;
+                if (needsExpander) {
+                  needsExpander = false;
+                  colSpan += 1;
+                }
+
                 return (
-                  <TableColumn key={column.key} column={column} state={state} />
+                  <TableColumn
+                    key={column.key}
+                    column={column}
+                    state={state}
+                    colSpan={colSpan}
+                  />
                 );
               }
             })}

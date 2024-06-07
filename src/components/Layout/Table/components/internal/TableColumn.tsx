@@ -1,6 +1,6 @@
 import React, { ChangeEvent, forwardRef, useRef } from "react";
 import { mergeProps, useDrag, useDrop, TextDropItem } from "react-aria";
-import { Node } from "react-stately";
+import { GridNode } from "@react-types/grid";
 import {
   ColumnDragIndicator,
   SearchInput,
@@ -16,9 +16,10 @@ import { useFocusRing } from "@/hooks/useFocusRing";
 import { useRenderProps } from "@/hooks/useRenderProps";
 
 interface TableColumnProps<T> {
-  column: Node<T>;
+  column: GridNode<T>;
   state: ExtendedTableState<T>;
   onDrop?: (columnKey: string) => void;
+  colSpan?: number;
 }
 
 export function TableColumn<T extends object>(props: TableColumnProps<T>) {
@@ -37,8 +38,7 @@ export function TableColumn<T extends object>(props: TableColumnProps<T>) {
     },
   } = column;
 
-  // @ts-ignore
-  const colspan = column.colspan as number;
+  const colspan = props.colSpan ?? column.colspan;
 
   const ref = useRef(null);
   const inputRef = useRef(null);
@@ -131,7 +131,7 @@ export function TableColumn<T extends object>(props: TableColumnProps<T>) {
 }
 
 interface ColumnSearchProps<T> {
-  column: Node<T>;
+  column: GridNode<T>;
   state: ExtendedTableState<T>;
   isSearching?: boolean;
 }

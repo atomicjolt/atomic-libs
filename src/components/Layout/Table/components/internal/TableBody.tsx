@@ -74,7 +74,7 @@ function TableBodyRow<T>(props: TableBodyRowProps<T>) {
             );
           } else if (cell.props.isExpanderCell) {
             return (
-              <StyledTd key={cell.key}>
+              <StyledTd key={cell.key} style={{ width: "48px" }}>
                 {childRows.length > 0 && (
                   <IconButton
                     variant="ghost"
@@ -95,6 +95,8 @@ function TableBodyRow<T>(props: TableBodyRowProps<T>) {
         childRows.map((node) => {
           const children = [...collection.getChildren!(node.key)];
 
+          let needsExpander = children.some((c) => c.props.isExpanderCell);
+
           return (
             <TableRow key={node.key} item={node} state={state}>
               {children.map((cell) => {
@@ -107,9 +109,23 @@ function TableBodyRow<T>(props: TableBodyRowProps<T>) {
                     />
                   );
                 } else if (cell.props.isExpanderCell) {
-                  return <StyledTd key={cell.key} />;
+                  // return <StyledTd key={cell.key} />;
+                  return null;
                 } else if (cell.type === "cell") {
-                  return <TableCell key={cell.key} cell={cell} state={state} />;
+                  let colSpan: number = cell.colspan || 1;
+                  if (needsExpander) {
+                    needsExpander = false;
+                    colSpan += 1;
+                  }
+
+                  return (
+                    <TableCell
+                      key={cell.key}
+                      cell={cell}
+                      state={state}
+                      colSpan={colSpan}
+                    />
+                  );
                 }
               })}
             </TableRow>

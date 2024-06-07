@@ -9,6 +9,7 @@ import { useRenderProps } from "@/hooks/useRenderProps";
 interface TableCellProps<T> {
   cell: GridNode<T>;
   state: TableState<T>;
+  colSpan?: number;
 }
 
 export function TableCell<T>(props: TableCellProps<T>) {
@@ -31,11 +32,13 @@ export function TableCell<T>(props: TableCellProps<T>) {
     },
   });
 
+  const colSpan = props.colSpan ?? cell.colspan;
+
   if (cell?.props?.isRowHeader) {
     return (
       <RowHeader
         {...mergeProps(gridCellProps, focusProps, renderProps, {
-          colSpan: cell.props.colSpan,
+          colSpan: colSpan,
         })}
         ref={ref}
         scope="row"
@@ -48,7 +51,7 @@ export function TableCell<T>(props: TableCellProps<T>) {
   return (
     <StyledTd
       {...mergeProps(gridCellProps, focusProps, renderProps, {
-        colSpan: cell.props.colSpan,
+        colSpan: colSpan,
       })}
       ref={ref}
     >
