@@ -23,8 +23,7 @@ exports[`matches snapshot > displays with search button 1`] = `
         value=""
       />
       <button
-        class="sc-gsFSjX sc-kAycRU jyEbEn kRWXiH aje-btn aje-btn--icon aje-btn--content"
-        data-focus-visible="false"
+        class="sc-gsFSjX sc-kAycRU SavAC kRWXiH aje-btn aje-btn--icon aje-btn--content"
         type="button"
       >
         <i
@@ -62,8 +61,7 @@ exports[`matches snapshot > displays without button 1`] = `
         value=""
       />
       <button
-        class="sc-gsFSjX sc-kAycRU jyEbEn kRWXiH aje-btn aje-btn--icon aje-btn--content"
-        data-focus-visible="false"
+        class="sc-gsFSjX sc-kAycRU SavAC kRWXiH aje-btn aje-btn--icon aje-btn--content"
         type="button"
       >
         <i
