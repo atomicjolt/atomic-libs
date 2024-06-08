@@ -12,20 +12,18 @@
 
 import React from "react";
 import { PartialNode } from "@react-stately/collections";
-import { RowProps as AriaRowProps } from "@react-types/table";
-import { TableCollectionBuilderContext } from "../../Table.types";
+import { RowProps as StatelyRowProps } from "@react-types/table";
 import { BaseProps } from "../../../../../types";
-import { Argument } from "classnames";
 
 // Modified from: https://github.com/adobe/react-spectrum/blob/main/packages/%40react-stately/table/src/Row.ts
 
 export interface RowProps<T>
-  extends Omit<AriaRowProps<T>, "children">,
+  extends Omit<StatelyRowProps<T>, "UNSTABLE_childItems">,
     BaseProps {
   "aria-label"?: string;
   /** Callback when a user clicks on or otherwise interacts with the cell */
   onAction?: () => void;
-  children: any;
+  childItems?: StatelyRowProps<T>["UNSTABLE_childItems"];
 }
 
 function Row<T>(props: RowProps<T>): React.ReactElement {
@@ -36,9 +34,9 @@ Row.displayName = "Table.Row";
 
 Row.getCollectionNode = function* getCollectionNode<T>(
   props: RowProps<T>,
-  context: TableCollectionBuilderContext<T>
+  context: any
 ): Generator<PartialNode<T>> {
-  let { children, textValue, UNSTABLE_childItems } = props;
+  let { children, textValue, childItems } = props;
 
   yield {
     type: "item",
@@ -77,8 +75,8 @@ Row.getCollectionNode = function* getCollectionNode<T>(
           };
         }
 
-        if (UNSTABLE_childItems) {
-          for (let child of UNSTABLE_childItems) {
+        if (childItems) {
+          for (let child of childItems) {
             // Note: in order to reuse the render function of TableBody for our child rows, we just need to yield a type and a value here. CollectionBuilder will then look up
             // the parent renderer and use that to build the full node of this child row, using the value provided here to generate the cells
             yield {
@@ -132,11 +130,11 @@ Row.getCollectionNode = function* getCollectionNode<T>(
         yield* childRows;
       }
     },
-    // @ts-expect-error
-    shouldInvalidate(newContext: TableCollectionBuilderContext<T>) {
+    shouldInvalidate(newContext: any) {
       // Invalidate all rows if the columns changed.
       return (
         newContext.columns.length !== context.columns.length ||
+        // @ts-expect-error
         newContext.columns.some((c, i) => c.key !== context.columns[i].key) ||
         newContext.showSelectionCheckboxes !==
           context.showSelectionCheckboxes ||

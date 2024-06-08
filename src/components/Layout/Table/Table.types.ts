@@ -1,5 +1,31 @@
-import { CollectionBuilderContext } from "@react-stately/table";
-import { Key, SearchDescriptor, SuggestStrings } from "../../../types";
+import { AriaTableProps } from "react-aria";
+import {
+  BaseProps,
+  Key,
+  SearchDescriptor,
+  SuggestStrings,
+} from "../../../types";
+
+import {
+  TableBodyProps,
+  TableHeaderProps,
+  TableState as StatelyTableState,
+  TreeGridState as StatelyTreeGridState,
+} from "@react-stately/table";
+import { Expandable } from "@react-types/shared";
+
+import {
+  SelectionBehavior,
+  Sortable,
+  MultipleSelection,
+} from "@react-types/shared";
+
+export interface SearchProps {
+  /** Object representing the current search state of the table */
+  searchDescriptor?: SearchDescriptor;
+  /** Handler called whenever a change is made to the searchDescriptor */
+  onSearchChange?: (descriptor: SearchDescriptor) => void;
+}
 
 export interface SearchState {
   column: Key | null;
@@ -8,23 +34,48 @@ export interface SearchState {
   set: (column: Key | null, text: string) => void;
 }
 
-export interface Searchable {
-  /** Object representing the current search state of the table */
-  searchDescriptor?: SearchDescriptor;
-  /** Handler called whenever a change is made to the searchDescriptor */
-  onSearchChange?: (descriptor: SearchDescriptor) => void;
-}
-
-export interface ColumnReorder {
+export interface ColumnReorderProps {
   /** Handler called whenever a column is reordered */
   onColumnReorder?: (newOrder: Key[]) => void;
 }
 
 export type TableVariants = SuggestStrings<"default" | "grid" | "full-borders">;
 
-export type ChildRowBehavior = "hide" | "nest" | "show";
+export interface TableProps<T>
+  extends Omit<AriaTableProps<T>, "id">,
+    MultipleSelection,
+    Sortable,
+    SearchProps,
+    ColumnReorderProps,
+    BaseProps,
+    Expandable {
+  /** Whether the table allows expandable rows.
+   * When it's `false`, rows cannot have nested rows.
+   */
+  allowsExpandableRows?: boolean;
 
-export interface TableCollectionBuilderContext<T>
-  extends CollectionBuilderContext<T> {
-  showExpandButtons: boolean;
+  variant?: TableVariants;
+
+  /** The selection behavior for the table. */
+  selectionBehavior?: SelectionBehavior;
+
+  children?: [
+    React.ReactElement<TableHeaderProps<T>>,
+    React.ReactElement<TableBodyProps<T>>,
+  ];
+
+  isSticky?: boolean;
 }
+
+export interface TableStateExtensions {
+  search: SearchState;
+  reorderColumns: (droppedKey: Key, nextKey: Key) => void;
+}
+
+export interface TableState<T>
+  extends StatelyTableState<T>,
+    TableStateExtensions {}
+
+export interface TreeGridState<T>
+  extends StatelyTreeGridState<T>,
+    TableStateExtensions {}

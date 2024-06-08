@@ -208,6 +208,7 @@ export const CssVariables = createGlobalStyle`
   --table-padding-horz: 12px;
   --table-sort-icon-clr: var(--text-clr);
   --table-sort-icon-hover-clr: var(--neutral400);
+  --table-nesting-offset: var(--table-padding-horz);
 
   /* # Tab */
   --tab-border-width: 1px;

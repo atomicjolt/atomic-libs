@@ -1,15 +1,18 @@
 import { useRef } from "react";
 import { mergeProps, useTableCell } from "react-aria";
-import { useFocusRing } from "@/hooks/useFocusRing";
-import { TableState } from "react-stately";
 import { GridNode } from "@react-types/grid";
-import { RowHeader, StyledTd } from "../../Table.styles";
+import { useFocusRing } from "@/hooks/useFocusRing";
 import { useRenderProps } from "@/hooks/useRenderProps";
+import { IconButton } from "@/components/Buttons/IconButton";
+import { Flex } from "@/components/Layout/Flex/Flex";
+import { RowHeader, StyledTd } from "../../Table.styles";
+import { TreeGridState, TableState } from "../../Table.types";
+
+const NESTED_OFFSET = 16;
 
 interface TableCellProps<T> {
   cell: GridNode<T>;
-  state: TableState<T>;
-  colSpan?: number;
+  state: TableState<T> | TreeGridState<T>;
 }
 
 export function TableCell<T>(props: TableCellProps<T>) {
@@ -22,6 +25,36 @@ export function TableCell<T>(props: TableCellProps<T>) {
   const showDivider =
     cell.props.showDivider ?? cell.column?.props?.showDivider ?? false;
 
+  const colSpan = cell.colspan ?? cell.props.colSpan;
+
+  const isRowHeaderCell = state.collection.rowHeaderColumnKeys.has(
+    cell?.column?.key!
+  );
+  const isFirstRowHeaderCell =
+    state.collection.rowHeaderColumnKeys.keys().next().value ===
+    cell?.column?.key;
+
+  let showExpandButton = false;
+  let isExpanded = false;
+
+  if ("keyMap" in state) {
+    const parentRow = state.keyMap.get(cell.parentKey!);
+    const isExpandable =
+      parentRow?.props.UNSTABLE_childItems?.length > 0 ||
+      parentRow?.props?.children?.length > state.userColumnCount;
+
+    showExpandButton = isFirstRowHeaderCell && isExpandable;
+
+    isExpanded =
+      state.expandedKeys === "all" || state.expandedKeys.has(cell.parentKey!);
+  }
+
+  const nestedLevel = cell.level - 2;
+
+  const levelOffset = isRowHeaderCell
+    ? `calc(var(--table-padding-horz) + var(--table-nesting-offset) * ${nestedLevel})`
+    : "var(--table-padding-horz)";
+
   const renderProps = useRenderProps({
     componentClassName: "aje-table__cell",
     className: cell.props.className,
@@ -32,30 +65,31 @@ export function TableCell<T>(props: TableCellProps<T>) {
     },
   });
 
-  const colSpan = props.colSpan ?? cell.colspan ?? cell.props.colSpan;
+  const style = isRowHeaderCell ? { paddingLeft: levelOffset } : {};
 
-  if (cell?.props?.isRowHeader) {
-    return (
-      <RowHeader
-        {...mergeProps(gridCellProps, focusProps, renderProps, {
-          colSpan: colSpan,
-        })}
-        ref={ref}
-        scope="row"
-      >
-        {cell.rendered}
-      </RowHeader>
-    );
-  }
+  const cellProps = mergeProps(gridCellProps, focusProps, renderProps, {
+    colSpan: colSpan,
+    style,
+  });
+
+  const Element = isRowHeaderCell ? RowHeader : StyledTd;
 
   return (
-    <StyledTd
-      {...mergeProps(gridCellProps, focusProps, renderProps, {
-        colSpan: colSpan,
-      })}
-      ref={ref}
-    >
-      {cell.rendered}
-    </StyledTd>
+    <Element {...cellProps} ref={ref}>
+      <Flex alignItems="center" gap={NESTED_OFFSET}>
+        {showExpandButton && (
+          <IconButton
+            icon={isExpanded ? "expand_more" : "chevron_right"}
+            variant="content"
+            onPress={() =>
+              (state as TreeGridState<T>).toggleKey(cell.parentKey!)
+            }
+            aria-label="Expand row"
+            className="aje-table__expand-button"
+          />
+        )}
+        <span>{cell.rendered}</span>
+      </Flex>
+    </Element>
   );
 }

@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
-import mixins from "../../../styles/mixins";
-import { ComboInput, Input } from "../../Fields";
+import mixins from "@/styles/mixins";
+import { ComboInput, Input } from "@/components/Fields";
 
 const ShowVerticalDividerMixin = css`
   &[data-divider] {
@@ -64,7 +64,7 @@ export const StyledTh = styled.th`
   }
 `;
 
-export const ColumnDragIndicator = styled.div`
+export const ColumnDropIndicator = styled.div`
   background-color: var(--accent-clr);
   width: 2px;
   height: 48px;

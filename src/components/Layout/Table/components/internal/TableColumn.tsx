@@ -1,25 +1,21 @@
-import React, { ChangeEvent, forwardRef, useRef } from "react";
+import { useRef } from "react";
 import { mergeProps, useDrag, useDrop, TextDropItem } from "react-aria";
 import { GridNode } from "@react-types/grid";
-import {
-  ColumnDragIndicator,
-  SearchInput,
-  SearchComboInput,
-  ThContent,
-  StyledTh,
-} from "../../Table.styles";
-import MaterialIcon from "../../../../Icons/MaterialIcon";
-import IconButton from "../../../../Buttons/IconButton";
-import { ExtendedTableState } from "../../hooks/useExtendedTableState";
-import { useExtendedTableColumnHeader } from "../../hooks/useExtendedTableColumnHeader";
+
 import { useFocusRing } from "@/hooks/useFocusRing";
 import { useRenderProps } from "@/hooks/useRenderProps";
+import { MaterialIcon } from "../../../../Icons/MaterialIcon";
+
+import { ColumnDropIndicator, ThContent, StyledTh } from "../../Table.styles";
+
+import { useExtendedTableColumnHeader } from "../../hooks/useExtendedTableColumnHeader";
+import { TableState, TreeGridState } from "../../Table.types";
+import { ColumnSearch } from "./ColumnSearch";
 
 interface TableColumnProps<T> {
   column: GridNode<T>;
-  state: ExtendedTableState<T>;
+  state: TableState<T> | TreeGridState<T>;
   onDrop?: (columnKey: string) => void;
-  colSpan?: number;
 }
 
 export function TableColumn<T extends object>(props: TableColumnProps<T>) {
@@ -38,7 +34,7 @@ export function TableColumn<T extends object>(props: TableColumnProps<T>) {
     },
   } = column;
 
-  const colspan = props.colSpan ?? column.colspan;
+  const colSpan = column.colspan;
 
   const ref = useRef(null);
   const inputRef = useRef(null);
@@ -63,12 +59,13 @@ export function TableColumn<T extends object>(props: TableColumnProps<T>) {
   const { dropProps, isDropTarget } = useDrop({
     ref,
     async onDrop(e) {
+      console.log("onDrop", e);
       const items = await Promise.all(
         e.items
           .filter(
             (item) => item.kind === "text" && item.types.has("text/plain")
           )
-          // @ts-ignore
+          // @ts-expect-error
           .map((item: TextDropItem) => item.getText("text/plain"))
       );
       const columnKey = items[0];
@@ -98,16 +95,22 @@ export function TableColumn<T extends object>(props: TableColumnProps<T>) {
 
   const headerProps = [columnHeaderProps, focusProps, renderProps];
 
-  if (column.props.allowsReordering) {
+  if (allowsReordering) {
     headerProps.push(dragProps, dropProps);
   }
 
   return (
-    <StyledTh colSpan={colspan} ref={ref} {...mergeProps(...headerProps)}>
+    <StyledTh colSpan={colSpan} ref={ref} {...mergeProps(...headerProps)}>
       <ThContent>
-        <ColumnDragIndicator
-          style={{ visibility: isDropTarget ? "visible" : "hidden" }}
-        />
+        {allowsReordering && (
+          <>
+            <ColumnDropIndicator
+              style={{ visibility: isDropTarget ? "visible" : "hidden" }}
+            />
+            <MaterialIcon icon="drag_indicator" />
+          </>
+        )}
+
         {column.rendered}
         {column.props.allowsSorting &&
           state.sortDescriptor.column === column.key && (
@@ -129,76 +132,3 @@ export function TableColumn<T extends object>(props: TableColumnProps<T>) {
     </StyledTh>
   );
 }
-
-interface ColumnSearchProps<T> {
-  column: GridNode<T>;
-  state: ExtendedTableState<T>;
-  isSearching?: boolean;
-}
-
-const ColumnSearch = forwardRef(function ColumnSearch<T>(
-  props: ColumnSearchProps<T>,
-  ref: React.ForwardedRef<HTMLInputElement> | null
-) {
-  const { column, state, isSearching } = props;
-
-  const { title } = column.props || {};
-
-  return (
-    <>
-      <SearchComboInput aria-expanded={isSearching}>
-        <SearchInput
-          aria-label={`Search ${title || column.key}`}
-          value={state.search.text}
-          onFocus={() => state.setKeyboardNavigationDisabled?.(true)}
-          onBlur={() => state.setKeyboardNavigationDisabled?.(false)}
-          onChange={(e: ChangeEvent<HTMLInputElement>) => {
-            state.search.set(column.key, e.target.value);
-          }}
-          onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) =>
-            // Table listens for keydown events for things
-            // like flipping to sorting when pressing the spacebar
-            // so we need to stop propagation to prevent that
-            // when the input is focused
-            e.stopPropagation()
-          }
-          onKeyUp={(e) => {
-            if (e.key === "Escape") {
-              state.search.clear();
-            }
-          }}
-          ref={ref}
-          // Stops react-aria from focusing the input
-          // when clicking on the column header
-          disabled={!isSearching}
-        />
-        <IconButton
-          icon="close"
-          variant="content"
-          size="small"
-          onPress={() => {
-            state.search.clear();
-          }}
-        />
-      </SearchComboInput>
-
-      {!isSearching && (
-        <IconButton
-          icon="search"
-          variant="content"
-          size="small"
-          onPress={() => {
-            state.search.set(column.key, "");
-
-            // Focus the input after the search icon is clicked
-            // We have to do this in a timeout because the input
-            // is disabled when the search icon is clicked
-
-            // @ts-ignore
-            setTimeout(() => ref?.current?.focus(), 0);
-          }}
-        />
-      )}
-    </>
-  );
-});

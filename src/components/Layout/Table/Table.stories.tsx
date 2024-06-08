@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
-import Table from ".";
+import { Table } from ".";
 import { Key, SearchDescriptor } from "../../../types";
 import { getCssProps } from "@sb/cssprops";
 
@@ -62,22 +62,22 @@ export const Primary: Story = {
       </Table.Header>,
       <Table.Body>
         <Table.Row key="1">
-          <Table.Cell isRowHeader>Charizard</Table.Cell>
+          <Table.Cell>Charizard</Table.Cell>
           <Table.Cell>Fire, Flying</Table.Cell>
           <Table.Cell>67</Table.Cell>
         </Table.Row>
         <Table.Row key="2">
-          <Table.Cell isRowHeader>Blastoise</Table.Cell>
+          <Table.Cell>Blastoise</Table.Cell>
           <Table.Cell>Water</Table.Cell>
           <Table.Cell>56</Table.Cell>
         </Table.Row>
         <Table.Row key="3">
-          <Table.Cell isRowHeader>Venusaur</Table.Cell>
+          <Table.Cell>Venusaur</Table.Cell>
           <Table.Cell>Grass, Poison</Table.Cell>
           <Table.Cell>83</Table.Cell>
         </Table.Row>
         <Table.Row key="4">
-          <Table.Cell isRowHeader>Pikachu</Table.Cell>
+          <Table.Cell>Pikachu</Table.Cell>
           <Table.Cell>Electric</Table.Cell>
           <Table.Cell>100</Table.Cell>
         </Table.Row>
@@ -355,61 +355,69 @@ export const WithNestedRows: Story = {
         </Table.Header>
         <Table.Body>
           <Table.Row key="Fire, Flying">
-            <Table.Cell colSpan={3}>Fire, Flying </Table.Cell>
+            <Table.Cell>Fire, Flying </Table.Cell>
+            <Table.Cell />
+            <Table.Cell />
             <Table.Row>
-              <Table.Cell isRowHeader>Charizard</Table.Cell>
+              <Table.Cell>Charizard</Table.Cell>
               <Table.Cell>Flamethrower</Table.Cell>
               <Table.Cell>67</Table.Cell>
             </Table.Row>
 
             <Table.Row>
-              <Table.Cell isRowHeader>Moltres</Table.Cell>
+              <Table.Cell>Moltres</Table.Cell>
               <Table.Cell>Fire Spin</Table.Cell>
               <Table.Cell>60</Table.Cell>
             </Table.Row>
           </Table.Row>
           <Table.Row key="Water">
-            <Table.Cell colSpan={3}>Water</Table.Cell>
+            <Table.Cell>Water</Table.Cell>
+            <Table.Cell />
+            <Table.Cell />
 
             <Table.Row>
-              <Table.Cell isRowHeader>Blastoise</Table.Cell>
+              <Table.Cell>Blastoise</Table.Cell>
               <Table.Cell>Hydro Pump</Table.Cell>
               <Table.Cell>56</Table.Cell>
             </Table.Row>
 
             <Table.Row>
-              <Table.Cell isRowHeader>Vaporeon</Table.Cell>
+              <Table.Cell>Vaporeon</Table.Cell>
               <Table.Cell>Aqua Tail</Table.Cell>
               <Table.Cell>65</Table.Cell>
             </Table.Row>
           </Table.Row>
           <Table.Row key="Grass, Poison">
-            <Table.Cell colSpan={3}>Grass, Poison</Table.Cell>
+            <Table.Cell>Grass, Poison</Table.Cell>
+            <Table.Cell />
+            <Table.Cell />
 
             <Table.Row>
-              <Table.Cell isRowHeader>Venusaur</Table.Cell>
+              <Table.Cell>Venusaur</Table.Cell>
               <Table.Cell>Solar Beam</Table.Cell>
               <Table.Cell>83</Table.Cell>
             </Table.Row>
 
             <Table.Row>
-              <Table.Cell isRowHeader>Victreebel</Table.Cell>
+              <Table.Cell>Victreebel</Table.Cell>
               <Table.Cell>Leaf Blade</Table.Cell>
               <Table.Cell>70</Table.Cell>
             </Table.Row>
           </Table.Row>
 
           <Table.Row key="Electric">
-            <Table.Cell colSpan={3}>Electric</Table.Cell>
+            <Table.Cell>Electric</Table.Cell>
+            <Table.Cell />
+            <Table.Cell />
 
             <Table.Row>
-              <Table.Cell isRowHeader>Pikachu</Table.Cell>
+              <Table.Cell>Pikachu</Table.Cell>
               <Table.Cell>Thunderbolt</Table.Cell>
               <Table.Cell>100</Table.Cell>
             </Table.Row>
 
             <Table.Row>
-              <Table.Cell isRowHeader>Raichu</Table.Cell>
+              <Table.Cell>Raichu</Table.Cell>
               <Table.Cell>Thunder Punch</Table.Cell>
               <Table.Cell>90</Table.Cell>
             </Table.Row>
@@ -438,7 +446,7 @@ export const WithNestedRows: Story = {
   },
   args: {
     "aria-label": "Table with nested rows",
-    isExpandable: true,
+    allowsExpandableRows: true,
     defaultExpandedKeys: ["Fire, Flying", "Water"],
     onExpandedChange: fn(),
   },
