@@ -4,7 +4,7 @@ import {
   SearchProps,
   TableStateExtensions,
 } from "../Table.types";
-import { Key } from "../../../types";
+import { Key } from "../../../../types";
 
 export interface TableStateExtensionsProps
   extends SearchProps,

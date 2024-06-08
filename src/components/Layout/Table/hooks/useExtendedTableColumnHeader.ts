@@ -4,8 +4,8 @@ import {
   TableColumnHeaderAria,
   useTableColumnHeader,
 } from "react-aria";
-import { ExtendedTableState } from "./useExtendedTableState";
 import { RefObject } from "react";
+import { TableState } from "../Table.types";
 
 interface TableColumnHeaderProps<T> extends AriaTableColumnHeaderProps<T> {}
 
@@ -15,7 +15,7 @@ interface TableColumnHeader extends TableColumnHeaderAria {
 
 export function useExtendedTableColumnHeader<T>(
   props: TableColumnHeaderProps<T>,
-  state: ExtendedTableState<T>,
+  state: TableState<T>,
   ref: RefObject<FocusableElement>,
   searchInputRef: RefObject<HTMLInputElement>
 ): TableColumnHeader {
