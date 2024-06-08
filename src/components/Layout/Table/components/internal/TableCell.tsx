@@ -5,7 +5,7 @@ import { useFocusRing } from "@/hooks/useFocusRing";
 import { useRenderProps } from "@/hooks/useRenderProps";
 import { IconButton } from "@/components/Buttons/IconButton";
 import { Flex } from "@/components/Layout/Flex/Flex";
-import { RowHeader, StyledTd } from "../../Table.styles";
+import { CellContent, RowHeader, StyledTd } from "../../Table.styles";
 import { TreeGridState, TableState } from "../../Table.types";
 
 const NESTED_OFFSET = 16;
@@ -40,7 +40,7 @@ export function TableCell<T>(props: TableCellProps<T>) {
   if ("keyMap" in state) {
     const parentRow = state.keyMap.get(cell.parentKey!);
     const isExpandable =
-      parentRow?.props.UNSTABLE_childItems?.length > 0 ||
+      parentRow?.props.childItems?.length > 0 ||
       parentRow?.props?.children?.length > state.userColumnCount;
 
     showExpandButton = isFirstRowHeaderCell && isExpandable;
@@ -88,7 +88,9 @@ export function TableCell<T>(props: TableCellProps<T>) {
             className="aje-table__expand-button"
           />
         )}
-        <span>{cell.rendered}</span>
+        <CellContent className="aje-table__cell__content">
+          {cell.rendered}
+        </CellContent>
       </Flex>
     </Element>
   );

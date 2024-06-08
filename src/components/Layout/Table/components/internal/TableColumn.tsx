@@ -6,7 +6,11 @@ import { useFocusRing } from "@/hooks/useFocusRing";
 import { useRenderProps } from "@/hooks/useRenderProps";
 import { MaterialIcon } from "../../../../Icons/MaterialIcon";
 
-import { ColumnDropIndicator, ThContent, StyledTh } from "../../Table.styles";
+import {
+  ColumnDropIndicator,
+  ColumnContent,
+  StyledTh,
+} from "../../Table.styles";
 
 import { useExtendedTableColumnHeader } from "../../hooks/useExtendedTableColumnHeader";
 import { TableState, TreeGridState } from "../../Table.types";
@@ -101,7 +105,7 @@ export function TableColumn<T extends object>(props: TableColumnProps<T>) {
 
   return (
     <StyledTh colSpan={colSpan} ref={ref} {...mergeProps(...headerProps)}>
-      <ThContent>
+      <ColumnContent>
         {allowsReordering && (
           <>
             <ColumnDropIndicator
@@ -128,7 +132,7 @@ export function TableColumn<T extends object>(props: TableColumnProps<T>) {
             isSearching={isSearching}
           />
         )}
-      </ThContent>
+      </ColumnContent>
     </StyledTh>
   );
 }

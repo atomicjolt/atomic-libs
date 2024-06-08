@@ -20,7 +20,8 @@ export const StyledTable = styled.table`
   border-radius: var(--table-border-radius);
 `;
 
-export const ThContent = styled.div`
+export const ColumnContent = styled.div`
+  width: 100%;
   display: flex;
   align-items: center;
   gap: 4px;
@@ -59,7 +60,7 @@ export const StyledTh = styled.th`
     cursor: pointer;
   }
 
-  &[data-has-children] ${ThContent} {
+  &[data-has-children] ${ColumnContent} {
     justify-content: center;
   }
 `;
@@ -147,3 +148,7 @@ export const SearchComboInput = styled(ComboInput)`
 `;
 
 export const SearchInput = styled(Input)``;
+
+export const CellContent = styled.span`
+  width: 100%;
+`;

@@ -4,7 +4,8 @@ import { Key, SearchDescriptor, Table } from "../elements";
 export default function Tables() {
   return (
     <div style={{ padding: "16px" }}>
-      <ReordableColumnsTable />
+      {/* <ReordableColumnsTable /> */}
+      <NestedRowsTable />
     </div>
   );
 }

@@ -30,6 +30,7 @@ __metadata:
     "@ljcl/storybook-addon-cssprops": ^4.0.0
     "@react-aria/interactions": ^3.21.1
     "@react-stately/flags": ^3.0.3
+    "@react-stately/table": ^3.11.8
     "@react-types/shared": ^3.23.1
     "@rollup/plugin-commonjs": ^22.0.0
     "@rollup/plugin-node-resolve": ^13.3.0
