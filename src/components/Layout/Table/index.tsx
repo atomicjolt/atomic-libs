@@ -51,5 +51,3 @@ export function TreeGridTable<T extends object>(props: TableProps<T>) {
 
   return <TableShared state={state} {...props} />;
 }
-
-export { TableProps };

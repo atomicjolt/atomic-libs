@@ -27,17 +27,6 @@ export function TableBody<T extends object>(props: TableBodyProps<T>) {
   return (
     <TableRowGroup type={StyledTBody} ref={ref} {...renderProps}>
       {rows.map((row) => {
-        const hasChildRows =
-          row?.props.childItems?.length > 0 ||
-          row?.props?.children?.length >
-            ((state as TreeGridState<T>).userColumnCount || 0);
-
-        if (hasChildRows && !("keyMap" in state)) {
-          throw new Error(
-            "Rows cannot have child rows when `allowExpandableRows` is set to false."
-          );
-        }
-
         return (
           <TableRow item={row} state={state} key={row.key}>
             {[...collection.getChildren!(row.key)].map((cell) => {
