@@ -1,32 +1,30 @@
 import React from "react";
-import { ComboBox, Flex, FlexItem } from "../elements";
-
-function CustomComponent({ className, children }) {
-  return (
-    <div className={className}>
-      hi there
-      {children}
-    </div>
-  );
-}
+import { FormatDuration } from "../elements";
 
 export default function Aria() {
   return (
-    <Flex direction="row" alignContent="center">
-      <FlexItem grow={1} basis={500}>
-        <div style={{ backgroundColor: "red", height: "200px" }} />
-      </FlexItem>
-      <FlexItem basis={200}>
-        <div style={{ backgroundColor: "blue", height: "200px" }} />
-      </FlexItem>
-      <FlexItem grow={2}>
-        <div
-          style={{
-            backgroundColor: "green",
-            height: "200px",
-          }}
-        />
-      </FlexItem>
-    </Flex>
+    <div>
+      <FormatDuration value={10} />
+
+      <FormatDuration value={10000000} style="narrow" minUnit="second">
+        {(formatted) => <h1>{formatted}</h1>}
+      </FormatDuration>
+
+      <FormatDuration value={null} fallback={<h1>No value given</h1>} />
+      <br />
+
+      {/* <FormatNumber value={0.1} style="percent" />
+
+      <FormatNumber value={10}>
+        {(formatted) => <h1>{formatted}</h1>}
+      </FormatNumber>
+
+      <FormatNumber value={null} fallback="No value given" />
+      <br />
+
+      <FormatNumber value={null} fallback="none">
+        {(formatted) => <h1>{formatted}</h1>}
+      </FormatNumber> */}
+    </div>
   );
 }
