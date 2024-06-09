@@ -116,16 +116,6 @@ Row.getCollectionNode = function* getCollectionNode<T>(
           );
         }
 
-        if (context.showExpandButtons) {
-          yield {
-            type: "cell",
-            key: "header-expand",
-            props: {
-              isExpanderCell: true,
-            },
-          };
-        }
-
         yield* cells;
         yield* childRows;
       }
@@ -139,8 +129,7 @@ Row.getCollectionNode = function* getCollectionNode<T>(
         newContext.showSelectionCheckboxes !==
           context.showSelectionCheckboxes ||
         newContext.showDragButtons !== context.showDragButtons ||
-        newContext.selectionMode !== context.selectionMode ||
-        newContext.showExpandButtons !== context.showExpandButtons
+        newContext.selectionMode !== context.selectionMode
       );
     },
   };

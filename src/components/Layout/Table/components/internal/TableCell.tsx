@@ -8,8 +8,6 @@ import { Flex } from "@/components/Layout/Flex/Flex";
 import { CellContent, RowHeader, StyledTd } from "../../Table.styles";
 import { TreeGridState, TableState } from "../../Table.types";
 
-const NESTED_OFFSET = 16;
-
 interface TableCellProps<T> {
   cell: GridNode<T>;
   state: TableState<T> | TreeGridState<T>;
@@ -76,7 +74,7 @@ export function TableCell<T>(props: TableCellProps<T>) {
 
   return (
     <Element {...cellProps} ref={ref}>
-      <Flex alignItems="center" gap={NESTED_OFFSET}>
+      <Flex alignItems="center" gap={"var(--table-padding-horz)"}>
         {showExpandButton && (
           <IconButton
             icon={isExpanded ? "expand_more" : "chevron_right"}
