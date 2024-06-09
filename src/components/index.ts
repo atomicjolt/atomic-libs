@@ -86,7 +86,10 @@ export {
   ComboInput,
 } from "./Fields";
 
-export { FormatList, FormatNumber, FormatDuration } from "./Format";
+export { FormatDate } from "./Format/FormatDate";
+export { FormatNumber } from "./Format/FormatNumber";
+export { FormatTable } from "./Format/FormatTable";
+export { FormatDuration } from "./Format/FormatDuration";
 
 /* ---- Types ---- */
 
@@ -154,3 +157,8 @@ export type { FlexProps } from "./Layout/Flex/Flex";
 export type { FlexItemProps } from "./Layout/Flex/FlexItem";
 export type { ChipGroupProps } from "./Chips/ChipGroup";
 export type { ChipProps } from "./Chips/Chip";
+
+export type { FormatDateProps } from "./Format/FormatDate";
+export type { FormatNumberProps } from "./Format/FormatNumber";
+export type { FormatTableProps } from "./Format/FormatTable";
+export type { FormatDurationProps } from "./Format/FormatDuration";
