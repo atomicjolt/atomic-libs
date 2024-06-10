@@ -1,12 +1,15 @@
 import { useNumberFormatter } from "@react-aria/i18n";
 import { FormatterProps } from "../Format.types";
-import { renderFormat } from "../render";
+import { useRenderFormat } from "../../../hooks/useRenderFormat";
 
 export interface FormatNumberProps
-  extends FormatterProps<number>,
+  extends FormatterProps<number | bigint, string>,
     Intl.NumberFormatOptions {}
 
 export function FormatNumber(props: FormatNumberProps) {
   const formatter = useNumberFormatter(props);
-  return renderFormat(formatter.format.bind(formatter), props);
+  return useRenderFormat<number | bigint, string>(
+    formatter.format.bind(formatter),
+    props
+  );
 }

@@ -1,12 +1,12 @@
 import { DateFormatterOptions, useDateFormatter } from "@react-aria/i18n";
 import { FormatterProps } from "../Format.types";
-import { renderFormat } from "../render";
+import { useRenderFormat } from "../../../hooks/useRenderFormat";
 
 export interface FormatDateProps
-  extends FormatterProps<Date>,
+  extends FormatterProps<Date, string>,
     DateFormatterOptions {}
 
 export function FormatDate(props: FormatDateProps) {
   const formatter = useDateFormatter(props);
-  return renderFormat(formatter.format.bind(formatter), props);
+  return useRenderFormat<Date, string>(formatter.format.bind(formatter), props);
 }

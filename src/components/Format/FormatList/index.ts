@@ -1,6 +1,6 @@
 import { useListFormatter } from "@react-aria/i18n";
 import { FormatterProps } from "../Format.types";
-import { renderFormat } from "../render";
+import { useRenderFormat } from "../../../hooks/useRenderFormat";
 
 export interface FormatListProps
   extends FormatterProps<Iterable<string>>,
@@ -13,5 +13,8 @@ export interface FormatListProps
  */
 export function FormatList(props: FormatListProps) {
   const formatter = useListFormatter(props);
-  return renderFormat(formatter.format.bind(formatter), props);
+  return useRenderFormat<Iterable<string>, string>(
+    formatter.format.bind(formatter),
+    props
+  );
 }

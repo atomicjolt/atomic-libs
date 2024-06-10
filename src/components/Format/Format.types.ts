@@ -2,10 +2,10 @@ export interface FormatSecondsOptions {
   precision?: "seconds" | "minutes" | "hours";
 }
 
-export type FormatterChildren = (formatted: React.ReactNode) => React.ReactNode;
+export type FormatterChildren<T> = (formatted: T) => React.ReactNode;
 
-export interface FormatterProps<Type> {
+export interface FormatterProps<Type, FormattedType = Type> {
   value?: Type | null;
-  children?: FormatterChildren;
+  children?: FormatterChildren<FormattedType>;
   fallback?: React.ReactNode;
 }
