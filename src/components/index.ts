@@ -86,6 +86,9 @@ export {
   ComboInput,
 } from "./Fields";
 
+export { RouterProvider } from "react-aria";
+export { Link } from "./Routing/Link";
+
 /* ---- Types ---- */
 
 export type { BannerProps, BannerVariants } from "./Banners/Banner";
@@ -152,3 +155,4 @@ export type { FlexProps } from "./Layout/Flex/Flex";
 export type { FlexItemProps } from "./Layout/Flex/FlexItem";
 export type { ChipGroupProps } from "./Chips/ChipGroup";
 export type { ChipProps } from "./Chips/Chip";
+export type { LinkProps } from "./Routing/Link";
