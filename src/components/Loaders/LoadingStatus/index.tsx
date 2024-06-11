@@ -7,7 +7,7 @@ import {
   LoaderProps,
 } from "../Loading.types";
 
-export interface LoadingStatusProps extends LoaderProps {
+export interface LoadingStatusProps {
   /** Loading status, when true, a loading animation is displayed  */
   readonly isLoading?: boolean;
 
