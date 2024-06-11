@@ -13,6 +13,7 @@ export const BaseStyledButton = styled.button`
   align-items: center;
   justify-content: center;
   gap: var(--btn-icon-gap);
+  text-decoration: none;
   transition:
     background 100ms ease,
     color 100ms ease,
@@ -31,16 +32,16 @@ export const BaseStyledButton = styled.button`
     box-shadow: var(--btn-hover-shadow);
   }
 
-  &.is-active {
-    transform: translateY(1px);
-  }
-
   &:disabled {
     opacity: 0.5;
     pointer-events: none;
   }
 
-  &.is-loading {
+  &[data-pressed] {
+    transform: translateY(1px);
+  }
+
+  &[data-loading] {
     position: relative;
     color: transparent;
 

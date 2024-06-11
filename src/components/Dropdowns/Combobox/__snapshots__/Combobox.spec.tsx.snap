@@ -40,9 +40,10 @@ exports[`matches snapshots > matches default variant 1`] = `
         aria-haspopup="listbox"
         aria-label="Show suggestions"
         aria-labelledby="react-aria-:r0: react-aria-:r3:"
-        class="sc-gsFSjX sc-kAycRU SavAC kRWXiH aje-btn aje-btn--icon aje-btn--content"
+        class="sc-gsFSjX sc-kAycRU gTZNLz kRWXiH aje-btn aje-btn--icon aje-btn--content"
         id="react-aria-:r0:"
-        tabindex="-1"
+        role="link"
+        tabindex="0"
         type="button"
       >
         <i
@@ -87,9 +88,10 @@ exports[`matches snapshots > matches floating variant 1`] = `
           aria-haspopup="listbox"
           aria-label="Show suggestions"
           aria-labelledby="react-aria-:r9: react-aria-:rc:"
-          class="sc-gsFSjX sc-kAycRU SavAC kRWXiH aje-btn aje-btn--icon aje-btn--content"
+          class="sc-gsFSjX sc-kAycRU gTZNLz kRWXiH aje-btn aje-btn--icon aje-btn--content"
           id="react-aria-:r9:"
-          tabindex="-1"
+          role="link"
+          tabindex="0"
           type="button"
         >
           <i
