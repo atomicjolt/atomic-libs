@@ -1,6 +1,8 @@
 import React from "react";
 
 export interface FlexBoxProperties {
+  /** Whether the flexbox is displayed as an inline element */
+  inline?: boolean;
   /** Direction of the flexbox's primary axis */
   direction?: React.CSSProperties["flexDirection"];
   /** How the flexbox items are aligned on the cross axis */

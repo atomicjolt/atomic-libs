@@ -58,7 +58,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         {...buttonProps}
         {...focusProps}
       >
-        {isLoading && <Spinner isLoading={!loadingComplete} isCentered />}
+        {isLoading && (
+          <Spinner isLoading={!loadingComplete} placement="absolute center" />
+        )}
         {children}
       </StyledButton>
     );

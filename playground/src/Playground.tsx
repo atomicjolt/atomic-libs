@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 // import "./playground.scss";
 
-import { Item, Tabs } from "./elements";
+import { Item, Key, Tabs } from "./elements";
 import Buttons from "./tabs/Buttons";
 import Modals from "./tabs/Modals";
 import Tables from "./tabs/Tables";
@@ -9,9 +9,10 @@ import Aria from "./tabs/Aria";
 import Localization from "./tabs/Localization";
 import Overlays from "./tabs/Overlays";
 import Fields from "./tabs/Fields";
+import Loading from "./tabs/Loading";
 
 function Playground() {
-  const [currentTab, setCurrentTab] = useState<React.Key>("aria");
+  const [currentTab, setCurrentTab] = useState<Key>("loading");
 
   return (
     <div className="padder" style={{ height: "100%" }}>
@@ -33,6 +34,9 @@ function Playground() {
         </Item>
         <Item key="fields" title="Fields">
           <Fields />
+        </Item>
+        <Item key="loading" title="Loading">
+          <Loading />
         </Item>
 
         <Item key="aria" title="Aria">

@@ -1,14 +1,14 @@
-import React from "react";
-import cn from "classnames";
 import { AriaLabelProps, BaseProps, Size } from "../../../types";
+import { useRenderProps } from "@/hooks/useRenderProps";
+import { Flex } from "@/components/Layout/Flex/Flex";
 import { CircularLoader, LoaderPath } from "./Spinner.styles";
-import { LoaderCheck, LoaderWrapper } from "../Loader.styles";
+import { LoaderCheck, LoaderMessage, LoaderWrapper } from "../Loader.styles";
+import { LoaderProps } from "../Loading.types";
 
-export interface SpinnerProps extends Omit<BaseProps, "size">, AriaLabelProps {
-  isLoading?: boolean;
-  isCentered?: boolean;
-  size?: Size;
-}
+export interface SpinnerProps
+  extends Omit<BaseProps, "size">,
+    LoaderProps,
+    AriaLabelProps {}
 
 const strokeWidths: Record<Size, number> = {
   small: 1,
@@ -22,34 +22,45 @@ export function Spinner(props: SpinnerProps) {
     isLoading = true,
     className,
     size = "medium",
-    isCentered = false,
+    message,
+    placement = "center",
     ...rest
   } = props;
 
   const strokeWidth = strokeWidths[size];
 
+  const placementType = ["inline", "block"].includes(placement)
+    ? "inline"
+    : "center";
+
+  const renderProps = useRenderProps({
+    componentClassName: "aje-spinner",
+    className,
+    size,
+  });
+
   return (
-    <LoaderWrapper
-      className={cn("aje-spinner", `is-${size}`, className, {
-        "is-centered": isCentered,
-      })}
-      {...rest}
-    >
+    <LoaderWrapper {...renderProps} {...rest} data-placement={placement}>
       {isLoading ? (
-        <CircularLoader
-          className="circular-loader"
-          viewBox="25 25 50 50"
-          data-testid="spinner-svg"
+        <Flex
+          inline={placementType === "inline"}
+          direction={placementType === "inline" ? "row" : "column"}
+          gap={placementType === "inline" ? "1rem" : 0}
+          justifyContent="center"
+          alignItems="center"
         >
-          <LoaderPath
-            className="loader-path"
-            cx="50"
-            cy="50"
-            r="20"
-            fill="none"
-            strokeWidth={`${strokeWidth}em`}
-          />
-        </CircularLoader>
+          <CircularLoader className="circular-loader" viewBox="25 25 50 50">
+            <LoaderPath
+              className="loader-path"
+              cx="50"
+              cy="50"
+              r="20"
+              fill="none"
+              strokeWidth={`${strokeWidth}em`}
+            />
+          </CircularLoader>
+          {message && <LoaderMessage>{message}</LoaderMessage>}
+        </Flex>
       ) : (
         <LoaderCheck />
       )}

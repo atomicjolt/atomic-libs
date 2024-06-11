@@ -1,3 +1,4 @@
+import mixins from "@/styles/mixins";
 import styled, { keyframes } from "styled-components";
 
 const check = keyframes`
@@ -39,10 +40,32 @@ export const LoaderWrapper = styled.div`
     --loader-size: 30px;
   }
 
-  &.is-centered {
+  &[data-placement="inline"] {
+    display: inline-block;
+  }
+
+  &[data-placement="block"] {
+    display: block;
+  }
+
+  &[data-placement="center"] {
+    flex-grow: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &[data-placement="absolute center"] {
     position: absolute;
-    inset: 0;
     display: grid;
+    inset: 0;
     place-items: center;
   }
+`;
+
+export const LoaderMessage = styled.p`
+  ${mixins.Regular}
+  font-size: var(--loader-size);
+  color: var(--text-clr);
 `;

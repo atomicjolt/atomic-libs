@@ -2,41 +2,35 @@ import React from "react";
 import ThreeDotLoader from "../ThreeDotLoader";
 import { ErrorBanner } from "../../Banners/DismissableBanner";
 import {
-  LoadingContent,
-  LoadingMessage,
-  LoadingWrapper,
-} from "./LoadingStatus.styles";
+  ErrorStateProps,
+  LoaderPlacement,
+  LoaderProps,
+} from "../Loading.types";
 
-export interface LoadingStatusProps {
+export interface LoadingStatusProps extends LoaderProps {
   /** Loading status, when true, a loading animation is displayed  */
   readonly isLoading?: boolean;
+
   /** Optional message to display beneath the loading animation */
   readonly loadingMessage?: React.ReactNode;
+
+  /** Placement of the loader */
+  readonly loadingPlacement?: LoaderPlacement;
+
   /** Customize what is rendered when in a loading state */
-  readonly renderLoading?: (
-    isLoading: boolean,
-    message: React.ReactNode
-  ) => React.ReactNode;
+  readonly renderLoading?: React.ReactNode | React.ComponentType<LoaderProps>;
+
   /** An error. When present, an error banner will be displayed */
   readonly error?: React.ReactNode;
-  /** Cutomsize what is rendered when in an error state */
-  readonly renderError?: (error: React.ReactNode) => React.ReactNode;
+  /** Customize what is rendered when in an error state */
+  readonly renderError?: React.ReactNode | React.ComponentType<ErrorStateProps>;
+
   /** If `loading` is false and `error` is absent, the children will be rendered */
   readonly children?: React.ReactNode;
 }
 
-const renderLoadingDefault = (isLoading: boolean, message: React.ReactNode) => {
-  return (
-    <LoadingWrapper className="aje-loading-status-loading">
-      <LoadingContent>
-        <ThreeDotLoader isLoading={isLoading} isCentered />
-        {message && <LoadingMessage>{message}</LoadingMessage>}
-      </LoadingContent>
-    </LoadingWrapper>
-  );
-};
-
-const renderErrorDefault = (error: React.ReactNode) => {
+const ErrorDefault = (props: ErrorStateProps) => {
+  const { error } = props;
   return <ErrorBanner>{error}</ErrorBanner>;
 };
 
@@ -48,22 +42,31 @@ const renderErrorDefault = (error: React.ReactNode) => {
 export function LoadingStatus(props: LoadingStatusProps) {
   const {
     isLoading = false,
+    renderLoading: Loading = ThreeDotLoader,
     loadingMessage = null,
-    renderLoading = renderLoadingDefault,
+    loadingPlacement = "inline",
     error = null,
-    renderError = renderErrorDefault,
+    renderError: Error = ErrorDefault,
     children = null,
   } = props;
 
   if (error) {
-    return <>{renderError(error)}</>;
+    return typeof Error === "function" ? <Error error={error} /> : Error;
   }
 
   if (isLoading) {
-    return <>{renderLoading(isLoading, loadingMessage)}</>;
+    return typeof Loading === "function" ? (
+      <Loading
+        isLoading={isLoading}
+        message={loadingMessage}
+        placement={loadingPlacement}
+      />
+    ) : (
+      Loading
+    );
   }
 
-  return <>{children}</>;
+  return children;
 }
 
 export default LoadingStatus;
