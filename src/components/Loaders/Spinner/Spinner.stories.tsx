@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
-import Spinner from ".";
 import { getCssProps } from "@sb/cssprops";
+import Spinner from ".";
 
 const meta: Meta<typeof Spinner> = {
   title: "Loaders/Spinner",
@@ -8,6 +8,11 @@ const meta: Meta<typeof Spinner> = {
   parameters: {
     layout: "centered",
     cssprops: getCssProps("Loader"),
+  },
+  argTypes: {
+    message: {
+      control: "text",
+    },
   },
 };
 
@@ -18,6 +23,5 @@ type Story = StoryObj<typeof Spinner>;
 export const Primary: Story = {
   args: {
     isLoading: true,
-    isCentered: true,
   },
 };

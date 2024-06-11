@@ -44,7 +44,7 @@ export function LoadingStatus(props: LoadingStatusProps) {
     isLoading = false,
     renderLoading: Loading = ThreeDotLoader,
     loadingMessage = null,
-    loadingPlacement = "inline",
+    loadingPlacement = "center",
     error = null,
     renderError: Error = ErrorDefault,
     children = null,

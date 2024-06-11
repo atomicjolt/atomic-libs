@@ -1,13 +1,12 @@
-import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import LoadingStatus from ".";
 import { getCssProps } from "@sb/cssprops";
+import Spinner from "../Spinner";
 
 const meta: Meta<typeof LoadingStatus> = {
   title: "Loaders/LoadingStatus",
   component: LoadingStatus,
   parameters: {
-    layout: "centered",
     cssprops: getCssProps("Loader"),
   },
   argTypes: {
@@ -48,11 +47,6 @@ export const CustomizeLoadingState: Story = {
     loadingMessage: "Loading...",
     error: "",
     children: "This is the content",
-    renderLoading: (isLoading, message) => (
-      <div>
-        <h1>Loading...</h1>
-        <p>{message}</p>
-      </div>
-    ),
+    renderLoading: <Spinner />,
   },
 };
