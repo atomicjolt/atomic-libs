@@ -3,7 +3,7 @@ node_modules
 yarn-error.log
 storybook-static
 docs
-.storybook/utils/cssprops.generate.ts
+.storybook/utils/cssprops.generated.ts
 .yarn/cache
 .yarn/install-state.gz
 .DS_Store

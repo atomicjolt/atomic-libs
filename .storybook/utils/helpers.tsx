@@ -228,6 +228,44 @@ export const OverlayTriggerArgTypes: Record<keyof OverlayTriggerProps, object> =
     },
   };
 
+export const AriaLabelArgTypes = {
+  "aria-label": {
+    control: "text",
+    defaultValue: "",
+    description: "A label for the current element",
+    table: {
+      category: "Accessibility",
+    },
+  },
+  "aria-labelledby": {
+    control: "text",
+    defaultValue: "",
+    description:
+      "The id of the element that serves as the label for the element",
+    table: {
+      category: "Accessibility",
+    },
+  },
+  "aria-describedby": {
+    control: "text",
+    defaultValue: "",
+    description:
+      "The id of the element that serves as a description for the element",
+    table: {
+      category: "Accessibility",
+    },
+  },
+  "aria-details": {
+    control: "text",
+    defaultValue: "",
+    description:
+      "The id of the element that serves as a details for the element",
+    table: {
+      category: "Accessibility",
+    },
+  },
+};
+
 export const PurpleButtonStyles = createGlobalStyle`
 .aje-btn--purple {
   --btn-bg-clr: purple;

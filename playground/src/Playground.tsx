@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Item, Key, RouterProvider, Tabs } from "./elements";
+import React, { useState } from "react";
+import { Item, Key, Tabs } from "./elements";
 import Buttons from "./tabs/Buttons";
 import Modals from "./tabs/Modals";
 import Tables from "./tabs/Tables";
