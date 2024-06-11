@@ -8,7 +8,12 @@ import path from "path";
 export default defineConfig({
   plugins: [react()],
   optimizeDeps: {
-    exclude: ["storybook", "sb-vite"],
+    exclude: [
+      "storybook",
+      "sb-vite",
+      "@ljcl/storybook-addon-cssprops",
+      "@storybook/blocks",
+    ],
     noDiscovery: false,
   },
 
