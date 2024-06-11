@@ -1,12 +1,11 @@
-import React, { forwardRef } from "react";
-import cn from "classnames";
+import { forwardRef } from "react";
+import { mergeProps, useButton, useLink } from "react-aria";
 import { HasIcon } from "../../../types";
 import Spinner from "../../Loaders/Spinner";
 import MaterialIcon from "../../Icons/MaterialIcon";
-import { useVariantClass } from "../../../hooks";
 import { StyledIconButton } from "./IconButton.styles";
-import { useButton } from "react-aria";
 import useForwardedRef from "../../../hooks/useForwardedRef";
+import { useRenderProps } from "@/hooks/useRenderProps";
 import { ButtonProps } from "../Button";
 import { useFocusRing } from "../../../hooks/useFocusRing";
 
@@ -25,6 +24,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
       iconVariant = "default",
       className,
       size = "medium",
+      as = "button",
     } = props;
     const innerRef = useForwardedRef<HTMLButtonElement>(ref);
     const { buttonProps, isPressed } = useButton(
@@ -34,20 +34,35 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
       },
       innerRef
     );
-    const variantClass = useVariantClass("aje-btn", variant);
 
     const { focusProps } = useFocusRing();
 
+    const { linkProps } = useLink(
+      {
+        href: props.href,
+        rel: props.rel,
+        target: props.target,
+        elementType: as,
+      },
+      innerRef
+    );
+
+    const renderProps = useRenderProps({
+      componentClassName: "aje-btn",
+      className: ["aje-btn--icon", className],
+      variant,
+      selectors: {
+        "data-loading": isLoading,
+        "data-pressed": isPressed,
+      },
+    });
+
     return (
       <StyledIconButton
-        className={cn("aje-btn aje-btn--icon", variantClass, className, {
-          "is-loading": isLoading,
-          "is-active": isPressed,
-        })}
         type="button"
+        as={as}
         ref={innerRef}
-        {...buttonProps}
-        {...focusProps}
+        {...mergeProps(buttonProps, focusProps, linkProps, renderProps)}
       >
         {isLoading && <Spinner isLoading={!loadingComplete} isCentered />}
         <MaterialIcon icon={icon} variant={iconVariant} size={size} />

@@ -1,7 +1,7 @@
-import { BaseProps } from "@/types";
+import classNames from "classnames";
+import { BaseProps } from "../../../../types";
 import { FlexBoxItemProperties } from "./FlexItem.types";
 import { FlexBoxItem } from "./FlexItem.styles";
-import classNames from "classnames";
 
 export interface FlexItemProps
   extends FlexBoxItemProperties,

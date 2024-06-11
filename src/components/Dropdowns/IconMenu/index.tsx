@@ -4,10 +4,10 @@ import { AriaMenuProps, Placement } from "react-aria";
 import IconButton from "../../Buttons/IconButton";
 import { BaseProps, CanHaveIcon, LoadingProps } from "../../../types";
 import { Popover } from "../../Overlays/Popover";
+import { MenuTrigger } from "../Menu/MenuTrigger";
 import { MenuItemProps, Menu } from "../Menu";
 import { ButtonVariants } from "../../Buttons/Buttons.types";
 import { cloneComponent } from "../../../clone";
-import { MenuTrigger } from "../Menu/MenuTrigger";
 
 export type IconMenuProps<T extends object> = Omit<
   AriaMenuProps<T>,
@@ -51,7 +51,7 @@ export function IconMenu<T extends {}>(props: IconMenuProps<T>) {
         loadingLabel={loadingLabel}
       />
       <Popover placement={menuPlacement}>
-        <Menu {...props}>{props.children}</Menu>
+        <Menu>{props.children}</Menu>
       </Popover>
     </MenuTrigger>
   );

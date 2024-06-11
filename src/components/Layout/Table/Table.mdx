@@ -298,3 +298,12 @@ function ReorderableTable() {
 The table component supports nested columns. Nested columns can be used to group columns together under a common header.
 
 <Canvas of={TableStories.NestedColumns} />
+
+### Nested Rows 
+
+Rows can be nested into collapsible groups with the `allowsExpandableRows` prop on the `Table` component. 
+
+For any row that should have nested Children, provide those rows as children to their parent, after all 
+the cells of the parent row have been defined.
+
+<Canvas of={TableStories.WithNestedRows} />

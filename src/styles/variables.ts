@@ -208,6 +208,7 @@ export const CssVariables = createGlobalStyle`
   --table-padding-horz: 12px;
   --table-sort-icon-clr: var(--text-clr);
   --table-sort-icon-hover-clr: var(--neutral400);
+  --table-nesting-offset: var(--table-padding-horz);
 
   /* # Tab */
   --tab-border-width: 1px;
@@ -281,5 +282,12 @@ export const CssVariables = createGlobalStyle`
   --divider-width: 1px;
   --divider-margin-main: 5px;
   --divider-margin-secondary: 0px;
+
+  /* # Link */
+  --link-text-clr: var(--accent-clr);
+  --link-bg-clr: var(--neutral50);
+  --link-hover-text-clr: var(--accent-clr-alt);
+  --link-hover-bg-clr: transparent;
+  --link-text-decoration: underline;
 }
 `;
