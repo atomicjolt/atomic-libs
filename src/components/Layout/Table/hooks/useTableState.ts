@@ -1,6 +1,6 @@
 import {
   useTableState as useStatelyTableState,
-  StatelyTableStateProps,
+  TableStateProps as StatelyTableStateProps,
 } from "@react-stately/table";
 import { enableTableNestedRows } from "@react-stately/flags";
 import { TableState } from "../Table.types";

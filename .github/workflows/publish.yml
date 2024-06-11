@@ -17,6 +17,8 @@ jobs:
           node-version: "18"
       - name: Install Yarn
         run: npm install -g yarn
+      - name: Generage CSS props
+        run: yarn storybook:cssprops
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - name: Build
