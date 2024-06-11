@@ -3,7 +3,7 @@
 exports[`matches snapshots > matches default variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-iapVNj ezzWHM aje-combobox aje-combobox--default is-medium"
+    class="sc-hzhKNl bNxcBN aje-combobox aje-combobox--default is-medium"
   >
     <label
       class="sc-kpDprT jfpflK aje-label is-auto"
@@ -40,8 +40,7 @@ exports[`matches snapshots > matches default variant 1`] = `
         aria-haspopup="listbox"
         aria-label="Show suggestions"
         aria-labelledby="react-aria-:r0: react-aria-:r3:"
-        class="sc-gsFSjX sc-kAycRU hkgUZq kRWXiH aje-btn aje-btn--icon aje-btn--content"
-        data-focus-visible="false"
+        class="sc-gsFSjX sc-kAycRU gTZNLz kRWXiH aje-btn aje-btn--icon aje-btn--content"
         id="react-aria-:r0:"
         role="link"
         tabindex="0"
@@ -62,10 +61,10 @@ exports[`matches snapshots > matches default variant 1`] = `
 exports[`matches snapshots > matches floating variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-iapVNj ezzWHM aje-combobox aje-combobox--floating is-medium"
+    class="sc-hzhKNl bNxcBN aje-combobox aje-combobox--floating is-medium"
   >
     <div
-      class="sc-fHjqbK kIAaWp"
+      class="sc-dAbbbq cOUFbb"
     >
       <div
         class="sc-jEABJj fYLrjg aje-combo-input padding-left padding-right"
@@ -89,8 +88,7 @@ exports[`matches snapshots > matches floating variant 1`] = `
           aria-haspopup="listbox"
           aria-label="Show suggestions"
           aria-labelledby="react-aria-:r9: react-aria-:rc:"
-          class="sc-gsFSjX sc-kAycRU hkgUZq kRWXiH aje-btn aje-btn--icon aje-btn--content"
-          data-focus-visible="false"
+          class="sc-gsFSjX sc-kAycRU gTZNLz kRWXiH aje-btn aje-btn--icon aje-btn--content"
           id="react-aria-:r9:"
           role="link"
           tabindex="0"

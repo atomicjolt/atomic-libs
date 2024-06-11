@@ -9,7 +9,7 @@ export function useFocusRing(props?: AriaFocusRingProps) {
   return {
     focusProps: {
       ...focusProps,
-      "data-focus-visible": isFocusVisible,
+      "data-focus-visible": isFocusVisible || undefined,
     },
     isFocusVisible,
     isFocused,

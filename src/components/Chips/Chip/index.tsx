@@ -9,11 +9,11 @@ import {
 } from "react-aria";
 import { copyStaticProperties } from "@/clone";
 import { useVariantClass } from "@/hooks";
-import { HasClassName, SuggestStrings } from "@/types";
 import { Item } from "@/components/Collection";
 import IconButton from "@/components/Buttons/IconButton";
 import { useConditionalPress } from "@/hooks/useConditionalPress";
 import { ChipContent, ChipWrapper } from "./Chip.styles";
+import { SuggestStrings, HasClassName } from "../../../types";
 
 type ChipVariants = SuggestStrings<"default" | "warning" | "success">;
 

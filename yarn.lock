@@ -28,6 +28,10 @@ __metadata:
   dependencies:
     "@internationalized/date": ^3.5.2
     "@ljcl/storybook-addon-cssprops": ^4.0.0
+    "@react-aria/interactions": ^3.21.1
+    "@react-stately/flags": ^3.0.3
+    "@react-stately/table": ^3.11.8
+    "@react-types/shared": ^3.23.1
     "@rollup/plugin-commonjs": ^22.0.0
     "@rollup/plugin-node-resolve": ^13.3.0
     "@rollup/plugin-typescript": ^8.3.3
@@ -2576,7 +2580,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-aria/interactions@npm:^3.21.3":
+"@react-aria/interactions@npm:^3.21.1, @react-aria/interactions@npm:^3.21.3":
   version: 3.21.3
   resolution: "@react-aria/interactions@npm:3.21.3"
   dependencies:

@@ -146,7 +146,7 @@ export type {
   NumberFieldProps,
   ComboInputProps,
 } from "./Fields";
-export type { TableProps } from "./Layout/Table";
+export type { TableProps } from "./Layout/Table/Table.types";
 export type { TabsProps } from "./Layout/Tabs";
 export type { CardProps } from "./Layout/Card";
 export type { GroupProps } from "./Layout/Group";
