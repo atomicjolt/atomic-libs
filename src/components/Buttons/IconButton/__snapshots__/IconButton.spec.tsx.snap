@@ -4,13 +4,13 @@ exports[`matches snapshot 1`] = `
 <DocumentFragment>
   <button
     aria-label="More Button"
-    class="sc-gsFSjX sc-kAycRU jyEbEn kRWXiH aje-btn aje-btn--icon aje-btn--border"
+    class="sc-imWZod sc-jXbVAB ebvAli jXexmJ aje-btn aje-btn--icon aje-btn--border"
     data-focus-visible="false"
     type="button"
   >
     <i
       aria-hidden="true"
-      class="sc-iGgVNO kmewPZ material-icons is-medium"
+      class="sc-kAycRU hYMeAg material-icons is-medium"
     >
       more_vert
     </i>

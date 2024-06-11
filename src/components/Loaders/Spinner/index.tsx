@@ -49,7 +49,11 @@ export function Spinner(props: SpinnerProps) {
           justifyContent="center"
           alignItems="center"
         >
-          <CircularLoader className="circular-loader" viewBox="25 25 50 50">
+          <CircularLoader
+            className="circular-loader"
+            viewBox="25 25 50 50"
+            data-testid="spinner-svg"
+          >
             <LoaderPath
               className="loader-path"
               cx="50"

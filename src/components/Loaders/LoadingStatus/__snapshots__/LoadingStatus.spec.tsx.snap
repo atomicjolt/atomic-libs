@@ -1,3 +1,61 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`matches snapshot 1`] = `<DocumentFragment />`;
+exports[`LoadingStatus > matches error snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-dhKdPU coQQBZ aje-banner--error"
+  >
+    <i
+      aria-hidden="true"
+      class="sc-jXbVAB jVtNFG material-icons is-medium"
+    >
+      error
+    </i>
+    <div
+      class="sc-kpDprT cnhKCE"
+    >
+      An error occurred
+    </div>
+    <button
+      aria-label="dismiss error"
+      class="sc-cPiJYC sc-dLNtp hbyQmC kjiHHG aje-btn aje-btn--icon aje-btn--banner aje-banner__dismiss"
+      data-focus-visible="false"
+      type="button"
+    >
+      <i
+        aria-hidden="true"
+        class="sc-jXbVAB jVtNFG material-icons is-medium"
+      >
+        close
+      </i>
+    </button>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`LoadingStatus > matches loading snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-gsFSjX kMYkab aje-three-dot-loader is-medium"
+    data-placement="center"
+  >
+    <div
+      class="sc-imWZod dRvpRG aje-flex"
+    >
+      <div
+        class="sc-aYaIB bjNylc dots-container"
+      >
+        <span
+          class="sc-gEvDqW sc-eqUzNf iZkYKK gEoPMl dot1"
+        />
+        <span
+          class="sc-gEvDqW sc-fqkwJk iZkYKK hcdaYo dot2"
+        />
+        <span
+          class="sc-gEvDqW sc-dcJtft iZkYKK hqCEWn dot3"
+        />
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
