@@ -38,7 +38,7 @@ export const BaseStyledButton = styled.button`
   }
 
   &[data-pressed] {
-    transform: translateY(1px);
+    transform: var(--btn-pressed-transform);
   }
 
   &[data-loading] {

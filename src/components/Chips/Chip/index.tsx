@@ -15,7 +15,9 @@ import { useConditionalPress } from "@/hooks/useConditionalPress";
 import { ChipContent, ChipWrapper } from "./Chip.styles";
 import { SuggestStrings, HasClassName } from "../../../types";
 
-type ChipVariants = SuggestStrings<"default" | "warning" | "success">;
+type ChipVariants = SuggestStrings<
+  "default" | "warning" | "success" | "danger"
+>;
 
 export interface ChipProps<T> extends ItemProps<T>, PressProps, HasClassName {
   children: React.ReactNode;
@@ -85,7 +87,7 @@ export const ChipInternal = React.forwardRef<
           <IconButton
             icon="close"
             size="small"
-            variant="content"
+            variant="chip"
             {...mergeProps(
               {
                 isDisabled,
