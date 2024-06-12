@@ -1,4 +1,4 @@
-import { cssprops } from "./cssprops.generated";
+import { cssprops } from "../__generated__/cssprops.generated";
 
 type CssPropGroups = keyof typeof cssprops;
 

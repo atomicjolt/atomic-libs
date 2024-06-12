@@ -1,3 +1,4 @@
+import os
 import re
 
 group_regex = re.compile(r"/\* # (.+) \*/")
@@ -51,7 +52,8 @@ def main() -> None:
 
     props = get_css_props(contents)
 
-    with open(".storybook/utils/cssprops.generated.ts", "w") as f:
+    os.makedirs(".storybook/__generated__", exist_ok=True)
+    with open(".storybook/__generated__/cssprops.generated.ts", "w") as f:
         f.write(f"export const cssprops = {props}")
 
 
