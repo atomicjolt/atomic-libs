@@ -1,7 +1,6 @@
 import React from "react";
-import cn from "classnames";
-import { HasClassName, MaterialIcons } from "../../../types";
-import { useVariantClass } from "../../../hooks";
+import { BaseProps, MaterialIcons } from "../../../types";
+import { useRenderProps } from "../../../hooks";
 import { StyledIcon } from "../Icons.styles";
 
 export type MaterialSymbolVariants = "outlined" | "rounded" | "sharp";
@@ -9,21 +8,23 @@ export type MaterialSymbolVariants = "outlined" | "rounded" | "sharp";
 export interface MaterialSymbolProps
   extends Omit<
       React.HTMLProps<HTMLElement>,
-      "size" | "className" | "ref" | "as"
+      "size" | "className" | "ref" | "as" | "id"
     >,
-    HasClassName {
+    BaseProps {
+  // TODO: this probably isn't the right type
   symbol: MaterialIcons;
   /** The type of material symbol to
    * render. Note that the font for that style needs to
-   * be in scope for it to render properly*/
+   * be in scope for it to render properly */
   variant?: MaterialSymbolVariants;
-  size?: "small" | "medium" | "large";
+
+  isDisabled?: boolean;
+
+  /** @deprecated - use isDisabled */
   disabled?: boolean;
 }
 
-/** Render out material-symbols with sensible defaults. No Material
- * Symbol Font variant is loaded when using <LoadFonts /> by default,
- * so you need to include it explictly, or load it another way */
+/** Render out material-symbols with sensible defaults. */
 export function MaterialSymbol(props: MaterialSymbolProps) {
   const {
     symbol,
@@ -31,19 +32,23 @@ export function MaterialSymbol(props: MaterialSymbolProps) {
     variant = "outlined",
     size = "medium",
     disabled = false,
+    isDisabled = disabled,
     ...rest
   } = props;
 
-  const variantClass = useVariantClass("material-symbols", variant, "-");
+  const materialSymbolClass = `material-icons-${variant}`;
+
+  const renderProps = useRenderProps({
+    componentClassName: "aje-icon",
+    className: [materialSymbolClass, className],
+    size,
+    selectors: {
+      "data-disabled": isDisabled,
+    },
+  });
 
   return (
-    <StyledIcon
-      className={cn(variantClass, className, `is-${size}`, {
-        "is-disabled": disabled,
-      })}
-      aria-hidden={true}
-      {...rest}
-    >
+    <StyledIcon aria-hidden {...renderProps} {...rest}>
       {symbol}
     </StyledIcon>
   );

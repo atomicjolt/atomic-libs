@@ -50,6 +50,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
     const renderProps = useRenderProps({
       componentClassName: "aje-btn",
       className: ["aje-btn--icon", className],
+      size,
       variant,
       selectors: {
         "data-loading": isLoading,
