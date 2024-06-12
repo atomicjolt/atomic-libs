@@ -3,7 +3,7 @@
 exports[`ChipGroup > matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-jEABJj btYzOF aje-chip-group is-full"
+    class="sc-jEABJj iLJWzg aje-chip-group is-full"
   >
     <label
       class="sc-aYaIB aiLmU is-auto"
@@ -23,7 +23,7 @@ exports[`ChipGroup > matches snapshot 1`] = `
     >
       <div
         aria-label="Item"
-        class="sc-eDPFhE iVqARq aje-chip aje-chip--default"
+        class="sc-eDPFhE gWIgx aje-chip aje-chip--default"
         data-key="$.0"
         id="react-aria-:r0:-$.0"
         role="row"
@@ -31,7 +31,7 @@ exports[`ChipGroup > matches snapshot 1`] = `
       >
         <div
           aria-colindex="1"
-          class="sc-dLNtp gAcebL"
+          class="sc-dLNtp kmukDw"
           role="gridcell"
         >
           Item

@@ -3,7 +3,7 @@
 exports[`MultiSelect > matches default variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-bXCLgj laNzci aje-multiselect aje-multiselect--default is-medium"
+    class="sc-bXCLgj kvJbA-D aje-multiselect aje-multiselect--default is-medium"
   >
     <label
       class="sc-imWZod gWbIwJ aje-label is-auto"
@@ -16,7 +16,7 @@ exports[`MultiSelect > matches default variant 1`] = `
       aria-expanded="false"
       aria-haspopup="listbox"
       aria-labelledby="react-aria-:r7: react-aria-:r3:"
-      class="sc-iGgVNO sc-gsFSjX gITxVe aje-btn sc-kAycRU bPlNWz aje-btn--dropdown is-medium"
+      class="sc-iGgVNO sc-gsFSjX jYbTSg gEspTW aje-btn sc-kAycRU bPlNWz aje-btn--dropdown is-medium"
       id="react-aria-:r2:"
       role="link"
       tabindex="0"
@@ -30,7 +30,7 @@ exports[`MultiSelect > matches default variant 1`] = `
       </span>
       <i
         aria-hidden="true"
-        class="sc-jEABJj dwrFvH material-icons is-medium"
+        class="sc-jEABJj lbATfb aje-icon material-icons is-medium"
       >
         arrow_drop_down
       </i>
@@ -42,7 +42,7 @@ exports[`MultiSelect > matches default variant 1`] = `
 exports[`MultiSelect > matches floating variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-bXCLgj laNzci aje-multiselect aje-multiselect--floating is-medium"
+    class="sc-bXCLgj kvJbA-D aje-multiselect aje-multiselect--floating is-medium"
   >
     <div
       class="sc-dLNtp hcuREP"
@@ -51,7 +51,7 @@ exports[`MultiSelect > matches floating variant 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-labelledby="react-aria-:rf: react-aria-:rb:"
-        class="sc-iGgVNO sc-gsFSjX gITxVe aje-btn sc-kAycRU bPlNWz aje-btn--dropdown is-medium"
+        class="sc-iGgVNO sc-gsFSjX jYbTSg gEspTW aje-btn sc-kAycRU bPlNWz aje-btn--dropdown is-medium"
         id="react-aria-:ra:"
         role="link"
         tabindex="0"
@@ -63,7 +63,7 @@ exports[`MultiSelect > matches floating variant 1`] = `
         />
         <i
           aria-hidden="true"
-          class="sc-jEABJj dwrFvH material-icons is-medium"
+          class="sc-jEABJj lbATfb aje-icon material-icons is-medium"
         >
           arrow_drop_down
         </i>
