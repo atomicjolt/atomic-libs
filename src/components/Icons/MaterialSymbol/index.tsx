@@ -1,5 +1,5 @@
 import React from "react";
-import { HasClassName, MaterialIcons, Size } from "../../../types";
+import { BaseProps, MaterialIcons } from "../../../types";
 import { useRenderProps } from "../../../hooks";
 import { StyledIcon } from "../Icons.styles";
 
@@ -8,16 +8,15 @@ export type MaterialSymbolVariants = "outlined" | "rounded" | "sharp";
 export interface MaterialSymbolProps
   extends Omit<
       React.HTMLProps<HTMLElement>,
-      "size" | "className" | "ref" | "as"
+      "size" | "className" | "ref" | "as" | "id"
     >,
-    HasClassName {
+    BaseProps {
   // TODO: this probably isn't the right type
   symbol: MaterialIcons;
   /** The type of material symbol to
    * render. Note that the font for that style needs to
    * be in scope for it to render properly */
   variant?: MaterialSymbolVariants;
-  size?: Size;
 
   isDisabled?: boolean;
 

@@ -79,6 +79,15 @@ export const Floating: Story = {
   },
 };
 
+export const PrefixIcon: Story = {
+  args: {
+    ...Primary.args,
+    prefixIcon: "search",
+    icon: "arrow_drop_down",
+    size: "large",
+  },
+};
+
 export const DynamicCollection: Story = {
   render: () => {
     let options = [

@@ -1,10 +1,9 @@
 import React from "react";
-import cn from "classnames";
 import {
-  HasClassName,
+  ExtendedSize,
   MaterialIcons,
   MaterialIconVariants,
-  Size,
+  BaseProps,
 } from "../../../types";
 import { useRenderProps } from "../../../hooks";
 import { StyledIcon } from "../Icons.styles";
@@ -12,15 +11,15 @@ import { StyledIcon } from "../Icons.styles";
 export interface MaterialIconProps
   extends Omit<
       React.HTMLProps<HTMLElement>,
-      "size" | "className" | "ref" | "as"
+      "size" | "className" | "ref" | "as" | "id"
     >,
-    HasClassName {
+    BaseProps {
   icon: MaterialIcons;
   /** The type of material icon to
    * render. Note that the font for that
    * style needs to be in scope for it to render properly */
   variant?: MaterialIconVariants;
-  size?: Size;
+  size?: ExtendedSize;
 
   isDisabled?: boolean;
 
