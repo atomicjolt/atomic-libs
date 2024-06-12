@@ -17,6 +17,9 @@ export interface LoadingStatusProps {
   /** Placement of the loader */
   readonly loadingPlacement?: LoaderPlacement;
 
+  /** Direction of the loader and message placement */
+  readonly loadingDirection?: "row" | "column";
+
   /** Customize what is rendered when in a loading state */
   readonly renderLoading?: React.ReactNode | React.ComponentType<LoaderProps>;
 
@@ -45,6 +48,7 @@ export function LoadingStatus(props: LoadingStatusProps) {
     renderLoading: Loading = ThreeDotLoader,
     loadingMessage = null,
     loadingPlacement = "center",
+    loadingDirection,
     error = null,
     renderError: Error = ErrorDefault,
     children = null,
@@ -60,6 +64,7 @@ export function LoadingStatus(props: LoadingStatusProps) {
         isLoading={isLoading}
         message={loadingMessage}
         placement={loadingPlacement}
+        direction={loadingDirection}
       />
     ) : (
       Loading

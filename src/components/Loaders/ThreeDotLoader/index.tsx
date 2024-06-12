@@ -17,6 +17,7 @@ export function ThreeDotLoader(props: ThreeDotLoaderProps) {
     className,
     size = "medium",
     placement = "center",
+    direction = "column",
     message,
     ...rest
   } = props;
@@ -36,8 +37,8 @@ export function ThreeDotLoader(props: ThreeDotLoaderProps) {
       {isLoading ? (
         <Flex
           inline={placementType === "inline"}
-          direction={placementType === "inline" ? "row" : "column"}
-          gap={placementType === "inline" ? "1rem" : 0}
+          direction={direction}
+          gap={direction === "row" ? "1rem" : 0}
           justifyContent="center"
           alignItems="center"
         >

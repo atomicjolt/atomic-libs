@@ -228,7 +228,7 @@ export const OverlayTriggerArgTypes: Record<keyof OverlayTriggerProps, object> =
     },
   };
 
-export const AriaLabelArgTypes = {
+export const AriaLabelArgTypes: ArgTypes = {
   "aria-label": {
     control: "text",
     defaultValue: "",

@@ -13,6 +13,8 @@ export default defineConfig({
       "sb-vite",
       "@ljcl/storybook-addon-cssprops",
       "@storybook/blocks",
+      "@storybook/theming",
+      "@stoybook/components",
     ],
     noDiscovery: false,
   },
