@@ -4,8 +4,11 @@ import { ExtendedSize } from "..";
 
 interface UseRenderPropsOptions<T extends {}> {
   readonly componentClassName: Argument;
-  readonly className?: Argument | Argument[];
-  readonly style?: React.CSSProperties;
+  readonly className?:
+    | Argument
+    | Argument[]
+    | ((props: T) => Argument | Argument[]);
+  readonly style?: React.CSSProperties | ((props: T) => React.CSSProperties);
   readonly children?: React.ReactNode | ((props: T) => React.ReactNode);
   readonly defaultChildren?: React.ReactNode;
   readonly values?: T;
@@ -30,10 +33,14 @@ export function useRenderProps<T extends {}>(
   } = options;
 
   return useMemo(() => {
-    const actualClassName = classNames(componentClassName, className, {
-      [`${componentClassName}--${variant}`]: variant,
-      [`is-${size}`]: size,
-    });
+    const actualClassName = classNames(
+      componentClassName,
+      typeof className === "function" ? className(values as T) : className,
+      {
+        [`${componentClassName}--${variant}`]: variant,
+        [`is-${size}`]: size,
+      }
+    );
 
     let actualChildren = children;
 
@@ -45,7 +52,7 @@ export function useRenderProps<T extends {}>(
 
     const actualSelectors = Object.entries(selectors || {}).reduce(
       (acc, [key, value]) => {
-        if (value) {
+        if (!!value) {
           acc[key] = "true";
         }
 
@@ -54,10 +61,13 @@ export function useRenderProps<T extends {}>(
       {} as Record<string, string>
     );
 
+    const actualStyle =
+      typeof style === "function" ? style(values as T) : style;
+
     return {
       className: actualClassName,
       children: actualChildren,
-      style,
+      style: actualStyle,
       ...actualSelectors,
     };
   }, [

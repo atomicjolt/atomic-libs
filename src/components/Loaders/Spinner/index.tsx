@@ -24,6 +24,7 @@ export function Spinner(props: SpinnerProps) {
     size = "medium",
     message,
     placement = "center",
+    direction = "column",
     ...rest
   } = props;
 
@@ -44,8 +45,8 @@ export function Spinner(props: SpinnerProps) {
       {isLoading ? (
         <Flex
           inline={placementType === "inline"}
-          direction={placementType === "inline" ? "row" : "column"}
-          gap={placementType === "inline" ? "1rem" : 0}
+          direction={direction}
+          gap={direction === "row" ? "1rem" : 0}
           justifyContent="center"
           alignItems="center"
         >

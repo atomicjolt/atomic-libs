@@ -1,6 +1,6 @@
 {
   "name": "@atomicjolt/atomic-elements",
-  "version": "2.3.0",
+  "version": "2.4.1",
   "sideEffects": false,
   "module": "dist/esm/index.js",
   "main": "dist/cjs/index.js",
@@ -12,6 +12,10 @@
   "license": "MIT",
   "dependencies": {
     "@internationalized/date": "^3.5.2",
+    "@react-aria/i18n": "^3.11.1",
+    "@react-aria/interactions": "^3.21.1",
+    "@react-stately/flags": "^3.0.3",
+    "@react-stately/table": "^3.11.8",
     "classnames": "^2.3.1",
     "react-aria": "^3.32.0",
     "react-stately": "^3.30.1",
@@ -24,6 +28,7 @@
   },
   "devDependencies": {
     "@ljcl/storybook-addon-cssprops": "^4.0.0",
+    "@react-types/shared": "^3.23.1",
     "@rollup/plugin-commonjs": "^22.0.0",
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@rollup/plugin-typescript": "^8.3.3",

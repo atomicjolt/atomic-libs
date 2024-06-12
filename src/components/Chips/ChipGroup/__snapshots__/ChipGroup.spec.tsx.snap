@@ -24,7 +24,6 @@ exports[`ChipGroup > matches snapshot 1`] = `
       <div
         aria-label="Item"
         class="sc-fPXMhL dpovMZ aje-chip aje-chip--default"
-        data-focus-visible="false"
         data-key="$.0"
         id="react-aria-:r0:-$.0"
         role="row"

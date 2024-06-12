@@ -16,6 +16,9 @@ export interface LoaderProps {
    * @default "center"
    */
   placement?: LoaderPlacement;
+
+  /** The placement of the loader and the message relative to each other */
+  direction?: "row" | "column";
 }
 
 export interface ErrorStateProps {

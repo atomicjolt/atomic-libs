@@ -10,9 +10,10 @@ import Localization from "./tabs/Localization";
 import Overlays from "./tabs/Overlays";
 import Fields from "./tabs/Fields";
 import Loading from "./tabs/Loading";
+import Links from "./tabs/Links";
 
 function Playground() {
-  const [currentTab, setCurrentTab] = useState<Key>("loading");
+  const [currentTab, setCurrentTab] = useState<Key>("aria");
 
   return (
     <div className="padder" style={{ height: "100%" }}>
@@ -39,6 +40,9 @@ function Playground() {
           <Loading />
         </Item>
 
+        <Item key="links" title="Links">
+          <Links />
+        </Item>
         <Item key="aria" title="Aria">
           <Aria />
         </Item>

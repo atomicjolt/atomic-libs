@@ -86,6 +86,15 @@ export {
   ComboInput,
 } from "./Fields";
 
+export { FormatDate } from "./Format/FormatDate";
+export { FormatNumber } from "./Format/FormatNumber";
+export { FormatTable } from "./Format/FormatTable";
+export { FormatDuration } from "./Format/FormatDuration";
+export { FormatOptional } from "./Format/FormatOptional";
+
+export { RouterProvider } from "react-aria";
+export { Link } from "./Routing/Link";
+
 /* ---- Types ---- */
 
 export type { BannerProps, BannerVariants } from "./Banners/Banner";
@@ -143,7 +152,7 @@ export type {
   NumberFieldProps,
   ComboInputProps,
 } from "./Fields";
-export type { TableProps } from "./Layout/Table";
+export type { TableProps } from "./Layout/Table/Table.types";
 export type { TabsProps } from "./Layout/Tabs";
 export type { CardProps } from "./Layout/Card";
 export type { GroupProps } from "./Layout/Group";
@@ -152,3 +161,10 @@ export type { FlexProps } from "./Layout/Flex/Flex";
 export type { FlexItemProps } from "./Layout/Flex/FlexItem";
 export type { ChipGroupProps } from "./Chips/ChipGroup";
 export type { ChipProps } from "./Chips/Chip";
+export type { FormatterProps } from "./Format/Format.types";
+export type { FormatOptionalProps } from "./Format/FormatOptional";
+export type { FormatDateProps } from "./Format/FormatDate";
+export type { FormatNumberProps } from "./Format/FormatNumber";
+export type { FormatTableProps } from "./Format/FormatTable";
+export type { FormatDurationProps } from "./Format/FormatDuration";
+export type { LinkProps } from "./Routing/Link";

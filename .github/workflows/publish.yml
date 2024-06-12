@@ -19,6 +19,8 @@ jobs:
         run: npm install -g yarn
       - name: Install dependencies
         run: yarn install --frozen-lockfile
+      - name: Generage CSS props
+        run: yarn storybook:cssprops
       - name: Build
         run: yarn build
       - name: Publish
