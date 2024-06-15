@@ -171,3 +171,5 @@ export type { FormatNumberProps } from "./Format/FormatNumber";
 export type { FormatTableProps } from "./Format/FormatTable";
 export type { FormatDurationProps } from "./Format/FormatDuration";
 export type { LinkProps } from "./Routing/Link";
+export type { DropZoneProps } from "./DragAndDrop/DropZone";
+export type { FileTriggerProps } from "./Buttons/FileTrigger";
