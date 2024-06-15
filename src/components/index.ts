@@ -95,6 +95,9 @@ export { FormatOptional } from "./Format/FormatOptional";
 export { RouterProvider } from "react-aria";
 export { Link } from "./Routing/Link";
 
+export { DropZone } from "./DragAndDrop/DropZone";
+export { FileTrigger } from "./Buttons/FileTrigger";
+
 /* ---- Types ---- */
 
 export type { BannerProps, BannerVariants } from "./Banners/Banner";

@@ -1,52 +1,6 @@
 import styled from "styled-components";
 import mixins from "../../../styles/mixins";
 
-export const StyledFileInput = styled.input.attrs({ type: "file" })`
-  width: 0.1px;
-  height: 0.1px;
-  opacity: 0;
-  overflow: hidden;
-  position: absolute;
-  z-index: -1;
-
-  &:focus + label {
-    --border-clr: var(--outline-clr-primary);
-    outline: var(--input-outline);
-  }
-
-  &:disabled + label {
-    cursor: not-allowed;
-    opacity: 0.5;
-  }
-`;
-
-export const FileInputLabel = styled.label`
-  --border-clr: var(--neutral600);
-
-  ${mixins.Regular}
-  font-size: 1.6rem;
-  line-height: 1;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  overflow: hidden;
-  border: 1px solid var(--border-clr);
-  border-radius: 5px;
-  overflow: hidden;
-  background-color: none;
-  padding: 0;
-  color: var(--text-clr);
-
-  &:hover {
-    strong {
-      color: var(--text-clr);
-      background-color: var(--neutral200);
-    }
-  }
-`;
-
 export const FileInputSpan = styled.span`
   width: 200px;
   min-height: 38px;
@@ -66,4 +20,44 @@ export const FileInputStrong = styled.strong`
   display: flex;
   align-items: center;
   border-left: 1px solid var(--border-clr);
+`;
+
+export const StyledFileInputButton = styled.button`
+  ${mixins.Regular}
+  ${mixins.FocusVisible(2)}
+  text-align: left;
+  background-color: white;
+  padding: 0;
+  font-size: 1.6rem;
+  line-height: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid var(--border-clr);
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: none;
+  padding: 0;
+  color: var(--text-clr);
+
+  &:hover {
+    ${FileInputStrong} {
+      color: var(--text-clr);
+      background-color: var(--neutral200);
+    }
+  }
+`;
+
+export const FileInputWrapper = styled.div`
+  --border-clr: var(--input-border-clr);
+
+  &[data-disabled] {
+    ${StyledFileInputButton} {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+  }
 `;
