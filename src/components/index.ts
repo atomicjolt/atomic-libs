@@ -95,6 +95,9 @@ export { FormatOptional } from "./Format/FormatOptional";
 export { RouterProvider } from "react-aria";
 export { Link } from "./Routing/Link";
 
+export { DropZone } from "./DragAndDrop/DropZone";
+export { FileTrigger } from "./Buttons/FileTrigger";
+
 /* ---- Types ---- */
 
 export type { BannerProps, BannerVariants } from "./Banners/Banner";
@@ -168,3 +171,5 @@ export type { FormatNumberProps } from "./Format/FormatNumber";
 export type { FormatTableProps } from "./Format/FormatTable";
 export type { FormatDurationProps } from "./Format/FormatDuration";
 export type { LinkProps } from "./Routing/Link";
+export type { DropZoneProps } from "./DragAndDrop/DropZone";
+export type { FileTriggerProps } from "./Buttons/FileTrigger";
