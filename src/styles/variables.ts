@@ -140,7 +140,7 @@ export const CssVariables = createGlobalStyle`
   --banner-border-radius: var(--radius);
 
   /* # Dropdown */
-  --dropdown-max-height: 300px
+  --dropdown-max-height: 300px;
   --dropdown-text-clr: var(--text-clr);
   --dropdown-bg-clr: var(--background-clr);
   --dropdown-text-size: 1.6rem;
