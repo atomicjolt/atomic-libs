@@ -88,6 +88,34 @@ export const PrefixIcon: Story = {
   },
 };
 
+export const ScollingDropdown: Story = {
+  args: {
+    ...Primary.args,
+    children: [
+      <Item key="1">Option 1</Item>,
+      <Item key="2">Option 2</Item>,
+      <Item key="3">Option 3</Item>,
+      <Item key="4">Option 4</Item>,
+      <Item key="5">Option 5</Item>,
+      <Item key="6">Option 6</Item>,
+      <Item key="7">Option 7</Item>,
+      <Item key="8">Option 8</Item>,
+      <Item key="9">Option 9</Item>,
+      <Item key="10">Option 10</Item>,
+      <Item key="11">Option 11</Item>,
+      <Item key="12">Option 12</Item>,
+      <Item key="13">Option 13</Item>,
+      <Item key="14">Option 14</Item>,
+      <Item key="15">Option 15</Item>,
+      <Item key="16">Option 16</Item>,
+      <Item key="17">Option 17</Item>,
+      <Item key="18">Option 18</Item>,
+      <Item key="19">Option 19</Item>,
+      <Item key="20">Option 20</Item>,
+    ],
+  },
+};
+
 export const DynamicCollection: Story = {
   render: () => {
     let options = [
