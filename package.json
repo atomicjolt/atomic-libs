@@ -17,6 +17,7 @@
     "@react-aria/interactions": "^3.21.1",
     "@react-stately/flags": "^3.0.3",
     "@react-stately/table": "^3.11.8",
+    "@react-stately/utils": "^3.10.1",
     "classnames": "^2.3.1",
     "react-aria": "^3.32.0",
     "react-stately": "^3.30.1",

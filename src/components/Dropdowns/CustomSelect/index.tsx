@@ -11,7 +11,7 @@ import { OverlayTriggerStateContext } from "../../Overlays/OverlayTrigger/contex
 import { useRenderProps } from "@/hooks/useRenderProps";
 import { DropdownButton } from "../Dropdowns.styles";
 
-export type CustomSelectVariants = "default" | "floating";
+export type CustomSelectVariants = "default" | "floating" | "ghost";
 
 export interface CustomSelectProps<T extends object>
   extends AriaProps<SelectProps<T>>,
@@ -91,7 +91,7 @@ export function CustomSelect<T extends object>(props: CustomSelectProps<T>) {
       >
         <DropdownButton
           {...triggerProps}
-          variant="dropdown"
+          variant={variant === "ghost" ? "dropdown-ghost" : "dropdown"}
           ref={ref}
           size={size}
           isDisabled={isDisabled || isReadOnly}
