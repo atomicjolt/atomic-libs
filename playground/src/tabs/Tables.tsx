@@ -90,7 +90,15 @@ function ReordableColumnsTable() {
 
 function NestedRowsTable() {
   return (
-    <Table allowsExpandableRows>
+    <Table
+      allowsExpandableRows
+      paginationDescriptor={{
+        page: 1,
+        totalPages: 20,
+        pageSize: 10,
+      }}
+      onPaginationChange={(descriptor) => console.log(descriptor)}
+    >
       <Table.Header>
         <Table.Column key="foo">Foo</Table.Column>
         <Table.Column key="bar">Bar</Table.Column>

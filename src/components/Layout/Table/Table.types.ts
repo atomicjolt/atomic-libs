@@ -20,11 +20,25 @@ import {
   MultipleSelection,
 } from "@react-types/shared";
 
+export interface PaginationDescriptor {
+  page: number;
+  totalPages: number;
+  pageSize: number;
+  totalItems?: number;
+}
+
 export interface SearchProps {
   /** Object representing the current search state of the table */
   searchDescriptor?: SearchDescriptor;
   /** Handler called whenever a change is made to the searchDescriptor */
   onSearchChange?: (descriptor: SearchDescriptor) => void;
+}
+
+export interface PaginationProps {
+  /** Object representing the current pagination state of the table */
+  paginationDescriptor?: PaginationDescriptor;
+  /** Handler called whenever a change is made to the paginationDescriptor */
+  onPaginationChange?: (descriptor: PaginationDescriptor) => void;
 }
 
 export interface SearchState {
@@ -47,6 +61,7 @@ export interface TableProps<T>
     Sortable,
     SearchProps,
     ColumnReorderProps,
+    PaginationProps,
     BaseProps,
     Expandable {
   /** Whether the table allows expandable rows.

@@ -152,3 +152,7 @@ export const SearchInput = styled(Input)``;
 export const CellContent = styled.span`
   width: 100%;
 `;
+
+export const StyledTableFooter = styled.tfoot`
+  background-color: var(--table-bg-clr);
+`;

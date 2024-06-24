@@ -1,19 +1,28 @@
 import { useRef } from "react";
 import { useTable } from "react-aria";
 
-import { TableBody as TableBodyInternal } from "./TableBody";
-import { TableHeader as TableHeaderInternal } from "./TableHeader";
+import { TableBody } from "./TableBody";
+import { TableHeader } from "./TableHeader";
 import { useRenderProps } from "@/hooks/useRenderProps";
-import { TableProps } from "../../Table.types";
+import { TableProps, TableState, TreeGridState } from "../../Table.types";
 import { StyledTable } from "../../Table.styles";
+import { TableFooter } from "./TableFooter";
 
 export interface TableInternalProps<T> extends TableProps<T> {
-  state: any;
+  state: TableState<T> | TreeGridState<T>;
 }
 
 export function TableShared<T extends object>(props: TableInternalProps<T>) {
-  const { state, onRowAction, onCellAction, className, variant, isSticky } =
-    props;
+  const {
+    state,
+    onRowAction,
+    onCellAction,
+    className,
+    variant,
+    isSticky,
+    paginationDescriptor,
+    onPaginationChange,
+  } = props;
 
   const ref = useRef(null);
 
@@ -50,8 +59,15 @@ export function TableShared<T extends object>(props: TableInternalProps<T>) {
 
   return (
     <StyledTable {...gridProps} {...renderProps} ref={ref} id={props.id}>
-      <TableHeaderInternal state={state} />
-      <TableBodyInternal {...props} />
+      <TableHeader state={state} />
+      <TableBody {...props} />
+      {paginationDescriptor !== undefined && (
+        <TableFooter
+          state={state}
+          paginationDescriptor={paginationDescriptor}
+          onPaginationChange={onPaginationChange}
+        />
+      )}
     </StyledTable>
   );
 }
