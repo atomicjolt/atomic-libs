@@ -9,10 +9,7 @@ import { MenuItemProps, Menu } from "../Menu";
 import { ButtonVariants } from "../../Buttons/Buttons.types";
 import { cloneComponent } from "../../../clone";
 
-export type IconMenuProps<T extends object> = Omit<
-  AriaMenuProps<T>,
-  "onAction"
-> &
+export type IconMenuProps<T extends object> = AriaMenuProps<T> &
   MenuTriggerProps &
   BaseProps &
   CanHaveIcon &

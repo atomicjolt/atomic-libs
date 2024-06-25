@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { Item, ItemProps, TreeState, useTreeState } from "react-stately";
 import cn from "classnames";
 import { Node } from "@react-types/shared";
@@ -20,8 +20,7 @@ import { cloneComponent } from "../../../clone";
 import { Divider } from "@/components/Layout/Divider";
 import { MenuContext } from "./context";
 
-export type MenuProps<T> = Omit<AriaMenuProps<T>, "onAction"> &
-  Omit<BaseProps, "size">;
+export type MenuProps<T> = AriaMenuProps<T> & Omit<BaseProps, "size">;
 
 /** A Menu is a collection of items that the user can select.
  * When an item in the menu is selected, an associated action is performed */
@@ -29,21 +28,20 @@ export function Menu<T extends {}>(props: MenuProps<T>) {
   const mergedProps = useContextProps(MenuContext, props);
   const state = useTreeState(props);
   const ref = useRef<HTMLUListElement>(null);
+  const { className, onAction } = mergedProps;
+
   const { menuProps } = useMenu(
     {
       ...mergedProps,
       onAction: (key) => {
         const item = state.collection.getItem(key);
-        if (item && item.props.onAction) {
-          item.props.onAction();
-        }
+        item?.props?.onAction?.();
+        onAction?.(key);
       },
     },
     state,
     ref
   );
-
-  const { className } = mergedProps;
 
   return (
     <MenuList {...menuProps} ref={ref} className={cn("aje-menu", className)}>
