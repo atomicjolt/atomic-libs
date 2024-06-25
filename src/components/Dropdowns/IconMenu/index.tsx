@@ -22,7 +22,8 @@ export type IconMenuProps<T extends object> = Omit<
     menuPlacement?: Placement;
     children:
       | React.ReactElement<MenuItemProps<T>>[]
-      | React.ReactElement<MenuItemProps<T>>;
+      | React.ReactElement<MenuItemProps<T>>
+      | ((item: T) => React.ReactElement<MenuItemProps<T>>);
   };
 export function IconMenu<T extends {}>(props: IconMenuProps<T>) {
   const {
@@ -51,7 +52,7 @@ export function IconMenu<T extends {}>(props: IconMenuProps<T>) {
         loadingLabel={loadingLabel}
       />
       <Popover placement={menuPlacement}>
-        <Menu>{props.children}</Menu>
+        <Menu {...rest}>{props.children}</Menu>
       </Popover>
     </MenuTrigger>
   );
