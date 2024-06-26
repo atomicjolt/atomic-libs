@@ -14,9 +14,9 @@ import { UnmanagedListBox } from "../ListBox";
 import { ComboInput, Input } from "../../Fields";
 import { FloatingInputWrapper } from "../../Internal/FloatingInputWrapper";
 import { OverlayTriggerStateContext } from "../../Overlays/OverlayTrigger/context";
-import { useRenderProps } from "@/hooks/useRenderProps";
+import { useRenderProps } from "@hooks/useRenderProps";
 import { ComboBoxWrapper } from "./Combobox.styles";
-import { MaterialIcon } from "@/components/Icons/MaterialIcon";
+import { MaterialIcon } from "@components/Icons/MaterialIcon";
 
 export interface ComboBoxProps<T>
   extends AriaProps<AriaComboBoxProps<T>>,

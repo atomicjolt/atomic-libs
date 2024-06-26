@@ -8,7 +8,7 @@ import {
   FieldStatusProps,
   RenderBaseProps,
 } from "../../../types";
-import { useRenderProps } from "@/hooks";
+import { useRenderProps } from "@hooks";
 import { Provider } from "../../Internal/Provider";
 
 import {

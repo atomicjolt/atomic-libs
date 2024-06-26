@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { FlexBoxItemProperties } from "./FlexItem.types";
-import { resolveNumber } from "@/styles/utils";
+import { resolveNumber } from "@styles/utils";
 
 export const FlexBoxItem = styled.div<{
   $attrs: FlexBoxItemProperties;

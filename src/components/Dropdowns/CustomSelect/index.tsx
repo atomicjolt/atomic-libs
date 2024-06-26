@@ -8,7 +8,7 @@ import { MaterialIcon } from "../../Icons/MaterialIcon";
 import { Popover } from "../../Overlays/Popover";
 import { UnmanagedListBox } from "../ListBox";
 import { OverlayTriggerStateContext } from "../../Overlays/OverlayTrigger/context";
-import { useRenderProps } from "@/hooks/useRenderProps";
+import { useRenderProps } from "@hooks/useRenderProps";
 import { DropdownButton } from "../Dropdowns.styles";
 
 export type CustomSelectVariants = "default" | "floating";

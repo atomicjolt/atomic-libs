@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
 import { DropZone } from ".";
-import { Flex } from "@/components/Layout/Flex/Flex";
+import { Flex } from "@components/Layout/Flex/Flex";
 
 export default {
   title: "Drag & Drop / DropZone",

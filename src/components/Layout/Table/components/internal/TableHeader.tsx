@@ -1,4 +1,4 @@
-import { useRenderProps } from "@/hooks/useRenderProps";
+import { useRenderProps } from "@hooks/useRenderProps";
 import { StyledThead } from "../../Table.styles";
 import { TableColumn } from "./TableColumn";
 import { TreeGridState, TableState } from "../../Table.types";

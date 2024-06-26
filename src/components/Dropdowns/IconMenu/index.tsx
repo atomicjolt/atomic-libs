@@ -7,7 +7,7 @@ import { Popover } from "../../Overlays/Popover";
 import { MenuTrigger } from "../Menu/MenuTrigger";
 import { MenuItemProps, Menu } from "../Menu";
 import { ButtonVariants } from "../../Buttons/Buttons.types";
-import { cloneComponent } from "../../../clone";
+import { cloneComponent } from "../../../utils/clone";
 
 export type IconMenuProps<T extends object> = Omit<
   AriaMenuProps<T>,

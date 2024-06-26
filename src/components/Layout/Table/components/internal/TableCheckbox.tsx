@@ -7,7 +7,7 @@ import {
   useTableSelectAllCheckbox,
   useTableSelectionCheckbox,
 } from "react-aria";
-import CheckBox from "@/components/Inputs/Checkbox";
+import CheckBox from "@components/Inputs/Checkbox";
 import { StyledTd, StyledTh } from "../../Table.styles";
 
 interface TableCheckboxCellProps<T> {

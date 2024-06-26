@@ -5,7 +5,7 @@ import Spinner from "../../Loaders/Spinner";
 import MaterialIcon from "../../Icons/MaterialIcon";
 import { StyledIconButton } from "./IconButton.styles";
 import useForwardedRef from "../../../hooks/useForwardedRef";
-import { useRenderProps } from "@/hooks/useRenderProps";
+import { useRenderProps } from "@hooks/useRenderProps";
 import { ButtonProps } from "../Button";
 import { useFocusRing } from "../../../hooks/useFocusRing";
 

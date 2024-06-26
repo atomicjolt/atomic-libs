@@ -3,7 +3,7 @@ import { useTable } from "react-aria";
 
 import { TableBody as TableBodyInternal } from "./TableBody";
 import { TableHeader as TableHeaderInternal } from "./TableHeader";
-import { useRenderProps } from "@/hooks/useRenderProps";
+import { useRenderProps } from "@hooks/useRenderProps";
 import { TableProps } from "../../Table.types";
 import { StyledTable } from "../../Table.styles";
 

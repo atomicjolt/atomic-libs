@@ -12,7 +12,7 @@ import { StyledButton } from "./Button.styles";
 import { ButtonVariants } from "../Buttons.types";
 import useForwardedRef from "../../../hooks/useForwardedRef";
 import { useFocusRing } from "../../../hooks/useFocusRing";
-import { useRenderProps } from "@/hooks/useRenderProps";
+import { useRenderProps } from "@hooks/useRenderProps";
 
 export type ButtonProps = AriaButtonOptions<"button"> &
   LoadingProps &

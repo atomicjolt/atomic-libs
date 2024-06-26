@@ -5,7 +5,7 @@ import type { AriaTagGroupProps, AriaTagProps } from "react-aria";
 import { useListState } from "react-stately";
 import { useTag, useTagGroup } from "react-aria";
 import { AriaProps, FieldInputProps } from "../../../types";
-import { ErrorMessage, Label, Message } from "@/components/Fields";
+import { ErrorMessage, Label, Message } from "@components/Fields";
 import { ChipsWrapper, ChipGroupWrapper } from "./ChipGroup.styles";
 import { useFocusRing } from "../../../hooks/useFocusRing";
 import { ChipInternal } from "../Chip";

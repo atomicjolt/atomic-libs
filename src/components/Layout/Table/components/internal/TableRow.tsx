@@ -1,10 +1,10 @@
 import { useRef } from "react";
 import { mergeProps, useTableRow } from "react-aria";
 import { Node, TableState } from "react-stately";
-import { useFocusRing } from "@/hooks/useFocusRing";
+import { useFocusRing } from "@hooks/useFocusRing";
 import { HasChildren } from "../../../../../types";
 import { StyledRow } from "../../Table.styles";
-import { useRenderProps } from "@/hooks/useRenderProps";
+import { useRenderProps } from "@hooks/useRenderProps";
 
 interface TableRowProps<T> extends HasChildren {
   item: Node<T>;

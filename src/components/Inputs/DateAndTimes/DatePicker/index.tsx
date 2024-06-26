@@ -14,7 +14,7 @@ import { Popover } from "../../../Overlays/Popover";
 import { Dialog } from "../../../Overlays/Dialog";
 import Calendar from "../Calendar";
 import { ErrorMessage, Label, Message } from "../../../Fields";
-import { OverlayTriggerStateContext } from "@/components/Overlays/OverlayTrigger/context";
+import { OverlayTriggerStateContext } from "@components/Overlays/OverlayTrigger/context";
 
 export type DatePickerProps<T extends DateValue> = AriaProps<
   AriaDatePickerProps<T>

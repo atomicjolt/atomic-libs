@@ -1,4 +1,4 @@
-import mixins from "@/styles/mixins";
+import mixins from "@styles/mixins";
 import styled from "styled-components";
 
 export const ToolTipArrow = styled.div`

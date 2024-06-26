@@ -5,7 +5,7 @@ import IconButton from "../../Buttons/IconButton";
 import { Input } from "../Atoms/Input";
 import { NumberField } from "../NumberField";
 import { FieldInput } from "../Field/FieldInput";
-import { Group } from "@/components/Layout/Group";
+import { Group } from "@components/Layout/Group";
 
 export default {
   title: "Fields/ComboInput",
