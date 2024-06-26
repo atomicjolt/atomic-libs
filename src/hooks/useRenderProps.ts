@@ -24,7 +24,7 @@ interface RenderPropsResult {
   readonly [key: string]: any;
 }
 
-export function useRenderProps<T extends {}>(
+export function useRenderProps<T extends object>(
   options: UseRenderPropsOptions<T>
 ): RenderPropsResult {
   const {
