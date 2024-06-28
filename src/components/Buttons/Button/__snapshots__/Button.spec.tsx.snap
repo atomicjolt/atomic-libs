@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`matches snapshots > changes variant 1`] = `
+exports[`Button > matches snapshots > changes variant 1`] = `
 <DocumentFragment>
   <button
     class="sc-iGgVNO sc-gsFSjX jYbTSg gEspTW aje-btn aje-btn--secondary is-auto"
@@ -11,7 +11,7 @@ exports[`matches snapshots > changes variant 1`] = `
 </DocumentFragment>
 `;
 
-exports[`matches snapshots > loading completed state 1`] = `
+exports[`Button > matches snapshots > loading completed state 1`] = `
 <DocumentFragment>
   <button
     class="sc-iGgVNO sc-gsFSjX jYbTSg gEspTW aje-btn aje-btn--primary is-auto"
@@ -30,7 +30,7 @@ exports[`matches snapshots > loading completed state 1`] = `
 </DocumentFragment>
 `;
 
-exports[`matches snapshots > loading state 1`] = `
+exports[`Button > matches snapshots > loading state 1`] = `
 <DocumentFragment>
   <button
     class="sc-iGgVNO sc-gsFSjX jYbTSg gEspTW aje-btn aje-btn--primary is-auto"
@@ -60,7 +60,7 @@ exports[`matches snapshots > loading state 1`] = `
 </DocumentFragment>
 `;
 
-exports[`matches snapshots > normal display 1`] = `
+exports[`Button > matches snapshots > normal display 1`] = `
 <DocumentFragment>
   <button
     class="sc-iGgVNO sc-gsFSjX jYbTSg gEspTW aje-btn aje-btn--primary is-auto"
