@@ -1,6 +1,5 @@
-import React from "react";
 import { describe, test, expect, vi } from "vitest";
-import { render, fireEvent, waitFor, screen } from "@testing-library/react";
+import { render, fireEvent, screen } from "@testing-library/react";
 import Button from ".";
 
 describe("matches snapshots", () => {
@@ -54,4 +53,19 @@ test("displays loading displays spinner", () => {
   );
 
   expect(screen.queryByTestId("spinner-svg")).toBeNull();
+});
+
+test("can be rendered as a link", () => {
+  const onClick = vi.fn((e) => e);
+  const { container } = render(
+    <Button href="#" onPress={onClick}>
+      Click me
+    </Button>
+  );
+
+  const anchor = container.querySelector("a");
+  expect(anchor).not.toBeNull();
+  expect(anchor?.getAttribute("href")).toEqual("#");
+  fireEvent.click(screen.getByText("Click me"));
+  expect(onClick.mock.calls.length).toEqual(1);
 });

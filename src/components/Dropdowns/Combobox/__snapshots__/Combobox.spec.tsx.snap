@@ -42,8 +42,7 @@ exports[`matches snapshots > matches default variant 1`] = `
         aria-labelledby="react-aria-:r0: react-aria-:r3:"
         class="sc-gsFSjX sc-kAycRU fvAPeR joEykT aje-btn aje-btn--icon aje-btn--content is-auto"
         id="react-aria-:r0:"
-        role="link"
-        tabindex="0"
+        tabindex="-1"
         type="button"
       >
         <i
@@ -90,8 +89,7 @@ exports[`matches snapshots > matches floating variant 1`] = `
           aria-labelledby="react-aria-:r9: react-aria-:rc:"
           class="sc-gsFSjX sc-kAycRU fvAPeR joEykT aje-btn aje-btn--icon aje-btn--content is-auto"
           id="react-aria-:r9:"
-          role="link"
-          tabindex="0"
+          tabindex="-1"
           type="button"
         >
           <i
