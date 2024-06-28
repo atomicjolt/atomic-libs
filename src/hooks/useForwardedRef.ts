@@ -1,7 +1,7 @@
 import React, { useImperativeHandle } from "react";
 
 /** Forawrds an inner ref object to an external ref */
-export default function useForwardedRef<T>(
+export function useForwardedRef<T>(
   ref: React.ForwardedRef<T>,
   defaultValue: T | null = null
 ): React.RefObject<T> {
@@ -12,3 +12,5 @@ export default function useForwardedRef<T>(
 
   return actualRef;
 }
+
+export default useForwardedRef;

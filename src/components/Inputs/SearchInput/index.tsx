@@ -1,16 +1,22 @@
 import React from "react";
-import { AriaProps, FieldInputProps } from "../../../types";
-import useForwardedRef from "../../../hooks/useForwardedRef";
 import { AriaSearchFieldProps, useSearchField } from "react-aria";
 import { useSearchFieldState } from "react-stately";
-import IconButton from "../../Buttons/IconButton";
+
+import { useRenderProps, useForwardedRef } from "@/hooks";
+import {
+  AriaProps,
+  FieldInputProps,
+  FieldStatusProps,
+  RenderBaseProps,
+} from "../../../types";
+import { IconButton } from "../../Buttons/IconButton";
 import { ErrorMessage, Input, Label, Message, ComboInput } from "../../Fields";
 import { StyledField } from "../../Fields/Field.styles";
-import classNames from "classnames";
 
 export interface SearchInputProps
   extends AriaProps<AriaSearchFieldProps>,
-    FieldInputProps {}
+    Omit<FieldInputProps, "className">,
+    RenderBaseProps<FieldStatusProps> {}
 
 /** Essentially the same as the text input, but with an `onSubmit`
  * handler when the user clicks the search button or hits the enter key
@@ -21,10 +27,8 @@ export const SearchInput = React.forwardRef(function SearchInput(
 ) {
   const {
     label,
-    size = "medium",
     error,
     message,
-    className,
     isDisabled,
     isRequired,
     isReadOnly,
@@ -42,15 +46,20 @@ export const SearchInput = React.forwardRef(function SearchInput(
     isInvalid,
   } = useSearchField(props, searchState, internalRef);
 
+  const renderProps = useRenderProps({
+    ...props,
+    componentClassName: "aje-input__search",
+    values: { isInvalid, isDisabled, isReadOnly, isRequired },
+    selectors: {
+      "data-invalid": isInvalid,
+      "data-disabled": isDisabled,
+      "data-readonly": isReadOnly,
+      "data-required": isRequired,
+    },
+  });
+
   return (
-    <StyledField
-      className={classNames(`aje-input__search`, className)}
-      size={size}
-      isDisabled={isDisabled}
-      isInvalid={isInvalid}
-      isRequired={isRequired}
-      isReadOnly={isReadOnly}
-    >
+    <StyledField {...renderProps}>
       {label && <Label {...labelProps}>{label}</Label>}
       {message && <Message {...descriptionProps}>{message}</Message>}
       <ComboInput>
