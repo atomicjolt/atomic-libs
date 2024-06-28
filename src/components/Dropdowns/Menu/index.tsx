@@ -16,8 +16,8 @@ import {
 } from "./Menu.styles";
 import { BaseProps } from "../../../types";
 import { useContextProps } from "../../../hooks/useContextProps";
-import { cloneComponent } from "../../../clone";
-import { Divider } from "@/components/Layout/Divider";
+import { cloneComponent } from "../../../utils/clone";
+import { Divider } from "@components/Layout/Divider";
 import { MenuContext } from "./context";
 
 export type MenuProps<T> = AriaMenuProps<T> & Omit<BaseProps, "size">;

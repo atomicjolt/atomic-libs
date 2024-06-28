@@ -17,8 +17,8 @@ import {
 } from "@react-types/shared";
 
 import { DomProps, RenderBaseProps, AriaLabelProps } from "../../../types";
-import { useFocusRing } from "@/hooks/useFocusRing";
-import { useRenderProps } from "@/hooks";
+import { useFocusRing } from "@hooks/useFocusRing";
+import { useRenderProps } from "@hooks";
 
 import { DropZoneWrapper } from "./DropZone.styles";
 

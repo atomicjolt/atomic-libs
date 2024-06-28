@@ -10,7 +10,7 @@
  * governing permissions and limitations under the License.
  */
 
-import { cloneComponent } from "@/clone";
+import { cloneComponent } from "@utils/clone";
 import { TableHeader as StatelyTableHeader } from "react-stately";
 
 export const TableHeader = cloneComponent(StatelyTableHeader, "Table.Header");

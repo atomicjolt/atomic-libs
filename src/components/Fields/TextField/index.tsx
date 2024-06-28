@@ -11,7 +11,7 @@ import {
   FieldLabelContext,
   FieldMessageContext,
 } from "../contexts";
-import { useRenderProps } from "@/hooks";
+import { useRenderProps } from "@hooks";
 
 export interface TextFieldProps
   extends FieldProps,

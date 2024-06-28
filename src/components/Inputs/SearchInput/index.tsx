@@ -2,7 +2,7 @@ import React from "react";
 import { AriaSearchFieldProps, useSearchField } from "react-aria";
 import { useSearchFieldState } from "react-stately";
 
-import { useRenderProps, useForwardedRef } from "@/hooks";
+import { useRenderProps, useForwardedRef } from "@hooks";
 import {
   AriaProps,
   FieldInputProps,

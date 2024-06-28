@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
-import mixins from "@/styles/mixins";
-import { ComboInput, Input } from "@/components/Fields";
+import mixins from "@styles/mixins";
+import { ComboInput, Input } from "@components/Fields";
 
 const ShowVerticalDividerMixin = css`
   &[data-divider] {

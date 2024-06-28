@@ -3,7 +3,7 @@ import {
   TableBodyProps as StatelyTableBodyProps,
 } from "react-stately";
 import { Argument } from "classnames";
-import { cloneComponent } from "@/clone";
+import { cloneComponent } from "@utils/clone";
 
 export interface TableBodyProps<T> extends StatelyTableBodyProps<T> {
   className?: Argument | Argument[];
