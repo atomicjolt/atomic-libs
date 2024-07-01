@@ -1,29 +1,28 @@
 import { AriaTableProps } from "react-aria";
 import {
-  BaseProps,
-  Key,
-  SearchDescriptor,
-  SuggestStrings,
-} from "../../../types";
-
-import {
   TableBodyProps,
   TableHeaderProps,
   TableState as StatelyTableState,
   TreeGridState as StatelyTreeGridState,
 } from "@react-stately/table";
 import { Expandable } from "@react-types/shared";
-
 import {
   SelectionBehavior,
   Sortable,
   MultipleSelection,
 } from "@react-types/shared";
 
+import {
+  BaseProps,
+  Key,
+  SearchDescriptor,
+  SuggestStrings,
+} from "../../../types";
+
 export interface PaginationDescriptor {
   page: number;
-  totalPages: number;
   pageSize: number;
+  totalPages: number;
   totalItems?: number;
 }
 

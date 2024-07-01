@@ -9,7 +9,7 @@ type PaginationParts = "first" | "prev" | "next" | "last";
 
 interface PaginationRenderProps {
   page: number;
-  totalPages: number;
+  totalPages?: number;
 }
 
 export interface PaginationProps
@@ -22,9 +22,8 @@ export interface PaginationProps
    */
   defaultPage?: number;
   /** The total number of pages
-   * @default 1
    */
-  totalPages?: number;
+  totalPages: number;
   /** Callback when the page changes */
   onChange?: (page: number) => void;
   /** The size of the pagination buttons */
@@ -43,7 +42,7 @@ export interface PaginationProps
 export function Pagination(props: PaginationProps) {
   const {
     defaultPage = 1,
-    totalPages = 1,
+    totalPages,
     size,
     hide: hideProp = [],
     variant = "ghost",
