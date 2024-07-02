@@ -1,12 +1,62 @@
 import React, { useState } from "react";
-import { Key, SearchDescriptor, Table } from "../elements";
+import {
+  Flex,
+  Key,
+  PageSelector,
+  PageSizeSelect,
+  Pagination,
+  SearchDescriptor,
+  Table,
+} from "../elements";
 
 export default function Tables() {
   return (
     <div style={{ padding: "16px" }}>
+      <PaginatedTable />
       {/* <ReordableColumnsTable /> */}
-      <NestedRowsTable />
+      {/* <NestedRowsTable /> */}
     </div>
+  );
+}
+
+function PaginatedTable() {
+  const [paginationDescriptor, setPaginationDescriptor] = useState({
+    page: 1,
+    totalPages: 20,
+    pageSize: 10,
+  });
+
+  return (
+    <Table aria-label="Table with pagination">
+      <Table.Header>
+        <Table.Column key="foo">Foo</Table.Column>
+        <Table.Column key="bar">Bar</Table.Column>
+        <Table.Column key="baz">Baz</Table.Column>
+      </Table.Header>
+      <Table.Body>
+        <Table.Row key="row 1">
+          <Table.Cell>Lvl 1 Foo 1</Table.Cell>
+          <Table.Cell>Lvl 1 Bar 1</Table.Cell>
+          <Table.Cell> Lvl 1 Baz 1</Table.Cell>
+        </Table.Row>
+        <Table.Row key="row 2">
+          <Table.Cell>Lvl 1 Foo 2</Table.Cell>
+          <Table.Cell>Lvl 1 Bar 2</Table.Cell>
+          <Table.Cell>Lvl 1 Baz 2</Table.Cell>
+        </Table.Row>
+      </Table.Body>
+      <Table.Footer>
+        <Table.Pagination
+          {...paginationDescriptor}
+          onPageChange={(page) =>
+            setPaginationDescriptor({ ...paginationDescriptor, page })
+          }
+          onPageSizeChange={(pageSize) =>
+            setPaginationDescriptor({ ...paginationDescriptor, pageSize })
+          }
+        />
+      </Table.Footer>
+    </Table>
   );
 }
 
@@ -90,15 +140,7 @@ function ReordableColumnsTable() {
 
 function NestedRowsTable() {
   return (
-    <Table
-      allowsExpandableRows
-      paginationDescriptor={{
-        page: 1,
-        totalPages: 20,
-        pageSize: 10,
-      }}
-      onPaginationChange={(descriptor) => console.log(descriptor)}
-    >
+    <Table aria-label="Table with nested rows" allowsExpandableRows>
       <Table.Header>
         <Table.Column key="foo">Foo</Table.Column>
         <Table.Column key="bar">Bar</Table.Column>

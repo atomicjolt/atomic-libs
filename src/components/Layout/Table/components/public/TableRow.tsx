@@ -20,7 +20,6 @@ import { BaseProps } from "../../../../../types";
 export interface RowProps<T>
   extends Omit<StatelyRowProps<T>, "UNSTABLE_childItems">,
     BaseProps {
-  "aria-label"?: string;
   /** Callback when a user clicks on or otherwise interacts with the cell */
   onAction?: () => void;
   childItems?: StatelyRowProps<T>["UNSTABLE_childItems"];

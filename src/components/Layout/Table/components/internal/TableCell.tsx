@@ -11,10 +11,11 @@ import { TreeGridState, TableState } from "../../Table.types";
 interface TableCellProps<T> {
   cell: GridNode<T>;
   state: TableState<T> | TreeGridState<T>;
+  isFooterCell?: boolean;
 }
 
 export function TableCell<T>(props: TableCellProps<T>) {
-  const { cell, state } = props;
+  const { cell, state, isFooterCell } = props;
 
   const ref = useRef(null);
   const { gridCellProps } = useTableCell({ node: cell }, state, ref);
@@ -25,9 +26,10 @@ export function TableCell<T>(props: TableCellProps<T>) {
 
   const colSpan = cell.colspan ?? cell.props.colSpan;
 
-  const isRowHeaderCell = state.collection.rowHeaderColumnKeys.has(
-    cell?.column?.key!
-  );
+  const isRowHeaderCell =
+    state.collection.rowHeaderColumnKeys.has(cell?.column?.key!) &&
+    !isFooterCell;
+
   const isFirstRowHeaderCell =
     state.collection.rowHeaderColumnKeys.keys().next().value ===
     cell?.column?.key;

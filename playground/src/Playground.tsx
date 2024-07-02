@@ -10,7 +10,7 @@ import Fields from "./tabs/Fields";
 import Links from "./tabs/Links";
 
 function Playground() {
-  const [currentTab, setCurrentTab] = useState<Key>("aria");
+  const [currentTab, setCurrentTab] = useState<Key>("tables");
 
   return (
     <div className="padder" style={{ height: "100%" }}>

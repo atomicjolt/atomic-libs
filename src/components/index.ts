@@ -100,6 +100,7 @@ export { FileTrigger } from "./Buttons/FileTrigger";
 
 export { Pagination } from "./Pagination/Pagination";
 export { PageSizeSelect } from "./Pagination/PageSizeSelect";
+export { PageSelector } from "./Pagination/PageSelector";
 
 /* ---- Types ---- */
 
@@ -178,3 +179,4 @@ export type { DropZoneProps } from "./DragAndDrop/DropZone";
 export type { FileTriggerProps } from "./Buttons/FileTrigger";
 export type { PaginationProps } from "./Pagination/Pagination";
 export type { PageSizeSelectProps } from "./Pagination/PageSizeSelect";
+export type { PageSelectorProps } from "./Pagination/PageSelector";

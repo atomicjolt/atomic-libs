@@ -1,61 +1,49 @@
 import { TableRowGroup } from "./TableRowGroup";
-import { StyledRow, StyledTableFooter, StyledTd } from "../../Table.styles";
-import {
-  PaginationDescriptor,
-  TableState,
-  TreeGridState,
-} from "../../Table.types";
-import { Flex } from "@/components/Layout/Flex/Flex";
-import { Pagination } from "@/components/Pagination/Pagination";
-import { PageSizeSelect } from "@/components/Pagination/PageSizeSelect";
+import { StyledTableFooter } from "../../Table.styles";
+import { TableState, TreeGridState } from "../../Table.types";
+import { TableRow } from "./TableRow";
+import { TableCell } from "./TableCell";
+import { useRenderProps } from "@/index";
+import { TablePagination } from "./TablePagination";
 
 interface TableFooterProps<T> {
   state: TableState<T> | TreeGridState<T>;
-  paginationDescriptor: PaginationDescriptor;
-  onPaginationChange?: (descriptor: PaginationDescriptor) => void;
 }
 
 export function TableFooter<T>(props: TableFooterProps<T>) {
-  const { state, paginationDescriptor, onPaginationChange } = props;
-  const {
-    page,
-    totalPages,
-    pageSize,
-    totalItems = totalPages * pageSize,
-  } = paginationDescriptor;
+  const { state } = props;
 
-  const columnCount = state.collection.columnCount;
+  const { collection } = state;
+
+  const rows = [...collection.footer.childNodes];
+
+  const renderProps = useRenderProps({
+    componentClassName: "aje-table__footer",
+    ...collection.body.props,
+  });
 
   return (
-    <TableRowGroup type={StyledTableFooter}>
-      <StyledRow>
-        <StyledTd
-          colSpan={columnCount}
-          style={{ padding: "0px", paddingRight: "var(--table-padding-horz)" }}
-        >
-          <Flex justifyContent="flex-end">
-            <PageSizeSelect
-              page={page}
-              pageSize={pageSize}
-              totalItems={totalItems}
-              onSelectPageSize={(pageSize) => {
-                onPaginationChange?.({
-                  ...paginationDescriptor,
-                  page: 1,
-                  pageSize,
-                });
-              }}
-            />
-            <Pagination
-              page={page}
-              totalPages={totalPages}
-              onChange={(page) => {
-                onPaginationChange?.({ ...paginationDescriptor, page });
-              }}
-            />
-          </Flex>
-        </StyledTd>
-      </StyledRow>
+    <TableRowGroup type={StyledTableFooter} {...renderProps}>
+      {rows.map((row) => {
+        if (row.type === "pagination") {
+          return <TablePagination key={row.key} state={state} item={row} />;
+        } else {
+          return (
+            <TableRow item={row} state={state} key={row.key}>
+              {[...collection.getChildren!(row.key)].map((cell) => {
+                return (
+                  <TableCell
+                    key={cell.key}
+                    cell={cell}
+                    state={state}
+                    isFooterCell
+                  />
+                );
+              })}
+            </TableRow>
+          );
+        }
+      })}
     </TableRowGroup>
   );
 }

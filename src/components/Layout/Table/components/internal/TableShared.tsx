@@ -13,16 +13,8 @@ export interface TableInternalProps<T> extends TableProps<T> {
 }
 
 export function TableShared<T extends object>(props: TableInternalProps<T>) {
-  const {
-    state,
-    onRowAction,
-    onCellAction,
-    className,
-    variant,
-    isSticky,
-    paginationDescriptor,
-    onPaginationChange,
-  } = props;
+  const { state, onRowAction, onCellAction, className, variant, isSticky } =
+    props;
 
   const ref = useRef(null);
 
@@ -61,13 +53,7 @@ export function TableShared<T extends object>(props: TableInternalProps<T>) {
     <StyledTable {...gridProps} {...renderProps} ref={ref} id={props.id}>
       <TableHeader state={state} />
       <TableBody {...props} />
-      {paginationDescriptor !== undefined && (
-        <TableFooter
-          state={state}
-          paginationDescriptor={paginationDescriptor}
-          onPaginationChange={onPaginationChange}
-        />
-      )}
+      {state.collection.footer && <TableFooter state={state} />}
     </StyledTable>
   );
 }

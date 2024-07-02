@@ -1,6 +1,7 @@
 import { Item } from "@/components/Collection";
 import { CustomSelect } from "@/components/Dropdowns/CustomSelect";
-import { AriaLabelProps, RenderBaseProps } from "../../../types";
+import { AriaLabelProps, ExtendedSize, RenderBaseProps } from "../../../types";
+import { PageSizeProps } from "../Pagination.types";
 
 interface PageSizeSelectRenderProps {
   page: number;
@@ -9,27 +10,18 @@ interface PageSizeSelectRenderProps {
 
 export interface PageSizeSelectProps
   extends Omit<RenderBaseProps<PageSizeSelectRenderProps>, "children">,
-    AriaLabelProps {
+    AriaLabelProps,
+    PageSizeProps {
   /** The current page number */
   page: number;
-  /** The current page size */
-  pageSize: number;
-  /** The total number of items */
-  totalItems?: number;
-  /** The possible page sizes.
-   * Any value within here that is greater than `totalItems` will be filtered out
-   * @default [10, 25, 50, 100]
-   * */
-  possiblePageSizes?: number[];
   /** Callback when the page size changes */
   onSelectPageSize?: (pageSize: number) => void;
 
   variant?: "ghost" | "border";
+  size?: ExtendedSize;
 }
 
-/** Page size select component. Renders a select
- * dropdown for selecting the page size.
- */
+/** Dropdown to select the size of pages. Used in combination with the Pagination component */
 export function PageSizeSelect(props: PageSizeSelectProps) {
   const {
     page,
@@ -74,7 +66,6 @@ export function PageSizeSelect(props: PageSizeSelectProps) {
 
   return (
     <CustomSelect
-      size="auto"
       variant={variant === "border" ? "default" : "ghost"}
       selectedKey={pageSize.toString()}
       onSelectionChange={(pageSize) =>
@@ -84,7 +75,10 @@ export function PageSizeSelect(props: PageSizeSelectProps) {
       {...rest}
     >
       {(item) => (
-        <Item key={item.size}>
+        <Item
+          key={item.size}
+          textValue={`${item.start}-${item.end} of ${totalItems}`}
+        >
           {item.start}-{item.end} of {totalItems}
         </Item>
       )}

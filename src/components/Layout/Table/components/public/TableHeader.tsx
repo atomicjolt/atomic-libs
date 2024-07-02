@@ -11,6 +11,12 @@
  */
 
 import { cloneComponent } from "@/clone";
-import { TableHeader as StatelyTableHeader } from "react-stately";
+import {
+  TableHeader as StatelyTableHeader,
+  TableHeaderProps,
+} from "react-stately";
 
-export const TableHeader = cloneComponent(StatelyTableHeader, "Table.Header");
+export const TableHeader = cloneComponent(
+  StatelyTableHeader,
+  "Table.Header"
+) as <T>(props: TableHeaderProps<T>) => JSX.Element;

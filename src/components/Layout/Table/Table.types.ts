@@ -18,6 +18,7 @@ import {
   SearchDescriptor,
   SuggestStrings,
 } from "../../../types";
+import { TableFooterProps } from "./components/public/TableFooter";
 
 export interface PaginationDescriptor {
   page: number;
@@ -76,6 +77,7 @@ export interface TableProps<T>
   children?: [
     React.ReactElement<TableHeaderProps<T>>,
     React.ReactElement<TableBodyProps<T>>,
+    React.ReactElement<TableFooterProps<T>>?, // Footer is optional
   ];
 
   isSticky?: boolean;

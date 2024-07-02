@@ -4,34 +4,28 @@ import { useRenderProps } from "@/hooks/useRenderProps";
 import { Flex } from "@/components/Layout/Flex/Flex";
 import { IconButton } from "@/components/Buttons/IconButton";
 import { ButtonVariants } from "../..//Buttons/Buttons.types";
+import { PageProps } from "../Pagination.types";
 
 type PaginationParts = "first" | "prev" | "next" | "last";
 
 interface PaginationRenderProps {
   page: number;
-  totalPages?: number;
+  totalPages: number;
+  onChange: (page: number) => void;
 }
 
 export interface PaginationProps
-  extends RenderBaseProps<PaginationRenderProps>,
+  extends PageProps,
+    RenderBaseProps<PaginationRenderProps>,
     AriaLabelProps {
-  /** The current page number (controlled) */
-  page?: number;
-  /** The default page number (uncontrolled)
-   * @default 1
-   */
-  defaultPage?: number;
-  /** The total number of pages
-   */
-  totalPages: number;
-  /** Callback when the page changes */
-  onChange?: (page: number) => void;
   /** The size of the pagination buttons */
   size?: ExtendedSize;
   /** The parts of the pagination to hide */
   hide?: Iterable<PaginationParts>;
   /** Variants for the pagination buttons */
   variant?: ButtonVariants;
+  /** Callback when the page changes */
+  onChange?: (page: number) => void;
 }
 
 // TODO: needs localization
@@ -58,7 +52,7 @@ export function Pagination(props: PaginationProps) {
 
   const renderProps = useRenderProps({
     componentClassName: "aje-pagination",
-    values: { page, totalPages },
+    values: { page, totalPages, onChange: setPage },
     ...props,
   });
 
