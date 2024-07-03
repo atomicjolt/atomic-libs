@@ -10,7 +10,7 @@ describe("ToolTip", () => {
   const element = (
     <ToolTipTrigger>
       <Button>Target</Button>
-      <ToolTip>Tooltip</ToolTip>
+      <ToolTip transitionDuration={0}>Tooltip</ToolTip>
     </ToolTipTrigger>
   );
 
@@ -18,13 +18,14 @@ describe("ToolTip", () => {
     const user = userEvent.setup();
     render(element);
 
+    expect(screen.queryByText("Tooltip")).toBeNull();
+
     await user.keyboard("[Tab]");
     expect(screen.getByText("Tooltip")).toBeTruthy();
 
-    // Once the tooltip is added, it remains in the DOM, but is hidden
+    // Gets removed from the DOM when the user focuses away
     await user.keyboard("[Tab]");
-    const tooltip = screen.getByText("Tooltip");
-    expect(getComputedStyle(tooltip).getPropertyValue("opacity")).toBe("0");
+    expect(screen.queryByText("Tooltip")).toBeNull();
   });
 
   // TODO - For some reason, the hover event is not working as expected in this test
