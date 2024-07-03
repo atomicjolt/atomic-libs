@@ -1,6 +1,6 @@
 {
   "name": "@atomicjolt/atomic-elements",
-  "version": "2.6.2",
+  "version": "2.6.3",
   "sideEffects": false,
   "module": "dist/esm/index.js",
   "main": "dist/cjs/index.js",
