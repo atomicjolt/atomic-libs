@@ -13,6 +13,7 @@ import { ToolTipArrow, ToolTipOverlay } from "./ToolTip.styles";
 import { HasChildren, HasClassName } from "../../../types";
 import { TooltipContext, TooltipStateContext } from "./contexts";
 import { useContextProps } from "../../../hooks/useContextProps";
+import { useFirstStateChange } from "@hooks/util";
 
 export interface ToolTipProps
   extends PositionProps,
@@ -38,6 +39,8 @@ export function ToolTip(props: ToolTipProps) {
 
   const { tooltipProps } = useTooltip({ ...rest }, state);
 
+  const changed = useFirstStateChange(state.isOpen);
+
   const { overlayProps, arrowProps, placement } = useOverlayPosition({
     targetRef: triggerRef!,
     overlayRef: ref,
@@ -48,6 +51,8 @@ export function ToolTip(props: ToolTipProps) {
     arrowBoundaryOffset: props.arrowBoundaryOffset,
     shouldFlip: props.shouldFlip,
   });
+
+  if (!changed && !state.isOpen) return null;
 
   return (
     <Overlay>
