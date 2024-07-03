@@ -1,6 +1,6 @@
-import { DOMAttributes } from "@react-types/shared";
 import React, { LabelHTMLAttributes } from "react";
-import { AriaButtonProps } from "react-aria";
+import { DOMAttributes } from "@react-types/shared";
+import { AriaButtonProps } from "@react-aria/button";
 
 export const FieldLabelContext = React.createContext<
   DOMAttributes | LabelHTMLAttributes<HTMLLabelElement>

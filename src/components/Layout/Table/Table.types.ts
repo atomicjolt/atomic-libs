@@ -1,11 +1,4 @@
-import { AriaTableProps } from "react-aria";
-import {
-  BaseProps,
-  Key,
-  SearchDescriptor,
-  SuggestStrings,
-} from "../../../types";
-
+import { AriaTableProps } from "@react-aria/table";
 import {
   TableBodyProps,
   TableHeaderProps,
@@ -13,12 +6,18 @@ import {
   TreeGridState as StatelyTreeGridState,
 } from "@react-stately/table";
 import { Expandable } from "@react-types/shared";
-
 import {
   SelectionBehavior,
   Sortable,
   MultipleSelection,
 } from "@react-types/shared";
+
+import {
+  BaseProps,
+  Key,
+  SearchDescriptor,
+  SuggestStrings,
+} from "../../../types";
 
 export interface SearchProps {
   /** Object representing the current search state of the table */

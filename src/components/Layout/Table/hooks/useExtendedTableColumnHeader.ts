@@ -3,7 +3,7 @@ import {
   AriaTableColumnHeaderProps,
   TableColumnHeaderAria,
   useTableColumnHeader,
-} from "react-aria";
+} from "@react-aria/table";
 import { RefObject } from "react";
 import { TableState } from "../Table.types";
 

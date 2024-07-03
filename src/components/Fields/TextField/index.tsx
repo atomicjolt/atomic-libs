@@ -1,8 +1,7 @@
 import { useCallback, useRef, useState } from "react";
-import classNames from "classnames";
+import { AriaTextFieldProps, useTextField } from "@react-aria/textfield";
 import { FieldProps } from "../Field";
 import { AriaProps } from "../../../types";
-import { AriaTextFieldProps, useTextField } from "react-aria";
 import { StyledField } from "../Field.styles";
 import { Provider } from "../../Internal/Provider";
 import {

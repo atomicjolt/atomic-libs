@@ -2,13 +2,13 @@ import { useRef } from "react";
 import {
   DropEnterEvent,
   DropMoveEvent,
-  VisuallyHidden,
-  mergeProps,
-  useButton,
   useClipboard,
   useDrop,
-  useHover,
-} from "react-aria";
+} from "@react-aria/dnd";
+import { useButton } from "@react-aria/button";
+import { useHover } from "@react-aria/interactions";
+import { mergeProps } from "@react-aria/utils";
+import { VisuallyHidden } from "@react-aria/visually-hidden";
 import { isFocusable } from "@react-aria/focus";
 import {
   DropActivateEvent,

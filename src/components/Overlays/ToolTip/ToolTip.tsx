@@ -1,12 +1,17 @@
-import React, { useContext, useRef } from "react";
-import { Overlay, useOverlayPosition, useTooltip } from "react-aria";
-import { ToolTipArrow, ToolTipOverlay } from "./ToolTip.styles";
-import { RefObject } from "react";
-import { AriaPositionProps, PositionProps } from "react-aria";
+import { useContext, useRef } from "react";
+import classNames from "classnames";
+import {
+  Overlay,
+  useOverlayPosition,
+  AriaPositionProps,
+  PositionProps,
+} from "@react-aria/overlays";
+import { useTooltip } from "@react-aria/tooltip";
 import { OverlayTriggerProps } from "react-stately";
+
+import { ToolTipArrow, ToolTipOverlay } from "./ToolTip.styles";
 import { HasChildren, HasClassName } from "../../../types";
 import { TooltipContext, TooltipStateContext } from "./contexts";
-import classNames from "classnames";
 import { useContextProps } from "../../../hooks/useContextProps";
 
 export interface ToolTipProps
@@ -20,7 +25,7 @@ export interface ToolTipProps
    *
    * When used within a TooltipTrigger this is set automatically. It is only required when used standalone.
    */
-  triggerRef?: RefObject<Element>;
+  triggerRef?: React.RefObject<Element>;
   /* Placement of the tooltip relative to the target element */
   placement?: "right" | "left" | "top" | "bottom";
 }

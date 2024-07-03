@@ -1,5 +1,5 @@
 import React from "react";
-import { AriaSearchFieldProps, useSearchField } from "react-aria";
+import { AriaSearchFieldProps, useSearchField } from "@react-aria/searchfield";
 import { useSearchFieldState } from "react-stately";
 
 import { useRenderProps, useForwardedRef } from "@hooks";

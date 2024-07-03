@@ -1,11 +1,16 @@
-import React, { useCallback, useContext, useRef, useState } from "react";
-import { DismissButton, Overlay, usePopover } from "react-aria";
-import type { AriaPopoverProps } from "react-aria";
+import React, { useCallback, useContext, useState } from "react";
+import {
+  AriaPopoverProps,
+  DismissButton,
+  Overlay,
+  usePopover,
+} from "@react-aria/overlays";
 import { OverlayTriggerProps, useOverlayTriggerState } from "react-stately";
 import cn from "classnames";
+
 import { HasClassName } from "../../../types";
 import { PopoverUnderlay, PopoverContent } from "./Popover.styles";
-import useForwardedRef from "../../../hooks/useForwardedRef";
+import { useForwardedRef } from "../../../hooks/useForwardedRef";
 import { PopoverContext } from "./context";
 import { useContextProps } from "../../../hooks/useContextProps";
 import { useResizeObserver } from "../../../hooks/useResizeObserver";

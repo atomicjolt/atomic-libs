@@ -1,5 +1,8 @@
 import React, { useRef } from "react";
-import { FileDropItem, mergeProps, useButton, useId } from "react-aria";
+import { FileDropItem } from "@react-types/shared";
+import { useButton } from "@react-aria/button";
+import { mergeProps } from "@react-aria/utils";
+import { useId } from "@react-aria/utils";
 
 import { useRenderProps } from "../../../hooks";
 import { AriaLabelProps, FieldInputProps } from "../../../types";

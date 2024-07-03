@@ -1,4 +1,4 @@
-import { PressProps, usePress } from "react-aria";
+import { PressProps, usePress } from "@react-aria/interactions";
 
 /** Wraps usePress, but includes a 'button' role if any of the press props are passed.
  * The intention is to make it eaiser to conditionally supply styles to

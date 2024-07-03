@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { useTable } from "react-aria";
+import { useTable } from "@react-aria/table";
 
 import { TableBody as TableBodyInternal } from "./TableBody";
 import { TableHeader as TableHeaderInternal } from "./TableHeader";

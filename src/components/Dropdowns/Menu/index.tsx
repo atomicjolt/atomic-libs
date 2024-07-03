@@ -7,7 +7,7 @@ import {
   useMenu,
   useMenuItem,
   useMenuSection,
-} from "react-aria";
+} from "@react-aria/menu";
 import {
   MenuList,
   MenuOption,

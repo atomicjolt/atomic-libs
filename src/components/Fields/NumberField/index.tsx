@@ -1,5 +1,6 @@
 import { useContext, useRef } from "react";
-import { AriaNumberFieldProps, useLocale, useNumberField } from "react-aria";
+import { AriaNumberFieldProps, useNumberField } from "@react-aria/numberfield";
+import { useLocale } from "@react-aria/i18n";
 import { useNumberFieldState } from "react-stately";
 import { useRenderProps } from "@hooks";
 import { FieldProps } from "../Field";

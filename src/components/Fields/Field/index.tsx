@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { AriaFieldProps, useField } from "react-aria";
+import { AriaFieldProps, useField } from "@react-aria/label";
 import {
   AriaProps,
   DomProps,

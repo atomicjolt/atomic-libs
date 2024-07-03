@@ -1,5 +1,6 @@
 import { forwardRef } from "react";
-import { AriaButtonOptions, mergeProps, useButton, useLink } from "react-aria";
+import { AriaButtonOptions } from "@react-aria/button";
+import { mergeProps } from "@react-aria/utils";
 
 import Spinner from "../../Loaders/Spinner";
 import {

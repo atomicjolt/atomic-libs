@@ -1,5 +1,6 @@
 import { useRef } from "react";
-import { mergeProps, useTableCell } from "react-aria";
+import { mergeProps } from "@react-aria/utils";
+import { useTableCell } from "@react-aria/table";
 import { GridNode } from "@react-types/grid";
 import { useFocusRing } from "@hooks/useFocusRing";
 import { useRenderProps } from "@hooks/useRenderProps";

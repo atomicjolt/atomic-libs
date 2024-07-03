@@ -1,5 +1,6 @@
 import { useRef } from "react";
-import { mergeProps, useDrag, useDrop, TextDropItem } from "react-aria";
+import { useDrag, useDrop, TextDropItem } from "@react-aria/dnd";
+import { mergeProps } from "@react-aria/utils";
 import { GridNode } from "@react-types/grid";
 
 import { useFocusRing } from "@hooks/useFocusRing";

@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { SelectProps, useSelectState } from "react-stately";
-import { HiddenSelect, useSelect } from "react-aria";
+import { HiddenSelect, useSelect } from "@react-aria/select";
 import { AriaProps, FieldInputProps, HasVariant } from "../../../types";
 import { ButtonText, CustomSelectWrapper } from "./CustomSelect.styles";
 import { FloatingInputWrapper } from "../../Internal/FloatingInputWrapper";

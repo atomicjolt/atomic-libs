@@ -1,17 +1,18 @@
 import React, { useRef } from "react";
+import classNames from "classnames";
 import {
+  AriaTabPanelProps,
   useTab,
   useTabList,
   useTabPanel,
-  AriaTabListOptions,
-  AriaTabPanelProps,
-} from "react-aria";
+} from "@react-aria/tabs";
 import {
   TabListState,
   useTabListState,
   Node,
   TabListProps,
 } from "react-stately";
+
 import {
   TabContentWrapper,
   TabInfo,
@@ -23,16 +24,18 @@ import {
   TabsWrapper,
 } from "./Tabs.Styles";
 import { BaseProps, HasVariant } from "../../../types";
-import classNames from "classnames";
-import { useVariantClass } from '../../../hooks';
+import { useVariantClass } from "../../../hooks";
 
-export interface TabsProps<T> extends TabListProps<T>, BaseProps, HasVariant<"default" | "card" | "toggle"> {
+export interface TabsProps<T>
+  extends TabListProps<T>,
+    BaseProps,
+    HasVariant<"default" | "card" | "toggle"> {
   /** Display information to the right of the tab list */
   info?: React.ReactNode;
 }
 
 export function Tabs<T extends object>(props: TabsProps<T>) {
-  const { className, id, info, variant="default" } = props;
+  const { className, id, info, variant = "default" } = props;
 
   const state = useTabListState(props);
   const ref = useRef(null);
@@ -41,7 +44,10 @@ export function Tabs<T extends object>(props: TabsProps<T>) {
   const variantClass = useVariantClass("aje-tabs", variant);
 
   return (
-    <TabsWrapper className={classNames("aje-tabs", variantClass, className)} id={id}>
+    <TabsWrapper
+      className={classNames("aje-tabs", variantClass, className)}
+      id={id}
+    >
       <TabList {...tabListProps} ref={ref}>
         <TabLinksWrapper>
           {[...state.collection].map((item) => (
@@ -49,7 +55,9 @@ export function Tabs<T extends object>(props: TabsProps<T>) {
           ))}
         </TabLinksWrapper>
         <TabInfoWrapper>
-          {React.Children.map(info, (child) => <TabInfo>{child}</TabInfo>)}
+          {React.Children.map(info, (child) => (
+            <TabInfo>{child}</TabInfo>
+          ))}
         </TabInfoWrapper>
       </TabList>
       <TabPanel key={state.selectedItem?.key} state={state} />
