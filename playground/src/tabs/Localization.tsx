@@ -9,7 +9,7 @@ import {
   RadioGroup,
   SkeletonLoader,
 } from "../elements";
-import { I18nProvider } from "react-aria";
+import { I18nProvider } from "@react-aria/i18n";
 
 export default function Localization() {
   const [locale, setLocale] = useState<React.Key>("en");

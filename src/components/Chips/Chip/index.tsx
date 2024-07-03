@@ -1,12 +1,10 @@
 import React from "react";
 import classNames from "classnames";
 import type { ItemProps } from "react-stately";
-import {
-  AriaButtonProps,
-  PressEvent,
-  PressProps,
-  mergeProps,
-} from "react-aria";
+import { PressEvent, PressProps } from "@react-aria/interactions";
+import { AriaButtonProps } from "@react-aria/button";
+import { mergeProps } from "@react-aria/utils";
+
 import { copyStaticProperties } from "@utils/clone";
 import { useVariantClass } from "@hooks";
 import { Item } from "@components/Collection";

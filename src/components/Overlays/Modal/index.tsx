@@ -1,5 +1,9 @@
 import React, { useContext, useRef } from "react";
-import { AriaModalOverlayProps, Overlay, useModalOverlay } from "react-aria";
+import {
+  AriaModalOverlayProps,
+  Overlay,
+  useModalOverlay,
+} from "@react-aria/overlays";
 import {
   OverlayTriggerProps,
   OverlayTriggerState,

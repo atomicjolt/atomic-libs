@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { mergeProps } from "react-aria";
+import { mergeProps } from "@react-aria/utils";
 
 type Props = Record<string, any>;
 type PropsArg = Props | null | undefined;

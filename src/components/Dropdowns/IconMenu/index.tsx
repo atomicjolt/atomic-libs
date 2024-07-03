@@ -1,6 +1,7 @@
 import React from "react";
 import { Item, MenuTriggerProps } from "react-stately";
-import { AriaMenuProps, Placement } from "react-aria";
+import { AriaMenuProps } from "@react-aria/menu";
+import { Placement } from "@react-aria/overlays";
 import IconButton from "../../Buttons/IconButton";
 import { BaseProps, CanHaveIcon, LoadingProps } from "../../../types";
 import { Popover } from "../../Overlays/Popover";

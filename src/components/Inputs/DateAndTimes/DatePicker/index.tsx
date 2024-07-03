@@ -1,5 +1,9 @@
-import React, { useRef } from "react";
-import { useDatePicker, AriaDatePickerProps, DateValue } from "react-aria";
+import { useRef } from "react";
+import {
+  useDatePicker,
+  AriaDatePickerProps,
+  DateValue,
+} from "@react-aria/datepicker";
 import { useDatePickerState } from "react-stately";
 import { Size, AriaProps, FieldInputProps } from "../../../../types";
 import {

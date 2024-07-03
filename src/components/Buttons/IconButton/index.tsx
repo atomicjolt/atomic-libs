@@ -1,5 +1,5 @@
 import { forwardRef } from "react";
-import { mergeProps } from "react-aria";
+import { mergeProps } from "@react-aria/utils";
 import { HasIcon } from "../../../types";
 import Spinner from "../../Loaders/Spinner";
 import MaterialIcon from "../../Icons/MaterialIcon";

@@ -1,27 +1,23 @@
 import React from "react";
 import cn from "classnames";
 import { useToggleState } from "react-stately";
-import type { ToggleProps } from "@react-types/checkbox";
 import type { AriaLabelingProps } from "@react-types/shared";
-import { useSwitch, VisuallyHidden } from "react-aria";
-import {
-  AriaProps,
-  BaseProps,
-  FieldDomProps,
-  HasChildren,
-} from "../../../types";
+import { useSwitch, AriaSwitchProps } from "@react-aria/switch";
+import { VisuallyHidden } from "@react-aria/visually-hidden";
+
+import { AriaProps, BaseProps, FieldDomProps } from "../../../types";
 import {
   ToggleSwitchIcon,
   ToggleSwitchContainer,
   ToggleSwitchLabel,
   ToggleSwitchWrapper,
 } from "./ToggleSwitch.styles";
-import useForwardedRef from "../../../hooks/useForwardedRef";
+import { useForwardedRef } from "../../../hooks/useForwardedRef";
 import { useFirstStateChange } from "../../../hooks";
 import { useFocusRing } from "../../../hooks/useFocusRing";
 
 export interface ToggleSwitchProps
-  extends AriaProps<ToggleProps>,
+  extends AriaProps<AriaSwitchProps>,
     AriaLabelingProps,
     FieldDomProps,
     BaseProps {

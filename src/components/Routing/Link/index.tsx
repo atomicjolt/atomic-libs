@@ -1,5 +1,6 @@
 import { useRef } from "react";
-import { useLink, AriaLinkOptions, mergeProps } from "react-aria";
+import { useLink, AriaLinkOptions } from "@react-aria/link";
+import { mergeProps } from "@react-aria/utils";
 import { StyledLink } from "./Link.styles";
 import { BaseProps } from "../../../types";
 import { useRenderProps } from "@hooks/useRenderProps";

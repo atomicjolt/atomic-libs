@@ -4,7 +4,7 @@ import { useTooltipTriggerState } from "react-stately";
 import {
   TooltipTriggerProps as AriaTooltipTriggerProps,
   useTooltipTrigger,
-} from "react-aria";
+} from "@react-aria/tooltip";
 import { FocusableProvider } from "@react-aria/focus";
 import { HasClassName } from "../../../types";
 import { Provider } from "../../Internal/Provider";

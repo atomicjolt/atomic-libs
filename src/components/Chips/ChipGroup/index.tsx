@@ -1,9 +1,13 @@
 import { useRef } from "react";
 import type { ListState } from "react-stately";
 import classNames from "classnames";
-import type { AriaTagGroupProps, AriaTagProps } from "react-aria";
+import {
+  AriaTagGroupProps,
+  AriaTagProps,
+  useTag,
+  useTagGroup,
+} from "@react-aria/tag";
 import { useListState } from "react-stately";
-import { useTag, useTagGroup } from "react-aria";
 import { AriaProps, FieldInputProps } from "../../../types";
 import { ErrorMessage, Label, Message } from "@components/Fields";
 import { ChipsWrapper, ChipGroupWrapper } from "./ChipGroup.styles";

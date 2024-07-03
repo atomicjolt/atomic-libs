@@ -1,10 +1,12 @@
-import cn from "classnames";
 import React, { useContext, useRef } from "react";
+import cn from "classnames";
+import { AriaRadioProps, useRadio } from "@react-aria/radio";
+import { useLocale } from "@react-aria/i18n";
+
 import { HasClassName, HelpTextProps } from "../../../types";
 import { ChooseInput, ChooseLabel } from "../Inputs.styles";
 import RadioContext from "./context";
 import { RadioWrapper } from "./RadioGroup.styles";
-import { AriaRadioProps, useLocale, useRadio } from "react-aria";
 import { ErrorMessage, Message } from "../../Fields";
 
 export interface RadioProps

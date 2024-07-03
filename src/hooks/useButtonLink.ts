@@ -1,12 +1,7 @@
-import { DOMAttributes, FocusableElement } from "@react-types/shared";
 import React from "react";
-import {
-  AriaButtonOptions,
-  AriaLinkOptions,
-  ButtonAria,
-  useButton,
-  useLink,
-} from "react-aria";
+import { DOMAttributes, FocusableElement } from "@react-types/shared";
+import { AriaButtonOptions, ButtonAria, useButton } from "@react-aria/button";
+import { AriaLinkOptions, useLink } from "@react-aria/link";
 
 interface ButtonLinkOptions
   extends Omit<AriaButtonOptions<"button">, "elementType" | "target">,

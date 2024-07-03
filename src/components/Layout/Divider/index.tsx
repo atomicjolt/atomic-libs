@@ -1,5 +1,5 @@
 import React from "react";
-import { useSeparator } from "react-aria";
+import { useSeparator } from "@react-aria/separator";
 import { AriaLabelProps, BaseProps } from "../../../types";
 import { useRenderProps } from "@hooks/useRenderProps";
 import { StyledDivider } from "./Divider.styles";

@@ -1,9 +1,7 @@
 import React, { useRef } from "react";
-import type { AriaDialogProps } from "react-aria";
-import { useDialog } from "react-aria";
+import { AriaDialogProps, useDialog } from "@react-aria/dialog";
 import { HasChildren } from "../../../types";
 import { DialogTitle, DialogTop, DialogWrapper } from "./Dialog.styles";
-import IconButton from "../../Buttons/IconButton";
 
 interface DialogProps extends AriaDialogProps, HasChildren {
   title?: React.ReactNode;

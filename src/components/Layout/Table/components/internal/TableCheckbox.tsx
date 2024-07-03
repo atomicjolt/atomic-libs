@@ -1,12 +1,12 @@
-import { Node, TableState } from "react-stately";
 import { useRef } from "react";
+import { Node, TableState } from "react-stately";
 import {
-  VisuallyHidden,
   useTableCell,
   useTableColumnHeader,
   useTableSelectAllCheckbox,
   useTableSelectionCheckbox,
-} from "react-aria";
+} from "@react-aria/table";
+import { VisuallyHidden } from "@react-aria/visually-hidden";
 import CheckBox from "@components/Inputs/Checkbox";
 import { StyledTd, StyledTh } from "../../Table.styles";
 
