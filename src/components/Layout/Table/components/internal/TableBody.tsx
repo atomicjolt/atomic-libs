@@ -3,7 +3,7 @@ import { Expandable } from "@react-types/shared";
 import { TableRowGroup } from "./TableRowGroup";
 import { TableRow } from "./TableRow";
 import { TableCell } from "./TableCell";
-import { useRenderProps } from "@/hooks/useRenderProps";
+import { useRenderProps } from "@hooks/useRenderProps";
 import { TableCheckboxCell } from "./TableCheckbox";
 import { TableState, TreeGridState } from "../../Table.types";
 import { StyledTBody } from "../../Table.styles";

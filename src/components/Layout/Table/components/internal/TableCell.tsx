@@ -1,10 +1,11 @@
 import { useRef } from "react";
-import { mergeProps, useTableCell } from "react-aria";
+import { mergeProps } from "@react-aria/utils";
+import { useTableCell } from "@react-aria/table";
 import { GridNode } from "@react-types/grid";
-import { useFocusRing } from "@/hooks/useFocusRing";
-import { useRenderProps } from "@/hooks/useRenderProps";
-import { IconButton } from "@/components/Buttons/IconButton";
-import { Flex } from "@/components/Layout/Flex/Flex";
+import { useFocusRing } from "@hooks/useFocusRing";
+import { useRenderProps } from "@hooks/useRenderProps";
+import { IconButton } from "@components/Buttons/IconButton";
+import { Flex } from "@components/Layout/Flex/Flex";
 import { CellContent, RowHeader, StyledCell } from "../../Table.styles";
 import { TreeGridState, TableState } from "../../Table.types";
 

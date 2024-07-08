@@ -1,4 +1,4 @@
-import { AriaTableProps } from "react-aria";
+import { AriaTableProps } from "@react-aria/table";
 import {
   TableBodyProps,
   TableHeaderProps,

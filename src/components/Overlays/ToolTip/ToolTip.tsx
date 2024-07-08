@@ -1,12 +1,18 @@
-import React, { useContext, useRef } from "react";
-import { Overlay, useOverlayPosition, useTooltip } from "react-aria";
-import { ToolTipArrow, ToolTipOverlay } from "./ToolTip.styles";
-import { RefObject } from "react";
-import { AriaPositionProps, PositionProps } from "react-aria";
+import { useContext, useRef } from "react";
+import classNames from "classnames";
+import {
+  Overlay,
+  useOverlayPosition,
+  AriaPositionProps,
+  PositionProps,
+} from "@react-aria/overlays";
+import { useTooltip } from "@react-aria/tooltip";
 import { OverlayTriggerProps } from "react-stately";
+import { Transition } from "react-transition-group";
+
+import { ToolTipArrow, ToolTipOverlay } from "./ToolTip.styles";
 import { HasChildren, HasClassName } from "../../../types";
 import { TooltipContext, TooltipStateContext } from "./contexts";
-import classNames from "classnames";
 import { useContextProps } from "../../../hooks/useContextProps";
 
 export interface ToolTipProps
@@ -20,14 +26,21 @@ export interface ToolTipProps
    *
    * When used within a TooltipTrigger this is set automatically. It is only required when used standalone.
    */
-  triggerRef?: RefObject<Element>;
+  triggerRef?: React.RefObject<Element>;
   /* Placement of the tooltip relative to the target element */
   placement?: "right" | "left" | "top" | "bottom";
+
+  /* Time in milliseconds for the tooltip to fade in and out */
+  transitionDuration?: number;
 }
 
 /** A ToolTip component displays a popup with additional information when a user hovers over or focuses on an element. */
 export function ToolTip(props: ToolTipProps) {
-  const { triggerRef, ...rest } = useContextProps(TooltipContext, props);
+  const {
+    triggerRef,
+    transitionDuration = 300,
+    ...rest
+  } = useContextProps(TooltipContext, props);
   const state = useContext(TooltipStateContext);
   const ref = useRef(null);
 
@@ -46,18 +59,27 @@ export function ToolTip(props: ToolTipProps) {
 
   return (
     <Overlay>
-      <ToolTipOverlay
-        ref={ref}
-        className={classNames("aje-tooltip", props.className)}
-        data-placement={placement}
-        data-entering={state.isOpen || undefined}
-        data-exiting={!state.isOpen || undefined}
-        {...tooltipProps}
-        {...overlayProps}
+      <Transition
+        nodeRef={ref}
+        in={state.isOpen}
+        timeout={transitionDuration}
+        unmountOnExit
       >
-        {props.children}
-        <ToolTipArrow {...arrowProps} />
-      </ToolTipOverlay>
+        {(state) => (
+          <ToolTipOverlay
+            $transitionDuration={transitionDuration}
+            ref={ref}
+            className={classNames("aje-tooltip", props.className)}
+            data-placement={placement}
+            {...{ [`data-${state}`]: true }}
+            {...tooltipProps}
+            {...overlayProps}
+          >
+            {props.children}
+            <ToolTipArrow {...arrowProps} />
+          </ToolTipOverlay>
+        )}
+      </Transition>
     </Overlay>
   );
 }

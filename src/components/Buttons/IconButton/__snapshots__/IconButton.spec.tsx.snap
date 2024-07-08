@@ -5,8 +5,6 @@ exports[`matches snapshot 1`] = `
   <button
     aria-label="More Button"
     class="sc-gsFSjX sc-kAycRU fvAPeR joEykT aje-btn aje-btn--icon aje-btn--border is-medium"
-    role="link"
-    tabindex="0"
     type="button"
   >
     <i

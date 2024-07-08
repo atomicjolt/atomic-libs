@@ -5,9 +5,10 @@ import {
   DateValue,
   useDateField,
   useDateSegment,
-  useLocale,
-} from "react-aria";
+} from "@react-aria/datepicker";
+import { useLocale } from "@react-aria/i18n";
 import { createCalendar } from "@internationalized/date";
+
 import { AriaProps, FieldInputProps } from "../../../../types";
 import { DateInputWrapper, StyledDateSegment } from "./DateInput.styles";
 import {

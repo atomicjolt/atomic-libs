@@ -1,5 +1,9 @@
-import React, { useRef } from "react";
-import { useDatePicker, AriaDatePickerProps, DateValue } from "react-aria";
+import { useRef } from "react";
+import {
+  useDatePicker,
+  AriaDatePickerProps,
+  DateValue,
+} from "@react-aria/datepicker";
 import { useDatePickerState } from "react-stately";
 import { Size, AriaProps, FieldInputProps } from "../../../../types";
 import {
@@ -14,7 +18,7 @@ import { Popover } from "../../../Overlays/Popover";
 import { Dialog } from "../../../Overlays/Dialog";
 import Calendar from "../Calendar";
 import { ErrorMessage, Label, Message } from "../../../Fields";
-import { OverlayTriggerStateContext } from "@/components/Overlays/OverlayTrigger/context";
+import { OverlayTriggerStateContext } from "@components/Overlays/OverlayTrigger/context";
 
 export type DatePickerProps<T extends DateValue> = AriaProps<
   AriaDatePickerProps<T>

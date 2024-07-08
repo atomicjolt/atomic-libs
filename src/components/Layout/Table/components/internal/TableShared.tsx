@@ -1,13 +1,13 @@
 import { useRef } from "react";
-import { useTable } from "react-aria";
+import { useTable } from "@react-aria/table";
 
-import { TableBody } from "./TableBody";
-import { TableHeader } from "./TableHeader";
-import { useRenderProps } from "@/hooks/useRenderProps";
+import { useRenderProps } from "@hooks/useRenderProps";
 import { TableProps, TableState, TreeGridState } from "../../Table.types";
 import { StyledTable } from "../../Table.styles";
 import { TableFooter } from "./TableFooter";
 import { TablePagination } from "./TablePagination";
+import { TableHeader } from "./TableHeader";
+import { TableBody } from "./TableBody";
 
 export interface TableInternalProps<T> extends TableProps<T> {
   state: TableState<T> | TreeGridState<T>;

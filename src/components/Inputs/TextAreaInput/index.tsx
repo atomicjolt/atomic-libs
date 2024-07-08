@@ -1,8 +1,9 @@
-import cn from "classnames";
 import React from "react";
+import cn from "classnames";
+import { AriaTextFieldProps } from "@react-aria/textfield";
+
 import { AriaProps, FieldInputProps } from "../../../types";
 import { TextAreaWrapper } from "./TextAreaInput.styles";
-import { AriaTextFieldProps } from "react-aria";
 import {
   FieldLabel,
   FieldMessage,

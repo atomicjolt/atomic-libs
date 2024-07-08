@@ -1,12 +1,13 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import {
   AriaTimeFieldProps,
   TimeValue,
-  useLocale,
   useTimeField,
-} from "react-aria";
+} from "@react-aria/datepicker";
+import { useLocale } from "@react-aria/i18n";
 import { useTimeFieldState } from "react-stately";
 import classNames from "classnames";
+
 import { DateSegment } from "../DateInput";
 import { TimeInputWrapper } from "./TimeInput.styles";
 import { AriaProps, FieldInputProps } from "../../../../types";

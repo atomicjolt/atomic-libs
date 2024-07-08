@@ -1,5 +1,6 @@
 import { forwardRef } from "react";
-import { AriaButtonOptions, mergeProps, useButton, useLink } from "react-aria";
+import { AriaButtonOptions } from "@react-aria/button";
+import { mergeProps } from "@react-aria/utils";
 
 import Spinner from "../../Loaders/Spinner";
 import {
@@ -12,7 +13,8 @@ import { StyledButton } from "./Button.styles";
 import { ButtonVariants } from "../Buttons.types";
 import useForwardedRef from "../../../hooks/useForwardedRef";
 import { useFocusRing } from "../../../hooks/useFocusRing";
-import { useRenderProps } from "@/hooks/useRenderProps";
+import { useRenderProps } from "@hooks/useRenderProps";
+import { useButtonLink } from "@hooks/useButtonLink";
 
 export type ButtonProps = AriaButtonOptions<"button"> &
   LoadingProps &
@@ -35,21 +37,11 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       as = props.href ? "a" : "button",
     } = props;
     const internalRef = useForwardedRef<HTMLButtonElement>(ref);
-    const { buttonProps, isPressed } = useButton(
+    const { buttonProps, isPressed } = useButtonLink(
       {
         ...props,
         elementType: as,
         "aria-label": isLoading ? loadingLabel : props["aria-label"],
-      },
-      internalRef
-    );
-
-    const { linkProps } = useLink(
-      {
-        href: props.href,
-        rel: props.rel,
-        target: props.target,
-        elementType: as,
       },
       internalRef
     );
@@ -71,7 +63,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       <StyledButton
         as={as}
         ref={internalRef}
-        {...mergeProps(buttonProps, linkProps, focusProps, renderProps)}
+        {...mergeProps(buttonProps, focusProps, renderProps)}
       >
         {isLoading && <Spinner isLoading={!loadingComplete} isCentered />}
         {children}

@@ -2,8 +2,8 @@ import { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
 import { FileTrigger } from ".";
 import Button from "../Button";
-import { DropZone } from "@/components/DragAndDrop/DropZone";
-import { FileDropItem } from "react-aria";
+import { DropZone } from "@components/DragAndDrop/DropZone";
+import { FileDropItem } from "@react-aria/dnd";
 
 export default {
   title: "Buttons/FileTrigger",

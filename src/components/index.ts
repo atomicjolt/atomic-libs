@@ -92,7 +92,7 @@ export { FormatTable } from "./Format/FormatTable";
 export { FormatDuration } from "./Format/FormatDuration";
 export { FormatOptional } from "./Format/FormatOptional";
 
-export { RouterProvider } from "react-aria";
+export { RouterProvider } from "@react-aria/utils";
 export { Link } from "./Routing/Link";
 
 export { DropZone } from "./DragAndDrop/DropZone";

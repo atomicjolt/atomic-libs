@@ -1,10 +1,11 @@
-import React, { useRef } from "react";
-import { useOverlayTrigger } from "react-aria";
+import { useRef } from "react";
+import { useOverlayTrigger } from "@react-aria/overlays";
+import { PressResponder } from "@react-aria/interactions";
 import {
   OverlayTriggerProps as RSOverlayTriggerProps,
   useOverlayTriggerState,
 } from "react-stately";
-import { PressResponder } from "@react-aria/interactions";
+
 import { PopoverContext } from "../Popover/context";
 import { Provider } from "../../Internal/Provider";
 import { HasChildren } from "../../../types";

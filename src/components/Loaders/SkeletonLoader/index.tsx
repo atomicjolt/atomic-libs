@@ -1,12 +1,12 @@
 import React, { useId, useMemo } from "react";
-import { useLocale } from "react-aria";
+import classNames from "classnames";
+import { useLocale } from "@react-aria/i18n";
 import {
   GradientEndPoint,
   GradientMidPoint,
   Svg,
 } from "./SkeletonLoader.styles";
 import { HasClassName } from "../../../types";
-import classNames from "classnames";
 
 // Based on https://github.com/danilowoz/react-content-loader
 

@@ -1,4 +1,4 @@
-import { resolveNumber } from "@/styles/utils";
+import { resolveNumber } from "@styles/utils";
 import styled from "styled-components";
 
 function handlePrimaryMargin({ $spacing }: { $spacing?: string | number }) {

@@ -1,6 +1,8 @@
 import { useRef } from "react";
-import { AriaComboBoxProps, useComboBox, useFilter } from "react-aria";
+import { AriaComboBoxProps, useComboBox } from "@react-aria/combobox";
+import { useFilter } from "@react-aria/i18n";
 import { useComboBoxState } from "react-stately";
+
 import {
   AriaProps,
   CanHaveIcon,
@@ -14,9 +16,9 @@ import { UnmanagedListBox } from "../ListBox";
 import { ComboInput, Input } from "../../Fields";
 import { FloatingInputWrapper } from "../../Internal/FloatingInputWrapper";
 import { OverlayTriggerStateContext } from "../../Overlays/OverlayTrigger/context";
-import { useRenderProps } from "@/hooks/useRenderProps";
+import { useRenderProps } from "@hooks/useRenderProps";
+import { MaterialIcon } from "@components/Icons/MaterialIcon";
 import { ComboBoxWrapper } from "./Combobox.styles";
-import { MaterialIcon } from "@/components";
 
 export interface ComboBoxProps<T>
   extends AriaProps<AriaComboBoxProps<T>>,

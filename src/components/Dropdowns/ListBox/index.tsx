@@ -1,21 +1,22 @@
 import React, { useMemo, useRef, useState } from "react";
-import type { AriaListBoxProps } from "react-aria";
 import { useListState, Node, ListState } from "react-stately";
 import {
-  mergeProps,
-  useFilter,
-  useFocusRing,
+  AriaListBoxProps,
   useListBox,
   useListBoxSection,
   useOption,
-} from "react-aria";
+} from "@react-aria/listbox";
+import { mergeProps } from "@react-aria/utils";
+import { useFilter } from "@react-aria/i18n";
 import classNames from "classnames";
+
+import { useFocusRing } from "@hooks/useFocusRing";
 import { BaseProps } from "../../../types";
-import useForwardedRef from "../../../hooks/useForwardedRef";
-import SearchInput from "../../Inputs/SearchInput";
-import MaterialIcon from "../../Icons/MaterialIcon";
+import { useForwardedRef } from "../../../hooks/useForwardedRef";
+import { SearchInput } from "../../Inputs/SearchInput";
+import { MaterialIcon } from "../../Icons/MaterialIcon";
 import { Label } from "../../Fields";
-import { Divider } from "@/components/Layout/Divider";
+import { Divider } from "@components/Layout/Divider";
 import { List, ListItem, SectionTitle, SubList } from "./ListBox.styles";
 
 export type ListBoxProps<T> = AriaListBoxProps<T> &

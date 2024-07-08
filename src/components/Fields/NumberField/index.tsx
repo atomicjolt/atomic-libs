@@ -1,7 +1,8 @@
-import React, { useContext, useRef } from "react";
-import { AriaNumberFieldProps, useLocale, useNumberField } from "react-aria";
-import classNames from "classnames";
+import { useContext, useRef } from "react";
+import { AriaNumberFieldProps, useNumberField } from "@react-aria/numberfield";
+import { useLocale } from "@react-aria/i18n";
 import { useNumberFieldState } from "react-stately";
+import { useRenderProps } from "@hooks";
 import { FieldProps } from "../Field";
 import { AriaProps } from "../../../types";
 import { StyledField } from "../Field.styles";
@@ -24,9 +25,6 @@ export interface NumberFieldProps
 /** Provides the accessbility implementation for a number field and its associated label, error message, and description. */
 export function NumberField(props: NumberFieldProps) {
   const {
-    size,
-    children,
-    className,
     isDisabled,
     isRequired,
     isReadOnly,
@@ -55,16 +53,20 @@ export function NumberField(props: NumberFieldProps) {
     inputRef
   );
 
+  const renderProps = useRenderProps({
+    ...props,
+    componentClassName: "aje-input__number",
+    values: { isInvalid, isDisabled, isReadOnly, isRequired },
+    selectors: {
+      "data-invalid": isInvalid,
+      "data-disabled": isDisabled,
+      "data-readonly": isReadOnly,
+      "data-required": isRequired,
+    },
+  });
+
   return (
-    <StyledField
-      className={classNames("aje-input__number", className)}
-      size={size}
-      isDisabled={isDisabled}
-      isInvalid={isInvalid}
-      isRequired={isRequired}
-      isReadOnly={isReadOnly}
-      data-float={dataFloat}
-    >
+    <StyledField {...renderProps} data-float={dataFloat}>
       <Provider
         values={[
           [FieldLabelContext.Provider, labelProps],
@@ -89,7 +91,7 @@ export function NumberField(props: NumberFieldProps) {
           ],
         ]}
       >
-        {children}
+        {renderProps.children}
       </Provider>
     </StyledField>
   );

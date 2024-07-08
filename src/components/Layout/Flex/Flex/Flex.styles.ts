@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { resolveNumber } from "@/styles/utils";
+import { resolveNumber } from "@styles/utils";
 import { FlexBoxProperties } from "./Flex.types";
 
 export function handleGap({ gap, rowGap, columnGap }: FlexBoxProperties) {

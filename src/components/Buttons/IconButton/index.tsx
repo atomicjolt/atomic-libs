@@ -1,13 +1,14 @@
 import { forwardRef } from "react";
-import { mergeProps, useButton, useLink } from "react-aria";
+import { mergeProps } from "@react-aria/utils";
 import { HasIcon } from "../../../types";
 import Spinner from "../../Loaders/Spinner";
 import MaterialIcon from "../../Icons/MaterialIcon";
 import { StyledIconButton } from "./IconButton.styles";
 import useForwardedRef from "../../../hooks/useForwardedRef";
-import { useRenderProps } from "@/hooks/useRenderProps";
+import { useRenderProps } from "@hooks/useRenderProps";
 import { ButtonProps } from "../Button";
 import { useFocusRing } from "../../../hooks/useFocusRing";
+import { useButtonLink } from "@hooks/useButtonLink";
 
 export type IconButtonProps = Omit<ButtonProps, "children"> & HasIcon;
 
@@ -24,28 +25,19 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
       iconVariant = "default",
       className,
       size = "medium",
-      as = "button",
+      as = props.href ? "a" : "button",
     } = props;
     const innerRef = useForwardedRef<HTMLButtonElement>(ref);
-    const { buttonProps, isPressed } = useButton(
+    const { buttonProps, isPressed } = useButtonLink(
       {
         ...props,
+        elementType: as,
         "aria-label": isLoading ? loadingLabel : props["aria-label"],
       },
       innerRef
     );
 
     const { focusProps } = useFocusRing();
-
-    const { linkProps } = useLink(
-      {
-        href: props.href,
-        rel: props.rel,
-        target: props.target,
-        elementType: as,
-      },
-      innerRef
-    );
 
     const renderProps = useRenderProps({
       componentClassName: "aje-btn",
@@ -63,7 +55,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
         type="button"
         as={as}
         ref={innerRef}
-        {...mergeProps(buttonProps, focusProps, linkProps, renderProps)}
+        {...mergeProps(buttonProps, focusProps, renderProps)}
       >
         {isLoading && <Spinner isLoading={!loadingComplete} isCentered />}
         <MaterialIcon icon={icon} variant={iconVariant} size={size} />

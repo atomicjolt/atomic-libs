@@ -1,4 +1,4 @@
-import useForwardedRef from "@/hooks/useForwardedRef";
+import useForwardedRef from "@hooks/useForwardedRef";
 import { FieldDomProps } from "../../../types";
 import { PressResponder } from "@react-aria/interactions";
 import React from "react";

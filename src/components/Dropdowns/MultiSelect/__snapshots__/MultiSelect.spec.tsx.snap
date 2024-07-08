@@ -18,8 +18,6 @@ exports[`MultiSelect > matches default variant 1`] = `
       aria-labelledby="react-aria-:r7: react-aria-:r3:"
       class="sc-iGgVNO sc-gsFSjX jYbTSg gEspTW aje-btn sc-kAycRU cfoxwV aje-btn--dropdown is-medium"
       id="react-aria-:r2:"
-      role="link"
-      tabindex="0"
       type="button"
     >
       <span
@@ -53,8 +51,6 @@ exports[`MultiSelect > matches floating variant 1`] = `
         aria-labelledby="react-aria-:rf: react-aria-:rb:"
         class="sc-iGgVNO sc-gsFSjX jYbTSg gEspTW aje-btn sc-kAycRU cfoxwV aje-btn--dropdown is-medium"
         id="react-aria-:ra:"
-        role="link"
-        tabindex="0"
         type="button"
       >
         <span
