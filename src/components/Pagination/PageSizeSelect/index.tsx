@@ -1,5 +1,5 @@
-import { Item } from "@/components/Collection";
-import { CustomSelect } from "@/components/Dropdowns/CustomSelect";
+import { Item } from "@components/Collection";
+import { CustomSelect } from "@components/Dropdowns/CustomSelect";
 import { AriaLabelProps, ExtendedSize, RenderBaseProps } from "../../../types";
 import { PageSizeProps } from "../Pagination.types";
 

@@ -1,8 +1,8 @@
 import { useControlledState } from "@react-stately/utils";
 import { AriaLabelProps, ExtendedSize, RenderBaseProps } from "../../../types";
-import { useRenderProps } from "@/hooks/useRenderProps";
-import { Flex } from "@/components/Layout/Flex/Flex";
-import { IconButton } from "@/components/Buttons/IconButton";
+import { useRenderProps } from "@hooks/useRenderProps";
+import { Flex } from "@components/Layout/Flex/Flex";
+import { IconButton } from "@components/Buttons/IconButton";
 import { ButtonVariants } from "../..//Buttons/Buttons.types";
 import { PageProps } from "../Pagination.types";
 

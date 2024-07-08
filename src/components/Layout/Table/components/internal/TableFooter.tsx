@@ -3,7 +3,7 @@ import { StyledTableFooter } from "../../Table.styles";
 import { TableState, TreeGridState } from "../../Table.types";
 import { TableRow } from "./TableRow";
 import { TableCell } from "./TableCell";
-import { useRenderProps } from "@/index";
+import { useRenderProps } from "@hooks";
 
 interface TableFooterProps<T> {
   state: TableState<T> | TreeGridState<T>;
@@ -14,7 +14,7 @@ export function TableFooter<T>(props: TableFooterProps<T>) {
 
   const { collection } = state;
 
-  const rows = [...collection.footer.childNodes];
+  const rows = [...collection.footer!.childNodes];
 
   const renderProps = useRenderProps({
     componentClassName: "aje-table__footer",

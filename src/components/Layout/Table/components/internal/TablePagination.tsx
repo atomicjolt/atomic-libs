@@ -1,6 +1,6 @@
 import { TableBottom } from "../../Table.styles";
-import { PageSizeSelect } from "@/components/Pagination/PageSizeSelect";
-import { Pagination } from "@/components/Pagination/Pagination";
+import { PageSizeSelect } from "@components/Pagination/PageSizeSelect";
+import { Pagination } from "@components/Pagination/Pagination";
 import { PaginationDescriptor } from "../../../../../types";
 
 interface TablePaginationProps<T> {
