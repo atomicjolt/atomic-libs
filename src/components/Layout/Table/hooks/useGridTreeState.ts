@@ -3,7 +3,7 @@ import {
   UNSTABLE_useTreeGridState,
 } from "@react-stately/table";
 import { enableTableNestedRows } from "@react-stately/flags";
-import { TableState } from "../Table.types";
+import { TableChildren, TableState } from "../Table.types";
 import {
   TableStateExtensionsProps,
   useTableStateExtensions,
@@ -11,9 +11,11 @@ import {
 import { Expandable } from "@react-types/shared";
 
 export interface TreeGridStateProps<T extends object>
-  extends StatelyTreeGridStateProps<T>,
+  extends Omit<StatelyTreeGridStateProps<T>, "children">,
     TableStateExtensionsProps,
-    Expandable {}
+    Expandable {
+  children?: TableChildren<T>;
+}
 
 export function useGridTreeState<T extends object>(
   props: TreeGridStateProps<T>
@@ -25,13 +27,14 @@ export function useGridTreeState<T extends object>(
   const { defaultExpandedKeys, expandedKeys, onExpandedChange } = props;
 
   const state = UNSTABLE_useTreeGridState({
-    ...props,
+    ...(props as StatelyTreeGridStateProps<T>),
     UNSTABLE_defaultExpandedKeys: defaultExpandedKeys,
     UNSTABLE_expandedKeys: expandedKeys,
     UNSTABLE_onExpandedChange: onExpandedChange,
   });
   const stateExtensions = useTableStateExtensions(props, state);
 
+  // @ts-expect-error - Nested table doesn't support footers yet
   return {
     ...state,
     ...stateExtensions,

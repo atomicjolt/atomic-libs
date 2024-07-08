@@ -7,14 +7,24 @@ import { useRenderProps } from "@/hooks/useRenderProps";
 import { TableProps, TableState, TreeGridState } from "../../Table.types";
 import { StyledTable } from "../../Table.styles";
 import { TableFooter } from "./TableFooter";
+import { TablePagination } from "./TablePagination";
 
 export interface TableInternalProps<T> extends TableProps<T> {
   state: TableState<T> | TreeGridState<T>;
 }
 
 export function TableShared<T extends object>(props: TableInternalProps<T>) {
-  const { state, onRowAction, onCellAction, className, variant, isSticky } =
-    props;
+  const {
+    state,
+    onRowAction,
+    onCellAction,
+    className,
+    variant,
+    isSticky,
+    style,
+    paginationDescriptor = null,
+    onPaginationChange,
+  } = props;
 
   const ref = useRef(null);
 
@@ -44,16 +54,27 @@ export function TableShared<T extends object>(props: TableInternalProps<T>) {
     componentClassName: "aje-table",
     className,
     variant,
+    style,
     selectors: {
       "data-sticky": isSticky,
+      "data-has-pagination": paginationDescriptor !== null,
     },
   });
 
   return (
-    <StyledTable {...gridProps} {...renderProps} ref={ref} id={props.id}>
-      <TableHeader state={state} />
-      <TableBody {...props} />
-      {state.collection.footer && <TableFooter state={state} />}
-    </StyledTable>
+    <>
+      <StyledTable {...gridProps} {...renderProps} ref={ref} id={props.id}>
+        <TableHeader state={state} />
+        <TableBody {...props} />
+        {state.collection.footer && <TableFooter state={state} />}
+      </StyledTable>
+
+      {paginationDescriptor && (
+        <TablePagination
+          descriptor={paginationDescriptor}
+          onChange={onPaginationChange}
+        />
+      )}
+    </>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
 import { Table } from ".";
@@ -41,6 +41,11 @@ const meta: Meta<typeof Table> = {
     onColumnReorder: {
       action: "onColumnReorder",
       description: "Fires when the user changes the column order",
+      table: {
+        category: "Events",
+      },
+    },
+    onPaginationChange: {
       table: {
         category: "Events",
       },
@@ -449,5 +454,17 @@ export const WithNestedRows: Story = {
     allowsExpandableRows: true,
     defaultExpandedKeys: ["Fire, Flying", "Water"],
     onExpandedChange: fn(),
+  },
+};
+
+export const PaginatedTable: Story = {
+  args: {
+    ...Primary.args,
+    paginationDescriptor: {
+      page: 1,
+      pageSize: 10,
+      totalPages: 10,
+    },
+    onPaginationChange: fn(),
   },
 };

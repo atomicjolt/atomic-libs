@@ -1,13 +1,5 @@
 import React, { useState } from "react";
-import {
-  Flex,
-  Key,
-  PageSelector,
-  PageSizeSelect,
-  Pagination,
-  SearchDescriptor,
-  Table,
-} from "../elements";
+import { Key, Table } from "../elements";
 
 export default function Tables() {
   return (
@@ -22,14 +14,20 @@ export default function Tables() {
 function PaginatedTable() {
   const [paginationDescriptor, setPaginationDescriptor] = useState({
     page: 1,
-    totalPages: 20,
+    totalPages: 10,
     pageSize: 10,
   });
 
   return (
-    <Table aria-label="Table with pagination">
+    <Table
+      aria-label="Table with pagination"
+      paginationDescriptor={paginationDescriptor}
+      onPaginationChange={setPaginationDescriptor}
+    >
       <Table.Header>
-        <Table.Column key="foo">Foo</Table.Column>
+        <Table.Column key="foo" showDivider>
+          Foo
+        </Table.Column>
         <Table.Column key="bar">Bar</Table.Column>
         <Table.Column key="baz">Baz</Table.Column>
       </Table.Header>
@@ -46,15 +44,11 @@ function PaginatedTable() {
         </Table.Row>
       </Table.Body>
       <Table.Footer>
-        <Table.Pagination
-          {...paginationDescriptor}
-          onPageChange={(page) =>
-            setPaginationDescriptor({ ...paginationDescriptor, page })
-          }
-          onPageSizeChange={(pageSize) =>
-            setPaginationDescriptor({ ...paginationDescriptor, pageSize })
-          }
-        />
+        <Table.Row>
+          <Table.Cell isRowHeader>Lvl 1 Foo 2</Table.Cell>
+          <Table.Cell>Lvl 1 Bar 2</Table.Cell>
+          <Table.Cell>Lvl 1 Baz 2</Table.Cell>
+        </Table.Row>
       </Table.Footer>
     </Table>
   );

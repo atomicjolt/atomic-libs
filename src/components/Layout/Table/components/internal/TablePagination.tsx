@@ -1,37 +1,41 @@
-import { Node } from "react-stately";
-import { TableState, TreeGridState } from "../../Table.types";
-import { TableRow } from "./TableRow";
-import { StyledTd } from "../../Table.styles";
+import { TableBottom } from "../../Table.styles";
 import { PageSizeSelect } from "@/components/Pagination/PageSizeSelect";
 import { Pagination } from "@/components/Pagination/Pagination";
-import { Flex } from "@/components/Layout/Flex/Flex";
+import { PaginationDescriptor } from "../../../../../types";
 
 interface TablePaginationProps<T> {
-  state: TableState<T> | TreeGridState<T>;
-  item: Node<T>;
+  descriptor: PaginationDescriptor;
+  onChange?: (descriptor: PaginationDescriptor) => void;
 }
 
 export function TablePagination<T>(props: TablePaginationProps<T>) {
-  const { state, item } = props;
-  const colCount = state.collection.columnCount;
+  const { descriptor, onChange } = props;
+  const { page, totalPages, pageSize } = descriptor;
+
+  const onChangePage = (newPage: number) => {
+    onChange?.({
+      page: newPage,
+      totalPages,
+      pageSize,
+    });
+  };
+
+  const onChangeSize = (newPageSize: number) => {
+    onChange?.({
+      totalPages: (totalPages * pageSize) / newPageSize,
+      pageSize: newPageSize,
+      page: 1,
+    });
+  };
 
   return (
-    <TableRow state={state} item={item}>
-      <StyledTd
-        colSpan={colCount}
-        style={{ padding: 0, paddingRight: "var(--table-padding-horz)" }}
-      >
-        <Flex justifyContent="flex-end">
-          {item.props.pageSize && (
-            <PageSizeSelect
-              {...item.props}
-              size="auto"
-              onSelectPageSize={item.props.onPageSizeChange}
-            />
-          )}
-          <Pagination {...item.props} onChange={item.props.onPageChange} />
-        </Flex>
-      </StyledTd>
-    </TableRow>
+    <TableBottom className="aje-table__bottom" data-sticky>
+      <PageSizeSelect
+        {...descriptor}
+        onSelectPageSize={onChangeSize}
+        size="auto"
+      />
+      <Pagination {...descriptor} onChange={onChangePage} />
+    </TableBottom>
   );
 }

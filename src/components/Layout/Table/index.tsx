@@ -10,7 +10,6 @@ import { TableHeader } from "./components/public/TableHeader";
 import { TableColumn } from "./components/public/TableColumn";
 import { TableBody } from "./components/public/TableBody";
 import { TableFooter } from "./components/public/TableFooter";
-import { TablePagination } from "./components/public/TablePagination";
 
 /** Table component that supports sorting, row selection, and column reordering.  */
 export function Table<T extends object>(props: TableProps<T>) {
@@ -53,4 +52,3 @@ Table.Body = TableBody;
 Table.Footer = TableFooter;
 Table.Row = Row;
 Table.Cell = TableCell;
-Table.Pagination = TablePagination;

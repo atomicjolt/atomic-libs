@@ -4,7 +4,6 @@ import { TableState, TreeGridState } from "../../Table.types";
 import { TableRow } from "./TableRow";
 import { TableCell } from "./TableCell";
 import { useRenderProps } from "@/index";
-import { TablePagination } from "./TablePagination";
 
 interface TableFooterProps<T> {
   state: TableState<T> | TreeGridState<T>;
@@ -25,24 +24,13 @@ export function TableFooter<T>(props: TableFooterProps<T>) {
   return (
     <TableRowGroup type={StyledTableFooter} {...renderProps}>
       {rows.map((row) => {
-        if (row.type === "pagination") {
-          return <TablePagination key={row.key} state={state} item={row} />;
-        } else {
-          return (
-            <TableRow item={row} state={state} key={row.key}>
-              {[...collection.getChildren!(row.key)].map((cell) => {
-                return (
-                  <TableCell
-                    key={cell.key}
-                    cell={cell}
-                    state={state}
-                    isFooterCell
-                  />
-                );
-              })}
-            </TableRow>
-          );
-        }
+        return (
+          <TableRow item={row} state={state} key={row.key}>
+            {[...collection.getChildren!(row.key)].map((cell) => {
+              return <TableCell key={cell.key} cell={cell} state={state} />;
+            })}
+          </TableRow>
+        );
       })}
     </TableRowGroup>
   );

@@ -2,7 +2,6 @@ import React from "react";
 import { AriaLabelProps } from "../../../../../types";
 import { PartialNode } from "@react-stately/collections";
 import { TableBodyProps } from "./TableBody";
-import { TablePagination } from "./TablePagination";
 
 export interface TableFooterProps<T>
   extends AriaLabelProps,
@@ -39,17 +38,10 @@ TableFooter.getCollectionNode = function* getCollectionNode<T>(
       } else {
         const items: PartialNode<T>[] = [];
         React.Children.forEach(children, (item) => {
-          if (item.type === TablePagination) {
-            items.push({
-              type: "pagination",
-              element: item,
-            });
-          } else {
-            items.push({
-              type: "item",
-              element: item,
-            });
-          }
+          items.push({
+            type: "item",
+            element: item,
+          });
         });
 
         yield* items;

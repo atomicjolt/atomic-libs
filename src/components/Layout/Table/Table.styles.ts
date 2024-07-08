@@ -18,6 +18,71 @@ export const StyledTable = styled.table`
   border: solid var(--table-border-clr);
   border-width: var(--table-border-width);
   border-radius: var(--table-border-radius);
+
+  &[data-sticky] {
+    border-left-width: 0px;
+
+    thead th:first-child,
+    tbody th:first-child,
+    tfoot th:first-child {
+      border-left-width: var(--table-border-width);
+      position: sticky;
+      left: 0rem;
+      z-index: 1;
+    }
+  }
+
+  &[data-has-pagination] {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+`;
+
+export const StyledRow = styled.tr`
+  background-color: var(--table-bg-clr);
+
+  &[data-selected] {
+    --table-bg-clr: var(--neutral100);
+  }
+
+  &[data-focus-visible] {
+  }
+`;
+
+export const CellContent = styled.span`
+  width: 100%;
+`;
+
+export const TableBottom = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: var(--table-padding-horz);
+  height: 48px;
+  border: solid var(--table-border-clr);
+  border-width: 0 var(--table-border-width) var(--table-border-width)
+    var(--table-border-width);
+  border-radius: 0 0 var(--table-border-radius) var(--table-border-radius);
+
+  &[data-sticky] {
+    position: sticky;
+    left: 0;
+    z-index: 1;
+  }
+
+  .aje-flex {
+    height: 100%;
+  }
+`;
+
+// TABLE HEADER
+
+export const StyledThead = styled.thead`
+  background-color: var(--table-bg-clr);
+
+  tr:first-child th {
+    border-top-width: 0;
+  }
 `;
 
 export const ColumnContent = styled.div`
@@ -30,8 +95,9 @@ export const ColumnContent = styled.div`
 
 export const StyledTh = styled.th`
   ${mixins.Bold}
+  background-color: var(--table-bg-clr);
   border: solid var(--table-border-clr);
-  border-width: 0 0 var(--table-border-width) 0;
+  border-width: var(--table-border-width) 0 0 0;
   text-align: left;
   font-size: var(--table-header-font-size);
   color: var(--text-clr-alt);
@@ -73,54 +139,6 @@ export const ColumnDropIndicator = styled.div`
   left: calc(var(--table-padding-horz) * -1 + 1px);
 `;
 
-export const StyledTd = styled.td`
-  border: solid var(--table-border-clr);
-  border-width: 0 0 var(--table-border-width) 0;
-  text-align: left;
-  font-weight: inherit;
-  font-size: var(--table-cell-font-size);
-  height: 48px;
-  vertical-align: middle;
-  padding: var(--table-padding-vert) var(--table-padding-horz);
-
-  &[data-focus-visible] {
-    // Styles when a cell is focused
-  }
-
-  ${ShowVerticalDividerMixin}
-`;
-
-export const RowHeader = styled.th`
-  border: solid var(--table-border-clr);
-  border-width: 0 0 var(--table-border-width) 0;
-  text-align: left;
-  font-weight: inherit;
-  width: 25%;
-
-  height: 48px;
-  vertical-align: middle;
-  padding: var(--table-padding-vert) var(--table-padding-horz);
-
-  ${ShowVerticalDividerMixin}
-`;
-
-export const StyledThead = styled.thead`
-  background-color: var(--table-bg-clr);
-`;
-
-export const StyledTBody = styled.tbody``;
-
-export const StyledRow = styled.tr`
-  background-color: var(--table-bg-clr);
-
-  &[data-selected] {
-    --table-bg-clr: var(--neutral100);
-  }
-
-  &[data-focus-visible] {
-  }
-`;
-
 export const SearchComboInput = styled(ComboInput)`
   --input-height: 30px;
   --input-padding-horiz: 0px;
@@ -149,9 +167,44 @@ export const SearchComboInput = styled(ComboInput)`
 
 export const SearchInput = styled(Input)``;
 
-export const CellContent = styled.span`
-  width: 100%;
+// TABLE BODY
+
+export const StyledTBody = styled.tbody``;
+
+export const RowHeader = styled.th`
+  border: solid var(--table-border-clr);
+  border-width: var(--table-border-width) 0 0 0;
+  background-color: var(--table-bg-clr);
+  text-align: left;
+  font-weight: inherit;
+  width: 25%;
+
+  height: 48px;
+  vertical-align: middle;
+  padding: var(--table-padding-vert) var(--table-padding-horz);
+
+  ${ShowVerticalDividerMixin}
 `;
+
+export const StyledCell = styled.td`
+  background-color: var(--table-bg-clr);
+  border: solid var(--table-border-clr);
+  border-width: var(--table-border-width) 0 0 0;
+  text-align: left;
+  font-weight: inherit;
+  font-size: var(--table-cell-font-size);
+  height: 48px;
+  vertical-align: middle;
+  padding: var(--table-padding-vert) var(--table-padding-horz);
+
+  &[data-focus-visible] {
+    // Styles when a cell is focused
+  }
+
+  ${ShowVerticalDividerMixin}
+`;
+
+// TABLE FOOTER
 
 export const StyledTableFooter = styled.tfoot`
   background-color: var(--table-bg-clr);

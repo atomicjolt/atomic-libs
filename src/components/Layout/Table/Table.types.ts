@@ -13,18 +13,21 @@ import {
 } from "@react-types/shared";
 
 import {
-  BaseProps,
+  ExtendedSize,
   Key,
+  PaginationDescriptor,
+  RenderBaseProps,
   SearchDescriptor,
   SuggestStrings,
 } from "../../../types";
 import { TableFooterProps } from "./components/public/TableFooter";
+import { ElementsTableCollection } from "./TableCollection";
 
-export interface PaginationDescriptor {
-  page: number;
-  pageSize: number;
-  totalPages: number;
-  totalItems?: number;
+export interface PaginationProps {
+  /** Object representing the current pagination state of the table */
+  paginationDescriptor?: PaginationDescriptor;
+  /** Handler called whenever a change is made to the paginationDescriptor */
+  onPaginationChange?: (descriptor: PaginationDescriptor) => void;
 }
 
 export interface SearchProps {
@@ -32,13 +35,6 @@ export interface SearchProps {
   searchDescriptor?: SearchDescriptor;
   /** Handler called whenever a change is made to the searchDescriptor */
   onSearchChange?: (descriptor: SearchDescriptor) => void;
-}
-
-export interface PaginationProps {
-  /** Object representing the current pagination state of the table */
-  paginationDescriptor?: PaginationDescriptor;
-  /** Handler called whenever a change is made to the paginationDescriptor */
-  onPaginationChange?: (descriptor: PaginationDescriptor) => void;
 }
 
 export interface SearchState {
@@ -55,14 +51,30 @@ export interface ColumnReorderProps {
 
 export type TableVariants = SuggestStrings<"default" | "grid" | "full-borders">;
 
+export type TableChildren<T> =
+  | [
+      React.ReactElement<TableHeaderProps<T>>,
+      React.ReactElement<TableBodyProps<T>>,
+    ]
+  | [
+      React.ReactElement<TableHeaderProps<T>>,
+      React.ReactElement<TableBodyProps<T>>,
+      React.ReactElement<TableFooterProps<T>>, // Footer is optional
+    ]
+  | [
+      React.ReactElement<TableHeaderProps<T>>,
+      React.ReactElement<TableFooterProps<T>>, // Footer is optional
+      React.ReactElement<TableBodyProps<T>>,
+    ];
+
 export interface TableProps<T>
   extends Omit<AriaTableProps<T>, "id">,
     MultipleSelection,
     Sortable,
     SearchProps,
     ColumnReorderProps,
+    RenderBaseProps<never>,
     PaginationProps,
-    BaseProps,
     Expandable {
   /** Whether the table allows expandable rows.
    * When it's `false`, rows cannot have nested rows.
@@ -74,13 +86,13 @@ export interface TableProps<T>
   /** The selection behavior for the table. */
   selectionBehavior?: SelectionBehavior;
 
-  children?: [
-    React.ReactElement<TableHeaderProps<T>>,
-    React.ReactElement<TableBodyProps<T>>,
-    React.ReactElement<TableFooterProps<T>>?, // Footer is optional
-  ];
+  children?: TableChildren<T>;
 
   isSticky?: boolean;
+
+  size?: ExtendedSize;
+
+  id?: string;
 }
 
 export interface TableStateExtensions {
@@ -90,8 +102,12 @@ export interface TableStateExtensions {
 
 export interface TableState<T>
   extends StatelyTableState<T>,
-    TableStateExtensions {}
+    TableStateExtensions {
+  collection: ElementsTableCollection<T>;
+}
 
 export interface TreeGridState<T>
   extends StatelyTreeGridState<T>,
-    TableStateExtensions {}
+    TableStateExtensions {
+  collection: ElementsTableCollection<T>;
+}
