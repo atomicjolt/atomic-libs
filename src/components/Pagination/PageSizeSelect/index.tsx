@@ -1,5 +1,6 @@
 import { Item } from "@components/Collection";
 import { CustomSelect } from "@components/Dropdowns/CustomSelect";
+import { FormatNumber } from "@components/Format/FormatNumber";
 import { AriaLabelProps, ExtendedSize, RenderBaseProps } from "../../../types";
 import { PageSizeProps } from "../Pagination.types";
 
@@ -79,7 +80,7 @@ export function PageSizeSelect(props: PageSizeSelectProps) {
           key={item.size}
           textValue={`${item.start}-${item.end} of ${totalItems}`}
         >
-          {item.start}-{item.end} of {totalItems}
+          {item.start}-{item.end} of <FormatNumber value={totalItems} />
         </Item>
       )}
     </CustomSelect>

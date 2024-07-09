@@ -10,7 +10,7 @@ interface TablePaginationProps<T> {
 
 export function TablePagination<T>(props: TablePaginationProps<T>) {
   const { descriptor, onChange } = props;
-  const { page, totalPages, pageSize } = descriptor;
+  const { totalPages, pageSize } = descriptor;
 
   const onChangePage = (newPage: number) => {
     onChange?.({
@@ -32,6 +32,7 @@ export function TablePagination<T>(props: TablePaginationProps<T>) {
     <TableBottom className="aje-table__bottom" data-sticky>
       <PageSizeSelect
         {...descriptor}
+        totalItems={totalPages * pageSize}
         onSelectPageSize={onChangeSize}
         size="auto"
       />

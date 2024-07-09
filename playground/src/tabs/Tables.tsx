@@ -24,7 +24,7 @@ function TableLoader() {
         aria-label="Table with loader"
         paginationDescriptor={{
           page: 1,
-          totalPages: 10,
+          totalPages: 100,
           pageSize: 10,
         }}
         isLoading={loading}
