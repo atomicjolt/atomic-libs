@@ -67,6 +67,7 @@ export function PageSizeSelect(props: PageSizeSelectProps) {
 
   return (
     <CustomSelect
+      aria-label="Page size"
       variant={variant === "border" ? "default" : "ghost"}
       selectedKey={pageSize.toString()}
       onSelectionChange={(pageSize) =>

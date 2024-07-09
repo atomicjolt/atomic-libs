@@ -16,6 +16,7 @@ export function LoadingTableRows(props: LoadingTableRowProps) {
         const column = columns[cellIndex];
         return (
           <StyledCell
+            key={`${index}-${cellIndex}`}
             data-divider={
               (column.props.showDivider && cellIndex !== columnCount - 1) ||
               undefined

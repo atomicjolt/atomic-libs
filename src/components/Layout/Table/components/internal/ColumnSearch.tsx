@@ -23,6 +23,7 @@ export const ColumnSearch = forwardRef(function ColumnSearch<T>(
     <>
       <SearchComboInput aria-expanded={isSearching}>
         <SearchInput
+          role="search"
           aria-label={`Search ${title || column.key}`}
           value={state.search.text}
           onFocus={() => state.setKeyboardNavigationDisabled?.(true)}

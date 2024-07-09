@@ -1,5 +1,5 @@
-import { render } from "@testing-library/react";
-import { describe, it, test } from "vitest";
+import { render, screen } from "@testing-library/react";
+import { describe, expect, it } from "vitest";
 import { Table } from ".";
 import { TableProps } from "./Table.types";
 
@@ -7,8 +7,10 @@ const TestTable = (props: TableProps<any>) => {
   return (
     <Table aria-label="table" {...props}>
       <Table.Header>
-        <Table.Column>Column 1</Table.Column>
-        <Table.Column>Column 2</Table.Column>
+        <Table.Column key="a" allowsSearching>
+          Column 1
+        </Table.Column>
+        <Table.Column key="b">Column 2</Table.Column>
       </Table.Header>
       <Table.Body>
         <Table.Row>
@@ -26,7 +28,34 @@ const TestTable = (props: TableProps<any>) => {
 };
 
 describe("Table", () => {
-  it("should match the snapshot", () => {
-    render(<TestTable />);
+  describe("Snapshots", () => {
+    it("should match the snapshot", () => {
+      const res = render(<TestTable />);
+
+      expect(res).toMatchSnapshot();
+    });
+
+    it("Should match the snapshot when searchable", () => {
+      const res = render(
+        <TestTable searchDescriptor={{ column: "a", search: "search" }} />
+      );
+
+      expect(res).toMatchSnapshot();
+    });
+
+    it("should match the snapshot with pagination", () => {
+      const res = render(
+        <TestTable
+          paginationDescriptor={{ page: 1, totalPages: 10, pageSize: 10 }}
+        />
+      );
+
+      expect(res).toMatchSnapshot();
+    });
+
+    it("should match the snapshot when in a loading state", () => {
+      const res = render(<TestTable isLoading />);
+      expect(res).toMatchSnapshot();
+    });
   });
 });
