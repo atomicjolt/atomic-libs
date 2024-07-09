@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 import mixins from "@styles/mixins";
 import { ComboInput, Input } from "@components/Fields";
+import { SkeletonLoader } from "../../Loaders/SkeletonLoader";
 
 const ShowVerticalDividerMixin = css`
   &[data-divider] {
@@ -18,6 +19,71 @@ export const StyledTable = styled.table`
   border: solid var(--table-border-clr);
   border-width: var(--table-border-width);
   border-radius: var(--table-border-radius);
+
+  &[data-sticky] {
+    border-left-width: 0px;
+
+    thead th:first-child,
+    tbody th:first-child,
+    tfoot th:first-child {
+      border-left-width: var(--table-border-width);
+      position: sticky;
+      left: 0rem;
+      z-index: 1;
+    }
+  }
+
+  &[data-has-pagination] {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+`;
+
+export const StyledRow = styled.tr`
+  background-color: var(--table-bg-clr);
+
+  &[data-selected] {
+    --table-bg-clr: var(--neutral100);
+  }
+
+  &[data-focus-visible] {
+  }
+`;
+
+export const CellContent = styled.span`
+  width: 100%;
+`;
+
+export const TableBottom = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: var(--table-padding-horz);
+  height: var(--table-cell-height);
+  border: solid var(--table-border-clr);
+  border-width: 0 var(--table-border-width) var(--table-border-width)
+    var(--table-border-width);
+  border-radius: 0 0 var(--table-border-radius) var(--table-border-radius);
+
+  &[data-sticky] {
+    position: sticky;
+    left: 0;
+    z-index: 1;
+  }
+
+  .aje-flex {
+    height: 100%;
+  }
+`;
+
+// TABLE HEADER
+
+export const StyledThead = styled.thead`
+  background-color: var(--table-bg-clr);
+
+  tr:first-child th {
+    border-top-width: 0;
+  }
 `;
 
 export const ColumnContent = styled.div`
@@ -30,8 +96,9 @@ export const ColumnContent = styled.div`
 
 export const StyledTh = styled.th`
   ${mixins.Bold}
+  background-color: var(--table-bg-clr);
   border: solid var(--table-border-clr);
-  border-width: 0 0 var(--table-border-width) 0;
+  border-width: var(--table-border-width) 0 0 0;
   text-align: left;
   font-size: var(--table-header-font-size);
   color: var(--text-clr-alt);
@@ -68,57 +135,9 @@ export const StyledTh = styled.th`
 export const ColumnDropIndicator = styled.div`
   background-color: var(--accent-clr);
   width: 2px;
-  height: 48px;
+  height: var(--table-cell-height);
   position: absolute;
   left: calc(var(--table-padding-horz) * -1 + 1px);
-`;
-
-export const StyledTd = styled.td`
-  border: solid var(--table-border-clr);
-  border-width: 0 0 var(--table-border-width) 0;
-  text-align: left;
-  font-weight: inherit;
-  font-size: var(--table-cell-font-size);
-  height: 48px;
-  vertical-align: middle;
-  padding: var(--table-padding-vert) var(--table-padding-horz);
-
-  &[data-focus-visible] {
-    // Styles when a cell is focused
-  }
-
-  ${ShowVerticalDividerMixin}
-`;
-
-export const RowHeader = styled.th`
-  border: solid var(--table-border-clr);
-  border-width: 0 0 var(--table-border-width) 0;
-  text-align: left;
-  font-weight: inherit;
-  width: 25%;
-
-  height: 48px;
-  vertical-align: middle;
-  padding: var(--table-padding-vert) var(--table-padding-horz);
-
-  ${ShowVerticalDividerMixin}
-`;
-
-export const StyledThead = styled.thead`
-  background-color: var(--table-bg-clr);
-`;
-
-export const StyledTBody = styled.tbody``;
-
-export const StyledRow = styled.tr`
-  background-color: var(--table-bg-clr);
-
-  &[data-selected] {
-    --table-bg-clr: var(--neutral100);
-  }
-
-  &[data-focus-visible] {
-  }
 `;
 
 export const SearchComboInput = styled(ComboInput)`
@@ -149,6 +168,53 @@ export const SearchComboInput = styled(ComboInput)`
 
 export const SearchInput = styled(Input)``;
 
-export const CellContent = styled.span`
+// TABLE BODY
+
+export const StyledTBody = styled.tbody``;
+
+export const RowHeader = styled.th`
+  border: solid var(--table-border-clr);
+  border-width: var(--table-border-width) 0 0 0;
+  background-color: var(--table-bg-clr);
+  text-align: left;
+  font-weight: inherit;
+  width: 25%;
+
+  height: var(--table-cell-height);
+  vertical-align: middle;
+  padding: var(--table-padding-vert) var(--table-padding-horz);
+
+  ${ShowVerticalDividerMixin}
+`;
+
+export const StyledCell = styled.td`
+  background-color: var(--table-bg-clr);
+  border: solid var(--table-border-clr);
+  border-width: var(--table-border-width) 0 0 0;
+  text-align: left;
+  font-weight: inherit;
+  font-size: var(--table-cell-font-size);
+  height: var(--table-cell-height);
+  vertical-align: middle;
+  padding: var(--table-padding-vert) var(--table-padding-horz);
+
+  &[data-focus-visible] {
+    // Styles when a cell is focused
+  }
+
+  ${ShowVerticalDividerMixin}
+`;
+
+// TODO this height is hard-coded for the default table
+// height, figure out how to make the height correct without
+// changing the height of the columns
+export const CellLoader = styled(SkeletonLoader)`
   width: 100%;
+  height: 27px;
+`;
+
+// TABLE FOOTER
+
+export const StyledTableFooter = styled.tfoot`
+  background-color: var(--table-bg-clr);
 `;

@@ -33,11 +33,16 @@ export function TableColumn<T extends object>(props: TableColumnProps<T>) {
     props: {
       allowsSearching = false,
       className,
-      showDivider = false,
       allowsSorting = false,
       allowsReordering = false,
     },
   } = column;
+
+  const isLastCol =
+    state.collection.columns[state.collection.columnCount - 1].key ===
+    column.key;
+
+  const showDivider = column.props.showDivider && !isLastCol;
 
   const colSpan = column.colspan;
 

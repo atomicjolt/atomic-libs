@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
 import { Table } from ".";
@@ -25,22 +25,24 @@ const meta: Meta<typeof Table> = {
       control: "select",
     },
     onSortChange: {
-      action: "sortChange",
       description: "Fires when the user changes the sort descriptor",
       table: {
         category: "Events",
       },
     },
     onSearchChange: {
-      action: "onSearchChange",
       description: "Fires when the user changes search descriptor",
       table: {
         category: "Events",
       },
     },
     onColumnReorder: {
-      action: "onColumnReorder",
       description: "Fires when the user changes the column order",
+      table: {
+        category: "Events",
+      },
+    },
+    onPaginationChange: {
       table: {
         category: "Events",
       },
@@ -54,6 +56,11 @@ type Story = StoryObj<typeof Table>;
 
 export const Primary: Story = {
   args: {
+    onCellAction: fn(),
+    onSortChange: fn(),
+    onSearchChange: fn(),
+    onColumnReorder: fn(),
+    onPaginationChange: fn(),
     children: [
       <Table.Header>
         <Table.Column>Name</Table.Column>
@@ -449,5 +456,32 @@ export const WithNestedRows: Story = {
     allowsExpandableRows: true,
     defaultExpandedKeys: ["Fire, Flying", "Water"],
     onExpandedChange: fn(),
+  },
+};
+
+export const PaginatedTable: Story = {
+  args: {
+    ...Primary.args,
+    paginationDescriptor: {
+      page: 1,
+      pageSize: 10,
+      totalPages: 10,
+    },
+  },
+};
+
+export const LoadingState: Story = {
+  args: {
+    ...Primary.args,
+    isLoading: true,
+    loadingRows: 8,
+  },
+};
+
+export const TableSkeleton: StoryObj<typeof Table.Skeleton> = {
+  render: (args) => <Table.Skeleton {...args} />,
+  args: {
+    rows: 10,
+    columns: 3,
   },
 };

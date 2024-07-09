@@ -31,6 +31,5 @@ export const FlexBox = styled.div<{ $attrs: FlexBoxProperties; as: any }>`
     if (props.$attrs.wrap === false) return "nowrap";
     return props.$attrs.wrap;
   }};
-
-  ${({ $attrs }) => handleGap($attrs)}
+  ${({ $attrs }) => handleGap($attrs)};
 `;

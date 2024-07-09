@@ -98,6 +98,9 @@ export { Link } from "./Routing/Link";
 export { DropZone } from "./DragAndDrop/DropZone";
 export { FileTrigger } from "./Buttons/FileTrigger";
 
+export { Pagination } from "./Pagination/Pagination";
+export { PageSizeSelect } from "./Pagination/PageSizeSelect";
+
 /* ---- Types ---- */
 
 export type { BannerProps, BannerVariants } from "./Banners/Banner";
@@ -173,3 +176,5 @@ export type { FormatDurationProps } from "./Format/FormatDuration";
 export type { LinkProps } from "./Routing/Link";
 export type { DropZoneProps } from "./DragAndDrop/DropZone";
 export type { FileTriggerProps } from "./Buttons/FileTrigger";
+export type { PaginationProps } from "./Pagination/Pagination";
+export type { PageSizeSelectProps } from "./Pagination/PageSizeSelect";

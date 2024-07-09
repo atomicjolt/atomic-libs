@@ -1,12 +1,102 @@
 import React, { useState } from "react";
-import { Key, SearchDescriptor, Table } from "../elements";
+import { Button, Key, Table } from "../elements";
 
 export default function Tables() {
   return (
     <div style={{ padding: "16px" }}>
+      {/* <PaginatedTable /> */}
       {/* <ReordableColumnsTable /> */}
-      <NestedRowsTable />
+      {/* <NestedRowsTable /> */}
+      <TableLoader />
     </div>
+  );
+}
+
+function TableLoader() {
+  const [loading, setLoading] = useState(true);
+
+  return (
+    <>
+      <Button onPress={() => setLoading(!loading)}>Toggle loading</Button>
+      <br />
+      <br />
+      <Table
+        aria-label="Table with loader"
+        paginationDescriptor={{
+          page: 1,
+          totalPages: 100,
+          pageSize: 10,
+        }}
+        isLoading={loading}
+      >
+        <Table.Header>
+          <Table.Column key="foo" width={1000} showDivider>
+            Foo
+          </Table.Column>
+          <Table.Column key="bar" showDivider>
+            Bar
+          </Table.Column>
+          <Table.Column key="baz" showDivider>
+            Baz
+          </Table.Column>
+        </Table.Header>
+        <Table.Body>
+          <Table.Row key="row 1">
+            <Table.Cell>Lvl 1 Foo 1</Table.Cell>
+            <Table.Cell>Lvl 1 Bar 1</Table.Cell>
+            <Table.Cell> Lvl 1 Baz 1</Table.Cell>
+          </Table.Row>
+          <Table.Row key="row 2">
+            <Table.Cell>Lvl 1 Foo 2</Table.Cell>
+            <Table.Cell>Lvl 1 Bar 2</Table.Cell>
+            <Table.Cell>Lvl 1 Baz 2</Table.Cell>
+          </Table.Row>
+        </Table.Body>
+      </Table>
+    </>
+  );
+}
+
+function PaginatedTable() {
+  const [paginationDescriptor, setPaginationDescriptor] = useState({
+    page: 1,
+    totalPages: 10,
+    pageSize: 10,
+  });
+
+  return (
+    <Table
+      aria-label="Table with pagination"
+      paginationDescriptor={paginationDescriptor}
+      onPaginationChange={setPaginationDescriptor}
+    >
+      <Table.Header>
+        <Table.Column key="foo" showDivider>
+          Foo
+        </Table.Column>
+        <Table.Column key="bar">Bar</Table.Column>
+        <Table.Column key="baz">Baz</Table.Column>
+      </Table.Header>
+      <Table.Body>
+        <Table.Row key="row 1">
+          <Table.Cell>Lvl 1 Foo 1</Table.Cell>
+          <Table.Cell>Lvl 1 Bar 1</Table.Cell>
+          <Table.Cell> Lvl 1 Baz 1</Table.Cell>
+        </Table.Row>
+        <Table.Row key="row 2">
+          <Table.Cell>Lvl 1 Foo 2</Table.Cell>
+          <Table.Cell>Lvl 1 Bar 2</Table.Cell>
+          <Table.Cell>Lvl 1 Baz 2</Table.Cell>
+        </Table.Row>
+      </Table.Body>
+      <Table.Footer>
+        <Table.Row>
+          <Table.Cell isRowHeader>Lvl 1 Foo 2</Table.Cell>
+          <Table.Cell>Lvl 1 Bar 2</Table.Cell>
+          <Table.Cell>Lvl 1 Baz 2</Table.Cell>
+        </Table.Row>
+      </Table.Footer>
+    </Table>
   );
 }
 
@@ -90,7 +180,7 @@ function ReordableColumnsTable() {
 
 function NestedRowsTable() {
   return (
-    <Table allowsExpandableRows>
+    <Table aria-label="Table with nested rows" allowsExpandableRows>
       <Table.Header>
         <Table.Column key="foo">Foo</Table.Column>
         <Table.Column key="bar">Bar</Table.Column>

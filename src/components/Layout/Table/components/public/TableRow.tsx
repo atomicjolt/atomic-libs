@@ -13,14 +13,14 @@
 import React from "react";
 import { PartialNode } from "@react-stately/collections";
 import { RowProps as StatelyRowProps } from "@react-types/table";
-import { BaseProps } from "../../../../../types";
+import { AriaLabelProps, BaseProps } from "../../../../../types";
 
 // Modified from: https://github.com/adobe/react-spectrum/blob/main/packages/%40react-stately/table/src/Row.ts
 
 export interface RowProps<T>
   extends Omit<StatelyRowProps<T>, "UNSTABLE_childItems">,
-    BaseProps {
-  "aria-label"?: string;
+    BaseProps,
+    AriaLabelProps {
   /** Callback when a user clicks on or otherwise interacts with the cell */
   onAction?: () => void;
   childItems?: StatelyRowProps<T>["UNSTABLE_childItems"];

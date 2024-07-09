@@ -1,19 +1,31 @@
 import { useRef } from "react";
 import { useTable } from "@react-aria/table";
 
-import { TableBody as TableBodyInternal } from "./TableBody";
-import { TableHeader as TableHeaderInternal } from "./TableHeader";
 import { useRenderProps } from "@hooks/useRenderProps";
-import { TableProps } from "../../Table.types";
+import { TableProps, TableState, TreeGridState } from "../../Table.types";
 import { StyledTable } from "../../Table.styles";
+import { TableFooter } from "./TableFooter";
+import { TablePagination } from "./TablePagination";
+import { TableHeader } from "./TableHeader";
+import { TableBody } from "./TableBody";
 
 export interface TableInternalProps<T> extends TableProps<T> {
-  state: any;
+  state: TableState<T> | TreeGridState<T>;
 }
 
 export function TableShared<T extends object>(props: TableInternalProps<T>) {
-  const { state, onRowAction, onCellAction, className, variant, isSticky } =
-    props;
+  const {
+    state,
+    onRowAction,
+    onCellAction,
+    className,
+    variant,
+    isSticky,
+    style,
+    paginationDescriptor = null,
+    onPaginationChange,
+    isLoading = false,
+  } = props;
 
   const ref = useRef(null);
 
@@ -43,15 +55,28 @@ export function TableShared<T extends object>(props: TableInternalProps<T>) {
     componentClassName: "aje-table",
     className,
     variant,
+    style,
     selectors: {
       "data-sticky": isSticky,
+      "data-loading": isLoading,
+      "data-has-pagination": paginationDescriptor !== null,
     },
   });
 
   return (
-    <StyledTable {...gridProps} {...renderProps} ref={ref} id={props.id}>
-      <TableHeaderInternal state={state} />
-      <TableBodyInternal {...props} />
-    </StyledTable>
+    <>
+      <StyledTable {...gridProps} {...renderProps} ref={ref} id={props.id}>
+        <TableHeader state={state} />
+        <TableBody {...props} />
+        {state.collection.footer && <TableFooter state={state} />}
+      </StyledTable>
+
+      {paginationDescriptor && (
+        <TablePagination
+          descriptor={paginationDescriptor}
+          onChange={onPaginationChange}
+        />
+      )}
+    </>
   );
 }

@@ -3,18 +3,29 @@ import mixins from "../../styles/mixins";
 import Button from "../Buttons/Button";
 
 export const DropdownButton = styled(Button)`
-  --btn-text-clr: var(--text-clr-alt);
-  --btn-bg-clr: var(--neutral50);
-  --btn-hover-text-clr: var(--text-clr);
-  --btn-hover-bg-clr: var(--neutral100);
-
-  // To match the actual select element
-  --btn-border: 1px solid var(--input-border-clr);
-  padding-right: 0.8rem;
   justify-content: space-between;
+  padding-right: 0.8rem;
 
   &.is-active {
     transform: translateY(0px);
+  }
+
+  &.aje-btn--dropdown {
+    --btn-text-clr: var(--text-clr-alt);
+    --btn-bg-clr: var(--neutral50);
+    --btn-hover-text-clr: var(--text-clr);
+    --btn-hover-bg-clr: var(--neutral100);
+    // To match the actual select element
+    --btn-border: 1px solid var(--input-border-clr);
+  }
+
+  &.aje-btn--dropdown-ghost {
+    --btn-text-clr: var(--text-clr-alt);
+    --btn-bg-clr: var(--neutral50);
+    --btn-hover-text-clr: var(--text-clr);
+    --btn-hover-bg-clr: var(--neutral100);
+    --btn-border: none;
+    font-weight: normal;
   }
 `;
 

@@ -6,7 +6,7 @@ import { useFocusRing } from "@hooks/useFocusRing";
 import { useRenderProps } from "@hooks/useRenderProps";
 import { IconButton } from "@components/Buttons/IconButton";
 import { Flex } from "@components/Layout/Flex/Flex";
-import { CellContent, RowHeader, StyledTd } from "../../Table.styles";
+import { CellContent, RowHeader, StyledCell } from "../../Table.styles";
 import { TreeGridState, TableState } from "../../Table.types";
 
 interface TableCellProps<T> {
@@ -21,14 +21,20 @@ export function TableCell<T>(props: TableCellProps<T>) {
   const { gridCellProps } = useTableCell({ node: cell }, state, ref);
   const { focusProps, isFocusVisible } = useFocusRing();
 
+  const isLastCell =
+    cell.column?.key ===
+    state.collection.columns[state.collection.columnCount - 1].key;
+
   const showDivider =
-    cell.props.showDivider ?? cell.column?.props?.showDivider ?? false;
+    (cell.props.showDivider ?? cell.column?.props?.showDivider ?? false) &&
+    !isLastCell;
 
   const colSpan = cell.colspan ?? cell.props.colSpan;
 
   const isRowHeaderCell = state.collection.rowHeaderColumnKeys.has(
     cell?.column?.key!
   );
+
   const isFirstRowHeaderCell =
     state.collection.rowHeaderColumnKeys.keys().next().value ===
     cell?.column?.key;
@@ -71,7 +77,7 @@ export function TableCell<T>(props: TableCellProps<T>) {
     style,
   });
 
-  const Element = isRowHeaderCell ? RowHeader : StyledTd;
+  const Element = isRowHeaderCell ? RowHeader : StyledCell;
 
   return (
     <Element {...cellProps} ref={ref}>

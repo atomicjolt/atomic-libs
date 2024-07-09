@@ -1,6 +1,6 @@
 {
   "name": "@atomicjolt/atomic-elements",
-  "version": "2.6.3",
+  "version": "2.7.0",
   "sideEffects": false,
   "module": "dist/esm/index.js",
   "main": "dist/cjs/index.js",
@@ -43,6 +43,7 @@
     "@react-aria/visually-hidden": "^3.8.12",
     "@react-stately/flags": "^3.0.3",
     "@react-stately/table": "^3.11.8",
+    "@react-stately/utils": "^3.10.1",
     "classnames": "^2.3.1",
     "react-stately": "^3.30.1",
     "react-transition-group": "^4.4.5",
