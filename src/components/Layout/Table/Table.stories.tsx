@@ -25,21 +25,18 @@ const meta: Meta<typeof Table> = {
       control: "select",
     },
     onSortChange: {
-      action: "sortChange",
       description: "Fires when the user changes the sort descriptor",
       table: {
         category: "Events",
       },
     },
     onSearchChange: {
-      action: "onSearchChange",
       description: "Fires when the user changes search descriptor",
       table: {
         category: "Events",
       },
     },
     onColumnReorder: {
-      action: "onColumnReorder",
       description: "Fires when the user changes the column order",
       table: {
         category: "Events",
@@ -59,6 +56,11 @@ type Story = StoryObj<typeof Table>;
 
 export const Primary: Story = {
   args: {
+    onCellAction: fn(),
+    onSortChange: fn(),
+    onSearchChange: fn(),
+    onColumnReorder: fn(),
+    onPaginationChange: fn(),
     children: [
       <Table.Header>
         <Table.Column>Name</Table.Column>
@@ -465,6 +467,21 @@ export const PaginatedTable: Story = {
       pageSize: 10,
       totalPages: 10,
     },
-    onPaginationChange: fn(),
+  },
+};
+
+export const LoadingState: Story = {
+  args: {
+    ...Primary.args,
+    isLoading: true,
+    loadingRows: 8,
+  },
+};
+
+export const TableSkeleton: StoryObj<typeof Table.Skeleton> = {
+  render: (args) => <Table.Skeleton {...args} />,
+  args: {
+    rows: 10,
+    columns: 3,
   },
 };

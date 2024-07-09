@@ -30,6 +30,17 @@ export interface PaginationProps {
   onPaginationChange?: (descriptor: PaginationDescriptor) => void;
 }
 
+export interface LoadingProps {
+  /** Whether the table is in a loading state
+   * @selector [data-loading]
+   */
+  isLoading?: boolean;
+  /** The number of rows to render when loading
+   * @default paginationDescriptor.pageSize ?? 10
+   */
+  loadingRows?: number;
+}
+
 export interface SearchProps {
   /** Object representing the current search state of the table */
   searchDescriptor?: SearchDescriptor;
@@ -75,7 +86,8 @@ export interface TableProps<T>
     ColumnReorderProps,
     RenderBaseProps<never>,
     PaginationProps,
-    Expandable {
+    Expandable,
+    LoadingProps {
   /** Whether the table allows expandable rows.
    * When it's `false`, rows cannot have nested rows.
    */

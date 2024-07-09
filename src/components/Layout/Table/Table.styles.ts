@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 import mixins from "@styles/mixins";
 import { ComboInput, Input } from "@components/Fields";
+import { SkeletonLoader } from "../../Loaders/SkeletonLoader";
 
 const ShowVerticalDividerMixin = css`
   &[data-divider] {
@@ -58,7 +59,7 @@ export const TableBottom = styled.div`
   justify-content: flex-end;
   align-items: center;
   padding-right: var(--table-padding-horz);
-  height: 48px;
+  height: var(--table-cell-height);
   border: solid var(--table-border-clr);
   border-width: 0 var(--table-border-width) var(--table-border-width)
     var(--table-border-width);
@@ -134,7 +135,7 @@ export const StyledTh = styled.th`
 export const ColumnDropIndicator = styled.div`
   background-color: var(--accent-clr);
   width: 2px;
-  height: 48px;
+  height: var(--table-cell-height);
   position: absolute;
   left: calc(var(--table-padding-horz) * -1 + 1px);
 `;
@@ -179,7 +180,7 @@ export const RowHeader = styled.th`
   font-weight: inherit;
   width: 25%;
 
-  height: 48px;
+  height: var(--table-cell-height);
   vertical-align: middle;
   padding: var(--table-padding-vert) var(--table-padding-horz);
 
@@ -193,7 +194,7 @@ export const StyledCell = styled.td`
   text-align: left;
   font-weight: inherit;
   font-size: var(--table-cell-font-size);
-  height: 48px;
+  height: var(--table-cell-height);
   vertical-align: middle;
   padding: var(--table-padding-vert) var(--table-padding-horz);
 
@@ -202,6 +203,14 @@ export const StyledCell = styled.td`
   }
 
   ${ShowVerticalDividerMixin}
+`;
+
+// TODO this height is hard-coded for the default table
+// height, figure out how to make the height correct without
+// changing the height of the columns
+export const CellLoader = styled(SkeletonLoader)`
+  width: 100%;
+  height: 27px;
 `;
 
 // TABLE FOOTER

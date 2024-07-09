@@ -1,13 +1,55 @@
 import React, { useState } from "react";
-import { Key, Table } from "../elements";
+import { Button, Key, Table } from "../elements";
 
 export default function Tables() {
   return (
     <div style={{ padding: "16px" }}>
-      <PaginatedTable />
+      {/* <PaginatedTable /> */}
       {/* <ReordableColumnsTable /> */}
       {/* <NestedRowsTable /> */}
+      <TableLoader />
     </div>
+  );
+}
+
+function TableLoader() {
+  const [loading, setLoading] = useState(true);
+
+  return (
+    <>
+      <Button onPress={() => setLoading(!loading)}>Toggle loading</Button>
+      <br />
+      <br />
+      <Table
+        aria-label="Table with loader"
+        paginationDescriptor={{
+          page: 1,
+          totalPages: 10,
+          pageSize: 10,
+        }}
+        isLoading={loading}
+      >
+        <Table.Header>
+          <Table.Column key="foo" width={1000}>
+            Foo
+          </Table.Column>
+          <Table.Column key="bar">Bar</Table.Column>
+          <Table.Column key="baz">Baz</Table.Column>
+        </Table.Header>
+        <Table.Body>
+          <Table.Row key="row 1">
+            <Table.Cell>Lvl 1 Foo 1</Table.Cell>
+            <Table.Cell>Lvl 1 Bar 1</Table.Cell>
+            <Table.Cell> Lvl 1 Baz 1</Table.Cell>
+          </Table.Row>
+          <Table.Row key="row 2">
+            <Table.Cell>Lvl 1 Foo 2</Table.Cell>
+            <Table.Cell>Lvl 1 Bar 2</Table.Cell>
+            <Table.Cell>Lvl 1 Baz 2</Table.Cell>
+          </Table.Row>
+        </Table.Body>
+      </Table>
+    </>
   );
 }
 

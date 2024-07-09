@@ -24,6 +24,7 @@ export function TableShared<T extends object>(props: TableInternalProps<T>) {
     style,
     paginationDescriptor = null,
     onPaginationChange,
+    isLoading = false,
   } = props;
 
   const ref = useRef(null);
@@ -57,6 +58,7 @@ export function TableShared<T extends object>(props: TableInternalProps<T>) {
     style,
     selectors: {
       "data-sticky": isSticky,
+      "data-loading": isLoading,
       "data-has-pagination": paginationDescriptor !== null,
     },
   });
