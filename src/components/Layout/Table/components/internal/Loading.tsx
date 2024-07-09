@@ -1,20 +1,30 @@
 import { CellLoader, StyledCell, StyledRow } from "../../Table.styles";
+import { TableState, TreeGridState } from "../../Table.types";
 
 interface LoadingTableRowProps {
-  columns: number;
+  state: TableState<any> | TreeGridState<any>;
   rows: number;
 }
 
 export function LoadingTableRows(props: LoadingTableRowProps) {
-  const { columns, rows } = props;
+  const { state, rows } = props;
+  const { columns, columnCount } = state.collection;
 
   return Array.from({ length: rows }).map((_, index) => (
     <StyledRow key={index}>
-      {Array.from({ length: columns }).map((_, cellIndex) => (
-        <StyledCell>
-          <LoadingCellContent key={`${index}-${cellIndex}`} />
-        </StyledCell>
-      ))}
+      {Array.from({ length: columnCount }).map((_, cellIndex) => {
+        const column = columns[cellIndex];
+        return (
+          <StyledCell
+            data-divider={
+              (column.props.showDivider && cellIndex !== columnCount - 1) ||
+              undefined
+            }
+          >
+            <LoadingCellContent key={`${index}-${cellIndex}`} />
+          </StyledCell>
+        );
+      })}
     </StyledRow>
   ));
 }

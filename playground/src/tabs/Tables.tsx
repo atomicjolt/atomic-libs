@@ -30,11 +30,15 @@ function TableLoader() {
         isLoading={loading}
       >
         <Table.Header>
-          <Table.Column key="foo" width={1000}>
+          <Table.Column key="foo" width={1000} showDivider>
             Foo
           </Table.Column>
-          <Table.Column key="bar">Bar</Table.Column>
-          <Table.Column key="baz">Baz</Table.Column>
+          <Table.Column key="bar" showDivider>
+            Bar
+          </Table.Column>
+          <Table.Column key="baz" showDivider>
+            Baz
+          </Table.Column>
         </Table.Header>
         <Table.Body>
           <Table.Row key="row 1">

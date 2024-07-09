@@ -37,12 +37,7 @@ export function TableBody<T extends object>(props: TableBodyProps<T>) {
 
   return (
     <TableRowGroup type={StyledTBody} ref={ref} {...renderProps}>
-      {isLoading && (
-        <LoadingTableRows
-          rows={loadingRows}
-          columns={state.collection.columnCount}
-        />
-      )}
+      {isLoading && <LoadingTableRows state={state} rows={loadingRows} />}
       {!isLoading &&
         rows.map((row) => {
           return (

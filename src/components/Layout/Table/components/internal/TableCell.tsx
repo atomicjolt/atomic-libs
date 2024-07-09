@@ -21,8 +21,13 @@ export function TableCell<T>(props: TableCellProps<T>) {
   const { gridCellProps } = useTableCell({ node: cell }, state, ref);
   const { focusProps, isFocusVisible } = useFocusRing();
 
+  const isLastCell =
+    cell.column?.key ===
+    state.collection.columns[state.collection.columnCount - 1].key;
+
   const showDivider =
-    cell.props.showDivider ?? cell.column?.props?.showDivider ?? false;
+    (cell.props.showDivider ?? cell.column?.props?.showDivider ?? false) &&
+    !isLastCell;
 
   const colSpan = cell.colspan ?? cell.props.colSpan;
 
