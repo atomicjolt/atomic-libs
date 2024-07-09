@@ -1,6 +1,6 @@
 {
   "name": "@atomicjolt/atomic-elements",
-  "version": "2.7.0",
+  "version": "2.7.1",
   "sideEffects": false,
   "module": "dist/esm/index.js",
   "main": "dist/cjs/index.js",
@@ -22,7 +22,7 @@
     "@react-aria/focus": "^3.17.1",
     "@react-aria/grid": "^3.9.1",
     "@react-aria/i18n": "^3.11.1",
-    "@react-aria/interactions": "^3.21.1",
+    "@react-aria/interactions": "^3.21.3",
     "@react-aria/label": "^3.7.8",
     "@react-aria/link": "^3.7.1",
     "@react-aria/listbox": "^3.12.1",
