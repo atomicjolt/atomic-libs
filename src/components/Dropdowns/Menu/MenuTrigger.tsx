@@ -36,7 +36,7 @@ export function MenuTrigger<T>(props: MenuTriggerProps<T>) {
         [OverlayTriggerStateContext.Provider, state],
         [
           PopoverContext.Provider,
-          { triggerRef: buttonRef, isOpen: state.isOpen },
+          { triggerRef: buttonRef, isOpen: state.isOpen, variant: "menu" },
         ],
       ]}
     >
