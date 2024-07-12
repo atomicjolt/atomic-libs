@@ -3,14 +3,15 @@
 exports[`Spinner > matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-lnPyOc gTCwcD aje-spinner is-medium"
+    class="sc-aYaIB iioswy aje-spinner is-medium"
   >
     <svg
-      class="sc-eulNPF cGIDUO"
+      class="sc-gEvDqW DAgCs"
+      data-testid="spinner-svg"
       viewBox="25 25 50 50"
     >
       <circle
-        class="sc-dExXmK iNhITY"
+        class="sc-eqUzNf kGeTSI"
         cx="50"
         cy="50"
         fill="none"

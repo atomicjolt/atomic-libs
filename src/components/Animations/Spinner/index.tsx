@@ -1,5 +1,5 @@
 import { filterDOMProps } from "@react-aria/utils";
-import { useRenderProps } from "../../..";
+import { useRenderProps } from "@hooks/useRenderProps";
 import {
   AriaLabelProps,
   RenderClassName,
@@ -41,7 +41,11 @@ export function Spinner(props: SpinnerProps) {
 
   return (
     <SpinnerContainer {...renderProps} {...filterDOMProps(props)}>
-      <SpinnerSvg viewBox="25 25 50 50" $duration={duration}>
+      <SpinnerSvg
+        viewBox="25 25 50 50"
+        $duration={duration}
+        data-testid="spinner-svg"
+      >
         <SpinnerPath
           cx="50"
           cy="50"

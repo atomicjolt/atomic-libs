@@ -101,6 +101,9 @@ export { FileTrigger } from "./Buttons/FileTrigger";
 export { Pagination } from "./Pagination/Pagination";
 export { PageSizeSelect } from "./Pagination/PageSizeSelect";
 
+export { Spinner } from "./Animations/Spinner";
+export { BouncingDots } from "./Animations/BouncingDots";
+
 /* ---- Types ---- */
 
 export type { BannerProps, BannerVariants } from "./Banners/Banner";
@@ -126,7 +129,7 @@ export type { SearchInputProps } from "./Inputs/SearchInput";
 export type { TextInputProps } from "./Inputs/TextInput";
 export type { TextareaProps } from "./Inputs/TextAreaInput";
 export type { ToggleSwitchProps } from "./Inputs/ToggleSwitch";
-export type { SpinnerLoaderProps as SpinnerProps } from "./Loaders/SpinnerLoader";
+export type { SpinnerLoaderProps } from "./Loaders/SpinnerLoader";
 export type { ThreeDotLoaderProps } from "./Loaders/ThreeDotLoader";
 export type { ModalProps } from "./Overlays/Modal";
 export type { ConfirmationModalProps } from "./Overlays/ConfirmationModal";
@@ -178,3 +181,5 @@ export type { DropZoneProps } from "./DragAndDrop/DropZone";
 export type { FileTriggerProps } from "./Buttons/FileTrigger";
 export type { PaginationProps } from "./Pagination/Pagination";
 export type { PageSizeSelectProps } from "./Pagination/PageSizeSelect";
+export type { SpinnerProps } from "./Animations/Spinner";
+export type { BouncingDotsProps } from "./Animations/BouncingDots";
