@@ -3,14 +3,10 @@
 exports[`MultiSelect > matches default variant 1`] = `
 <DocumentFragment>
   <div
-<<<<<<< HEAD
-    class="sc-eeDSqt grPsa aje-multiselect aje-multiselect--default is-medium"
-=======
-    class="sc-bXCLgj kvJbA-D aje-multiselect aje-multiselect--default is-medium"
->>>>>>> main
+    class="sc-dExXmK kWJaUH aje-multiselect aje-multiselect--default is-medium"
   >
     <label
-      class="sc-dhKdPU dbWGxZ aje-label is-auto"
+      class="sc-cwHqhk gIsJzt aje-label is-auto"
       for="react-aria-:r2:"
       id="react-aria-:r3:"
     >
@@ -20,27 +16,19 @@ exports[`MultiSelect > matches default variant 1`] = `
       aria-expanded="false"
       aria-haspopup="listbox"
       aria-labelledby="react-aria-:r7: react-aria-:r3:"
-<<<<<<< HEAD
-      class="sc-kAycRU sc-imWZod hQvPLv aje-btn sc-jXbVAB eOMUuR aje-btn--dropdown is-medium"
-=======
-      class="sc-iGgVNO sc-gsFSjX jYbTSg gEspTW aje-btn sc-kAycRU cfoxwV aje-btn--dropdown is-medium"
->>>>>>> main
+      class="sc-imWZod sc-lnPyOc krOeTw ehKGuG aje-btn sc-eulNPF eJSBau aje-btn--dropdown is-medium"
       id="react-aria-:r2:"
       type="button"
     >
       <span
-        class="sc-ikkyvV aQztJ"
+        class="sc-jsJARu AnmAI"
         id="react-aria-:r7:"
       >
         Select an option
       </span>
       <i
         aria-hidden="true"
-<<<<<<< HEAD
-        class="sc-dLNtp ckbTgt material-icons is-medium"
-=======
-        class="sc-jEABJj lbATfb aje-icon material-icons is-medium"
->>>>>>> main
+        class="sc-kAycRU lbPEgw aje-icon material-icons is-medium"
       >
         arrow_drop_down
       </i>
@@ -52,44 +40,32 @@ exports[`MultiSelect > matches default variant 1`] = `
 exports[`MultiSelect > matches floating variant 1`] = `
 <DocumentFragment>
   <div
-<<<<<<< HEAD
-    class="sc-eeDSqt grPsa aje-multiselect aje-multiselect--floating is-medium"
-=======
-    class="sc-bXCLgj kvJbA-D aje-multiselect aje-multiselect--floating is-medium"
->>>>>>> main
+    class="sc-dExXmK kWJaUH aje-multiselect aje-multiselect--floating is-medium"
   >
     <div
-      class="sc-eldOKa cVAPoZ"
+      class="sc-hzhKNl lmHEaa"
     >
       <button
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-labelledby="react-aria-:rf: react-aria-:rb:"
-<<<<<<< HEAD
-        class="sc-kAycRU sc-imWZod hQvPLv aje-btn sc-jXbVAB eOMUuR aje-btn--dropdown is-medium"
-=======
-        class="sc-iGgVNO sc-gsFSjX jYbTSg gEspTW aje-btn sc-kAycRU cfoxwV aje-btn--dropdown is-medium"
->>>>>>> main
+        class="sc-imWZod sc-lnPyOc krOeTw ehKGuG aje-btn sc-eulNPF eJSBau aje-btn--dropdown is-medium"
         id="react-aria-:ra:"
         type="button"
       >
         <span
-          class="sc-ikkyvV aQztJ"
+          class="sc-jsJARu AnmAI"
           id="react-aria-:rf:"
         />
         <i
           aria-hidden="true"
-<<<<<<< HEAD
-          class="sc-dLNtp ckbTgt material-icons is-medium"
-=======
-          class="sc-jEABJj lbATfb aje-icon material-icons is-medium"
->>>>>>> main
+          class="sc-kAycRU lbPEgw aje-icon material-icons is-medium"
         >
           arrow_drop_down
         </i>
       </button>
       <label
-        class="sc-dhKdPU dbWGxZ aje-label is-auto"
+        class="sc-cwHqhk gIsJzt aje-label is-auto"
         for="react-aria-:ra:"
         id="react-aria-:rb:"
       >

@@ -266,6 +266,30 @@ export const AriaLabelArgTypes: ArgTypes = {
   },
 };
 
+export const RenderPropsArgTypes: ArgTypes = {
+  className: {
+    control: "text",
+    description: "Class name to apply to the component",
+    table: {
+      category: "Render Props",
+    },
+  },
+  style: {
+    control: "object",
+    description: "Style object to apply to the component",
+    table: {
+      category: "Render Props",
+    },
+  },
+  children: {
+    control: false,
+    description: "Children to render",
+    table: {
+      category: "Render Props",
+    },
+  },
+};
+
 export const PurpleButtonStyles = createGlobalStyle`
 .aje-btn--purple {
   --btn-bg-clr: purple;

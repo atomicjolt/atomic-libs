@@ -1,3 +1,4 @@
+import mixins from "@styles/mixins";
 import styled, { keyframes } from "styled-components";
 
 const rotate = keyframes`
@@ -22,17 +23,23 @@ const animateStroke = keyframes`
 `;
 
 export const SpinnerContainer = styled.div`
-  font-size: var(--loader-size);
+  ${mixins.Sizing}
+  --size-sm-x: 10px;
+  --size-md-x: 20px;
+  --size-lg-x: 30px;
+
+  font-size: var(--size-x);
 `;
 
-export const CircularLoader = styled.svg`
+export const SpinnerSvg = styled.svg<{ $duration: number }>`
   width: 1.25em;
-  animation: ${rotate} 2s linear infinite;
+  animation: ${rotate} ${({ $duration }) => `${$duration}ms`} linear infinite;
 `;
 
-export const LoaderPath = styled.circle`
+export const SpinnerPath = styled.circle<{ $duration: number }>`
   fill: none;
-  stroke: var(--loader-clr);
+  stroke: var(--animation-clr);
   stroke-linecap: round;
-  animation: ${animateStroke} 1.5s ease-in-out infinite;
+  animation: ${animateStroke} ${({ $duration }) => `${$duration}ms`} ease-in-out
+    infinite;
 `;

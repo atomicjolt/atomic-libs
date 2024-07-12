@@ -1,0 +1,44 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`BouncingDots > snapshots > matches props snapshot 1`] = `
+<div>
+  <div
+    class="sc-aYaIB jkjYee aje-bouncing-dots custom-class is-small"
+    style="color: red;"
+  >
+    <span
+      class="sc-gEvDqW flBzDJ aje-bouncing-dots__dot"
+    />
+    <span
+      class="sc-gEvDqW dNMQPy aje-bouncing-dots__dot"
+    />
+    <span
+      class="sc-gEvDqW bQUEUE aje-bouncing-dots__dot"
+    />
+    <span
+      class="sc-gEvDqW hitLyD aje-bouncing-dots__dot"
+    />
+    <span
+      class="sc-gEvDqW qFZFz aje-bouncing-dots__dot"
+    />
+  </div>
+</div>
+`;
+
+exports[`BouncingDots > snapshots > matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-aYaIB fmsEbS aje-bouncing-dots is-medium"
+  >
+    <span
+      class="sc-gEvDqW flBzDJ aje-bouncing-dots__dot"
+    />
+    <span
+      class="sc-gEvDqW dNMQPy aje-bouncing-dots__dot"
+    />
+    <span
+      class="sc-gEvDqW bQUEUE aje-bouncing-dots__dot"
+    />
+  </div>
+</DocumentFragment>
+`;

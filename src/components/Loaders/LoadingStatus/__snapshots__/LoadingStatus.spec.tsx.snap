@@ -3,29 +3,27 @@
 exports[`LoadingStatus > matches error snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-dhKdPU coQQBZ aje-banner--error"
+    class="sc-kAycRU esehDk aje-banner--error"
   >
     <i
       aria-hidden="true"
-      class="sc-jXbVAB jVtNFG material-icons is-medium"
+      class="sc-gsFSjX gLPNpo aje-icon material-icons is-medium"
     >
       error
     </i>
     <div
-      class="sc-kpDprT cnhKCE"
+      class="sc-imWZod fVuOTb"
     >
       An error occurred
     </div>
     <button
       aria-label="dismiss error"
-      class="sc-cPiJYC sc-dLNtp fTQRDG kjiHHG aje-btn aje-btn--icon aje-banner__dismiss aje-btn--banner"
-      role="link"
-      tabindex="0"
+      class="sc-dhKdPU sc-dExXmK bznZeE iAKfJz aje-btn aje-btn--icon aje-banner__dismiss aje-btn--banner is-medium"
       type="button"
     >
       <i
         aria-hidden="true"
-        class="sc-jXbVAB jVtNFG material-icons is-medium"
+        class="sc-gsFSjX gLPNpo aje-icon material-icons is-medium"
       >
         close
       </i>
@@ -37,23 +35,23 @@ exports[`LoadingStatus > matches error snapshot 1`] = `
 exports[`LoadingStatus > matches loading snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-gsFSjX kMYkab aje-three-dot-loader is-medium"
+    class="sc-eqUzNf dEDHxL aje-loader aje-loader--bouncing-dots is-medium"
     data-placement="center"
   >
     <div
-      class="sc-imWZod dRvpRG aje-flex"
+      class="sc-aYaIB blILUf aje-flex"
     >
       <div
-        class="sc-aYaIB bjNylc dots-container"
+        class="sc-dcJtft exOQbf aje-bouncing-dots is-medium"
       >
         <span
-          class="sc-gEvDqW sc-eqUzNf iZkYKK gEoPMl dot1"
+          class="sc-iGgVNO bXgkx aje-bouncing-dots__dot"
         />
         <span
-          class="sc-gEvDqW sc-fqkwJk iZkYKK hcdaYo dot2"
+          class="sc-iGgVNO cEegjW aje-bouncing-dots__dot"
         />
         <span
-          class="sc-gEvDqW sc-dcJtft iZkYKK hqCEWn dot3"
+          class="sc-iGgVNO hXsHLQ aje-bouncing-dots__dot"
         />
       </div>
     </div>

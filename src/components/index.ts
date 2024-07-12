@@ -46,7 +46,7 @@ export { DateInput } from "./Inputs/DateAndTimes/DateInput";
 export { TimeInput } from "./Inputs/DateAndTimes/TimeInput";
 export { DatePicker } from "./Inputs/DateAndTimes/DatePicker";
 
-export { Spinner } from "./Loaders/Spinner";
+export { SpinnerLoader } from "./Loaders/SpinnerLoader";
 export { ThreeDotLoader } from "./Loaders/ThreeDotLoader";
 export { SkeletonLoader } from "./Loaders/SkeletonLoader";
 export { LoadingStatus } from "./Loaders/LoadingStatus";
@@ -126,7 +126,7 @@ export type { SearchInputProps } from "./Inputs/SearchInput";
 export type { TextInputProps } from "./Inputs/TextInput";
 export type { TextareaProps } from "./Inputs/TextAreaInput";
 export type { ToggleSwitchProps } from "./Inputs/ToggleSwitch";
-export type { SpinnerProps } from "./Loaders/Spinner";
+export type { SpinnerLoaderProps as SpinnerProps } from "./Loaders/SpinnerLoader";
 export type { ThreeDotLoaderProps } from "./Loaders/ThreeDotLoader";
 export type { ModalProps } from "./Overlays/Modal";
 export type { ConfirmationModalProps } from "./Overlays/ConfirmationModal";

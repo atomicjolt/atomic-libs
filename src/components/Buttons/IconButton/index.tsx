@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 import { mergeProps } from "@react-aria/utils";
 import { HasIcon } from "../../../types";
-import Spinner from "../../Loaders/Spinner";
+import { SpinnerLoader } from "../../Loaders/SpinnerLoader";
 import MaterialIcon from "../../Icons/MaterialIcon";
 import { StyledIconButton } from "./IconButton.styles";
 import useForwardedRef from "../../../hooks/useForwardedRef";
@@ -58,7 +58,10 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
         {...mergeProps(buttonProps, focusProps, renderProps)}
       >
         {isLoading && (
-          <Spinner isLoading={!loadingComplete} placement="absolute center" />
+          <SpinnerLoader
+            isLoading={!loadingComplete}
+            placement="absolute center"
+          />
         )}
         <MaterialIcon icon={icon} variant={iconVariant} size={size} />
       </StyledIconButton>
