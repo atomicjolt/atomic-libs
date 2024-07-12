@@ -19,7 +19,7 @@ exports[`Button > matches snapshots > loading completed state 1`] = `
     type="button"
   >
     <div
-      class="sc-eqUzNf dEDHxL aje-loader aje-loader--spinner is-medium"
+      class="sc-eqUzNf iDnchD aje-loader aje-loader--spinner is-medium"
       data-placement="absolute center"
     >
       <span
@@ -39,7 +39,7 @@ exports[`Button > matches snapshots > loading state 1`] = `
     type="button"
   >
     <div
-      class="sc-eqUzNf dEDHxL aje-loader aje-loader--spinner is-medium"
+      class="sc-eqUzNf iDnchD aje-loader aje-loader--spinner is-medium"
       data-placement="absolute center"
     >
       <div
