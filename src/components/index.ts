@@ -92,8 +92,14 @@ export { FormatTable } from "./Format/FormatTable";
 export { FormatDuration } from "./Format/FormatDuration";
 export { FormatOptional } from "./Format/FormatOptional";
 
-export { RouterProvider } from "react-aria";
+export { RouterProvider } from "@react-aria/utils";
 export { Link } from "./Routing/Link";
+
+export { DropZone } from "./DragAndDrop/DropZone";
+export { FileTrigger } from "./Buttons/FileTrigger";
+
+export { Pagination } from "./Pagination/Pagination";
+export { PageSizeSelect } from "./Pagination/PageSizeSelect";
 
 /* ---- Types ---- */
 
@@ -168,3 +174,7 @@ export type { FormatNumberProps } from "./Format/FormatNumber";
 export type { FormatTableProps } from "./Format/FormatTable";
 export type { FormatDurationProps } from "./Format/FormatDuration";
 export type { LinkProps } from "./Routing/Link";
+export type { DropZoneProps } from "./DragAndDrop/DropZone";
+export type { FileTriggerProps } from "./Buttons/FileTrigger";
+export type { PaginationProps } from "./Pagination/Pagination";
+export type { PageSizeSelectProps } from "./Pagination/PageSizeSelect";

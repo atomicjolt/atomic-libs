@@ -1,4 +1,4 @@
-import { Size } from "@/types";
+import { Size } from "../../types";
 
 export type LoaderPlacement = "inline" | "block" | "center" | "absolute center";
 

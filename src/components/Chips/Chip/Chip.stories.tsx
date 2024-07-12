@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { Chip } from ".";
 import { fn } from "@storybook/test";
+import { PressableArgTypes } from "@sb/helpers";
 
 export default {
   title: "Chips/Chip",
@@ -9,15 +10,18 @@ export default {
     layout: "centered",
   },
   argTypes: {
-    onRemove: {
-      description: "Function to call when the chip is removed",
-    },
     children: {
       type: "string",
     },
     variant: {
       control: "select",
-      options: ["default", "warning", "success"],
+      options: ["default", "warning", "success", "danger"],
+    },
+    onRemove: {
+      description: "Function to call when the chip is removed",
+      table: {
+        category: "Events",
+      },
     },
   },
 } as Meta<typeof Chip>;
@@ -41,5 +45,8 @@ export const Pressasble: Story = {
   args: {
     ...Primary.args,
     onPress: fn(),
+  },
+  argTypes: {
+    ...PressableArgTypes,
   },
 };

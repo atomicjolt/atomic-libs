@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { SelectProps, useSelectState } from "react-stately";
-import { HiddenSelect, useSelect } from "react-aria";
+import { HiddenSelect, useSelect } from "@react-aria/select";
 import { AriaProps, FieldInputProps, HasVariant } from "../../../types";
 import { ButtonText, CustomSelectWrapper } from "./CustomSelect.styles";
 import { FloatingInputWrapper } from "../../Internal/FloatingInputWrapper";
@@ -8,10 +8,10 @@ import { MaterialIcon } from "../../Icons/MaterialIcon";
 import { Popover } from "../../Overlays/Popover";
 import { UnmanagedListBox } from "../ListBox";
 import { OverlayTriggerStateContext } from "../../Overlays/OverlayTrigger/context";
-import { useRenderProps } from "@/hooks/useRenderProps";
+import { useRenderProps } from "@hooks/useRenderProps";
 import { DropdownButton } from "../Dropdowns.styles";
 
-export type CustomSelectVariants = "default" | "floating";
+export type CustomSelectVariants = "default" | "floating" | "ghost";
 
 export interface CustomSelectProps<T extends object>
   extends AriaProps<SelectProps<T>>,
@@ -91,7 +91,7 @@ export function CustomSelect<T extends object>(props: CustomSelectProps<T>) {
       >
         <DropdownButton
           {...triggerProps}
-          variant="dropdown"
+          variant={variant === "ghost" ? "dropdown-ghost" : "dropdown"}
           ref={ref}
           size={size}
           isDisabled={isDisabled || isReadOnly}

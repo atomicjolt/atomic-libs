@@ -1,5 +1,5 @@
 import React from "react";
-import { useTableRowGroup } from "react-aria";
+import { useTableRowGroup } from "@react-aria/table";
 
 interface TableRowGroupProps
   extends React.HTMLAttributes<HTMLTableSectionElement> {

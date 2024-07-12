@@ -1,9 +1,10 @@
 import { useRef } from "react";
-import { mergeProps, useDrag, useDrop, TextDropItem } from "react-aria";
+import { useDrag, useDrop, TextDropItem } from "@react-aria/dnd";
+import { mergeProps } from "@react-aria/utils";
 import { GridNode } from "@react-types/grid";
 
-import { useFocusRing } from "@/hooks/useFocusRing";
-import { useRenderProps } from "@/hooks/useRenderProps";
+import { useFocusRing } from "@hooks/useFocusRing";
+import { useRenderProps } from "@hooks/useRenderProps";
 import { MaterialIcon } from "../../../../Icons/MaterialIcon";
 
 import {
@@ -32,11 +33,16 @@ export function TableColumn<T extends object>(props: TableColumnProps<T>) {
     props: {
       allowsSearching = false,
       className,
-      showDivider = false,
       allowsSorting = false,
       allowsReordering = false,
     },
   } = column;
+
+  const isLastCol =
+    state.collection.columns[state.collection.columnCount - 1].key ===
+    column.key;
+
+  const showDivider = column.props.showDivider && !isLastCol;
 
   const colSpan = column.colspan;
 

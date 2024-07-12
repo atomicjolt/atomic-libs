@@ -1,5 +1,5 @@
-import mixins from "@/styles/mixins";
 import styled, { keyframes } from "styled-components";
+import mixins from "@styles/mixins";
 
 const check = keyframes`
   0% {

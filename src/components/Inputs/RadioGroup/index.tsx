@@ -1,9 +1,9 @@
-import React from "react";
 import cn from "classnames";
+import { useRadioGroupState } from "react-stately";
+import { AriaRadioGroupProps, useRadioGroup } from "@react-aria/radio";
+
 import { HasChildren, AriaProps, FieldInputProps } from "../../../types";
 import RadioContext from "./context";
-import { useRadioGroupState } from "react-stately";
-import { AriaRadioGroupProps, useRadioGroup } from "react-aria";
 import { RadioGroupWrapper } from "./RadioGroup.styles";
 import { Label, ErrorMessage, Message } from "../../Fields";
 

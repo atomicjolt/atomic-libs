@@ -307,3 +307,19 @@ For any row that should have nested Children, provide those rows as children to 
 the cells of the parent row have been defined.
 
 <Canvas of={TableStories.WithNestedRows} />
+
+
+### Loading States
+
+The table component supports two loading variants. 
+The first is for when the columns of the table are known but the content is not.
+
+
+This is almost always going to be the one you want 
+
+<Canvas of={TableStories.LoadingState} />
+
+
+In the cases where you don't know the columns or the content of the table, you can make use of `<Table.Skeleton />`
+
+<Canvas of={TableStories.TableSkeleton} />

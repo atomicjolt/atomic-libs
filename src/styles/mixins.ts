@@ -1,5 +1,32 @@
 import { css } from "styled-components";
 
+const Sizing = css`
+  &.is-small {
+    --size-x: var(--size-sm-x);
+    --size-y: var(--size-sm-y);
+  }
+
+  &.is-medium {
+    --size-x: var(--size-md-x);
+    --size-y: var(--size-md-y);
+  }
+
+  &.is-large {
+    --size-x: var(--size-lg-x);
+    --size-y: var(--size-lg-y);
+  }
+
+  &.is-full {
+    --size-x: var(--size-full-x);
+    --size-y: var(--size-full-y);
+  }
+
+  &.is-auto {
+    --size-x: auto;
+    --size-y: auto;
+  }
+`;
+
 const mixins = {
   Bold: css`
     font-family: var(--font-family);
@@ -50,64 +77,14 @@ const mixins = {
       outline: var(--input-outline);
     }
   `,
+  Sizing,
   SizingX: css`
-    &.is-small {
-      width: var(--size-sm-x);
-    }
-
-    &.is-medium {
-      width: var(--size-md-x);
-    }
-
-    &.is-large {
-      width: var(--size-lg-x);
-    }
-
-    &.is-full {
-      width: var(--size-full-x);
-    }
-
-    &.is-auto {
-      width: auto;
-    }
+    ${Sizing}
+    width: var(--size-x);
   `,
   SizingY: css`
-    &.is-small {
-      height: var(--size-sm-y);
-    }
-
-    &.is-medium {
-      height: var(--size-md-y);
-    }
-
-    &.is-large {
-      height: var(--size-lg-y);
-    }
-
-    &.is-full {
-      height: var(--size-full-y);
-    }
-  `,
-  Sizing: css`
-    &.is-small {
-      width: var(--size-sm-x);
-      height: var(--size-sm-y);
-    }
-
-    &.is-medium {
-      width: var(--size-md-x);
-      height: var(--size-md-y);
-    }
-
-    &.is-large {
-      width: var(--size-lg-x);
-      height: var(--size-lg-y);
-    }
-
-    &.is-full {
-      width: var(--size-full-x);
-      height: var(--size-full-y);
-    }
+    ${Sizing}
+    height: var(--size-y);
   `,
   FocusVisible: (oultineOffset: number = 0) => css`
     &:focus-visible {

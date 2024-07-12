@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { resolveNumber } from "@/styles/utils";
+import { resolveNumber } from "@styles/utils";
 import { FlexBoxProperties } from "./Flex.types";
 
 export function handleGap({ gap, rowGap, columnGap }: FlexBoxProperties) {
@@ -31,6 +31,5 @@ export const FlexBox = styled.div<{ $attrs: FlexBoxProperties; as: any }>`
     if (props.$attrs.wrap === false) return "nowrap";
     return props.$attrs.wrap;
   }};
-
-  ${({ $attrs }) => handleGap($attrs)}
+  ${({ $attrs }) => handleGap($attrs)};
 `;

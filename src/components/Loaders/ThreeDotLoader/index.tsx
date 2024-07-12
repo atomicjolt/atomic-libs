@@ -1,9 +1,9 @@
 import { AriaLabelProps, BaseProps } from "../../../types";
+import { Flex } from "@components/Layout/Flex/Flex";
 import { Dot1, Dot2, Dot3, DotsContainer } from "./ThreeDotLoader.styles";
 import { LoaderCheck, LoaderMessage, LoaderWrapper } from "../Loader.styles";
-import { Flex } from "@/components/Layout/Flex/Flex";
+import { useRenderProps } from "@hooks/useRenderProps";
 import { LoaderProps } from "../Loading.types";
-import { useRenderProps } from "@/hooks/useRenderProps";
 
 export interface ThreeDotLoaderProps
   extends Omit<BaseProps, "size">,

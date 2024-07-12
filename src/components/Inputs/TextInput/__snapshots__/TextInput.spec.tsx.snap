@@ -3,7 +3,11 @@
 exports[`matches snapshot > default variant 1`] = `
 <DocumentFragment>
   <div
+<<<<<<< HEAD
     class="sc-gsFSjX fJXrLa aje-input__text sc-dLNtp kdQpaF aje-input--default is-medium"
+=======
+    class="sc-gsFSjX pXqer aje-input__text sc-jEABJj cruxMz aje-input--default is-medium"
+>>>>>>> main
   >
     <label
       class="sc-aYaIB dImjZF is-auto"
@@ -21,7 +25,7 @@ exports[`matches snapshot > default variant 1`] = `
     <input
       aria-describedby="react-aria-:r3:"
       aria-labelledby="react-aria-:r1:"
-      class="sc-fqkwJk ePqDXj"
+      class="sc-fqkwJk cgejtS"
       id="react-aria-:r0:"
       placeholder="placeholder"
       type="text"
@@ -34,7 +38,11 @@ exports[`matches snapshot > default variant 1`] = `
 exports[`matches snapshot > floating variant 1`] = `
 <DocumentFragment>
   <div
+<<<<<<< HEAD
     class="sc-gsFSjX fJXrLa aje-input__text sc-dLNtp kdQpaF aje-input--floating is-medium"
+=======
+    class="sc-gsFSjX pXqer aje-input__text sc-jEABJj cruxMz aje-input--floating is-medium"
+>>>>>>> main
     data-float="true"
   >
     <div
@@ -43,7 +51,7 @@ exports[`matches snapshot > floating variant 1`] = `
       <input
         aria-describedby="react-aria-:r8:"
         aria-labelledby="react-aria-:r6:"
-        class="sc-fqkwJk ePqDXj"
+        class="sc-fqkwJk cgejtS"
         data-float="true"
         id="react-aria-:r5:"
         placeholder="placeholder"

@@ -1,7 +1,7 @@
 import React, { ChangeEvent, forwardRef } from "react";
 import { GridNode } from "@react-types/grid";
 
-import { IconButton } from "@/components/Buttons/IconButton";
+import { IconButton } from "@components/Buttons/IconButton";
 import { SearchInput, SearchComboInput } from "../../Table.styles";
 import { TableState, TreeGridState } from "../../Table.types";
 
@@ -23,6 +23,7 @@ export const ColumnSearch = forwardRef(function ColumnSearch<T>(
     <>
       <SearchComboInput aria-expanded={isSearching}>
         <SearchInput
+          role="search"
           aria-label={`Search ${title || column.key}`}
           value={state.search.text}
           onFocus={() => state.setKeyboardNavigationDisabled?.(true)}

@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const StyledIcon = styled.i`
   user-select: none;
   pointer-events: none;
+  color: var(--icon-clr, inherit);
 
   &.is-small {
     font-size: 18px;

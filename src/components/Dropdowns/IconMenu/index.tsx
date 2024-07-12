@@ -1,18 +1,16 @@
 import React from "react";
 import { Item, MenuTriggerProps } from "react-stately";
-import { AriaMenuProps, Placement } from "react-aria";
+import { AriaMenuProps } from "@react-aria/menu";
+import { Placement } from "@react-aria/overlays";
 import IconButton from "../../Buttons/IconButton";
 import { BaseProps, CanHaveIcon, LoadingProps } from "../../../types";
 import { Popover } from "../../Overlays/Popover";
 import { MenuTrigger } from "../Menu/MenuTrigger";
 import { MenuItemProps, Menu } from "../Menu";
 import { ButtonVariants } from "../../Buttons/Buttons.types";
-import { cloneComponent } from "../../../clone";
+import { cloneComponent } from "../../../utils/clone";
 
-export type IconMenuProps<T extends object> = Omit<
-  AriaMenuProps<T>,
-  "onAction"
-> &
+export type IconMenuProps<T extends object> = AriaMenuProps<T> &
   MenuTriggerProps &
   BaseProps &
   CanHaveIcon &
@@ -22,7 +20,8 @@ export type IconMenuProps<T extends object> = Omit<
     menuPlacement?: Placement;
     children:
       | React.ReactElement<MenuItemProps<T>>[]
-      | React.ReactElement<MenuItemProps<T>>;
+      | React.ReactElement<MenuItemProps<T>>
+      | ((item: T) => React.ReactElement<MenuItemProps<T>>);
   };
 export function IconMenu<T extends {}>(props: IconMenuProps<T>) {
   const {
@@ -51,7 +50,7 @@ export function IconMenu<T extends {}>(props: IconMenuProps<T>) {
         loadingLabel={loadingLabel}
       />
       <Popover placement={menuPlacement}>
-        <Menu>{props.children}</Menu>
+        <Menu {...rest}>{props.children}</Menu>
       </Popover>
     </MenuTrigger>
   );

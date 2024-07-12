@@ -1,8 +1,9 @@
 import React from "react";
 import cn from "classnames";
 import { useToggleState } from "react-stately";
-import { AriaCheckboxProps, useCheckbox, useLocale } from "react-aria";
-import useForwardedRef from "../../../hooks/useForwardedRef";
+import { AriaCheckboxProps, useCheckbox } from "@react-aria/checkbox";
+import { useLocale } from "@react-aria/i18n";
+import { useForwardedRef } from "../../../hooks/useForwardedRef";
 import { AriaProps, FieldInputProps } from "../../../types";
 import { ChooseInput, ChooseLabel } from "../Inputs.styles";
 import { CheckboxWrapper } from "./Checkbox.styles";

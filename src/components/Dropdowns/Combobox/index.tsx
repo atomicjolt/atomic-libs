@@ -1,26 +1,33 @@
 import { useRef } from "react";
-import { AriaComboBoxProps, useComboBox, useFilter } from "react-aria";
+import { AriaComboBoxProps, useComboBox } from "@react-aria/combobox";
+import { useFilter } from "@react-aria/i18n";
 import { useComboBoxState } from "react-stately";
+
 import {
   AriaProps,
   CanHaveIcon,
   FieldInputProps,
   HasVariant,
+  MaterialIcons,
 } from "../../../types";
-import IconButton from "../../Buttons/IconButton";
+import { IconButton } from "../../Buttons/IconButton";
 import { Popover } from "../../Overlays/Popover";
 import { UnmanagedListBox } from "../ListBox";
 import { ComboInput, Input } from "../../Fields";
 import { FloatingInputWrapper } from "../../Internal/FloatingInputWrapper";
 import { OverlayTriggerStateContext } from "../../Overlays/OverlayTrigger/context";
-import { useRenderProps } from "@/hooks/useRenderProps";
+import { useRenderProps } from "@hooks/useRenderProps";
+import { MaterialIcon } from "@components/Icons/MaterialIcon";
 import { ComboBoxWrapper } from "./Combobox.styles";
 
 export interface ComboBoxProps<T>
   extends AriaProps<AriaComboBoxProps<T>>,
     FieldInputProps,
     CanHaveIcon,
-    HasVariant<"default" | "floating"> {}
+    HasVariant<"default" | "floating"> {
+  /** Optional icon to render before the input */
+  prefixIcon?: MaterialIcons;
+}
 
 /** Combox combinds a text input field with a dropdown list of options for the user to select from */
 export function ComboBox<T extends object>(props: ComboBoxProps<T>) {
@@ -32,6 +39,7 @@ export function ComboBox<T extends object>(props: ComboBoxProps<T>) {
     isRequired,
     isInvalid,
     icon = "search",
+    prefixIcon,
     iconVariant,
     label,
     message,
@@ -94,12 +102,16 @@ export function ComboBox<T extends object>(props: ComboBoxProps<T>) {
         floating={variant === "floating"}
       >
         <ComboInput inputRef={inputRef} ref={inputWrapperRef}>
+          {prefixIcon && (
+            <MaterialIcon icon={prefixIcon} variant={iconVariant} />
+          )}
           <Input {...inputProps} size="full" ref={inputRef} />
           <IconButton
             icon={icon}
             variant="content"
             iconVariant={iconVariant}
             ref={buttonRef}
+            size="auto"
             {...buttonProps}
           />
         </ComboInput>

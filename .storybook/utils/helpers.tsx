@@ -1,6 +1,6 @@
 import { ArgTypes } from "@storybook/react";
 import { createGlobalStyle } from "styled-components";
-import { PressEvents } from "react-aria";
+import { PressEvents } from "@react-aria/interactions";
 import { Item } from "../../src/components/Collection";
 import { OverlayTriggerProps } from "react-stately";
 

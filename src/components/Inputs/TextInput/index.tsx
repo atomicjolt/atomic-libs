@@ -1,11 +1,11 @@
 import React from "react";
+import { AriaTextFieldProps } from "@react-aria/textfield";
+import classNames from "classnames";
 import { useVariantClass } from "../../../hooks";
 import { AriaProps, FieldInputProps, HasVariant } from "../../../types";
 import { StyledTextField } from "../Inputs.styles";
-import { AriaTextFieldProps } from "react-aria";
 import { FieldInput } from "../../Fields";
 import FloatingFieldInputWrapper from "../../Internal/FloatingFieldInputWrapper";
-import classNames from "classnames";
 
 type Variants = "default" | "floating";
 

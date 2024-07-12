@@ -9,8 +9,8 @@ import { ButtonText } from "../CustomSelect/CustomSelect.styles";
 import MaterialIcon from "../../Icons/MaterialIcon";
 import { Popover } from "../../Overlays/Popover";
 import { UnmanagedListBox } from "../ListBox";
-import { OverlayTriggerStateContext } from "@/components/Overlays/OverlayTrigger/context";
-import { useRenderProps } from "@/hooks/useRenderProps";
+import { OverlayTriggerStateContext } from "@components/Overlays/OverlayTrigger/context";
+import { useRenderProps } from "@hooks/useRenderProps";
 import { MultiSelectWrapper } from "./MultiSelect.styles";
 
 export interface MultiSelectProps<T extends object>

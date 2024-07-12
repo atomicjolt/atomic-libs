@@ -1,11 +1,4 @@
-import { AriaTableProps } from "react-aria";
-import {
-  BaseProps,
-  Key,
-  SearchDescriptor,
-  SuggestStrings,
-} from "../../../types";
-
+import { AriaTableProps } from "@react-aria/table";
 import {
   TableBodyProps,
   TableHeaderProps,
@@ -13,12 +6,40 @@ import {
   TreeGridState as StatelyTreeGridState,
 } from "@react-stately/table";
 import { Expandable } from "@react-types/shared";
-
 import {
   SelectionBehavior,
   Sortable,
   MultipleSelection,
 } from "@react-types/shared";
+
+import {
+  ExtendedSize,
+  Key,
+  PaginationDescriptor,
+  RenderBaseProps,
+  SearchDescriptor,
+  SuggestStrings,
+} from "../../../types";
+import { TableFooterProps } from "./components/public/TableFooter";
+import { ElementsTableCollection } from "./TableCollection";
+
+export interface PaginationProps {
+  /** Object representing the current pagination state of the table */
+  paginationDescriptor?: PaginationDescriptor;
+  /** Handler called whenever a change is made to the paginationDescriptor */
+  onPaginationChange?: (descriptor: PaginationDescriptor) => void;
+}
+
+export interface LoadingProps {
+  /** Whether the table is in a loading state
+   * @selector [data-loading]
+   */
+  isLoading?: boolean;
+  /** The number of rows to render when loading
+   * @default paginationDescriptor.pageSize ?? 10
+   */
+  loadingRows?: number;
+}
 
 export interface SearchProps {
   /** Object representing the current search state of the table */
@@ -41,14 +62,32 @@ export interface ColumnReorderProps {
 
 export type TableVariants = SuggestStrings<"default" | "grid" | "full-borders">;
 
+export type TableChildren<T> =
+  | [
+      React.ReactElement<TableHeaderProps<T>>,
+      React.ReactElement<TableBodyProps<T>>,
+    ]
+  | [
+      React.ReactElement<TableHeaderProps<T>>,
+      React.ReactElement<TableBodyProps<T>>,
+      React.ReactElement<TableFooterProps<T>>, // Footer is optional
+    ]
+  | [
+      React.ReactElement<TableHeaderProps<T>>,
+      React.ReactElement<TableFooterProps<T>>, // Footer is optional
+      React.ReactElement<TableBodyProps<T>>,
+    ];
+
 export interface TableProps<T>
   extends Omit<AriaTableProps<T>, "id">,
     MultipleSelection,
     Sortable,
     SearchProps,
     ColumnReorderProps,
-    BaseProps,
-    Expandable {
+    RenderBaseProps<never>,
+    PaginationProps,
+    Expandable,
+    LoadingProps {
   /** Whether the table allows expandable rows.
    * When it's `false`, rows cannot have nested rows.
    */
@@ -59,12 +98,13 @@ export interface TableProps<T>
   /** The selection behavior for the table. */
   selectionBehavior?: SelectionBehavior;
 
-  children?: [
-    React.ReactElement<TableHeaderProps<T>>,
-    React.ReactElement<TableBodyProps<T>>,
-  ];
+  children?: TableChildren<T>;
 
   isSticky?: boolean;
+
+  size?: ExtendedSize;
+
+  id?: string;
 }
 
 export interface TableStateExtensions {
@@ -74,8 +114,12 @@ export interface TableStateExtensions {
 
 export interface TableState<T>
   extends StatelyTableState<T>,
-    TableStateExtensions {}
+    TableStateExtensions {
+  collection: ElementsTableCollection<T>;
+}
 
 export interface TreeGridState<T>
   extends StatelyTreeGridState<T>,
-    TableStateExtensions {}
+    TableStateExtensions {
+  collection: ElementsTableCollection<T>;
+}

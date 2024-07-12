@@ -3,7 +3,11 @@
 exports[`matches snapshot > displays with search button 1`] = `
 <DocumentFragment>
   <div
+<<<<<<< HEAD
     class="sc-cPiJYC cEYtJb aje-input__search is-medium"
+=======
+    class="sc-cwHqhk bQUpgu aje-input__search"
+>>>>>>> main
   >
     <label
       class="sc-dhKdPU dbWGxZ is-auto"
@@ -13,24 +17,40 @@ exports[`matches snapshot > displays with search button 1`] = `
       search
     </label>
     <div
+<<<<<<< HEAD
       class="sc-cwHqhk WHrEG aje-combo-input padding-left padding-right"
     >
       <input
         aria-labelledby="react-aria-:r6:"
         class="sc-jlZhRR hTZPkB"
+=======
+      class="sc-dAlxHm cipQZz aje-combo-input padding-left padding-right"
+    >
+      <input
+        aria-labelledby="react-aria-:r6:"
+        class="sc-kpDprT fyrTNF"
+>>>>>>> main
         id="react-aria-:r5:"
         type="search"
         value=""
       />
       <button
+<<<<<<< HEAD
         class="sc-imWZod sc-jXbVAB jFkcfy jXexmJ aje-btn aje-btn--icon aje-btn--content"
         role="link"
         tabindex="0"
+=======
+        class="sc-gsFSjX sc-kAycRU fvAPeR joEykT aje-btn aje-btn--icon aje-btn--content is-medium"
+>>>>>>> main
         type="button"
       >
         <i
           aria-hidden="true"
+<<<<<<< HEAD
           class="sc-kAycRU hYMeAg material-icons is-medium"
+=======
+          class="sc-iGgVNO cfZcSx aje-icon material-icons is-medium"
+>>>>>>> main
         >
           search
         </i>
@@ -43,7 +63,11 @@ exports[`matches snapshot > displays with search button 1`] = `
 exports[`matches snapshot > displays without button 1`] = `
 <DocumentFragment>
   <div
+<<<<<<< HEAD
     class="sc-cPiJYC cEYtJb aje-input__search is-medium"
+=======
+    class="sc-cwHqhk bQUpgu aje-input__search"
+>>>>>>> main
   >
     <label
       class="sc-dhKdPU dbWGxZ is-auto"
@@ -53,24 +77,40 @@ exports[`matches snapshot > displays without button 1`] = `
       search
     </label>
     <div
+<<<<<<< HEAD
       class="sc-cwHqhk WHrEG aje-combo-input padding-left padding-right"
     >
       <input
         aria-labelledby="react-aria-:r1:"
         class="sc-jlZhRR hTZPkB"
+=======
+      class="sc-dAlxHm cipQZz aje-combo-input padding-left padding-right"
+    >
+      <input
+        aria-labelledby="react-aria-:r1:"
+        class="sc-kpDprT fyrTNF"
+>>>>>>> main
         id="react-aria-:r0:"
         type="search"
         value=""
       />
       <button
+<<<<<<< HEAD
         class="sc-imWZod sc-jXbVAB jFkcfy jXexmJ aje-btn aje-btn--icon aje-btn--content"
         role="link"
         tabindex="0"
+=======
+        class="sc-gsFSjX sc-kAycRU fvAPeR joEykT aje-btn aje-btn--icon aje-btn--content is-medium"
+>>>>>>> main
         type="button"
       >
         <i
           aria-hidden="true"
+<<<<<<< HEAD
           class="sc-kAycRU hYMeAg material-icons is-medium"
+=======
+          class="sc-iGgVNO cfZcSx aje-icon material-icons is-medium"
+>>>>>>> main
         >
           search
         </i>

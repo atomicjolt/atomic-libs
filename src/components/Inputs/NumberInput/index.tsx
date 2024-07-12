@@ -1,6 +1,7 @@
 import React from "react";
-import { AriaNumberFieldProps } from "react-aria";
+import { AriaNumberFieldProps } from "@react-aria/numberfield";
 import classNames from "classnames";
+
 import { AriaProps, FieldInputProps, HasVariant } from "../../../types";
 import { useVariantClass } from "../../../hooks";
 import { FieldInput, NumberField, ComboInput } from "../../Fields";

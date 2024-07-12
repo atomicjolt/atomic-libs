@@ -1,14 +1,14 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import classNames from "classnames";
 import {
   useCalendar,
-  useLocale,
   AriaCalendarGridProps,
   AriaCalendarProps,
   DateValue,
   useCalendarGrid,
   useCalendarCell,
-} from "react-aria";
+} from "@react-aria/calendar";
+import { useLocale } from "@react-aria/i18n";
 import {
   getWeeksInMonth,
   CalendarDate,
@@ -17,6 +17,10 @@ import {
   getLocalTimeZone,
 } from "@internationalized/date";
 import { CalendarState, useCalendarState } from "react-stately";
+
+import { IconButton } from "../../../Buttons/IconButton";
+import { Button } from "../../../Buttons/Button";
+import { AriaProps, BaseProps, Size } from "../../../../types";
 import {
   CalendarContent,
   StyledCalendarCell,
@@ -28,9 +32,6 @@ import {
   CalendarHeaderButtons,
   CalendarHeaderTitle,
 } from "./Calendar.styles";
-import IconButton from "../../../Buttons/IconButton";
-import Button from "../../../Buttons/Button";
-import { AriaProps, BaseProps, Size } from "../../../../types";
 
 export interface CalendarProps<T extends DateValue>
   extends AriaProps<AriaCalendarProps<T>>,

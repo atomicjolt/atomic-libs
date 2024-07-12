@@ -3,7 +3,6 @@ import mixins from "../../styles/mixins";
 
 export const BaseStyledButton = styled.button`
   ${mixins.Bold}
-  ${mixins.SizingX}
   ${mixins.FocusVisible(2)}
   padding: var(--btn-padding-vert) var(--btn-padding-horiz);
   border-radius: var(--btn-border-radius);
@@ -38,7 +37,7 @@ export const BaseStyledButton = styled.button`
   }
 
   &[data-pressed] {
-    transform: translateY(1px);
+    transform: var(--btn-pressed-transform);
   }
 
   &[data-loading] {

@@ -128,6 +128,7 @@ export const CssVariables = createGlobalStyle`
   --btn-height: 40px;
   --btn-padding-vert: 0.25em;
   --btn-padding-horiz: 1em;
+  --btn-pressed-transform: translateY(1px);
 
   /* # Banner */
   --banner-bg-clr: var(--neutral100);
@@ -139,7 +140,7 @@ export const CssVariables = createGlobalStyle`
   --banner-border-radius: var(--radius);
 
   /* # Dropdown */
-  --dropdown-max-height: 300px
+  --dropdown-max-height: 300px;
   --dropdown-text-clr: var(--text-clr);
   --dropdown-bg-clr: var(--background-clr);
   --dropdown-text-size: 1.6rem;
@@ -209,6 +210,7 @@ export const CssVariables = createGlobalStyle`
   --table-sort-icon-clr: var(--text-clr);
   --table-sort-icon-hover-clr: var(--neutral400);
   --table-nesting-offset: var(--table-padding-horz);
+  --table-cell-height: 48px;
 
   /* # Tab */
   --tab-border-width: 1px;
@@ -276,6 +278,8 @@ export const CssVariables = createGlobalStyle`
   --chip-selected-hover-bg-clr: var(--primary800);
   --chip-selected-text-clr: var(--text-clr-inverted);
   --chip-btn-hover-bg-clr: var(--neutral200);
+  --chip-border-clr: var(--neutral300);
+  --chip-border: 1px solid var(--chip-border-clr);
 
   /* # Divider */
   --divider-bg-clr: var(--neutral300);

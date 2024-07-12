@@ -3,10 +3,17 @@
 exports[`Chip > matches snapshot 1`] = `
 <DocumentFragment>
   <div
+<<<<<<< HEAD
     class="sc-kpDprT SPjbx aje-chip aje-chip--default"
   >
     <div
       class="sc-dhKdPU hUccAv"
+=======
+    class="sc-jXbVAB hsXpvC aje-chip aje-chip--default"
+  >
+    <div
+      class="sc-imWZod cFQpLM"
+>>>>>>> main
     >
       Item
     </div>

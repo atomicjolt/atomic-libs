@@ -1,13 +1,16 @@
 import React, { useRef } from "react";
-import { AriaFieldProps, useField } from "react-aria";
+import { AriaFieldProps, useField } from "@react-aria/label";
 import {
   AriaProps,
-  BaseProps,
+  DomProps,
+  ExtendedSize,
   FieldDomProps,
   FieldStatusProps,
-  HasChildren,
+  RenderBaseProps,
 } from "../../../types";
+import { useRenderProps } from "@hooks";
 import { Provider } from "../../Internal/Provider";
+
 import {
   FieldErrorContext,
   FieldInputContext,
@@ -17,34 +20,42 @@ import {
 import { StyledField } from "../Field.styles";
 import { FieldLabel } from "./FieldLabel";
 
+interface FieldRenderProps extends FieldStatusProps {}
+
 export interface FieldProps
-  extends BaseProps,
+  extends RenderBaseProps<FieldRenderProps>,
     FieldStatusProps,
-    HasChildren,
+    DomProps,
     AriaProps<AriaFieldProps>,
-    FieldDomProps {}
+    FieldDomProps {
+  size?: ExtendedSize;
+}
 
 /** Provides the accessbility implementation for a
  * form field and its associated label, error message, and description.
  *
- * Note that when using `Field` you manage the staate of the input directly.
+ * Note that when using `Field` you manage the state of the input directly.
  * You may opt to use one of the other more specific field components if they suite your needs.
  */
 export function Field(props: FieldProps) {
-  const {
-    size,
-    children,
-    className,
-    isInvalid,
-    isDisabled,
-    isRequired,
-    isReadOnly,
-    name,
-  } = props;
+  const { isInvalid, isDisabled, isReadOnly, isRequired, name } = props;
 
-  const label = React.Children.toArray(children).find(
-    // @ts-ignore
-    (child) => typeof child === "object" && child?.type === FieldLabel
+  const renderProps = useRenderProps({
+    ...props,
+    componentClassName: "aje-field",
+    values: { isInvalid, isDisabled, isReadOnly, isRequired },
+    selectors: {
+      "data-invalid": isInvalid,
+      "data-disabled": isDisabled,
+      "data-readonly": isReadOnly,
+      "data-required": isRequired,
+    },
+  });
+
+  const label = React.Children.toArray(renderProps.children).find(
+    (child) =>
+      typeof child === "object" &&
+      (child as React.ReactElement)?.type === FieldLabel
   );
 
   const { labelProps, descriptionProps, errorMessageProps, fieldProps } =
@@ -53,14 +64,7 @@ export function Field(props: FieldProps) {
   const inputRef = useRef<HTMLInputElement>(null);
 
   return (
-    <StyledField
-      className={className}
-      size={size}
-      isDisabled={isDisabled}
-      isInvalid={isInvalid}
-      isRequired={isRequired}
-      isReadOnly={isReadOnly}
-    >
+    <StyledField {...renderProps}>
       <Provider
         values={[
           [FieldLabelContext.Provider, labelProps],
@@ -80,7 +84,7 @@ export function Field(props: FieldProps) {
           ],
         ]}
       >
-        {children}
+        {renderProps.children}
       </Provider>
     </StyledField>
   );

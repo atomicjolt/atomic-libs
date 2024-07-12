@@ -17,9 +17,16 @@ interface UseRenderPropsOptions<T extends {}> {
   readonly selectors?: Record<string, boolean | undefined | null>;
 }
 
-export function useRenderProps<T extends {}>(
+interface RenderPropsResult {
+  readonly className: string;
+  readonly children?: React.ReactNode;
+  readonly style?: React.CSSProperties;
+  readonly [key: string]: any;
+}
+
+export function useRenderProps<T extends object>(
   options: UseRenderPropsOptions<T>
-) {
+): RenderPropsResult {
   const {
     componentClassName,
     className,
@@ -49,6 +56,8 @@ export function useRenderProps<T extends {}>(
     } else if (children === undefined) {
       actualChildren = defaultChildren;
     }
+
+    actualChildren = actualChildren as React.ReactNode;
 
     const actualSelectors = Object.entries(selectors || {}).reduce(
       (acc, [key, value]) => {

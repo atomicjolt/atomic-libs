@@ -81,3 +81,12 @@ export interface SearchDescriptor {
   /** Search string */
   search: string;
 }
+
+export interface PaginationDescriptor {
+  /** Current page number */
+  page: number;
+  /** Number of items per page */
+  pageSize: number;
+  /** Total number of pages */
+  totalPages: number;
+}

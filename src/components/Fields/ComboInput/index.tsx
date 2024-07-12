@@ -26,6 +26,7 @@ export const StyledComboInput = styled.div`
     border: none;
     padding: 0px;
     width: 100%;
+    min-height: 100%;
     flex: 1;
 
     &:focus {

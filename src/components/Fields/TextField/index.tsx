@@ -1,7 +1,7 @@
-import React, { useCallback, useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
+import { AriaTextFieldProps, useTextField } from "@react-aria/textfield";
 import { FieldProps } from "../Field";
 import { AriaProps } from "../../../types";
-import { AriaTextFieldProps, useTextField } from "react-aria";
 import { StyledField } from "../Field.styles";
 import { Provider } from "../../Internal/Provider";
 import {
@@ -10,7 +10,7 @@ import {
   FieldLabelContext,
   FieldMessageContext,
 } from "../contexts";
-import classNames from "classnames";
+import { useRenderProps } from "@hooks";
 
 export interface TextFieldProps
   extends FieldProps,
@@ -25,9 +25,6 @@ export interface TextFieldProps
 export function TextField(props: TextFieldProps) {
   const {
     type = "text",
-    size,
-    children,
-    className,
     isDisabled,
     isRequired,
     isReadOnly,
@@ -44,7 +41,7 @@ export function TextField(props: TextFieldProps) {
   // TextField can wrap either an input or a textarea
   // This callback is used to determine which type of element is being wrapped
   // so that the correct type can be passed to useTextField
-  let inputOrTextAreaRef = useCallback(
+  const inputOrTextAreaRef = useCallback(
     (el: HTMLInputElement | HTMLTextAreaElement) => {
       inputRef.current = el;
       if (el) {
@@ -71,14 +68,21 @@ export function TextField(props: TextFieldProps) {
     inputRef
   );
 
+  const renderProps = useRenderProps({
+    ...props,
+    componentClassName: `aje-input__${type}`,
+    values: { isInvalid, isDisabled, isReadOnly, isRequired },
+    selectors: {
+      "data-invalid": isInvalid,
+      "data-disabled": isDisabled,
+      "data-readonly": isReadOnly,
+      "data-required": isRequired,
+    },
+  });
+
   return (
     <StyledField
-      className={classNames(`aje-input__${type}`, className)}
-      size={size}
-      isDisabled={isDisabled}
-      isInvalid={isInvalid}
-      isRequired={isRequired}
-      isReadOnly={isReadOnly}
+      {...renderProps}
       data-float={dataFloat}
       data-resize={dataResize}
     >
@@ -102,7 +106,7 @@ export function TextField(props: TextFieldProps) {
           ],
         ]}
       >
-        {children}
+        {renderProps.children}
       </Provider>
     </StyledField>
   );

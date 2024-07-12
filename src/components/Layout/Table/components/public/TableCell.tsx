@@ -1,4 +1,4 @@
-import { cloneComponent } from "@/clone";
+import { cloneComponent } from "@utils/clone";
 import { Argument } from "classnames";
 import { Cell } from "react-stately";
 

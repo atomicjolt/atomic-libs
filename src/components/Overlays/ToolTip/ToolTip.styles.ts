@@ -1,4 +1,4 @@
-import mixins from "@/styles/mixins";
+import mixins from "@styles/mixins";
 import styled from "styled-components";
 
 export const ToolTipArrow = styled.div`
@@ -11,7 +11,7 @@ export const ToolTipArrow = styled.div`
   z-index: 999;
 `;
 
-export const ToolTipOverlay = styled.div`
+export const ToolTipOverlay = styled.div<{ $transitionDuration: number }>`
   ${mixins.Regular}
   background-color: var(--tooltip-bg-clr);
   color: var(--tooltip-text-clr);
@@ -60,21 +60,23 @@ export const ToolTipOverlay = styled.div`
     }
   }
 
-  &[data-entering] {
+  &[data-entering],
+  &[data-entered] {
     opacity: 1;
     translate: var(--translateX, 0) var(--translateY, 0);
     transition:
-      translate 300ms,
-      opacity 300ms;
+      translate ${(props) => props.$transitionDuration}ms,
+      opacity ${(props) => props.$transitionDuration}ms;
   }
 
-  &[data-exiting] {
+  &[data-exiting],
+  &[data-exited] {
     opacity: 0;
     translate: 0 0;
     pointer-events: none;
     transition:
-      translate 300ms,
-      opacity 300ms;
+      translate ${(props) => props.$transitionDuration}ms,
+      opacity ${(props) => props.$transitionDuration}ms;
   }
 `;
 

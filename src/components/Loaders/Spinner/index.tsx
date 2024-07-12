@@ -1,6 +1,6 @@
 import { AriaLabelProps, BaseProps, Size } from "../../../types";
-import { useRenderProps } from "@/hooks/useRenderProps";
-import { Flex } from "@/components/Layout/Flex/Flex";
+import { useRenderProps } from "@hooks/useRenderProps";
+import { Flex } from "@components/Layout/Flex/Flex";
 import { CircularLoader, LoaderPath } from "./Spinner.styles";
 import { LoaderCheck, LoaderMessage, LoaderWrapper } from "../Loader.styles";
 import { LoaderProps } from "../Loading.types";

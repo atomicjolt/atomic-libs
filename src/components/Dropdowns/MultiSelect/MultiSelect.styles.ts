@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import mixins from "@/styles/mixins";
+import mixins from "@styles/mixins";
 import { DropdownButton, FloatingDropdown } from "../Dropdowns.styles";
 
 export const MultiSelectWrapper = styled.div`

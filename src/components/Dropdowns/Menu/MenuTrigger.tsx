@@ -1,10 +1,10 @@
-import React, { useRef } from "react";
-import { useMenuTrigger } from "react-aria";
+import { useRef } from "react";
+import { useMenuTrigger } from "@react-aria/menu";
+import { PressResponder } from "@react-aria/interactions";
 import {
   MenuTriggerProps as AriaMenuTriggerProps,
   useMenuTriggerState,
 } from "react-stately";
-import { PressResponder } from "@react-aria/interactions";
 import { HasChildren } from "../../../types";
 import { Provider } from "../../Internal/Provider";
 import { PopoverContext } from "../../Overlays/Popover/context";

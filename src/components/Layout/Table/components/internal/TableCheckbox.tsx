@@ -1,14 +1,14 @@
-import { Node, TableState } from "react-stately";
 import { useRef } from "react";
+import { Node, TableState } from "react-stately";
 import {
-  VisuallyHidden,
   useTableCell,
   useTableColumnHeader,
   useTableSelectAllCheckbox,
   useTableSelectionCheckbox,
-} from "react-aria";
-import CheckBox from "@/components/Inputs/Checkbox";
-import { StyledTd, StyledTh } from "../../Table.styles";
+} from "@react-aria/table";
+import { VisuallyHidden } from "@react-aria/visually-hidden";
+import CheckBox from "@components/Inputs/Checkbox";
+import { StyledCell, StyledTh } from "../../Table.styles";
 
 interface TableCheckboxCellProps<T> {
   cell: Node<T>;
@@ -27,9 +27,9 @@ export function TableCheckboxCell<T>(props: TableCheckboxCellProps<T>) {
   );
 
   return (
-    <StyledTd {...gridCellProps} ref={ref}>
+    <StyledCell {...gridCellProps} ref={ref}>
       <CheckBox {...checkboxProps} />
-    </StyledTd>
+    </StyledCell>
   );
 }
 
