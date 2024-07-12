@@ -26,6 +26,7 @@ export const LoaderCheck = styled.span`
 `;
 
 export const LoaderWrapper = styled.div`
+  --animation-clr: var(--loader-clr);
   font-size: var(--loader-size);
 
   &.is-small {

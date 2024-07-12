@@ -189,7 +189,6 @@ export const CssVariables = createGlobalStyle`
   /* # Loader */
   --loader-clr: var(--neutral500);
   --loader-size: 16px;
-  /* --animation-duration: 2000ms; */
 
   /* # SkeletonLoader */
   --skeleton-bg-clr: var(--neutral200);
@@ -296,6 +295,5 @@ export const CssVariables = createGlobalStyle`
 
   /* # Animations */
   --animation-clr: var(--neutral500);
-  --animation-duration: 500ms;
 }
 `;
