@@ -16,11 +16,7 @@ import { StyledTBody } from "../../Table.styles";
 import { LoadingTableRows } from "./Loading";
 import { EmptyTable } from "./EmptyTable";
 
-interface TableBodyProps<T>
-  extends Expandable,
-    LoadingProps,
-    PaginationProps,
-    RenderEmptyProps {
+interface TableBodyProps<T> extends Expandable, LoadingProps, PaginationProps {
   state: TableState<T> | TreeGridState<T>;
 }
 
@@ -30,7 +26,6 @@ export function TableBody<T extends object>(props: TableBodyProps<T>) {
     isLoading,
     paginationDescriptor,
     loadingRows = paginationDescriptor?.pageSize || 10,
-    renderEmpty,
   } = props;
   const { collection } = state;
   const ref = useRef(null);
@@ -40,12 +35,18 @@ export function TableBody<T extends object>(props: TableBodyProps<T>) {
   const renderProps = useRenderProps({
     componentClassName: "aje-table__body",
     ...collection.body.props,
+    selectors: {
+      "data-empty": rows.length === 0,
+    },
   });
 
   return (
     <TableRowGroup type={StyledTBody} ref={ref} {...renderProps}>
       {rows.length === 0 && (
-        <EmptyTable state={state} renderEmpty={renderEmpty} />
+        <EmptyTable
+          state={state}
+          renderEmpty={state.collection.body.props?.renderEmpty}
+        />
       )}
       {isLoading && <LoadingTableRows state={state} rows={loadingRows} />}
       {!isLoading &&

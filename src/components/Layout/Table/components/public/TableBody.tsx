@@ -4,9 +4,11 @@ import {
 } from "react-stately";
 import { Argument } from "classnames";
 import { cloneComponent } from "@utils/clone";
-import { LoadingProps } from "../../Table.types";
+import { RenderEmptyProps } from "../../Table.types";
 
-export interface TableBodyProps<T> extends StatelyTableBodyProps<T> {
+export interface TableBodyProps<T>
+  extends StatelyTableBodyProps<T>,
+    RenderEmptyProps {
   className?: Argument | Argument[];
   id?: string;
 }

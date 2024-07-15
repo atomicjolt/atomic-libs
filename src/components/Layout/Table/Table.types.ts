@@ -91,8 +91,7 @@ export interface TableProps<T>
     RenderBaseProps<never>,
     PaginationProps,
     Expandable,
-    LoadingProps,
-    RenderEmptyProps {
+    LoadingProps {
   /** Whether the table allows expandable rows.
    * When it's `false`, rows cannot have nested rows.
    */

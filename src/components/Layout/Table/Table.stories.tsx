@@ -490,9 +490,6 @@ export const TableSkeleton: StoryObj<typeof Table.Skeleton> = {
 export const RenderEmptyTable: Story = {
   ...Primary,
   args: {
-    renderEmpty: (
-      <Flex justifyContent="center">There are no rows available!</Flex>
-    ),
     children: [
       <Table.Header key="header">
         <Table.Column>Name</Table.Column>
@@ -500,7 +497,12 @@ export const RenderEmptyTable: Story = {
         <Table.Column>Level</Table.Column>
       </Table.Header>,
       // @ts-expect-error
-      <Table.Body key="body" />,
+      <Table.Body
+        key="body"
+        renderEmpty={
+          <Flex justifyContent="center">There are no rows available!</Flex>
+        }
+      />,
     ],
   },
 };
