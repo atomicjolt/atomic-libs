@@ -8,13 +8,19 @@ import { TableCheckboxCell } from "./TableCheckbox";
 import {
   LoadingProps,
   PaginationProps,
+  RenderEmptyProps,
   TableState,
   TreeGridState,
 } from "../../Table.types";
 import { StyledTBody } from "../../Table.styles";
 import { LoadingTableRows } from "./Loading";
+import { EmptyTable } from "./EmptyTable";
 
-interface TableBodyProps<T> extends Expandable, LoadingProps, PaginationProps {
+interface TableBodyProps<T>
+  extends Expandable,
+    LoadingProps,
+    PaginationProps,
+    RenderEmptyProps {
   state: TableState<T> | TreeGridState<T>;
 }
 
@@ -24,6 +30,7 @@ export function TableBody<T extends object>(props: TableBodyProps<T>) {
     isLoading,
     paginationDescriptor,
     loadingRows = paginationDescriptor?.pageSize || 10,
+    renderEmpty,
   } = props;
   const { collection } = state;
   const ref = useRef(null);
@@ -37,6 +44,9 @@ export function TableBody<T extends object>(props: TableBodyProps<T>) {
 
   return (
     <TableRowGroup type={StyledTBody} ref={ref} {...renderProps}>
+      {rows.length === 0 && (
+        <EmptyTable state={state} renderEmpty={renderEmpty} />
+      )}
       {isLoading && <LoadingTableRows state={state} rows={loadingRows} />}
       {!isLoading &&
         rows.map((row) => {

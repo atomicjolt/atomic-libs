@@ -4,6 +4,7 @@ import { fn } from "@storybook/test";
 import { Table } from ".";
 import { Key, SearchDescriptor } from "../../../types";
 import { getCssProps } from "@sb/cssprops";
+import { Flex } from "../Flex/Flex";
 
 const meta: Meta<typeof Table> = {
   title: "Layouts/Table",
@@ -483,5 +484,23 @@ export const TableSkeleton: StoryObj<typeof Table.Skeleton> = {
   args: {
     rows: 10,
     columns: 3,
+  },
+};
+
+export const RenderEmptyTable: Story = {
+  ...Primary,
+  args: {
+    renderEmpty: (
+      <Flex justifyContent="center">There are no rows available!</Flex>
+    ),
+    children: [
+      <Table.Header key="header">
+        <Table.Column>Name</Table.Column>
+        <Table.Column>Type</Table.Column>
+        <Table.Column>Level</Table.Column>
+      </Table.Header>,
+      // @ts-expect-error
+      <Table.Body key="body" />,
+    ],
   },
 };

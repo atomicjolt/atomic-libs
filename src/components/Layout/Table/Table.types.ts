@@ -78,6 +78,10 @@ export type TableChildren<T> =
       React.ReactElement<TableBodyProps<T>>,
     ];
 
+export interface RenderEmptyProps {
+  renderEmpty?: React.ReactNode | (() => React.ReactNode);
+}
+
 export interface TableProps<T>
   extends Omit<AriaTableProps<T>, "id">,
     MultipleSelection,
@@ -87,7 +91,8 @@ export interface TableProps<T>
     RenderBaseProps<never>,
     PaginationProps,
     Expandable,
-    LoadingProps {
+    LoadingProps,
+    RenderEmptyProps {
   /** Whether the table allows expandable rows.
    * When it's `false`, rows cannot have nested rows.
    */
