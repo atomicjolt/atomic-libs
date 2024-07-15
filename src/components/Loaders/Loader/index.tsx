@@ -2,10 +2,13 @@ import { filterDOMProps } from "@react-aria/utils";
 import { Flex } from "@components/Layout/Flex/Flex";
 import { useRenderProps } from "@hooks/useRenderProps";
 import { AriaLabelProps, RenderBaseProps, Size } from "../../../types";
-import { LoaderCheck, LoaderMessage, LoaderWrapper } from "../Loader.styles";
+import { LoaderMessage, LoaderWrapper } from "../Loader.styles";
 import { LoaderPlacement } from "../Loading.types";
+import { Checkmark } from "@components/Animations/Checkmark";
 
-export interface LoaderProps extends RenderBaseProps<never>, AriaLabelProps {
+export interface LoaderProps
+  extends RenderBaseProps<{ isLoading: boolean }>,
+    AriaLabelProps {
   /** Whether the loader is in a loading state, when true,
    * children is rendered, when false, a checkmark animation
    * is displayed */
@@ -48,6 +51,7 @@ export function Loader(props: LoaderProps) {
     componentClassName: "aje-loader",
     ...props,
     size,
+    values: { isLoading },
   });
 
   const direction = orientation === "horizontal" ? "row" : "column";
@@ -67,8 +71,10 @@ export function Loader(props: LoaderProps) {
           {renderProps.children}
           {message && <LoaderMessage>{message}</LoaderMessage>}
         </Flex>
+      ) : typeof props.children === "function" ? (
+        renderProps.children
       ) : (
-        <LoaderCheck />
+        <Checkmark size={size} />
       )}
     </LoaderWrapper>
   );

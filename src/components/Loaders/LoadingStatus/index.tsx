@@ -49,7 +49,7 @@ export function LoadingStatus<T>(props: LoadingStatusProps<T>) {
     renderLoading: Loading = ThreeDotLoader,
     loadingMessage = null,
     loadingPlacement = "center",
-    loadingOrientation: loadingDirection,
+    loadingOrientation,
     error = null,
     renderError: ErrorComp = ErrorDefault,
     children = null,
@@ -71,7 +71,7 @@ export function LoadingStatus<T>(props: LoadingStatusProps<T>) {
         isLoading={isLoading}
         message={loadingMessage}
         placement={loadingPlacement}
-        orientation={loadingDirection}
+        orientation={loadingOrientation}
       />
     ) : (
       Loading

@@ -25,5 +25,7 @@ type Story = StoryObj<typeof SpinnerLoader>;
 export const Primary: Story = {
   args: {
     isLoading: true,
+    message: "Getting ducks in a row...",
+    orientation: "horizontal",
   },
 };
