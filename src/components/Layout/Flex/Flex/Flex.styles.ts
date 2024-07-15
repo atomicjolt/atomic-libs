@@ -21,7 +21,7 @@ export function handleGap({ gap, rowGap, columnGap }: FlexBoxProperties) {
 }
 
 export const FlexBox = styled.div<{ $attrs: FlexBoxProperties; as: any }>`
-  display: flex;
+  display: ${(props) => (props.$attrs.inline ? "inline-flex" : "flex")};
   flex-direction: ${(props) => props.$attrs.direction || "row"};
   align-items: ${(props) => props.$attrs.alignItems || "stretch"};
   justify-content: ${(props) => props.$attrs.justifyContent || "flex-start"};

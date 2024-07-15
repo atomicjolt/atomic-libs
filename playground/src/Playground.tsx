@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+// import "./playground.scss";
+
 import { Item, Key, Tabs } from "./elements";
 import Buttons from "./tabs/Buttons";
 import Modals from "./tabs/Modals";
@@ -7,6 +9,7 @@ import Aria from "./tabs/Aria";
 import Localization from "./tabs/Localization";
 import Overlays from "./tabs/Overlays";
 import Fields from "./tabs/Fields";
+import Loading from "./tabs/Loading";
 import Links from "./tabs/Links";
 
 function Playground() {
@@ -33,6 +36,10 @@ function Playground() {
         <Item key="fields" title="Fields">
           <Fields />
         </Item>
+        <Item key="loading" title="Loading">
+          <Loading />
+        </Item>
+
         <Item key="links" title="Links">
           <Links />
         </Item>

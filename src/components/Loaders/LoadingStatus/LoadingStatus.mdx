@@ -1,0 +1,36 @@
+import {
+  Canvas,
+  Meta,
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  Controls,
+  Stories,
+} from "@storybook/blocks";
+
+import * as LoadingStatusStories from "./LoadingStatus.stories";
+
+<Meta of={LoadingStatusStories} />
+
+<Title />
+<Subtitle />
+<Description />
+<Primary />
+<Controls />
+
+### Purpose of the `data` prop
+
+To ensure that children components render only after the necessary data has been loaded, especially
+when fetching data asynchronously, use the `data` prop. This prop checks for the existence of the data
+before rendering the children. Additionally, when using the `data` prop, you must pass `children` as a
+function, which receives the `data` prop as its argument. This approach guarantees that the children
+have access to the required data upon rendering.
+
+<Canvas of={LoadingStatusStories.WithData} />
+
+If `data` is `null` then the `fallback` prop will be rendered instead of the children.
+
+<Canvas of={LoadingStatusStories.NoDataFallback} />
+
+<Stories />

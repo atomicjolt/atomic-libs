@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import mixins from "../../styles/mixins";
-import Button from "../Buttons/Button";
+import { Button } from "../Buttons/Button";
 
 export const DropdownButton = styled(Button)`
   justify-content: space-between;
