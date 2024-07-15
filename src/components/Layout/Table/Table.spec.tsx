@@ -61,12 +61,12 @@ describe("Table", () => {
 
   it("should renderEmpty when there is no rows", () => {
     render(
-      <Table renderEmpty={() => "No data"}>
+      <Table>
         <Table.Header>
           <Table.Column key="a">Column 1</Table.Column>
           <Table.Column key="b">Column 2</Table.Column>
         </Table.Header>
-        <Table.Body items={[]}>
+        <Table.Body items={[]} renderEmpty={() => "No data"}>
           {() => (
             <Table.Row>
               <Table.Cell>Cell 1</Table.Cell>

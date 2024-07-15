@@ -79,6 +79,10 @@ export type TableChildren<T> =
     ];
 
 export interface RenderEmptyProps {
+  /** The content to render when the table has no rows
+   * The content provided is rendered within a Table row that
+   * spans all the columns in the table.
+   */
   renderEmpty?: React.ReactNode | (() => React.ReactNode);
 }
 
