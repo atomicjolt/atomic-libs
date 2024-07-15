@@ -90,3 +90,9 @@ export interface PaginationDescriptor {
   /** Total number of pages */
   totalPages: number;
 }
+
+export interface DropdownProps {
+  /** The maximum height of the the dropdown.
+   * @default height of the viewport */
+  maxHeight?: number;
+}

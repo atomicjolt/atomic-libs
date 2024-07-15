@@ -3,6 +3,8 @@ import { Meta, StoryObj } from "@storybook/react";
 import { Menu } from ".";
 import { MenuTrigger } from "./MenuTrigger";
 import { Section } from "../../Collection";
+import { Button } from "@components/Buttons/Button";
+import { Popover } from "../../..";
 
 export default {
   title: "Dropdowns/Menu/Menu",
@@ -33,6 +35,14 @@ export default {
 type Story = StoryObj<typeof Menu>;
 
 export const Primary: Story = {
+  render: (args) => (
+    <MenuTrigger>
+      <Button>Open Menu</Button>
+      <Popover>
+        <Menu {...args}>{args.children}</Menu>
+      </Popover>
+    </MenuTrigger>
+  ),
   args: {
     children: [
       <Menu.Item key="1" onAction={() => alert("Item 1")}>
@@ -49,6 +59,7 @@ export const Primary: Story = {
 };
 
 export const WithSections: Story = {
+  ...Primary,
   args: {
     children: [
       <Section key="section1" title="Section 1">

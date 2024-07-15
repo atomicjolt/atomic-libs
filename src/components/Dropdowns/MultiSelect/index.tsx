@@ -1,5 +1,10 @@
 import { useMemo, useRef } from "react";
-import { AriaProps, FieldInputProps, HasVariant } from "../../../types";
+import {
+  AriaProps,
+  DropdownProps,
+  FieldInputProps,
+  HasVariant,
+} from "../../../types";
 import { useMultiSelectState } from "./useMultiSelectState";
 import { AriaMultiSelectProps } from "./MutliSelect.types";
 import { useMultiSelect } from "./useMultiSelect";
@@ -16,7 +21,8 @@ import { MultiSelectWrapper } from "./MultiSelect.styles";
 export interface MultiSelectProps<T extends object>
   extends AriaProps<AriaMultiSelectProps<T>>,
     FieldInputProps,
-    HasVariant<"default" | "floating"> {
+    HasVariant<"default" | "floating">,
+    DropdownProps {
   /** Allows the items in the select to be filtered */
   isSearchable?: boolean;
 
@@ -55,6 +61,7 @@ export function MultiSelect<T extends object>(props: MultiSelectProps<T>) {
     placeholder = "Select an option",
     selectionPlaceholder = placeholder,
     variant = "default",
+    maxHeight = 300,
   } = props;
 
   const buttonText = useMemo(() => {
@@ -118,7 +125,12 @@ export function MultiSelect<T extends object>(props: MultiSelectProps<T>) {
         </DropdownButton>
       </FloatingInputWrapper>
       <OverlayTriggerStateContext.Provider value={state}>
-        <Popover triggerRef={ref} placement="bottom start">
+        <Popover
+          triggerRef={ref}
+          placement="bottom start"
+          variant="listbox"
+          maxHeight={maxHeight}
+        >
           <UnmanagedListBox
             {...menuProps}
             state={state}

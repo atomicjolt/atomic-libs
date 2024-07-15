@@ -173,6 +173,7 @@ export const CssVariables = createGlobalStyle`
   --listbox-icon-clr: var(--dropdown-icon-clr);
   --listbox-max-height: var(--dropdown-max-height);
   --listbox-item-height: 36px;
+  --listbox-border-radius: var(--dropdown-border-radius);
 
   /* # TextArea */
   --textarea-height-sm: 80px;
