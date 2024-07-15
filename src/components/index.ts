@@ -46,7 +46,8 @@ export { DateInput } from "./Inputs/DateAndTimes/DateInput";
 export { TimeInput } from "./Inputs/DateAndTimes/TimeInput";
 export { DatePicker } from "./Inputs/DateAndTimes/DatePicker";
 
-export { Spinner } from "./Loaders/Spinner";
+export { Loader } from "./Loaders/Loader";
+export { SpinnerLoader } from "./Loaders/SpinnerLoader";
 export { ThreeDotLoader } from "./Loaders/ThreeDotLoader";
 export { SkeletonLoader } from "./Loaders/SkeletonLoader";
 export { LoadingStatus } from "./Loaders/LoadingStatus";
@@ -101,6 +102,10 @@ export { FileTrigger } from "./Buttons/FileTrigger";
 export { Pagination } from "./Pagination/Pagination";
 export { PageSizeSelect } from "./Pagination/PageSizeSelect";
 
+export { Spinner } from "./Animations/Spinner";
+export { BouncingDots } from "./Animations/BouncingDots";
+export { Checkmark } from "./Animations/Checkmark";
+
 /* ---- Types ---- */
 
 export type { BannerProps, BannerVariants } from "./Banners/Banner";
@@ -126,13 +131,15 @@ export type { SearchInputProps } from "./Inputs/SearchInput";
 export type { TextInputProps } from "./Inputs/TextInput";
 export type { TextareaProps } from "./Inputs/TextAreaInput";
 export type { ToggleSwitchProps } from "./Inputs/ToggleSwitch";
-export type { SpinnerProps } from "./Loaders/Spinner";
+export type { LoaderProps } from "./Loaders/Loader";
+export type { SpinnerLoaderProps } from "./Loaders/SpinnerLoader";
 export type { ThreeDotLoaderProps } from "./Loaders/ThreeDotLoader";
+export type { SkeletonLoaderProps } from "./Loaders/SkeletonLoader";
+export type { LoadingStatusProps } from "./Loaders/LoadingStatus";
 export type { ModalProps } from "./Overlays/Modal";
 export type { ConfirmationModalProps } from "./Overlays/ConfirmationModal";
 export type { ErrorModalProps } from "./Overlays/ErrorModal";
 export type { MaterialIconProps } from "./Icons/MaterialIcon";
-export type { LoadingStatusProps } from "./Loaders/LoadingStatus";
 export type {
   ToolTipProps,
   ToolTipTargetProps,
@@ -144,7 +151,6 @@ export type { DateInputProps } from "./Inputs/DateAndTimes/DateInput";
 export type { TimeInputProps } from "./Inputs/DateAndTimes/TimeInput";
 export type { DatePickerProps } from "./Inputs/DateAndTimes/DatePicker";
 export type { ListBoxProps } from "./Dropdowns/ListBox";
-export type { SkeletonLoaderProps } from "./Loaders/SkeletonLoader";
 export type { DevelopmentErrorModalProps } from "./Overlays/DevelopmentErrorModal";
 export type { MultiSelectProps } from "./Dropdowns/MultiSelect";
 export type { PopoverProps } from "./Overlays/Popover";
@@ -178,3 +184,6 @@ export type { DropZoneProps } from "./DragAndDrop/DropZone";
 export type { FileTriggerProps } from "./Buttons/FileTrigger";
 export type { PaginationProps } from "./Pagination/Pagination";
 export type { PageSizeSelectProps } from "./Pagination/PageSizeSelect";
+export type { SpinnerProps } from "./Animations/Spinner";
+export type { BouncingDotsProps } from "./Animations/BouncingDots";
+export type { CheckmarkProps } from "./Animations/Checkmark";

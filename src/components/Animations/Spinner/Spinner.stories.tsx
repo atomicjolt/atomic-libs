@@ -1,13 +1,18 @@
 import { Meta, StoryObj } from "@storybook/react";
-import Spinner from ".";
 import { getCssProps } from "@sb/cssprops";
+import { AriaLabelArgTypes, RenderPropsArgTypes } from "@sb/helpers";
+import { Spinner } from ".";
 
 const meta: Meta<typeof Spinner> = {
-  title: "Loaders/Spinner",
+  title: "Animations/Spinner",
   component: Spinner,
   parameters: {
     layout: "centered",
     cssprops: getCssProps("Loader"),
+  },
+  argTypes: {
+    ...AriaLabelArgTypes,
+    ...RenderPropsArgTypes,
   },
 };
 
@@ -15,9 +20,4 @@ export default meta;
 
 type Story = StoryObj<typeof Spinner>;
 
-export const Primary: Story = {
-  args: {
-    isLoading: true,
-    isCentered: true,
-  },
-};
+export const Primary: Story = {};

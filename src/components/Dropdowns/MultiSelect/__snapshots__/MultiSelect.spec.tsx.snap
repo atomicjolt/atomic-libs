@@ -3,10 +3,10 @@
 exports[`MultiSelect > matches default variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-gvZzpm jSTbfT aje-multiselect aje-multiselect--default is-medium"
+    class="sc-eulNPF LKwMd aje-multiselect aje-multiselect--default is-medium"
   >
     <label
-      class="sc-imWZod gWbIwJ aje-label is-auto"
+      class="sc-dhKdPU dbWGxZ aje-label is-auto"
       for="react-aria-:r2:"
       id="react-aria-:r3:"
     >
@@ -16,19 +16,19 @@ exports[`MultiSelect > matches default variant 1`] = `
       aria-expanded="false"
       aria-haspopup="listbox"
       aria-labelledby="react-aria-:r7: react-aria-:r3:"
-      class="sc-iGgVNO sc-gsFSjX jYbTSg gEspTW aje-btn sc-kAycRU cfoxwV aje-btn--dropdown is-medium"
+      class="sc-kAycRU sc-imWZod irHPqF gRIuSL aje-btn sc-jXbVAB itmScD aje-btn--dropdown is-medium"
       id="react-aria-:r2:"
       type="button"
     >
       <span
-        class="sc-fPXMhL jmbaNS"
+        class="sc-ikkyvV aQztJ"
         id="react-aria-:r7:"
       >
         Select an option
       </span>
       <i
         aria-hidden="true"
-        class="sc-jEABJj lbATfb aje-icon material-icons is-medium"
+        class="sc-dLNtp irTwiB aje-icon material-icons is-medium"
       >
         arrow_drop_down
       </i>
@@ -40,32 +40,32 @@ exports[`MultiSelect > matches default variant 1`] = `
 exports[`MultiSelect > matches floating variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-gvZzpm jSTbfT aje-multiselect aje-multiselect--floating is-medium"
+    class="sc-eulNPF LKwMd aje-multiselect aje-multiselect--floating is-medium"
   >
     <div
-      class="sc-dLNtp hcuREP"
+      class="sc-eldOKa cVAPoZ"
     >
       <button
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-labelledby="react-aria-:rf: react-aria-:rb:"
-        class="sc-iGgVNO sc-gsFSjX jYbTSg gEspTW aje-btn sc-kAycRU cfoxwV aje-btn--dropdown is-medium"
+        class="sc-kAycRU sc-imWZod irHPqF gRIuSL aje-btn sc-jXbVAB itmScD aje-btn--dropdown is-medium"
         id="react-aria-:ra:"
         type="button"
       >
         <span
-          class="sc-fPXMhL jmbaNS"
+          class="sc-ikkyvV aQztJ"
           id="react-aria-:rf:"
         />
         <i
           aria-hidden="true"
-          class="sc-jEABJj lbATfb aje-icon material-icons is-medium"
+          class="sc-dLNtp irTwiB aje-icon material-icons is-medium"
         >
           arrow_drop_down
         </i>
       </button>
       <label
-        class="sc-imWZod gWbIwJ aje-label is-auto"
+        class="sc-dhKdPU dbWGxZ aje-label is-auto"
         for="react-aria-:ra:"
         id="react-aria-:rb:"
       >
