@@ -28,20 +28,9 @@ export function Menu<T extends {}>(props: MenuProps<T>) {
   const mergedProps = useContextProps(MenuContext, props);
   const state = useTreeState(props);
   const ref = useRef<HTMLUListElement>(null);
-  const { className, onAction } = mergedProps;
+  const { className } = mergedProps;
 
-  const { menuProps } = useMenu(
-    {
-      ...mergedProps,
-      onAction: (key) => {
-        const item = state.collection.getItem(key);
-        item?.props?.onAction?.();
-        onAction?.(key);
-      },
-    },
-    state,
-    ref
-  );
+  const { menuProps } = useMenu(mergedProps, state, ref);
 
   return (
     <MenuList {...menuProps} ref={ref} className={cn("aje-menu", className)}>
