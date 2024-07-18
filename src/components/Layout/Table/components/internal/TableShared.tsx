@@ -75,6 +75,7 @@ export function TableShared<T extends object>(props: TableInternalProps<T>) {
         <TablePagination
           descriptor={paginationDescriptor}
           onChange={onPaginationChange}
+          isSticky={isSticky}
         />
       )}
     </>

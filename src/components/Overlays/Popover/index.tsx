@@ -6,7 +6,6 @@ import {
   usePopover,
 } from "@react-aria/overlays";
 import { OverlayTriggerProps, useOverlayTriggerState } from "react-stately";
-import cn from "classnames";
 
 import { HasClassName } from "../../../types";
 import { PopoverUnderlay, PopoverContent } from "./Popover.styles";

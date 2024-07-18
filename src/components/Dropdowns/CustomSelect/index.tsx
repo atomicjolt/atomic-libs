@@ -99,7 +99,7 @@ export function CustomSelect<T extends object>(props: CustomSelectProps<T>) {
           <ButtonText {...valueProps}>
             {state.selectedItem
               ? state.selectedItem.rendered
-              : variant === "default"
+              : variant !== "floating"
                 ? placeholder
                 : ""}
           </ButtonText>
