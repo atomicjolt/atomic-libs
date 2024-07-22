@@ -6,6 +6,7 @@ import {
   usePopover,
 } from "@react-aria/overlays";
 import { OverlayTriggerProps, useOverlayTriggerState } from "react-stately";
+import classNames from "classnames";
 
 import { HasClassName } from "../../../types";
 import { PopoverUnderlay, PopoverContent } from "./Popover.styles";
@@ -67,7 +68,7 @@ export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(
         <PopoverUnderlay {...underlayProps} className="aje-popover-underlay" />
         <PopoverContent
           ref={internalRef}
-          className={cn("aje-popover", props.className)}
+          className={classNames("aje-popover", props.className)}
           id={rest.id}
           {...popoverProps}
           style={{
