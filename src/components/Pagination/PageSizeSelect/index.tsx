@@ -20,6 +20,7 @@ export interface PageSizeSelectProps
 
   variant?: "ghost" | "border";
   size?: ExtendedSize;
+  isDisabled?: boolean;
 }
 
 /** Dropdown to select the size of pages. Used in combination with the Pagination component */
@@ -27,17 +28,13 @@ export function PageSizeSelect(props: PageSizeSelectProps) {
   const {
     page,
     pageSize,
-    possiblePageSizes: possiblePageSizesProp = [10, 25, 50, 100],
-    totalItems = possiblePageSizesProp[possiblePageSizesProp.length - 1],
+    totalItems,
+    possiblePageSizes = [10, 25, 50, 100],
     onSelectPageSize,
     style,
     variant = "ghost",
     ...rest
   } = props;
-
-  const possiblePageSizes = possiblePageSizesProp.filter(
-    (size) => size <= totalItems
-  );
 
   const options = possiblePageSizes.map((size) => {
     let start = (page - 1) * pageSize + 1;
@@ -50,30 +47,27 @@ export function PageSizeSelect(props: PageSizeSelectProps) {
       end = totalItems;
     }
 
-    if (pageSize === size) {
-      return {
-        size,
-        start,
-        end,
-      };
-    } else {
-      return {
-        size,
-        start: 1,
-        end: size,
-      };
-    }
+    return {
+      size,
+      start: pageSize === size ? start : 1,
+      end: pageSize === size ? end : size,
+      isDisabled: totalItems < size,
+    };
   });
+
+  const disabledKeys = options
+    .filter((item) => item.isDisabled)
+    .map((item) => item.size.toString());
 
   return (
     <CustomSelect
-      aria-label="Page size"
       variant={variant === "border" ? "default" : "ghost"}
       selectedKey={pageSize.toString()}
       onSelectionChange={(pageSize) =>
         onSelectPageSize?.(parseInt(pageSize as string))
       }
       items={options}
+      disabledKeys={disabledKeys}
       {...rest}
     >
       {(item) => (

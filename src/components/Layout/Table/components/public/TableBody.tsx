@@ -4,7 +4,6 @@ import {
 } from "react-stately";
 import { Argument } from "classnames";
 import { cloneComponent } from "@utils/clone";
-import { LoadingProps } from "../../Table.types";
 
 export interface TableBodyProps<T> extends StatelyTableBodyProps<T> {
   className?: Argument | Argument[];
