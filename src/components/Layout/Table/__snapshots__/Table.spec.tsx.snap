@@ -3552,8 +3552,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
         </tbody>
       </table>
       <div
-        class="sc-gFqAYk kRzKxz aje-table__bottom"
-        data-sticky="true"
+        class="sc-dAbbbq dUSBgi aje-table__bottom"
       >
         <div
           class="sc-kOHUsU dMynrp aje-select aje-select--ghost is-auto"
@@ -3601,7 +3600,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
           <button
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-label="Page size"
+            aria-label="Select page size"
             aria-labelledby="react-aria-:rd: react-aria-:r8:"
             class="sc-jlZhRR sc-iHGNiK WNnxW jLpsUL aje-btn sc-dtBeHJ carVgT aje-btn--dropdown-ghost is-auto"
             id="react-aria-:r8:"
@@ -3614,7 +3613,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
               1
               -
               10
-               of 
+               of
               100
             </span>
             <i
@@ -3857,8 +3856,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
       </tbody>
     </table>
     <div
-      class="sc-gFqAYk kRzKxz aje-table__bottom"
-      data-sticky="true"
+      class="sc-dAbbbq dUSBgi aje-table__bottom"
     >
       <div
         class="sc-kOHUsU dMynrp aje-select aje-select--ghost is-auto"
@@ -3906,7 +3904,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
         <button
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-label="Page size"
+          aria-label="Select page size"
           aria-labelledby="react-aria-:rd: react-aria-:r8:"
           class="sc-jlZhRR sc-iHGNiK WNnxW jLpsUL aje-btn sc-dtBeHJ carVgT aje-btn--dropdown-ghost is-auto"
           id="react-aria-:r8:"
@@ -3919,7 +3917,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
             1
             -
             10
-             of 
+             of
             100
           </span>
           <i
