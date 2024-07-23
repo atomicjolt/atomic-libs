@@ -3,23 +3,23 @@
 exports[`matches snapshots > matches default variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-hzhKNl kIsmIo aje-combobox aje-combobox--default is-medium"
+    class="sc-eulNPF YwhNf aje-combobox aje-combobox--default is-medium"
   >
     <label
-      class="sc-kpDprT jfpflK aje-label is-auto"
+      class="sc-gFqAYk lgzaBE aje-label is-auto"
       for="react-aria-:r2:"
       id="react-aria-:r3:"
     >
       Text Label
     </label>
     <p
-      class="sc-dAlxHm kbRAVf is-auto"
+      class="sc-ikkyvV eBwNWL is-auto"
       id="react-aria-:r5:"
     >
       message
     </p>
     <div
-      class="sc-jEABJj llUIcL aje-combo-input padding-left padding-right"
+      class="sc-fUnNpA fQcagR aje-combo-input padding-left padding-right"
     >
       <input
         aria-autocomplete="list"
@@ -28,7 +28,7 @@ exports[`matches snapshots > matches default variant 1`] = `
         aria-labelledby="react-aria-:r3:"
         autocomplete="off"
         autocorrect="off"
-        class="sc-cwHqhk elrMhq is-full"
+        class="sc-feUYzb deCWvb is-full"
         id="react-aria-:r2:"
         role="combobox"
         spellcheck="false"
@@ -40,14 +40,14 @@ exports[`matches snapshots > matches default variant 1`] = `
         aria-haspopup="listbox"
         aria-label="Show suggestions"
         aria-labelledby="react-aria-:r0: react-aria-:r3:"
-        class="sc-gsFSjX sc-kAycRU fvAPeR joEykT aje-btn aje-btn--icon aje-btn--content is-auto"
+        class="sc-imWZod sc-jXbVAB krOeTw cpWLcV aje-btn aje-btn--icon aje-btn--content is-auto"
         id="react-aria-:r0:"
         tabindex="-1"
         type="button"
       >
         <i
           aria-hidden="true"
-          class="sc-iGgVNO cfZcSx aje-icon material-icons is-auto"
+          class="sc-kAycRU lbPEgw aje-icon material-icons is-auto"
         >
           search
         </i>
@@ -60,13 +60,13 @@ exports[`matches snapshots > matches default variant 1`] = `
 exports[`matches snapshots > matches floating variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-hzhKNl kIsmIo aje-combobox aje-combobox--floating is-medium"
+    class="sc-eulNPF YwhNf aje-combobox aje-combobox--floating is-medium"
   >
     <div
-      class="sc-dAbbbq cOUFbb"
+      class="sc-hmdnzv cpuyuG"
     >
       <div
-        class="sc-jEABJj llUIcL aje-combo-input padding-left padding-right"
+        class="sc-fUnNpA fQcagR aje-combo-input padding-left padding-right"
       >
         <input
           aria-autocomplete="list"
@@ -75,7 +75,7 @@ exports[`matches snapshots > matches floating variant 1`] = `
           aria-labelledby="react-aria-:rc:"
           autocomplete="off"
           autocorrect="off"
-          class="sc-cwHqhk elrMhq is-full"
+          class="sc-feUYzb deCWvb is-full"
           id="react-aria-:rb:"
           role="combobox"
           spellcheck="false"
@@ -87,21 +87,21 @@ exports[`matches snapshots > matches floating variant 1`] = `
           aria-haspopup="listbox"
           aria-label="Show suggestions"
           aria-labelledby="react-aria-:r9: react-aria-:rc:"
-          class="sc-gsFSjX sc-kAycRU fvAPeR joEykT aje-btn aje-btn--icon aje-btn--content is-auto"
+          class="sc-imWZod sc-jXbVAB krOeTw cpWLcV aje-btn aje-btn--icon aje-btn--content is-auto"
           id="react-aria-:r9:"
           tabindex="-1"
           type="button"
         >
           <i
             aria-hidden="true"
-            class="sc-iGgVNO cfZcSx aje-icon material-icons is-auto"
+            class="sc-kAycRU lbPEgw aje-icon material-icons is-auto"
           >
             search
           </i>
         </button>
       </div>
       <label
-        class="sc-kpDprT jfpflK aje-label is-auto"
+        class="sc-gFqAYk lgzaBE aje-label is-auto"
         for="react-aria-:rb:"
         id="react-aria-:rc:"
       >
@@ -109,7 +109,7 @@ exports[`matches snapshots > matches floating variant 1`] = `
       </label>
     </div>
     <p
-      class="sc-dAlxHm kbRAVf is-auto"
+      class="sc-ikkyvV eBwNWL is-auto"
       id="react-aria-:re:"
     >
       message

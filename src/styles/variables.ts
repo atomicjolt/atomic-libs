@@ -173,6 +173,7 @@ export const CssVariables = createGlobalStyle`
   --listbox-icon-clr: var(--dropdown-icon-clr);
   --listbox-max-height: var(--dropdown-max-height);
   --listbox-item-height: 36px;
+  --listbox-border-radius: var(--dropdown-border-radius);
 
   /* # TextArea */
   --textarea-height-sm: 80px;
@@ -189,7 +190,6 @@ export const CssVariables = createGlobalStyle`
   /* # Loader */
   --loader-clr: var(--neutral500);
   --loader-size: 16px;
-  --animation-duration: 2000ms;
 
   /* # SkeletonLoader */
   --skeleton-bg-clr: var(--neutral200);
@@ -293,5 +293,8 @@ export const CssVariables = createGlobalStyle`
   --link-hover-text-clr: var(--accent-clr-alt);
   --link-hover-bg-clr: transparent;
   --link-text-decoration: underline;
+
+  /* # Animations */
+  --animation-clr: var(--neutral500);
 }
 `;

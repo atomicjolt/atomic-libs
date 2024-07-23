@@ -1,13 +1,14 @@
-import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
-import LoadingStatus from ".";
 import { getCssProps } from "@sb/cssprops";
+import { SpinnerLoader } from "../SpinnerLoader";
+import { Banner } from "@components/Banners/Banner";
+import { LoadingStatus } from ".";
 
 const meta: Meta<typeof LoadingStatus> = {
   title: "Loaders/LoadingStatus",
   component: LoadingStatus,
+  tags: ["!autodocs"],
   parameters: {
-    layout: "centered",
     cssprops: getCssProps("Loader"),
   },
   argTypes: {
@@ -48,11 +49,53 @@ export const CustomizeLoadingState: Story = {
     loadingMessage: "Loading...",
     error: "",
     children: "This is the content",
-    renderLoading: (isLoading, message) => (
-      <div>
-        <h1>Loading...</h1>
-        <p>{message}</p>
-      </div>
-    ),
+    renderLoading: <SpinnerLoader />,
+  },
+};
+
+export const CustomizeErrorState: Story = {
+  args: {
+    isLoading: false,
+    loadingMessage: "",
+    error: "An error occurred",
+    children: "This is the content",
+    renderError: <div>Error!</div>,
+  },
+};
+
+export const WithData: Story = {
+  args: {
+    children: (data: any) => <Banner variant="info">{data}</Banner>,
+    data: "This is the data!",
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `
+<LoadingStatus data="This is the data!">
+  {(data) => <Banner variant="info">{data}</Banner>}
+</LoadingStatus>
+`,
+      },
+    },
+  },
+};
+
+export const NoDataFallback: Story = {
+  args: {
+    data: null,
+    children: (data: any) => <Banner variant="info">{data}</Banner>,
+    fallback: <Banner variant="warning">No data available</Banner>,
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `
+<LoadingStatus data={null} fallback={<Banner variant="warning">No data available</Banner>}>
+  {(data) => <Banner variant="info">{data}</Banner>}
+</LoadingStatus>
+        `,
+      },
+    },
   },
 };

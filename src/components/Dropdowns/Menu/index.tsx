@@ -14,7 +14,7 @@ import {
   MenuSectionTitle,
   SubMenuList,
 } from "./Menu.styles";
-import { BaseProps } from "../../../types";
+import { BaseProps, DropdownProps } from "../../../types";
 import { useContextProps } from "../../../hooks/useContextProps";
 import { cloneComponent } from "../../../utils/clone";
 import { Divider } from "@components/Layout/Divider";

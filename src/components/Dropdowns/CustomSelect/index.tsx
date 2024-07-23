@@ -1,7 +1,12 @@
 import { useRef } from "react";
 import { SelectProps, useSelectState } from "react-stately";
 import { HiddenSelect, useSelect } from "@react-aria/select";
-import { AriaProps, FieldInputProps, HasVariant } from "../../../types";
+import {
+  AriaProps,
+  DropdownProps,
+  FieldInputProps,
+  HasVariant,
+} from "../../../types";
 import { ButtonText, CustomSelectWrapper } from "./CustomSelect.styles";
 import { FloatingInputWrapper } from "../../Internal/FloatingInputWrapper";
 import { MaterialIcon } from "../../Icons/MaterialIcon";
@@ -16,7 +21,8 @@ export type CustomSelectVariants = "default" | "floating" | "ghost";
 export interface CustomSelectProps<T extends object>
   extends AriaProps<SelectProps<T>>,
     FieldInputProps,
-    HasVariant<CustomSelectVariants> {
+    HasVariant<CustomSelectVariants>,
+    DropdownProps {
   /** Allows the items in the select to be filtered */
   isSearchable?: boolean;
 
@@ -53,6 +59,7 @@ export function CustomSelect<T extends object>(props: CustomSelectProps<T>) {
     size = "medium",
     placeholder = "Select an option",
     variant = "default",
+    maxHeight = 300,
   } = props;
 
   const renderProps = useRenderProps({
@@ -107,7 +114,12 @@ export function CustomSelect<T extends object>(props: CustomSelectProps<T>) {
         </DropdownButton>
       </FloatingInputWrapper>
       <OverlayTriggerStateContext.Provider value={state}>
-        <Popover placement="bottom start" triggerRef={ref}>
+        <Popover
+          placement="bottom start"
+          triggerRef={ref}
+          variant="listbox"
+          maxHeight={maxHeight}
+        >
           <UnmanagedListBox
             {...menuProps}
             state={state}

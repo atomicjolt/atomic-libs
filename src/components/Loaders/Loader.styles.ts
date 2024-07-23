@@ -1,48 +1,41 @@
-import styled, { keyframes } from "styled-components";
-
-const check = keyframes`
-  0% {
-    opacity: 0;
-    transform: rotate(90deg) scale(0);
-  }
-  100% {
-    opacity: 1;
-    transform: rotate(45deg) scale(1);
-  }
-`;
-
-export const LoaderCheck = styled.span`
-  display: inline-block;
-  position: relative;
-  font-size: inherit;
-  top: -0.125em;
-  width: 0.5em;
-  height: 1em;
-  border-bottom: 0.2em solid var(--loader-clr);
-  border-right: 0.2em solid var(--loader-clr);
-  transform: rotate(45deg) scale(0);
-  animation: ${check} 300ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-`;
+import styled from "styled-components";
+import mixins from "@styles/mixins";
 
 export const LoaderWrapper = styled.div`
-  font-size: var(--loader-size);
+  ${mixins.Sizing}
+  --size-sm-x: 10px;
+  --size-md-x: 20px;
+  --size-lg-x: 30px;
+  --animation-clr: var(--loader-clr);
 
-  &.is-small {
-    --loader-size: 10px;
+  font-size: var(--size-x);
+
+  &[data-placement="inline"] {
+    display: inline-block;
   }
 
-  &.is-medium {
-    --loader-size: 20px;
+  &[data-placement="block"] {
+    display: block;
   }
 
-  &.is-large {
-    --loader-size: 30px;
+  &[data-placement="center"] {
+    flex-grow: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  &.is-centered {
+  &[data-placement="absolute center"] {
     position: absolute;
-    inset: 0;
     display: grid;
+    inset: 0;
     place-items: center;
   }
+`;
+
+export const LoaderMessage = styled.p`
+  ${mixins.Regular}
+  font-size: inherit;
+  color: var(--text-clr);
 `;

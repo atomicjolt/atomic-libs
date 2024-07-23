@@ -228,7 +228,7 @@ export const OverlayTriggerArgTypes: Record<keyof OverlayTriggerProps, object> =
     },
   };
 
-export const AriaLabelArgTypes = {
+export const AriaLabelArgTypes: ArgTypes = {
   "aria-label": {
     control: "text",
     defaultValue: "",
@@ -262,6 +262,30 @@ export const AriaLabelArgTypes = {
       "The id of the element that serves as a details for the element",
     table: {
       category: "Accessibility",
+    },
+  },
+};
+
+export const RenderPropsArgTypes: ArgTypes = {
+  className: {
+    control: "text",
+    description: "Class name to apply to the component",
+    table: {
+      category: "Render Props",
+    },
+  },
+  style: {
+    control: "object",
+    description: "Style object to apply to the component",
+    table: {
+      category: "Render Props",
+    },
+  },
+  children: {
+    control: false,
+    description: "Children to render",
+    table: {
+      category: "Render Props",
     },
   },
 };

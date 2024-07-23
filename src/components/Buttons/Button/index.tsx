@@ -2,7 +2,7 @@ import { forwardRef } from "react";
 import { AriaButtonOptions } from "@react-aria/button";
 import { mergeProps } from "@react-aria/utils";
 
-import Spinner from "../../Loaders/Spinner";
+import { SpinnerLoader } from "../../Loaders/SpinnerLoader";
 import {
   BaseProps,
   HasChildren,
@@ -65,7 +65,12 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         ref={internalRef}
         {...mergeProps(buttonProps, focusProps, renderProps)}
       >
-        {isLoading && <Spinner isLoading={!loadingComplete} isCentered />}
+        {isLoading && (
+          <SpinnerLoader
+            isLoading={!loadingComplete}
+            placement="absolute center"
+          />
+        )}
         {children}
       </StyledButton>
     );

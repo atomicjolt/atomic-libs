@@ -76,7 +76,7 @@ export const UnmanagedListBox = React.forwardRef<
 
   return (
     <>
-      <Label {...labelProps}>{props.label}</Label>
+      {props.label && <Label {...labelProps}>{props.label}</Label>}
       <List
         {...listBoxProps}
         ref={internalRef}

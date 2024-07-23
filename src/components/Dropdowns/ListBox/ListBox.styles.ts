@@ -5,14 +5,9 @@ import { scaleAnimation } from "../../../styles/animations";
 export const List = styled.ul`
   ${scaleAnimation}
   list-style: none;
-  border-radius: var(--radius);
-  box-shadow: var(--listbox-box-shadow);
   background-color: var(--listbox-bg-clr);
-  max-height: var(--listbox-max-height);
-  overflow-y: auto;
   padding: 8px 0;
   margin: 0;
-  z-index: 100;
   min-width: var(--trigger-width, auto);
 
   &:focus {

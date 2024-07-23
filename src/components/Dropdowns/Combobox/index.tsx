@@ -6,6 +6,7 @@ import { useComboBoxState } from "react-stately";
 import {
   AriaProps,
   CanHaveIcon,
+  DropdownProps,
   FieldInputProps,
   HasVariant,
   MaterialIcons,
@@ -24,7 +25,8 @@ export interface ComboBoxProps<T>
   extends AriaProps<AriaComboBoxProps<T>>,
     FieldInputProps,
     CanHaveIcon,
-    HasVariant<"default" | "floating"> {
+    HasVariant<"default" | "floating">,
+    DropdownProps {
   /** Optional icon to render before the input */
   prefixIcon?: MaterialIcons;
 }
@@ -45,6 +47,7 @@ export function ComboBox<T extends object>(props: ComboBoxProps<T>) {
     message,
     error,
     variant = "default",
+    maxHeight = 300,
   } = props;
   const { contains } = useFilter({ sensitivity: "base" });
   const state = useComboBoxState({ ...props, defaultFilter: contains });
@@ -129,6 +132,8 @@ export function ComboBox<T extends object>(props: ComboBoxProps<T>) {
           // in the docs, so I'm flipping it off for now
           // isNonModal
           placement="bottom start"
+          variant="listbox"
+          maxHeight={maxHeight}
         >
           <UnmanagedListBox {...listBoxProps} state={state} ref={listBoxRef} />
         </Popover>

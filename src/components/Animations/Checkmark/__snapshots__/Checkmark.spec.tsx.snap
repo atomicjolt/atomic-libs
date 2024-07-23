@@ -1,0 +1,10 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Checkmark > should match snapshot 1`] = `
+<div>
+  <span
+    class="sc-aYaIB jlfrGX aje-checkmark is-medium"
+    data-testid="checkmark"
+  />
+</div>
+`;
