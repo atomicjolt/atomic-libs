@@ -14,7 +14,7 @@ import { PopoverContext } from "./context";
 import { useContextProps } from "../../../hooks/useContextProps";
 import { useResizeObserver } from "../../../hooks/useResizeObserver";
 import { OverlayTriggerStateContext } from "../OverlayTrigger/context";
-import { useRenderProps } from "../../..";
+import { useRenderProps } from "@hooks";
 import { mergeProps } from "@react-aria/utils";
 
 export interface PopoverProps
