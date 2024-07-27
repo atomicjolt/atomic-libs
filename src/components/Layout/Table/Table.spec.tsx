@@ -58,4 +58,25 @@ describe("Table", () => {
       expect(res).toMatchSnapshot();
     });
   });
+
+  it("should renderEmpty when there is no rows", () => {
+    render(
+      <Table>
+        <Table.Header>
+          <Table.Column key="a">Column 1</Table.Column>
+          <Table.Column key="b">Column 2</Table.Column>
+        </Table.Header>
+        <Table.Body items={[]} renderEmpty={() => "No data"}>
+          {() => (
+            <Table.Row>
+              <Table.Cell>Cell 1</Table.Cell>
+              <Table.Cell>Cell 2</Table.Cell>
+            </Table.Row>
+          )}
+        </Table.Body>
+      </Table>
+    );
+
+    expect(screen.getByText("No data")).toBeTruthy();
+  });
 });

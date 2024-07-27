@@ -78,6 +78,14 @@ export type TableChildren<T> =
       React.ReactElement<TableBodyProps<T>>,
     ];
 
+export interface RenderEmptyProps {
+  /** The content to render when the table has no rows
+   * The content provided is rendered within a Table row that
+   * spans all the columns in the table.
+   */
+  renderEmpty?: React.ReactNode | (() => React.ReactNode);
+}
+
 export interface TableProps<T>
   extends Omit<AriaTableProps<T>, "id">,
     MultipleSelection,
