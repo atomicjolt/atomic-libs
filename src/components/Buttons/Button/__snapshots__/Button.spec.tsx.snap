@@ -3,7 +3,7 @@
 exports[`Button > matches snapshots > changes variant 1`] = `
 <DocumentFragment>
   <button
-    class="sc-kAycRU sc-imWZod irHPqF gRIuSL aje-btn aje-btn--secondary is-auto"
+    class="sc-kAycRU sc-imWZod cLCTCz gRIuSL aje-btn aje-btn--secondary is-auto"
     type="button"
   >
     Click Me
@@ -14,7 +14,7 @@ exports[`Button > matches snapshots > changes variant 1`] = `
 exports[`Button > matches snapshots > loading completed state 1`] = `
 <DocumentFragment>
   <button
-    class="sc-kAycRU sc-imWZod irHPqF gRIuSL aje-btn aje-btn--primary is-auto"
+    class="sc-kAycRU sc-imWZod cLCTCz gRIuSL aje-btn aje-btn--primary is-auto"
     data-loading="true"
     type="button"
   >
@@ -35,7 +35,7 @@ exports[`Button > matches snapshots > loading completed state 1`] = `
 exports[`Button > matches snapshots > loading state 1`] = `
 <DocumentFragment>
   <button
-    class="sc-kAycRU sc-imWZod irHPqF gRIuSL aje-btn aje-btn--primary is-auto"
+    class="sc-kAycRU sc-imWZod cLCTCz gRIuSL aje-btn aje-btn--primary is-auto"
     data-loading="true"
     type="button"
   >
@@ -50,7 +50,7 @@ exports[`Button > matches snapshots > loading state 1`] = `
           class="sc-dcJtft gpclJD aje-spinner is-medium"
         >
           <svg
-            class="sc-iGgVNO jqAOYI"
+            class="sc-iGgVNO HkWEM"
             data-testid="spinner-svg"
             viewBox="25 25 50 50"
           >
@@ -74,7 +74,7 @@ exports[`Button > matches snapshots > loading state 1`] = `
 exports[`Button > matches snapshots > normal display 1`] = `
 <DocumentFragment>
   <button
-    class="sc-kAycRU sc-imWZod irHPqF gRIuSL aje-btn aje-btn--primary is-auto"
+    class="sc-kAycRU sc-imWZod cLCTCz gRIuSL aje-btn aje-btn--primary is-auto"
     type="button"
   >
     Click Me
