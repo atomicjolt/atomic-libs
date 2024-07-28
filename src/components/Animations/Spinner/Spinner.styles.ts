@@ -33,6 +33,7 @@ export const SpinnerContainer = styled.div`
 
 export const SpinnerSvg = styled.svg<{ $duration: number }>`
   width: 1.25em;
+  vertical-align: middle;
   animation: ${rotate} ${({ $duration }) => `${$duration}ms`} linear infinite;
 `;
 
