@@ -42,7 +42,7 @@ export function TableBody<T extends object>(props: TableBodyProps<T>) {
 
   return (
     <TableRowGroup type={StyledTBody} ref={ref} {...renderProps}>
-      {rows.length === 0 && (
+      {rows.length === 0 && !isLoading && (
         <EmptyTable
           state={state}
           renderEmpty={state.collection.body.props?.renderEmpty}
