@@ -8,7 +8,7 @@ const meta: Meta<typeof Spinner> = {
   component: Spinner,
   parameters: {
     layout: "centered",
-    cssprops: getCssProps("Loader"),
+    cssprops: getCssProps("Animations"),
   },
   argTypes: {
     ...AriaLabelArgTypes,

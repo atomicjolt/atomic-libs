@@ -23,6 +23,7 @@ export const BaseStyledButton = styled.button`
   background-color: var(--btn-bg-clr);
   border: var(--btn-border, none);
   box-shadow: var(--btn-shadow, none);
+  --loader-clr: var(--btn-text-clr);
 
   &:hover {
     cursor: pointer;

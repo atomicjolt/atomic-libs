@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { Button, Key, Table } from "../elements";
+import { Button, Key, PaginationDescriptor, Table } from "../elements";
 
 export default function Tables() {
   return (
     <div style={{ padding: "16px" }}>
-      {/* <PaginatedTable /> */}
+      <PaginatedTable />
       {/* <ReordableColumnsTable /> */}
       {/* <NestedRowsTable /> */}
-      <TableLoader />
+      {/* <TableLoader /> */}
     </div>
   );
 }
@@ -58,45 +58,51 @@ function TableLoader() {
 }
 
 function PaginatedTable() {
-  const [paginationDescriptor, setPaginationDescriptor] = useState({
-    page: 1,
-    totalPages: 10,
-    pageSize: 10,
-  });
+  const [paginationDescriptor, setPaginationDescriptor] =
+    useState<PaginationDescriptor>({
+      page: 1,
+      totalPages: 4,
+      pageSize: 25,
+      totalItems: 100,
+    });
+
+  console.log(paginationDescriptor);
 
   return (
-    <Table
-      aria-label="Table with pagination"
-      paginationDescriptor={paginationDescriptor}
-      onPaginationChange={setPaginationDescriptor}
-    >
-      <Table.Header>
-        <Table.Column key="foo" showDivider>
-          Foo
-        </Table.Column>
-        <Table.Column key="bar">Bar</Table.Column>
-        <Table.Column key="baz">Baz</Table.Column>
-      </Table.Header>
-      <Table.Body>
-        <Table.Row key="row 1">
-          <Table.Cell>Lvl 1 Foo 1</Table.Cell>
-          <Table.Cell>Lvl 1 Bar 1</Table.Cell>
-          <Table.Cell> Lvl 1 Baz 1</Table.Cell>
-        </Table.Row>
-        <Table.Row key="row 2">
-          <Table.Cell>Lvl 1 Foo 2</Table.Cell>
-          <Table.Cell>Lvl 1 Bar 2</Table.Cell>
-          <Table.Cell>Lvl 1 Baz 2</Table.Cell>
-        </Table.Row>
-      </Table.Body>
-      <Table.Footer>
-        <Table.Row>
-          <Table.Cell isRowHeader>Lvl 1 Foo 2</Table.Cell>
-          <Table.Cell>Lvl 1 Bar 2</Table.Cell>
-          <Table.Cell>Lvl 1 Baz 2</Table.Cell>
-        </Table.Row>
-      </Table.Footer>
-    </Table>
+    <>
+      <Table
+        aria-label="Table with pagination"
+        paginationDescriptor={paginationDescriptor}
+        onPaginationChange={setPaginationDescriptor}
+      >
+        <Table.Header>
+          <Table.Column key="foo" showDivider>
+            Foo
+          </Table.Column>
+          <Table.Column key="bar">Bar</Table.Column>
+          <Table.Column key="baz">Baz</Table.Column>
+        </Table.Header>
+        <Table.Body>
+          <Table.Row key="row 1">
+            <Table.Cell>Lvl 1 Foo 1</Table.Cell>
+            <Table.Cell>Lvl 1 Bar 1</Table.Cell>
+            <Table.Cell> Lvl 1 Baz 1</Table.Cell>
+          </Table.Row>
+          <Table.Row key="row 2">
+            <Table.Cell>Lvl 1 Foo 2</Table.Cell>
+            <Table.Cell>Lvl 1 Bar 2</Table.Cell>
+            <Table.Cell>Lvl 1 Baz 2</Table.Cell>
+          </Table.Row>
+        </Table.Body>
+        <Table.Footer>
+          <Table.Row>
+            <Table.Cell isRowHeader>Lvl 1 Foo 2</Table.Cell>
+            <Table.Cell>Lvl 1 Bar 2</Table.Cell>
+            <Table.Cell>Lvl 1 Baz 2</Table.Cell>
+          </Table.Row>
+        </Table.Footer>
+      </Table>
+    </>
   );
 }
 

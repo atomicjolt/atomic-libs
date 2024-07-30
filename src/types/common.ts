@@ -89,6 +89,15 @@ export interface PaginationDescriptor {
   pageSize: number;
   /** Total number of pages */
   totalPages: number;
+  /** Total items
+   * @default totalPages * pageSize
+   */
+  totalItems?: number;
+
+  /** Possible page sizes to select from
+   * @default [10, 25, 50, 100]
+   * */
+  possiblePageSizes?: number[];
 }
 
 export interface DropdownProps {

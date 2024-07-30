@@ -14,7 +14,7 @@ export interface PageSizeProps {
   /** The current page size */
   pageSize: number;
   /** The total number of items */
-  totalItems?: number;
+  totalItems: number;
   /** The possible page sizes.
    * Any value within here that is greater than `totalItems` will be filtered out
    * @default [10, 25, 50, 100]

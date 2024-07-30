@@ -8,11 +8,13 @@ import { TableCheckboxCell } from "./TableCheckbox";
 import {
   LoadingProps,
   PaginationProps,
+  RenderEmptyProps,
   TableState,
   TreeGridState,
 } from "../../Table.types";
 import { StyledTBody } from "../../Table.styles";
 import { LoadingTableRows } from "./Loading";
+import { EmptyTable } from "./EmptyTable";
 
 interface TableBodyProps<T> extends Expandable, LoadingProps, PaginationProps {
   state: TableState<T> | TreeGridState<T>;
@@ -33,10 +35,19 @@ export function TableBody<T extends object>(props: TableBodyProps<T>) {
   const renderProps = useRenderProps({
     componentClassName: "aje-table__body",
     ...collection.body.props,
+    selectors: {
+      "data-empty": rows.length === 0,
+    },
   });
 
   return (
     <TableRowGroup type={StyledTBody} ref={ref} {...renderProps}>
+      {rows.length === 0 && !isLoading && (
+        <EmptyTable
+          state={state}
+          renderEmpty={state.collection.body.props?.renderEmpty}
+        />
+      )}
       {isLoading && <LoadingTableRows state={state} rows={loadingRows} />}
       {!isLoading &&
         rows.map((row) => {
