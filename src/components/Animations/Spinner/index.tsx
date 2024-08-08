@@ -22,7 +22,7 @@ export interface SpinnerProps extends AriaLabelProps {
 const strokeWidths: Record<Size, number> = {
   small: 1,
   medium: 0.5,
-  large: 0.3,
+  large: 0.1,
 };
 
 /** Spinner Component */

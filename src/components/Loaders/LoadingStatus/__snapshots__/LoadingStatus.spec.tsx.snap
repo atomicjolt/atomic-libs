@@ -35,7 +35,7 @@ exports[`LoadingStatus > matches error snapshot 1`] = `
 exports[`LoadingStatus > matches loading snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-gEvDqW fBqMky aje-loader aje-loader--bouncing-dots is-medium"
+    class="sc-gEvDqW foZKdl aje-loader aje-loader--bouncing-dots is-medium"
     data-placement="center"
   >
     <div

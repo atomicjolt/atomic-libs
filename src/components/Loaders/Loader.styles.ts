@@ -3,8 +3,8 @@ import mixins from "@styles/mixins";
 
 export const LoaderWrapper = styled.div`
   ${mixins.Sizing}
-  --size-sm-x: 10px;
-  --size-md-x: 20px;
+  --size-sm-x: 12px;
+  --size-md-x: 16px;
   --size-lg-x: 30px;
   --animation-clr: var(--loader-clr);
 

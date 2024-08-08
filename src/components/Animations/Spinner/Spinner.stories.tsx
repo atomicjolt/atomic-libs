@@ -14,6 +14,13 @@ const meta: Meta<typeof Spinner> = {
     ...AriaLabelArgTypes,
     ...RenderPropsArgTypes,
   },
+  decorators: [
+    (Story) => (
+      <div style={{ fontSize: "16px" }}>
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export default meta;

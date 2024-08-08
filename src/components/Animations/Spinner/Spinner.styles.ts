@@ -24,9 +24,9 @@ const animateStroke = keyframes`
 
 export const SpinnerContainer = styled.div`
   ${mixins.Sizing}
-  --size-sm-x: 10px;
-  --size-md-x: 20px;
-  --size-lg-x: 30px;
+  --size-sm-x: .5em;
+  --size-md-x: 1em;
+  --size-lg-x: 2em;
 
   font-size: var(--size-x);
 `;
