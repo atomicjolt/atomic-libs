@@ -33,6 +33,7 @@ export const SectionTitle = styled.span`
 
 export const ListItem = styled.li`
   ${mixins.Regular}
+  ${mixins.FocusVisible()}
   position: relative;
   display: flex;
   align-items: center;
@@ -50,6 +51,7 @@ export const ListItem = styled.li`
   color: var(--listbox-text-clr, inherit);
 
   --listbox-icon-clr: var(--text-clr-inverted);
+  --outline: 1px solid var(--listbox-text-clr);
 
   i {
     font-size: 2rem;
@@ -64,7 +66,6 @@ export const ListItem = styled.li`
 
   &[data-focus-visible="true"] {
     --listbox-bg-clr: var(--background-clr-alt);
-    outline: 1px solid var(--text-clr-alt);
   }
 
   &[aria-selected="true"] {
@@ -76,7 +77,8 @@ export const ListItem = styled.li`
     }
   }
 
-  &[aria-selected="true"][data-focus-visible="true"] {
+  &[aria-selected="true"][data-focus-visible="true"],
+  &:hover[aria-selected="true"] {
     --listbox-bg-clr: var(--accent-clr-alt);
     color: var(--text-clr-inverted);
   }

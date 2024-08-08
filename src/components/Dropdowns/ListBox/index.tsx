@@ -179,11 +179,7 @@ function ListBoxOption<T>(props: ListBoxOptionProps<T>) {
   const { focusProps } = useFocusRing();
 
   return (
-    <ListItem
-      {...mergeProps(optionProps, focusProps)}
-      ref={ref}
-      data-focus-visible={item.key === state.selectionManager.focusedKey}
-    >
+    <ListItem {...mergeProps(optionProps, focusProps)} ref={ref}>
       {item.rendered}
       {showCheckmark && <MaterialIcon icon="check" />}
     </ListItem>
