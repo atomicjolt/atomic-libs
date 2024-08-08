@@ -26,5 +26,3 @@ export const DatePickerComboInput = styled(ComboInput)`
     }
   }
 `;
-
-export const CalendarWrapper = styled.div``;
