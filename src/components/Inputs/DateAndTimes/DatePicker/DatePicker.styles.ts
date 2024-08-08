@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { scaleAnimation } from "../../../../styles/animations";
 import mixins from "../../../../styles/mixins";
 import { FieldWrapper } from "../../../Internal/FieldWrapper";
 import { ComboInput } from "../../../Fields";
@@ -28,9 +27,4 @@ export const DatePickerComboInput = styled(ComboInput)`
   }
 `;
 
-export const CalendarWrapper = styled.div`
-  border: var(--border);
-  border-radius: 5px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
-  ${scaleAnimation}
-`;
+export const CalendarWrapper = styled.div``;

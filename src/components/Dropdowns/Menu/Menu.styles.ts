@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import mixins from "../../../styles/mixins";
-import { scaleAnimation } from "../../../styles/animations";
 
 export const MenuList = styled.ul`
   list-style: none;
@@ -8,8 +7,6 @@ export const MenuList = styled.ul`
   background-color: var(--menu-bg-clr);
   padding: 8px 0;
   min-width: var(--trigger-width, auto);
-
-  ${scaleAnimation}
 
   &:focus {
     outline: none;

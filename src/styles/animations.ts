@@ -1,4 +1,4 @@
-import { css, keyframes } from "styled-components";
+import { keyframes } from "styled-components";
 
 export const scale = keyframes`
   from {
@@ -8,9 +8,4 @@ export const scale = keyframes`
   to {
     transform: scaleY(1);
   }
-`;
-
-export const scaleAnimation = css`
-  transform-origin: top;
-  animation: ${scale} 0.2s ease-in-out;
 `;

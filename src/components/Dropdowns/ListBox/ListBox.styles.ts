@@ -1,9 +1,7 @@
 import styled from "styled-components";
 import mixins from "../../../styles/mixins";
-import { scaleAnimation } from "../../../styles/animations";
 
 export const List = styled.ul`
-  ${scaleAnimation}
   list-style: none;
   background-color: var(--listbox-bg-clr);
   padding: 8px 0;
