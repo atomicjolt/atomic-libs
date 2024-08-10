@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import mixins from "../../../styles/mixins";
+import { MaterialIcon } from "@components/Icons/MaterialIcon";
 
 export const List = styled.ul`
   list-style: none;
@@ -31,13 +32,17 @@ export const SectionTitle = styled.span`
   text-transform: uppercase;
 `;
 
+export const CheckIcon = styled(MaterialIcon)<{ $isSelected: boolean }>`
+  margin-left: auto;
+  visibility: ${({ $isSelected }) => ($isSelected ? "visible" : "hidden")};
+`;
+
 export const ListItem = styled.li`
   ${mixins.Regular}
   ${mixins.FocusVisible()}
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   border: none;
   width: 100%;
   gap: 12px;
@@ -50,13 +55,12 @@ export const ListItem = styled.li`
   background-color: var(--listbox-bg-clr);
   color: var(--listbox-text-clr, inherit);
 
-  --listbox-icon-clr: var(--text-clr-inverted);
+  --listbox-icon-clr: var(--text-clr);
   --outline: 1px solid var(--listbox-text-clr);
 
   i {
     font-size: 2rem;
     color: var(--listbox-icon-clr);
-    visibility: hidden;
   }
 
   &:hover {
@@ -69,12 +73,9 @@ export const ListItem = styled.li`
   }
 
   &[aria-selected="true"] {
+    --listbox-icon-clr: var(--text-clr-inverted);
     --listbox-bg-clr: var(--accent-clr);
     color: var(--text-clr-inverted);
-
-    i {
-      visibility: visible;
-    }
   }
 
   &[aria-selected="true"][data-focus-visible="true"],

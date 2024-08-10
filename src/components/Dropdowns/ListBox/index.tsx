@@ -14,10 +14,15 @@ import { useFocusRing } from "@hooks/useFocusRing";
 import { BaseProps } from "../../../types";
 import { useForwardedRef } from "../../../hooks/useForwardedRef";
 import { SearchInput } from "../../Inputs/SearchInput";
-import { MaterialIcon } from "../../Icons/MaterialIcon";
 import { Label } from "../../Fields";
 import { Divider } from "@components/Layout/Divider";
-import { List, ListItem, SectionTitle, SubList } from "./ListBox.styles";
+import {
+  CheckIcon,
+  List,
+  ListItem,
+  SectionTitle,
+  SubList,
+} from "./ListBox.styles";
 
 export type ListBoxProps<T> = AriaListBoxProps<T> &
   BaseProps & {
@@ -172,7 +177,7 @@ interface ListBoxOptionProps<T> {
 function ListBoxOption<T>(props: ListBoxOptionProps<T>) {
   const { item, state, showCheckmark } = props;
   const ref = useRef(null);
-  const { optionProps } = useOption({ key: item.key }, state, ref);
+  const { optionProps, isSelected } = useOption({ key: item.key }, state, ref);
 
   // Determine whether we should show a keyboard
   // focus ring for accessibility
@@ -181,7 +186,7 @@ function ListBoxOption<T>(props: ListBoxOptionProps<T>) {
   return (
     <ListItem {...mergeProps(optionProps, focusProps)} ref={ref}>
       {item.rendered}
-      {showCheckmark && <MaterialIcon icon="check" />}
+      {showCheckmark && <CheckIcon icon="check" $isSelected={isSelected} />}
     </ListItem>
   );
 }

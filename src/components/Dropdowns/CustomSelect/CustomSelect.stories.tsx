@@ -4,6 +4,8 @@ import { InputControls } from "@sb/helpers";
 import { CustomSelect } from ".";
 import { Item, Section } from "../../Collection";
 import { getCssProps } from "@sb/cssprops";
+import MaterialIcon from "@components/Icons/MaterialIcon";
+import { Flex } from "@components/Layout/Flex/Flex";
 
 const meta: Meta<typeof CustomSelect> = {
   title: "Dropdowns/Selection/CustomSelect",
@@ -104,5 +106,31 @@ export const Searchable: Story = {
     ...Primary.args,
     isSearchable: true,
     searchPlaceholder: "Search",
+  },
+};
+
+export const WithCustomContent: Story = {
+  args: {
+    ...Primary.args,
+    children: [
+      <Item key="1" textValue="Home">
+        <Flex gap={4} alignItems="center">
+          <MaterialIcon icon="home" />
+          Home
+        </Flex>
+      </Item>,
+      <Item key="2" textValue="Settings">
+        <Flex gap={4} alignItems="center">
+          <MaterialIcon icon="settings" />
+          Settings
+        </Flex>
+      </Item>,
+      <Item key="3" textValue="Profile">
+        <Flex gap={4} alignItems="center">
+          <MaterialIcon icon="account_circle" />
+          Profile
+        </Flex>
+      </Item>,
+    ],
   },
 };
