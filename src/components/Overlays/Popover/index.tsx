@@ -8,7 +8,7 @@ import {
 import { OverlayTriggerProps, useOverlayTriggerState } from "react-stately";
 import { mergeProps } from "@react-aria/utils";
 
-import { HasClassName, HasVariant } from "../../../types";
+import { RenderBaseProps, HasVariant } from "../../../types";
 import { useRenderProps } from "@hooks";
 import { useContextProps } from "@hooks/useContextProps";
 import { useResizeObserver } from "@hooks/useResizeObserver";
@@ -18,12 +18,16 @@ import { PopoverContext } from "./context";
 import { OverlayTriggerStateContext } from "../OverlayTrigger/context";
 import { invertPlacementAxis } from "@utils/placement";
 
+export interface PopoverRenderProps {
+  /** Width in pixels of the triggering element that opened this popover  */
+  triggerWidth: number;
+}
+
 export interface PopoverProps
   extends Omit<AriaPopoverProps, "popoverRef" | "triggerRef">,
     OverlayTriggerProps,
-    HasClassName,
+    RenderBaseProps<PopoverRenderProps>,
     HasVariant<"listbox" | "menu" | "datepicker"> {
-  children: React.ReactNode;
   /** A ref to the element that triggers the popover to appear. Not necessary when used with trigger wrapper */
   triggerRef?: React.RefObject<HTMLElement>;
   id?: string;
@@ -63,19 +67,20 @@ export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(
     );
 
     const [triggerWidth, setTriggerWidth] = useState(
-      `${triggerRef?.current?.offsetWidth || 0}px`
+      triggerRef?.current?.offsetWidth || 0
     );
 
     useResizeObserver(
       triggerRef?.current,
       useCallback(
-        () => setTriggerWidth(`${triggerRef?.current?.offsetWidth || 0}px`),
+        () => setTriggerWidth(triggerRef?.current?.offsetWidth || 0),
         []
       )
     );
 
     const renderProps = useRenderProps({
       componentClassName: "aje-popover",
+      values: { triggerWidth },
       ...contextProps,
     });
 
@@ -96,12 +101,12 @@ export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(
             ...popoverProps.style,
             ...renderProps.style,
             // @ts-ignore
-            "--trigger-width": triggerWidth,
+            "--trigger-width": `${triggerWidth}px`,
           }}
           $transformOrigin={transformOrigin}
         >
           <DismissButton onDismiss={state.close} />
-          {children}
+          {renderProps.children}
           <DismissButton onDismiss={state.close} />
         </PopoverContent>
       </Overlay>
