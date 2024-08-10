@@ -62,6 +62,7 @@ export function MultiSelect<T extends object>(props: MultiSelectProps<T>) {
     selectionPlaceholder = placeholder,
     variant = "default",
     maxHeight = 300,
+    dropdownPlacement = "bottom start",
   } = props;
 
   const buttonText = useMemo(() => {
@@ -127,7 +128,7 @@ export function MultiSelect<T extends object>(props: MultiSelectProps<T>) {
       <OverlayTriggerStateContext.Provider value={state}>
         <Popover
           triggerRef={ref}
-          placement="bottom start"
+          placement={dropdownPlacement}
           variant="listbox"
           maxHeight={maxHeight}
         >

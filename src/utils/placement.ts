@@ -40,7 +40,6 @@ export function placementAxis(placement: Placement): PlacementAxis {
   return placementMap[placement];
 }
 
-export function invertPlacementAxis(placement: Placement): PlacementAxis {
-  const axis = placementAxis(placement);
+export function invertPlacementAxis(axis: PlacementAxis): PlacementAxis {
   return invertAxisMap[axis];
 }

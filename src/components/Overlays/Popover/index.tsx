@@ -47,7 +47,11 @@ export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(
 
     const internalRef = useForwardedRef(ref);
 
-    const { popoverProps, underlayProps } = usePopover(
+    const {
+      popoverProps,
+      underlayProps,
+      placement: placementAxis,
+    } = usePopover(
       {
         ...rest,
         placement,
@@ -75,7 +79,7 @@ export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(
       ...contextProps,
     });
 
-    const transformOrigin = invertPlacementAxis(placement);
+    const transformOrigin = invertPlacementAxis(placementAxis);
 
     if (!state.isOpen) {
       return null;

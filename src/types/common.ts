@@ -1,5 +1,6 @@
 import { Argument } from "classnames";
 import { Key } from "./aria";
+import { Placement } from "@react-aria/overlays";
 
 export type Size = "small" | "medium" | "large";
 export type ExtendedSize = Size | "auto" | "full";
@@ -104,4 +105,6 @@ export interface DropdownProps {
   /** The maximum height of the the dropdown.
    * @default height of the viewport */
   maxHeight?: number;
+
+  dropdownPlacement?: Placement;
 }
