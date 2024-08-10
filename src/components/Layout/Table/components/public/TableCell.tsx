@@ -21,6 +21,8 @@ export interface TableCellProps {
   className?: Argument | Argument[];
 
   id?: string;
+
+  isStatic?: boolean;
 }
 
 /** A `Table.Cell` represents a single cell in a Table. */

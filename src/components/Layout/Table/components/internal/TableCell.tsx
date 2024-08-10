@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, MouseEvent } from "react";
 import { mergeProps } from "@react-aria/utils";
 import { useTableCell } from "@react-aria/table";
 import { GridNode } from "@react-types/grid";
@@ -72,7 +72,19 @@ export function TableCell<T>(props: TableCellProps<T>) {
 
   const style = isRowHeaderCell ? { paddingLeft: levelOffset } : {};
 
-  const cellProps = mergeProps(gridCellProps, focusProps, renderProps, {
+  const customGridCellProps = cell.props.isStatic
+    ? {
+        ...gridCellProps,
+        onMouseDown: (e: MouseEvent) => {
+          e.stopPropagation();
+        },
+        onPointerDown: (e: MouseEvent) => {
+          e.stopPropagation();
+        },
+      }
+    : gridCellProps;
+
+  const cellProps = mergeProps(customGridCellProps, focusProps, renderProps, {
     colSpan: colSpan,
     style,
   });
