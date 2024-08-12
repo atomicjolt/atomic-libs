@@ -48,6 +48,7 @@ export function ComboBox<T extends object>(props: ComboBoxProps<T>) {
     error,
     variant = "default",
     maxHeight = 300,
+    dropdownPlacement = "bottom start",
   } = props;
   const { contains } = useFilter({ sensitivity: "base" });
   const state = useComboBoxState({ ...props, defaultFilter: contains });
@@ -131,7 +132,7 @@ export function ComboBox<T extends object>(props: ComboBoxProps<T>) {
           // I don't think this is the intended behavior and it doesn't happen
           // in the docs, so I'm flipping it off for now
           // isNonModal
-          placement="bottom start"
+          placement={dropdownPlacement}
           variant="listbox"
           maxHeight={maxHeight}
         >

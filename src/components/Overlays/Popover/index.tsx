@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useState } from "react";
+import React, { useCallback, useContext, useMemo, useState } from "react";
 import {
   AriaPopoverProps,
   DismissButton,
@@ -6,23 +6,28 @@ import {
   usePopover,
 } from "@react-aria/overlays";
 import { OverlayTriggerProps, useOverlayTriggerState } from "react-stately";
-
-import { HasClassName, HasVariant } from "../../../types";
-import { PopoverUnderlay, PopoverContent } from "./Popover.styles";
-import { useForwardedRef } from "../../../hooks/useForwardedRef";
-import { PopoverContext } from "./context";
-import { useContextProps } from "../../../hooks/useContextProps";
-import { useResizeObserver } from "../../../hooks/useResizeObserver";
-import { OverlayTriggerStateContext } from "../OverlayTrigger/context";
-import { useRenderProps } from "@hooks";
 import { mergeProps } from "@react-aria/utils";
+
+import { RenderBaseProps, HasVariant } from "../../../types";
+import { useRenderProps } from "@hooks";
+import { useContextProps } from "@hooks/useContextProps";
+import { useResizeObserver } from "@hooks/useResizeObserver";
+import { useForwardedRef } from "@hooks/useForwardedRef";
+import { PopoverUnderlay, PopoverContent } from "./Popover.styles";
+import { PopoverContext } from "./context";
+import { OverlayTriggerStateContext } from "../OverlayTrigger/context";
+import { invertPlacementAxis } from "@utils/placement";
+
+export interface PopoverRenderProps {
+  /** Width in pixels of the triggering element that opened this popover  */
+  triggerWidth: number;
+}
 
 export interface PopoverProps
   extends Omit<AriaPopoverProps, "popoverRef" | "triggerRef">,
     OverlayTriggerProps,
-    HasClassName,
-    HasVariant<"listbox" | "menu"> {
-  children: React.ReactNode;
+    RenderBaseProps<PopoverRenderProps>,
+    HasVariant<"listbox" | "menu" | "datepicker"> {
   /** A ref to the element that triggers the popover to appear. Not necessary when used with trigger wrapper */
   triggerRef?: React.RefObject<HTMLElement>;
   id?: string;
@@ -32,39 +37,54 @@ export interface PopoverProps
 export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(
   (props: PopoverProps, ref) => {
     const contextProps = useContextProps(PopoverContext, props);
-    const { children, offset = 8, triggerRef, variant, ...rest } = contextProps;
+    const {
+      children,
+      offset = 8,
+      triggerRef,
+      variant,
+      placement = "bottom",
+      ...rest
+    } = contextProps;
     const contextState = useContext(OverlayTriggerStateContext);
     const localState = useOverlayTriggerState(props);
     const state = contextState ?? localState;
 
     const internalRef = useForwardedRef(ref);
 
-    const { popoverProps, underlayProps } = usePopover(
+    const {
+      popoverProps,
+      underlayProps,
+      placement: placementAxis,
+    } = usePopover(
       {
         ...rest,
-        triggerRef: triggerRef!,
+        placement,
         offset,
+        triggerRef: triggerRef!,
         popoverRef: internalRef,
       },
       state
     );
 
     const [triggerWidth, setTriggerWidth] = useState(
-      `${triggerRef?.current?.offsetWidth || 0}px`
+      triggerRef?.current?.offsetWidth || 0
     );
 
     useResizeObserver(
       triggerRef?.current,
       useCallback(
-        () => setTriggerWidth(`${triggerRef?.current?.offsetWidth || 0}px`),
+        () => setTriggerWidth(triggerRef?.current?.offsetWidth || 0),
         []
       )
     );
 
     const renderProps = useRenderProps({
       componentClassName: "aje-popover",
+      values: { triggerWidth },
       ...contextProps,
     });
+
+    const transformOrigin = invertPlacementAxis(placementAxis);
 
     if (!state.isOpen) {
       return null;
@@ -81,11 +101,12 @@ export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(
             ...popoverProps.style,
             ...renderProps.style,
             // @ts-ignore
-            "--trigger-width": triggerWidth,
+            "--trigger-width": `${triggerWidth}px`,
           }}
+          $transformOrigin={transformOrigin}
         >
           <DismissButton onDismiss={state.close} />
-          {children}
+          {renderProps.children}
           <DismissButton onDismiss={state.close} />
         </PopoverContent>
       </Overlay>

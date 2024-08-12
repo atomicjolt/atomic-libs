@@ -3,7 +3,7 @@
 exports[`matches snapshots > matches default variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-fHjqbK isPTMX aje-combobox aje-combobox--default is-medium"
+    class="sc-hmdnzv rAJco aje-combobox aje-combobox--default is-medium"
   >
     <label
       class="sc-dAlxHm hlocov aje-label is-auto"
@@ -60,10 +60,10 @@ exports[`matches snapshots > matches default variant 1`] = `
 exports[`matches snapshots > matches floating variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-fHjqbK isPTMX aje-combobox aje-combobox--floating is-medium"
+    class="sc-hmdnzv rAJco aje-combobox aje-combobox--floating is-medium"
   >
     <div
-      class="sc-feUYzb kPLfyu"
+      class="sc-fUnNpA kaalrn"
     >
       <div
         class="sc-cPiJYC faFieB aje-combo-input padding-left padding-right"

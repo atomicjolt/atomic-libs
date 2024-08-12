@@ -82,11 +82,9 @@ export function DatePicker<T extends DateValue>(props: DatePickerProps<T>) {
       )}
 
       <OverlayTriggerStateContext.Provider value={state}>
-        <Popover triggerRef={ref} placement="bottom start">
+        <Popover triggerRef={ref} placement="bottom start" variant="datepicker">
           <Dialog {...dialogProps}>
-            <CalendarWrapper>
-              <Calendar {...calendarProps} size={calendarSize} />
-            </CalendarWrapper>
+            <Calendar {...calendarProps} size={calendarSize} />
           </Dialog>
         </Popover>
       </OverlayTriggerStateContext.Provider>

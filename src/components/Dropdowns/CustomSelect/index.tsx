@@ -60,6 +60,7 @@ export function CustomSelect<T extends object>(props: CustomSelectProps<T>) {
     placeholder = "Select an option",
     variant = "default",
     maxHeight = 300,
+    dropdownPlacement = "bottom start",
   } = props;
 
   const renderProps = useRenderProps({
@@ -115,7 +116,7 @@ export function CustomSelect<T extends object>(props: CustomSelectProps<T>) {
       </FloatingInputWrapper>
       <OverlayTriggerStateContext.Provider value={state}>
         <Popover
-          placement="bottom start"
+          placement={dropdownPlacement}
           triggerRef={ref}
           variant="listbox"
           maxHeight={maxHeight}
