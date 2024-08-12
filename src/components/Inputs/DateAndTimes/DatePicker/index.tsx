@@ -6,11 +6,7 @@ import {
 } from "@react-aria/datepicker";
 import { useDatePickerState } from "react-stately";
 import { Size, AriaProps, FieldInputProps } from "../../../../types";
-import {
-  CalendarWrapper,
-  DatePickerComboInput,
-  DatePickerWrapper,
-} from "./DatePicker.styles";
+import { DatePickerComboInput, DatePickerWrapper } from "./DatePicker.styles";
 import classNames from "classnames";
 import DateInput from "../DateInput";
 import IconButton from "../../../Buttons/IconButton";
