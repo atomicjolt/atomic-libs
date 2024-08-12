@@ -22,6 +22,7 @@ export interface TableCellProps {
 
   id?: string;
 
+  /** Controls whether the text in the cell is selectable. When isStatic is false users will not be able to select text inside of the cell */
   isStatic?: boolean;
 }
 
