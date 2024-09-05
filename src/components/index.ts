@@ -106,6 +106,10 @@ export { Spinner } from "./Animations/Spinner";
 export { BouncingDots } from "./Animations/BouncingDots";
 export { Checkmark } from "./Animations/Checkmark";
 
+export { useAnnouncer, withAnnouncer } from "./Accessibility/context";
+export { LiveAnnouncer } from "./Accessibility/LiveAnnouncer";
+export { LiveMessage } from "./Accessibility/LiveMessage";
+
 /* ---- Types ---- */
 
 export type { BannerProps, BannerVariants } from "./Banners/Banner";
