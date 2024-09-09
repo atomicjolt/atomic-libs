@@ -20,13 +20,13 @@ export const PopoverContent = styled.div<{
   animation: ${scale} 0.2s ease-in-out;
 
   &.aje-popover--listbox {
-    --popover-min-height: calc(var(--listbox-item-height) * 2);
+    --popover-min-height: var(--listbox-item-height);
     --popover-box-shadow: var(--listbox-box-shadow);
     --popover-radius: var(--listbox-border-radius);
   }
 
   &.aje-popover--menu {
-    --popover-min-height: calc(var(--menu-item-height) * 2);
+    --popover-min-height: var(--menu-item-height);
     --popover-box-shadow: var(--menu-box-shadow);
     --popover-radius: var(--menu-border-radius);
   }
