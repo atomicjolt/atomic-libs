@@ -81,15 +81,19 @@ type Story = StoryObj<typeof Flex>;
 export const Default: Story = {
   args: {
     children: [
-      <FlexItem grow={1} basis={200}>
-        <div style={{ backgroundColor: "powderblue", height: "200px" }} />
-      </FlexItem>,
-      <FlexItem basis={200}>
-        <div style={{ backgroundColor: "rebeccapurple", height: "200px" }} />
-      </FlexItem>,
-      <FlexItem basis={200}>
-        <div style={{ backgroundColor: "goldenrod", height: "200px" }} />
-      </FlexItem>,
+      <FlexItem
+        grow={1}
+        basis={200}
+        style={{ backgroundColor: "powderblue", height: "200px" }}
+      />,
+      <FlexItem
+        basis={200}
+        style={{ backgroundColor: "rebeccapurple", height: "200px" }}
+      />,
+      <FlexItem
+        basis={200}
+        style={{ backgroundColor: "goldenrod", height: "200px" }}
+      />,
     ],
   },
 };
@@ -100,42 +104,54 @@ export const Grid: Story = {
     gap: 16,
     wrap: true,
     children: [
-      <FlexItem basis={200}>
-        <div style={{ backgroundColor: "powderblue", height: "200px" }} />
-      </FlexItem>,
-      <FlexItem basis={200}>
-        <div style={{ backgroundColor: "rebeccapurple", height: "200px" }} />
-      </FlexItem>,
-      <FlexItem basis={200}>
-        <div style={{ backgroundColor: "goldenrod", height: "200px" }} />
-      </FlexItem>,
-      <FlexItem basis={200}>
-        <div style={{ backgroundColor: "powderblue", height: "200px" }} />
-      </FlexItem>,
-      <FlexItem basis={200}>
-        <div style={{ backgroundColor: "rebeccapurple", height: "200px" }} />
-      </FlexItem>,
-      <FlexItem basis={200}>
-        <div style={{ backgroundColor: "goldenrod", height: "200px" }} />
-      </FlexItem>,
-      <FlexItem basis={200}>
-        <div style={{ backgroundColor: "powderblue", height: "200px" }} />
-      </FlexItem>,
-      <FlexItem basis={200}>
-        <div style={{ backgroundColor: "rebeccapurple", height: "200px" }} />
-      </FlexItem>,
-      <FlexItem basis={200}>
-        <div style={{ backgroundColor: "goldenrod", height: "200px" }} />
-      </FlexItem>,
-      <FlexItem basis={200}>
-        <div style={{ backgroundColor: "powderblue", height: "200px" }} />
-      </FlexItem>,
-      <FlexItem basis={200}>
-        <div style={{ backgroundColor: "rebeccapurple", height: "200px" }} />
-      </FlexItem>,
-      <FlexItem basis={200}>
-        <div style={{ backgroundColor: "goldenrod", height: "200px" }} />
-      </FlexItem>,
+      <FlexItem
+        basis={200}
+        style={{ backgroundColor: "powderblue", height: "200px" }}
+      />,
+      <FlexItem
+        basis={200}
+        style={{ backgroundColor: "rebeccapurple", height: "200px" }}
+      />,
+      <FlexItem
+        basis={200}
+        style={{ backgroundColor: "goldenrod", height: "200px" }}
+      />,
+      <FlexItem
+        basis={200}
+        style={{ backgroundColor: "powderblue", height: "200px" }}
+      />,
+      <FlexItem
+        basis={200}
+        style={{ backgroundColor: "rebeccapurple", height: "200px" }}
+      />,
+      <FlexItem
+        basis={200}
+        style={{ backgroundColor: "goldenrod", height: "200px" }}
+      />,
+      <FlexItem
+        basis={200}
+        style={{ backgroundColor: "powderblue", height: "200px" }}
+      />,
+      <FlexItem
+        basis={200}
+        style={{ backgroundColor: "rebeccapurple", height: "200px" }}
+      />,
+      <FlexItem
+        basis={200}
+        style={{ backgroundColor: "goldenrod", height: "200px" }}
+      />,
+      <FlexItem
+        basis={200}
+        style={{ backgroundColor: "powderblue", height: "200px" }}
+      />,
+      <FlexItem
+        basis={200}
+        style={{ backgroundColor: "rebeccapurple", height: "200px" }}
+      />,
+      <FlexItem
+        basis={200}
+        style={{ backgroundColor: "goldenrod", height: "200px" }}
+      />,
     ],
   },
 };

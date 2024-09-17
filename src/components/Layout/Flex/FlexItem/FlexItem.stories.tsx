@@ -40,15 +40,15 @@ type Story = StoryObj<typeof FlexItem>;
 export const Default: Story = {
   render: (args) => (
     <Flex>
-      <FlexItem {...args}>
-        <div style={{ backgroundColor: "red", height: "200px" }} />
-      </FlexItem>
-      <FlexItem basis={200}>
-        <div style={{ backgroundColor: "blue", height: "200px" }} />
-      </FlexItem>
-      <FlexItem basis={200}>
-        <div style={{ backgroundColor: "green", height: "200px" }} />
-      </FlexItem>
+      <FlexItem {...args} style={{ backgroundColor: "red", height: "200px" }} />
+      <FlexItem
+        basis={200}
+        style={{ backgroundColor: "blue", height: "200px" }}
+      />
+      <FlexItem
+        basis={200}
+        style={{ backgroundColor: "green", height: "200px" }}
+      />
     </Flex>
   ),
   args: {

@@ -15,6 +15,7 @@ export type MaterialIconVariants =
   | "two-tone";
 
 export type MaterialIcons =
+  | "clear"
   | "search"
   | "home"
   | "menu"
