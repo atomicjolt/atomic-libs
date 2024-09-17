@@ -28,7 +28,7 @@ exports[`MultiSelect > matches default variant 1`] = `
       </span>
       <i
         aria-hidden="true"
-        class="sc-dLNtp irTwiB aje-icon material-icons is-medium"
+        class="sc-dLNtp gmLnPp aje-icon material-icons is-medium"
       >
         arrow_drop_down
       </i>
@@ -59,7 +59,7 @@ exports[`MultiSelect > matches floating variant 1`] = `
         />
         <i
           aria-hidden="true"
-          class="sc-dLNtp irTwiB aje-icon material-icons is-medium"
+          class="sc-dLNtp gmLnPp aje-icon material-icons is-medium"
         >
           arrow_drop_down
         </i>

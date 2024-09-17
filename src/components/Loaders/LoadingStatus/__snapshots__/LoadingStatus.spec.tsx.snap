@@ -7,7 +7,7 @@ exports[`LoadingStatus > matches error snapshot 1`] = `
   >
     <i
       aria-hidden="true"
-      class="sc-gsFSjX gLPNpo aje-icon material-icons is-medium"
+      class="sc-gsFSjX gLDRGY aje-icon material-icons is-medium"
     >
       error
     </i>
@@ -23,7 +23,7 @@ exports[`LoadingStatus > matches error snapshot 1`] = `
     >
       <i
         aria-hidden="true"
-        class="sc-gsFSjX gLPNpo aje-icon material-icons is-medium"
+        class="sc-gsFSjX gLDRGY aje-icon material-icons is-medium"
       >
         close
       </i>
