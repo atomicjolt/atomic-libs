@@ -47,7 +47,7 @@ exports[`matches snapshots > matches default variant 1`] = `
       >
         <i
           aria-hidden="true"
-          class="sc-kAycRU lbPEgw aje-icon material-icons is-auto"
+          class="sc-kAycRU fDLinI aje-icon material-icons is-auto"
         >
           search
         </i>
@@ -94,7 +94,7 @@ exports[`matches snapshots > matches floating variant 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-kAycRU lbPEgw aje-icon material-icons is-auto"
+            class="sc-kAycRU fDLinI aje-icon material-icons is-auto"
           >
             search
           </i>

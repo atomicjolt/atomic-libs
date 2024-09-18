@@ -153,12 +153,6 @@ export const IconWithTooltip: Story = {
   ...Primary,
   args: {
     ...Primary.args,
-    target: (
-      <ToolTipTarget>
-        <div>
-          <MaterialIcon icon="info" size="large" variant="outlined" />
-        </div>
-      </ToolTipTarget>
-    ),
+    target: <MaterialIcon icon="info" size="large" variant="outlined" />,
   },
 };

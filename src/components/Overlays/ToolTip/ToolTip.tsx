@@ -11,22 +11,29 @@ import { OverlayTriggerProps } from "react-stately";
 import { Transition } from "react-transition-group";
 
 import { ToolTipArrow, ToolTipOverlay } from "./ToolTip.styles";
-import { HasChildren, HasClassName } from "../../../types";
+import {
+  HasChildren,
+  HasClassName,
+  PresentationProps,
+  RenderBaseProps,
+} from "../../../types";
 import { TooltipContext, TooltipStateContext } from "./contexts";
 import { useContextProps } from "../../../hooks/useContextProps";
+import { mergeProps } from "@react-aria/utils";
+import { useRenderProps } from "@hooks";
 
 export interface ToolTipProps
   extends PositionProps,
     Pick<AriaPositionProps, "arrowBoundaryOffset">,
     OverlayTriggerProps,
-    HasChildren,
-    HasClassName {
+    RenderBaseProps<never> {
   /**
    * The ref for the element which the tooltip positions itself with respect to.
    *
    * When used within a TooltipTrigger this is set automatically. It is only required when used standalone.
    */
   triggerRef?: React.RefObject<Element>;
+
   /* Placement of the tooltip relative to the target element */
   placement?: "right" | "left" | "top" | "bottom";
 
@@ -57,6 +64,13 @@ export function ToolTip(props: ToolTipProps) {
     shouldFlip: props.shouldFlip,
   });
 
+  const renderProps = useRenderProps({
+    componentClassName: "aje-tooltip",
+    ...props,
+  });
+
+  const mergedProps = mergeProps(overlayProps, tooltipProps, renderProps);
+
   return (
     <Overlay>
       <Transition
@@ -69,13 +83,17 @@ export function ToolTip(props: ToolTipProps) {
           <ToolTipOverlay
             $transitionDuration={transitionDuration}
             ref={ref}
-            className={classNames("aje-tooltip", props.className)}
             data-placement={placement}
+            {...mergedProps}
             {...{ [`data-${state}`]: true }}
-            {...tooltipProps}
-            {...overlayProps}
+            style={{
+              ...mergedProps.style,
+              // Override Z-index to be one higher than popovers
+              // so tooltips can be used inside of popovers without issue
+              zIndex: 100_001,
+            }}
           >
-            {props.children}
+            {renderProps.children}
             <ToolTipArrow {...arrowProps} />
           </ToolTipOverlay>
         )}

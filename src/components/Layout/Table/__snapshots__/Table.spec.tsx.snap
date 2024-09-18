@@ -49,7 +49,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
                   >
                     <i
                       aria-hidden="true"
-                      class="sc-cwHqhk bQLcgF aje-icon material-icons is-small"
+                      class="sc-cwHqhk kRjszR aje-icon material-icons is-small"
                     >
                       close
                     </i>
@@ -213,7 +213,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
                 >
                   <i
                     aria-hidden="true"
-                    class="sc-cwHqhk bQLcgF aje-icon material-icons is-small"
+                    class="sc-cwHqhk kRjszR aje-icon material-icons is-small"
                   >
                     close
                   </i>
@@ -428,7 +428,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
                   >
                     <i
                       aria-hidden="true"
-                      class="sc-cwHqhk bQLcgF aje-icon material-icons is-small"
+                      class="sc-cwHqhk kRjszR aje-icon material-icons is-small"
                     >
                       close
                     </i>
@@ -440,7 +440,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
                 >
                   <i
                     aria-hidden="true"
-                    class="sc-cwHqhk bQLcgF aje-icon material-icons is-small"
+                    class="sc-cwHqhk kRjszR aje-icon material-icons is-small"
                   >
                     search
                   </i>
@@ -603,7 +603,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
                 >
                   <i
                     aria-hidden="true"
-                    class="sc-cwHqhk bQLcgF aje-icon material-icons is-small"
+                    class="sc-cwHqhk kRjszR aje-icon material-icons is-small"
                   >
                     close
                   </i>
@@ -615,7 +615,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
               >
                 <i
                   aria-hidden="true"
-                  class="sc-cwHqhk bQLcgF aje-icon material-icons is-small"
+                  class="sc-cwHqhk kRjszR aje-icon material-icons is-small"
                 >
                   search
                 </i>
@@ -830,7 +830,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   >
                     <i
                       aria-hidden="true"
-                      class="sc-cwHqhk bQLcgF aje-icon material-icons is-small"
+                      class="sc-cwHqhk kRjszR aje-icon material-icons is-small"
                     >
                       close
                     </i>
@@ -842,7 +842,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                 >
                   <i
                     aria-hidden="true"
-                    class="sc-cwHqhk bQLcgF aje-icon material-icons is-small"
+                    class="sc-cwHqhk kRjszR aje-icon material-icons is-small"
                   >
                     search
                   </i>
@@ -2104,7 +2104,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                 >
                   <i
                     aria-hidden="true"
-                    class="sc-cwHqhk bQLcgF aje-icon material-icons is-small"
+                    class="sc-cwHqhk kRjszR aje-icon material-icons is-small"
                   >
                     close
                   </i>
@@ -2116,7 +2116,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
               >
                 <i
                   aria-hidden="true"
-                  class="sc-cwHqhk bQLcgF aje-icon material-icons is-small"
+                  class="sc-cwHqhk kRjszR aje-icon material-icons is-small"
                 >
                   search
                 </i>
@@ -3429,7 +3429,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
                   >
                     <i
                       aria-hidden="true"
-                      class="sc-cwHqhk bQLcgF aje-icon material-icons is-small"
+                      class="sc-cwHqhk kRjszR aje-icon material-icons is-small"
                     >
                       close
                     </i>
@@ -3441,7 +3441,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
                 >
                   <i
                     aria-hidden="true"
-                    class="sc-cwHqhk bQLcgF aje-icon material-icons is-small"
+                    class="sc-cwHqhk kRjszR aje-icon material-icons is-small"
                   >
                     search
                   </i>
@@ -3618,7 +3618,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
             </span>
             <i
               aria-hidden="true"
-              class="sc-cwHqhk bQLcgF aje-icon material-icons is-medium"
+              class="sc-cwHqhk kRjszR aje-icon material-icons is-medium"
             >
               arrow_drop_down
             </i>
@@ -3635,7 +3635,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
           >
             <i
               aria-hidden="true"
-              class="sc-cwHqhk bQLcgF aje-icon material-icons is-medium"
+              class="sc-cwHqhk kRjszR aje-icon material-icons is-medium"
             >
               first_page
             </i>
@@ -3648,7 +3648,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
           >
             <i
               aria-hidden="true"
-              class="sc-cwHqhk bQLcgF aje-icon material-icons is-medium"
+              class="sc-cwHqhk kRjszR aje-icon material-icons is-medium"
             >
               chevron_left
             </i>
@@ -3660,7 +3660,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
           >
             <i
               aria-hidden="true"
-              class="sc-cwHqhk bQLcgF aje-icon material-icons is-medium"
+              class="sc-cwHqhk kRjszR aje-icon material-icons is-medium"
             >
               chevron_right
             </i>
@@ -3672,7 +3672,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
           >
             <i
               aria-hidden="true"
-              class="sc-cwHqhk bQLcgF aje-icon material-icons is-medium"
+              class="sc-cwHqhk kRjszR aje-icon material-icons is-medium"
             >
               last_page
             </i>
@@ -3733,7 +3733,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
                 >
                   <i
                     aria-hidden="true"
-                    class="sc-cwHqhk bQLcgF aje-icon material-icons is-small"
+                    class="sc-cwHqhk kRjszR aje-icon material-icons is-small"
                   >
                     close
                   </i>
@@ -3745,7 +3745,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
               >
                 <i
                   aria-hidden="true"
-                  class="sc-cwHqhk bQLcgF aje-icon material-icons is-small"
+                  class="sc-cwHqhk kRjszR aje-icon material-icons is-small"
                 >
                   search
                 </i>
@@ -3922,7 +3922,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
           </span>
           <i
             aria-hidden="true"
-            class="sc-cwHqhk bQLcgF aje-icon material-icons is-medium"
+            class="sc-cwHqhk kRjszR aje-icon material-icons is-medium"
           >
             arrow_drop_down
           </i>
@@ -3939,7 +3939,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-cwHqhk bQLcgF aje-icon material-icons is-medium"
+            class="sc-cwHqhk kRjszR aje-icon material-icons is-medium"
           >
             first_page
           </i>
@@ -3952,7 +3952,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-cwHqhk bQLcgF aje-icon material-icons is-medium"
+            class="sc-cwHqhk kRjszR aje-icon material-icons is-medium"
           >
             chevron_left
           </i>
@@ -3964,7 +3964,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-cwHqhk bQLcgF aje-icon material-icons is-medium"
+            class="sc-cwHqhk kRjszR aje-icon material-icons is-medium"
           >
             chevron_right
           </i>
@@ -3976,7 +3976,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-cwHqhk bQLcgF aje-icon material-icons is-medium"
+            class="sc-cwHqhk kRjszR aje-icon material-icons is-medium"
           >
             last_page
           </i>
