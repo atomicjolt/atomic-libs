@@ -57,7 +57,7 @@ export const MaterialIcon = React.forwardRef<HTMLElement, MaterialIconProps>(
     });
 
     // We use the focusable hook so that the icon supports tooltips
-    // the icon itself isn't actually focusable
+    // when the icon itself isn't actually focusable
     const { focusableProps } = useFocusable({}, internalRef);
 
     const componentProps = mergeProps(
