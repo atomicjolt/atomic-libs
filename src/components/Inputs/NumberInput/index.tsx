@@ -3,7 +3,7 @@ import { AriaNumberFieldProps } from "@react-aria/numberfield";
 import classNames from "classnames";
 
 import { AriaProps, FieldInputProps, HasVariant } from "../../../types";
-import { useVariantClass } from "../../../hooks";
+import { useVariantClass } from "../../../hooks/variants";
 import { FieldInput, NumberField, ComboInput } from "../../Fields";
 import { Group } from "../../Layout/Group";
 import FloatingFieldInputWrapper from "../../Internal/FloatingFieldInputWrapper";

@@ -13,7 +13,7 @@ import {
   ToggleSwitchWrapper,
 } from "./ToggleSwitch.styles";
 import { useForwardedRef } from "../../../hooks/useForwardedRef";
-import { useFirstStateChange } from "../../../hooks";
+import { useFirstStateChange } from "../../../hooks/util";
 import { useFocusRing } from "../../../hooks/useFocusRing";
 
 export interface ToggleSwitchProps

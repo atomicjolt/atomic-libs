@@ -9,7 +9,7 @@ import {
   OverlayTriggerState,
   useOverlayTriggerState,
 } from "react-stately";
-import { useVariantClass } from "../../../hooks";
+import { useVariantClass } from "../../../hooks/variants";
 import { HasClassName } from "../../../types";
 import {
   ModalBackground,

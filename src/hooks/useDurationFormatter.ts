@@ -120,5 +120,7 @@ export function formatDuration(
 }
 
 export function useDurationFormatter(options?: FormatDurationOptions) {
-  return (value: number) => formatDuration(value, options);
+  return {
+    format: (value: number) => formatDuration(value, options),
+  };
 }

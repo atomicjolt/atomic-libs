@@ -1,7 +1,7 @@
 import React, { DetailedHTMLProps, SelectHTMLAttributes } from "react";
 import cn from "classnames";
 import { FieldInputProps } from "../../../types";
-import { useIds } from "../../../hooks";
+import { useIds } from "../../../hooks/util";
 import { SelectWrapper, StyledSelect } from "./Select.styles";
 import { ErrorMessage, Label, Message } from "../../Fields";
 import { FieldWrapper } from "../../Internal/FieldWrapper";

@@ -24,7 +24,7 @@ import {
   TabsWrapper,
 } from "./Tabs.Styles";
 import { BaseProps, HasVariant } from "../../../types";
-import { useVariantClass } from "../../../hooks";
+import { useVariantClass } from "../../../hooks/variants";
 
 export interface TabsProps<T>
   extends TabListProps<T>,
