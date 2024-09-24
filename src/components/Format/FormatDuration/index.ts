@@ -1,6 +1,9 @@
 import { FormatterProps } from "../Format.types";
 import { useRenderFormat } from "../../../hooks/useRenderFormat";
-import { FormatDurationOptions, formatDuration } from "./useDurationFormatter";
+import {
+  FormatDurationOptions,
+  formatDuration,
+} from "../../../hooks/useDurationFormatter";
 
 export interface FormatDurationProps
   extends FormatterProps<number, string>,

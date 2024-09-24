@@ -5,10 +5,11 @@ import {
   MaterialIconVariants,
   RenderBaseProps,
 } from "../../../types";
-import { useForwardedRef, useRenderProps } from "../../../hooks";
+import { useRenderProps } from "../../../hooks";
 import { StyledIcon } from "../Icons.styles";
 import { filterDOMProps, mergeProps } from "@react-aria/utils";
 import { useFocusable } from "@react-aria/focus";
+import useForwardedRef from "@hooks/useForwardedRef";
 
 export interface MaterialIconProps
   extends Omit<React.ComponentProps<"i">, "className" | "style" | "children">,

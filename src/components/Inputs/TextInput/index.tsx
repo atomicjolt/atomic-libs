@@ -1,7 +1,7 @@
 import React from "react";
 import { AriaTextFieldProps } from "@react-aria/textfield";
 import classNames from "classnames";
-import { useVariantClass } from "../../../hooks";
+import { useVariantClass } from "../../../hooks/variants";
 import { AriaProps, FieldInputProps, HasVariant } from "../../../types";
 import { StyledTextField } from "../Inputs.styles";
 import { FieldInput } from "../../Fields";

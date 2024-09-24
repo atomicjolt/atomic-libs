@@ -6,7 +6,7 @@ import { AriaButtonProps } from "@react-aria/button";
 import { mergeProps } from "@react-aria/utils";
 
 import { copyStaticProperties } from "@utils/clone";
-import { useVariantClass } from "@hooks";
+import { useVariantClass } from "@hooks/variants";
 import { Item } from "@components/Collection";
 import IconButton from "@components/Buttons/IconButton";
 import { useConditionalPress } from "@hooks/useConditionalPress";

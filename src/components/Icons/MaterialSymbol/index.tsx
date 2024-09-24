@@ -1,9 +1,10 @@
 import React, { RefObject } from "react";
 import { ExtendedSize, MaterialIcons, RenderBaseProps } from "../../../types";
-import { useForwardedRef, useRenderProps } from "../../../hooks";
+import { useRenderProps } from "../../../hooks";
 import { StyledIcon } from "../Icons.styles";
 import { useFocusable } from "@react-aria/focus";
 import { filterDOMProps, mergeProps } from "@react-aria/utils";
+import useForwardedRef from "@hooks/useForwardedRef";
 
 export type MaterialSymbolVariants = "outlined" | "rounded" | "sharp";
 
