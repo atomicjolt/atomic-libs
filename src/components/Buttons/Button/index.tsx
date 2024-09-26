@@ -15,6 +15,8 @@ import useForwardedRef from "../../../hooks/useForwardedRef";
 import { useFocusRing } from "../../../hooks/useFocusRing";
 import { useRenderProps } from "@hooks/useRenderProps";
 import { useButtonLink } from "@hooks/useButtonLink";
+import { useContextProps } from "@hooks/useContextProps";
+import { ButtonContext } from "./Button.context";
 
 export type ButtonProps = AriaButtonOptions<"button"> &
   LoadingProps &
@@ -35,7 +37,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       loadingComplete = false,
       className,
       as = props.href ? "a" : "button",
-    } = props;
+    } = useContextProps(ButtonContext, props);
+
     const internalRef = useForwardedRef<HTMLButtonElement>(ref);
     const { buttonProps, isPressed } = useButtonLink(
       {

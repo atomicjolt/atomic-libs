@@ -104,7 +104,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:ui": "vitest --ui",
-    "playground": "vite --config playground/vite.config.ts"
+    "playground": "vite --config playground/vite.config.ts dev"
   },
   "packageManager": "yarn@3.6.4",
   "stableVersion": "1.0.1"

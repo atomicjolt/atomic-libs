@@ -5,6 +5,8 @@ import { Table } from ".";
 import { Key, SearchDescriptor } from "../../../types";
 import { getCssProps } from "@sb/cssprops";
 import { Flex } from "../Flex/Flex";
+import Button from "@components/Buttons/Button";
+import { MaterialIcon } from "@components/index";
 
 const meta: Meta<typeof Table> = {
   title: "Layouts/Table",
@@ -504,5 +506,29 @@ export const RenderEmptyTable: Story = {
         }
       />,
     ],
+  },
+};
+
+export const WithTableBottom: Story = {
+  ...Primary,
+  render: (args) => (
+    <>
+      <Table {...args} />
+      <Table.Bottom isSticky={args.isSticky}>
+        <Flex
+          alignItems="center"
+          style={{ height: "100%", paddingLeft: "var(--table-padding-horz)" }}
+        >
+          <Button variant="secondary">
+            <MaterialIcon icon="add" />
+            Add Pokemon
+          </Button>
+        </Flex>
+      </Table.Bottom>
+    </>
+  ),
+  args: {
+    ...Primary.args,
+    hasBottom: true,
   },
 };

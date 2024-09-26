@@ -1,13 +1,28 @@
-export interface PageProps {
+export interface PageState {
   /** The current page number (controlled) */
-  page?: number;
+  page: number;
+  /** Callback when the page changes */
+  onPageChange: (page: number) => void;
+  /** The total number of pages. Optionally provide
+   * for Pagination.PageList and Pagination.LastPage */
+  totalPages?: number;
+
+  /** The size of each page */
+  pageSize: number;
+
+  onPageSizeChange: (pageSize: number) => void;
+}
+
+export interface PageProps extends Partial<PageState> {
   /** The default page number (uncontrolled)
    * @default 1
    */
   defaultPage?: number;
-  /** The total number of pages
+
+  /** The default page size (uncontrolled)
+   * @default 10
    */
-  totalPages: number;
+  defaultPageSize?: number;
 }
 
 export interface PageSizeProps {

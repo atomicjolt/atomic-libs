@@ -113,6 +113,10 @@ export interface TableProps<T>
   size?: ExtendedSize;
 
   id?: string;
+
+  /** Table makes use of <Table.Bottom> to attach
+   * additional content to the bottom of the table */
+  hasBottom?: boolean;
 }
 
 export interface TableStateExtensions {

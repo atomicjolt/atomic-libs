@@ -9,6 +9,8 @@ import { useRenderProps } from "@hooks/useRenderProps";
 import { ButtonProps } from "../Button";
 import { useFocusRing } from "../../../hooks/useFocusRing";
 import { useButtonLink } from "@hooks/useButtonLink";
+import { useContextProps } from "@hooks/useContextProps";
+import { ButtonContext } from "../Button/Button.context";
 
 export type IconButtonProps = Omit<ButtonProps, "children"> & HasIcon;
 
@@ -26,7 +28,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
       className,
       size = "medium",
       as = props.href ? "a" : "button",
-    } = props;
+    } = useContextProps(ButtonContext, props as any);
     const innerRef = useForwardedRef<HTMLButtonElement>(ref);
     const { buttonProps, isPressed } = useButtonLink(
       {
