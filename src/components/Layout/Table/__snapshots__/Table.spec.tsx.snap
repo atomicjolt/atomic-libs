@@ -8,7 +8,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
       <table
         aria-describedby=""
         aria-label="table"
-        class="sc-fPXMhL dIrmTV aje-table"
+        class="sc-fPXMhL dmjCWq aje-table"
         role="grid"
         tabindex="0"
       >
@@ -49,7 +49,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
                   >
                     <i
                       aria-hidden="true"
-                      class="sc-cwHqhk kRjszR aje-icon material-icons is-small"
+                      class="sc-cwHqhk eFMOzV aje-icon material-icons is-small"
                     >
                       close
                     </i>
@@ -172,7 +172,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
     <table
       aria-describedby=""
       aria-label="table"
-      class="sc-fPXMhL dIrmTV aje-table"
+      class="sc-fPXMhL dmjCWq aje-table"
       role="grid"
       tabindex="0"
     >
@@ -213,7 +213,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
                 >
                   <i
                     aria-hidden="true"
-                    class="sc-cwHqhk kRjszR aje-icon material-icons is-small"
+                    class="sc-cwHqhk eFMOzV aje-icon material-icons is-small"
                   >
                     close
                   </i>
@@ -387,7 +387,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
       <table
         aria-describedby=""
         aria-label="table"
-        class="sc-fPXMhL dIrmTV aje-table"
+        class="sc-fPXMhL dmjCWq aje-table"
         role="grid"
         tabindex="0"
       >
@@ -428,7 +428,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
                   >
                     <i
                       aria-hidden="true"
-                      class="sc-cwHqhk kRjszR aje-icon material-icons is-small"
+                      class="sc-cwHqhk eFMOzV aje-icon material-icons is-small"
                     >
                       close
                     </i>
@@ -440,7 +440,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
                 >
                   <i
                     aria-hidden="true"
-                    class="sc-cwHqhk kRjszR aje-icon material-icons is-small"
+                    class="sc-cwHqhk eFMOzV aje-icon material-icons is-small"
                   >
                     search
                   </i>
@@ -562,7 +562,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
     <table
       aria-describedby=""
       aria-label="table"
-      class="sc-fPXMhL dIrmTV aje-table"
+      class="sc-fPXMhL dmjCWq aje-table"
       role="grid"
       tabindex="0"
     >
@@ -603,7 +603,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
                 >
                   <i
                     aria-hidden="true"
-                    class="sc-cwHqhk kRjszR aje-icon material-icons is-small"
+                    class="sc-cwHqhk eFMOzV aje-icon material-icons is-small"
                   >
                     close
                   </i>
@@ -615,7 +615,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
               >
                 <i
                   aria-hidden="true"
-                  class="sc-cwHqhk kRjszR aje-icon material-icons is-small"
+                  class="sc-cwHqhk eFMOzV aje-icon material-icons is-small"
                 >
                   search
                 </i>
@@ -788,7 +788,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
       <table
         aria-describedby=""
         aria-label="table"
-        class="sc-fPXMhL dIrmTV aje-table"
+        class="sc-fPXMhL dmjCWq aje-table"
         data-loading="true"
         role="grid"
         tabindex="0"
@@ -830,7 +830,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   >
                     <i
                       aria-hidden="true"
-                      class="sc-cwHqhk kRjszR aje-icon material-icons is-small"
+                      class="sc-cwHqhk eFMOzV aje-icon material-icons is-small"
                     >
                       close
                     </i>
@@ -842,7 +842,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                 >
                   <i
                     aria-hidden="true"
-                    class="sc-cwHqhk kRjszR aje-icon material-icons is-small"
+                    class="sc-cwHqhk eFMOzV aje-icon material-icons is-small"
                   >
                     search
                   </i>
@@ -2062,7 +2062,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
     <table
       aria-describedby=""
       aria-label="table"
-      class="sc-fPXMhL dIrmTV aje-table"
+      class="sc-fPXMhL dmjCWq aje-table"
       data-loading="true"
       role="grid"
       tabindex="0"
@@ -2104,7 +2104,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                 >
                   <i
                     aria-hidden="true"
-                    class="sc-cwHqhk kRjszR aje-icon material-icons is-small"
+                    class="sc-cwHqhk eFMOzV aje-icon material-icons is-small"
                   >
                     close
                   </i>
@@ -2116,7 +2116,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
               >
                 <i
                   aria-hidden="true"
-                  class="sc-cwHqhk kRjszR aje-icon material-icons is-small"
+                  class="sc-cwHqhk eFMOzV aje-icon material-icons is-small"
                 >
                   search
                 </i>
@@ -3387,8 +3387,8 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
       <table
         aria-describedby=""
         aria-label="table"
-        class="sc-fPXMhL dIrmTV aje-table"
-        data-has-pagination="true"
+        class="sc-fPXMhL dmjCWq aje-table"
+        data-has-bottom="true"
         role="grid"
         tabindex="0"
       >
@@ -3429,7 +3429,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
                   >
                     <i
                       aria-hidden="true"
-                      class="sc-cwHqhk kRjszR aje-icon material-icons is-small"
+                      class="sc-cwHqhk eFMOzV aje-icon material-icons is-small"
                     >
                       close
                     </i>
@@ -3441,7 +3441,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
                 >
                   <i
                     aria-hidden="true"
-                    class="sc-cwHqhk kRjszR aje-icon material-icons is-small"
+                    class="sc-cwHqhk eFMOzV aje-icon material-icons is-small"
                   >
                     search
                   </i>
@@ -3552,131 +3552,140 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
         </tbody>
       </table>
       <div
-        class="sc-dAbbbq dUSBgi aje-table__bottom"
+        class="sc-dAbbbq iefnSH aje-table__bottom"
       >
         <div
-          class="sc-dtImxT YRXIg aje-select aje-select--ghost is-auto"
+          class="sc-kAycRU rYjSQ aje-flex"
+          style="height: 100%;"
         >
           <div
-            aria-hidden="true"
-            data-a11y-ignore="aria-hidden-focus"
-            data-react-aria-prevent-focus="true"
-            data-testid="hidden-select-container"
-            style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+            class="sc-dtImxT YRXIg aje-select aje-select--ghost is-auto"
           >
-            <input
-              style="font-size: 16px;"
-              tabindex="-1"
-              type="text"
-            />
-            <label>
-              <select
+            <div
+              aria-hidden="true"
+              data-a11y-ignore="aria-hidden-focus"
+              data-react-aria-prevent-focus="true"
+              data-testid="hidden-select-container"
+              style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+            >
+              <input
+                style="font-size: 16px;"
                 tabindex="-1"
+                type="text"
+              />
+              <label>
+                <select
+                  tabindex="-1"
+                >
+                  <option />
+                  <option
+                    value="10"
+                  >
+                    1-10 of 100
+                  </option>
+                  <option
+                    value="25"
+                  >
+                    1-25 of 100
+                  </option>
+                  <option
+                    value="50"
+                  >
+                    1-50 of 100
+                  </option>
+                  <option
+                    value="100"
+                  >
+                    1-100 of 100
+                  </option>
+                </select>
+              </label>
+            </div>
+            <button
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-label="Select page size"
+              aria-labelledby="react-aria-:rd: react-aria-:r8:"
+              class="sc-jEABJj sc-dtBeHJ jWspfU jrrQXo aje-btn sc-kOHUsU lhkDIh aje-btn--dropdown-ghost is-auto"
+              id="react-aria-:r8:"
+              type="button"
+            >
+              <span
+                class="sc-cWSIco ditNNH"
+                id="react-aria-:rd:"
               >
-                <option />
-                <option
-                  value="10"
-                >
-                  1-10 of 100
-                </option>
-                <option
-                  value="25"
-                >
-                  1-25 of 100
-                </option>
-                <option
-                  value="50"
-                >
-                  1-50 of 100
-                </option>
-                <option
-                  value="100"
-                >
-                  1-100 of 100
-                </option>
-              </select>
-            </label>
+                1
+                -
+                10
+                 of 
+                100
+              </span>
+              <i
+                aria-hidden="true"
+                class="sc-cwHqhk eFMOzV aje-icon material-icons is-medium"
+              >
+                arrow_drop_down
+              </i>
+            </button>
           </div>
-          <button
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-label="Select page size"
-            aria-labelledby="react-aria-:rd: react-aria-:r8:"
-            class="sc-jEABJj sc-dtBeHJ jWspfU jrrQXo aje-btn sc-kOHUsU lhkDIh aje-btn--dropdown-ghost is-auto"
-            id="react-aria-:r8:"
-            type="button"
+          <div
+            class="aje-pagination"
           >
-            <span
-              class="sc-cWSIco ditNNH"
-              id="react-aria-:rd:"
+            <div
+              class="sc-kAycRU fXCyDv aje-flex"
             >
-              1
-              -
-              10
-               of 
-              100
-            </span>
-            <i
-              aria-hidden="true"
-              class="sc-cwHqhk kRjszR aje-icon material-icons is-medium"
-            >
-              arrow_drop_down
-            </i>
-          </button>
-        </div>
-        <div
-          class="sc-kAycRU fXCyDv aje-flex aje-pagination"
-        >
-          <button
-            aria-label="First Page"
-            class="sc-jEABJj sc-cPiJYC jWspfU fCQrOy aje-btn aje-btn--icon aje-btn--ghost is-medium"
-            disabled=""
-            type="button"
-          >
-            <i
-              aria-hidden="true"
-              class="sc-cwHqhk kRjszR aje-icon material-icons is-medium"
-            >
-              first_page
-            </i>
-          </button>
-          <button
-            aria-label="Previous Page"
-            class="sc-jEABJj sc-cPiJYC jWspfU fCQrOy aje-btn aje-btn--icon aje-btn--ghost is-medium"
-            disabled=""
-            type="button"
-          >
-            <i
-              aria-hidden="true"
-              class="sc-cwHqhk kRjszR aje-icon material-icons is-medium"
-            >
-              chevron_left
-            </i>
-          </button>
-          <button
-            aria-label="Next Page"
-            class="sc-jEABJj sc-cPiJYC jWspfU fCQrOy aje-btn aje-btn--icon aje-btn--ghost is-medium"
-            type="button"
-          >
-            <i
-              aria-hidden="true"
-              class="sc-cwHqhk kRjszR aje-icon material-icons is-medium"
-            >
-              chevron_right
-            </i>
-          </button>
-          <button
-            aria-label="Last Page"
-            class="sc-jEABJj sc-cPiJYC jWspfU fCQrOy aje-btn aje-btn--icon aje-btn--ghost is-medium"
-            type="button"
-          >
-            <i
-              aria-hidden="true"
-              class="sc-cwHqhk kRjszR aje-icon material-icons is-medium"
-            >
-              last_page
-            </i>
-          </button>
+              <button
+                aria-label="First Page"
+                class="sc-jEABJj sc-cPiJYC jWspfU fCQrOy aje-btn aje-btn--icon aje-btn--ghost is-medium"
+                disabled=""
+                type="button"
+              >
+                <i
+                  aria-hidden="true"
+                  class="sc-cwHqhk eFMOzV aje-icon material-icons is-medium"
+                >
+                  first_page
+                </i>
+              </button>
+              <button
+                aria-label="Previous Page"
+                class="sc-jEABJj sc-cPiJYC jWspfU fCQrOy aje-btn aje-btn--icon aje-btn--ghost is-medium"
+                disabled=""
+                type="button"
+              >
+                <i
+                  aria-hidden="true"
+                  class="sc-cwHqhk eFMOzV aje-icon material-icons is-medium"
+                >
+                  chevron_left
+                </i>
+              </button>
+              <button
+                aria-label="Next Page"
+                class="sc-jEABJj sc-cPiJYC jWspfU fCQrOy aje-btn aje-btn--icon aje-btn--ghost is-medium"
+                type="button"
+              >
+                <i
+                  aria-hidden="true"
+                  class="sc-cwHqhk eFMOzV aje-icon material-icons is-medium"
+                >
+                  chevron_right
+                </i>
+              </button>
+              <button
+                aria-label="Last Page"
+                class="sc-jEABJj sc-cPiJYC jWspfU fCQrOy aje-btn aje-btn--icon aje-btn--ghost is-medium"
+                type="button"
+              >
+                <i
+                  aria-hidden="true"
+                  class="sc-cwHqhk eFMOzV aje-icon material-icons is-medium"
+                >
+                  last_page
+                </i>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -3691,8 +3700,8 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
     <table
       aria-describedby=""
       aria-label="table"
-      class="sc-fPXMhL dIrmTV aje-table"
-      data-has-pagination="true"
+      class="sc-fPXMhL dmjCWq aje-table"
+      data-has-bottom="true"
       role="grid"
       tabindex="0"
     >
@@ -3733,7 +3742,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
                 >
                   <i
                     aria-hidden="true"
-                    class="sc-cwHqhk kRjszR aje-icon material-icons is-small"
+                    class="sc-cwHqhk eFMOzV aje-icon material-icons is-small"
                   >
                     close
                   </i>
@@ -3745,7 +3754,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
               >
                 <i
                   aria-hidden="true"
-                  class="sc-cwHqhk kRjszR aje-icon material-icons is-small"
+                  class="sc-cwHqhk eFMOzV aje-icon material-icons is-small"
                 >
                   search
                 </i>
@@ -3856,131 +3865,140 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
       </tbody>
     </table>
     <div
-      class="sc-dAbbbq dUSBgi aje-table__bottom"
+      class="sc-dAbbbq iefnSH aje-table__bottom"
     >
       <div
-        class="sc-dtImxT YRXIg aje-select aje-select--ghost is-auto"
+        class="sc-kAycRU rYjSQ aje-flex"
+        style="height: 100%;"
       >
         <div
-          aria-hidden="true"
-          data-a11y-ignore="aria-hidden-focus"
-          data-react-aria-prevent-focus="true"
-          data-testid="hidden-select-container"
-          style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+          class="sc-dtImxT YRXIg aje-select aje-select--ghost is-auto"
         >
-          <input
-            style="font-size: 16px;"
-            tabindex="-1"
-            type="text"
-          />
-          <label>
-            <select
+          <div
+            aria-hidden="true"
+            data-a11y-ignore="aria-hidden-focus"
+            data-react-aria-prevent-focus="true"
+            data-testid="hidden-select-container"
+            style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+          >
+            <input
+              style="font-size: 16px;"
               tabindex="-1"
+              type="text"
+            />
+            <label>
+              <select
+                tabindex="-1"
+              >
+                <option />
+                <option
+                  value="10"
+                >
+                  1-10 of 100
+                </option>
+                <option
+                  value="25"
+                >
+                  1-25 of 100
+                </option>
+                <option
+                  value="50"
+                >
+                  1-50 of 100
+                </option>
+                <option
+                  value="100"
+                >
+                  1-100 of 100
+                </option>
+              </select>
+            </label>
+          </div>
+          <button
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-label="Select page size"
+            aria-labelledby="react-aria-:rd: react-aria-:r8:"
+            class="sc-jEABJj sc-dtBeHJ jWspfU jrrQXo aje-btn sc-kOHUsU lhkDIh aje-btn--dropdown-ghost is-auto"
+            id="react-aria-:r8:"
+            type="button"
+          >
+            <span
+              class="sc-cWSIco ditNNH"
+              id="react-aria-:rd:"
             >
-              <option />
-              <option
-                value="10"
-              >
-                1-10 of 100
-              </option>
-              <option
-                value="25"
-              >
-                1-25 of 100
-              </option>
-              <option
-                value="50"
-              >
-                1-50 of 100
-              </option>
-              <option
-                value="100"
-              >
-                1-100 of 100
-              </option>
-            </select>
-          </label>
+              1
+              -
+              10
+               of 
+              100
+            </span>
+            <i
+              aria-hidden="true"
+              class="sc-cwHqhk eFMOzV aje-icon material-icons is-medium"
+            >
+              arrow_drop_down
+            </i>
+          </button>
         </div>
-        <button
-          aria-expanded="false"
-          aria-haspopup="listbox"
-          aria-label="Select page size"
-          aria-labelledby="react-aria-:rd: react-aria-:r8:"
-          class="sc-jEABJj sc-dtBeHJ jWspfU jrrQXo aje-btn sc-kOHUsU lhkDIh aje-btn--dropdown-ghost is-auto"
-          id="react-aria-:r8:"
-          type="button"
+        <div
+          class="aje-pagination"
         >
-          <span
-            class="sc-cWSIco ditNNH"
-            id="react-aria-:rd:"
+          <div
+            class="sc-kAycRU fXCyDv aje-flex"
           >
-            1
-            -
-            10
-             of 
-            100
-          </span>
-          <i
-            aria-hidden="true"
-            class="sc-cwHqhk kRjszR aje-icon material-icons is-medium"
-          >
-            arrow_drop_down
-          </i>
-        </button>
-      </div>
-      <div
-        class="sc-kAycRU fXCyDv aje-flex aje-pagination"
-      >
-        <button
-          aria-label="First Page"
-          class="sc-jEABJj sc-cPiJYC jWspfU fCQrOy aje-btn aje-btn--icon aje-btn--ghost is-medium"
-          disabled=""
-          type="button"
-        >
-          <i
-            aria-hidden="true"
-            class="sc-cwHqhk kRjszR aje-icon material-icons is-medium"
-          >
-            first_page
-          </i>
-        </button>
-        <button
-          aria-label="Previous Page"
-          class="sc-jEABJj sc-cPiJYC jWspfU fCQrOy aje-btn aje-btn--icon aje-btn--ghost is-medium"
-          disabled=""
-          type="button"
-        >
-          <i
-            aria-hidden="true"
-            class="sc-cwHqhk kRjszR aje-icon material-icons is-medium"
-          >
-            chevron_left
-          </i>
-        </button>
-        <button
-          aria-label="Next Page"
-          class="sc-jEABJj sc-cPiJYC jWspfU fCQrOy aje-btn aje-btn--icon aje-btn--ghost is-medium"
-          type="button"
-        >
-          <i
-            aria-hidden="true"
-            class="sc-cwHqhk kRjszR aje-icon material-icons is-medium"
-          >
-            chevron_right
-          </i>
-        </button>
-        <button
-          aria-label="Last Page"
-          class="sc-jEABJj sc-cPiJYC jWspfU fCQrOy aje-btn aje-btn--icon aje-btn--ghost is-medium"
-          type="button"
-        >
-          <i
-            aria-hidden="true"
-            class="sc-cwHqhk kRjszR aje-icon material-icons is-medium"
-          >
-            last_page
-          </i>
-        </button>
+            <button
+              aria-label="First Page"
+              class="sc-jEABJj sc-cPiJYC jWspfU fCQrOy aje-btn aje-btn--icon aje-btn--ghost is-medium"
+              disabled=""
+              type="button"
+            >
+              <i
+                aria-hidden="true"
+                class="sc-cwHqhk eFMOzV aje-icon material-icons is-medium"
+              >
+                first_page
+              </i>
+            </button>
+            <button
+              aria-label="Previous Page"
+              class="sc-jEABJj sc-cPiJYC jWspfU fCQrOy aje-btn aje-btn--icon aje-btn--ghost is-medium"
+              disabled=""
+              type="button"
+            >
+              <i
+                aria-hidden="true"
+                class="sc-cwHqhk eFMOzV aje-icon material-icons is-medium"
+              >
+                chevron_left
+              </i>
+            </button>
+            <button
+              aria-label="Next Page"
+              class="sc-jEABJj sc-cPiJYC jWspfU fCQrOy aje-btn aje-btn--icon aje-btn--ghost is-medium"
+              type="button"
+            >
+              <i
+                aria-hidden="true"
+                class="sc-cwHqhk eFMOzV aje-icon material-icons is-medium"
+              >
+                chevron_right
+              </i>
+            </button>
+            <button
+              aria-label="Last Page"
+              class="sc-jEABJj sc-cPiJYC jWspfU fCQrOy aje-btn aje-btn--icon aje-btn--ghost is-medium"
+              type="button"
+            >
+              <i
+                aria-hidden="true"
+                class="sc-cwHqhk eFMOzV aje-icon material-icons is-medium"
+              >
+                last_page
+              </i>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>,
