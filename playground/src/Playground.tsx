@@ -13,7 +13,7 @@ import Loading from "./tabs/Loading";
 import Links from "./tabs/Links";
 
 function Playground() {
-  const [currentTab, setCurrentTab] = useState<Key>("tables");
+  const [currentTab, setCurrentTab] = useState<Key>("aria");
 
   return (
     <div className="padder" style={{ height: "100%" }}>

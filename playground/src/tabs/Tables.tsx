@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import { Button, Key, PaginationDescriptor, Table } from "../elements";
+import {
+  Button,
+  Flex,
+  Key,
+  Pagination,
+  PaginationDescriptor,
+  Table,
+} from "../elements";
+import { Item } from "react-stately";
 
 export default function Tables() {
   return (
@@ -102,6 +110,56 @@ function PaginatedTable() {
           </Table.Row>
         </Table.Footer>
       </Table>
+
+      <Table aria-label="Table with custom pagination" hasBottom>
+        <Table.Header>
+          <Table.Column key="foo" showDivider>
+            Foo
+          </Table.Column>
+          <Table.Column key="bar">Bar</Table.Column>
+          <Table.Column key="baz">Baz</Table.Column>
+        </Table.Header>
+        <Table.Body>
+          <Table.Row key="row 1">
+            <Table.Cell>Lvl 1 Foo 1</Table.Cell>
+            <Table.Cell>Lvl 1 Bar 1</Table.Cell>
+            <Table.Cell> Lvl 1 Baz 1</Table.Cell>
+          </Table.Row>
+          <Table.Row key="row 2">
+            <Table.Cell>Lvl 1 Foo 2</Table.Cell>
+            <Table.Cell>Lvl 1 Bar 2</Table.Cell>
+            <Table.Cell>Lvl 1 Baz 2</Table.Cell>
+          </Table.Row>
+        </Table.Body>
+        <Table.Footer>
+          <Table.Row>
+            <Table.Cell isRowHeader>Lvl 1 Foo 2</Table.Cell>
+            <Table.Cell>Lvl 1 Bar 2</Table.Cell>
+            <Table.Cell>Lvl 1 Baz 2</Table.Cell>
+          </Table.Row>
+        </Table.Footer>
+      </Table>
+      <Table.Bottom>
+        <Flex
+          justifyContent="flex-end"
+          alignItems="center"
+          style={{ height: "100%", paddingRight: "var(--table-padding-horz)" }}
+        >
+          <Pagination>
+            <Flex justifyContent="flex-end" alignItems="center" gap={8}>
+              <Pagination.PageSize size="auto" variant="ghost">
+                <Item key={10}>10 rows</Item>
+                <Item key={25}>25 row</Item>
+                <Item key={50}>50 rows</Item>
+                <Item key={100}>100 rows</Item>
+              </Pagination.PageSize>
+              <Pagination.FirstPage />
+              <Pagination.PrevPage />
+              <Pagination.NextPage />
+            </Flex>
+          </Pagination>
+        </Flex>
+      </Table.Bottom>
     </>
   );
 }

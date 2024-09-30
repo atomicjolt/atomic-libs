@@ -17,8 +17,4 @@ export const StyledIcon = styled.i`
   &.is-disabled {
     color: rgba(0, 0, 0, 0.3);
   }
-
-  &:hover {
-    cursor: default;
-  }
 `;

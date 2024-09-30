@@ -12,6 +12,7 @@ import { TableBody } from "./components/public/TableBody";
 import { TableFooter } from "./components/public/TableFooter";
 import { LoadingCellContent } from "./components/internal/Loading";
 import { PaginationDescriptor } from "../../../types";
+import { TableBottom } from "./components/public/TableBottom";
 
 /** Table component that supports sorting, row selection, and column reordering.  */
 export function Table<T extends object>(props: TableProps<T>) {
@@ -54,6 +55,7 @@ Table.Body = TableBody;
 Table.Footer = TableFooter;
 Table.Row = Row;
 Table.Cell = TableCell;
+Table.Bottom = TableBottom;
 
 interface TableSkeletonProps {
   columns: number;

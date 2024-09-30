@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 import mixins from "@styles/mixins";
 import { ComboInput, Input } from "@components/Fields";
 import { SkeletonLoader } from "../../Loaders/SkeletonLoader";
+import { Flex } from "../Flex/Flex";
 
 const ShowVerticalDividerMixin = css`
   &[data-divider] {
@@ -33,7 +34,7 @@ export const StyledTable = styled.table`
     }
   }
 
-  &[data-has-pagination] {
+  &[data-has-bottom] {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   }
@@ -54,11 +55,7 @@ export const CellContent = styled.span`
   width: 100%;
 `;
 
-export const TableBottom = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding-right: var(--table-padding-horz);
+export const StyledTableBottom = styled.div`
   height: var(--table-cell-height);
   border: solid var(--table-border-clr);
   border-width: 0 var(--table-border-width) var(--table-border-width)
@@ -69,10 +66,6 @@ export const TableBottom = styled.div`
     position: sticky;
     left: 0;
     z-index: 1;
-  }
-
-  .aje-flex {
-    height: 100%;
   }
 `;
 
