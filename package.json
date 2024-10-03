@@ -12,9 +12,11 @@
   "license": "MIT",
   "dependencies": {
     "@internationalized/date": "^3.5.2",
+    "@react-aria/breadcrumbs": "^3.5.17",
     "@react-aria/button": "^3.9.5",
     "@react-aria/calendar": "^3.5.8",
     "@react-aria/checkbox": "^3.14.3",
+    "@react-aria/collections": "^3.0.0-alpha.5",
     "@react-aria/combobox": "^3.9.1",
     "@react-aria/datepicker": "^3.10.1",
     "@react-aria/dialog": "^3.5.14",
