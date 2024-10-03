@@ -1,10 +1,16 @@
 import { Node } from "react-stately";
-import { ItemProps, SectionProps } from "react-stately";
+import {
+  ItemProps,
+  SectionProps,
+  Item as RSItem,
+  Section as RSSection,
+} from "react-stately";
 import {
   createBranchComponent,
   createLeafComponent,
 } from "@react-aria/collections";
 import { createContext, useContext } from "react";
+import { copyStaticProperties } from "@utils/clone";
 
 interface ItemContextValue {
   render: (
@@ -35,6 +41,8 @@ export const Item = createLeafComponent(
     return render(props, ref, item);
   }
 );
+
+copyStaticProperties(RSItem, Item);
 
 interface SectionContextValue {
   render: (
@@ -72,5 +80,7 @@ export const Section = createBranchComponent(
     return render(props, ref, section);
   }
 );
+
+copyStaticProperties(RSSection, Section);
 
 export type { ItemProps, SectionProps };

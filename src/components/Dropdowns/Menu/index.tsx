@@ -1,6 +1,11 @@
 import { useContext, useRef } from "react";
 import { useTreeState } from "react-stately";
-import { LinkDOMProps, Node, SectionProps } from "@react-types/shared";
+import {
+  Collection as ICollection,
+  LinkDOMProps,
+  Node,
+  SectionProps,
+} from "@react-types/shared";
 import classNames from "classnames";
 import {
   AriaMenuProps,
@@ -41,7 +46,7 @@ export interface MenuProps<T>
 
 /** A Menu is a collection of items that the user can select.
  * When an item in the menu is selected, an associated action is performed */
-export function Menu<T extends {}>(props: MenuProps<T>) {
+export function Menu<T extends object>(props: MenuProps<T>) {
   const mergedProps = useContextProps(MenuContext, props);
   const ref = useRef<HTMLUListElement | null>(null);
 
@@ -49,11 +54,7 @@ export function Menu<T extends {}>(props: MenuProps<T>) {
     <CollectionBuilder content={<Collection {...props} />}>
       {(collection) =>
         collection.size > 0 && (
-          <MenuInner
-            {...mergedProps}
-            collection={collection as any}
-            menuRef={ref}
-          />
+          <MenuInner {...mergedProps} collection={collection} menuRef={ref} />
         )
       }
     </CollectionBuilder>
@@ -61,7 +62,7 @@ export function Menu<T extends {}>(props: MenuProps<T>) {
 }
 
 interface MenuInnerProps<T> extends MenuProps<T> {
-  collection: BaseCollection<Node<object>>;
+  collection: ICollection<Node<object>>;
   menuRef: React.ForwardedRef<HTMLUListElement | null>;
 }
 

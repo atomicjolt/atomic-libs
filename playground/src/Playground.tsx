@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 // import "./playground.scss";
 
-import { Item, Key, Tabs } from "./elements";
+import { Key, Tabs, Item } from "./elements";
 import Buttons from "./tabs/Buttons";
 import Modals from "./tabs/Modals";
 import Tables from "./tabs/Tables";
@@ -14,6 +14,7 @@ import Links from "./tabs/Links";
 
 function Playground() {
   const [currentTab, setCurrentTab] = useState<Key>("aria");
+  console.log(currentTab);
 
   return (
     <div className="padder" style={{ height: "100%" }}>
@@ -39,13 +40,13 @@ function Playground() {
         <Item key="loading" title="Loading">
           <Loading />
         </Item>
-
         <Item key="links" title="Links">
           <Links />
         </Item>
-        <Item key="aria" title="Aria">
+        <Tabs.Tab title="Other content">other content</Tabs.Tab>
+        <Tabs.Tab id="aria" title="Aria">
           <Aria />
-        </Item>
+        </Tabs.Tab>
       </Tabs>
     </div>
   );

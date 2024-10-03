@@ -23,10 +23,6 @@ export const TabInfo = styled.div`
   font-size: 1.4rem;
 `;
 
-export const TabLinkWrapper = styled.div`
-  position: relative;
-`;
-
 export const TabLink = styled.div`
   ${mixins.Regular}
   --tab-bg-clr: var(--neutral100);

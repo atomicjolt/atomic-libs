@@ -1,6 +1,7 @@
 import React from "react";
 import {
   Button,
+  CustomSelect,
   Flex,
   MaterialIcon,
   Menu,
@@ -8,6 +9,7 @@ import {
   OverlayTrigger,
   Popover,
   Section,
+  Item,
 } from "../elements";
 
 function MyMenuItem(props) {
@@ -50,6 +52,12 @@ export default function Aria() {
           <MyMenuItem>Item 3</MyMenuItem>
         </Menu.Section>
       </Menu>
+
+      <CustomSelect>
+        <Item key="1">Item 1</Item>
+        <Item key="2">Item 2</Item>
+        <Item key="3">Item 3</Item>
+      </CustomSelect>
     </div>
   );
 }
