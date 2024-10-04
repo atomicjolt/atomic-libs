@@ -165,10 +165,10 @@ export const MultiSelectionArgTypes: ArgTypes = {
 };
 
 export const MultiSelectItemChildren = [
-  <Item key="news">News</Item>,
-  <Item key="travel">Travel</Item>,
-  <Item key="gaming">Gaming</Item>,
-  <Item key="shopping">Shopping</Item>,
+  <Item id="news">News</Item>,
+  <Item id="travel">Travel</Item>,
+  <Item id="gaming">Gaming</Item>,
+  <Item id="shopping">Shopping</Item>,
 ];
 
 export const PressableArgTypes: Record<keyof PressEvents, object> = {

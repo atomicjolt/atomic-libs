@@ -1,4 +1,3 @@
-import React from "react";
 import { StoryObj, Meta } from "@storybook/react";
 import { ListBox } from ".";
 import { Item, Section } from "../..";
@@ -26,7 +25,7 @@ type Story = StoryObj<typeof ListBox>;
 export const Primary: Story = {
   args: {
     selectionMode: "single",
-    defaultSelectedKeys: ["1"],
+    defaultSelectedKeys: ["news"],
     selectionBehavior: "toggle",
     children: MultiSelectItemChildren,
   },
@@ -36,7 +35,7 @@ export const MultipleSelection: Story = {
   args: {
     ...Primary.args,
     selectionMode: "multiple",
-    defaultSelectedKeys: ["1", "3"],
+    defaultSelectedKeys: ["news", "gaming"],
   },
 };
 

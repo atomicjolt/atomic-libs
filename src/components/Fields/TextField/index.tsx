@@ -11,27 +11,17 @@ import {
   FieldMessageContext,
 } from "../contexts";
 import { useRenderProps } from "@hooks";
+import { filterDOMProps } from "@react-aria/utils";
 
 export interface TextFieldProps
   extends FieldProps,
-    Omit<AriaProps<AriaTextFieldProps>, "placeholder"> {
-  "data-float"?: boolean;
-  "data-resize"?: "none" | "both" | "horizontal" | "vertical";
-}
+    Omit<AriaProps<AriaTextFieldProps>, "placeholder"> {}
 
 /** Provides the accessbility implementation for a
  * text field and its associated label, error message, and description.
  * */
 export function TextField(props: TextFieldProps) {
-  const {
-    type = "text",
-    isDisabled,
-    isRequired,
-    isReadOnly,
-    name,
-    "data-float": dataFloat,
-    "data-resize": dataResize,
-  } = props;
+  const { type = "text", isDisabled, isRequired, isReadOnly, name } = props;
 
   const [inputElementType, setInputElementType] = useState<
     "input" | "textarea" | null
@@ -81,11 +71,7 @@ export function TextField(props: TextFieldProps) {
   });
 
   return (
-    <StyledField
-      {...renderProps}
-      data-float={dataFloat}
-      data-resize={dataResize}
-    >
+    <StyledField {...renderProps} {...filterDOMProps(props)}>
       <Provider
         values={[
           [FieldLabelContext.Provider, labelProps],

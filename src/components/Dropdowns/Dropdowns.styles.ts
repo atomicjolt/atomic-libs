@@ -6,10 +6,6 @@ export const DropdownButton = styled(Button)`
   justify-content: space-between;
   padding-right: 0.8rem;
 
-  &.is-active {
-    transform: translateY(0px);
-  }
-
   &.aje-btn--dropdown {
     --btn-text-clr: var(--text-clr-alt);
     --btn-bg-clr: var(--neutral50);
@@ -17,6 +13,7 @@ export const DropdownButton = styled(Button)`
     --btn-hover-bg-clr: var(--neutral100);
     // To match the actual select element
     --btn-border: 1px solid var(--input-border-clr);
+    --btn-pressed-transform: translateY(0px);
   }
 
   &.aje-btn--dropdown-ghost {
@@ -25,6 +22,8 @@ export const DropdownButton = styled(Button)`
     --btn-hover-text-clr: var(--text-clr);
     --btn-hover-bg-clr: var(--neutral100);
     --btn-border: none;
+    --btn-pressed-transform: translateY(0px);
+
     font-weight: normal;
   }
 `;

@@ -14,11 +14,10 @@ import Links from "./tabs/Links";
 
 function Playground() {
   const [currentTab, setCurrentTab] = useState<Key>("aria");
-  console.log(currentTab);
 
   return (
     <div className="padder" style={{ height: "100%" }}>
-      <Tabs selectedKey={currentTab} onSelectionChange={setCurrentTab}>
+      {/* <Tabs selectedKey={currentTab} onSelectionChange={setCurrentTab}>
         <Item key="buttons" title="Buttons">
           <Buttons />
         </Item>
@@ -47,7 +46,8 @@ function Playground() {
         <Tabs.Tab id="aria" title="Aria">
           <Aria />
         </Tabs.Tab>
-      </Tabs>
+      </Tabs> */}
+      <Aria />
     </div>
   );
 }

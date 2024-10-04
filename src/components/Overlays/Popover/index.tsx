@@ -5,7 +5,11 @@ import {
   Overlay,
   usePopover,
 } from "@react-aria/overlays";
-import { OverlayTriggerProps, useOverlayTriggerState } from "react-stately";
+import {
+  OverlayTriggerProps,
+  OverlayTriggerState,
+  useOverlayTriggerState,
+} from "react-stately";
 import { mergeProps } from "@react-aria/utils";
 
 import { RenderBaseProps, HasVariant } from "../../../types";
@@ -17,6 +21,7 @@ import { PopoverUnderlay, PopoverContent } from "./Popover.styles";
 import { PopoverContext } from "./context";
 import { OverlayTriggerStateContext } from "../OverlayTrigger/context";
 import { invertPlacementAxis } from "@utils/placement";
+import { useIsHidden } from "@react-aria/collections";
 
 export interface PopoverRenderProps {
   /** Width in pixels of the triggering element that opened this popover  */
@@ -37,79 +42,107 @@ export interface PopoverProps
 export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(
   (props: PopoverProps, ref) => {
     const contextProps = useContextProps(PopoverContext, props);
-    const {
-      children,
-      offset = 8,
-      triggerRef,
-      variant,
-      placement = "bottom",
-      ...rest
-    } = contextProps;
+    const { triggerRef, ...rest } = contextProps;
+
     const contextState = useContext(OverlayTriggerStateContext);
     const localState = useOverlayTriggerState(props);
     const state = contextState ?? localState;
 
-    const internalRef = useForwardedRef(ref);
+    const isHiddne = useIsHidden();
 
-    const {
-      popoverProps,
-      underlayProps,
-      placement: placementAxis,
-    } = usePopover(
-      {
-        ...rest,
-        placement,
-        offset,
-        triggerRef: triggerRef!,
-        popoverRef: internalRef,
-      },
-      state
-    );
-
-    const [triggerWidth, setTriggerWidth] = useState(
-      triggerRef?.current?.offsetWidth || 0
-    );
-
-    useResizeObserver(
-      triggerRef?.current,
-      useCallback(
-        () => setTriggerWidth(triggerRef?.current?.offsetWidth || 0),
-        []
-      )
-    );
-
-    const renderProps = useRenderProps({
-      componentClassName: "aje-popover",
-      values: { triggerWidth },
-      ...contextProps,
-    });
-
-    const transformOrigin = invertPlacementAxis(placementAxis);
+    if (isHiddne) {
+      // TODO: fix this
+      return props.children;
+    }
 
     if (!state.isOpen) {
       return null;
     }
 
     return (
-      <Overlay>
-        <PopoverUnderlay {...underlayProps} className="aje-popover-underlay" />
-        <PopoverContent
-          ref={internalRef}
-          id={rest.id}
-          {...mergeProps(popoverProps, renderProps)}
-          style={{
-            ...popoverProps.style,
-            ...renderProps.style,
-            // @ts-ignore
-            "--trigger-width": `${triggerWidth}px`,
-          }}
-          $transformOrigin={transformOrigin}
-        >
-          <DismissButton onDismiss={state.close} />
-          {renderProps.children}
-          <DismissButton onDismiss={state.close} />
-        </PopoverContent>
-      </Overlay>
+      <PopoverInternal
+        {...rest}
+        popoverRef={ref}
+        triggerRef={triggerRef!}
+        state={state}
+      />
     );
   }
 );
+
+interface PopoverInternalProps extends PopoverProps {
+  popoverRef: React.ForwardedRef<HTMLDivElement>;
+  triggerRef: React.RefObject<HTMLElement>;
+  state: OverlayTriggerState;
+}
+
+const PopoverInternal = (props: PopoverInternalProps) => {
+  const {
+    children,
+    offset = 8,
+    placement = "bottom",
+    triggerRef,
+    popoverRef,
+    state,
+    ...rest
+  } = props;
+
+  const internalRef = useForwardedRef(popoverRef);
+
+  const {
+    popoverProps,
+    underlayProps,
+    placement: placementAxis,
+  } = usePopover(
+    {
+      ...rest,
+      placement,
+      offset,
+      triggerRef: triggerRef!,
+      popoverRef: internalRef,
+    },
+    state
+  );
+
+  const [triggerWidth, setTriggerWidth] = useState(
+    triggerRef?.current?.offsetWidth || 0
+  );
+
+  useResizeObserver(
+    triggerRef?.current,
+    useCallback(
+      () => setTriggerWidth(triggerRef?.current?.offsetWidth || 0),
+      []
+    )
+  );
+
+  const renderProps = useRenderProps({
+    componentClassName: "aje-popover",
+    values: { triggerWidth },
+    ...props,
+  });
+
+  const transformOrigin = invertPlacementAxis(placementAxis);
+
+  return (
+    <Overlay>
+      <PopoverUnderlay {...underlayProps} className="aje-popover-underlay" />
+      <PopoverContent
+        ref={internalRef}
+        id={rest.id}
+        {...mergeProps(popoverProps, renderProps)}
+        style={{
+          ...popoverProps.style,
+          ...renderProps.style,
+          // @ts-ignore
+          "--trigger-width": `${triggerWidth}px`,
+        }}
+        $transformOrigin={transformOrigin}
+      >
+        <DismissButton onDismiss={state.close} />
+        {renderProps.children}
+        <DismissButton onDismiss={state.close} />
+      </PopoverContent>
+    </Overlay>
+  );
+};

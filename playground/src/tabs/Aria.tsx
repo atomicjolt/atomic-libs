@@ -1,16 +1,19 @@
 import React from "react";
 import {
   Button,
-  CustomSelect,
   Flex,
   MaterialIcon,
   Menu,
-  MenuTrigger,
   OverlayTrigger,
   Popover,
-  Section,
   Item,
   ListBox,
+  CustomSelect,
+  CustomSelectField,
+  FieldLabel,
+  FieldErrorMessage,
+  SearchInput,
+  TextInput,
 } from "../elements";
 import { Selection } from "react-stately";
 
@@ -55,7 +58,7 @@ export default function Aria() {
 
   return (
     <div>
-      <Menu
+      {/* <Menu
         onAction={console.log}
         selectedKeys={selectedKeys}
         onSelectionChange={setSelectedKeys}
@@ -80,13 +83,50 @@ export default function Aria() {
             {({ name }) => <MyItem>{name}</MyItem>}
           </ListBox.Section>
         )}
-      </ListBox>
+      </ListBox> */}
 
-      {/* <CustomSelect>
-        <Item key="1">Item 1</Item>
-        <Item key="2">Item 2</Item>
-        <Item key="3">Item 3</Item>
-      </CustomSelect> */}
+      {/*
+      <OverlayTrigger>
+        <Button>Open Overlay</Button>
+        <Popover variant="listbox">
+          <ListBox
+            selectionMode="multiple"
+            selectedKeys={selectedKeys}
+            onSelectionChange={setSelectedKeys}
+            items={items}
+          >
+            {(item) => (
+              <ListBox.Section items={item.items} title={item.title}>
+                {({ name }) => <MyItem>{name}</MyItem>}
+              </ListBox.Section>
+            )}
+          </ListBox>
+        </Popover>
+      </OverlayTrigger> */}
+
+      <CustomSelectField>
+        <FieldLabel>Select an item</FieldLabel>
+        <CustomSelectField.Button>
+          <CustomSelectField.Value placeholder="Select an option" />
+        </CustomSelectField.Button>
+        <Popover>
+          <ListBox>
+            <ListBox.Item id="1">Item 1</ListBox.Item>
+            <ListBox.Item id="2">Item 2</ListBox.Item>
+            <ListBox.Item id="3">Item 3</ListBox.Item>
+          </ListBox>
+        </Popover>
+        <FieldErrorMessage>Something went wrong</FieldErrorMessage>
+      </CustomSelectField>
+
+      <br />
+      <br />
+
+      <CustomSelect label="Select an item">
+        <Item>Here is some much longer content</Item>
+        <Item>Item 2</Item>
+        <Item>Item 3</Item>
+      </CustomSelect>
     </div>
   );
 }
