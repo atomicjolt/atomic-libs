@@ -1,5 +1,6 @@
-import React, { useMemo, useRef, useState } from "react";
-import { useListState, Node, ListState } from "react-stately";
+import React, { useContext } from "react";
+import classNames from "classnames";
+import { useListState, Node, ListState, SectionProps } from "react-stately";
 import {
   AriaListBoxProps,
   useListBox,
@@ -7,77 +8,89 @@ import {
   useOption,
 } from "@react-aria/listbox";
 import { mergeProps } from "@react-aria/utils";
-import { useFilter } from "@react-aria/i18n";
-import classNames from "classnames";
-
-import { useFocusRing } from "@hooks/useFocusRing";
-import { BaseProps } from "../../../types";
-import { useForwardedRef } from "../../../hooks/useForwardedRef";
-import { SearchInput } from "../../Inputs/SearchInput";
-import { Label } from "../../Fields";
-import { Divider } from "@components/Layout/Divider";
+import { LinkDOMProps } from "@react-types/shared";
 import {
-  CheckIcon,
-  List,
-  ListItem,
-  SectionTitle,
-  SubList,
-} from "./ListBox.styles";
+  BaseCollection,
+  Collection,
+  CollectionBuilder,
+  createBranchComponent,
+  createLeafComponent,
+} from "@react-aria/collections";
 
-export type ListBoxProps<T> = AriaListBoxProps<T> &
-  BaseProps & {
-    /** Allow the items in the select to be searchable */
-    isSearchable?: boolean;
-    /** Placeholder for the search input */
-    searchPlaceholder?: string;
-    /** Whether to show a checkmark next to selected items */
-    showCheckmark?: boolean;
-  };
+import {
+  ExtendedSize,
+  Key,
+  RenderBaseProps,
+  RenderStyleProps,
+} from "../../../types";
+import { useRenderProps } from "@hooks";
+import { useFocusRing } from "@hooks/useFocusRing";
+import { useForwardedRef } from "@hooks/useForwardedRef";
+import { useCollectionRenderer } from "@hooks/useCollectionRenderer";
+import { Label } from "@components/Fields";
+import { Divider } from "@components/Layout/Divider";
+import { Provider } from "@components/Internal/Provider";
+import { ItemContext, SectionContext } from "@components/Collection";
+import { useContextProps } from "@hooks/useContextProps";
+import { List, ListItem, SectionTitle, SubList } from "./ListBox.styles";
+
+export const ListStateContext = React.createContext<ListState<any> | null>(
+  null
+);
+export const ListBoxContext = React.createContext<ListBoxProps<any> | null>(
+  null
+);
+
+export interface ListBoxProps<T>
+  extends AriaListBoxProps<T>,
+    RenderStyleProps<never> {
+  /** The size of the listbox */
+  size?: ExtendedSize;
+}
 
 /** A listbox displays a list of options and allows a user to select one or more of them.
  * Used as the dropdown menu for `ComboBox` and `CustomSelect` */
 export function ListBox<T extends object>(props: ListBoxProps<T>) {
-  const state = useListState(props);
-  return <UnmanagedListBox {...props} state={state} />;
+  const state = useContext(ListStateContext);
+  const mergedProps = useContextProps(ListBoxContext, props);
+
+  if (state) {
+    return <InternalListBox {...mergedProps} state={state} />;
+  }
+
+  return (
+    <CollectionBuilder content={<Collection {...props} />}>
+      {(collection) => {
+        return (
+          <ManagedListBox {...mergedProps} collection={collection as any} />
+        );
+      }}
+    </CollectionBuilder>
+  );
 }
 
-export type UnmanagedListBoxProps<T> = Omit<ListBoxProps<T>, "children"> & {
-  state: ListState<T>;
-};
+interface ManagedListBoxProps<T> extends ListBoxProps<T> {
+  collection: BaseCollection<T>;
+}
 
-/** Listbox, but the state is passed in instead of managed internally */
-export const UnmanagedListBox = React.forwardRef<
+function ManagedListBox<T extends object>(props: ManagedListBoxProps<T>) {
+  const state = useListState(props);
+  return <InternalListBox {...props} state={state} />;
+}
+
+export interface InternalListBoxProps<T>
+  extends Omit<ListBoxProps<T>, "children"> {
+  state: ListState<T>;
+}
+
+export const InternalListBox = React.forwardRef<
   HTMLUListElement,
-  UnmanagedListBoxProps<any>
+  InternalListBoxProps<any>
 >((props, ref) => {
-  const {
-    isSearchable,
-    searchPlaceholder = "Search",
-    state,
-    className,
-    size = "medium",
-    showCheckmark = false,
-  } = props;
+  const { state, className, size = "medium" } = props;
   const internalRef = useForwardedRef(ref);
   const { listBoxProps, labelProps } = useListBox(props, state, internalRef);
-  const [searchValue, setSearchValue] = useState("");
-  const [isSearching, setIsSearching] = useState(false);
-
-  const { contains } = useFilter({ sensitivity: "base" });
-
-  const filteredItems = useMemo(
-    () =>
-      [...state.collection].filter((item) =>
-        item.type === "section" ? true : contains(item.textValue, searchValue)
-      ),
-    [state.collection, searchValue]
-  );
-
-  if (isSearching) {
-    // Prevent the listbox from handling keyboard events while the search input is focused
-    // Stops it from taking focus away from the search input
-    delete listBoxProps.onKeyDownCapture;
-  }
+  const { CollectionRenderer } = useCollectionRenderer();
 
   return (
     <>
@@ -87,106 +100,116 @@ export const UnmanagedListBox = React.forwardRef<
         ref={internalRef}
         className={classNames("aje-listbox", className, `is-${size}`)}
       >
-        {isSearchable && (
-          <SearchInput
-            aria-label="Search"
-            value={searchValue}
-            onChange={setSearchValue}
-            placeholder={searchPlaceholder}
-            size={size}
-            onFocus={() => setIsSearching(true)}
-            onBlur={() => setIsSearching(false)}
+        <Provider
+          values={[
+            [ItemContext.Provider, { render: ListBoxItem }],
+            [SectionContext.Provider, { render: ListBoxSection }],
+            [ListStateContext.Provider, state],
+          ]}
+        >
+          <CollectionRenderer
+            collection={state.collection as BaseCollection<any>}
           />
-        )}
-        {filteredItems.map((item) =>
-          item.type === "section" ? (
-            <ListBoxSection
-              key={item.key}
-              section={item}
-              state={state}
-              filter={(v) => contains(v, searchValue)}
-              showCheckmark={showCheckmark}
-            />
-          ) : (
-            <ListBoxOption
-              key={item.key}
-              item={item}
-              state={state}
-              showCheckmark={showCheckmark}
-            />
-          )
-        )}
+        </Provider>
       </List>
     </>
   );
 });
 
-interface ListBoxSectionProps<T> {
-  readonly section: Node<T>;
-  readonly state: ListState<T>;
-  readonly filter: (text: string) => boolean;
-  readonly showCheckmark?: boolean;
-}
+interface ListBoxSectionProps<T extends object>
+  extends SectionProps<T>,
+    RenderStyleProps<never> {}
 
-function ListBoxSection<T>(props: ListBoxSectionProps<T>) {
-  const { section, state, filter, showCheckmark = false } = props;
+function ListBoxSection<T extends object>(
+  props: ListBoxSectionProps<T>,
+  ref: React.ForwardedRef<HTMLLIElement>,
+  section: Node<T>
+) {
+  const state = useContext(ListStateContext)!;
+
   const { itemProps, headingProps, groupProps } = useListBoxSection({
     heading: section.rendered,
     "aria-label": section["aria-label"],
   });
 
-  const children = [...section.childNodes].filter((item) =>
-    filter(item.textValue)
-  );
+  const renderProps = useRenderProps({
+    componentClassName: "aje-listbox__section",
+    ...props,
+    children: props.title,
+  });
 
-  if (children.length === 0) {
-    return null;
-  }
+  const { CollectionBranchRenderer } = useCollectionRenderer();
 
-  // If the section is not the first, add a separator element to provide visual separation.
-  // The heading is rendered inside an <li> element, which contains
-  // a <ul> with the child items.
   return (
     <>
       {section.key !== state.collection.getFirstKey() && <Divider as="li" />}
-      <li {...itemProps}>
-        {section.rendered && (
-          <SectionTitle {...headingProps}>{section.rendered}</SectionTitle>
+      <li {...itemProps} ref={ref}>
+        {renderProps.children && (
+          <SectionTitle {...headingProps}>{renderProps.children}</SectionTitle>
         )}
-        <SubList {...groupProps}>
-          {children.map((node) => (
-            <ListBoxOption
-              key={node.key}
-              item={node}
-              state={state}
-              showCheckmark={showCheckmark}
-            />
-          ))}
+        <SubList {...groupProps} {...renderProps}>
+          <CollectionBranchRenderer
+            collection={state.collection as BaseCollection<object>}
+            parent={section}
+          />
         </SubList>
       </li>
     </>
   );
 }
 
-interface ListBoxOptionProps<T> {
-  item: Node<T>;
-  state: ListState<T>;
-  showCheckmark?: boolean;
+ListBox.Section = createBranchComponent("section", ListBoxSection);
+
+interface ListBoxItemRenderProps {
+  isSelected: boolean;
 }
 
-function ListBoxOption<T>(props: ListBoxOptionProps<T>) {
-  const { item, state, showCheckmark } = props;
-  const ref = useRef(null);
-  const { optionProps, isSelected } = useOption({ key: item.key }, state, ref);
+interface ListBoxItemProps
+  extends RenderBaseProps<ListBoxItemRenderProps>,
+    LinkDOMProps {
+  id?: Key;
+  textValue?: string;
+  "aria-label"?: string;
+  isDisabled?: boolean;
+  onAction?: () => void;
+}
+
+function ListBoxItem(
+  props: ListBoxItemProps,
+  ref: React.ForwardedRef<HTMLLIElement>,
+  item: Node<object>
+) {
+  const state = useContext(ListStateContext)!;
+  const internalRef = useForwardedRef<HTMLLIElement>(ref);
+  const { optionProps, isSelected } = useOption(
+    { key: item.key },
+    state,
+    internalRef
+  );
+
+  const renderProps = useRenderProps({
+    componentClassName: "aje-listbox__item",
+    ...props,
+    children: item.rendered,
+    values: {
+      isSelected,
+    },
+  });
 
   // Determine whether we should show a keyboard
   // focus ring for accessibility
   const { focusProps } = useFocusRing();
 
   return (
-    <ListItem {...mergeProps(optionProps, focusProps)} ref={ref}>
-      {item.rendered}
-      {showCheckmark && <CheckIcon icon="check" $isSelected={isSelected} />}
+    <ListItem
+      {...mergeProps(optionProps, focusProps)}
+      {...renderProps}
+      as={props.href ? "a" : "li"}
+      ref={internalRef}
+    >
+      {renderProps.children}
     </ListItem>
   );
 }
+
+ListBox.Item = createLeafComponent("item", ListBoxItem);

@@ -10,8 +10,8 @@ const root = ReactDom.createRoot(rootElement!);
 root.render(
   <React.StrictMode>
     <SensibleDefaults />
-    <DevelopmentErrorBoundary>
-      <Playground />
-    </DevelopmentErrorBoundary>
+    {/* <DevelopmentErrorBoundary> */}
+    <Playground />
+    {/* </DevelopmentErrorBoundary> */}
   </React.StrictMode>
 );

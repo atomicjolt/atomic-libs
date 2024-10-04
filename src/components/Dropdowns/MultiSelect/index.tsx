@@ -13,7 +13,7 @@ import { FloatingInputWrapper } from "../../Internal/FloatingInputWrapper";
 import { ButtonText } from "../CustomSelect/CustomSelect.styles";
 import MaterialIcon from "../../Icons/MaterialIcon";
 import { Popover } from "../../Overlays/Popover";
-import { UnmanagedListBox } from "../ListBox";
+import { InternalListBox } from "../ListBox";
 import { OverlayTriggerStateContext } from "@components/Overlays/OverlayTrigger/context";
 import { useRenderProps } from "@hooks/useRenderProps";
 import { MultiSelectWrapper } from "./MultiSelect.styles";
@@ -132,7 +132,7 @@ export function MultiSelect<T extends object>(props: MultiSelectProps<T>) {
           variant="listbox"
           maxHeight={maxHeight}
         >
-          <UnmanagedListBox
+          <InternalListBox
             {...menuProps}
             state={state}
             isSearchable={isSearchable}

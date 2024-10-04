@@ -10,54 +10,83 @@ import {
   Popover,
   Section,
   Item,
+  ListBox,
 } from "../elements";
+import { Selection } from "react-stately";
 
-function MyMenuItem(props) {
+function MyItem(props) {
   return (
-    <Menu.Item {...props}>
-      {({ isSelected }) => (
+    <Item {...props}>
+      {({ isSelected }: any) => (
         <Flex alignItems="center" gap={8}>
-          {isSelected && <MaterialIcon icon="star" />}
           {props.children}
+          {isSelected && <MaterialIcon icon="star" />}
         </Flex>
       )}
-    </Menu.Item>
+    </Item>
   );
 }
 
 export default function Aria() {
-  const [page, setPage] = React.useState(2);
+  const [selectedKeys, setSelectedKeys] = React.useState<Selection>(
+    new Set("1")
+  );
+
   const items = [
     {
-      id: "1",
-      name: "Item 1",
+      id: "section-1",
+      title: "Section 1",
+      items: [
+        { id: "1", name: "Item 1" },
+        { id: "2", name: "Item 2" },
+        { id: "3", name: "Item 3" },
+      ],
     },
     {
-      id: "2",
-      name: "Item 2",
+      id: "section-2",
+      title: "Section 2",
+      items: [
+        { id: "4", name: "Item 4" },
+        { id: "5", name: "Item 5" },
+        { id: "6", name: "Item 6" },
+      ],
     },
   ];
 
   return (
     <div>
-      <Menu onAction={console.log}>
-        <Menu.Section title="Section 1">
-          <MyMenuItem>Item 1</MyMenuItem>
-          <MyMenuItem>Item 2</MyMenuItem>
-          <MyMenuItem>Item 3</MyMenuItem>
-        </Menu.Section>
-        <Menu.Section title="Section 2">
-          <MyMenuItem>Item 1</MyMenuItem>
-          <MyMenuItem>Item 2</MyMenuItem>
-          <MyMenuItem>Item 3</MyMenuItem>
-        </Menu.Section>
+      <Menu
+        onAction={console.log}
+        selectedKeys={selectedKeys}
+        onSelectionChange={setSelectedKeys}
+        selectionMode="multiple"
+        items={items}
+      >
+        {(item) => (
+          <Menu.Section items={item.items} title={item.title}>
+            {({ name }) => <MyItem>{name}</MyItem>}
+          </Menu.Section>
+        )}
       </Menu>
 
-      <CustomSelect>
+      <ListBox
+        selectionMode="multiple"
+        selectedKeys={selectedKeys}
+        onSelectionChange={setSelectedKeys}
+        items={items}
+      >
+        {(item) => (
+          <ListBox.Section items={item.items} title={item.title}>
+            {({ name }) => <MyItem>{name}</MyItem>}
+          </ListBox.Section>
+        )}
+      </ListBox>
+
+      {/* <CustomSelect>
         <Item key="1">Item 1</Item>
         <Item key="2">Item 2</Item>
         <Item key="3">Item 3</Item>
-      </CustomSelect>
+      </CustomSelect> */}
     </div>
   );
 }

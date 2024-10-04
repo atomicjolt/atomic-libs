@@ -3,7 +3,7 @@ import { createContext, useContext } from "react";
 import { Node } from "react-stately";
 
 interface UseCollectionRenderProps<T = unknown> {
-  collection: BaseCollection<Node<T>>;
+  collection: BaseCollection<T>;
   parent: Node<T> | null;
 }
 
@@ -17,11 +17,11 @@ export function useCollectionRender(props: UseCollectionRenderProps) {
 }
 
 interface CollectionRootRendererProps<T = unknown> {
-  collection: BaseCollection<Node<T>>;
+  collection: BaseCollection<T>;
 }
 
 interface CollectionSectionRendererProps<T = unknown> {
-  collection: BaseCollection<Node<T>>;
+  collection: BaseCollection<T>;
   parent: Node<T>;
 }
 

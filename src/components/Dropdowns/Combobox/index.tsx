@@ -13,7 +13,7 @@ import {
 } from "../../../types";
 import { IconButton } from "../../Buttons/IconButton";
 import { Popover } from "../../Overlays/Popover";
-import { UnmanagedListBox } from "../ListBox";
+import { InternalListBox } from "../ListBox";
 import { ComboInput, Input } from "../../Fields";
 import { FloatingInputWrapper } from "../../Internal/FloatingInputWrapper";
 import { OverlayTriggerStateContext } from "../../Overlays/OverlayTrigger/context";
@@ -136,7 +136,7 @@ export function ComboBox<T extends object>(props: ComboBoxProps<T>) {
           variant="listbox"
           maxHeight={maxHeight}
         >
-          <UnmanagedListBox {...listBoxProps} state={state} ref={listBoxRef} />
+          <InternalListBox {...listBoxProps} state={state} ref={listBoxRef} />
         </Popover>
       </OverlayTriggerStateContext.Provider>
     </ComboBoxWrapper>

@@ -11,7 +11,7 @@ import { ButtonText, CustomSelectWrapper } from "./CustomSelect.styles";
 import { FloatingInputWrapper } from "../../Internal/FloatingInputWrapper";
 import { MaterialIcon } from "../../Icons/MaterialIcon";
 import { Popover } from "../../Overlays/Popover";
-import { UnmanagedListBox } from "../ListBox";
+import { InternalListBox, ListBox, ListStateContext } from "../ListBox";
 import { OverlayTriggerStateContext } from "../../Overlays/OverlayTrigger/context";
 import { useRenderProps } from "@hooks/useRenderProps";
 import { DropdownButton } from "../Dropdowns.styles";
@@ -121,7 +121,7 @@ export function CustomSelect<T extends object>(props: CustomSelectProps<T>) {
           variant="listbox"
           maxHeight={maxHeight}
         >
-          <UnmanagedListBox
+          <InternalListBox
             {...menuProps}
             state={state}
             isSearchable={isSearchable}
