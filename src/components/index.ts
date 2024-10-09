@@ -90,7 +90,7 @@ export {
   ComboInput,
 } from "./Fields";
 
-export { SelectField } from "./Fields/SelectField";
+export { SelectField as SelectField } from "./Fields/SelectField";
 
 export { FormatDate } from "./Format/FormatDate";
 export { FormatNumber } from "./Format/FormatNumber";

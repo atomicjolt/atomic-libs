@@ -9,7 +9,7 @@ import {
   Item,
   ListBox,
   CustomSelect,
-  CustomSelectField,
+  SelectField,
   FieldLabel,
   FieldErrorMessage,
   SearchInput,
@@ -104,11 +104,11 @@ export default function Aria() {
         </Popover>
       </OverlayTrigger> */}
 
-      <CustomSelectField>
+      <SelectField>
         <FieldLabel>Select an item</FieldLabel>
-        <CustomSelectField.Button>
-          <CustomSelectField.Value placeholder="Select an option" />
-        </CustomSelectField.Button>
+        <SelectField.Button>
+          <SelectField.Value placeholder="Select an option" />
+        </SelectField.Button>
         <Popover>
           <ListBox>
             <ListBox.Item id="1">Item 1</ListBox.Item>
@@ -117,7 +117,7 @@ export default function Aria() {
           </ListBox>
         </Popover>
         <FieldErrorMessage>Something went wrong</FieldErrorMessage>
-      </CustomSelectField>
+      </SelectField>
 
       <br />
       <br />

@@ -20,11 +20,11 @@ import {
 import { FieldProps } from "..";
 import { PopoverContext } from "@components/Overlays/Popover/context";
 import { BaseCollection, CollectionBuilder } from "@react-aria/collections";
-import { DOMAttributes, FocusableElement } from "@react-types/shared";
+import { DOMAttributes, FocusableElement, Node } from "@react-types/shared";
 import { ButtonContext } from "@components/Buttons/Button/Button.context";
 import { ButtonProps } from "@components/Buttons/Button";
 import { DropdownButton } from "@components/Dropdowns/Dropdowns.styles";
-import { AriaProps } from "../../../types";
+import { AriaProps, Key } from "../../../types";
 import { ButtonText, CustomSelectWrapper } from "./SelectField.styles";
 
 export interface CustomSelectFieldProps<T>
@@ -135,12 +135,13 @@ export function SelectFieldInner<T extends object>(
   );
 }
 
-interface CustomSelectValueProps {
+interface SelectValueProps {
   placeholder?: React.ReactNode;
 }
 
-function CustomSelectFieldValue(props: CustomSelectValueProps) {
+function SelectFieldValue(props: SelectValueProps) {
   const { placeholder } = props;
+
   const valueProps = useContext(SelectFieldValueContext);
   const state = useContext(SelectStateContext);
 
@@ -153,9 +154,9 @@ function CustomSelectFieldValue(props: CustomSelectValueProps) {
   );
 }
 
-SelectField.Value = CustomSelectFieldValue;
+SelectField.Value = SelectFieldValue;
 
-function CustomSelectFieldButton(props: ButtonProps) {
+function SelectFieldButton(props: ButtonProps) {
   const { variant = "dropdown" } = props;
 
   return (
@@ -169,4 +170,4 @@ function CustomSelectFieldButton(props: ButtonProps) {
   );
 }
 
-SelectField.Button = CustomSelectFieldButton;
+SelectField.Button = SelectFieldButton;
