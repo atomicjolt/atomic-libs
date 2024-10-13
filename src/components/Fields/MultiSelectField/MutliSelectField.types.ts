@@ -1,21 +1,26 @@
+import { Key } from "react";
 import {
   FocusableProps,
   HelpTextProps,
+  InputBase,
   LabelableProps,
   TextInputBase,
+  Validation,
   CollectionStateBase,
   MultipleSelection,
 } from "@react-types/shared";
-import { BaseProps } from "../../../types";
+import { AriaProps } from "../../../types";
+import { FieldProps } from "../Field";
 
 export interface AriaMultiSelectProps<T>
   extends CollectionStateBase<T>,
+    Omit<InputBase, "isReadOnly">,
+    Validation<Key>,
     HelpTextProps,
     LabelableProps,
     TextInputBase,
     Omit<MultipleSelection, "disallowEmptySelection" | "selectionMode">,
-    FocusableProps,
-    BaseProps {
+    FocusableProps {
   /** Sets the open state of the menu. */
   isOpen?: boolean;
   /** Sets the default open state of the menu. */
@@ -26,4 +31,10 @@ export interface AriaMultiSelectProps<T>
    * The name of the input, used when submitting an HTML form.
    */
   name?: string;
+}
+
+export interface MultiSelectFieldProps<T extends object>
+  extends Omit<AriaProps<AriaMultiSelectProps<T>>, "children">,
+    Omit<FieldProps, "children"> {
+  children: React.ReactNode;
 }

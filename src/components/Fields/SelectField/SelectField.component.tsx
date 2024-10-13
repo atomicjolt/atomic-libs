@@ -5,13 +5,11 @@ import { filterDOMProps } from "@react-aria/utils";
 import { PressResponder } from "@react-aria/interactions";
 import { BaseCollection, CollectionBuilder } from "@react-aria/collections";
 
-import { MaterialIcon } from "../../Icons/MaterialIcon";
 import {
   ListBoxContext,
   ListStateContext,
 } from "@components/Dropdowns/ListBox";
 import { OverlayTriggerStateContext } from "../../Overlays/OverlayTrigger/context";
-import { ButtonProps } from "../../Buttons/Button";
 import { useRenderProps } from "@hooks/useRenderProps";
 import { useContextPropsV2 } from "@hooks/useContextProps";
 import { Provider } from "@components/Internal/Provider";
@@ -22,7 +20,6 @@ import {
 } from "@components/Fields";
 import { PopoverContext } from "@components/Overlays/Popover/context";
 import { ButtonContext } from "@components/Buttons/Button/Button.context";
-import { DropdownButton } from "@components/Dropdowns/Dropdowns.styles";
 
 import { ButtonText, SelectFieldWrapper } from "./SelectField.styles";
 import { SelectFieldProps } from "./SelectField.types";
@@ -31,6 +28,7 @@ import {
   SelectFieldValueContext,
   SelectStateContext,
 } from "./SelectField.context";
+import { DropdownButton } from "@components/Internal/DropdownButton";
 
 export interface SelectFieldComponent
   extends React.ForwardRefExoticComponent<SelectFieldProps<any>> {
@@ -38,7 +36,7 @@ export interface SelectFieldComponent
   Value: typeof SelectFieldValue;
   /** Wrapper around `Button` that configures default visual styling
    * for the button that opens the dropdown for a `SelectField` */
-  Button: typeof SelectFieldButton;
+  Button: typeof DropdownButton;
 }
 
 /** Building blocks for building custom & accessible select components */
@@ -157,19 +155,4 @@ function SelectFieldValue(props: SelectValueProps) {
 }
 
 SelectField.Value = SelectFieldValue;
-
-function SelectFieldButton(props: ButtonProps) {
-  const { variant = "dropdown" } = props;
-
-  return (
-    <DropdownButton
-      {...props}
-      variant={variant === "ghost" ? "dropdown-ghost" : variant}
-    >
-      {props.children}
-      <MaterialIcon icon="arrow_drop_down" />
-    </DropdownButton>
-  );
-}
-
-SelectField.Button = SelectFieldButton;
+SelectField.Button = DropdownButton;

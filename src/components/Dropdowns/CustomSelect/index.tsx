@@ -49,9 +49,7 @@ export function CustomSelect<T extends object>(props: CustomSelectProps<T>) {
         message={message}
         error={error}
       >
-        <SelectField.Button
-          variant={variant === "ghost" ? "dropdown-ghost" : "dropdown"}
-        >
+        <SelectField.Button>
           <SelectField.Value
             placeholder={variant === "floating" ? null : placeholder}
           />

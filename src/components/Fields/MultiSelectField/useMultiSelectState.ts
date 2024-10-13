@@ -13,7 +13,7 @@ import {
   useOverlayTriggerState,
 } from "@react-stately/overlays";
 import { useListState, ListState } from "@react-stately/list";
-import { AriaMultiSelectProps } from "./MutliSelect.types";
+import { AriaMultiSelectProps } from "./MutliSelectField.types";
 
 export interface MultiSelectStateOptions<T>
   extends Omit<AriaMultiSelectProps<T>, "children">,

@@ -90,7 +90,8 @@ export {
   ComboInput,
 } from "./Fields";
 
-export { SelectField as SelectField } from "./Fields/SelectField";
+export { SelectField } from "./Fields/SelectField";
+export { MultiSelectField } from "./Fields/MultiSelectField";
 
 export { FormatDate } from "./Format/FormatDate";
 export { FormatNumber } from "./Format/FormatNumber";
@@ -161,7 +162,7 @@ export type { TimeInputProps } from "./Inputs/DateAndTimes/TimeInput";
 export type { DatePickerProps } from "./Inputs/DateAndTimes/DatePicker";
 export type { ListBoxProps } from "./Dropdowns/ListBox";
 export type { DevelopmentErrorModalProps } from "./Overlays/DevelopmentErrorModal";
-export type { MultiSelectProps } from "./Dropdowns/MultiSelect";
+export type { MultiSelectFieldProps } from "./Fields/MultiSelectField";
 export type { PopoverProps } from "./Overlays/Popover";
 export type {
   FieldProps,

@@ -12,8 +12,9 @@ import {
   SelectField,
   FieldLabel,
   FieldErrorMessage,
-  SearchInput,
-  TextInput,
+  Divider,
+  MultiSelectField,
+  MultiSelect,
 } from "../elements";
 import { Selection } from "react-stately";
 
@@ -131,6 +132,40 @@ export default function Aria() {
           </ListBox.Section>
         )}
       </CustomSelect>
+
+      <br />
+      <Divider />
+      <br />
+
+      <MultiSelectField>
+        <FieldLabel>Select an item</FieldLabel>
+        <MultiSelectField.Button>Open up!</MultiSelectField.Button>
+        <Popover>
+          <ListBox items={items}>
+            {(item) => (
+              <ListBox.Section items={item.items} title={item.title}>
+                {({ name }) => <ListBox.Item>{name}</ListBox.Item>}
+              </ListBox.Section>
+            )}
+          </ListBox>
+        </Popover>
+        <FieldErrorMessage>Something went wrong</FieldErrorMessage>
+      </MultiSelectField>
+
+      <br />
+      <br />
+
+      <MultiSelect label="label" items={items}>
+        {(item) => (
+          <ListBox.Section items={item.items} title={item.title}>
+            {({ name }) => <ListBox.Item>{name}</ListBox.Item>}
+          </ListBox.Section>
+        )}
+      </MultiSelect>
+
+      <br />
+      <Divider />
+      <br />
 
       <ListBox
         selectedKeys={selectedKeys}
