@@ -20,10 +20,10 @@ import {
 import { StyledField } from "../Field.styles";
 import { FieldLabel } from "./FieldLabel";
 
-interface FieldRenderProps extends FieldStatusProps {}
+export interface FieldRenderProps extends FieldStatusProps {}
 
-export interface FieldProps
-  extends RenderBaseProps<FieldRenderProps>,
+export interface FieldProps<R extends FieldRenderProps = FieldRenderProps>
+  extends RenderBaseProps<R>,
     FieldStatusProps,
     DomProps,
     AriaProps<AriaFieldProps>,

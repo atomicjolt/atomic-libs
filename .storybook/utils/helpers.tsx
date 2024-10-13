@@ -211,6 +211,30 @@ export const PressableArgTypes: Record<keyof PressEvents, object> = {
   },
 };
 
+export const FocusEventsArgTypes: ArgTypes = {
+  onFocus: {
+    action: "onFocus",
+    description: "Callback for when the input is focused",
+    table: {
+      category: "Events",
+    },
+  },
+  onBlur: {
+    action: "onBlur",
+    description: "Callback for when the input is blurred",
+    table: {
+      category: "Events",
+    },
+  },
+  onFocusChange: {
+    action: "onFocusChange",
+    description: "Callback for when the input is focused",
+    table: {
+      category: "Events",
+    },
+  },
+};
+
 export const OverlayTriggerArgTypes: Record<keyof OverlayTriggerProps, object> =
   {
     defaultOpen: {

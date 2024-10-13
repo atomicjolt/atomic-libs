@@ -1,6 +1,10 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
-import { InputControls } from "@sb/helpers";
+import {
+  FieldStateControls,
+  FocusEventsArgTypes,
+  RenderPropsArgTypes,
+} from "@sb/helpers";
 import { getCssProps } from "@sb/cssprops";
 import { FieldLabel } from "../Field/FieldLabel";
 import { Popover } from "@components/Overlays/Popover";
@@ -18,7 +22,9 @@ export default {
     cssprops: getCssProps("Dropdown", "Listbox", "Button"),
   },
   argTypes: {
-    ...InputControls,
+    ...FieldStateControls,
+    ...RenderPropsArgTypes,
+    ...FocusEventsArgTypes,
     selectedKey: {
       control: "select",
       description:

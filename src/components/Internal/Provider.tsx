@@ -5,13 +5,12 @@ interface ProviderProps {
   children: React.ReactNode;
 }
 
-export function Provider(props: ProviderProps): JSX.Element | null {
+export function Provider(props: ProviderProps): React.ReactNode {
   const { values, children } = props;
 
   const rendered = values.reduce((acc, [Provider, value]) => {
     return <Provider value={value}>{acc}</Provider>;
   }, children);
 
-  // @ts-ignore
   return rendered;
 }
