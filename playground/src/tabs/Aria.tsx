@@ -110,10 +110,12 @@ export default function Aria() {
           <SelectField.Value placeholder="Select an option" />
         </SelectField.Button>
         <Popover>
-          <ListBox>
-            <ListBox.Item id="1">Item 1</ListBox.Item>
-            <ListBox.Item id="2">Item 2</ListBox.Item>
-            <ListBox.Item id="3">Item 3</ListBox.Item>
+          <ListBox items={items}>
+            {(item) => (
+              <ListBox.Section items={item.items} title={item.title}>
+                {({ name }) => <ListBox.Item>{name}</ListBox.Item>}
+              </ListBox.Section>
+            )}
           </ListBox>
         </Popover>
         <FieldErrorMessage>Something went wrong</FieldErrorMessage>
@@ -122,10 +124,12 @@ export default function Aria() {
       <br />
       <br />
 
-      <CustomSelect label="Select an item">
-        <Item>Here is some much longer content</Item>
-        <Item>Item 2</Item>
-        <Item>Item 3</Item>
+      <CustomSelect label="Select an item" items={items}>
+        {(item) => (
+          <ListBox.Section items={item.items} title={item.title}>
+            {({ name }) => <ListBox.Item>{name}</ListBox.Item>}
+          </ListBox.Section>
+        )}
       </CustomSelect>
 
       <ListBox
@@ -133,10 +137,13 @@ export default function Aria() {
         onSelectionChange={setSelectedKeys}
         aria-label="listbox"
         selectionMode="multiple"
+        items={items}
       >
-        <ListBox.Item id="1">Item 1</ListBox.Item>
-        <ListBox.Item id="2">Item 2</ListBox.Item>
-        <ListBox.Item id="3">Item 3</ListBox.Item>
+        {(item) => (
+          <ListBox.Section items={item.items} title={item.title}>
+            {({ name }) => <ListBox.Item>{name}</ListBox.Item>}
+          </ListBox.Section>
+        )}
       </ListBox>
     </div>
   );

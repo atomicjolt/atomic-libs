@@ -4,6 +4,6 @@ import { FieldProps } from "../Field";
 
 export interface SelectFieldProps<T>
   extends Omit<FieldProps, "children">,
-    Omit<AriaProps<AriaSelectProps<T>>, "children"> {
+    Omit<AriaProps<AriaSelectProps<T>>, "children" | "items"> {
   children: React.ReactNode;
 }

@@ -57,7 +57,7 @@ export function CustomSelect<T extends object>(props: CustomSelectProps<T>) {
           />
         </SelectField.Button>
         <Popover maxHeight={maxHeight} placement={dropdownPlacement}>
-          <ListBox>{props.children}</ListBox>
+          <ListBox items={props.items}>{props.children}</ListBox>
         </Popover>
       </FloatingFieldInputWrapper>
     </StyledSelectField>
