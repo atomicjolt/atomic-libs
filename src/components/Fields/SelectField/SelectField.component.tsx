@@ -32,7 +32,7 @@ import {
   SelectStateContext,
 } from "./SelectField.context";
 
-interface SelectFieldComponent
+export interface SelectFieldComponent
   extends React.ForwardRefExoticComponent<SelectFieldProps<any>> {
   /** Renders the selected value of a SelectField */
   Value: typeof SelectFieldValue;

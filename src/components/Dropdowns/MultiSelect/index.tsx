@@ -23,12 +23,6 @@ export interface MultiSelectProps<T extends object>
     FieldInputProps,
     HasVariant<"default" | "floating">,
     DropdownProps {
-  /** Allows the items in the select to be filtered */
-  isSearchable?: boolean;
-
-  /** The placeholder text for the search input*/
-  searchPlaceholder?: string;
-
   /** The placeholder text for the select when the user has made a selection. Defaults to `placeholder` if one isn't provided */
   selectionPlaceholder?: string;
 }
@@ -55,8 +49,6 @@ export function MultiSelect<T extends object>(props: MultiSelectProps<T>) {
     isDisabled,
     isRequired,
     isReadOnly,
-    isSearchable,
-    searchPlaceholder,
     size = "medium",
     placeholder = "Select an option",
     selectionPlaceholder = placeholder,
@@ -132,13 +124,7 @@ export function MultiSelect<T extends object>(props: MultiSelectProps<T>) {
           variant="listbox"
           maxHeight={maxHeight}
         >
-          <InternalListBox
-            {...menuProps}
-            state={state}
-            isSearchable={isSearchable}
-            searchPlaceholder={searchPlaceholder}
-            showCheckmark
-          />
+          <InternalListBox {...menuProps} state={state} />
         </Popover>
       </OverlayTriggerStateContext.Provider>
     </MultiSelectWrapper>

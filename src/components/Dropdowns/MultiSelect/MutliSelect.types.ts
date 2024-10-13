@@ -1,11 +1,8 @@
-import { Key } from "react";
 import {
   FocusableProps,
   HelpTextProps,
-  InputBase,
   LabelableProps,
   TextInputBase,
-  Validation,
   CollectionStateBase,
   MultipleSelection,
 } from "@react-types/shared";
@@ -13,8 +10,6 @@ import { BaseProps } from "../../../types";
 
 export interface AriaMultiSelectProps<T>
   extends CollectionStateBase<T>,
-    Omit<InputBase, "isReadOnly">,
-    Validation<Key>,
     HelpTextProps,
     LabelableProps,
     TextInputBase,
