@@ -127,6 +127,17 @@ export default function Aria() {
         <Item>Item 2</Item>
         <Item>Item 3</Item>
       </CustomSelect>
+
+      <ListBox
+        selectedKeys={selectedKeys}
+        onSelectionChange={setSelectedKeys}
+        aria-label="listbox"
+        selectionMode="multiple"
+      >
+        <ListBox.Item id="1">Item 1</ListBox.Item>
+        <ListBox.Item id="2">Item 2</ListBox.Item>
+        <ListBox.Item id="3">Item 3</ListBox.Item>
+      </ListBox>
     </div>
   );
 }

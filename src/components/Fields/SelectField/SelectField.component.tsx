@@ -84,7 +84,7 @@ export function SelectFieldInner<T extends object>(
     menuProps,
     errorMessageProps,
     descriptionProps,
-  } = useSelect(props, state, ref);
+  } = useSelect({ ...props, label: true }, state, ref);
 
   const renderProps = useRenderProps({
     componentClassName: "aje-select",

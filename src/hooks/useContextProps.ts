@@ -15,7 +15,7 @@ export function useContextProps<T extends PropsArg>(
 }
 
 export function useContextPropsV2<T extends PropsArg, R>(
-  context: React.Context<WithRef<T, R>>,
+  context: React.Context<WithRef<Partial<T>, R>>,
   props: T,
   ref: React.Ref<R>
 ): [T, React.RefObject<R>] {

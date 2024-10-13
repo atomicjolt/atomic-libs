@@ -1,0 +1,40 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SelectField > matches snapshots > when closed 1`] = `
+<DocumentFragment>
+  <ul
+    class="sc-eDPFhE hbYFRi aje-listbox is-medium"
+    id="react-aria-:r0:"
+    role="listbox"
+    tabindex="0"
+  >
+    <li
+      class="sc-gFqAYk Cxefn aje-listbox__item"
+      data-key="1"
+      id="react-aria-:r0:-option-1"
+      role="option"
+      tabindex="-1"
+    >
+      Item 1
+    </li>
+    <li
+      class="sc-gFqAYk Cxefn aje-listbox__item"
+      data-key="2"
+      id="react-aria-:r0:-option-2"
+      role="option"
+      tabindex="-1"
+    >
+      Item 2
+    </li>
+    <li
+      class="sc-gFqAYk Cxefn aje-listbox__item"
+      data-key="3"
+      id="react-aria-:r0:-option-3"
+      role="option"
+      tabindex="-1"
+    >
+      Item 3
+    </li>
+  </ul>
+</DocumentFragment>
+`;

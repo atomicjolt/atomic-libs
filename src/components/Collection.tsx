@@ -32,9 +32,9 @@ export const ItemContext = createContext<ItemContextValue | null>(null);
 /** An Item in a Collection component
  * @example
  * <CustomSelect label="Select a fruit">
- *  <Item key="apple">Apple</Item>
- *  <Item key="orange">Orange</Item>
- *  <Item key="banana">Banana</Item>
+ *  <Item id="apple">Apple</Item>
+ *  <Item id="orange">Orange</Item>
+ *  <Item id="banana">Banana</Item>
  * </CustomSelect>
  */
 export const Item = createLeafComponent(
@@ -71,14 +71,14 @@ export const SectionContext = createContext<SectionContextValue | null>(null);
  * @example
  * <ListBox>
  *  <Section title="Fruits">
- *    <Item key="apple">Apple</Item>
- *    <Item key="orange">Orange</Item>
- *    <Item key="banana">Banana</Item>
+ *    <Item id="apple">Apple</Item>
+ *    <Item id="orange">Orange</Item>
+ *    <Item id="banana">Banana</Item>
  *  </Section>
  *  <Section title="Vegetables">
- *    <Item key="carrot">Carrot</Item>
- *    <Item key="potato">Potato</Item>
- *    <Item key="onion">Onion</Item>
+ *    <Item id="carrot">Carrot</Item>
+ *    <Item id="potato">Potato</Item>
+ *    <Item id="onion">Onion</Item>
  *  </Section>
  * </ListBox>
  */
