@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import {
   Button,
   Flex,
@@ -32,6 +32,7 @@ function MyItem(props) {
 }
 
 export default function Aria() {
+  const ref = useRef(null);
   const [selectedKeys, setSelectedKeys] = React.useState<Selection>(
     new Set("1")
   );
@@ -137,7 +138,11 @@ export default function Aria() {
       <Divider />
       <br />
 
-      <MultiSelectField>
+      <MultiSelectField
+        selectedKeys={selectedKeys}
+        onSelectionChange={setSelectedKeys}
+        ref={ref}
+      >
         <FieldLabel>Select an item</FieldLabel>
         <MultiSelectField.Button>Open up!</MultiSelectField.Button>
         <Popover>
@@ -155,7 +160,12 @@ export default function Aria() {
       <br />
       <br />
 
-      <MultiSelect label="label" items={items}>
+      <MultiSelect
+        label="label"
+        items={items}
+        selectedKeys={selectedKeys}
+        onSelectionChange={setSelectedKeys}
+      >
         {(item) => (
           <ListBox.Section items={item.items} title={item.title}>
             {({ name }) => <ListBox.Item>{name}</ListBox.Item>}

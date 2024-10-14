@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { FieldLabelContext } from "../contexts";
 import classNames from "classnames";
 import { Label, LabelProps } from "../Atoms/Label";

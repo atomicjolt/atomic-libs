@@ -1,4 +1,4 @@
-import { forwardRef, useRef } from "react";
+import { forwardRef, RefAttributes, useRef } from "react";
 import { PressResponder } from "@react-aria/interactions";
 
 import { ListBoxContext, ListStateContext } from "../../Dropdowns/ListBox";
@@ -26,7 +26,9 @@ import { MultiSelectFieldProps } from "./MutliSelectField.types";
 import { useMultiSelect } from "./useMultiSelect";
 
 export interface MultiSelectFieldComponent
-  extends React.ForwardRefExoticComponent<MultiSelectFieldProps<any>> {
+  extends React.ForwardRefExoticComponent<
+    MultiSelectFieldProps<any> & RefAttributes<HTMLButtonElement>
+  > {
   /** Wrapper around `Button` that configures default visual styling
    * for the button that opens the dropdown for a `SelectField` */
   Button: typeof DropdownButton;

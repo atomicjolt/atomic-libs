@@ -42,21 +42,24 @@ export const ListBox = forwardRef(function ListBox<T extends object>(
   const state = useContext(ListStateContext);
   [props, ref] = useContextPropsV2(ListBoxContext, props, ref);
 
+  // When used within a SelectField or similar component,
+  // the state will be provided by the parent component
   if (state) {
     return <InternalListBox {...props} state={state} />;
   }
 
+  // When rendered standalone, we need to build the collection and
+  // manage the state ourselves
   return (
     <CollectionBuilder content={<Collection {...props} />}>
-      {(collection) => {
-        // @ts-expect-error
-        return <ManagedListBox {...props} collection={collection} />;
+      {(collection: BaseCollection<T>) => {
+        return <ManagedListBox<T> {...props} collection={collection} />;
       }}
     </CollectionBuilder>
   );
 }) as ListBoxComponent;
 
-interface ManagedListBoxProps<T> extends ListBoxProps<T> {
+interface ManagedListBoxProps<T extends object> extends ListBoxProps<T> {
   collection: BaseCollection<T>;
 }
 
@@ -136,7 +139,7 @@ function ListBoxSection<T extends object>(
         )}
         <SubList {...groupProps} {...renderProps}>
           <CollectionBranchRenderer
-            collection={state.collection as BaseCollection<object>}
+            collection={state.collection as BaseCollection<T>}
             parent={section}
           />
         </SubList>
@@ -145,7 +148,14 @@ function ListBoxSection<T extends object>(
   );
 }
 
-ListBox.Section = createBranchComponent("section", ListBoxSection);
+// I don't know why but createBranchComponent isn't discovering the type
+// of the ref parameter, so I'm specifying it manually
+
+ListBox.Section = createBranchComponent<
+  object,
+  ListBoxSectionProps<any>,
+  HTMLLIElement
+>("section", ListBoxSection);
 
 interface ListBoxItemRenderProps {
   isSelected: boolean;

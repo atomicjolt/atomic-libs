@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import mixins from "../../../../styles/mixins";
 import React from "react";
-import { ElementWrapperProps } from "../../../../types";
 import classNames from "classnames";
+import { ElementWrapperProps } from "../../../../types";
 
 const StyledLabel = styled.label<{ $paddingBottom: string }>`
   ${mixins.Bold}
