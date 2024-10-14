@@ -1,9 +1,9 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { Menu } from ".";
 import { MenuTrigger } from "./MenuTrigger";
-import Button from "../../Buttons/Button";
-import IconButton from "../../Buttons/IconButton";
-import MaterialIcon from "../../Icons/MaterialIcon";
+import { Button } from "../../Buttons/Button";
+import { IconButton } from "../../Buttons/IconButton";
+import { MaterialIcon } from "../../Icons/MaterialIcon";
 import { Popover } from "../../Overlays/Popover";
 import { OverlayTriggerArgTypes } from "@sb/helpers";
 

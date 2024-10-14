@@ -1,5 +1,4 @@
-import React, { forwardRef, useContext } from "react";
-import classNames from "classnames";
+import React, { forwardRef, RefAttributes, useContext } from "react";
 import { useListState, Node, ListState, SectionProps } from "react-stately";
 import { useListBox, useListBoxSection, useOption } from "@react-aria/listbox";
 import { mergeProps } from "@react-aria/utils";
@@ -27,11 +26,14 @@ import { List, ListItem, SectionTitle, SubList } from "./ListBox.styles";
 import { ListBoxProps } from "./ListBox.types";
 import { ListBoxContext, ListStateContext } from "./ListBox.context";
 
-interface ListBoxComponent
-  extends React.ForwardRefExoticComponent<ListBoxProps<any>> {
-  Section: React.FC<ListBoxSectionProps<any>>;
-  Item: React.FC<ListBoxItemProps>;
-}
+type ForwardedListBox = {
+  <T>(props: ListBoxProps<T> & RefAttributes<HTMLUListElement>): JSX.Element;
+  displayName: string;
+  /** A section in a ListBox */
+  Section: typeof ListBoxSectionWrapper;
+  /** An item in a ListBox */
+  Item: typeof ListBoxItemWrapper;
+};
 
 /** A listbox displays a list of options and allows a user to select one or more of them.
  * Used as the dropdown menu for `ComboBox` and `CustomSelect` */
@@ -45,7 +47,7 @@ export const ListBox = forwardRef(function ListBox<T extends object>(
   // When used within a SelectField or similar component,
   // the state will be provided by the parent component
   if (state) {
-    return <InternalListBox {...props} state={state} />;
+    return <InternalListBox {...props} state={state} listBoxRef={ref} />;
   }
 
   // When rendered standalone, we need to build the collection and
@@ -53,14 +55,23 @@ export const ListBox = forwardRef(function ListBox<T extends object>(
   return (
     <CollectionBuilder content={<Collection {...props} />}>
       {(collection: BaseCollection<T>) => {
-        return <ManagedListBox<T> {...props} collection={collection} />;
+        return (
+          <ManagedListBox<T>
+            {...props}
+            collection={collection}
+            listBoxRef={ref}
+          />
+        );
       }}
     </CollectionBuilder>
   );
-}) as ListBoxComponent;
+}) as unknown as ForwardedListBox;
+
+ListBox.displayName = "ListBox";
 
 interface ManagedListBoxProps<T extends object> extends ListBoxProps<T> {
   collection: BaseCollection<T>;
+  listBoxRef: React.RefObject<HTMLUListElement>;
 }
 
 function ManagedListBox<T extends object>(props: ManagedListBoxProps<T>) {
@@ -71,25 +82,24 @@ function ManagedListBox<T extends object>(props: ManagedListBoxProps<T>) {
 export interface InternalListBoxProps<T>
   extends Omit<ListBoxProps<T>, "children"> {
   state: ListState<T>;
+  listBoxRef: React.RefObject<HTMLUListElement>;
 }
 
-export const InternalListBox = React.forwardRef<
-  HTMLUListElement,
-  InternalListBoxProps<any>
->((props, ref) => {
-  const { state, className, size = "medium" } = props;
-  const internalRef = useForwardedRef(ref);
-  const { listBoxProps, labelProps } = useListBox(props, state, internalRef);
+export function InternalListBox<T>(props: InternalListBoxProps<T>) {
+  const { state, className, size = "medium", listBoxRef } = props;
+  const { listBoxProps, labelProps } = useListBox(props, state, listBoxRef);
   const { CollectionRenderer } = useCollectionRenderer();
+
+  const renderProps = useRenderProps({
+    componentClassName: "aje-listbox",
+    className,
+    size,
+  });
 
   return (
     <>
       {props.label && <Label {...labelProps}>{props.label}</Label>}
-      <List
-        {...listBoxProps}
-        ref={internalRef}
-        className={classNames("aje-listbox", className, `is-${size}`)}
-      >
+      <List {...listBoxProps} {...renderProps} ref={listBoxRef}>
         <Provider
           values={[
             [ItemContext.Provider, { render: ListBoxItem }],
@@ -104,7 +114,7 @@ export const InternalListBox = React.forwardRef<
       </List>
     </>
   );
-});
+}
 
 interface ListBoxSectionProps<T extends object>
   extends SectionProps<T>,
@@ -151,11 +161,10 @@ function ListBoxSection<T extends object>(
 // I don't know why but createBranchComponent isn't discovering the type
 // of the ref parameter, so I'm specifying it manually
 
-ListBox.Section = createBranchComponent<
-  object,
-  ListBoxSectionProps<any>,
-  HTMLLIElement
->("section", ListBoxSection);
+const ListBoxSectionWrapper = createBranchComponent("section", ListBoxSection);
+// @ts-expect-error
+ListBoxSectionWrapper.displayName = "ListBox.Section";
+ListBox.Section = ListBoxSectionWrapper;
 
 interface ListBoxItemRenderProps {
   isSelected: boolean;
@@ -212,4 +221,7 @@ function ListBoxItem(
   );
 }
 
-ListBox.Item = createLeafComponent("item", ListBoxItem);
+const ListBoxItemWrapper = createLeafComponent("item", ListBoxItem);
+// @ts-expect-error
+ListBoxItemWrapper.displayName = "ListBox.Item";
+ListBox.Item = ListBoxItemWrapper;

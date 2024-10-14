@@ -62,22 +62,22 @@ export const WithSections: Story = {
   ...Primary,
   args: {
     children: [
-      <Section key="section1" title="Section 1">
+      <Menu.Section key="section1" title="Section 1">
         <Menu.Item key="1" onAction={() => alert("Item 1")}>
           First Item in Section 1
         </Menu.Item>
         <Menu.Item key="2" onAction={() => alert("Item 2")}>
           Second Item in Section 1
         </Menu.Item>
-      </Section>,
-      <Section key="section2" title="Section 2">
+      </Menu.Section>,
+      <Menu.Section key="section2" title="Section 2">
         <Menu.Item key="3" onAction={() => alert("Item 3")}>
           First Item in Section 2
         </Menu.Item>
         <Menu.Item key="4" onAction={() => alert("Item 4")}>
           Second Item in Section 2
         </Menu.Item>
-      </Section>,
+      </Menu.Section>,
     ],
   },
 };

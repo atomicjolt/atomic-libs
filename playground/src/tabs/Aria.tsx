@@ -4,7 +4,6 @@ import {
   Flex,
   MaterialIcon,
   Menu,
-  OverlayTrigger,
   Popover,
   Item,
   ListBox,
@@ -18,16 +17,16 @@ import {
 } from "../elements";
 import { Selection } from "react-stately";
 
-function MyItem(props) {
+function MyMenuItem(props) {
   return (
-    <Item {...props}>
-      {({ isSelected }: any) => (
+    <Menu.Item {...props}>
+      {({ isSelected }) => (
         <Flex alignItems="center" gap={8}>
           {props.children}
           {isSelected && <MaterialIcon icon="star" />}
         </Flex>
       )}
-    </Item>
+    </Menu.Item>
   );
 }
 
@@ -60,32 +59,20 @@ export default function Aria() {
 
   return (
     <div>
-      {/* <Menu
+      <Menu
         onAction={console.log}
         selectedKeys={selectedKeys}
         onSelectionChange={setSelectedKeys}
         selectionMode="multiple"
         items={items}
+        ref={ref}
       >
         {(item) => (
           <Menu.Section items={item.items} title={item.title}>
-            {({ name }) => <MyItem>{name}</MyItem>}
+            {({ name }) => <MyMenuItem>{name}</MyMenuItem>}
           </Menu.Section>
         )}
       </Menu>
-
-      <ListBox
-        selectionMode="multiple"
-        selectedKeys={selectedKeys}
-        onSelectionChange={setSelectedKeys}
-        items={items}
-      >
-        {(item) => (
-          <ListBox.Section items={item.items} title={item.title}>
-            {({ name }) => <MyItem>{name}</MyItem>}
-          </ListBox.Section>
-        )}
-      </ListBox> */}
 
       {/*
       <OverlayTrigger>

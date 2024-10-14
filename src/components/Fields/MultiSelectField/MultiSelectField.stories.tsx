@@ -1,12 +1,15 @@
-import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import { InputControls } from "@sb/helpers";
 import { MultiSelectField } from ".";
-import { Item } from "../../Collection";
 import { getCssProps } from "@sb/cssprops";
+import { FieldLabel } from "../Field/FieldLabel";
+import { FieldMessage } from "../Field/FieldMessage";
+import { Popover } from "@components/Overlays/Popover";
+import { ListBox } from "@components/Dropdowns/ListBox";
+import { FieldErrorMessage } from "../Field/FieldError";
 
 export default {
-  title: "Dropdowns/Selection/MultiSelect",
+  title: "Fields/MultiSelectField",
   component: MultiSelectField,
   parameters: {
     layout: "centered",
@@ -59,18 +62,20 @@ type Story = StoryObj<typeof MultiSelectField>;
 
 export const Default: Story = {
   args: {
-    label: "Multiselect Label",
     children: [
-      <Item key="val1">Option 1</Item>,
-      <Item key="val2">Option 2</Item>,
-      <Item key="val3">Option 3</Item>,
+      <FieldLabel key="label">Select an item</FieldLabel>,
+      <FieldMessage key="message">Choose an item from the list</FieldMessage>,
+      <MultiSelectField.Button key="button">
+        Select Items
+      </MultiSelectField.Button>,
+      <Popover key="popover">
+        <ListBox>
+          <ListBox.Item id="1">Item 1</ListBox.Item>
+          <ListBox.Item id="2">Item 2</ListBox.Item>
+          <ListBox.Item id="3">Item 3</ListBox.Item>
+        </ListBox>
+      </Popover>,
+      <FieldErrorMessage key="error">Something went wrong</FieldErrorMessage>,
     ],
-  },
-};
-
-export const Floating: Story = {
-  args: {
-    ...Default.args,
-    variant: "floating",
   },
 };
