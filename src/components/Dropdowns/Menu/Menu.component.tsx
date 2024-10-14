@@ -1,4 +1,4 @@
-import React, { forwardRef, RefAttributes, useContext, useRef } from "react";
+import React, { forwardRef, RefAttributes, useContext } from "react";
 import classNames from "classnames";
 import { useTreeState } from "react-stately";
 import { LinkDOMProps, Node, SectionProps } from "@react-types/shared";

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import mixins from "../../../styles/mixins";
 
-export const TabList = styled.div`
+export const StyledTabList = styled.div`
   margin-bottom: calc(var(--tab-border-width) * -1);
   display: flex;
   justify-content: space-between;

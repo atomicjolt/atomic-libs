@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 // import "./playground.scss";
 
-import { Key, Tabs, Item } from "./elements";
+import { Flex, Key, Tabs } from "./elements";
 import Buttons from "./tabs/Buttons";
 import Modals from "./tabs/Modals";
 import Tables from "./tabs/Tables";
@@ -17,37 +17,55 @@ function Playground() {
 
   return (
     <div className="padder" style={{ height: "100%" }}>
-      {/* <Tabs selectedKey={currentTab} onSelectionChange={setCurrentTab}>
-        <Item key="buttons" title="Buttons">
+      <Tabs selectedKey={currentTab} onSelectionChange={setCurrentTab}>
+        <Tabs.List>
+          <Tabs.Tab id="buttons">Buttons</Tabs.Tab>
+          <Tabs.Tab id="modal">Modals</Tabs.Tab>
+          <Tabs.Tab id="tables">Tables</Tabs.Tab>
+          <Tabs.Tab id="localization">Localization</Tabs.Tab>
+          <Tabs.Tab id="overlays">Overlays</Tabs.Tab>
+          <Tabs.Tab id="fields">Fields</Tabs.Tab>
+          <Tabs.Tab id="loading">Loading</Tabs.Tab>
+          <Tabs.Tab id="links">Links</Tabs.Tab>
+          <Tabs.Tab id="aria">Aria</Tabs.Tab>
+        </Tabs.List>
+
+        <Tabs.Panel id="buttons">
           <Buttons />
-        </Item>
-        <Item key="modal" title="Modals">
+        </Tabs.Panel>
+
+        <Tabs.Panel id="modal">
           <Modals />
-        </Item>
-        <Item key="tables" title="Tables">
+        </Tabs.Panel>
+
+        <Tabs.Panel id="tables">
           <Tables />
-        </Item>
-        <Item key="localization" title="Localization">
+        </Tabs.Panel>
+
+        <Tabs.Panel id="localization">
           <Localization />
-        </Item>
-        <Item key="overlays" title="Overlays">
+        </Tabs.Panel>
+
+        <Tabs.Panel id="overlays">
           <Overlays />
-        </Item>
-        <Item key="fields" title="Fields">
+        </Tabs.Panel>
+
+        <Tabs.Panel id="fields">
           <Fields />
-        </Item>
-        <Item key="loading" title="Loading">
+        </Tabs.Panel>
+
+        <Tabs.Panel id="loading">
           <Loading />
-        </Item>
-        <Item key="links" title="Links">
+        </Tabs.Panel>
+
+        <Tabs.Panel id="links">
           <Links />
-        </Item>
-        <Tabs.Tab title="Other content">other content</Tabs.Tab>
-        <Tabs.Tab id="aria" title="Aria">
+        </Tabs.Panel>
+
+        <Tabs.Panel id="aria">
           <Aria />
-        </Tabs.Tab>
-      </Tabs> */}
-      <Aria />
+        </Tabs.Panel>
+      </Tabs>
     </div>
   );
 }
