@@ -36,12 +36,11 @@ type Story = StoryObj<typeof Menu>;
 
 export const Primary: Story = {
   render: (args) => (
-    <MenuTrigger>
-      <Button>Open Menu</Button>
-      <Popover>
-        <Menu {...args}>{args.children}</Menu>
-      </Popover>
-    </MenuTrigger>
+    <div
+      style={{ border: "1px solid gray", borderRadius: "5px", padding: "5px" }}
+    >
+      <Menu {...args}>{args.children}</Menu>
+    </div>
   ),
   args: {
     children: [

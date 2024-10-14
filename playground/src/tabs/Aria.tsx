@@ -14,6 +14,8 @@ import {
   Divider,
   MultiSelectField,
   MultiSelect,
+  IconMenu,
+  Section,
 } from "../elements";
 import { Selection } from "react-stately";
 
@@ -73,6 +75,16 @@ export default function Aria() {
           </Menu.Section>
         )}
       </Menu>
+
+      <IconMenu>
+        <Section title="Section 1">
+          <Item>Item 1</Item>
+        </Section>
+        <Section title="Section 2">
+          <Item>Item 2</Item>
+          <Item>Item 3</Item>
+        </Section>
+      </IconMenu>
 
       {/*
       <OverlayTrigger>

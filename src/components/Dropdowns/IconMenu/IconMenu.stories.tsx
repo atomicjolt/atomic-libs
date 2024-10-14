@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import IconMenu from ".";
+import { IconMenu } from ".";
 import { MaterialIcon, Section } from "../../";
 import { getCssProps } from "@sb/cssprops";
 
