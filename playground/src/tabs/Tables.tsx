@@ -66,8 +66,6 @@ function PaginatedTable() {
       totalItems: 100,
     });
 
-  console.log(paginationDescriptor);
-
   return (
     <>
       <Table

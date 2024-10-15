@@ -5,7 +5,6 @@ import {
   MaterialIcon,
   Menu,
   Popover,
-  Item,
   ListBox,
   CustomSelect,
   SelectField,
@@ -15,10 +14,14 @@ import {
   MultiSelectField,
   MultiSelect,
   IconMenu,
-  Section,
   Tabs,
+  ComboBoxField,
+  FieldInput,
+  ComboBox,
+  ComboInput,
+  IconButton,
 } from "../elements";
-import { Selection } from "react-stately";
+import { Item, Key, Section, Selection } from "react-stately";
 
 function MyMenuItem(props) {
   return (
@@ -35,6 +38,7 @@ function MyMenuItem(props) {
 
 export default function Aria() {
   const ref = useRef(null);
+  const [selectedKey, setSelectedKey] = React.useState<Key | null>("1");
   const [selectedKeys, setSelectedKeys] = React.useState<Selection>(
     new Set("1")
   );
@@ -62,6 +66,34 @@ export default function Aria() {
 
   return (
     <div>
+      <ComboBoxField
+        onSelectionChange={setSelectedKey}
+        selectedKey={selectedKey}
+      >
+        <FieldLabel>Select an item</FieldLabel>
+        <ComboInput padding={"left"}>
+          <FieldInput />
+          <IconButton variant="ghost" icon="search" />
+        </ComboInput>
+        <Popover>
+          <ListBox items={items}>
+            {(item) => (
+              <ListBox.Section items={item.items} title={item.title}>
+                {({ name }) => <ListBox.Item>{name}</ListBox.Item>}
+              </ListBox.Section>
+            )}
+          </ListBox>
+        </Popover>
+      </ComboBoxField>
+
+      <ComboBox items={items}>
+        {(item) => (
+          <Section items={item.items} title={item.title}>
+            {({ name }) => <Item>{name}</Item>}
+          </Section>
+        )}
+      </ComboBox>
+
       <Menu
         onAction={console.log}
         selectedKeys={selectedKeys}

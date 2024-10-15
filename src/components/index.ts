@@ -92,6 +92,7 @@ export {
 
 export { SelectField } from "./Fields/SelectField";
 export { MultiSelectField } from "./Fields/MultiSelectField";
+export { ComboBoxField } from "./Fields/ComboBoxField";
 
 export { FormatDate } from "./Format/FormatDate";
 export { FormatNumber } from "./Format/FormatNumber";
