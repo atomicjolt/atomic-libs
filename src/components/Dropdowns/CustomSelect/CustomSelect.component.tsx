@@ -54,10 +54,11 @@ export function CustomSelect<T extends object>(props: CustomSelectProps<T>) {
             placeholder={variant === "floating" ? null : placeholder}
           />
         </SelectField.Button>
-        <Popover maxHeight={maxHeight} placement={dropdownPlacement}>
-          <ListBox items={props.items}>{props.children}</ListBox>
-        </Popover>
       </FloatingFieldInputWrapper>
+
+      <Popover maxHeight={maxHeight} placement={dropdownPlacement}>
+        <ListBox items={props.items}>{props.children}</ListBox>
+      </Popover>
     </StyledSelectField>
   );
 }

@@ -4,15 +4,10 @@ import { PressResponder } from "@react-aria/interactions";
 import { CollectionBuilder } from "@react-aria/collections";
 import { useComboBoxState } from "react-stately";
 import { useRenderProps } from "@hooks";
-import { ComboBoxFieldWrapper } from "./ComboBoxField.styles";
 import { useComboBox } from "@react-aria/combobox";
 import { Provider } from "@components/Internal/Provider";
-import {
-  FieldErrorContext,
-  FieldInputContext,
-  FieldLabelContext,
-  FieldMessageContext,
-} from "../contexts";
+import { useFilter } from "@react-aria/i18n";
+
 import { OverlayTriggerStateContext } from "@components/Overlays/OverlayTrigger/context";
 import { PopoverContext } from "@components/Overlays/Popover/context";
 import {
@@ -21,6 +16,13 @@ import {
 } from "@components/Dropdowns/ListBox";
 import { ButtonContext } from "@components/Buttons/Button/Button.context";
 import {
+  FieldErrorContext,
+  FieldInputContext,
+  FieldLabelContext,
+  FieldMessageContext,
+} from "../contexts";
+
+import {
   ComboBoxFieldInnerProps,
   ComboBoxFieldProps,
 } from "./ComboBoxField.types";
@@ -28,8 +30,8 @@ import {
   ComboBoxFieldContext,
   ComboBoxFieldStateContext,
 } from "./ComboBoxField.context";
-import { useFilter } from "@react-aria/i18n";
 import { ComboInputContext } from "../ComboInput";
+import { ComboBoxFieldWrapper } from "./ComboBoxField.styles";
 
 export const ComboBoxField = forwardRef(function ComboBoxField<
   T extends object,
@@ -59,7 +61,6 @@ function ComboBoxFieldInner<T extends object>(
     isReadOnly,
     size = "medium",
   } = props;
-
   const { contains } = useFilter({ sensitivity: "base" });
   const state = useComboBoxState({
     ...props,
@@ -128,17 +129,19 @@ function ComboBoxFieldInner<T extends object>(
           [ListBoxContext.Provider, listBoxProps],
           [ListStateContext.Provider, state],
           [OverlayTriggerStateContext.Provider, state],
-          [ButtonContext.Provider, { size }],
+          [
+            ButtonContext.Provider,
+            {
+              ...buttonProps,
+              ref: buttonRef,
+              size,
+              isPressed: state.isOpen,
+              isDisabled: isDisabled || isReadOnly,
+            },
+          ],
         ]}
       >
-        <PressResponder
-          {...buttonProps}
-          ref={ref}
-          isPressed={state.isOpen}
-          isDisabled={isDisabled || isReadOnly}
-        >
-          {renderProps.children}
-        </PressResponder>
+        {renderProps.children}
       </Provider>
     </ComboBoxFieldWrapper>
   );

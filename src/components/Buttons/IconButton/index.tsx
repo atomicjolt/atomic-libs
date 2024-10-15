@@ -9,7 +9,7 @@ import { useRenderProps } from "@hooks/useRenderProps";
 import { ButtonProps } from "../Button";
 import { useFocusRing } from "../../../hooks/useFocusRing";
 import { useButtonLink } from "@hooks/useButtonLink";
-import { useContextProps } from "@hooks/useContextProps";
+import { useContextPropsV2 } from "@hooks/useContextProps";
 import { ButtonContext } from "../Button/Button.context";
 
 export type IconButtonProps = Omit<ButtonProps, "children"> & HasIcon;
@@ -18,6 +18,8 @@ export type IconButtonProps = Omit<ButtonProps, "children"> & HasIcon;
  * Because of this, you should provide an `aria-label` for accessiblity */
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
   (props, ref) => {
+    [props, ref] = useContextPropsV2(ButtonContext, props as any, ref);
+
     const {
       icon,
       isLoading,
@@ -28,7 +30,8 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
       className,
       size = "medium",
       as = props.href ? "a" : "button",
-    } = useContextProps(ButtonContext, props as any);
+    } = props;
+
     const innerRef = useForwardedRef<HTMLButtonElement>(ref);
     const { buttonProps, isPressed } = useButtonLink(
       {

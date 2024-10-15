@@ -3,7 +3,7 @@ import { useSelectState } from "react-stately";
 import { HiddenSelect, useSelect } from "@react-aria/select";
 import { filterDOMProps } from "@react-aria/utils";
 import { PressResponder } from "@react-aria/interactions";
-import { BaseCollection, CollectionBuilder } from "@react-aria/collections";
+import { CollectionBuilder } from "@react-aria/collections";
 
 import {
   ListBoxContext,
@@ -22,7 +22,11 @@ import { PopoverContext } from "@components/Overlays/Popover/context";
 import { ButtonContext } from "@components/Buttons/Button/Button.context";
 
 import { ButtonText, SelectFieldWrapper } from "./SelectField.styles";
-import { SelectFieldProps } from "./SelectField.types";
+import {
+  SelectFieldInnerProps,
+  SelectFieldProps,
+  SelectValueProps,
+} from "./SelectField.types";
 import {
   SelectFieldContext,
   SelectFieldValueContext,
@@ -54,11 +58,6 @@ export const SelectField = forwardRef(function SelectField<T extends object>(
     </CollectionBuilder>
   );
 }) as SelectFieldComponent;
-
-interface SelectFieldInnerProps<T extends object> extends SelectFieldProps<T> {
-  collection: BaseCollection<T>;
-  selectRef: React.RefObject<HTMLButtonElement>;
-}
 
 export function SelectFieldInner<T extends object>(
   props: SelectFieldInnerProps<T>
@@ -133,10 +132,6 @@ export function SelectFieldInner<T extends object>(
       </Provider>
     </SelectFieldWrapper>
   );
-}
-
-interface SelectValueProps {
-  placeholder?: React.ReactNode;
 }
 
 function SelectFieldValue(props: SelectValueProps) {

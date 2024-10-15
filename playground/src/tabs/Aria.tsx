@@ -23,8 +23,11 @@ import {
   Input,
   FieldMessage,
   ErrorMessage,
+  Item,
+  Section,
+  Group,
 } from "../elements";
-import { Item, Key, Section, Selection } from "react-stately";
+import { Key, Selection } from "react-stately";
 
 function MyMenuItem(props) {
   return (
@@ -76,11 +79,10 @@ export default function Aria() {
       >
         <FieldLabel>Select an item</FieldLabel>
         <FieldMessage>Some Message</FieldMessage>
-        {/* <Input /> */}
-        <ComboInput padding={"left"}>
+        <Group isMerged>
           <Input />
-          <IconButton variant="ghost" icon="search" />
-        </ComboInput>
+          <IconButton variant="border" icon="search" />
+        </Group>
         <Popover>
           <ListBox items={items}>
             {(item) => (
@@ -93,13 +95,48 @@ export default function Aria() {
         <ErrorMessage>Something went wrong</ErrorMessage>
       </ComboBoxField>
 
-      {/* <ComboBox items={items}>
+      <br />
+      <ComboBox items={items} menuTrigger="focus" label="label">
         {(item) => (
           <Section items={item.items} title={item.title}>
             {({ name }) => <Item>{name}</Item>}
           </Section>
         )}
-      </ComboBox> */}
+      </ComboBox>
+
+      {/* <CustomSelect label="Select an item" items={items}>
+        {(item) => (
+          <ListBox.Section items={item.items} title={item.title}>
+            {({ name }) => <ListBox.Item>{name}</ListBox.Item>}
+          </ListBox.Section>
+        )}
+      </CustomSelect> */}
+
+      {/* <br />
+      <SelectField>
+        <FieldLabel>Select an item</FieldLabel>
+        <SelectField.Button>
+          <SelectField.Value placeholder="Select an option" />
+        </SelectField.Button>
+        <Popover>
+          <ListBox items={items}>
+            {(item) => (
+              <ListBox.Section items={item.items} title={item.title}>
+                {({ name }) => <ListBox.Item>{name}</ListBox.Item>}
+              </ListBox.Section>
+            )}
+          </ListBox>
+        </Popover>
+        <FieldErrorMessage>Something went wrong</FieldErrorMessage>
+      </SelectField>
+
+      <CustomSelect label="Select an item" items={items}>
+        {(item) => (
+          <ListBox.Section items={item.items} title={item.title}>
+            {({ name }) => <ListBox.Item>{name}</ListBox.Item>}
+          </ListBox.Section>
+        )}
+      </CustomSelect> */}
 
       {/* <Menu
         onAction={console.log}

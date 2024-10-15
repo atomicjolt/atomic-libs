@@ -48,9 +48,9 @@ export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(
     const localState = useOverlayTriggerState(props);
     const state = contextState ?? localState;
 
-    const isHiddne = useIsHidden();
+    const isHidden = useIsHidden();
 
-    if (isHiddne) {
+    if (isHidden) {
       // TODO: fix this
       return props.children;
     }

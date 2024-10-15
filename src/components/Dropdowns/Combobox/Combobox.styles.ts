@@ -1,11 +1,8 @@
 import styled from "styled-components";
-import mixins from "@styles/mixins";
 import { FloatingDropdown } from "../Dropdowns.styles";
+import { ComboBoxField } from "@components/Fields/ComboBoxField";
 
-export const ComboBoxWrapper = styled.div`
-  ${mixins.SizingX}
-  ${mixins.FieldStatus}
-
+export const StyledComboBoxField = styled(ComboBoxField)`
   &.aje-combobox--floating {
     ${FloatingDropdown}
   }
