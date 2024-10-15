@@ -1,0 +1,53 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`MultiSelectField > matches snapshots > when closed 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-hzhKNl gQkKli aje-multiselect"
+  >
+    <button
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-labelledby="react-aria-:r7: react-aria-:r3:"
+      class="sc-dLNtp sc-feUYzb hkAcSC fzpzpe aje-btn sc-fUnNpA iPhqkU aje-btn--dropdown is-medium"
+      id="react-aria-:r2:"
+      type="button"
+    >
+      Open up
+      <i
+        aria-hidden="true"
+        class="sc-cPiJYC wZRQV aje-icon material-icons is-medium"
+      >
+        arrow_drop_down
+      </i>
+    </button>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`MultiSelectField > matches snapshots > when open 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-hzhKNl gQkKli aje-multiselect"
+  >
+    <button
+      aria-controls="react-aria-:r9:"
+      aria-expanded="true"
+      aria-haspopup="listbox"
+      aria-labelledby="react-aria-:rf: react-aria-:rb:"
+      class="sc-dLNtp sc-feUYzb hkAcSC fzpzpe aje-btn sc-fUnNpA iPhqkU aje-btn--dropdown is-medium"
+      data-pressed="true"
+      id="react-aria-:ra:"
+      type="button"
+    >
+      Open up
+      <i
+        aria-hidden="true"
+        class="sc-cPiJYC wZRQV aje-icon material-icons is-medium"
+      >
+        arrow_drop_down
+      </i>
+    </button>
+  </div>
+</DocumentFragment>
+`;

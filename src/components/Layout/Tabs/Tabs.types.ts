@@ -1,16 +1,17 @@
-import { TabListProps } from "react-stately";
-import { DomProps, HasVariant, RenderStyleProps } from "../../../types";
+import { CollectionBase, SingleSelection } from "@react-types/shared";
+import { DomProps, HasVariant, Key, RenderStyleProps } from "../../../types";
 import { ItemProps } from "../../Collection";
 
 export type TabVariant = "default" | "card" | "toggle";
 
 export interface TabsProps<T>
-  extends TabListProps<T>,
+  extends Omit<SingleSelection, "disallowEmptySelection">,
     RenderStyleProps<never>,
     DomProps,
     HasVariant<TabVariant> {
-  /** Display information to the right of the tab list */
-  info?: React.ReactNode;
+  children: React.ReactNode;
+  /** Disabled tabs */
+  disabledKeys?: Iterable<Key>;
 }
 
 interface TabRenderProps {
@@ -18,6 +19,6 @@ interface TabRenderProps {
   isSelected: boolean;
 }
 
-export interface TabProps<T> extends ItemProps<T, TabRenderProps> {
-  title?: React.ReactNode;
-}
+export interface TabProps<T> extends ItemProps<T, TabRenderProps> {}
+
+export interface TabListProps<T> extends CollectionBase<T> {}

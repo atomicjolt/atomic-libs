@@ -1,8 +1,9 @@
-import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import { Tabs } from ".";
 import { Item } from "../../Collection";
 import { getCssProps } from "@sb/cssprops";
+import { fn } from "@storybook/test";
+import { RenderPropsArgTypes } from "@sb/helpers";
 
 const meta: Meta<typeof Tabs> = {
   title: "Layouts/Tabs",
@@ -11,6 +12,7 @@ const meta: Meta<typeof Tabs> = {
     cssprops: getCssProps("Tab"),
   },
   argTypes: {
+    ...RenderPropsArgTypes,
     selectedKey: {
       control: "select",
       options: ["tab1", "tab2"],
@@ -26,7 +28,7 @@ const meta: Meta<typeof Tabs> = {
     },
     disabledKeys: {
       control: "select",
-      options: ["None", "Tab 1", "Tab 2", "Both Tabs"],
+      options: ["None", "Tab 1", "Tab 2"],
       mapping: {
         None: [],
         "Tab 1": ["tab1"],
@@ -35,12 +37,22 @@ const meta: Meta<typeof Tabs> = {
       },
       description: "An array of keys to disable.",
     },
-    isDisabled: {
-      control: "boolean",
-      description: "Whether the entire tab component is disabled.",
+    onSelectionChange: {
+      table: {
+        category: "Events",
+      },
     },
-    info: {
-      control: "text",
+    // @ts-expect-error - It's discovering these props from the internal
+    // component for some reason, disabling them here so they don't show up
+    tabsRef: {
+      table: {
+        disable: true,
+      },
+    },
+    collection: {
+      table: {
+        disable: true,
+      },
     },
   },
 };
@@ -51,16 +63,22 @@ type Story = StoryObj<typeof Tabs>;
 
 export const Primary: Story = {
   args: {
+    onSelectionChange: fn(),
     children: [
-      <Item key="tab1" title="Tab 1">
-        <h1>Tab One</h1>
-      </Item>,
-      <Item key="tab2" title="Tab 2">
-        <h1>Tab Two</h1>
-      </Item>,
-      <Item key="tab3" title="Tab 3">
-        <h1>Tab Three</h1>
-      </Item>,
+      <Tabs.List key="tab-list">
+        <Tabs.Tab id="tab1">Tab One</Tabs.Tab>
+        <Tabs.Tab id="tab2">Tab Two</Tabs.Tab>
+        <Tabs.Tab id="tab3">Tab Three</Tabs.Tab>
+      </Tabs.List>,
+      <Tabs.Panel id="tab1" key="tab1">
+        <h1>Tab One Content</h1>
+      </Tabs.Panel>,
+      <Tabs.Panel id="tab2" key="tab2">
+        <h1>Tab Two Content</h1>
+      </Tabs.Panel>,
+      <Tabs.Panel id="tab3" key="tab3">
+        <h1>Tab Three Content</h1>
+      </Tabs.Panel>,
     ],
   },
 };
@@ -79,61 +97,79 @@ export const Toggle: Story = {
   },
 };
 
-export const NestedTabs: Story = {
-  args: {
-    variant: "card",
-    children: [
-      <Item key="tab1" title="Users">
-        <Tabs
-          variant="toggle"
-          info={
-            <span>
-              Licensed Users: <strong>1000/1000</strong>
-            </span>
-          }
-        >
-          <Item key="total" title="Total">
-            <h1>Total Users</h1>
-          </Item>
-          <Item key="active" title="Active">
-            <h1>Active Users</h1>
-          </Item>
-        </Tabs>
-      </Item>,
-      <Item key="tab2" title="Courses">
-        <Tabs
-          variant="toggle"
-          info={
-            <span>
-              Total Courses: <strong>123/1231</strong>
-            </span>
-          }
-        >
-          <Item key="total" title="Total">
-            <h1>Total Courses</h1>
-          </Item>
-          <Item key="active" title="Active">
-            <h1>Active Courses</h1>
-          </Item>
-        </Tabs>
-      </Item>,
-      <Item key="tab3" title="Assignments">
-        <Tabs
-          variant="toggle"
-          info={
-            <span>
-              Total Assignments: <strong>123414</strong>
-            </span>
-          }
-        >
-          <Item key="total" title="Total">
-            <h1>Total Courses</h1>
-          </Item>
-          <Item key="active" title="Active">
-            <h1>Active Assignments</h1>
-          </Item>
-        </Tabs>
-      </Item>,
-    ],
-  },
-};
+// TODO: figure out why tab nesting isn't working
+// export const NestedTabs: Story = {
+//   args: {
+//     variant: "card",
+//     children: [
+//       <Tabs.List key="nested-tab-list">
+//         <Tabs.Tab id="tab1">Users</Tabs.Tab>
+//         <Tabs.Tab id="tab2">Courses</Tabs.Tab>
+//         <Tabs.Tab id="tab3">Assignments</Tabs.Tab>
+//       </Tabs.List>,
+//       <Tabs.Panel id="tab1" key="tab1">
+//         <Tabs
+//           variant="toggle"
+//           info={
+//             <span>
+//               Licensed Users: <strong>1000/1000</strong>
+//             </span>
+//           }
+//         >
+//           <Tabs.List key="users-tab-list">
+//             <Tabs.Tab id="total">Total</Tabs.Tab>
+//             <Tabs.Tab id="active">Active</Tabs.Tab>
+//           </Tabs.List>
+//           <Tabs.Panel id="total" key="total">
+//             <h1>Total Users</h1>
+//           </Tabs.Panel>
+//           <Tabs.Panel id="active" key="active">
+//             <h1>Active Users</h1>
+//           </Tabs.Panel>
+//         </Tabs>
+//       </Tabs.Panel>,
+//       <Tabs.Panel id="tab2" key="tab2">
+//         <Tabs
+//           variant="toggle"
+//           info={
+//             <span>
+//               Total Courses: <strong>123/1231</strong>
+//             </span>
+//           }
+//         >
+//           <Tabs.List key="courses-tab-list">
+//             <Tabs.Tab id="total">Total</Tabs.Tab>
+//             <Tabs.Tab id="active">Active</Tabs.Tab>
+//           </Tabs.List>
+//           <Tabs.Panel id="total" key="total">
+//             <h1>Total Courses</h1>
+//           </Tabs.Panel>
+//           <Tabs.Panel id="active" key="active">
+//             <h1>Active Courses</h1>
+//           </Tabs.Panel>
+//         </Tabs>
+//       </Tabs.Panel>,
+//       <Tabs.Panel id="tab3" key="tab3">
+//         <Tabs
+//           variant="toggle"
+//           info={
+//             <span>
+//               Total Assignments: <strong>123414</strong>
+//             </span>
+//           }
+//         >
+//           <Tabs.List key="assignments-tab-list">
+//             <Tabs.Tab id="total">Total</Tabs.Tab>
+//             <Tabs.Tab id="active">Active</Tabs.Tab>
+//           </Tabs.List>
+//           <Tabs.Panel id="total" key="total">
+//             <h1>Total Assignments</h1>
+//           </Tabs.Panel>
+//           <Tabs.Panel id="active" key="active">
+//             <h1>Active Assignments</h1>
+//           </Tabs.Panel>
+//         </Tabs>
+//       </Tabs.Panel>,
+//     ],
+//   },
+// };

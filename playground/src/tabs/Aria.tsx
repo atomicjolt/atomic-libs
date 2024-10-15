@@ -16,6 +16,7 @@ import {
   MultiSelect,
   IconMenu,
   Section,
+  Tabs,
 } from "../elements";
 import { Selection } from "react-stately";
 

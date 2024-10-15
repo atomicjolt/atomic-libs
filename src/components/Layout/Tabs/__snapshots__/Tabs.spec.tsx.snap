@@ -3,7 +3,7 @@
 exports[`matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-kAycRU iOmgiD aje-tabs aje-tabs--default"
+    class="sc-gsFSjX fJLexa aje-tabs aje-tabs--default"
   >
     <div
       aria-orientation="horizontal"
@@ -15,62 +15,54 @@ exports[`matches snapshot 1`] = `
         class="sc-gEvDqW kYrhgC"
       >
         <div
-          class="sc-dcJtft cGwrWi"
+          aria-controls="react-aria-:r0:-tabpanel-tab1"
+          aria-selected="true"
+          class="sc-dcJtft jkRtPY aje-tabs__tab"
+          data-key="tab1"
+          data-selected="true"
+          id="react-aria-:r0:-tab-tab1"
+          role="tab"
+          tabindex="0"
         >
-          <div
-            aria-controls="react-aria-:r0:-tabpanel-tab1"
-            aria-selected="true"
-            class="sc-iGgVNO PPQuZ"
-            data-key="tab1"
-            id="react-aria-:r0:-tab-tab1"
-            role="tab"
-            tabindex="0"
-          >
-            Tab 1
-          </div>
+          <h1>
+            Tab One
+          </h1>
         </div>
         <div
-          class="sc-dcJtft cGwrWi"
+          aria-selected="false"
+          class="sc-dcJtft jkRtPY aje-tabs__tab"
+          data-key="tab2"
+          id="react-aria-:r0:-tab-tab2"
+          role="tab"
+          tabindex="-1"
         >
-          <div
-            aria-selected="false"
-            class="sc-iGgVNO PPQuZ"
-            data-key="tab2"
-            id="react-aria-:r0:-tab-tab2"
-            role="tab"
-            tabindex="-1"
-          >
-            Tab 2
-          </div>
+          <h1>
+            Tab Two
+          </h1>
         </div>
         <div
-          class="sc-dcJtft cGwrWi"
+          aria-selected="false"
+          class="sc-dcJtft jkRtPY aje-tabs__tab"
+          data-key="tab3"
+          id="react-aria-:r0:-tab-tab3"
+          role="tab"
+          tabindex="-1"
         >
-          <div
-            aria-selected="false"
-            class="sc-iGgVNO PPQuZ"
-            data-key="tab3"
-            id="react-aria-:r0:-tab-tab3"
-            role="tab"
-            tabindex="-1"
-          >
-            Tab 3
-          </div>
+          <h1>
+            Tab Three
+          </h1>
         </div>
       </div>
-      <div
-        class="sc-eqUzNf dAyzKR"
-      />
     </div>
     <div
       aria-labelledby="react-aria-:r0:-tab-tab1"
-      class="sc-gsFSjX hyLuVh"
+      class="sc-iGgVNO jgFAAw"
       id="react-aria-:r0:-tabpanel-tab1"
       role="tabpanel"
       tabindex="0"
     >
       <h1>
-        Tab One
+        Tab One Content
       </h1>
     </div>
   </div>

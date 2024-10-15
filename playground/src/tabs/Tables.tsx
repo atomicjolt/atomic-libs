@@ -1,13 +1,5 @@
 import React, { useState } from "react";
-import {
-  Button,
-  Flex,
-  Key,
-  Pagination,
-  PaginationDescriptor,
-  Table,
-} from "../elements";
-import { Item } from "react-stately";
+import { Button, Key, PaginationDescriptor, Table } from "../elements";
 
 export default function Tables() {
   return (
@@ -84,34 +76,27 @@ function PaginatedTable() {
         onPaginationChange={setPaginationDescriptor}
       >
         <Table.Header>
-          <Table.Column key="foo" showDivider>
+          <Table.Column id="foo" showDivider>
             Foo
           </Table.Column>
-          <Table.Column key="bar">Bar</Table.Column>
-          <Table.Column key="baz">Baz</Table.Column>
+          <Table.Column id="bar">Bar</Table.Column>
+          <Table.Column id="baz">Baz</Table.Column>
         </Table.Header>
         <Table.Body>
-          <Table.Row key="row 1">
+          <Table.Row id="row 1">
             <Table.Cell>Lvl 1 Foo 1</Table.Cell>
             <Table.Cell>Lvl 1 Bar 1</Table.Cell>
             <Table.Cell> Lvl 1 Baz 1</Table.Cell>
           </Table.Row>
-          <Table.Row key="row 2">
+          <Table.Row id="row 2">
             <Table.Cell>Lvl 1 Foo 2</Table.Cell>
             <Table.Cell>Lvl 1 Bar 2</Table.Cell>
             <Table.Cell>Lvl 1 Baz 2</Table.Cell>
           </Table.Row>
         </Table.Body>
-        <Table.Footer>
-          <Table.Row>
-            <Table.Cell isRowHeader>Lvl 1 Foo 2</Table.Cell>
-            <Table.Cell>Lvl 1 Bar 2</Table.Cell>
-            <Table.Cell>Lvl 1 Baz 2</Table.Cell>
-          </Table.Row>
-        </Table.Footer>
       </Table>
 
-      <Table aria-label="Table with custom pagination" hasBottom>
+      {/* <Table aria-label="Table with custom pagination" hasBottom>
         <Table.Header>
           <Table.Column key="foo" showDivider>
             Foo
@@ -159,7 +144,7 @@ function PaginatedTable() {
             </Flex>
           </Pagination>
         </Flex>
-      </Table.Bottom>
+      </Table.Bottom> */}
     </>
   );
 }

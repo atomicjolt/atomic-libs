@@ -20,7 +20,7 @@ import { Provider } from "@components/Internal/Provider";
 import { ItemContext } from "@components/Collection";
 
 import { TabContext, TabsContext, TabsStateContext } from "./Tabs.context";
-import { TabProps, TabsProps } from "./Tabs.types";
+import { TabListProps, TabProps, TabsProps } from "./Tabs.types";
 import {
   TabContentWrapper,
   TabLink,
@@ -34,8 +34,11 @@ type ForwardedTabs = {
     props: TabsProps<T> & React.RefAttributes<HTMLDivElement>
   ): JSX.Element;
   displayName: string;
-  Tab: typeof TabWrapper;
+  /** A list of Tabs in a Tabs component */
   List: typeof TabList;
+  /** A Tab in a Tabs component */
+  Tab: typeof TabWrapper;
+  /** A panel that corresponds to a Tab in a Tabs component */
   Panel: typeof TabPanel;
 };
 
@@ -53,6 +56,8 @@ export const Tabs = forwardRef(function Tabs<T extends object>(
     </CollectionBuilder>
   );
 }) as unknown as ForwardedTabs;
+
+Tabs.displayName = "Tabs";
 
 interface TabsInnerProps<T> extends TabsProps<T> {
   collection: BaseCollection<T>;
@@ -87,19 +92,20 @@ export function TabsInner<T extends object>(props: TabsInnerProps<T>) {
   );
 }
 
-function TabList<T extends object>(
-  props: React.HTMLAttributes<HTMLUListElement>
-) {
+function TabList<T extends object>(props: TabListProps<T>) {
   const state = useContext(TabsStateContext)!;
 
+  // We're building the collection in the Tabs component
   if (!state) return <Collection {...props} />;
 
+  // We're rendering a built collection
   return <TabListInner {...props} />;
 }
 
-function TabListInner<T extends object>(
-  props: React.HTMLAttributes<HTMLUListElement>
-) {
+TabList.displayName = "Tabs.List";
+Tabs.List = TabList;
+
+function TabListInner<T extends object>(props: TabListProps<T>) {
   const state = useContext(TabsStateContext)!;
   const ref = useRef(null);
   const { tabListProps } = useTabList(props, state, ref);
@@ -115,8 +121,6 @@ function TabListInner<T extends object>(
     </StyledTabList>
   );
 }
-
-Tabs.List = TabList;
 
 function Tab<T extends object>(
   props: TabProps<T>,
@@ -144,7 +148,7 @@ function Tab<T extends object>(
 
   return (
     <TabLink as={Element} {...tabProps} {...renderProps} ref={ref}>
-      {props.children}
+      {renderProps.children}
     </TabLink>
   );
 }

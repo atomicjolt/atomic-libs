@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 // import "./playground.scss";
 
-import { Flex, Key, Tabs } from "./elements";
+import { Flex, Key, MaterialIcon, Tabs } from "./elements";
 import Buttons from "./tabs/Buttons";
 import Modals from "./tabs/Modals";
 import Tables from "./tabs/Tables";
@@ -12,6 +12,19 @@ import Fields from "./tabs/Fields";
 import Loading from "./tabs/Loading";
 import Links from "./tabs/Links";
 
+export function MyTab(props) {
+  return (
+    <Tabs.Tab {...props}>
+      {({ isSelected }) => (
+        <Flex alignItems="center" justifyContent="space-between" gap={8}>
+          {isSelected && <MaterialIcon icon="check" />}
+          <span>{props.children}</span>
+        </Flex>
+      )}
+    </Tabs.Tab>
+  );
+}
+
 function Playground() {
   const [currentTab, setCurrentTab] = useState<Key>("aria");
 
@@ -19,15 +32,15 @@ function Playground() {
     <div className="padder" style={{ height: "100%" }}>
       <Tabs selectedKey={currentTab} onSelectionChange={setCurrentTab}>
         <Tabs.List>
-          <Tabs.Tab id="buttons">Buttons</Tabs.Tab>
-          <Tabs.Tab id="modal">Modals</Tabs.Tab>
-          <Tabs.Tab id="tables">Tables</Tabs.Tab>
-          <Tabs.Tab id="localization">Localization</Tabs.Tab>
-          <Tabs.Tab id="overlays">Overlays</Tabs.Tab>
-          <Tabs.Tab id="fields">Fields</Tabs.Tab>
-          <Tabs.Tab id="loading">Loading</Tabs.Tab>
-          <Tabs.Tab id="links">Links</Tabs.Tab>
-          <Tabs.Tab id="aria">Aria</Tabs.Tab>
+          <MyTab id="buttons">Buttons</MyTab>
+          <MyTab id="modal">Modals</MyTab>
+          <MyTab id="tables">Tables</MyTab>
+          <MyTab id="localization">Localization</MyTab>
+          <MyTab id="overlays">Overlays</MyTab>
+          <MyTab id="fields">Fields</MyTab>
+          <MyTab id="loading">Loading</MyTab>
+          <MyTab id="links">Links</MyTab>
+          <MyTab id="aria">Aria</MyTab>
         </Tabs.List>
 
         <Tabs.Panel id="buttons">
