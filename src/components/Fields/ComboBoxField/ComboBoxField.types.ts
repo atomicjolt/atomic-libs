@@ -1,9 +1,8 @@
 import { BaseCollection } from "@react-aria/collections";
-import { FieldProps } from "../Field";
 import { SingleSelection } from "@react-types/shared";
-import { AriaComboBoxProps } from "@react-aria/combobox";
 import { MenuTriggerAction } from "@react-types/combobox";
 import { Key } from "../../../types";
+import { FieldProps } from "../Field";
 
 export interface ComboBoxFieldProps<T>
   extends Omit<SingleSelection, "disallowEmptySelection" | "onSelectionChange">,

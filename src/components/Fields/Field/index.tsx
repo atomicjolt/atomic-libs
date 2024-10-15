@@ -19,6 +19,7 @@ import {
 } from "../contexts";
 import { StyledField } from "../Field.styles";
 import { FieldLabel } from "./FieldLabel";
+import { ComboInputContext } from "../ComboInput";
 
 export interface FieldRenderProps extends FieldStatusProps {}
 
@@ -69,16 +70,15 @@ export function Field(props: FieldProps) {
         values={[
           [FieldLabelContext.Provider, labelProps],
           [FieldMessageContext.Provider, descriptionProps],
-          [FieldErrorContext.Provider, { errorMessageProps, isInvalid }],
+          [FieldErrorContext.Provider, { ...errorMessageProps, isInvalid }],
+          [ComboInputContext.Provider, { inputRef }],
           [
             FieldInputContext.Provider,
             {
-              inputProps: {
-                ...fieldProps,
-                disabled: isDisabled,
-                readOnly: isReadOnly,
-                name,
-              },
+              ...fieldProps,
+              disabled: isDisabled,
+              readOnly: isReadOnly,
+              name,
               ref: inputRef,
             },
           ],

@@ -29,6 +29,7 @@ import {
   ComboBoxFieldStateContext,
 } from "./ComboBoxField.context";
 import { useFilter } from "@react-aria/i18n";
+import { ComboInputContext } from "../ComboInput";
 
 export const ComboBoxField = forwardRef(function ComboBoxField<
   T extends object,
@@ -88,6 +89,7 @@ function ComboBoxFieldInner<T extends object>(
       buttonRef,
       listBoxRef,
       popoverRef,
+      label: true,
     },
     state
   );
@@ -111,12 +113,17 @@ function ComboBoxFieldInner<T extends object>(
           [ComboBoxFieldStateContext.Provider, state],
           [FieldLabelContext.Provider, labelProps],
           [FieldMessageContext.Provider, descriptionProps],
-          [FieldErrorContext.Provider, { errorMessageProps, isInvalid }],
-          [FieldInputContext.Provider, { inputProps, ref: inputRef }],
+          [FieldErrorContext.Provider, { ...errorMessageProps, isInvalid }],
+          [FieldInputContext.Provider, { ...inputProps, ref: inputRef }],
+          [ComboInputContext.Provider, { inputRef, ref: inputWrapperRef }],
           [OverlayTriggerStateContext.Provider, state],
           [
             PopoverContext.Provider,
-            { triggerRef: inputRef, isOpen: state.isOpen, variant: "listbox" },
+            {
+              triggerRef: inputWrapperRef.current ? inputWrapperRef : inputRef,
+              isOpen: state.isOpen,
+              variant: "listbox",
+            },
           ],
           [ListBoxContext.Provider, listBoxProps],
           [ListStateContext.Provider, state],

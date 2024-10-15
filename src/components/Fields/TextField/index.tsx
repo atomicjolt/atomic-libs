@@ -12,6 +12,7 @@ import {
 } from "../contexts";
 import { useRenderProps } from "@hooks";
 import { filterDOMProps } from "@react-aria/utils";
+import { ComboInputContext } from "../ComboInput";
 
 export interface TextFieldProps
   extends FieldProps,
@@ -76,18 +77,16 @@ export function TextField(props: TextFieldProps) {
         values={[
           [FieldLabelContext.Provider, labelProps],
           [FieldMessageContext.Provider, descriptionProps],
-          [FieldErrorContext.Provider, { errorMessageProps, isInvalid }],
+          [FieldErrorContext.Provider, { ...errorMessageProps, isInvalid }],
+          [ComboInputContext.Provider, { inputRef }],
           [
             FieldInputContext.Provider,
             {
-              inputProps: {
-                ...inputProps,
-                disabled: isDisabled,
-                readOnly: isReadOnly,
-                name,
-              },
+              ...inputProps,
+              disabled: isDisabled,
+              readOnly: isReadOnly,
+              name,
               ref: inputOrTextAreaRef,
-              inputRef: inputRef,
             },
           ],
         ]}

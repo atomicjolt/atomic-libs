@@ -15,6 +15,7 @@ import {
   NumberFieldButtonContext,
 } from "../contexts";
 import IconButton, { IconButtonProps } from "../../Buttons/IconButton";
+import { ComboInputContext } from "../ComboInput";
 
 export interface NumberFieldProps
   extends FieldProps,
@@ -71,22 +72,20 @@ export function NumberField(props: NumberFieldProps) {
         values={[
           [FieldLabelContext.Provider, labelProps],
           [FieldMessageContext.Provider, descriptionProps],
-          [FieldErrorContext.Provider, { errorMessageProps, isInvalid }],
+          [FieldErrorContext.Provider, { ...errorMessageProps, isInvalid }],
           [
             NumberFieldButtonContext.Provider,
             { incrementButtonProps, decrementButtonProps },
           ],
+          [ComboInputContext.Provider, { inputRef }],
           [
             FieldInputContext.Provider,
             {
-              inputProps: {
-                ...inputProps,
-                disabled: isDisabled,
-                readOnly: isReadOnly,
-                name,
-              },
+              ...inputProps,
+              disabled: isDisabled,
+              readOnly: isReadOnly,
+              name,
               ref: inputRef,
-              inputRef,
             },
           ],
         ]}

@@ -20,6 +20,9 @@ import {
   ComboBox,
   ComboInput,
   IconButton,
+  Input,
+  FieldMessage,
+  ErrorMessage,
 } from "../elements";
 import { Item, Key, Section, Selection } from "react-stately";
 
@@ -69,10 +72,13 @@ export default function Aria() {
       <ComboBoxField
         onSelectionChange={setSelectedKey}
         selectedKey={selectedKey}
+        menuTrigger="focus"
       >
         <FieldLabel>Select an item</FieldLabel>
+        <FieldMessage>Some Message</FieldMessage>
+        {/* <Input /> */}
         <ComboInput padding={"left"}>
-          <FieldInput />
+          <Input />
           <IconButton variant="ghost" icon="search" />
         </ComboInput>
         <Popover>
@@ -84,17 +90,18 @@ export default function Aria() {
             )}
           </ListBox>
         </Popover>
+        <ErrorMessage>Something went wrong</ErrorMessage>
       </ComboBoxField>
 
-      <ComboBox items={items}>
+      {/* <ComboBox items={items}>
         {(item) => (
           <Section items={item.items} title={item.title}>
             {({ name }) => <Item>{name}</Item>}
           </Section>
         )}
-      </ComboBox>
+      </ComboBox> */}
 
-      <Menu
+      {/* <Menu
         onAction={console.log}
         selectedKeys={selectedKeys}
         onSelectionChange={setSelectedKeys}
@@ -136,7 +143,7 @@ export default function Aria() {
             )}
           </ListBox>
         </Popover>
-      </OverlayTrigger> */}
+      </OverlayTrigger>
 
       <SelectField>
         <FieldLabel>Select an item</FieldLabel>
@@ -221,7 +228,7 @@ export default function Aria() {
             {({ name }) => <ListBox.Item>{name}</ListBox.Item>}
           </ListBox.Section>
         )}
-      </ListBox>
+      </ListBox> */}
     </div>
   );
 }
