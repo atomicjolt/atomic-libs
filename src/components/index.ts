@@ -113,8 +113,11 @@ export { Spinner } from "./Animations/Spinner";
 export { BouncingDots } from "./Animations/BouncingDots";
 export { Checkmark } from "./Animations/Checkmark";
 
-export { useAnnouncer, withAnnouncer } from "./Accessibility/context";
-export { LiveAnnouncer } from "./Accessibility/LiveAnnouncer";
+export {
+  LiveAnnouncer,
+  withAnnouncer,
+  useAnnouncer,
+} from "./Accessibility/LiveAnnouncer";
 export { LiveMessage } from "./Accessibility/LiveMessage";
 
 /* ---- Types ---- */
@@ -137,10 +140,10 @@ export type { CheckBoxProps } from "./Inputs/Checkbox";
 export type { FileInputProps } from "./Inputs/FileInput";
 export type { NumberInputProps } from "./Inputs/NumberInput";
 export type { RadioGroupsProps } from "./Inputs/RadioGroup";
-export type { RadioProps } from "./Inputs/RadioGroup/Radio";
+export type { RadioProps } from "./Inputs/RadioGroup/Radio.component";
 export type { SearchInputProps } from "./Inputs/SearchInput";
 export type { TextInputProps } from "./Inputs/TextInput";
-export type { TextareaProps } from "./Inputs/TextAreaInput";
+export type { TextAreaInputProps } from "./Inputs/TextAreaInput";
 export type { ToggleSwitchProps } from "./Inputs/ToggleSwitch";
 export type { LoaderProps } from "./Loaders/Loader";
 export type { SpinnerLoaderProps } from "./Loaders/SpinnerLoader";

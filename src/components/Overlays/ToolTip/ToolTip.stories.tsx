@@ -7,9 +7,9 @@ import {
   ToolTipTrigger,
   ToolTipTriggerProps,
 } from ".";
-import Button from "../../Buttons/Button";
-import TextInput from "../../Inputs/TextInput";
-import MaterialIcon from "../../Icons/MaterialIcon";
+import { Button } from "../../Buttons/Button";
+import { TextInput } from "../../Inputs/TextInput";
+import { MaterialIcon } from "../../Icons/MaterialIcon";
 import { getCssProps } from "@sb/cssprops";
 
 const meta: Meta<ToolTipProps & ToolTipTriggerProps> = {

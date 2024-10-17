@@ -1,6 +1,6 @@
 import { describe, test, expect, vi } from "vitest";
 import { render, fireEvent, screen } from "@testing-library/react";
-import Button from ".";
+import { Button } from ".";
 import { PressResponder } from "@react-aria/interactions";
 
 describe("Button", () => {

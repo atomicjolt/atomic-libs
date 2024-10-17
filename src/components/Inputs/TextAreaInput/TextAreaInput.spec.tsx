@@ -1,11 +1,10 @@
-import React from "react";
-import { describe, test, expect } from "vitest";
-import { render, screen } from "@testing-library/react";
-import Textarea from ".";
+import { test, expect } from "vitest";
+import { render } from "@testing-library/react";
+import { TextAreaInput } from ".";
 
 test("matches snapshot", () => {
   const result = render(
-    <Textarea value="" onChange={() => {}} label="label" />
+    <TextAreaInput value="" onChange={() => {}} label="label" />
   );
   expect(result.asFragment()).toMatchSnapshot();
 });

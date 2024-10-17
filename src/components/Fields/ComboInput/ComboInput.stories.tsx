@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { ComboInput } from ".";
 import { MaterialIcon } from "../../Icons/MaterialIcon";
-import IconButton from "../../Buttons/IconButton";
+import { IconButton } from "../../Buttons/IconButton";
 import { Input } from "../Atoms/Input";
 import { NumberField } from "../NumberField";
 import { FieldInput } from "../Field/FieldInput";

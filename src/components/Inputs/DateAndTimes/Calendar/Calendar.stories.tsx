@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { today, getLocalTimeZone } from "@internationalized/date";
-import Calendar from ".";
+import { Calendar } from ".";
 
 const meta: Meta<typeof Calendar> = {
   title: "Inputs/Date & Time/Calendar",

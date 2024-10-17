@@ -2,9 +2,9 @@ import { describe, expect, test } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import { ToolTipTrigger } from "./ToolTipTrigger";
+import { ToolTipTrigger } from "./ToolTipTrigger.component";
 import { Button } from "../../Buttons/Button";
-import { ToolTip } from "./ToolTip";
+import { ToolTip } from "./ToolTip.component";
 
 describe("ToolTip", () => {
   const element = (

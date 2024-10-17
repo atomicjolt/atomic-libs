@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Button, { ButtonProps } from "@components/Buttons/Button";
+import { Button, ButtonProps } from "@components/Buttons/Button";
 import { MaterialIcon } from "@components/Icons/MaterialIcon";
 
 export const StyledButton = styled(Button)`

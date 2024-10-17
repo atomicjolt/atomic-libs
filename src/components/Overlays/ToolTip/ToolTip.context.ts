@@ -1,6 +1,6 @@
 import React from "react";
 import { TooltipTriggerState } from "react-stately";
-import { ToolTipProps } from "./ToolTip";
+import { ToolTipProps } from "./ToolTip.component";
 
 export const TooltipContext = React.createContext<ToolTipProps>(null as any);
 

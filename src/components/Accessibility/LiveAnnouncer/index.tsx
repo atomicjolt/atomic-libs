@@ -1,5 +1,5 @@
 export { LiveAnnouncer } from "./LiveAnnouncer.component";
-export { LiveAnnouncerProps } from "./LiveAnnouncer.component";
+export type { LiveAnnouncerProps } from "./LiveAnnouncer.component";
 export {
   AnnouncerContext,
   useAnnouncer,
