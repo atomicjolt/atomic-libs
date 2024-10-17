@@ -1,10 +1,7 @@
-import { HasChildren } from "../../../types";
-import { AnnouncerProvider, contextValue } from "../context";
-
-export interface LiveAnnouncerProps extends HasChildren {}
-
-export function LiveAnnouncer(props: LiveAnnouncerProps) {
-  const { children } = props;
-
-  return <AnnouncerProvider value={contextValue}>{children}</AnnouncerProvider>;
-}
+export { LiveAnnouncer } from "./LiveAnnouncer.component";
+export { LiveAnnouncerProps } from "./LiveAnnouncer.component";
+export {
+  AnnouncerContext,
+  useAnnouncer,
+  withAnnouncer,
+} from "./LiveAnnouncer.context";

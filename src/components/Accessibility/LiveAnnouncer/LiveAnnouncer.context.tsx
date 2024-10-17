@@ -24,7 +24,7 @@ export const contextValue = {
   clearAssertiveAnnouncements: () => clearAnnouncer("assertive"),
 };
 
-const AnnouncerContext =
+export const AnnouncerContext =
   React.createContext<LiveAnnouncerContext>(contextValue);
 
 export const AnnouncerProvider = AnnouncerContext.Provider;
