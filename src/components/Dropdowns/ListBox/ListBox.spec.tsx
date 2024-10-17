@@ -3,7 +3,7 @@ import { render } from "@testing-library/react";
 import { ListBox } from ".";
 import { Item } from "@components/Collection";
 
-describe("SelectField", () => {
+describe("ListBox", () => {
   describe("matches snapshots", () => {
     test("when closed", () => {
       const result = render(

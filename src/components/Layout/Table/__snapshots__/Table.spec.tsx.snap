@@ -805,7 +805,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
               class="sc-hzhKNl cxfIgO aje-table__column"
               data-key="a"
               data-searchable="true"
-              id="react-aria-:ro:-a"
+              id="react-aria-:re:-a"
               role="columnheader"
               tabindex="-1"
             >
@@ -852,7 +852,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             <th
               class="sc-hzhKNl cxfIgO aje-table__column"
               data-key="b"
-              id="react-aria-:ro:-b"
+              id="react-aria-:re:-b"
               role="columnheader"
               tabindex="-1"
             >
@@ -868,6 +868,596 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
           class="sc-jsJARu aje-table__body"
           role="rowgroup"
         >
+          <tr
+            class="sc-gFqAYk eujzSk"
+          >
+            <td
+              class="sc-koYCI iogUaP"
+            >
+              <svg
+                aria-labelledby=":rg:-aria"
+                class="sc-dLNtp hVKZHi aje-skeleton-loader sc-bmzXxz ckxPGk"
+                role="img"
+              >
+                <rect
+                  clip-path="url(#:rg:-diff)"
+                  height="100%"
+                  role="presentation"
+                  style="fill: url(#:rg:-animated-diff);"
+                  width="100%"
+                  x="0"
+                  y="0"
+                />
+                <defs>
+                  <clippath
+                    id=":rg:-diff"
+                  >
+                    <rect
+                      height="100%"
+                      rx="5"
+                      ry="5"
+                      width="100%"
+                      x="0"
+                      y="0"
+                    />
+                  </clippath>
+                  <lineargradient
+                    gradientTransform="translate(-2 0)"
+                    id=":rg:-animated-diff"
+                  >
+                    <stop
+                      class="sc-eDPFhE fsqHBJ"
+                      offset="0%"
+                    />
+                    <stop
+                      class="sc-eldOKa jHHUtH"
+                      offset="50%"
+                    />
+                    <stop
+                      class="sc-eDPFhE fsqHBJ"
+                      offset="100%"
+                    />
+                    <animatetransform
+                      attributeName="gradientTransform"
+                      dur="1.2s"
+                      repeatCount="indefinite"
+                      type="translate"
+                      values="-2 0; 0 0; 2 0"
+                    />
+                  </lineargradient>
+                </defs>
+              </svg>
+            </td>
+            <td
+              class="sc-koYCI iogUaP"
+            >
+              <svg
+                aria-labelledby=":rh:-aria"
+                class="sc-dLNtp hVKZHi aje-skeleton-loader sc-bmzXxz ckxPGk"
+                role="img"
+              >
+                <rect
+                  clip-path="url(#:rh:-diff)"
+                  height="100%"
+                  role="presentation"
+                  style="fill: url(#:rh:-animated-diff);"
+                  width="100%"
+                  x="0"
+                  y="0"
+                />
+                <defs>
+                  <clippath
+                    id=":rh:-diff"
+                  >
+                    <rect
+                      height="100%"
+                      rx="5"
+                      ry="5"
+                      width="100%"
+                      x="0"
+                      y="0"
+                    />
+                  </clippath>
+                  <lineargradient
+                    gradientTransform="translate(-2 0)"
+                    id=":rh:-animated-diff"
+                  >
+                    <stop
+                      class="sc-eDPFhE fsqHBJ"
+                      offset="0%"
+                    />
+                    <stop
+                      class="sc-eldOKa jHHUtH"
+                      offset="50%"
+                    />
+                    <stop
+                      class="sc-eDPFhE fsqHBJ"
+                      offset="100%"
+                    />
+                    <animatetransform
+                      attributeName="gradientTransform"
+                      dur="1.2s"
+                      repeatCount="indefinite"
+                      type="translate"
+                      values="-2 0; 0 0; 2 0"
+                    />
+                  </lineargradient>
+                </defs>
+              </svg>
+            </td>
+          </tr>
+          <tr
+            class="sc-gFqAYk eujzSk"
+          >
+            <td
+              class="sc-koYCI iogUaP"
+            >
+              <svg
+                aria-labelledby=":ri:-aria"
+                class="sc-dLNtp hVKZHi aje-skeleton-loader sc-bmzXxz ckxPGk"
+                role="img"
+              >
+                <rect
+                  clip-path="url(#:ri:-diff)"
+                  height="100%"
+                  role="presentation"
+                  style="fill: url(#:ri:-animated-diff);"
+                  width="100%"
+                  x="0"
+                  y="0"
+                />
+                <defs>
+                  <clippath
+                    id=":ri:-diff"
+                  >
+                    <rect
+                      height="100%"
+                      rx="5"
+                      ry="5"
+                      width="100%"
+                      x="0"
+                      y="0"
+                    />
+                  </clippath>
+                  <lineargradient
+                    gradientTransform="translate(-2 0)"
+                    id=":ri:-animated-diff"
+                  >
+                    <stop
+                      class="sc-eDPFhE fsqHBJ"
+                      offset="0%"
+                    />
+                    <stop
+                      class="sc-eldOKa jHHUtH"
+                      offset="50%"
+                    />
+                    <stop
+                      class="sc-eDPFhE fsqHBJ"
+                      offset="100%"
+                    />
+                    <animatetransform
+                      attributeName="gradientTransform"
+                      dur="1.2s"
+                      repeatCount="indefinite"
+                      type="translate"
+                      values="-2 0; 0 0; 2 0"
+                    />
+                  </lineargradient>
+                </defs>
+              </svg>
+            </td>
+            <td
+              class="sc-koYCI iogUaP"
+            >
+              <svg
+                aria-labelledby=":rj:-aria"
+                class="sc-dLNtp hVKZHi aje-skeleton-loader sc-bmzXxz ckxPGk"
+                role="img"
+              >
+                <rect
+                  clip-path="url(#:rj:-diff)"
+                  height="100%"
+                  role="presentation"
+                  style="fill: url(#:rj:-animated-diff);"
+                  width="100%"
+                  x="0"
+                  y="0"
+                />
+                <defs>
+                  <clippath
+                    id=":rj:-diff"
+                  >
+                    <rect
+                      height="100%"
+                      rx="5"
+                      ry="5"
+                      width="100%"
+                      x="0"
+                      y="0"
+                    />
+                  </clippath>
+                  <lineargradient
+                    gradientTransform="translate(-2 0)"
+                    id=":rj:-animated-diff"
+                  >
+                    <stop
+                      class="sc-eDPFhE fsqHBJ"
+                      offset="0%"
+                    />
+                    <stop
+                      class="sc-eldOKa jHHUtH"
+                      offset="50%"
+                    />
+                    <stop
+                      class="sc-eDPFhE fsqHBJ"
+                      offset="100%"
+                    />
+                    <animatetransform
+                      attributeName="gradientTransform"
+                      dur="1.2s"
+                      repeatCount="indefinite"
+                      type="translate"
+                      values="-2 0; 0 0; 2 0"
+                    />
+                  </lineargradient>
+                </defs>
+              </svg>
+            </td>
+          </tr>
+          <tr
+            class="sc-gFqAYk eujzSk"
+          >
+            <td
+              class="sc-koYCI iogUaP"
+            >
+              <svg
+                aria-labelledby=":rk:-aria"
+                class="sc-dLNtp hVKZHi aje-skeleton-loader sc-bmzXxz ckxPGk"
+                role="img"
+              >
+                <rect
+                  clip-path="url(#:rk:-diff)"
+                  height="100%"
+                  role="presentation"
+                  style="fill: url(#:rk:-animated-diff);"
+                  width="100%"
+                  x="0"
+                  y="0"
+                />
+                <defs>
+                  <clippath
+                    id=":rk:-diff"
+                  >
+                    <rect
+                      height="100%"
+                      rx="5"
+                      ry="5"
+                      width="100%"
+                      x="0"
+                      y="0"
+                    />
+                  </clippath>
+                  <lineargradient
+                    gradientTransform="translate(-2 0)"
+                    id=":rk:-animated-diff"
+                  >
+                    <stop
+                      class="sc-eDPFhE fsqHBJ"
+                      offset="0%"
+                    />
+                    <stop
+                      class="sc-eldOKa jHHUtH"
+                      offset="50%"
+                    />
+                    <stop
+                      class="sc-eDPFhE fsqHBJ"
+                      offset="100%"
+                    />
+                    <animatetransform
+                      attributeName="gradientTransform"
+                      dur="1.2s"
+                      repeatCount="indefinite"
+                      type="translate"
+                      values="-2 0; 0 0; 2 0"
+                    />
+                  </lineargradient>
+                </defs>
+              </svg>
+            </td>
+            <td
+              class="sc-koYCI iogUaP"
+            >
+              <svg
+                aria-labelledby=":rl:-aria"
+                class="sc-dLNtp hVKZHi aje-skeleton-loader sc-bmzXxz ckxPGk"
+                role="img"
+              >
+                <rect
+                  clip-path="url(#:rl:-diff)"
+                  height="100%"
+                  role="presentation"
+                  style="fill: url(#:rl:-animated-diff);"
+                  width="100%"
+                  x="0"
+                  y="0"
+                />
+                <defs>
+                  <clippath
+                    id=":rl:-diff"
+                  >
+                    <rect
+                      height="100%"
+                      rx="5"
+                      ry="5"
+                      width="100%"
+                      x="0"
+                      y="0"
+                    />
+                  </clippath>
+                  <lineargradient
+                    gradientTransform="translate(-2 0)"
+                    id=":rl:-animated-diff"
+                  >
+                    <stop
+                      class="sc-eDPFhE fsqHBJ"
+                      offset="0%"
+                    />
+                    <stop
+                      class="sc-eldOKa jHHUtH"
+                      offset="50%"
+                    />
+                    <stop
+                      class="sc-eDPFhE fsqHBJ"
+                      offset="100%"
+                    />
+                    <animatetransform
+                      attributeName="gradientTransform"
+                      dur="1.2s"
+                      repeatCount="indefinite"
+                      type="translate"
+                      values="-2 0; 0 0; 2 0"
+                    />
+                  </lineargradient>
+                </defs>
+              </svg>
+            </td>
+          </tr>
+          <tr
+            class="sc-gFqAYk eujzSk"
+          >
+            <td
+              class="sc-koYCI iogUaP"
+            >
+              <svg
+                aria-labelledby=":rm:-aria"
+                class="sc-dLNtp hVKZHi aje-skeleton-loader sc-bmzXxz ckxPGk"
+                role="img"
+              >
+                <rect
+                  clip-path="url(#:rm:-diff)"
+                  height="100%"
+                  role="presentation"
+                  style="fill: url(#:rm:-animated-diff);"
+                  width="100%"
+                  x="0"
+                  y="0"
+                />
+                <defs>
+                  <clippath
+                    id=":rm:-diff"
+                  >
+                    <rect
+                      height="100%"
+                      rx="5"
+                      ry="5"
+                      width="100%"
+                      x="0"
+                      y="0"
+                    />
+                  </clippath>
+                  <lineargradient
+                    gradientTransform="translate(-2 0)"
+                    id=":rm:-animated-diff"
+                  >
+                    <stop
+                      class="sc-eDPFhE fsqHBJ"
+                      offset="0%"
+                    />
+                    <stop
+                      class="sc-eldOKa jHHUtH"
+                      offset="50%"
+                    />
+                    <stop
+                      class="sc-eDPFhE fsqHBJ"
+                      offset="100%"
+                    />
+                    <animatetransform
+                      attributeName="gradientTransform"
+                      dur="1.2s"
+                      repeatCount="indefinite"
+                      type="translate"
+                      values="-2 0; 0 0; 2 0"
+                    />
+                  </lineargradient>
+                </defs>
+              </svg>
+            </td>
+            <td
+              class="sc-koYCI iogUaP"
+            >
+              <svg
+                aria-labelledby=":rn:-aria"
+                class="sc-dLNtp hVKZHi aje-skeleton-loader sc-bmzXxz ckxPGk"
+                role="img"
+              >
+                <rect
+                  clip-path="url(#:rn:-diff)"
+                  height="100%"
+                  role="presentation"
+                  style="fill: url(#:rn:-animated-diff);"
+                  width="100%"
+                  x="0"
+                  y="0"
+                />
+                <defs>
+                  <clippath
+                    id=":rn:-diff"
+                  >
+                    <rect
+                      height="100%"
+                      rx="5"
+                      ry="5"
+                      width="100%"
+                      x="0"
+                      y="0"
+                    />
+                  </clippath>
+                  <lineargradient
+                    gradientTransform="translate(-2 0)"
+                    id=":rn:-animated-diff"
+                  >
+                    <stop
+                      class="sc-eDPFhE fsqHBJ"
+                      offset="0%"
+                    />
+                    <stop
+                      class="sc-eldOKa jHHUtH"
+                      offset="50%"
+                    />
+                    <stop
+                      class="sc-eDPFhE fsqHBJ"
+                      offset="100%"
+                    />
+                    <animatetransform
+                      attributeName="gradientTransform"
+                      dur="1.2s"
+                      repeatCount="indefinite"
+                      type="translate"
+                      values="-2 0; 0 0; 2 0"
+                    />
+                  </lineargradient>
+                </defs>
+              </svg>
+            </td>
+          </tr>
+          <tr
+            class="sc-gFqAYk eujzSk"
+          >
+            <td
+              class="sc-koYCI iogUaP"
+            >
+              <svg
+                aria-labelledby=":ro:-aria"
+                class="sc-dLNtp hVKZHi aje-skeleton-loader sc-bmzXxz ckxPGk"
+                role="img"
+              >
+                <rect
+                  clip-path="url(#:ro:-diff)"
+                  height="100%"
+                  role="presentation"
+                  style="fill: url(#:ro:-animated-diff);"
+                  width="100%"
+                  x="0"
+                  y="0"
+                />
+                <defs>
+                  <clippath
+                    id=":ro:-diff"
+                  >
+                    <rect
+                      height="100%"
+                      rx="5"
+                      ry="5"
+                      width="100%"
+                      x="0"
+                      y="0"
+                    />
+                  </clippath>
+                  <lineargradient
+                    gradientTransform="translate(-2 0)"
+                    id=":ro:-animated-diff"
+                  >
+                    <stop
+                      class="sc-eDPFhE fsqHBJ"
+                      offset="0%"
+                    />
+                    <stop
+                      class="sc-eldOKa jHHUtH"
+                      offset="50%"
+                    />
+                    <stop
+                      class="sc-eDPFhE fsqHBJ"
+                      offset="100%"
+                    />
+                    <animatetransform
+                      attributeName="gradientTransform"
+                      dur="1.2s"
+                      repeatCount="indefinite"
+                      type="translate"
+                      values="-2 0; 0 0; 2 0"
+                    />
+                  </lineargradient>
+                </defs>
+              </svg>
+            </td>
+            <td
+              class="sc-koYCI iogUaP"
+            >
+              <svg
+                aria-labelledby=":rp:-aria"
+                class="sc-dLNtp hVKZHi aje-skeleton-loader sc-bmzXxz ckxPGk"
+                role="img"
+              >
+                <rect
+                  clip-path="url(#:rp:-diff)"
+                  height="100%"
+                  role="presentation"
+                  style="fill: url(#:rp:-animated-diff);"
+                  width="100%"
+                  x="0"
+                  y="0"
+                />
+                <defs>
+                  <clippath
+                    id=":rp:-diff"
+                  >
+                    <rect
+                      height="100%"
+                      rx="5"
+                      ry="5"
+                      width="100%"
+                      x="0"
+                      y="0"
+                    />
+                  </clippath>
+                  <lineargradient
+                    gradientTransform="translate(-2 0)"
+                    id=":rp:-animated-diff"
+                  >
+                    <stop
+                      class="sc-eDPFhE fsqHBJ"
+                      offset="0%"
+                    />
+                    <stop
+                      class="sc-eldOKa jHHUtH"
+                      offset="50%"
+                    />
+                    <stop
+                      class="sc-eDPFhE fsqHBJ"
+                      offset="100%"
+                    />
+                    <animatetransform
+                      attributeName="gradientTransform"
+                      dur="1.2s"
+                      repeatCount="indefinite"
+                      type="translate"
+                      values="-2 0; 0 0; 2 0"
+                    />
+                  </lineargradient>
+                </defs>
+              </svg>
+            </td>
+          </tr>
           <tr
             class="sc-gFqAYk eujzSk"
           >
@@ -1458,601 +2048,11 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
               </svg>
             </td>
           </tr>
-          <tr
-            class="sc-gFqAYk eujzSk"
-          >
-            <td
-              class="sc-koYCI iogUaP"
-            >
-              <svg
-                aria-labelledby=":r14:-aria"
-                class="sc-dLNtp hVKZHi aje-skeleton-loader sc-bmzXxz ckxPGk"
-                role="img"
-              >
-                <rect
-                  clip-path="url(#:r14:-diff)"
-                  height="100%"
-                  role="presentation"
-                  style="fill: url(#:r14:-animated-diff);"
-                  width="100%"
-                  x="0"
-                  y="0"
-                />
-                <defs>
-                  <clippath
-                    id=":r14:-diff"
-                  >
-                    <rect
-                      height="100%"
-                      rx="5"
-                      ry="5"
-                      width="100%"
-                      x="0"
-                      y="0"
-                    />
-                  </clippath>
-                  <lineargradient
-                    gradientTransform="translate(-2 0)"
-                    id=":r14:-animated-diff"
-                  >
-                    <stop
-                      class="sc-eDPFhE fsqHBJ"
-                      offset="0%"
-                    />
-                    <stop
-                      class="sc-eldOKa jHHUtH"
-                      offset="50%"
-                    />
-                    <stop
-                      class="sc-eDPFhE fsqHBJ"
-                      offset="100%"
-                    />
-                    <animatetransform
-                      attributeName="gradientTransform"
-                      dur="1.2s"
-                      repeatCount="indefinite"
-                      type="translate"
-                      values="-2 0; 0 0; 2 0"
-                    />
-                  </lineargradient>
-                </defs>
-              </svg>
-            </td>
-            <td
-              class="sc-koYCI iogUaP"
-            >
-              <svg
-                aria-labelledby=":r15:-aria"
-                class="sc-dLNtp hVKZHi aje-skeleton-loader sc-bmzXxz ckxPGk"
-                role="img"
-              >
-                <rect
-                  clip-path="url(#:r15:-diff)"
-                  height="100%"
-                  role="presentation"
-                  style="fill: url(#:r15:-animated-diff);"
-                  width="100%"
-                  x="0"
-                  y="0"
-                />
-                <defs>
-                  <clippath
-                    id=":r15:-diff"
-                  >
-                    <rect
-                      height="100%"
-                      rx="5"
-                      ry="5"
-                      width="100%"
-                      x="0"
-                      y="0"
-                    />
-                  </clippath>
-                  <lineargradient
-                    gradientTransform="translate(-2 0)"
-                    id=":r15:-animated-diff"
-                  >
-                    <stop
-                      class="sc-eDPFhE fsqHBJ"
-                      offset="0%"
-                    />
-                    <stop
-                      class="sc-eldOKa jHHUtH"
-                      offset="50%"
-                    />
-                    <stop
-                      class="sc-eDPFhE fsqHBJ"
-                      offset="100%"
-                    />
-                    <animatetransform
-                      attributeName="gradientTransform"
-                      dur="1.2s"
-                      repeatCount="indefinite"
-                      type="translate"
-                      values="-2 0; 0 0; 2 0"
-                    />
-                  </lineargradient>
-                </defs>
-              </svg>
-            </td>
-          </tr>
-          <tr
-            class="sc-gFqAYk eujzSk"
-          >
-            <td
-              class="sc-koYCI iogUaP"
-            >
-              <svg
-                aria-labelledby=":r16:-aria"
-                class="sc-dLNtp hVKZHi aje-skeleton-loader sc-bmzXxz ckxPGk"
-                role="img"
-              >
-                <rect
-                  clip-path="url(#:r16:-diff)"
-                  height="100%"
-                  role="presentation"
-                  style="fill: url(#:r16:-animated-diff);"
-                  width="100%"
-                  x="0"
-                  y="0"
-                />
-                <defs>
-                  <clippath
-                    id=":r16:-diff"
-                  >
-                    <rect
-                      height="100%"
-                      rx="5"
-                      ry="5"
-                      width="100%"
-                      x="0"
-                      y="0"
-                    />
-                  </clippath>
-                  <lineargradient
-                    gradientTransform="translate(-2 0)"
-                    id=":r16:-animated-diff"
-                  >
-                    <stop
-                      class="sc-eDPFhE fsqHBJ"
-                      offset="0%"
-                    />
-                    <stop
-                      class="sc-eldOKa jHHUtH"
-                      offset="50%"
-                    />
-                    <stop
-                      class="sc-eDPFhE fsqHBJ"
-                      offset="100%"
-                    />
-                    <animatetransform
-                      attributeName="gradientTransform"
-                      dur="1.2s"
-                      repeatCount="indefinite"
-                      type="translate"
-                      values="-2 0; 0 0; 2 0"
-                    />
-                  </lineargradient>
-                </defs>
-              </svg>
-            </td>
-            <td
-              class="sc-koYCI iogUaP"
-            >
-              <svg
-                aria-labelledby=":r17:-aria"
-                class="sc-dLNtp hVKZHi aje-skeleton-loader sc-bmzXxz ckxPGk"
-                role="img"
-              >
-                <rect
-                  clip-path="url(#:r17:-diff)"
-                  height="100%"
-                  role="presentation"
-                  style="fill: url(#:r17:-animated-diff);"
-                  width="100%"
-                  x="0"
-                  y="0"
-                />
-                <defs>
-                  <clippath
-                    id=":r17:-diff"
-                  >
-                    <rect
-                      height="100%"
-                      rx="5"
-                      ry="5"
-                      width="100%"
-                      x="0"
-                      y="0"
-                    />
-                  </clippath>
-                  <lineargradient
-                    gradientTransform="translate(-2 0)"
-                    id=":r17:-animated-diff"
-                  >
-                    <stop
-                      class="sc-eDPFhE fsqHBJ"
-                      offset="0%"
-                    />
-                    <stop
-                      class="sc-eldOKa jHHUtH"
-                      offset="50%"
-                    />
-                    <stop
-                      class="sc-eDPFhE fsqHBJ"
-                      offset="100%"
-                    />
-                    <animatetransform
-                      attributeName="gradientTransform"
-                      dur="1.2s"
-                      repeatCount="indefinite"
-                      type="translate"
-                      values="-2 0; 0 0; 2 0"
-                    />
-                  </lineargradient>
-                </defs>
-              </svg>
-            </td>
-          </tr>
-          <tr
-            class="sc-gFqAYk eujzSk"
-          >
-            <td
-              class="sc-koYCI iogUaP"
-            >
-              <svg
-                aria-labelledby=":r18:-aria"
-                class="sc-dLNtp hVKZHi aje-skeleton-loader sc-bmzXxz ckxPGk"
-                role="img"
-              >
-                <rect
-                  clip-path="url(#:r18:-diff)"
-                  height="100%"
-                  role="presentation"
-                  style="fill: url(#:r18:-animated-diff);"
-                  width="100%"
-                  x="0"
-                  y="0"
-                />
-                <defs>
-                  <clippath
-                    id=":r18:-diff"
-                  >
-                    <rect
-                      height="100%"
-                      rx="5"
-                      ry="5"
-                      width="100%"
-                      x="0"
-                      y="0"
-                    />
-                  </clippath>
-                  <lineargradient
-                    gradientTransform="translate(-2 0)"
-                    id=":r18:-animated-diff"
-                  >
-                    <stop
-                      class="sc-eDPFhE fsqHBJ"
-                      offset="0%"
-                    />
-                    <stop
-                      class="sc-eldOKa jHHUtH"
-                      offset="50%"
-                    />
-                    <stop
-                      class="sc-eDPFhE fsqHBJ"
-                      offset="100%"
-                    />
-                    <animatetransform
-                      attributeName="gradientTransform"
-                      dur="1.2s"
-                      repeatCount="indefinite"
-                      type="translate"
-                      values="-2 0; 0 0; 2 0"
-                    />
-                  </lineargradient>
-                </defs>
-              </svg>
-            </td>
-            <td
-              class="sc-koYCI iogUaP"
-            >
-              <svg
-                aria-labelledby=":r19:-aria"
-                class="sc-dLNtp hVKZHi aje-skeleton-loader sc-bmzXxz ckxPGk"
-                role="img"
-              >
-                <rect
-                  clip-path="url(#:r19:-diff)"
-                  height="100%"
-                  role="presentation"
-                  style="fill: url(#:r19:-animated-diff);"
-                  width="100%"
-                  x="0"
-                  y="0"
-                />
-                <defs>
-                  <clippath
-                    id=":r19:-diff"
-                  >
-                    <rect
-                      height="100%"
-                      rx="5"
-                      ry="5"
-                      width="100%"
-                      x="0"
-                      y="0"
-                    />
-                  </clippath>
-                  <lineargradient
-                    gradientTransform="translate(-2 0)"
-                    id=":r19:-animated-diff"
-                  >
-                    <stop
-                      class="sc-eDPFhE fsqHBJ"
-                      offset="0%"
-                    />
-                    <stop
-                      class="sc-eldOKa jHHUtH"
-                      offset="50%"
-                    />
-                    <stop
-                      class="sc-eDPFhE fsqHBJ"
-                      offset="100%"
-                    />
-                    <animatetransform
-                      attributeName="gradientTransform"
-                      dur="1.2s"
-                      repeatCount="indefinite"
-                      type="translate"
-                      values="-2 0; 0 0; 2 0"
-                    />
-                  </lineargradient>
-                </defs>
-              </svg>
-            </td>
-          </tr>
-          <tr
-            class="sc-gFqAYk eujzSk"
-          >
-            <td
-              class="sc-koYCI iogUaP"
-            >
-              <svg
-                aria-labelledby=":r1a:-aria"
-                class="sc-dLNtp hVKZHi aje-skeleton-loader sc-bmzXxz ckxPGk"
-                role="img"
-              >
-                <rect
-                  clip-path="url(#:r1a:-diff)"
-                  height="100%"
-                  role="presentation"
-                  style="fill: url(#:r1a:-animated-diff);"
-                  width="100%"
-                  x="0"
-                  y="0"
-                />
-                <defs>
-                  <clippath
-                    id=":r1a:-diff"
-                  >
-                    <rect
-                      height="100%"
-                      rx="5"
-                      ry="5"
-                      width="100%"
-                      x="0"
-                      y="0"
-                    />
-                  </clippath>
-                  <lineargradient
-                    gradientTransform="translate(-2 0)"
-                    id=":r1a:-animated-diff"
-                  >
-                    <stop
-                      class="sc-eDPFhE fsqHBJ"
-                      offset="0%"
-                    />
-                    <stop
-                      class="sc-eldOKa jHHUtH"
-                      offset="50%"
-                    />
-                    <stop
-                      class="sc-eDPFhE fsqHBJ"
-                      offset="100%"
-                    />
-                    <animatetransform
-                      attributeName="gradientTransform"
-                      dur="1.2s"
-                      repeatCount="indefinite"
-                      type="translate"
-                      values="-2 0; 0 0; 2 0"
-                    />
-                  </lineargradient>
-                </defs>
-              </svg>
-            </td>
-            <td
-              class="sc-koYCI iogUaP"
-            >
-              <svg
-                aria-labelledby=":r1b:-aria"
-                class="sc-dLNtp hVKZHi aje-skeleton-loader sc-bmzXxz ckxPGk"
-                role="img"
-              >
-                <rect
-                  clip-path="url(#:r1b:-diff)"
-                  height="100%"
-                  role="presentation"
-                  style="fill: url(#:r1b:-animated-diff);"
-                  width="100%"
-                  x="0"
-                  y="0"
-                />
-                <defs>
-                  <clippath
-                    id=":r1b:-diff"
-                  >
-                    <rect
-                      height="100%"
-                      rx="5"
-                      ry="5"
-                      width="100%"
-                      x="0"
-                      y="0"
-                    />
-                  </clippath>
-                  <lineargradient
-                    gradientTransform="translate(-2 0)"
-                    id=":r1b:-animated-diff"
-                  >
-                    <stop
-                      class="sc-eDPFhE fsqHBJ"
-                      offset="0%"
-                    />
-                    <stop
-                      class="sc-eldOKa jHHUtH"
-                      offset="50%"
-                    />
-                    <stop
-                      class="sc-eDPFhE fsqHBJ"
-                      offset="100%"
-                    />
-                    <animatetransform
-                      attributeName="gradientTransform"
-                      dur="1.2s"
-                      repeatCount="indefinite"
-                      type="translate"
-                      values="-2 0; 0 0; 2 0"
-                    />
-                  </lineargradient>
-                </defs>
-              </svg>
-            </td>
-          </tr>
-          <tr
-            class="sc-gFqAYk eujzSk"
-          >
-            <td
-              class="sc-koYCI iogUaP"
-            >
-              <svg
-                aria-labelledby=":r1c:-aria"
-                class="sc-dLNtp hVKZHi aje-skeleton-loader sc-bmzXxz ckxPGk"
-                role="img"
-              >
-                <rect
-                  clip-path="url(#:r1c:-diff)"
-                  height="100%"
-                  role="presentation"
-                  style="fill: url(#:r1c:-animated-diff);"
-                  width="100%"
-                  x="0"
-                  y="0"
-                />
-                <defs>
-                  <clippath
-                    id=":r1c:-diff"
-                  >
-                    <rect
-                      height="100%"
-                      rx="5"
-                      ry="5"
-                      width="100%"
-                      x="0"
-                      y="0"
-                    />
-                  </clippath>
-                  <lineargradient
-                    gradientTransform="translate(-2 0)"
-                    id=":r1c:-animated-diff"
-                  >
-                    <stop
-                      class="sc-eDPFhE fsqHBJ"
-                      offset="0%"
-                    />
-                    <stop
-                      class="sc-eldOKa jHHUtH"
-                      offset="50%"
-                    />
-                    <stop
-                      class="sc-eDPFhE fsqHBJ"
-                      offset="100%"
-                    />
-                    <animatetransform
-                      attributeName="gradientTransform"
-                      dur="1.2s"
-                      repeatCount="indefinite"
-                      type="translate"
-                      values="-2 0; 0 0; 2 0"
-                    />
-                  </lineargradient>
-                </defs>
-              </svg>
-            </td>
-            <td
-              class="sc-koYCI iogUaP"
-            >
-              <svg
-                aria-labelledby=":r1d:-aria"
-                class="sc-dLNtp hVKZHi aje-skeleton-loader sc-bmzXxz ckxPGk"
-                role="img"
-              >
-                <rect
-                  clip-path="url(#:r1d:-diff)"
-                  height="100%"
-                  role="presentation"
-                  style="fill: url(#:r1d:-animated-diff);"
-                  width="100%"
-                  x="0"
-                  y="0"
-                />
-                <defs>
-                  <clippath
-                    id=":r1d:-diff"
-                  >
-                    <rect
-                      height="100%"
-                      rx="5"
-                      ry="5"
-                      width="100%"
-                      x="0"
-                      y="0"
-                    />
-                  </clippath>
-                  <lineargradient
-                    gradientTransform="translate(-2 0)"
-                    id=":r1d:-animated-diff"
-                  >
-                    <stop
-                      class="sc-eDPFhE fsqHBJ"
-                      offset="0%"
-                    />
-                    <stop
-                      class="sc-eldOKa jHHUtH"
-                      offset="50%"
-                    />
-                    <stop
-                      class="sc-eDPFhE fsqHBJ"
-                      offset="100%"
-                    />
-                    <animatetransform
-                      attributeName="gradientTransform"
-                      dur="1.2s"
-                      repeatCount="indefinite"
-                      type="translate"
-                      values="-2 0; 0 0; 2 0"
-                    />
-                  </lineargradient>
-                </defs>
-              </svg>
-            </td>
-          </tr>
         </tbody>
       </table>
     </div>
     <div
-      id="react-aria-description-2"
+      id="react-aria-description-3"
       style="display: none;"
     >
       Double tap to start dragging.
@@ -2079,7 +2079,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             class="sc-hzhKNl cxfIgO aje-table__column"
             data-key="a"
             data-searchable="true"
-            id="react-aria-:ro:-a"
+            id="react-aria-:re:-a"
             role="columnheader"
             tabindex="-1"
           >
@@ -2126,7 +2126,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
           <th
             class="sc-hzhKNl cxfIgO aje-table__column"
             data-key="b"
-            id="react-aria-:ro:-b"
+            id="react-aria-:re:-b"
             role="columnheader"
             tabindex="-1"
           >
@@ -2142,6 +2142,596 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
         class="sc-jsJARu aje-table__body"
         role="rowgroup"
       >
+        <tr
+          class="sc-gFqAYk eujzSk"
+        >
+          <td
+            class="sc-koYCI iogUaP"
+          >
+            <svg
+              aria-labelledby=":rg:-aria"
+              class="sc-dLNtp hVKZHi aje-skeleton-loader sc-bmzXxz ckxPGk"
+              role="img"
+            >
+              <rect
+                clip-path="url(#:rg:-diff)"
+                height="100%"
+                role="presentation"
+                style="fill: url(#:rg:-animated-diff);"
+                width="100%"
+                x="0"
+                y="0"
+              />
+              <defs>
+                <clippath
+                  id=":rg:-diff"
+                >
+                  <rect
+                    height="100%"
+                    rx="5"
+                    ry="5"
+                    width="100%"
+                    x="0"
+                    y="0"
+                  />
+                </clippath>
+                <lineargradient
+                  gradientTransform="translate(-2 0)"
+                  id=":rg:-animated-diff"
+                >
+                  <stop
+                    class="sc-eDPFhE fsqHBJ"
+                    offset="0%"
+                  />
+                  <stop
+                    class="sc-eldOKa jHHUtH"
+                    offset="50%"
+                  />
+                  <stop
+                    class="sc-eDPFhE fsqHBJ"
+                    offset="100%"
+                  />
+                  <animatetransform
+                    attributeName="gradientTransform"
+                    dur="1.2s"
+                    repeatCount="indefinite"
+                    type="translate"
+                    values="-2 0; 0 0; 2 0"
+                  />
+                </lineargradient>
+              </defs>
+            </svg>
+          </td>
+          <td
+            class="sc-koYCI iogUaP"
+          >
+            <svg
+              aria-labelledby=":rh:-aria"
+              class="sc-dLNtp hVKZHi aje-skeleton-loader sc-bmzXxz ckxPGk"
+              role="img"
+            >
+              <rect
+                clip-path="url(#:rh:-diff)"
+                height="100%"
+                role="presentation"
+                style="fill: url(#:rh:-animated-diff);"
+                width="100%"
+                x="0"
+                y="0"
+              />
+              <defs>
+                <clippath
+                  id=":rh:-diff"
+                >
+                  <rect
+                    height="100%"
+                    rx="5"
+                    ry="5"
+                    width="100%"
+                    x="0"
+                    y="0"
+                  />
+                </clippath>
+                <lineargradient
+                  gradientTransform="translate(-2 0)"
+                  id=":rh:-animated-diff"
+                >
+                  <stop
+                    class="sc-eDPFhE fsqHBJ"
+                    offset="0%"
+                  />
+                  <stop
+                    class="sc-eldOKa jHHUtH"
+                    offset="50%"
+                  />
+                  <stop
+                    class="sc-eDPFhE fsqHBJ"
+                    offset="100%"
+                  />
+                  <animatetransform
+                    attributeName="gradientTransform"
+                    dur="1.2s"
+                    repeatCount="indefinite"
+                    type="translate"
+                    values="-2 0; 0 0; 2 0"
+                  />
+                </lineargradient>
+              </defs>
+            </svg>
+          </td>
+        </tr>
+        <tr
+          class="sc-gFqAYk eujzSk"
+        >
+          <td
+            class="sc-koYCI iogUaP"
+          >
+            <svg
+              aria-labelledby=":ri:-aria"
+              class="sc-dLNtp hVKZHi aje-skeleton-loader sc-bmzXxz ckxPGk"
+              role="img"
+            >
+              <rect
+                clip-path="url(#:ri:-diff)"
+                height="100%"
+                role="presentation"
+                style="fill: url(#:ri:-animated-diff);"
+                width="100%"
+                x="0"
+                y="0"
+              />
+              <defs>
+                <clippath
+                  id=":ri:-diff"
+                >
+                  <rect
+                    height="100%"
+                    rx="5"
+                    ry="5"
+                    width="100%"
+                    x="0"
+                    y="0"
+                  />
+                </clippath>
+                <lineargradient
+                  gradientTransform="translate(-2 0)"
+                  id=":ri:-animated-diff"
+                >
+                  <stop
+                    class="sc-eDPFhE fsqHBJ"
+                    offset="0%"
+                  />
+                  <stop
+                    class="sc-eldOKa jHHUtH"
+                    offset="50%"
+                  />
+                  <stop
+                    class="sc-eDPFhE fsqHBJ"
+                    offset="100%"
+                  />
+                  <animatetransform
+                    attributeName="gradientTransform"
+                    dur="1.2s"
+                    repeatCount="indefinite"
+                    type="translate"
+                    values="-2 0; 0 0; 2 0"
+                  />
+                </lineargradient>
+              </defs>
+            </svg>
+          </td>
+          <td
+            class="sc-koYCI iogUaP"
+          >
+            <svg
+              aria-labelledby=":rj:-aria"
+              class="sc-dLNtp hVKZHi aje-skeleton-loader sc-bmzXxz ckxPGk"
+              role="img"
+            >
+              <rect
+                clip-path="url(#:rj:-diff)"
+                height="100%"
+                role="presentation"
+                style="fill: url(#:rj:-animated-diff);"
+                width="100%"
+                x="0"
+                y="0"
+              />
+              <defs>
+                <clippath
+                  id=":rj:-diff"
+                >
+                  <rect
+                    height="100%"
+                    rx="5"
+                    ry="5"
+                    width="100%"
+                    x="0"
+                    y="0"
+                  />
+                </clippath>
+                <lineargradient
+                  gradientTransform="translate(-2 0)"
+                  id=":rj:-animated-diff"
+                >
+                  <stop
+                    class="sc-eDPFhE fsqHBJ"
+                    offset="0%"
+                  />
+                  <stop
+                    class="sc-eldOKa jHHUtH"
+                    offset="50%"
+                  />
+                  <stop
+                    class="sc-eDPFhE fsqHBJ"
+                    offset="100%"
+                  />
+                  <animatetransform
+                    attributeName="gradientTransform"
+                    dur="1.2s"
+                    repeatCount="indefinite"
+                    type="translate"
+                    values="-2 0; 0 0; 2 0"
+                  />
+                </lineargradient>
+              </defs>
+            </svg>
+          </td>
+        </tr>
+        <tr
+          class="sc-gFqAYk eujzSk"
+        >
+          <td
+            class="sc-koYCI iogUaP"
+          >
+            <svg
+              aria-labelledby=":rk:-aria"
+              class="sc-dLNtp hVKZHi aje-skeleton-loader sc-bmzXxz ckxPGk"
+              role="img"
+            >
+              <rect
+                clip-path="url(#:rk:-diff)"
+                height="100%"
+                role="presentation"
+                style="fill: url(#:rk:-animated-diff);"
+                width="100%"
+                x="0"
+                y="0"
+              />
+              <defs>
+                <clippath
+                  id=":rk:-diff"
+                >
+                  <rect
+                    height="100%"
+                    rx="5"
+                    ry="5"
+                    width="100%"
+                    x="0"
+                    y="0"
+                  />
+                </clippath>
+                <lineargradient
+                  gradientTransform="translate(-2 0)"
+                  id=":rk:-animated-diff"
+                >
+                  <stop
+                    class="sc-eDPFhE fsqHBJ"
+                    offset="0%"
+                  />
+                  <stop
+                    class="sc-eldOKa jHHUtH"
+                    offset="50%"
+                  />
+                  <stop
+                    class="sc-eDPFhE fsqHBJ"
+                    offset="100%"
+                  />
+                  <animatetransform
+                    attributeName="gradientTransform"
+                    dur="1.2s"
+                    repeatCount="indefinite"
+                    type="translate"
+                    values="-2 0; 0 0; 2 0"
+                  />
+                </lineargradient>
+              </defs>
+            </svg>
+          </td>
+          <td
+            class="sc-koYCI iogUaP"
+          >
+            <svg
+              aria-labelledby=":rl:-aria"
+              class="sc-dLNtp hVKZHi aje-skeleton-loader sc-bmzXxz ckxPGk"
+              role="img"
+            >
+              <rect
+                clip-path="url(#:rl:-diff)"
+                height="100%"
+                role="presentation"
+                style="fill: url(#:rl:-animated-diff);"
+                width="100%"
+                x="0"
+                y="0"
+              />
+              <defs>
+                <clippath
+                  id=":rl:-diff"
+                >
+                  <rect
+                    height="100%"
+                    rx="5"
+                    ry="5"
+                    width="100%"
+                    x="0"
+                    y="0"
+                  />
+                </clippath>
+                <lineargradient
+                  gradientTransform="translate(-2 0)"
+                  id=":rl:-animated-diff"
+                >
+                  <stop
+                    class="sc-eDPFhE fsqHBJ"
+                    offset="0%"
+                  />
+                  <stop
+                    class="sc-eldOKa jHHUtH"
+                    offset="50%"
+                  />
+                  <stop
+                    class="sc-eDPFhE fsqHBJ"
+                    offset="100%"
+                  />
+                  <animatetransform
+                    attributeName="gradientTransform"
+                    dur="1.2s"
+                    repeatCount="indefinite"
+                    type="translate"
+                    values="-2 0; 0 0; 2 0"
+                  />
+                </lineargradient>
+              </defs>
+            </svg>
+          </td>
+        </tr>
+        <tr
+          class="sc-gFqAYk eujzSk"
+        >
+          <td
+            class="sc-koYCI iogUaP"
+          >
+            <svg
+              aria-labelledby=":rm:-aria"
+              class="sc-dLNtp hVKZHi aje-skeleton-loader sc-bmzXxz ckxPGk"
+              role="img"
+            >
+              <rect
+                clip-path="url(#:rm:-diff)"
+                height="100%"
+                role="presentation"
+                style="fill: url(#:rm:-animated-diff);"
+                width="100%"
+                x="0"
+                y="0"
+              />
+              <defs>
+                <clippath
+                  id=":rm:-diff"
+                >
+                  <rect
+                    height="100%"
+                    rx="5"
+                    ry="5"
+                    width="100%"
+                    x="0"
+                    y="0"
+                  />
+                </clippath>
+                <lineargradient
+                  gradientTransform="translate(-2 0)"
+                  id=":rm:-animated-diff"
+                >
+                  <stop
+                    class="sc-eDPFhE fsqHBJ"
+                    offset="0%"
+                  />
+                  <stop
+                    class="sc-eldOKa jHHUtH"
+                    offset="50%"
+                  />
+                  <stop
+                    class="sc-eDPFhE fsqHBJ"
+                    offset="100%"
+                  />
+                  <animatetransform
+                    attributeName="gradientTransform"
+                    dur="1.2s"
+                    repeatCount="indefinite"
+                    type="translate"
+                    values="-2 0; 0 0; 2 0"
+                  />
+                </lineargradient>
+              </defs>
+            </svg>
+          </td>
+          <td
+            class="sc-koYCI iogUaP"
+          >
+            <svg
+              aria-labelledby=":rn:-aria"
+              class="sc-dLNtp hVKZHi aje-skeleton-loader sc-bmzXxz ckxPGk"
+              role="img"
+            >
+              <rect
+                clip-path="url(#:rn:-diff)"
+                height="100%"
+                role="presentation"
+                style="fill: url(#:rn:-animated-diff);"
+                width="100%"
+                x="0"
+                y="0"
+              />
+              <defs>
+                <clippath
+                  id=":rn:-diff"
+                >
+                  <rect
+                    height="100%"
+                    rx="5"
+                    ry="5"
+                    width="100%"
+                    x="0"
+                    y="0"
+                  />
+                </clippath>
+                <lineargradient
+                  gradientTransform="translate(-2 0)"
+                  id=":rn:-animated-diff"
+                >
+                  <stop
+                    class="sc-eDPFhE fsqHBJ"
+                    offset="0%"
+                  />
+                  <stop
+                    class="sc-eldOKa jHHUtH"
+                    offset="50%"
+                  />
+                  <stop
+                    class="sc-eDPFhE fsqHBJ"
+                    offset="100%"
+                  />
+                  <animatetransform
+                    attributeName="gradientTransform"
+                    dur="1.2s"
+                    repeatCount="indefinite"
+                    type="translate"
+                    values="-2 0; 0 0; 2 0"
+                  />
+                </lineargradient>
+              </defs>
+            </svg>
+          </td>
+        </tr>
+        <tr
+          class="sc-gFqAYk eujzSk"
+        >
+          <td
+            class="sc-koYCI iogUaP"
+          >
+            <svg
+              aria-labelledby=":ro:-aria"
+              class="sc-dLNtp hVKZHi aje-skeleton-loader sc-bmzXxz ckxPGk"
+              role="img"
+            >
+              <rect
+                clip-path="url(#:ro:-diff)"
+                height="100%"
+                role="presentation"
+                style="fill: url(#:ro:-animated-diff);"
+                width="100%"
+                x="0"
+                y="0"
+              />
+              <defs>
+                <clippath
+                  id=":ro:-diff"
+                >
+                  <rect
+                    height="100%"
+                    rx="5"
+                    ry="5"
+                    width="100%"
+                    x="0"
+                    y="0"
+                  />
+                </clippath>
+                <lineargradient
+                  gradientTransform="translate(-2 0)"
+                  id=":ro:-animated-diff"
+                >
+                  <stop
+                    class="sc-eDPFhE fsqHBJ"
+                    offset="0%"
+                  />
+                  <stop
+                    class="sc-eldOKa jHHUtH"
+                    offset="50%"
+                  />
+                  <stop
+                    class="sc-eDPFhE fsqHBJ"
+                    offset="100%"
+                  />
+                  <animatetransform
+                    attributeName="gradientTransform"
+                    dur="1.2s"
+                    repeatCount="indefinite"
+                    type="translate"
+                    values="-2 0; 0 0; 2 0"
+                  />
+                </lineargradient>
+              </defs>
+            </svg>
+          </td>
+          <td
+            class="sc-koYCI iogUaP"
+          >
+            <svg
+              aria-labelledby=":rp:-aria"
+              class="sc-dLNtp hVKZHi aje-skeleton-loader sc-bmzXxz ckxPGk"
+              role="img"
+            >
+              <rect
+                clip-path="url(#:rp:-diff)"
+                height="100%"
+                role="presentation"
+                style="fill: url(#:rp:-animated-diff);"
+                width="100%"
+                x="0"
+                y="0"
+              />
+              <defs>
+                <clippath
+                  id=":rp:-diff"
+                >
+                  <rect
+                    height="100%"
+                    rx="5"
+                    ry="5"
+                    width="100%"
+                    x="0"
+                    y="0"
+                  />
+                </clippath>
+                <lineargradient
+                  gradientTransform="translate(-2 0)"
+                  id=":rp:-animated-diff"
+                >
+                  <stop
+                    class="sc-eDPFhE fsqHBJ"
+                    offset="0%"
+                  />
+                  <stop
+                    class="sc-eldOKa jHHUtH"
+                    offset="50%"
+                  />
+                  <stop
+                    class="sc-eDPFhE fsqHBJ"
+                    offset="100%"
+                  />
+                  <animatetransform
+                    attributeName="gradientTransform"
+                    dur="1.2s"
+                    repeatCount="indefinite"
+                    type="translate"
+                    values="-2 0; 0 0; 2 0"
+                  />
+                </lineargradient>
+              </defs>
+            </svg>
+          </td>
+        </tr>
         <tr
           class="sc-gFqAYk eujzSk"
         >
@@ -2732,598 +3322,677 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </svg>
           </td>
         </tr>
-        <tr
-          class="sc-gFqAYk eujzSk"
+      </tbody>
+    </table>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <table
+        aria-describedby=""
+        aria-label="table"
+        class="sc-fPXMhL dmjCWq aje-table"
+        data-has-bottom="true"
+        role="grid"
+        tabindex="0"
+      >
+        <thead
+          class="sc-feUYzb RhXLQ aje-table__header"
+          role="rowgroup"
         >
-          <td
-            class="sc-koYCI iogUaP"
+          <tr
+            class="aje-table__header__row"
+            role="row"
           >
-            <svg
-              aria-labelledby=":r14:-aria"
-              class="sc-dLNtp hVKZHi aje-skeleton-loader sc-bmzXxz ckxPGk"
-              role="img"
+            <th
+              class="sc-hzhKNl cxfIgO aje-table__column"
+              data-key="a"
+              data-searchable="true"
+              id="react-aria-:r4:-a"
+              role="columnheader"
+              tabindex="-1"
             >
-              <rect
-                clip-path="url(#:r14:-diff)"
-                height="100%"
-                role="presentation"
-                style="fill: url(#:r14:-animated-diff);"
-                width="100%"
-                x="0"
-                y="0"
-              />
-              <defs>
-                <clippath
-                  id=":r14:-diff"
+              <div
+                class="sc-fUnNpA eOjTSj"
+              >
+                Column 1
+                <div
+                  aria-expanded="false"
+                  class="sc-dcJtft jCMmCA aje-combo-input sc-hmdnzv iVuEWU"
                 >
-                  <rect
-                    height="100%"
-                    rx="5"
-                    ry="5"
-                    width="100%"
-                    x="0"
-                    y="0"
+                  <input
+                    aria-label="Search a"
+                    class="sc-fqkwJk cgejtS sc-bXCLgj"
+                    disabled=""
+                    role="search"
+                    value=""
                   />
-                </clippath>
-                <lineargradient
-                  gradientTransform="translate(-2 0)"
-                  id=":r14:-animated-diff"
+                  <button
+                    class="sc-jEABJj sc-cPiJYC jWspfU fCQrOy aje-btn aje-btn--icon aje-btn--content is-small"
+                    type="button"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="sc-cwHqhk eFMOzV aje-icon material-icons is-small"
+                    >
+                      close
+                    </i>
+                  </button>
+                </div>
+                <button
+                  class="sc-jEABJj sc-cPiJYC jWspfU fCQrOy aje-btn aje-btn--icon aje-btn--content is-small"
+                  type="button"
                 >
-                  <stop
-                    class="sc-eDPFhE fsqHBJ"
-                    offset="0%"
-                  />
-                  <stop
-                    class="sc-eldOKa jHHUtH"
-                    offset="50%"
-                  />
-                  <stop
-                    class="sc-eDPFhE fsqHBJ"
-                    offset="100%"
-                  />
-                  <animatetransform
-                    attributeName="gradientTransform"
-                    dur="1.2s"
-                    repeatCount="indefinite"
-                    type="translate"
-                    values="-2 0; 0 0; 2 0"
-                  />
-                </lineargradient>
-              </defs>
-            </svg>
-          </td>
-          <td
-            class="sc-koYCI iogUaP"
+                  <i
+                    aria-hidden="true"
+                    class="sc-cwHqhk eFMOzV aje-icon material-icons is-small"
+                  >
+                    search
+                  </i>
+                </button>
+              </div>
+            </th>
+            <th
+              class="sc-hzhKNl cxfIgO aje-table__column"
+              data-key="b"
+              id="react-aria-:r4:-b"
+              role="columnheader"
+              tabindex="-1"
+            >
+              <div
+                class="sc-fUnNpA eOjTSj"
+              >
+                Column 2
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody
+          class="sc-jsJARu aje-table__body"
+          role="rowgroup"
+        >
+          <tr
+            aria-labelledby="react-aria-:r4:-$.2.0-a"
+            class="sc-gFqAYk eujzSk aje-table__row"
+            data-key="$.2.0"
+            role="row"
+            tabindex="-1"
           >
-            <svg
-              aria-labelledby=":r15:-aria"
-              class="sc-dLNtp hVKZHi aje-skeleton-loader sc-bmzXxz ckxPGk"
-              role="img"
+            <th
+              class="sc-eeDSqt drIoII aje-table__cell"
+              data-key="$.2.0.0"
+              id="react-aria-:r4:-$.2.0-a"
+              role="rowheader"
+              tabindex="-1"
             >
-              <rect
-                clip-path="url(#:r15:-diff)"
-                height="100%"
-                role="presentation"
-                style="fill: url(#:r15:-animated-diff);"
-                width="100%"
-                x="0"
-                y="0"
+              <div
+                class="sc-kAycRU fdeeqn aje-flex"
+              >
+                <span
+                  class="sc-ikkyvV jTBIxq aje-table__cell__content"
+                >
+                  Row 1, Cell 1
+                </span>
+              </div>
+            </th>
+            <td
+              class="sc-koYCI iogUaP aje-table__cell"
+              data-key="$.2.0.1"
+              role="gridcell"
+              tabindex="-1"
+            >
+              <div
+                class="sc-kAycRU fdeeqn aje-flex"
+              >
+                <span
+                  class="sc-ikkyvV jTBIxq aje-table__cell__content"
+                >
+                  Row 1, Cell 2
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            aria-labelledby="react-aria-:r4:-$.2.1-a"
+            class="sc-gFqAYk eujzSk aje-table__row"
+            data-key="$.2.1"
+            role="row"
+            tabindex="-1"
+          >
+            <th
+              class="sc-eeDSqt drIoII aje-table__cell"
+              data-key="$.2.1.0"
+              id="react-aria-:r4:-$.2.1-a"
+              role="rowheader"
+              tabindex="-1"
+            >
+              <div
+                class="sc-kAycRU fdeeqn aje-flex"
+              >
+                <span
+                  class="sc-ikkyvV jTBIxq aje-table__cell__content"
+                >
+                  Row 2, Cell 1
+                </span>
+              </div>
+            </th>
+            <td
+              class="sc-koYCI iogUaP aje-table__cell"
+              data-key="$.2.1.1"
+              role="gridcell"
+              tabindex="-1"
+            >
+              <div
+                class="sc-kAycRU fdeeqn aje-flex"
+              >
+                <span
+                  class="sc-ikkyvV jTBIxq aje-table__cell__content"
+                >
+                  Row 2, Cell 2
+                </span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div
+        class="sc-dAbbbq iefnSH aje-table__bottom"
+      >
+        <div
+          class="sc-kAycRU rYjSQ aje-flex"
+          style="height: 100%;"
+        >
+          <div
+            class="sc-fhzEvr hkquAA aje-select sc-esYjtY eVaXWK aje-select aje-select--ghost aje-select--ghost is-auto"
+          >
+            <div
+              aria-hidden="true"
+              data-a11y-ignore="aria-hidden-focus"
+              data-react-aria-prevent-focus="true"
+              data-testid="hidden-select-container"
+              style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+            >
+              <input
+                style="font-size: 16px;"
+                tabindex="-1"
+                type="text"
               />
-              <defs>
-                <clippath
-                  id=":r15:-diff"
+              <label>
+                <select
+                  tabindex="-1"
                 >
-                  <rect
-                    height="100%"
-                    rx="5"
-                    ry="5"
-                    width="100%"
-                    x="0"
-                    y="0"
-                  />
-                </clippath>
-                <lineargradient
-                  gradientTransform="translate(-2 0)"
-                  id=":r15:-animated-diff"
+                  <option />
+                  <option
+                    value="10"
+                  >
+                    1-10 of 100
+                  </option>
+                  <option
+                    value="25"
+                  >
+                    1-25 of 100
+                  </option>
+                  <option
+                    value="50"
+                  >
+                    1-50 of 100
+                  </option>
+                  <option
+                    value="100"
+                  >
+                    1-100 of 100
+                  </option>
+                </select>
+              </label>
+            </div>
+            <button
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-label="Select page size"
+              aria-labelledby="react-aria-:rd: react-aria-:r8: react-aria-:r9:"
+              class="sc-jEABJj sc-lcIQwB jWspfU huQXtP aje-btn sc-kdBRUi YPyGx aje-btn--dropdown is-auto"
+              id="react-aria-:r8:"
+              type="button"
+            >
+              <span
+                class="sc-jxOSYQ iaWsvv"
+                id="react-aria-:rd:"
+              >
+                Select an option
+              </span>
+              <i
+                aria-hidden="true"
+                class="sc-cwHqhk eFMOzV aje-icon material-icons is-medium"
+              >
+                arrow_drop_down
+              </i>
+            </button>
+          </div>
+          <div
+            class="aje-pagination"
+          >
+            <div
+              class="sc-kAycRU fXCyDv aje-flex"
+            >
+              <button
+                aria-label="First Page"
+                class="sc-jEABJj sc-cPiJYC jWspfU fCQrOy aje-btn aje-btn--icon aje-btn--ghost is-medium"
+                disabled=""
+                type="button"
+              >
+                <i
+                  aria-hidden="true"
+                  class="sc-cwHqhk eFMOzV aje-icon material-icons is-medium"
                 >
-                  <stop
-                    class="sc-eDPFhE fsqHBJ"
-                    offset="0%"
-                  />
-                  <stop
-                    class="sc-eldOKa jHHUtH"
-                    offset="50%"
-                  />
-                  <stop
-                    class="sc-eDPFhE fsqHBJ"
-                    offset="100%"
-                  />
-                  <animatetransform
-                    attributeName="gradientTransform"
-                    dur="1.2s"
-                    repeatCount="indefinite"
-                    type="translate"
-                    values="-2 0; 0 0; 2 0"
-                  />
-                </lineargradient>
-              </defs>
-            </svg>
+                  first_page
+                </i>
+              </button>
+              <button
+                aria-label="Previous Page"
+                class="sc-jEABJj sc-cPiJYC jWspfU fCQrOy aje-btn aje-btn--icon aje-btn--ghost is-medium"
+                disabled=""
+                type="button"
+              >
+                <i
+                  aria-hidden="true"
+                  class="sc-cwHqhk eFMOzV aje-icon material-icons is-medium"
+                >
+                  chevron_left
+                </i>
+              </button>
+              <button
+                aria-label="Next Page"
+                class="sc-jEABJj sc-cPiJYC jWspfU fCQrOy aje-btn aje-btn--icon aje-btn--ghost is-medium"
+                type="button"
+              >
+                <i
+                  aria-hidden="true"
+                  class="sc-cwHqhk eFMOzV aje-icon material-icons is-medium"
+                >
+                  chevron_right
+                </i>
+              </button>
+              <button
+                aria-label="Last Page"
+                class="sc-jEABJj sc-cPiJYC jWspfU fCQrOy aje-btn aje-btn--icon aje-btn--ghost is-medium"
+                type="button"
+              >
+                <i
+                  aria-hidden="true"
+                  class="sc-cwHqhk eFMOzV aje-icon material-icons is-medium"
+                >
+                  last_page
+                </i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      id="react-aria-description-2"
+      style="display: none;"
+    >
+      Double tap to start dragging.
+    </div>
+  </body>,
+  "container": <div>
+    <table
+      aria-describedby=""
+      aria-label="table"
+      class="sc-fPXMhL dmjCWq aje-table"
+      data-has-bottom="true"
+      role="grid"
+      tabindex="0"
+    >
+      <thead
+        class="sc-feUYzb RhXLQ aje-table__header"
+        role="rowgroup"
+      >
+        <tr
+          class="aje-table__header__row"
+          role="row"
+        >
+          <th
+            class="sc-hzhKNl cxfIgO aje-table__column"
+            data-key="a"
+            data-searchable="true"
+            id="react-aria-:r4:-a"
+            role="columnheader"
+            tabindex="-1"
+          >
+            <div
+              class="sc-fUnNpA eOjTSj"
+            >
+              Column 1
+              <div
+                aria-expanded="false"
+                class="sc-dcJtft jCMmCA aje-combo-input sc-hmdnzv iVuEWU"
+              >
+                <input
+                  aria-label="Search a"
+                  class="sc-fqkwJk cgejtS sc-bXCLgj"
+                  disabled=""
+                  role="search"
+                  value=""
+                />
+                <button
+                  class="sc-jEABJj sc-cPiJYC jWspfU fCQrOy aje-btn aje-btn--icon aje-btn--content is-small"
+                  type="button"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="sc-cwHqhk eFMOzV aje-icon material-icons is-small"
+                  >
+                    close
+                  </i>
+                </button>
+              </div>
+              <button
+                class="sc-jEABJj sc-cPiJYC jWspfU fCQrOy aje-btn aje-btn--icon aje-btn--content is-small"
+                type="button"
+              >
+                <i
+                  aria-hidden="true"
+                  class="sc-cwHqhk eFMOzV aje-icon material-icons is-small"
+                >
+                  search
+                </i>
+              </button>
+            </div>
+          </th>
+          <th
+            class="sc-hzhKNl cxfIgO aje-table__column"
+            data-key="b"
+            id="react-aria-:r4:-b"
+            role="columnheader"
+            tabindex="-1"
+          >
+            <div
+              class="sc-fUnNpA eOjTSj"
+            >
+              Column 2
+            </div>
+          </th>
+        </tr>
+      </thead>
+      <tbody
+        class="sc-jsJARu aje-table__body"
+        role="rowgroup"
+      >
+        <tr
+          aria-labelledby="react-aria-:r4:-$.2.0-a"
+          class="sc-gFqAYk eujzSk aje-table__row"
+          data-key="$.2.0"
+          role="row"
+          tabindex="-1"
+        >
+          <th
+            class="sc-eeDSqt drIoII aje-table__cell"
+            data-key="$.2.0.0"
+            id="react-aria-:r4:-$.2.0-a"
+            role="rowheader"
+            tabindex="-1"
+          >
+            <div
+              class="sc-kAycRU fdeeqn aje-flex"
+            >
+              <span
+                class="sc-ikkyvV jTBIxq aje-table__cell__content"
+              >
+                Row 1, Cell 1
+              </span>
+            </div>
+          </th>
+          <td
+            class="sc-koYCI iogUaP aje-table__cell"
+            data-key="$.2.0.1"
+            role="gridcell"
+            tabindex="-1"
+          >
+            <div
+              class="sc-kAycRU fdeeqn aje-flex"
+            >
+              <span
+                class="sc-ikkyvV jTBIxq aje-table__cell__content"
+              >
+                Row 1, Cell 2
+              </span>
+            </div>
           </td>
         </tr>
         <tr
-          class="sc-gFqAYk eujzSk"
+          aria-labelledby="react-aria-:r4:-$.2.1-a"
+          class="sc-gFqAYk eujzSk aje-table__row"
+          data-key="$.2.1"
+          role="row"
+          tabindex="-1"
         >
-          <td
-            class="sc-koYCI iogUaP"
+          <th
+            class="sc-eeDSqt drIoII aje-table__cell"
+            data-key="$.2.1.0"
+            id="react-aria-:r4:-$.2.1-a"
+            role="rowheader"
+            tabindex="-1"
           >
-            <svg
-              aria-labelledby=":r16:-aria"
-              class="sc-dLNtp hVKZHi aje-skeleton-loader sc-bmzXxz ckxPGk"
-              role="img"
+            <div
+              class="sc-kAycRU fdeeqn aje-flex"
             >
-              <rect
-                clip-path="url(#:r16:-diff)"
-                height="100%"
-                role="presentation"
-                style="fill: url(#:r16:-animated-diff);"
-                width="100%"
-                x="0"
-                y="0"
-              />
-              <defs>
-                <clippath
-                  id=":r16:-diff"
-                >
-                  <rect
-                    height="100%"
-                    rx="5"
-                    ry="5"
-                    width="100%"
-                    x="0"
-                    y="0"
-                  />
-                </clippath>
-                <lineargradient
-                  gradientTransform="translate(-2 0)"
-                  id=":r16:-animated-diff"
-                >
-                  <stop
-                    class="sc-eDPFhE fsqHBJ"
-                    offset="0%"
-                  />
-                  <stop
-                    class="sc-eldOKa jHHUtH"
-                    offset="50%"
-                  />
-                  <stop
-                    class="sc-eDPFhE fsqHBJ"
-                    offset="100%"
-                  />
-                  <animatetransform
-                    attributeName="gradientTransform"
-                    dur="1.2s"
-                    repeatCount="indefinite"
-                    type="translate"
-                    values="-2 0; 0 0; 2 0"
-                  />
-                </lineargradient>
-              </defs>
-            </svg>
-          </td>
+              <span
+                class="sc-ikkyvV jTBIxq aje-table__cell__content"
+              >
+                Row 2, Cell 1
+              </span>
+            </div>
+          </th>
           <td
-            class="sc-koYCI iogUaP"
+            class="sc-koYCI iogUaP aje-table__cell"
+            data-key="$.2.1.1"
+            role="gridcell"
+            tabindex="-1"
           >
-            <svg
-              aria-labelledby=":r17:-aria"
-              class="sc-dLNtp hVKZHi aje-skeleton-loader sc-bmzXxz ckxPGk"
-              role="img"
+            <div
+              class="sc-kAycRU fdeeqn aje-flex"
             >
-              <rect
-                clip-path="url(#:r17:-diff)"
-                height="100%"
-                role="presentation"
-                style="fill: url(#:r17:-animated-diff);"
-                width="100%"
-                x="0"
-                y="0"
-              />
-              <defs>
-                <clippath
-                  id=":r17:-diff"
-                >
-                  <rect
-                    height="100%"
-                    rx="5"
-                    ry="5"
-                    width="100%"
-                    x="0"
-                    y="0"
-                  />
-                </clippath>
-                <lineargradient
-                  gradientTransform="translate(-2 0)"
-                  id=":r17:-animated-diff"
-                >
-                  <stop
-                    class="sc-eDPFhE fsqHBJ"
-                    offset="0%"
-                  />
-                  <stop
-                    class="sc-eldOKa jHHUtH"
-                    offset="50%"
-                  />
-                  <stop
-                    class="sc-eDPFhE fsqHBJ"
-                    offset="100%"
-                  />
-                  <animatetransform
-                    attributeName="gradientTransform"
-                    dur="1.2s"
-                    repeatCount="indefinite"
-                    type="translate"
-                    values="-2 0; 0 0; 2 0"
-                  />
-                </lineargradient>
-              </defs>
-            </svg>
-          </td>
-        </tr>
-        <tr
-          class="sc-gFqAYk eujzSk"
-        >
-          <td
-            class="sc-koYCI iogUaP"
-          >
-            <svg
-              aria-labelledby=":r18:-aria"
-              class="sc-dLNtp hVKZHi aje-skeleton-loader sc-bmzXxz ckxPGk"
-              role="img"
-            >
-              <rect
-                clip-path="url(#:r18:-diff)"
-                height="100%"
-                role="presentation"
-                style="fill: url(#:r18:-animated-diff);"
-                width="100%"
-                x="0"
-                y="0"
-              />
-              <defs>
-                <clippath
-                  id=":r18:-diff"
-                >
-                  <rect
-                    height="100%"
-                    rx="5"
-                    ry="5"
-                    width="100%"
-                    x="0"
-                    y="0"
-                  />
-                </clippath>
-                <lineargradient
-                  gradientTransform="translate(-2 0)"
-                  id=":r18:-animated-diff"
-                >
-                  <stop
-                    class="sc-eDPFhE fsqHBJ"
-                    offset="0%"
-                  />
-                  <stop
-                    class="sc-eldOKa jHHUtH"
-                    offset="50%"
-                  />
-                  <stop
-                    class="sc-eDPFhE fsqHBJ"
-                    offset="100%"
-                  />
-                  <animatetransform
-                    attributeName="gradientTransform"
-                    dur="1.2s"
-                    repeatCount="indefinite"
-                    type="translate"
-                    values="-2 0; 0 0; 2 0"
-                  />
-                </lineargradient>
-              </defs>
-            </svg>
-          </td>
-          <td
-            class="sc-koYCI iogUaP"
-          >
-            <svg
-              aria-labelledby=":r19:-aria"
-              class="sc-dLNtp hVKZHi aje-skeleton-loader sc-bmzXxz ckxPGk"
-              role="img"
-            >
-              <rect
-                clip-path="url(#:r19:-diff)"
-                height="100%"
-                role="presentation"
-                style="fill: url(#:r19:-animated-diff);"
-                width="100%"
-                x="0"
-                y="0"
-              />
-              <defs>
-                <clippath
-                  id=":r19:-diff"
-                >
-                  <rect
-                    height="100%"
-                    rx="5"
-                    ry="5"
-                    width="100%"
-                    x="0"
-                    y="0"
-                  />
-                </clippath>
-                <lineargradient
-                  gradientTransform="translate(-2 0)"
-                  id=":r19:-animated-diff"
-                >
-                  <stop
-                    class="sc-eDPFhE fsqHBJ"
-                    offset="0%"
-                  />
-                  <stop
-                    class="sc-eldOKa jHHUtH"
-                    offset="50%"
-                  />
-                  <stop
-                    class="sc-eDPFhE fsqHBJ"
-                    offset="100%"
-                  />
-                  <animatetransform
-                    attributeName="gradientTransform"
-                    dur="1.2s"
-                    repeatCount="indefinite"
-                    type="translate"
-                    values="-2 0; 0 0; 2 0"
-                  />
-                </lineargradient>
-              </defs>
-            </svg>
-          </td>
-        </tr>
-        <tr
-          class="sc-gFqAYk eujzSk"
-        >
-          <td
-            class="sc-koYCI iogUaP"
-          >
-            <svg
-              aria-labelledby=":r1a:-aria"
-              class="sc-dLNtp hVKZHi aje-skeleton-loader sc-bmzXxz ckxPGk"
-              role="img"
-            >
-              <rect
-                clip-path="url(#:r1a:-diff)"
-                height="100%"
-                role="presentation"
-                style="fill: url(#:r1a:-animated-diff);"
-                width="100%"
-                x="0"
-                y="0"
-              />
-              <defs>
-                <clippath
-                  id=":r1a:-diff"
-                >
-                  <rect
-                    height="100%"
-                    rx="5"
-                    ry="5"
-                    width="100%"
-                    x="0"
-                    y="0"
-                  />
-                </clippath>
-                <lineargradient
-                  gradientTransform="translate(-2 0)"
-                  id=":r1a:-animated-diff"
-                >
-                  <stop
-                    class="sc-eDPFhE fsqHBJ"
-                    offset="0%"
-                  />
-                  <stop
-                    class="sc-eldOKa jHHUtH"
-                    offset="50%"
-                  />
-                  <stop
-                    class="sc-eDPFhE fsqHBJ"
-                    offset="100%"
-                  />
-                  <animatetransform
-                    attributeName="gradientTransform"
-                    dur="1.2s"
-                    repeatCount="indefinite"
-                    type="translate"
-                    values="-2 0; 0 0; 2 0"
-                  />
-                </lineargradient>
-              </defs>
-            </svg>
-          </td>
-          <td
-            class="sc-koYCI iogUaP"
-          >
-            <svg
-              aria-labelledby=":r1b:-aria"
-              class="sc-dLNtp hVKZHi aje-skeleton-loader sc-bmzXxz ckxPGk"
-              role="img"
-            >
-              <rect
-                clip-path="url(#:r1b:-diff)"
-                height="100%"
-                role="presentation"
-                style="fill: url(#:r1b:-animated-diff);"
-                width="100%"
-                x="0"
-                y="0"
-              />
-              <defs>
-                <clippath
-                  id=":r1b:-diff"
-                >
-                  <rect
-                    height="100%"
-                    rx="5"
-                    ry="5"
-                    width="100%"
-                    x="0"
-                    y="0"
-                  />
-                </clippath>
-                <lineargradient
-                  gradientTransform="translate(-2 0)"
-                  id=":r1b:-animated-diff"
-                >
-                  <stop
-                    class="sc-eDPFhE fsqHBJ"
-                    offset="0%"
-                  />
-                  <stop
-                    class="sc-eldOKa jHHUtH"
-                    offset="50%"
-                  />
-                  <stop
-                    class="sc-eDPFhE fsqHBJ"
-                    offset="100%"
-                  />
-                  <animatetransform
-                    attributeName="gradientTransform"
-                    dur="1.2s"
-                    repeatCount="indefinite"
-                    type="translate"
-                    values="-2 0; 0 0; 2 0"
-                  />
-                </lineargradient>
-              </defs>
-            </svg>
-          </td>
-        </tr>
-        <tr
-          class="sc-gFqAYk eujzSk"
-        >
-          <td
-            class="sc-koYCI iogUaP"
-          >
-            <svg
-              aria-labelledby=":r1c:-aria"
-              class="sc-dLNtp hVKZHi aje-skeleton-loader sc-bmzXxz ckxPGk"
-              role="img"
-            >
-              <rect
-                clip-path="url(#:r1c:-diff)"
-                height="100%"
-                role="presentation"
-                style="fill: url(#:r1c:-animated-diff);"
-                width="100%"
-                x="0"
-                y="0"
-              />
-              <defs>
-                <clippath
-                  id=":r1c:-diff"
-                >
-                  <rect
-                    height="100%"
-                    rx="5"
-                    ry="5"
-                    width="100%"
-                    x="0"
-                    y="0"
-                  />
-                </clippath>
-                <lineargradient
-                  gradientTransform="translate(-2 0)"
-                  id=":r1c:-animated-diff"
-                >
-                  <stop
-                    class="sc-eDPFhE fsqHBJ"
-                    offset="0%"
-                  />
-                  <stop
-                    class="sc-eldOKa jHHUtH"
-                    offset="50%"
-                  />
-                  <stop
-                    class="sc-eDPFhE fsqHBJ"
-                    offset="100%"
-                  />
-                  <animatetransform
-                    attributeName="gradientTransform"
-                    dur="1.2s"
-                    repeatCount="indefinite"
-                    type="translate"
-                    values="-2 0; 0 0; 2 0"
-                  />
-                </lineargradient>
-              </defs>
-            </svg>
-          </td>
-          <td
-            class="sc-koYCI iogUaP"
-          >
-            <svg
-              aria-labelledby=":r1d:-aria"
-              class="sc-dLNtp hVKZHi aje-skeleton-loader sc-bmzXxz ckxPGk"
-              role="img"
-            >
-              <rect
-                clip-path="url(#:r1d:-diff)"
-                height="100%"
-                role="presentation"
-                style="fill: url(#:r1d:-animated-diff);"
-                width="100%"
-                x="0"
-                y="0"
-              />
-              <defs>
-                <clippath
-                  id=":r1d:-diff"
-                >
-                  <rect
-                    height="100%"
-                    rx="5"
-                    ry="5"
-                    width="100%"
-                    x="0"
-                    y="0"
-                  />
-                </clippath>
-                <lineargradient
-                  gradientTransform="translate(-2 0)"
-                  id=":r1d:-animated-diff"
-                >
-                  <stop
-                    class="sc-eDPFhE fsqHBJ"
-                    offset="0%"
-                  />
-                  <stop
-                    class="sc-eldOKa jHHUtH"
-                    offset="50%"
-                  />
-                  <stop
-                    class="sc-eDPFhE fsqHBJ"
-                    offset="100%"
-                  />
-                  <animatetransform
-                    attributeName="gradientTransform"
-                    dur="1.2s"
-                    repeatCount="indefinite"
-                    type="translate"
-                    values="-2 0; 0 0; 2 0"
-                  />
-                </lineargradient>
-              </defs>
-            </svg>
+              <span
+                class="sc-ikkyvV jTBIxq aje-table__cell__content"
+              >
+                Row 2, Cell 2
+              </span>
+            </div>
           </td>
         </tr>
       </tbody>
     </table>
+    <div
+      class="sc-dAbbbq iefnSH aje-table__bottom"
+    >
+      <div
+        class="sc-kAycRU rYjSQ aje-flex"
+        style="height: 100%;"
+      >
+        <div
+          class="sc-fhzEvr hkquAA aje-select sc-esYjtY eVaXWK aje-select aje-select--ghost aje-select--ghost is-auto"
+        >
+          <div
+            aria-hidden="true"
+            data-a11y-ignore="aria-hidden-focus"
+            data-react-aria-prevent-focus="true"
+            data-testid="hidden-select-container"
+            style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+          >
+            <input
+              style="font-size: 16px;"
+              tabindex="-1"
+              type="text"
+            />
+            <label>
+              <select
+                tabindex="-1"
+              >
+                <option />
+                <option
+                  value="10"
+                >
+                  1-10 of 100
+                </option>
+                <option
+                  value="25"
+                >
+                  1-25 of 100
+                </option>
+                <option
+                  value="50"
+                >
+                  1-50 of 100
+                </option>
+                <option
+                  value="100"
+                >
+                  1-100 of 100
+                </option>
+              </select>
+            </label>
+          </div>
+          <button
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-label="Select page size"
+            aria-labelledby="react-aria-:rd: react-aria-:r8: react-aria-:r9:"
+            class="sc-jEABJj sc-lcIQwB jWspfU huQXtP aje-btn sc-kdBRUi YPyGx aje-btn--dropdown is-auto"
+            id="react-aria-:r8:"
+            type="button"
+          >
+            <span
+              class="sc-jxOSYQ iaWsvv"
+              id="react-aria-:rd:"
+            >
+              Select an option
+            </span>
+            <i
+              aria-hidden="true"
+              class="sc-cwHqhk eFMOzV aje-icon material-icons is-medium"
+            >
+              arrow_drop_down
+            </i>
+          </button>
+        </div>
+        <div
+          class="aje-pagination"
+        >
+          <div
+            class="sc-kAycRU fXCyDv aje-flex"
+          >
+            <button
+              aria-label="First Page"
+              class="sc-jEABJj sc-cPiJYC jWspfU fCQrOy aje-btn aje-btn--icon aje-btn--ghost is-medium"
+              disabled=""
+              type="button"
+            >
+              <i
+                aria-hidden="true"
+                class="sc-cwHqhk eFMOzV aje-icon material-icons is-medium"
+              >
+                first_page
+              </i>
+            </button>
+            <button
+              aria-label="Previous Page"
+              class="sc-jEABJj sc-cPiJYC jWspfU fCQrOy aje-btn aje-btn--icon aje-btn--ghost is-medium"
+              disabled=""
+              type="button"
+            >
+              <i
+                aria-hidden="true"
+                class="sc-cwHqhk eFMOzV aje-icon material-icons is-medium"
+              >
+                chevron_left
+              </i>
+            </button>
+            <button
+              aria-label="Next Page"
+              class="sc-jEABJj sc-cPiJYC jWspfU fCQrOy aje-btn aje-btn--icon aje-btn--ghost is-medium"
+              type="button"
+            >
+              <i
+                aria-hidden="true"
+                class="sc-cwHqhk eFMOzV aje-icon material-icons is-medium"
+              >
+                chevron_right
+              </i>
+            </button>
+            <button
+              aria-label="Last Page"
+              class="sc-jEABJj sc-cPiJYC jWspfU fCQrOy aje-btn aje-btn--icon aje-btn--ghost is-medium"
+              type="button"
+            >
+              <i
+                aria-hidden="true"
+                class="sc-cwHqhk eFMOzV aje-icon material-icons is-medium"
+              >
+                last_page
+              </i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

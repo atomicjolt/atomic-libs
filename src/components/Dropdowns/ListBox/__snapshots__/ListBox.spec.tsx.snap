@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`SelectField > matches snapshots > when closed 1`] = `
+exports[`ListBox > matches snapshots > when closed 1`] = `
 <DocumentFragment>
   <ul
     class="sc-eDPFhE hbYFRi aje-listbox is-medium"

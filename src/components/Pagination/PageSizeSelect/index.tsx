@@ -72,7 +72,7 @@ export function PageSizeSelect(props: PageSizeSelectProps) {
     >
       {(item) => (
         <Item
-          key={item.size}
+          id={item.size}
           textValue={`${item.start}-${item.end} of ${totalItems}`}
         >
           {item.start}-{item.end} of <FormatNumber value={totalItems} />

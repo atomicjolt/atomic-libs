@@ -51,7 +51,7 @@ export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(
     const isHidden = useIsHidden();
 
     if (isHidden) {
-      typeof props.children === "function"
+      return typeof props.children === "function"
         ? props.children({ triggerWidth: 0 })
         : props.children;
     }
