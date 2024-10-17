@@ -8,13 +8,13 @@ test("matches snapshot", () => {
   const res = render(
     <Tabs selectedKey="tab1">
       <Tabs.List>
-        <Item id="tab1" title="Tab 1">
+        <Item id="tab1">
           <h1>Tab One</h1>
         </Item>
-        <Item id="tab2" title="Tab 2">
+        <Item id="tab2">
           <h1>Tab Two</h1>
         </Item>
-        <Item id="tab3" title="Tab 3">
+        <Item id="tab3">
           <h1>Tab Three</h1>
         </Item>
       </Tabs.List>
