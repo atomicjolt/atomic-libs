@@ -12,7 +12,6 @@
   "license": "MIT",
   "dependencies": {
     "@internationalized/date": "^3.5.2",
-    "@react-aria/breadcrumbs": "^3.5.17",
     "@react-aria/button": "^3.9.5",
     "@react-aria/calendar": "^3.5.8",
     "@react-aria/checkbox": "^3.14.3",
