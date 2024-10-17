@@ -12,16 +12,35 @@ import {
 import { createContext, useContext } from "react";
 import { copyStaticProperties } from "@utils/clone";
 import { Key, RenderBaseProps, RenderStyleProps } from "../types";
+import { LinkDOMProps } from "@react-types/shared";
 
-export interface ElementItemProps<T, R extends object = object>
-  extends Omit<RSItemProps<T>, "children">,
-    RenderBaseProps<R> {
+export interface ItemRenderProps {
+  isSelected: boolean;
+  isFocused: boolean;
+  isFocusVisible: boolean;
+}
+
+export interface ElementItemProps<R extends ItemRenderProps = ItemRenderProps>
+  extends RenderBaseProps<R>,
+    LinkDOMProps {
+  /** Id for this item */
   id?: Key;
+  /** Associated callback when an action is performed on this item*/
+  onAction?: () => void;
+  /** A string representation of the item's contents, used for features like typeahead. */
+  textValue?: string;
+  /** An accessibility label for this item. */
+  "aria-label"?: string;
+
+  // /** A list of child item objects. Used for dynamic collections. */
+  // childItems?: Iterable<T>;
+  // /** Whether this item has children, even if not loaded yet. */
+  // hasChildItems?: boolean;
 }
 
 interface ItemContextValue {
   render: (
-    props: ElementItemProps<any>,
+    props: ElementItemProps<ItemRenderProps>,
     ref: React.ForwardedRef<HTMLElement>,
     item: Node<any>
   ) => React.ReactElement;
@@ -40,7 +59,7 @@ export const ItemContext = createContext<ItemContextValue | null>(null);
 export const Item = createLeafComponent(
   "item",
   (
-    props: ElementItemProps<any>,
+    props: ElementItemProps<ItemRenderProps>,
     ref: React.ForwardedRef<HTMLElement>,
     item: Node<object>
   ) => {

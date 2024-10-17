@@ -6,6 +6,7 @@ import { IconButton } from "../../Buttons/IconButton";
 import { MaterialIcon } from "../../Icons/MaterialIcon";
 import { Popover } from "../../Overlays/Popover";
 import { OverlayTriggerArgTypes } from "@sb/helpers";
+import { Item } from "@components/Collection";
 
 export default {
   title: "Dropdowns/Menu/MenuTrigger",
@@ -34,9 +35,9 @@ export const Primary: Story = {
       </Button>,
       <Popover placement="bottom left" key="popover">
         <Menu>
-          <Menu.Item onAction={() => alert("Item 1")}>Item 1</Menu.Item>
-          <Menu.Item onAction={() => alert("Item 2")}>Item 2</Menu.Item>
-          <Menu.Item onAction={() => alert("Item 3")}>Item 3</Menu.Item>
+          <Item onAction={() => alert("Item 1")}>Item 1</Item>
+          <Item onAction={() => alert("Item 2")}>Item 2</Item>
+          <Item onAction={() => alert("Item 3")}>Item 3</Item>
         </Menu>
       </Popover>,
     ],
@@ -49,9 +50,9 @@ export const IconButtonTrigger: Story = {
       <IconButton icon="arrow_drop_down" />,
       <Popover placement="bottom left" key="popover">
         <Menu>
-          <Menu.Item onAction={() => alert("Item 1")}>Item 1</Menu.Item>
-          <Menu.Item onAction={() => alert("Item 2")}>Item 2</Menu.Item>
-          <Menu.Item onAction={() => alert("Item 3")}>Item 3</Menu.Item>
+          <Item onAction={() => alert("Item 1")}>Item 1</Item>
+          <Item onAction={() => alert("Item 2")}>Item 2</Item>
+          <Item onAction={() => alert("Item 3")}>Item 3</Item>
         </Menu>
       </Popover>,
     ],

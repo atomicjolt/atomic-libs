@@ -7,17 +7,14 @@ exports[`matches snapshot 1`] = `
     data-resize="both"
   >
     <label
-      class="sc-aYaIB dImjZF is-auto"
+      class="sc-aYaIB dImjZF"
       for="react-aria-:r0:"
       id="react-aria-:r1:"
     >
       label
     </label>
     <textarea
-      aria-labelledby="react-aria-:r1:"
-      class="sc-iGgVNO kYbOWo is-auto"
-      data-resize="both"
-      id="react-aria-:r0:"
+      class="sc-iGgVNO kYbOWo"
     />
   </div>
 </DocumentFragment>

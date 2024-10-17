@@ -1,13 +1,14 @@
-import React from "react";
 import { MenuTriggerProps } from "react-stately";
 import { AriaMenuProps } from "@react-aria/menu";
 import { Placement } from "@react-aria/overlays";
 import { BaseProps, CanHaveIcon, LoadingProps } from "../../../types";
 import { Popover } from "../../Overlays/Popover";
 import { MenuTrigger } from "../Menu/MenuTrigger";
-import { MenuItemProps, Menu, MenuSectionProps } from "../Menu";
+import { Menu, MenuSectionProps } from "../Menu";
 import { IconButton } from "../../Buttons/IconButton";
 import { ButtonVariants } from "../../Buttons/Buttons.types";
+import { ItemProps } from "@components/Collection";
+import { CollectionChildren } from "@react-types/shared";
 
 export type IconMenuProps<T extends object> = AriaMenuProps<T> &
   MenuTriggerProps &
@@ -17,11 +18,9 @@ export type IconMenuProps<T extends object> = AriaMenuProps<T> &
     isDisabled?: boolean;
     buttonVariant?: ButtonVariants;
     menuPlacement?: Placement;
-    children:
-      | React.ReactElement<MenuItemProps>[]
-      | React.ReactElement<MenuItemProps>
-      | ((item: T) => React.ReactElement<MenuItemProps>);
+    children: CollectionChildren<ItemProps>;
   };
+
 export function IconMenu<T extends {}>(props: IconMenuProps<T>) {
   const {
     icon = "more_vert",
@@ -55,14 +54,20 @@ export function IconMenu<T extends {}>(props: IconMenuProps<T>) {
   );
 }
 
-const IconMenuItem = (props: MenuItemProps) => <Menu.Item {...props} />;
+const IconMenuItem = (props: ItemProps) => <Menu.Item {...props} />;
 IconMenuItem.displayName = "IconMenu.Item";
+/**
+ * @deprecated use `Item` instead
+ */
 IconMenu.Item = IconMenuItem;
 
 const IconMenuSection = <T extends object>(props: MenuSectionProps<T>) => (
   <Menu.Section {...props} />
 );
 IconMenuSection.displayName = "IconMenu.Section";
+/**
+ * @deprecated use `Section` instead
+ */
 IconMenu.Section = IconMenuSection;
 
 export default IconMenu;

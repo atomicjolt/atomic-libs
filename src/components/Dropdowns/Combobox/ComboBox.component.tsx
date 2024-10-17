@@ -27,7 +27,12 @@ export interface ComboBoxProps<T>
 }
 
 /** Combox combinds a text input field with a dropdown list of options for the user to select from */
-export function ComboBox<T extends object>(props: ComboBoxProps<T>) {
+import React, { forwardRef } from "react";
+
+export const ComboBox = forwardRef(function ComboBox<T extends object>(
+  props: ComboBoxProps<T>,
+  ref: React.Ref<HTMLInputElement>
+) {
   const {
     icon = "search",
     prefixIcon,
@@ -41,7 +46,7 @@ export function ComboBox<T extends object>(props: ComboBoxProps<T>) {
   } = props;
 
   return (
-    <StyledComboBoxField {...props}>
+    <StyledComboBoxField {...props} ref={ref}>
       <FloatingFieldInputWrapper
         label={label}
         message={message}
@@ -67,6 +72,6 @@ export function ComboBox<T extends object>(props: ComboBoxProps<T>) {
       </Popover>
     </StyledComboBoxField>
   );
-}
-
-// TODO: bind section & item to combobox
+}) as <T extends object>(
+  props: ComboBoxProps<T> & { ref?: React.Ref<HTMLInputElement> }
+) => JSX.Element;

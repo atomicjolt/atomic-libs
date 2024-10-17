@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { IconMenu } from ".";
-import { MaterialIcon, Section } from "../../";
 import { getCssProps } from "@sb/cssprops";
+import { IconMenu } from ".";
+import { Item, MaterialIcon, Section } from "../../";
 
 const meta: Meta<typeof IconMenu> = {
   title: "Dropdowns/Menu/IconMenu",
@@ -65,15 +65,15 @@ export const Primary: Story = {
   args: {
     icon: "more_vert",
     children: [
-      <IconMenu.Item key="item1" onAction={() => alert("Item 1")}>
+      <Item id="item1" key="item1" onAction={() => alert("Item 1")}>
         Item 1
-      </IconMenu.Item>,
-      <IconMenu.Item key="item2" onAction={() => alert("Item 2")}>
+      </Item>,
+      <Item id="item2" key="item2" onAction={() => alert("Item 2")}>
         Item 2
-      </IconMenu.Item>,
-      <IconMenu.Item key="item3" onAction={() => alert("Item 3")}>
+      </Item>,
+      <Item id="item3" key="item3" onAction={() => alert("Item 3")}>
         Item 3
-      </IconMenu.Item>,
+      </Item>,
     ],
   },
 };
@@ -82,11 +82,11 @@ export const WithSections: Story = {
   args: {
     ...Primary.args,
     children: [
-      <IconMenu.Item key="item1">Item 1</IconMenu.Item>,
-      <IconMenu.Item key="item2">Item 2</IconMenu.Item>,
-      <Section>
-        <IconMenu.Item key="item3">Item 3</IconMenu.Item>
-        <IconMenu.Item key="item4">Item 4</IconMenu.Item>
+      <Item key="item1">Item 1</Item>,
+      <Item key="item2">Item 2</Item>,
+      <Section key="section">
+        <Item key="item3">Item 3</Item>
+        <Item key="item4">Item 4</Item>
       </Section>,
     ],
   },
@@ -96,18 +96,18 @@ export const WithIcons: Story = {
   args: {
     ...Primary.args,
     children: [
-      <IconMenu.Item key="item1">
+      <Item key="item1">
         <MaterialIcon icon="edit" />
         Edit
-      </IconMenu.Item>,
-      <IconMenu.Item key="item2">
+      </Item>,
+      <Item key="item2">
         <MaterialIcon icon="delete" />
         Delete
-      </IconMenu.Item>,
-      <IconMenu.Item key="item3">
+      </Item>,
+      <Item key="item3">
         <MaterialIcon icon="archive" />
         Archive
-      </IconMenu.Item>,
+      </Item>,
     ],
   },
 };

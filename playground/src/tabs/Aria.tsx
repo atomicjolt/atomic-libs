@@ -31,14 +31,14 @@ import { Key, Selection } from "react-stately";
 
 function MyMenuItem(props) {
   return (
-    <Menu.Item {...props}>
+    <Item {...props}>
       {({ isSelected }) => (
         <Flex alignItems="center" gap={8}>
           {props.children}
           {isSelected && <MaterialIcon icon="star" />}
         </Flex>
       )}
-    </Menu.Item>
+    </Item>
   );
 }
 
@@ -72,6 +72,37 @@ export default function Aria() {
 
   return (
     <div>
+      <CustomSelect
+        label="Select an item"
+        ref={ref}
+        selectedKey={selectedKey}
+        onSelectionChange={setSelectedKey}
+        items={items}
+      >
+        {(item) => (
+          <Section items={item.items} title={item.title}>
+            {({ name }) => <Item>{name}</Item>}
+          </Section>
+        )}
+      </CustomSelect>
+
+      <SelectField>
+        <FieldLabel>Select an item</FieldLabel>
+        <SelectField.Button>
+          <SelectField.Value placeholder="Select an option" />
+        </SelectField.Button>
+        <Popover>
+          <ListBox items={items}>
+            {(item) => (
+              <Section items={item.items} title={item.title}>
+                {({ name }) => <Item>{name}</Item>}
+              </Section>
+            )}
+          </ListBox>
+        </Popover>
+        <FieldErrorMessage>Something went wrong</FieldErrorMessage>
+      </SelectField>
+
       <ComboBoxField
         onSelectionChange={setSelectedKey}
         selectedKey={selectedKey}
@@ -86,9 +117,9 @@ export default function Aria() {
         <Popover>
           <ListBox items={items}>
             {(item) => (
-              <ListBox.Section items={item.items} title={item.title}>
-                {({ name }) => <ListBox.Item>{name}</ListBox.Item>}
-              </ListBox.Section>
+              <Section items={item.items} title={item.title}>
+                {({ name }) => <Item>{name}</Item>}
+              </Section>
             )}
           </ListBox>
         </Popover>
@@ -104,11 +135,23 @@ export default function Aria() {
         )}
       </ComboBox>
 
+      <Menu selectionMode="single">
+        <Item>
+          {({ isSelected, isFocused, isFocusVisible }) => (
+            <Flex alignItems="center" gap={8}>
+              {isSelected && <MaterialIcon icon="star" />}
+              <span>Item 1</span>
+              {isFocused && "focused"} {isFocusVisible && "focus visible"}
+            </Flex>
+          )}
+        </Item>
+      </Menu>
+
       {/* <CustomSelect label="Select an item" items={items}>
         {(item) => (
-          <ListBox.Section items={item.items} title={item.title}>
-            {({ name }) => <ListBox.Item>{name}</ListBox.Item>}
-          </ListBox.Section>
+          <Section items={item.items} title={item.title}>
+            {({ name }) => <Item>{name}</Item>}
+          </Section>
         )}
       </CustomSelect> */}
 
@@ -121,9 +164,9 @@ export default function Aria() {
         <Popover>
           <ListBox items={items}>
             {(item) => (
-              <ListBox.Section items={item.items} title={item.title}>
-                {({ name }) => <ListBox.Item>{name}</ListBox.Item>}
-              </ListBox.Section>
+              <Section items={item.items} title={item.title}>
+                {({ name }) => <Item>{name}</Item>}
+              </Section>
             )}
           </ListBox>
         </Popover>
@@ -132,9 +175,9 @@ export default function Aria() {
 
       <CustomSelect label="Select an item" items={items}>
         {(item) => (
-          <ListBox.Section items={item.items} title={item.title}>
-            {({ name }) => <ListBox.Item>{name}</ListBox.Item>}
-          </ListBox.Section>
+          <Section items={item.items} title={item.title}>
+            {({ name }) => <Item>{name}</Item>}
+          </Section>
         )}
       </CustomSelect> */}
 
@@ -174,9 +217,9 @@ export default function Aria() {
             items={items}
           >
             {(item) => (
-              <ListBox.Section items={item.items} title={item.title}>
+              <Section items={item.items} title={item.title}>
                 {({ name }) => <MyItem>{name}</MyItem>}
-              </ListBox.Section>
+              </Section>
             )}
           </ListBox>
         </Popover>
@@ -190,9 +233,9 @@ export default function Aria() {
         <Popover>
           <ListBox items={items}>
             {(item) => (
-              <ListBox.Section items={item.items} title={item.title}>
-                {({ name }) => <ListBox.Item>{name}</ListBox.Item>}
-              </ListBox.Section>
+              <Section items={item.items} title={item.title}>
+                {({ name }) => <Item>{name}</Item>}
+              </Section>
             )}
           </ListBox>
         </Popover>
@@ -204,9 +247,9 @@ export default function Aria() {
 
       <CustomSelect label="Select an item" items={items}>
         {(item) => (
-          <ListBox.Section items={item.items} title={item.title}>
-            {({ name }) => <ListBox.Item>{name}</ListBox.Item>}
-          </ListBox.Section>
+          <Section items={item.items} title={item.title}>
+            {({ name }) => <Item>{name}</Item>}
+          </Section>
         )}
       </CustomSelect>
 
@@ -224,9 +267,9 @@ export default function Aria() {
         <Popover>
           <ListBox items={items}>
             {(item) => (
-              <ListBox.Section items={item.items} title={item.title}>
-                {({ name }) => <ListBox.Item>{name}</ListBox.Item>}
-              </ListBox.Section>
+              <Section items={item.items} title={item.title}>
+                {({ name }) => <Item>{name}</Item>}
+              </Section>
             )}
           </ListBox>
         </Popover>
@@ -243,9 +286,9 @@ export default function Aria() {
         onSelectionChange={setSelectedKeys}
       >
         {(item) => (
-          <ListBox.Section items={item.items} title={item.title}>
-            {({ name }) => <ListBox.Item>{name}</ListBox.Item>}
-          </ListBox.Section>
+          <Section items={item.items} title={item.title}>
+            {({ name }) => <Item>{name}</Item>}
+          </Section>
         )}
       </MultiSelect>
 
@@ -261,9 +304,9 @@ export default function Aria() {
         items={items}
       >
         {(item) => (
-          <ListBox.Section items={item.items} title={item.title}>
-            {({ name }) => <ListBox.Item>{name}</ListBox.Item>}
-          </ListBox.Section>
+          <Section items={item.items} title={item.title}>
+            {({ name }) => <Item>{name}</Item>}
+          </Section>
         )}
       </ListBox> */}
     </div>

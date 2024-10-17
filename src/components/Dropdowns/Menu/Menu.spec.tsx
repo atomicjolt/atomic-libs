@@ -1,14 +1,15 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it, vitest } from "vitest";
+import { Item } from "@components/Collection";
 import { Menu } from ".";
 
 describe("Menu", () => {
   it("renders correctly", () => {
     render(
       <Menu>
-        <Menu.Item>Item 1</Menu.Item>
-        <Menu.Item>Item 2</Menu.Item>
-        <Menu.Item>Item 3</Menu.Item>
+        <Item>Item 1</Item>
+        <Item>Item 2</Item>
+        <Item>Item 3</Item>
       </Menu>
     );
 
@@ -22,9 +23,9 @@ describe("Menu", () => {
 
     render(
       <Menu onAction={onAction}>
-        <Menu.Item id="1">Item 1</Menu.Item>
-        <Menu.Item id="2">Item 2</Menu.Item>
-        <Menu.Item id="3">Item 3</Menu.Item>
+        <Item id="1">Item 1</Item>
+        <Item id="2">Item 2</Item>
+        <Item id="3">Item 3</Item>
       </Menu>
     );
 
@@ -46,9 +47,9 @@ describe("Menu", () => {
 
     render(
       <Menu onAction={onAction}>
-        <Menu.Item onAction={firstOnAction}>Item 1</Menu.Item>
-        <Menu.Item onAction={secondOnAction}>Item 2</Menu.Item>
-        <Menu.Item>Item 3</Menu.Item>
+        <Item onAction={firstOnAction}>Item 1</Item>
+        <Item onAction={secondOnAction}>Item 2</Item>
+        <Item>Item 3</Item>
       </Menu>
     );
 

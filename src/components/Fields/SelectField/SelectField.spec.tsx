@@ -2,6 +2,7 @@ import { describe, test, expect } from "vitest";
 import { render } from "@testing-library/react";
 import { Popover } from "@components/Overlays/Popover";
 import { ListBox } from "@components/Dropdowns/ListBox";
+import { Item } from "@components/Collection";
 import { SelectField } from ".";
 
 describe("SelectField", () => {
@@ -14,9 +15,9 @@ describe("SelectField", () => {
           </SelectField.Button>
           <Popover>
             <ListBox>
-              <ListBox.Item>Item 1</ListBox.Item>
-              <ListBox.Item>Item 2</ListBox.Item>
-              <ListBox.Item>Item 3</ListBox.Item>
+              <Item>Item 1</Item>
+              <Item>Item 2</Item>
+              <Item>Item 3</Item>
             </ListBox>
           </Popover>
         </SelectField>
@@ -32,9 +33,9 @@ describe("SelectField", () => {
           </SelectField.Button>
           <Popover>
             <ListBox>
-              <ListBox.Item>Item 1</ListBox.Item>
-              <ListBox.Item>Item 2</ListBox.Item>
-              <ListBox.Item>Item 3</ListBox.Item>
+              <Item>Item 1</Item>
+              <Item>Item 2</Item>
+              <Item>Item 3</Item>
             </ListBox>
           </Popover>
         </SelectField>

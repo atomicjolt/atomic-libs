@@ -110,9 +110,9 @@ export default function Overlays() {
         </Button>
         <Popover placement="bottom left">
           <Menu>
-            <Menu.Item>Item 1</Menu.Item>
-            <Menu.Item>Item 2</Menu.Item>
-            <Menu.Item>Item 3</Menu.Item>
+            <Item>Item 1</Item>
+            <Item>Item 2</Item>
+            <Item>Item 3</Item>
           </Menu>
         </Popover>
       </MenuTrigger>

@@ -1,3 +1,4 @@
+import { forwardRef } from "react";
 import { SelectProps } from "react-stately";
 import {
   AriaProps,
@@ -22,7 +23,10 @@ export interface CustomSelectProps<T extends object>
 
 /** A custom version of the builtin `select` component to
  * allow for consistent styling & an extended feature set */
-export function CustomSelect<T extends object>(props: CustomSelectProps<T>) {
+export const CustomSelect = forwardRef(function CustomSelect<T extends object>(
+  props: CustomSelectProps<T>,
+  ref: React.Ref<HTMLButtonElement>
+) {
   const {
     label,
     error,
@@ -42,7 +46,7 @@ export function CustomSelect<T extends object>(props: CustomSelectProps<T>) {
   });
 
   return (
-    <StyledSelectField {...props} {...renderProps}>
+    <StyledSelectField {...props} {...renderProps} ref={ref}>
       <FloatingFieldInputWrapper
         floating={variant === "floating"}
         label={label}
@@ -61,4 +65,6 @@ export function CustomSelect<T extends object>(props: CustomSelectProps<T>) {
       </Popover>
     </StyledSelectField>
   );
-}
+}) as <T extends object>(
+  props: CustomSelectProps<T> & React.RefAttributes<HTMLButtonElement>
+) => JSX.Element;

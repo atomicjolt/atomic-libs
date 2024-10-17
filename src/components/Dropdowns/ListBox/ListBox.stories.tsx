@@ -1,8 +1,9 @@
 import { StoryObj, Meta } from "@storybook/react";
 import { MultiSelectItemChildren, MultiSelectionArgTypes } from "@sb/helpers";
+import { fn } from "@storybook/test";
 import { getCssProps } from "@sb/cssprops";
 import { ListBox } from ".";
-import { fn } from "@storybook/test";
+import { Section, Item } from "@components/Collection";
 
 const meta: Meta<typeof ListBox> = {
   title: "Dropdowns/Selection/ListBox",
@@ -45,10 +46,10 @@ export const WithSections: Story = {
     ...Primary.args,
     children: [
       ...MultiSelectItemChildren,
-      <ListBox.Section title="Section Title">
-        <ListBox.Item id={4}>Option 4</ListBox.Item>
-        <ListBox.Item id={5}>Option 5</ListBox.Item>
-      </ListBox.Section>,
+      <Section title="Section Title">
+        <Item id={4}>Option 4</Item>
+        <Item id={5}>Option 5</Item>
+      </Section>,
     ],
   },
 };

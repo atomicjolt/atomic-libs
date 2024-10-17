@@ -13,6 +13,7 @@ import { FieldErrorMessage } from "../Field/FieldError";
 import { FieldMessage } from "../Field/FieldMessage";
 import { Button } from "@components/Buttons/Button";
 import { SelectField as SelectField } from ".";
+import { Item, Section } from "@components/Collection";
 
 export default {
   title: "Fields/SelectField",
@@ -80,9 +81,9 @@ export const Primary: Story = {
       </SelectField.Button>,
       <Popover key="popover">
         <ListBox>
-          <ListBox.Item id="1">Item 1</ListBox.Item>
-          <ListBox.Item id="2">Item 2</ListBox.Item>
-          <ListBox.Item id="3">Item 3</ListBox.Item>
+          <Item id="1">Item 1</Item>
+          <Item id="2">Item 2</Item>
+          <Item id="3">Item 3</Item>
         </ListBox>
       </Popover>,
       <FieldErrorMessage key="error">Something went wrong</FieldErrorMessage>,
@@ -99,15 +100,15 @@ export const WithSections: Story = {
       </SelectField.Button>,
       <Popover key="popover">
         <ListBox>
-          <ListBox.Section title="Section 1">
-            <ListBox.Item id="1">Item 1</ListBox.Item>
-            <ListBox.Item id="2">Item 2</ListBox.Item>
-          </ListBox.Section>
+          <Section title="Section 1">
+            <Item id="1">Item 1</Item>
+            <Item id="2">Item 2</Item>
+          </Section>
 
-          <ListBox.Section title="Section 1">
-            <ListBox.Item id="3">Item 3</ListBox.Item>
-            <ListBox.Item id="4">Item 4</ListBox.Item>
-          </ListBox.Section>
+          <Section title="Section 1">
+            <Item id="3">Item 3</Item>
+            <Item id="4">Item 4</Item>
+          </Section>
         </ListBox>
       </Popover>,
     ],
@@ -123,9 +124,9 @@ export const WithCustomTrigger: Story = {
       </Button>,
       <Popover key="popover">
         <ListBox>
-          <ListBox.Item id="1">Item 1</ListBox.Item>
-          <ListBox.Item id="2">Item 2</ListBox.Item>
-          <ListBox.Item id="3">Item 3</ListBox.Item>
+          <Item id="1">Item 1</Item>
+          <Item id="2">Item 2</Item>
+          <Item id="3">Item 3</Item>
         </ListBox>
       </Popover>,
     ],

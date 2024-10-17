@@ -1,4 +1,4 @@
-import React, { forwardRef, useContext } from "react";
+import React, { forwardRef, RefAttributes, useContext } from "react";
 import { useSelectState } from "react-stately";
 import { HiddenSelect, useSelect } from "@react-aria/select";
 import { filterDOMProps } from "@react-aria/utils";
@@ -34,14 +34,17 @@ import {
 } from "./SelectField.context";
 import { DropdownButton } from "@components/Internal/DropdownButton";
 
-export interface SelectFieldComponent
-  extends React.ForwardRefExoticComponent<SelectFieldProps<any>> {
+type ForwardedSelectField = {
+  <T>(
+    props: SelectFieldProps<T> & RefAttributes<HTMLButtonElement>
+  ): JSX.Element;
+  displayName: string;
   /** Renders the selected value of a SelectField */
   Value: typeof SelectFieldValue;
   /** Wrapper around `Button` that configures default visual styling
    * for the button that opens the dropdown for a `SelectField` */
   Button: typeof DropdownButton;
-}
+};
 
 /** Building blocks for building custom & accessible select components */
 export const SelectField = forwardRef(function SelectField<T extends object>(
@@ -57,7 +60,9 @@ export const SelectField = forwardRef(function SelectField<T extends object>(
       )}
     </CollectionBuilder>
   );
-}) as SelectFieldComponent;
+}) as unknown as ForwardedSelectField;
+
+SelectField.displayName = "SelectField";
 
 export function SelectFieldInner<T extends object>(
   props: SelectFieldInnerProps<T>

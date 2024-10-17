@@ -2,16 +2,13 @@ import React, { forwardRef, RefAttributes, useContext } from "react";
 import { useListState, Node, ListState, SectionProps } from "react-stately";
 import { useListBox, useListBoxSection, useOption } from "@react-aria/listbox";
 import { mergeProps } from "@react-aria/utils";
-import { LinkDOMProps } from "@react-types/shared";
 import {
   BaseCollection,
   Collection,
   CollectionBuilder,
-  createBranchComponent,
-  createLeafComponent,
 } from "@react-aria/collections";
 
-import { Key, RenderBaseProps, RenderStyleProps } from "../../../types";
+import { RenderStyleProps } from "../../../types";
 import { useRenderProps } from "@hooks";
 import { useFocusRing } from "@hooks/useFocusRing";
 import { useForwardedRef } from "@hooks/useForwardedRef";
@@ -19,7 +16,7 @@ import { useCollectionRenderer } from "@hooks/useCollectionRenderer";
 import { Label } from "@components/Fields";
 import { Divider } from "@components/Layout/Divider";
 import { Provider } from "@components/Internal/Provider";
-import { ItemContext, SectionContext } from "@components/Collection";
+import { ItemContext, ItemProps, SectionContext } from "@components/Collection";
 import { useContextPropsV2 } from "@hooks/useContextProps";
 
 import { List, ListItem, SectionTitle, SubList } from "./ListBox.styles";
@@ -29,10 +26,6 @@ import { ListBoxContext, ListStateContext } from "./ListBox.context";
 type ForwardedListBox = {
   <T>(props: ListBoxProps<T> & RefAttributes<HTMLUListElement>): JSX.Element;
   displayName: string;
-  /** A section in a ListBox */
-  Section: typeof ListBoxSectionWrapper;
-  /** An item in a ListBox */
-  Item: typeof ListBoxItemWrapper;
 };
 
 /** A listbox displays a list of options and allows a user to select one or more of them.
@@ -158,30 +151,8 @@ function ListBoxSection<T extends object>(
   );
 }
 
-// I don't know why but createBranchComponent isn't discovering the type
-// of the ref parameter, so I'm specifying it manually
-
-const ListBoxSectionWrapper = createBranchComponent("section", ListBoxSection);
-// @ts-expect-error
-ListBoxSectionWrapper.displayName = "ListBox.Section";
-ListBox.Section = ListBoxSectionWrapper;
-
-interface ListBoxItemRenderProps {
-  isSelected: boolean;
-}
-
-interface ListBoxItemProps
-  extends RenderBaseProps<ListBoxItemRenderProps>,
-    LinkDOMProps {
-  id?: Key;
-  textValue?: string;
-  "aria-label"?: string;
-  isDisabled?: boolean;
-  onAction?: () => void;
-}
-
 function ListBoxItem(
-  props: ListBoxItemProps,
+  props: ItemProps,
   ref: React.ForwardedRef<HTMLLIElement>,
   item: Node<object>
 ) {
@@ -193,21 +164,23 @@ function ListBoxItem(
     internalRef
   );
 
+  // Determine whether we should show a keyboard
+  // focus ring for accessibility
+  const { focusProps, isFocused, isFocusVisible } = useFocusRing();
+
   const renderProps = useRenderProps({
     componentClassName: "aje-listbox__item",
     ...props,
     children: item.rendered,
     values: {
       isSelected,
+      isFocused,
+      isFocusVisible,
     },
     selectors: {
       "data-selected": isSelected,
     },
   });
-
-  // Determine whether we should show a keyboard
-  // focus ring for accessibility
-  const { focusProps } = useFocusRing();
 
   return (
     <ListItem
@@ -220,8 +193,3 @@ function ListBoxItem(
     </ListItem>
   );
 }
-
-const ListBoxItemWrapper = createLeafComponent("item", ListBoxItem);
-// @ts-expect-error
-ListBoxItemWrapper.displayName = "ListBox.Item";
-ListBox.Item = ListBoxItemWrapper;

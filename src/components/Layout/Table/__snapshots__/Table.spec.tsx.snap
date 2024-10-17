@@ -35,7 +35,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
                 Column 1
                 <div
                   aria-expanded="true"
-                  class="sc-dcJtft jCMmCA aje-combo-input sc-hmdnzv iVuEWU padding-left padding-right"
+                  class="sc-dcJtft jCMmCA aje-combo-input sc-hmdnzv iVuEWU"
                 >
                   <input
                     aria-label="Search a"
@@ -199,7 +199,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
               Column 1
               <div
                 aria-expanded="true"
-                class="sc-dcJtft jCMmCA aje-combo-input sc-hmdnzv iVuEWU padding-left padding-right"
+                class="sc-dcJtft jCMmCA aje-combo-input sc-hmdnzv iVuEWU"
               >
                 <input
                   aria-label="Search a"
@@ -413,7 +413,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
                 Column 1
                 <div
                   aria-expanded="false"
-                  class="sc-dcJtft jCMmCA aje-combo-input sc-hmdnzv iVuEWU padding-left padding-right"
+                  class="sc-dcJtft jCMmCA aje-combo-input sc-hmdnzv iVuEWU"
                 >
                   <input
                     aria-label="Search a"
@@ -588,7 +588,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
               Column 1
               <div
                 aria-expanded="false"
-                class="sc-dcJtft jCMmCA aje-combo-input sc-hmdnzv iVuEWU padding-left padding-right"
+                class="sc-dcJtft jCMmCA aje-combo-input sc-hmdnzv iVuEWU"
               >
                 <input
                   aria-label="Search a"
@@ -815,7 +815,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                 Column 1
                 <div
                   aria-expanded="false"
-                  class="sc-dcJtft jCMmCA aje-combo-input sc-hmdnzv iVuEWU padding-left padding-right"
+                  class="sc-dcJtft jCMmCA aje-combo-input sc-hmdnzv iVuEWU"
                 >
                   <input
                     aria-label="Search a"
@@ -2089,7 +2089,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
               Column 1
               <div
                 aria-expanded="false"
-                class="sc-dcJtft jCMmCA aje-combo-input sc-hmdnzv iVuEWU padding-left padding-right"
+                class="sc-dcJtft jCMmCA aje-combo-input sc-hmdnzv iVuEWU"
               >
                 <input
                   aria-label="Search a"

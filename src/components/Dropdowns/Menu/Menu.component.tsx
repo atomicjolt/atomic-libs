@@ -1,7 +1,7 @@
 import React, { forwardRef, RefAttributes, useContext } from "react";
 import classNames from "classnames";
 import { useTreeState } from "react-stately";
-import { LinkDOMProps, Node, SectionProps } from "@react-types/shared";
+import { Node, SectionProps } from "@react-types/shared";
 import {
   AriaMenuProps,
   useMenu,
@@ -17,7 +17,7 @@ import {
   createLeafComponent,
 } from "@react-aria/collections";
 
-import { Key, RenderBaseProps, RenderStyleProps } from "../../../types";
+import { RenderBaseProps, RenderStyleProps } from "../../../types";
 import { Divider } from "@components/Layout/Divider";
 import { useForwardedRef } from "@hooks/useForwardedRef";
 import { Provider } from "@components/Internal/Provider";
@@ -25,7 +25,7 @@ import { useCollectionRenderer } from "@hooks/useCollectionRenderer";
 import { useRenderProps } from "@hooks";
 import { useFocusRing } from "@hooks/useFocusRing";
 import { useContextPropsV2 } from "@hooks/useContextProps";
-import { ItemContext, SectionContext } from "@components/Collection";
+import { ItemContext, ItemProps, SectionContext } from "@components/Collection";
 
 import { MenuContext, MenuStateContext } from "./Menu.context";
 import {
@@ -42,9 +42,13 @@ export interface MenuProps<T>
 type ForwardedMenu = {
   <T>(props: MenuProps<T> & RefAttributes<HTMLUListElement>): JSX.Element;
   displayName: string;
-  /** A section in a Menu */
+  /** A section in a Menu
+   * @deprecated Use `Section` instead
+   */
   Section: typeof MenuSectionWrapper;
-  /** An item in a Menu */
+  /** An item in a Menu
+   * @deprecated Use `Item` instead
+   */
   Item: typeof MenuItemWrapper;
 };
 
@@ -154,22 +158,8 @@ const MenuSectionWrapper = createBranchComponent("section", MenuSection);
 MenuSectionWrapper.displayName = "Menu.Section";
 Menu.Section = MenuSectionWrapper;
 
-interface MenutItemRenderProps {
-  isSelected: boolean;
-}
-
-export interface MenuItemProps
-  extends RenderBaseProps<MenutItemRenderProps>,
-    LinkDOMProps {
-  id?: Key;
-  textValue?: string;
-  "aria-label"?: string;
-  isDisabled?: boolean;
-  onAction?: () => void;
-}
-
 const MenuItem = (
-  props: MenuItemProps,
+  props: ItemProps,
   ref: React.ForwardedRef<HTMLLIElement>,
   item: Node<object>
 ) => {
@@ -182,16 +172,18 @@ const MenuItem = (
     internalRef
   );
 
+  const { focusProps, isFocused, isFocusVisible } = useFocusRing();
+
   const renderProps = useRenderProps({
     componentClassName: "aje-menu__item",
     ...props,
     children: item.rendered,
     values: {
       isSelected,
+      isFocused,
+      isFocusVisible,
     },
   });
-
-  const { focusProps } = useFocusRing();
 
   return (
     <MenuOption

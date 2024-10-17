@@ -3,6 +3,7 @@ import { render } from "@testing-library/react";
 import { Popover } from "@components/Overlays/Popover";
 import { ListBox } from "@components/Dropdowns/ListBox";
 import { MultiSelectField } from ".";
+import { Item } from "@components/Collection";
 
 describe("MultiSelectField", () => {
   describe("matches snapshots", () => {
@@ -12,9 +13,9 @@ describe("MultiSelectField", () => {
           <MultiSelectField.Button>Open up</MultiSelectField.Button>
           <Popover>
             <ListBox>
-              <ListBox.Item>Item 1</ListBox.Item>
-              <ListBox.Item>Item 2</ListBox.Item>
-              <ListBox.Item>Item 3</ListBox.Item>
+              <Item>Item 1</Item>
+              <Item>Item 2</Item>
+              <Item>Item 3</Item>
             </ListBox>
           </Popover>
         </MultiSelectField>
@@ -28,9 +29,9 @@ describe("MultiSelectField", () => {
           <MultiSelectField.Button>Open up</MultiSelectField.Button>
           <Popover>
             <ListBox>
-              <ListBox.Item>Item 1</ListBox.Item>
-              <ListBox.Item>Item 2</ListBox.Item>
-              <ListBox.Item>Item 3</ListBox.Item>
+              <Item>Item 1</Item>
+              <Item>Item 2</Item>
+              <Item>Item 3</Item>
             </ListBox>
           </Popover>
         </MultiSelectField>

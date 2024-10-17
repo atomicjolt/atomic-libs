@@ -6,7 +6,7 @@ exports[`MultiSelect > matches default variant 1`] = `
     class="sc-fHjqbK dWJNfx aje-multiselect sc-hmdnzv bFxqKM"
   >
     <label
-      class="sc-eqUzNf citWII is-auto"
+      class="sc-eqUzNf citWII"
       for="react-aria-:r2:"
       id="react-aria-:r3:"
     >
@@ -56,7 +56,7 @@ exports[`MultiSelect > matches floating variant 1`] = `
         </i>
       </button>
       <label
-        class="sc-eqUzNf citWII is-auto"
+        class="sc-eqUzNf citWII"
         for="react-aria-:ra:"
         id="react-aria-:rb:"
       >

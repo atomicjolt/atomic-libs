@@ -36,7 +36,7 @@ exports[`matches snapshots > matches default variant 1`] = `
       </label>
     </div>
     <label
-      class="sc-eqUzNf citWII is-auto"
+      class="sc-eqUzNf citWII"
       id="react-aria-:r3:"
     >
       Custom dropdown label
@@ -124,7 +124,7 @@ exports[`matches snapshots > matches floating variant 1`] = `
         </i>
       </button>
       <label
-        class="sc-eqUzNf citWII is-auto"
+        class="sc-eqUzNf citWII"
         id="react-aria-:rb:"
       >
         Custom dropdown label
