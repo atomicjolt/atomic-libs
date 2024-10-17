@@ -7,6 +7,7 @@ import { FieldMessage } from "../Field/FieldMessage";
 import { Popover } from "@components/Overlays/Popover";
 import { ListBox } from "@components/Dropdowns/ListBox";
 import { FieldErrorMessage } from "../Field/FieldError";
+import { Item } from "@components/Collection";
 
 export default {
   title: "Fields/MultiSelectField",
@@ -70,9 +71,9 @@ export const Default: Story = {
       </MultiSelectField.Button>,
       <Popover key="popover">
         <ListBox>
-          <ListBox.Item id="1">Item 1</ListBox.Item>
-          <ListBox.Item id="2">Item 2</ListBox.Item>
-          <ListBox.Item id="3">Item 3</ListBox.Item>
+          <Item id="1">Item 1</Item>
+          <Item id="2">Item 2</Item>
+          <Item id="3">Item 3</Item>
         </ListBox>
       </Popover>,
       <FieldErrorMessage key="error">Something went wrong</FieldErrorMessage>,

@@ -14,11 +14,6 @@ export interface TabsProps<T>
   disabledKeys?: Iterable<Key>;
 }
 
-interface TabRenderProps {
-  /** Whether the tab is currently selected */
-  isSelected: boolean;
-}
-
-export interface TabProps<T> extends ItemProps<T, TabRenderProps> {}
+export interface TabProps<T> extends ItemProps {}
 
 export interface TabListProps<T> extends CollectionBase<T> {}

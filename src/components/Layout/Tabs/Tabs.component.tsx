@@ -138,6 +138,9 @@ function Tab<T extends object>(
     ...props,
     values: {
       isSelected: state.selectedKey === key,
+      // TODO: Implement focus styles
+      isFocused: false,
+      isFocusVisible: false,
     },
     selectors: {
       "data-selected": state.selectedKey === key,
