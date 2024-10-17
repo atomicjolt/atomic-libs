@@ -58,7 +58,7 @@ export const ListBox = forwardRef(function ListBox<T extends object>(
       }}
     </CollectionBuilder>
   );
-}) as unknown as ForwardedListBox;
+}) as ForwardedListBox;
 
 ListBox.displayName = "ListBox";
 
