@@ -3,7 +3,7 @@
 exports[`matches snapshots > matches default variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-dhKdPU ccKOKQ aje-select aje-select--default is-medium"
+    class="sc-feUYzb hzHmVu aje-select sc-bXCLgj bQHwvG aje-select aje-select--default"
   >
     <div
       aria-hidden="true"
@@ -18,18 +18,17 @@ exports[`matches snapshots > matches default variant 1`] = `
         type="text"
       />
       <label>
-        Custom dropdown label
         <select
           tabindex="-1"
         >
           <option />
           <option
-            value="opt1"
+            value="react-aria-1"
           >
             Item 1
           </option>
           <option
-            value="opt2"
+            value="react-aria-2"
           >
             Item 2
           </option>
@@ -37,7 +36,7 @@ exports[`matches snapshots > matches default variant 1`] = `
       </label>
     </div>
     <label
-      class="sc-jlZhRR kJkcdX aje-label is-auto"
+      class="sc-eqUzNf citWII"
       id="react-aria-:r3:"
     >
       Custom dropdown label
@@ -46,19 +45,19 @@ exports[`matches snapshots > matches default variant 1`] = `
       aria-expanded="false"
       aria-haspopup="listbox"
       aria-labelledby="react-aria-:r7: react-aria-:r3:"
-      class="sc-kAycRU sc-imWZod cLCTCz gRIuSL aje-btn sc-jXbVAB itmScD aje-btn--dropdown is-medium"
+      class="sc-dLNtp sc-hzhKNl hkAcSC hhPoUm aje-btn sc-fHjqbK hMkkGO aje-btn--dropdown is-medium"
       id="react-aria-:r2:"
       type="button"
     >
       <span
-        class="sc-dAlxHm eiXvLx"
+        class="sc-fUnNpA iyHtdr"
         id="react-aria-:r7:"
       >
         Select an option
       </span>
       <i
         aria-hidden="true"
-        class="sc-fPXMhL DIiPw aje-icon material-icons is-medium"
+        class="sc-cPiJYC wZRQV aje-icon material-icons is-medium"
       >
         arrow_drop_down
       </i>
@@ -70,7 +69,7 @@ exports[`matches snapshots > matches default variant 1`] = `
 exports[`matches snapshots > matches floating variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-dhKdPU ccKOKQ aje-select aje-select--floating is-medium"
+    class="sc-feUYzb hzHmVu aje-select sc-bXCLgj bQHwvG aje-select aje-select--floating aje-select--floating"
   >
     <div
       aria-hidden="true"
@@ -85,18 +84,17 @@ exports[`matches snapshots > matches floating variant 1`] = `
         type="text"
       />
       <label>
-        Custom dropdown label
         <select
           tabindex="-1"
         >
           <option />
           <option
-            value="opt1"
+            value="react-aria-1"
           >
             Item 1
           </option>
           <option
-            value="opt2"
+            value="react-aria-2"
           >
             Item 2
           </option>
@@ -104,29 +102,29 @@ exports[`matches snapshots > matches floating variant 1`] = `
       </label>
     </div>
     <div
-      class="sc-ikkyvV ijWLgB"
+      class="sc-hmdnzv cpuyuG"
     >
       <button
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-labelledby="react-aria-:rf: react-aria-:rb:"
-        class="sc-kAycRU sc-imWZod cLCTCz gRIuSL aje-btn sc-jXbVAB itmScD aje-btn--dropdown is-medium"
+        class="sc-dLNtp sc-hzhKNl hkAcSC hhPoUm aje-btn sc-fHjqbK hMkkGO aje-btn--dropdown is-medium"
         id="react-aria-:ra:"
         type="button"
       >
         <span
-          class="sc-dAlxHm eiXvLx"
+          class="sc-fUnNpA iyHtdr"
           id="react-aria-:rf:"
         />
         <i
           aria-hidden="true"
-          class="sc-fPXMhL DIiPw aje-icon material-icons is-medium"
+          class="sc-cPiJYC wZRQV aje-icon material-icons is-medium"
         >
           arrow_drop_down
         </i>
       </button>
       <label
-        class="sc-jlZhRR kJkcdX aje-label is-auto"
+        class="sc-eqUzNf citWII"
         id="react-aria-:rb:"
       >
         Custom dropdown label

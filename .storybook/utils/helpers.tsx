@@ -165,10 +165,18 @@ export const MultiSelectionArgTypes: ArgTypes = {
 };
 
 export const MultiSelectItemChildren = [
-  <Item key="news">News</Item>,
-  <Item key="travel">Travel</Item>,
-  <Item key="gaming">Gaming</Item>,
-  <Item key="shopping">Shopping</Item>,
+  <Item key="1" id="news">
+    News
+  </Item>,
+  <Item key="2" id="travel">
+    Travel
+  </Item>,
+  <Item key="3" id="gaming">
+    Gaming
+  </Item>,
+  <Item key="4" id="shopping">
+    Shopping
+  </Item>,
 ];
 
 export const PressableArgTypes: Record<keyof PressEvents, object> = {
@@ -205,6 +213,30 @@ export const PressableArgTypes: Record<keyof PressEvents, object> = {
     action: "onPressUp",
     description:
       "Callback when a press event is released over the element, regardless of where it started on that target or not.",
+    table: {
+      category: "Events",
+    },
+  },
+};
+
+export const FocusEventsArgTypes: ArgTypes = {
+  onFocus: {
+    action: "onFocus",
+    description: "Callback for when the input is focused",
+    table: {
+      category: "Events",
+    },
+  },
+  onBlur: {
+    action: "onBlur",
+    description: "Callback for when the input is blurred",
+    table: {
+      category: "Events",
+    },
+  },
+  onFocusChange: {
+    action: "onFocusChange",
+    description: "Callback for when the input is focused",
     table: {
       category: "Events",
     },

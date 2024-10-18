@@ -5,7 +5,7 @@ import { Table } from ".";
 import { Key, SearchDescriptor } from "../../../types";
 import { getCssProps } from "@sb/cssprops";
 import { Flex } from "../Flex/Flex";
-import Button from "@components/Buttons/Button";
+import { Button } from "@components/Buttons/Button";
 import { MaterialIcon } from "@components/index";
 
 const meta: Meta<typeof Table> = {

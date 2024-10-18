@@ -8,8 +8,8 @@ import {
 import { FocusableProvider } from "@react-aria/focus";
 import { HasClassName } from "../../../types";
 import { Provider } from "../../Internal/Provider";
-import { TooltipContext, TooltipStateContext } from "./contexts";
-import { ToolTipProps } from "./ToolTip";
+import { TooltipContext, TooltipStateContext } from "./ToolTip.context";
+import { ToolTipProps } from "./ToolTip.component";
 
 export interface ToolTipTriggerProps<P extends DOMAttributes = DOMAttributes>
   extends AriaTooltipTriggerProps,

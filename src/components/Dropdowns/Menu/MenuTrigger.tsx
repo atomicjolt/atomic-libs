@@ -8,7 +8,7 @@ import {
 import { HasChildren } from "../../../types";
 import { Provider } from "../../Internal/Provider";
 import { PopoverContext } from "../../Overlays/Popover/context";
-import { MenuContext } from "./context";
+import { MenuContext } from "./Menu.context";
 import { OverlayTriggerStateContext } from "../../Overlays/OverlayTrigger/context";
 
 export interface MenuTriggerProps<T>

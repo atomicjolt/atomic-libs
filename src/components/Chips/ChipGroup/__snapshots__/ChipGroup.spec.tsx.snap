@@ -6,7 +6,7 @@ exports[`ChipGroup > matches snapshot 1`] = `
     class="sc-dLNtp gbPWau aje-chip-group is-full"
   >
     <label
-      class="sc-aYaIB aiLmU is-auto"
+      class="sc-aYaIB aiLmU"
       id="react-aria-:r1:"
     >
       My Chip Group

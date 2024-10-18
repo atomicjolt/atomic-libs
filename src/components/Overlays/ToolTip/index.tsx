@@ -1,7 +1,7 @@
-export { ToolTip } from "./ToolTip";
-export { ToolTipTrigger } from "./ToolTipTrigger";
-export { ToolTipTarget } from "./ToolTipTarget";
+export { ToolTip } from "./ToolTip.component";
+export { ToolTipTrigger } from "./ToolTipTrigger.component";
+export { ToolTipTarget } from "./ToolTipTarget.component";
 
-export type { ToolTipProps } from "./ToolTip";
-export type { ToolTipTriggerProps } from "./ToolTipTrigger";
-export type { ToolTipTargetProps } from "./ToolTipTarget";
+export type { ToolTipProps } from "./ToolTip.component";
+export type { ToolTipTriggerProps } from "./ToolTipTrigger.component";
+export type { ToolTipTargetProps } from "./ToolTipTarget.component";

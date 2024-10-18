@@ -1,10 +1,10 @@
-import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
+import { PlacementArgType } from "@sb/helpers";
 import { MenuTrigger } from "../../Dropdowns/Menu/MenuTrigger";
 import { Popover } from ".";
 import { Menu } from "../../Dropdowns/Menu";
 import { Button } from "../../Buttons/Button";
-import { PlacementArgType } from "@sb/helpers";
+import { Item } from "@components/Collection";
 
 export default {
   title: "Overlays/Popover",
@@ -44,9 +44,9 @@ export const Default: Story = {
         <Button>Press Me</Button>
         <Popover {...args}>
           <Menu>
-            <Menu.Item>Item 1</Menu.Item>
-            <Menu.Item>Item 2</Menu.Item>
-            <Menu.Item>Item 3</Menu.Item>
+            <Item>Item 1</Item>
+            <Item>Item 2</Item>
+            <Item>Item 3</Item>
           </Menu>
         </Popover>
       </MenuTrigger>

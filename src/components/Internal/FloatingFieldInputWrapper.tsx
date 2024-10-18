@@ -12,7 +12,7 @@ interface FloatingFieldInputWrapperProps extends HelpTextProps {
   children: React.ReactNode;
 }
 
-export default function FloatingFieldInputWrapper(
+export function FloatingFieldInputWrapper(
   props: FloatingFieldInputWrapperProps
 ) {
   const { children, floating, label, error, message } = props;
@@ -39,3 +39,5 @@ export default function FloatingFieldInputWrapper(
     </>
   );
 }
+
+export default FloatingFieldInputWrapper;

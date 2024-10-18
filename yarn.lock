@@ -31,6 +31,7 @@ __metadata:
     "@react-aria/button": ^3.9.5
     "@react-aria/calendar": ^3.5.8
     "@react-aria/checkbox": ^3.14.3
+    "@react-aria/collections": ^3.0.0-alpha.5
     "@react-aria/combobox": ^3.9.1
     "@react-aria/datepicker": ^3.10.1
     "@react-aria/dialog": ^3.5.14
@@ -2578,6 +2579,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@react-aria/collections@npm:^3.0.0-alpha.5":
+  version: 3.0.0-nightly-e60fb427c-240930
+  resolution: "@react-aria/collections@npm:3.0.0-nightly-e60fb427c-240930"
+  dependencies:
+    "@react-aria/ssr": ^3.0.0-nightly-e60fb427c-240930
+    "@react-aria/utils": ^3.0.0-nightly-e60fb427c-240930
+    "@react-types/shared": ^3.0.0-nightly-e60fb427c-240930
+    "@swc/helpers": ^0.5.0
+    use-sync-external-store: ^1.2.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0
+    react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0
+  checksum: fb85adfc79894dc8225486735505e24e5832c3bebdaa6060fb70a79c44bbf6f67a313a22f51793a10304c4d458abde8bc2588bd677d3891f18fa423c59893d0b
+  languageName: node
+  linkType: hard
+
 "@react-aria/combobox@npm:^3.9.1":
   version: 3.9.1
   resolution: "@react-aria/combobox@npm:3.9.1"
@@ -3017,6 +3034,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@react-aria/ssr@npm:^3.0.0-nightly-e60fb427c-240930, @react-aria/ssr@npm:^3.9.6":
+  version: 3.9.6
+  resolution: "@react-aria/ssr@npm:3.9.6"
+  dependencies:
+    "@swc/helpers": ^0.5.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0
+  checksum: 90645c0da673de555cc1221286980c713d79d5a9328e43adf19121be03a1ba8ebb11e87a3564cd1e1034e00674ee5f95db3d3db263a0109239502d093ebe6862
+  languageName: node
+  linkType: hard
+
 "@react-aria/ssr@npm:^3.9.4":
   version: 3.9.4
   resolution: "@react-aria/ssr@npm:3.9.4"
@@ -3158,6 +3186,21 @@ __metadata:
   peerDependencies:
     react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
   checksum: 60b8e519b1561e6113da76f6b02cd6cb37d880dd6876a78a8323f62c23b594042073e8c0f3f181a04a1eaea99b82f2e33d891f3c21882a34c607dc8f36567ed3
+  languageName: node
+  linkType: hard
+
+"@react-aria/utils@npm:^3.0.0-nightly-e60fb427c-240930":
+  version: 3.25.3
+  resolution: "@react-aria/utils@npm:3.25.3"
+  dependencies:
+    "@react-aria/ssr": ^3.9.6
+    "@react-stately/utils": ^3.10.4
+    "@react-types/shared": ^3.25.0
+    "@swc/helpers": ^0.5.0
+    clsx: ^2.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0
+  checksum: dfb0dc06c8941cb959f021fbd6287ab12e20d958a9ba52307cade8e0586df12472664ca5574086a8f96501128db5cbdd5c9a625b0bc378e43a92165f920824bf
   languageName: node
   linkType: hard
 
@@ -3544,6 +3587,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@react-stately/utils@npm:^3.10.4":
+  version: 3.10.4
+  resolution: "@react-stately/utils@npm:3.10.4"
+  dependencies:
+    "@swc/helpers": ^0.5.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0
+  checksum: dd00776f1d0e858c62de2f18551faffe91a53547ea4fe0a0ae2e5ff0ca9dac289b68bf06db09e978dab72e9b10a41160ab195186fb07fd7843aecbf60fba801d
+  languageName: node
+  linkType: hard
+
 "@react-stately/virtualizer@npm:^3.7.1":
   version: 3.7.1
   resolution: "@react-stately/virtualizer@npm:3.7.1"
@@ -3726,6 +3780,15 @@ __metadata:
   peerDependencies:
     react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
   checksum: eb6b314ef42fcb17e7ad08f340df0db2fdec5ae3de9e90451aa6b448f5e6995abca575f3f866928712f63f6c9e6f2aff1e389fd1eede676b7b51214d073f34ad
+  languageName: node
+  linkType: hard
+
+"@react-types/shared@npm:^3.0.0-nightly-e60fb427c-240930, @react-types/shared@npm:^3.25.0":
+  version: 3.25.0
+  resolution: "@react-types/shared@npm:3.25.0"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0
+  checksum: 3fb971b74d913bf4dc933e78f5d5c418574fca7313198ef7b0e77c528f8a2e5f76324fb8a5a2be52b5ed997018a6819457e70f964eb1c80dc62941eb8b678710
   languageName: node
   linkType: hard
 
@@ -12452,6 +12515,15 @@ __metadata:
     "@types/react":
       optional: true
   checksum: 925d1922f9853e516eaad526b6fed1be38008073067274f0ecc3f56b17bb8ab63480140dd7c271f94150027c996cea4efe83d3e3525e8f3eda22055f6a39220b
+  languageName: node
+  linkType: hard
+
+"use-sync-external-store@npm:^1.2.0":
+  version: 1.2.2
+  resolution: "use-sync-external-store@npm:1.2.2"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: fe07c071c4da3645f112c38c0e57beb479a8838616ff4e92598256ecce527f2888c08febc7f9b2f0ce2f0e18540ba3cde41eb2035e4fafcb4f52955037098a81
   languageName: node
   linkType: hard
 

@@ -13,7 +13,7 @@ export const MenuList = styled.ul`
   }
 `;
 
-export const SubMenuList = styled.ul`
+export const MenuSectionList = styled.ul`
   list-style: none;
   padding: 0px;
 `;

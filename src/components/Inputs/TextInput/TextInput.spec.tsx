@@ -1,7 +1,7 @@
 import React from "react";
 import { describe, test, expect } from "vitest";
 import { render } from "@testing-library/react";
-import TextInput from ".";
+import { TextInput } from ".";
 
 describe("matches snapshot", () => {
   const shared = {

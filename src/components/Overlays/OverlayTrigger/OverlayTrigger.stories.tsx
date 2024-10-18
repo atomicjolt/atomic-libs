@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import { OverlayTrigger } from ".";
 import { Pressable } from "./Pressable";
 import { Popover } from "../Popover";
-import Button from "../../Buttons/Button";
+import { Button } from "../../Buttons/Button";
 import { OverlayTriggerArgTypes } from "@sb/helpers";
 
 export default {

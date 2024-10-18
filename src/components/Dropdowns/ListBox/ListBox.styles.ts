@@ -12,10 +12,6 @@ export const List = styled.ul`
   &:focus {
     outline: none;
   }
-
-  // For the search input
-  --input-border: none;
-  --input-border-radius: 0px;
 `;
 
 export const SubList = styled.ul`
@@ -32,14 +28,10 @@ export const SectionTitle = styled.span`
   text-transform: uppercase;
 `;
 
-export const CheckIcon = styled(MaterialIcon)<{ $isSelected: boolean }>`
-  margin-left: auto;
-  visibility: ${({ $isSelected }) => ($isSelected ? "visible" : "hidden")};
-`;
-
 export const ListItem = styled.li`
   ${mixins.Regular}
   ${mixins.FocusVisible()}
+  text-decoration: none;
   position: relative;
   display: flex;
   align-items: center;

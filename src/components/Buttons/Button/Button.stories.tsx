@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react";
-import Button from ".";
+import { Button } from ".";
 import { PressableArgTypes } from "@sb/helpers";
-import MaterialIcon from "@components/Icons/MaterialIcon";
+import { MaterialIcon } from "@components/Icons/MaterialIcon";
 import { getCssProps } from "@sb/cssprops";
 
 const meta: Meta<typeof Button> = {

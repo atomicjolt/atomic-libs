@@ -14,7 +14,7 @@ import { useCollator } from "@react-aria/i18n";
 import { useField } from "@react-aria/label";
 import { useMenuTrigger } from "@react-aria/menu";
 import { MultiSelectState } from "./useMultiSelectState";
-import { AriaMultiSelectProps } from "./MutliSelect.types";
+import { AriaMultiSelectProps } from "./MutliSelectField.types";
 
 export interface UseMultiSelectOptions<T>
   extends Omit<AriaMultiSelectProps<T>, "children"> {
@@ -120,6 +120,7 @@ export function useMultiSelect<T>(
   typeSelectProps.onKeyDown = typeSelectProps.onKeyDownCapture;
   delete typeSelectProps.onKeyDownCapture;
 
+  // @ts-ignore
   const domProps = filterDOMProps(props, { labelable: true });
   const triggerProps = mergeProps(
     typeSelectProps,

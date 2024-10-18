@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import mixins from "../../../styles/mixins";
 
-export const TabList = styled.div`
+export const StyledTabList = styled.div`
   margin-bottom: calc(var(--tab-border-width) * -1);
   display: flex;
   justify-content: space-between;
@@ -21,10 +21,6 @@ export const TabInfoWrapper = styled.div`
 
 export const TabInfo = styled.div`
   font-size: 1.4rem;
-`;
-
-export const TabLinkWrapper = styled.div`
-  position: relative;
 `;
 
 export const TabLink = styled.div`

@@ -17,7 +17,7 @@ import {
   PresentationProps,
   RenderBaseProps,
 } from "../../../types";
-import { TooltipContext, TooltipStateContext } from "./contexts";
+import { TooltipContext, TooltipStateContext } from "./ToolTip.context";
 import { useContextProps } from "../../../hooks/useContextProps";
 import { mergeProps } from "@react-aria/utils";
 import { useRenderProps } from "@hooks";

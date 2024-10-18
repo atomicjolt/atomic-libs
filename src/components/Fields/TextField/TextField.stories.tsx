@@ -7,7 +7,7 @@ import { FieldInput } from "../Field/FieldInput";
 import { FieldErrorMessage } from "../Field/FieldError";
 import { FieldTextArea } from "../Field/FieldTextArea";
 import { Group } from "../../Layout/Group";
-import IconButton from "../../Buttons/IconButton";
+import { IconButton } from "../../Buttons/IconButton";
 import { FieldStateControls } from "@sb/helpers";
 
 export default {

@@ -35,7 +35,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
                 Column 1
                 <div
                   aria-expanded="true"
-                  class="sc-dcJtft jCMmCA aje-combo-input sc-hmdnzv iVuEWU padding-left padding-right"
+                  class="sc-dcJtft jCMmCA aje-combo-input sc-hmdnzv iVuEWU"
                 >
                   <input
                     aria-label="Search a"
@@ -199,7 +199,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
               Column 1
               <div
                 aria-expanded="true"
-                class="sc-dcJtft jCMmCA aje-combo-input sc-hmdnzv iVuEWU padding-left padding-right"
+                class="sc-dcJtft jCMmCA aje-combo-input sc-hmdnzv iVuEWU"
               >
                 <input
                   aria-label="Search a"
@@ -413,7 +413,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
                 Column 1
                 <div
                   aria-expanded="false"
-                  class="sc-dcJtft jCMmCA aje-combo-input sc-hmdnzv iVuEWU padding-left padding-right"
+                  class="sc-dcJtft jCMmCA aje-combo-input sc-hmdnzv iVuEWU"
                 >
                   <input
                     aria-label="Search a"
@@ -588,7 +588,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
               Column 1
               <div
                 aria-expanded="false"
-                class="sc-dcJtft jCMmCA aje-combo-input sc-hmdnzv iVuEWU padding-left padding-right"
+                class="sc-dcJtft jCMmCA aje-combo-input sc-hmdnzv iVuEWU"
               >
                 <input
                   aria-label="Search a"
@@ -815,7 +815,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                 Column 1
                 <div
                   aria-expanded="false"
-                  class="sc-dcJtft jCMmCA aje-combo-input sc-hmdnzv iVuEWU padding-left padding-right"
+                  class="sc-dcJtft jCMmCA aje-combo-input sc-hmdnzv iVuEWU"
                 >
                   <input
                     aria-label="Search a"
@@ -2089,7 +2089,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
               Column 1
               <div
                 aria-expanded="false"
-                class="sc-dcJtft jCMmCA aje-combo-input sc-hmdnzv iVuEWU padding-left padding-right"
+                class="sc-dcJtft jCMmCA aje-combo-input sc-hmdnzv iVuEWU"
               >
                 <input
                   aria-label="Search a"
@@ -3414,7 +3414,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
                 Column 1
                 <div
                   aria-expanded="false"
-                  class="sc-dcJtft jCMmCA aje-combo-input sc-hmdnzv iVuEWU padding-left padding-right"
+                  class="sc-dcJtft jCMmCA aje-combo-input sc-hmdnzv iVuEWU"
                 >
                   <input
                     aria-label="Search a"
@@ -3559,7 +3559,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
           style="height: 100%;"
         >
           <div
-            class="sc-dtImxT YRXIg aje-select aje-select--ghost is-auto"
+            class="sc-fhzEvr hkquAA aje-select sc-esYjtY eVaXWK aje-select aje-select--ghost aje-select--ghost is-auto"
           >
             <div
               aria-hidden="true"
@@ -3605,20 +3605,16 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-label="Select page size"
-              aria-labelledby="react-aria-:rd: react-aria-:r8:"
-              class="sc-jEABJj sc-dtBeHJ jWspfU jrrQXo aje-btn sc-kOHUsU lhkDIh aje-btn--dropdown-ghost is-auto"
+              aria-labelledby="react-aria-:rd: react-aria-:r8: react-aria-:r9:"
+              class="sc-jEABJj sc-lcIQwB jWspfU huQXtP aje-btn sc-kdBRUi YPyGx aje-btn--dropdown is-auto"
               id="react-aria-:r8:"
               type="button"
             >
               <span
-                class="sc-cWSIco ditNNH"
+                class="sc-jxOSYQ iaWsvv"
                 id="react-aria-:rd:"
               >
-                1
-                -
-                10
-                 of 
-                100
+                Select an option
               </span>
               <i
                 aria-hidden="true"
@@ -3727,7 +3723,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
               Column 1
               <div
                 aria-expanded="false"
-                class="sc-dcJtft jCMmCA aje-combo-input sc-hmdnzv iVuEWU padding-left padding-right"
+                class="sc-dcJtft jCMmCA aje-combo-input sc-hmdnzv iVuEWU"
               >
                 <input
                   aria-label="Search a"
@@ -3872,7 +3868,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
         style="height: 100%;"
       >
         <div
-          class="sc-dtImxT YRXIg aje-select aje-select--ghost is-auto"
+          class="sc-fhzEvr hkquAA aje-select sc-esYjtY eVaXWK aje-select aje-select--ghost aje-select--ghost is-auto"
         >
           <div
             aria-hidden="true"
@@ -3918,20 +3914,16 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Select page size"
-            aria-labelledby="react-aria-:rd: react-aria-:r8:"
-            class="sc-jEABJj sc-dtBeHJ jWspfU jrrQXo aje-btn sc-kOHUsU lhkDIh aje-btn--dropdown-ghost is-auto"
+            aria-labelledby="react-aria-:rd: react-aria-:r8: react-aria-:r9:"
+            class="sc-jEABJj sc-lcIQwB jWspfU huQXtP aje-btn sc-kdBRUi YPyGx aje-btn--dropdown is-auto"
             id="react-aria-:r8:"
             type="button"
           >
             <span
-              class="sc-cWSIco ditNNH"
+              class="sc-jxOSYQ iaWsvv"
               id="react-aria-:rd:"
             >
-              1
-              -
-              10
-               of 
-              100
+              Select an option
             </span>
             <i
               aria-hidden="true"

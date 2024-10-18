@@ -1,10 +1,9 @@
-import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import { InputControls } from "@sb/helpers";
 import { CustomSelect } from ".";
 import { Item, Section } from "../../Collection";
 import { getCssProps } from "@sb/cssprops";
-import MaterialIcon from "@components/Icons/MaterialIcon";
+import { MaterialIcon } from "@components/Icons/MaterialIcon";
 import { Flex } from "@components/Layout/Flex/Flex";
 
 const meta: Meta<typeof CustomSelect> = {
@@ -71,9 +70,9 @@ export const Primary: Story = {
     variant: "default",
     label: "Custom Select Label",
     children: [
-      <Item key="val1">Item 1</Item>,
-      <Item key="val2">Item 2</Item>,
-      <Item key="val3">Item 3</Item>,
+      <Item id="val1">Item 1</Item>,
+      <Item id="val2">Item 2</Item>,
+      <Item id="val3">Item 3</Item>,
     ],
   },
 };
@@ -82,12 +81,12 @@ export const WithSections: Story = {
   args: {
     ...Primary.args,
     children: [
-      <Item key="val1">Item 1</Item>,
-      <Item key="val2">Item 2</Item>,
-      <Item key="val3">Item 3</Item>,
+      <Item id="val1">Item 1</Item>,
+      <Item id="val2">Item 2</Item>,
+      <Item id="val3">Item 3</Item>,
       <Section title="Section Title">
-        <Item key="val4">Item 4</Item>
-        <Item key="val5">Item 5</Item>
+        <Item id="val4">Item 4</Item>
+        <Item id="val5">Item 5</Item>
       </Section>,
     ],
   },
@@ -98,14 +97,6 @@ export const Floating: Story = {
     ...Primary.args,
     defaultSelectedKey: "undefined",
     variant: "floating",
-  },
-};
-
-export const Searchable: Story = {
-  args: {
-    ...Primary.args,
-    isSearchable: true,
-    searchPlaceholder: "Search",
   },
 };
 

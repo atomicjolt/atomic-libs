@@ -1,10 +1,9 @@
-import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import { ButtonGroup } from ".";
-import Button from "../Button";
-import IconButton from "../IconButton";
+import { Button } from "../Button";
+import { IconButton } from "../IconButton";
 import { Item } from "../../Collection";
-import IconMenu from "../../Dropdowns/IconMenu";
+import { IconMenu } from "../../Dropdowns/IconMenu";
 
 const meta: Meta<typeof ButtonGroup> = {
   title: "Buttons/ButtonGroup",

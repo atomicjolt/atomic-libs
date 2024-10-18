@@ -3,10 +3,10 @@
 exports[`matches snapshots > matches default variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-hmdnzv rAJco aje-combobox aje-combobox--default is-medium"
+    class="sc-fUnNpA fvDXZj aje-combobox sc-hzhKNl eslzAM is-medium"
   >
     <label
-      class="sc-dAlxHm hlocov aje-label is-auto"
+      class="sc-dAlxHm hlocov"
       for="react-aria-:r2:"
       id="react-aria-:r3:"
     >
@@ -60,10 +60,10 @@ exports[`matches snapshots > matches default variant 1`] = `
 exports[`matches snapshots > matches floating variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-hmdnzv rAJco aje-combobox aje-combobox--floating is-medium"
+    class="sc-fUnNpA fvDXZj aje-combobox sc-hzhKNl eslzAM aje-combobox--floating is-medium"
   >
     <div
-      class="sc-fUnNpA kaalrn"
+      class="sc-feUYzb kPLfyu"
     >
       <div
         class="sc-cPiJYC faFieB aje-combo-input padding-left padding-right"
@@ -101,7 +101,7 @@ exports[`matches snapshots > matches floating variant 1`] = `
         </button>
       </div>
       <label
-        class="sc-dAlxHm hlocov aje-label is-auto"
+        class="sc-dAlxHm hlocov"
         for="react-aria-:rb:"
         id="react-aria-:rc:"
       >
