@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import IconButton from ".";
+import { IconButton } from ".";
 import buttonMeta from "../Button/Button.stories";
 import { getCssProps } from "@sb/cssprops";
 

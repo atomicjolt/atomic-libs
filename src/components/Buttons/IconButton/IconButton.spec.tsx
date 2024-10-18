@@ -1,7 +1,7 @@
 import React from "react";
 import { describe, test, expect } from "vitest";
 import { render } from "@testing-library/react";
-import IconButton from ".";
+import { IconButton } from ".";
 
 test("matches snapshot", () => {
   const result = render(

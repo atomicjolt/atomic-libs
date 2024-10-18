@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import TextAreaInput from ".";
+import { TextAreaInput } from ".";
 import { TextInputControls } from "@sb/helpers";
 import { getCssProps } from "@sb/cssprops";
 

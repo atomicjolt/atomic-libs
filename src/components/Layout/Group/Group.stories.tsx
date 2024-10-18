@@ -1,8 +1,8 @@
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import { Group } from ".";
-import Button from "../../Buttons/Button";
-import TextInput from "../../Inputs/TextInput";
+import { Button } from "../../Buttons/Button";
+import { TextInput } from "../../Inputs/TextInput";
 
 export default {
   title: "Layouts/Group",

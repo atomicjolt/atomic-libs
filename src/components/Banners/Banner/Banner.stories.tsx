@@ -1,7 +1,7 @@
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import { Banner } from ".";
-import MaterialIcon from "../../Icons/MaterialIcon";
+import { MaterialIcon } from "../../Icons/MaterialIcon";
 import { getCssProps } from "@sb/cssprops";
 
 export default {

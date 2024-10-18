@@ -1,7 +1,7 @@
 import React from "react";
 import { describe, test, expect, vi } from "vitest";
 import { fireEvent, render, screen } from "@testing-library/react";
-import SearchInput from ".";
+import { SearchInput } from ".";
 
 describe("matches snapshot", () => {
   test("displays without button", () => {

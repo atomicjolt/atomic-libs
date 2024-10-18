@@ -1,9 +1,9 @@
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
-import Modal from ".";
-import IconButton from "../../Buttons/IconButton";
-import Button from "../../Buttons/Button";
-import MaterialIcon from "../../Icons/MaterialIcon";
+import { Modal } from ".";
+import { IconButton } from "../../Buttons/IconButton";
+import { Button } from "../../Buttons/Button";
+import { MaterialIcon } from "../../Icons/MaterialIcon";
 import { OverlayTrigger } from "../OverlayTrigger";
 
 const meta: Meta<typeof Modal> = {
