@@ -1,21 +1,8 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    // Default
-    "target": "ES2021",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "skipLibCheck": true,
-
-    // Added
     "outDir": "dist/esm",
     "declarationDir": "dist/esm/types",
-    "jsx": "react-jsx",
-    "module": "ESNext",
-    "declaration": true,
-    "sourceMap": true,
-    "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
     "paths": {
       "@hooks": ["./src/hooks"],
       "@styles/*": ["./src/styles/*"],
@@ -24,7 +11,5 @@
       "@components/*": ["./src/components/*"],
       "@hooks/*": ["./src/hooks/*"]
     }
-  },
-  "include": ["src/**/*.tsx", "src/**/*.ts"],
-  "exclude": ["node_modules", "dist"]
+  }
 }

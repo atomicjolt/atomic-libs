@@ -1,0 +1,9 @@
+{
+  "name": "atomic-packages",
+  "private": true,
+  "workspaces": [
+    "packages/atomic-elements",
+    "packages/hooks",
+    "packages/forms"
+  ]
+}

@@ -166,6 +166,7 @@ export type { TimeInputProps } from "./Inputs/DateAndTimes/TimeInput";
 export type { DatePickerProps } from "./Inputs/DateAndTimes/DatePicker";
 export type { ListBoxProps } from "./Dropdowns/ListBox";
 export type { DevelopmentErrorModalProps } from "./Overlays/DevelopmentErrorModal";
+export type { MultiSelectProps } from "./Dropdowns/MultiSelect";
 export type { MultiSelectFieldProps } from "./Fields/MultiSelectField";
 export type { PopoverProps } from "./Overlays/Popover";
 export type {
