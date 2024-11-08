@@ -4,7 +4,7 @@
   "author": "Sean Collings <sean.collings@atomicjolt.com>",
   "license": "MIT",
   "module": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "types": "dist/types/index.d.ts",
   "files": [
     "dist/**/*"
   ],

@@ -10,8 +10,6 @@
     "sourceMap": true,
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
-    "outDir": "dist",
-    "declarationDir": "dist/types",
 
     "strict": true,
     // TODO: turn these on
