@@ -4,6 +4,7 @@ import {
   CustomSelect,
   DatePicker,
   Item,
+  Key,
   NumberInput,
   Radio,
   RadioGroup,
@@ -12,9 +13,9 @@ import {
 import { I18nProvider } from "@react-aria/i18n";
 
 export default function Localization() {
-  const [locale, setLocale] = useState<React.Key>("en");
+  const [locale, setLocale] = useState<Key>("en");
 
-  const onLocaleChange = (key: React.Key) => {
+  const onLocaleChange = (key: Key) => {
     setLocale(key);
     if (key === "ar") {
       document.querySelector("html")?.setAttribute("dir", "rtl");

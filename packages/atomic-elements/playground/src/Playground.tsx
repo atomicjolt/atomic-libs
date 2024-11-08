@@ -12,7 +12,7 @@ import Fields from "./tabs/Fields";
 import Loading from "./tabs/Loading";
 import Links from "./tabs/Links";
 
-export function MyTab(props) {
+export function MyTab(props: any) {
   return (
     <Tabs.Tab {...props}>
       {({ isSelected }) => (

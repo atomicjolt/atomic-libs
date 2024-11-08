@@ -87,7 +87,7 @@ export interface RenderEmptyProps {
 }
 
 export interface TableProps<T>
-  extends Omit<AriaTableProps<T>, "id">,
+  extends Omit<AriaTableProps, "id">,
     MultipleSelection,
     Sortable,
     SearchProps,

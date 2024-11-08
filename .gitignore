@@ -1,10 +1,7 @@
 dist
 node_modules
 yarn-error.log
-storybook-static
-docs
-.storybook/__generated__
-.storybook/utils/cssprops.generated.ts
-.yarn/cache
-.yarn/install-state.gz
+**/storybook-static
+**/docs
 .DS_Store
+**/.storybook/__generated__

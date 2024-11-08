@@ -14,6 +14,7 @@ import {
 } from "@react-stately/overlays";
 import { useListState, ListState } from "@react-stately/list";
 import { AriaMultiSelectProps } from "./MutliSelectField.types";
+import { Key } from '../../../types';
 
 export interface MultiSelectStateOptions<T>
   extends Omit<AriaMultiSelectProps<T>, "children">,
@@ -67,7 +68,7 @@ export function useMultiSelectState<T extends object>(
   // TODO: handle this better
   const validationState = useFormValidationState({
     ...props,
-    value: listState.selectionManager.selectedKeys.values().next().value,
+    value: listState.selectionManager.selectedKeys.values().next().value as Key,
   });
 
   return {

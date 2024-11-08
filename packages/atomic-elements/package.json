@@ -96,6 +96,7 @@
     "vitest": "^1.6.0"
   },
   "scripts": {
+    "prepare": "storybook:cssprops",
     "storybook:dev": "storybook dev -p 6006 ",
     "storybook:cssprops": "python3 bin/update-css-props.py",
     "storybook:build": "yarn storybook:cssprops && storybook build -o docs/${0} && python3 bin/update-doc-index.py",
