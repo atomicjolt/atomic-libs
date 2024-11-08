@@ -3,23 +3,23 @@
 exports[`matches snapshots > matches default variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-fUnNpA fvDXZj aje-combobox sc-hzhKNl eslzAM is-medium"
+    class="sc-geXuza fHtZYP aje-combobox sc-hJRrWL ewhKwE is-medium"
   >
     <label
-      class="sc-dAlxHm hlocov"
+      class="sc-dpBQxM cdrQXv"
       for="react-aria-:r2:"
       id="react-aria-:r3:"
     >
       Text Label
     </label>
     <p
-      class="sc-jlZhRR cVQHuX is-auto"
+      class="sc-jwIPbr gYGSDV is-auto"
       id="react-aria-:r5:"
     >
       message
     </p>
     <div
-      class="sc-cPiJYC faFieB aje-combo-input padding-left padding-right"
+      class="sc-cEzcPc jcKbmV aje-combo-input padding-left padding-right"
     >
       <input
         aria-autocomplete="list"
@@ -28,7 +28,7 @@ exports[`matches snapshots > matches default variant 1`] = `
         aria-labelledby="react-aria-:r3:"
         autocomplete="off"
         autocorrect="off"
-        class="sc-jEABJj kpDVYM is-full"
+        class="sc-jtQUzJ xwtGQ is-full"
         id="react-aria-:r2:"
         role="combobox"
         spellcheck="false"
@@ -40,14 +40,14 @@ exports[`matches snapshots > matches default variant 1`] = `
         aria-haspopup="listbox"
         aria-label="Show suggestions"
         aria-labelledby="react-aria-:r0: react-aria-:r3:"
-        class="sc-imWZod sc-jXbVAB eyWaBW cpWLcV aje-btn aje-btn--icon aje-btn--content is-auto"
+        class="sc-ixGGxD sc-khLCKb jaxoaH hXPODb aje-btn aje-btn--icon aje-btn--content is-auto"
         id="react-aria-:r0:"
         tabindex="-1"
         type="button"
       >
         <i
           aria-hidden="true"
-          class="sc-kAycRU huWqqA aje-icon material-icons is-auto"
+          class="sc-kLhKbu gELXHy aje-icon material-icons is-auto"
         >
           search
         </i>
@@ -60,13 +60,13 @@ exports[`matches snapshots > matches default variant 1`] = `
 exports[`matches snapshots > matches floating variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-fUnNpA fvDXZj aje-combobox sc-hzhKNl eslzAM aje-combobox--floating is-medium"
+    class="sc-geXuza fHtZYP aje-combobox sc-hJRrWL ewhKwE aje-combobox--floating is-medium"
   >
     <div
-      class="sc-feUYzb kPLfyu"
+      class="sc-eUlrpB imBDzj"
     >
       <div
-        class="sc-cPiJYC faFieB aje-combo-input padding-left padding-right"
+        class="sc-cEzcPc jcKbmV aje-combo-input padding-left padding-right"
       >
         <input
           aria-autocomplete="list"
@@ -75,7 +75,7 @@ exports[`matches snapshots > matches floating variant 1`] = `
           aria-labelledby="react-aria-:rc:"
           autocomplete="off"
           autocorrect="off"
-          class="sc-jEABJj kpDVYM is-full"
+          class="sc-jtQUzJ xwtGQ is-full"
           id="react-aria-:rb:"
           role="combobox"
           spellcheck="false"
@@ -87,21 +87,21 @@ exports[`matches snapshots > matches floating variant 1`] = `
           aria-haspopup="listbox"
           aria-label="Show suggestions"
           aria-labelledby="react-aria-:r9: react-aria-:rc:"
-          class="sc-imWZod sc-jXbVAB eyWaBW cpWLcV aje-btn aje-btn--icon aje-btn--content is-auto"
+          class="sc-ixGGxD sc-khLCKb jaxoaH hXPODb aje-btn aje-btn--icon aje-btn--content is-auto"
           id="react-aria-:r9:"
           tabindex="-1"
           type="button"
         >
           <i
             aria-hidden="true"
-            class="sc-kAycRU huWqqA aje-icon material-icons is-auto"
+            class="sc-kLhKbu gELXHy aje-icon material-icons is-auto"
           >
             search
           </i>
         </button>
       </div>
       <label
-        class="sc-dAlxHm hlocov"
+        class="sc-dpBQxM cdrQXv"
         for="react-aria-:rb:"
         id="react-aria-:rc:"
       >
@@ -109,7 +109,7 @@ exports[`matches snapshots > matches floating variant 1`] = `
       </label>
     </div>
     <p
-      class="sc-jlZhRR cVQHuX is-auto"
+      class="sc-jwIPbr gYGSDV is-auto"
       id="react-aria-:re:"
     >
       message

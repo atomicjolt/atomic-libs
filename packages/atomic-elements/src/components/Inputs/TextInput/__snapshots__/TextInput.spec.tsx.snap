@@ -3,17 +3,17 @@
 exports[`matches snapshot > default variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-gsFSjX pXqer aje-input__text sc-dLNtp kdQpaF aje-input--default is-medium"
+    class="sc-ghWlax dMEeIv aje-input__text sc-ovuCP bVRgfS aje-input--default is-medium"
   >
     <label
-      class="sc-aYaIB dImjZF"
+      class="sc-blHHSb hjDrEC"
       for="react-aria-:r0:"
       id="react-aria-:r1:"
     >
       Text Label
     </label>
     <p
-      class="sc-gEvDqW bQNeHF is-auto"
+      class="sc-gtLWhw lRnnC is-auto"
       id="react-aria-:r3:"
     >
       message
@@ -21,7 +21,7 @@ exports[`matches snapshot > default variant 1`] = `
     <input
       aria-describedby="react-aria-:r3:"
       aria-labelledby="react-aria-:r1:"
-      class="sc-fqkwJk cgejtS"
+      class="sc-fAUdSK cfCVRY"
       id="react-aria-:r0:"
       placeholder="placeholder"
       type="text"
@@ -34,16 +34,16 @@ exports[`matches snapshot > default variant 1`] = `
 exports[`matches snapshot > floating variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-gsFSjX pXqer aje-input__text sc-dLNtp kdQpaF aje-input--floating is-medium"
+    class="sc-ghWlax dMEeIv aje-input__text sc-ovuCP bVRgfS aje-input--floating is-medium"
     data-float="true"
   >
     <div
-      class="sc-ikkyvV ijWLgB"
+      class="sc-iuUfFv fVrJiE"
     >
       <input
         aria-describedby="react-aria-:r8:"
         aria-labelledby="react-aria-:r6:"
-        class="sc-fqkwJk cgejtS"
+        class="sc-fAUdSK cfCVRY"
         data-float="true"
         id="react-aria-:r5:"
         placeholder="placeholder"
@@ -51,7 +51,7 @@ exports[`matches snapshot > floating variant 1`] = `
         value="content"
       />
       <label
-        class="sc-aYaIB dImjZF"
+        class="sc-blHHSb hjDrEC"
         for="react-aria-:r5:"
         id="react-aria-:r6:"
       >
@@ -59,7 +59,7 @@ exports[`matches snapshot > floating variant 1`] = `
       </label>
     </div>
     <p
-      class="sc-gEvDqW bQNeHF is-auto"
+      class="sc-gtLWhw lRnnC is-auto"
       id="react-aria-:r8:"
     >
       message

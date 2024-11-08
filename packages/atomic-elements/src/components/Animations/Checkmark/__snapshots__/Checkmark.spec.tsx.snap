@@ -3,7 +3,7 @@
 exports[`Checkmark > should match snapshot 1`] = `
 <div>
   <span
-    class="sc-aYaIB jlfrGX aje-checkmark is-medium"
+    class="sc-blHHSb MEcYg aje-checkmark is-medium"
     data-testid="checkmark"
   />
 </div>
