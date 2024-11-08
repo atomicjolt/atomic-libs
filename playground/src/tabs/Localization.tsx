@@ -9,7 +9,7 @@ import {
   Radio,
   RadioGroup,
   SkeletonLoader,
-} from "../elements";
+} from "@atomicjolt/atomic-elements";
 import { I18nProvider } from "@react-aria/i18n";
 
 export default function Localization() {

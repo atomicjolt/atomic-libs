@@ -10,7 +10,7 @@ import {
   RadioGroup,
   TextInput,
   ToggleSwitch,
-} from "../elements";
+} from "@atomicjolt/atomic-elements";
 
 export default function Inputs() {
   const [radioValue, setRadioValue] = useState("opt1");

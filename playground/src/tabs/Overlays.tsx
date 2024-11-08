@@ -13,7 +13,7 @@ import {
   Pressable,
   Modal,
   IconButton,
-} from "../elements";
+} from "@atomicjolt/atomic-elements";
 
 export default function Overlays() {
   const ref = useRef<HTMLButtonElement>(null);

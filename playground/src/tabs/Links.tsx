@@ -1,5 +1,10 @@
 import React from "react";
-import { Button, Link, IconMenu, RouterProvider } from "../elements";
+import {
+  Button,
+  Link,
+  IconMenu,
+  RouterProvider,
+} from "@atomicjolt/atomic-elements";
 
 export default function Links() {
   return (

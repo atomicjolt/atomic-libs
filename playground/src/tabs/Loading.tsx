@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, LoadingStatus } from "../elements";
+import { Button, LoadingStatus } from "@atomicjolt/atomic-elements";
 
 interface Data {
   name: string;

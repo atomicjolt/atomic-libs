@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-// import "./playground.scss";
+import "./playground.css";
 
-import { Flex, Key, MaterialIcon, Tabs } from "./elements";
+import { Flex, Key, MaterialIcon, Tabs } from "@atomicjolt/atomic-elements";
 import Buttons from "./tabs/Buttons";
 import Modals from "./tabs/Modals";
 import Tables from "./tabs/Tables";
@@ -26,7 +26,7 @@ export function MyTab(props: any) {
 }
 
 function Playground() {
-  const [currentTab, setCurrentTab] = useState<Key>("aria");
+  const [currentTab, setCurrentTab] = useState<Key>("buttons");
 
   return (
     <div className="padder" style={{ height: "100%" }}>

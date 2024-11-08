@@ -19,7 +19,7 @@ import {
   ComboInput,
   FieldLabel,
   TextField,
-} from "../elements";
+} from "@atomicjolt/atomic-elements";
 
 export default function Fields() {
   const [value, setValue] = useState("");

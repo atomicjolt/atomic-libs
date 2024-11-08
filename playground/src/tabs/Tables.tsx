@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-import { Button, Key, PaginationDescriptor, Table } from "../elements";
+import {
+  Button,
+  Key,
+  PaginationDescriptor,
+  Table,
+} from "@atomicjolt/atomic-elements";
 
 export default function Tables() {
   return (

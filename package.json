@@ -5,5 +5,8 @@
     "packages/atomic-elements",
     "packages/hooks",
     "packages/forms"
-  ]
+  ],
+  "scripts": {
+    "playground": "vite --config playground/vite.config.ts dev"
+  }
 }

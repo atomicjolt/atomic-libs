@@ -6,7 +6,7 @@ import {
   OverlayTrigger,
   ErrorModal,
   ConfirmationModal,
-} from "../elements";
+} from "@atomicjolt/atomic-elements";
 
 export default function Modals() {
   const [modalOpen, setModalOpen] = useState(false);

@@ -15,6 +15,6 @@
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true
   },
-  "include": ["packages/**/*.tsx", "packages/**/*.ts"],
+  "include": ["packages/**/*.tsx", "packages/**/*.ts", "vite.config.ts"],
   "exclude": ["node_modules", "dist"]
 }
