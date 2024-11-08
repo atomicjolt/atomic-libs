@@ -31,7 +31,7 @@
     "vitest": "^0.34.5"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc --p tsconfig.build.json",
     "fmt": "prettier --write \"src/**/*.ts\"",
     "test": "vitest run",
     "docs:build": "typedoc --out docs src",

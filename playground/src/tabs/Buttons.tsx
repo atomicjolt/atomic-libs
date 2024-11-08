@@ -6,12 +6,16 @@ import {
   Item,
   Section,
 } from "@atomicjolt/atomic-elements";
+import { Form } from "@atomicjolt/forms";
+import { useBool } from "@atomicjolt/hooks";
 
 export default function Buttons() {
+  const [bool, toggleBool] = useBool(false);
+
   return (
     <>
       <div className="padder">
-        <Button>Primary</Button>
+        <Button onPress={toggleBool}>{bool.toString()}</Button>
         <Button variant="secondary">Secondary</Button>
         <Button variant="success">Success</Button>
         <Button variant="error">Error</Button>
@@ -31,6 +35,12 @@ export default function Buttons() {
             <Item key="6">Test</Item>
           </Section>
         </IconMenu>
+      </div>
+      <div>
+        <Form onSubmit={console.log}>
+          <Form.TextInput name="name" label="Text input" />
+          <Form.SubmitButton>Submit</Form.SubmitButton>
+        </Form>
       </div>
     </>
   );
