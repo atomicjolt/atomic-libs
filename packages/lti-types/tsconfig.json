@@ -1,0 +1,23 @@
+{
+	"compilerOptions": {
+		"lib": ["ESNext", "dom"],
+    "module": "ESNext",
+    "target": "ESNext",
+		"outDir": "dist",
+		"declarationDir": "types",
+		"declaration": true,
+		"declarationMap": true,
+		"sourceMap": true,
+		"strict": true,
+		"removeComments": true,
+		"moduleResolution": "Bundler",
+		"resolveJsonModule": true,
+		"checkJs": true,
+		"noEmit": false,
+    "esModuleInterop": true,
+		"alwaysStrict": true,
+	},
+	"files": [
+		"src/index.ts"
+	]
+}
