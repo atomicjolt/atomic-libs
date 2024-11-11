@@ -4,6 +4,6 @@ export default create({
   base: "light",
   brandTitle: "Atomc Elements",
   brandUrl: "https://atomicjolt.com",
-  brandImage: "logo.svg",
+  brandImage: "img/name.svg",
   brandTarget: "_self",
 });

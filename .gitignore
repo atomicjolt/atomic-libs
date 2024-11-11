@@ -2,6 +2,7 @@ dist
 node_modules
 yarn-error.log
 **/storybook-static
-**/docs
 .DS_Store
 **/.storybook/__generated__
+docs/.docusaurus
+docs/build
