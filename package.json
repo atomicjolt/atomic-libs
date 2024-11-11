@@ -4,7 +4,10 @@
   "workspaces": [
     "packages/atomic-elements",
     "packages/hooks",
-    "packages/forms"
+    "packages/forms",
+    "packages/lti-client",
+    "packages/lti-server",
+    "packages/lti-components"
   ],
   "scripts": {
     "prepare": "npm run storybook:cssprops",
