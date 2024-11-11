@@ -1,0 +1,1 @@
+{"version":3,"file":"launch_new_window.d.ts","sourceRoot":"","sources":["../../src/html/launch_new_window.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,YAAY,EAAE,MAAM,aAAa,CAAC;AAK3C,wBAAgB,eAAe,CAAC,QAAQ,EAAE,YAAY,QAGrD;AAED,wBAAgB,mBAAmB,CAAC,QAAQ,EAAE,YAAY,EAAE,OAAO,EAAE;IAAE,aAAa,EAAE,OAAO,CAAC;IAAC,wBAAwB,EAAE,OAAO,CAAC;IAAC,uBAAuB,EAAE,OAAO,CAAA;CAAE,QA6CnK"}
