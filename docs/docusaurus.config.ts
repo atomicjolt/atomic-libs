@@ -8,6 +8,7 @@ const config: Config = {
   organizationName: "atomicjolt", // GitHub org/user name
   projectName: "atomic-packages", // Repo name
   staticDirectories: ["../public"],
+  onBrokenLinks: "log",
   presets: [
     [
       "classic",
@@ -57,7 +58,7 @@ const config: Config = {
       },
       items: [
         {
-          to: "elements/", // Link to the elements docs
+          to: "elements/intro/", // Link to the elements docs
           activeBasePath: "elements",
           label: "Elements",
           position: "left",
