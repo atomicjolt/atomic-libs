@@ -1,15 +1,9 @@
 import { Meta, Canvas } from "@storybook/blocks";
-import { Button } from "../../components/Buttons/Button";
-import { TextInput } from "../../components/Inputs/TextInput";
-import { SensibleDefaults } from "../../styles/defaults";
-import { PurpleButtonStyles } from "@sb/helpers";
+import { Button, TextInput, CssVariables } from "@atomicjolt/atomic-elements";
 
-<SensibleDefaults />
-<PurpleButtonStyles />
+# Variants
 
-<Meta title="Usage/Customizing Appearance/Variants" />
-
-## Variants
+<CssVariables />
 
 Some components in Atomic Elements have what we call _variants_.
 A component variant is a preset configuration of a component that changes it's appearance or behavior in some way. There are two types of variants:
@@ -22,7 +16,16 @@ A component variant is a preset configuration of a component that changes it's a
 
 Visual variants are variants that only modify the visual appearance of a component. For example, the button component has several visual variants built-in that you can use:
 
-<div style={{ display: "flex", gap: "10px" }}>
+<div
+  style={{
+    display: "flex",
+    gap: "10px",
+    flexWrap: "wrap",
+    backgroundColor: "white",
+    padding: "10px",
+    borderRadius: "5px",
+  }}
+>
   <Button variant="primary">Primary</Button>
   <Button variant="secondary">Secondary</Button>
   <Button variant="success">Success!</Button>
