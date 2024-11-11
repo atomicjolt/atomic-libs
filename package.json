@@ -5,6 +5,7 @@
     "packages/atomic-elements",
     "packages/hooks",
     "packages/forms",
+    "packages/lti-types",
     "packages/lti-client",
     "packages/lti-server",
     "packages/lti-components"

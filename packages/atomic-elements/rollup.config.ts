@@ -1,9 +1,9 @@
-import { defineConfig, ModuleFormat } from "rollup";
+import { defineConfig } from "rollup";
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 
-const formatEntryPoint = (format: ModuleFormat) => ({
+const formatEntryPoint = (format) => ({
   input: "src/index.ts",
   external: [/node_modules/],
   output: [
@@ -12,7 +12,7 @@ const formatEntryPoint = (format: ModuleFormat) => ({
       format: format,
       sourcemap: true,
       preserveModules: format === "esm",
-      sourcemapPathTransform: (relativeSourePath: string) => {
+      sourcemapPathTransform: (relativeSourePath) => {
         return relativeSourePath.slice(3);
       },
     },
