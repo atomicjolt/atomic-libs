@@ -7,6 +7,26 @@
     "packages/forms"
   ],
   "scripts": {
-    "playground": "vite --config playground/vite.config.ts dev"
+    "prepare": "npm run storybook:cssprops",
+    "playground": "vite --config playground/vite.config.ts dev",
+    "storybook:dev": "storybook dev -p 6006 ",
+    "storybook:cssprops": "python3 bin/update-css-props.py",
+    "storybook:build": "yarn storybook:cssprops && storybook build -o docs/${0} && python3 bin/update-storybook-index.py",
+    "storybook:publish": "yarn storybook:build ${0} && gh-pages -d docs -m ${0}",
+    "storybook:publish:next": "yarn storybook:build next && gh-pages -d docs/next -m next -e next"
+  },
+  "dependencies": {
+    "@ljcl/storybook-addon-cssprops": "^4.0.0",
+    "@storybook/addon-actions": "^8.0.10",
+    "@storybook/addon-docs": "^8.0.10",
+    "@storybook/addon-essentials": "^8.0.10",
+    "@storybook/addon-interactions": "^8.0.10",
+    "@storybook/addon-links": "^8.0.10",
+    "@storybook/addon-mdx-gfm": "^8.0.10",
+    "@storybook/blocks": "^8.0.10",
+    "@storybook/react": "^8.0.10",
+    "@storybook/react-vite": "^8.0.10",
+    "@storybook/test": "^8.0.10",
+    "storybook": "^8.0.10"
   }
 }

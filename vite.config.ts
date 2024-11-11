@@ -21,10 +21,13 @@ export default defineConfig({
 
   resolve: {
     alias: {
-      "@components": path.resolve(__dirname, "src/components"),
-      "@hooks": path.resolve(__dirname, "src/hooks"),
-      "@styles": path.resolve(__dirname, "src/styles"),
-      "@utils": path.resolve(__dirname, "src/utils"),
+      "@components": path.resolve(
+        __dirname,
+        "packages/atomic-elements/src/components"
+      ),
+      "@hooks": path.resolve(__dirname, "packages/atomic-elements/src/hooks"),
+      "@styles": path.resolve(__dirname, "packages/atomic-elements/src/styles"),
+      "@utils": path.resolve(__dirname, "packages/atomic-elements/src/utils"),
       "@sb": path.resolve(__dirname, ".storybook/utils"),
     },
   },

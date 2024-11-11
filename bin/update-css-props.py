@@ -47,7 +47,7 @@ def get_css_props(contents: list[str]) -> dict:
 
 
 def main() -> None:
-    with open("src/styles/variables.ts", "r") as f:
+    with open("packages/atomic-elements/src/styles/variables.ts", "r") as f:
         contents = f.readlines()
 
     props = get_css_props(contents)

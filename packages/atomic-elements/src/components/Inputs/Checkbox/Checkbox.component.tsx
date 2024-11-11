@@ -18,7 +18,7 @@ export const CheckBox = React.forwardRef<HTMLInputElement, CheckBoxProps>(
   (props, ref) => {
     const {
       children,
-      error,
+      error = "error",
       message,
       className,
       isRequired,
@@ -32,6 +32,8 @@ export const CheckBox = React.forwardRef<HTMLInputElement, CheckBoxProps>(
     const state = useToggleState(props);
     const { direction } = useLocale();
     const { inputProps, labelProps } = useCheckbox(props, state, internalRef);
+
+    console.log(props);
 
     return (
       <CheckboxWrapper
@@ -53,7 +55,7 @@ export const CheckBox = React.forwardRef<HTMLInputElement, CheckBoxProps>(
           {children}
           {isRequired && <span aria-hidden="true"> *</span>}
           {message && <Message>{message}</Message>}
-          {isInvalid && <ErrorMessage>{error}</ErrorMessage>}
+          {isInvalid && <ErrorMessage isInvalid>{error}</ErrorMessage>}
         </ChooseLabel>
       </CheckboxWrapper>
     );

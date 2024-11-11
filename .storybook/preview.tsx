@@ -10,9 +10,11 @@ import {
 } from "@storybook/blocks";
 import { CssPropsBlock } from "@ljcl/storybook-addon-cssprops";
 
-import { LoadFonts } from "../src/styles/fonts";
-import { CssVariables } from "../src/styles/variables";
-import { CssGlobalDefaults } from "../src/styles/globals";
+import {
+  LoadFonts,
+  CssVariables,
+  CssGlobalDefaults,
+} from "@atomicjolt/atomic-elements";
 
 const preview: Preview = {
   decorators: [
@@ -69,6 +71,7 @@ const preview: Preview = {
           <Description />
           <Primary />
           <Controls />
+          {/* @ts-expect-error */}
           <CssPropsBlock />
           <Stories />
         </>

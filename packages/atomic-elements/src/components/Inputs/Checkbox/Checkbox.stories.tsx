@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { InputControls } from "@sb/helpers";
-import { CheckBox } from ".";
 import { getCssProps } from "@sb/cssprops";
+import { CheckBox } from ".";
 
 const meta: Meta<typeof CheckBox> = {
   title: "Inputs/Choose State/Checkbox",
