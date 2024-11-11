@@ -18,16 +18,14 @@ jobs:
       - name: Get the tag
         id: get_tag
         run: echo ::set-output name=TAG::${GITHUB_REF#refs/tags/}
-      - name: Install Yarn
-        run: npm install -g yarn
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn ci
       - name: Build Storybook
-        run: yarn storybook:build ${{ steps.get_tag.outputs.TAG }}
-      - name: Deploy Storybook to GitHub Pages
+        run: yarn docs:build ${{ steps.get_tag.outputs.TAG }}
+      - name: Deploy Docs to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs
+          publish_dir: ./docs/build
           commit_message: ${{ steps.get_tag.outputs.TAG }}
           keep_files: true

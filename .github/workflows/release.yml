@@ -1,0 +1,39 @@
+name: Release Package to npm
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "18"
+          registry-url: "https://registry.npmjs.org/"
+
+      - name: Parse tag
+        id: parse_tag
+        run: |
+          TAG=${GITHUB_REF#refs/tags/}
+          PACKAGE_NAME=$(echo $TAG | cut -d':' -f1)
+          VERSION=$(echo $TAG | cut -d':' -f2)
+          echo "PACKAGE_NAME=$PACKAGE_NAME" >> $GITHUB_ENV
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build package
+        run: npm run build --workspace=${{ env.PACKAGE_NAME }}
+
+      - name: Publish package to npm
+        run: npm publish --workspace=${{ env.PACKAGE_NAME }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -19,14 +19,8 @@ jobs:
         with:
           node-version: "18.16.0"
 
-      - name: Install Yarn
-        run: corepack prepare yarn@stable --activate
-
-      - name: Activate Yarn
-        run: yarn set version 3.6.4
-
       - name: Install Node.js dependencies
-        run: yarn install
+        run: npm install
 
       - name: Run tests
-        run: yarn test
+        run: npm run test
