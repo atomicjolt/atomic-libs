@@ -114,7 +114,7 @@ export function SelectFieldInner<T extends object>(
           [SelectFieldValueContext.Provider, valueProps],
           [FieldLabelContext.Provider, labelProps],
           [FieldMessageContext.Provider, descriptionProps],
-          [FieldErrorContext.Provider, { errorMessageProps, isInvalid }],
+          [FieldErrorContext.Provider, { ...errorMessageProps, isInvalid }],
           [OverlayTriggerStateContext.Provider, state],
           [
             PopoverContext.Provider,

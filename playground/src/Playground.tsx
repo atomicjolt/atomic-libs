@@ -11,37 +11,30 @@ import Overlays from "./tabs/Overlays";
 import Fields from "./tabs/Fields";
 import Loading from "./tabs/Loading";
 import Links from "./tabs/Links";
-
-export function MyTab(props: any) {
-  return (
-    <Tabs.Tab {...props}>
-      {({ isSelected }) => (
-        <Flex alignItems="center" justifyContent="space-between" gap={8}>
-          {isSelected && <MaterialIcon icon="check" />}
-          <span>{props.children}</span>
-        </Flex>
-      )}
-    </Tabs.Tab>
-  );
-}
+import { Home } from "./tabs/Home";
 
 function Playground() {
-  const [currentTab, setCurrentTab] = useState<Key>("buttons");
+  const [currentTab, setCurrentTab] = useState<Key>("home");
 
   return (
     <div className="padder" style={{ height: "100%" }}>
       <Tabs selectedKey={currentTab} onSelectionChange={setCurrentTab}>
         <Tabs.List>
-          <MyTab id="buttons">Buttons</MyTab>
-          <MyTab id="modal">Modals</MyTab>
-          <MyTab id="tables">Tables</MyTab>
-          <MyTab id="localization">Localization</MyTab>
-          <MyTab id="overlays">Overlays</MyTab>
-          <MyTab id="fields">Fields</MyTab>
-          <MyTab id="loading">Loading</MyTab>
-          <MyTab id="links">Links</MyTab>
-          <MyTab id="aria">Aria</MyTab>
+          <Tabs.Tab id="home">Home</Tabs.Tab>
+          <Tabs.Tab id="buttons">Buttons</Tabs.Tab>
+          <Tabs.Tab id="modal">Modals</Tabs.Tab>
+          <Tabs.Tab id="tables">Tables</Tabs.Tab>
+          <Tabs.Tab id="localization">Localization</Tabs.Tab>
+          <Tabs.Tab id="overlays">Overlays</Tabs.Tab>
+          <Tabs.Tab id="fields">Fields</Tabs.Tab>
+          <Tabs.Tab id="loading">Loading</Tabs.Tab>
+          <Tabs.Tab id="links">Links</Tabs.Tab>
+          <Tabs.Tab id="aria">Aria</Tabs.Tab>
         </Tabs.List>
+
+        <Tabs.Panel id="home">
+          <Home />
+        </Tabs.Panel>
 
         <Tabs.Panel id="buttons">
           <Buttons />

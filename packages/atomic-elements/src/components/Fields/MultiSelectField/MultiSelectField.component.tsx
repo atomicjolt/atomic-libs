@@ -36,7 +36,7 @@ export interface MultiSelectFieldComponent
 
 /** Building blocks for building custom & accessible select components */
 export const MultiSelectField = forwardRef(function MultiSelectField<
-  T extends object,
+  T extends object
 >(props: MultiSelectFieldProps<T>, ref: React.Ref<HTMLButtonElement>) {
   [props, ref] = useContextPropsV2(MultiSelectFieldContext, props, ref);
 
@@ -104,7 +104,7 @@ export function MultiSelectFieldInner<T extends object>(
           [MultiSelectStateContext.Provider, state],
           [FieldLabelContext.Provider, labelProps],
           [FieldMessageContext.Provider, descriptionProps],
-          [FieldErrorContext.Provider, { errorMessageProps, isInvalid }],
+          [FieldErrorContext.Provider, { ...errorMessageProps, isInvalid }],
           [OverlayTriggerStateContext.Provider, state],
           [
             PopoverContext.Provider,
