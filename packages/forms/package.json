@@ -13,7 +13,8 @@
     "build": "tsc --p ./tsconfig.build.json",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "docs:build": "typedoc lib/index.ts"
+    "docs:build": "typedoc lib/index.ts",
+    "test": "echo 'TODO: Add tests'"
   },
   "peerDependencies": {
     "@atomicjolt/atomic-elements": "^2.6.3",
