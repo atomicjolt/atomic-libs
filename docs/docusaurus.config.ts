@@ -82,6 +82,13 @@ const config: Config = {
       ],
     },
   },
+  stylesheets: [
+    {
+      href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css",
+      type: "text/css",
+    },
+    "/src/css/custom.css", // Add this line to load custom.css
+  ],
 };
 
 export default config;
