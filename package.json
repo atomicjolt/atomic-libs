@@ -17,6 +17,7 @@
     "docusaurus:start": "docusaurus start docs",
     "docusaurus:build": "docusaurus build docs",
     "docusaurus:serve": "docusaurus serve docs",
+    "docs:start": "npm run docusaurus:start",
     "docs:build": "npm run docusaurus:build && npm run storybook:build",
     "docs:serve": "npm run docusaurus:serve"
   },
