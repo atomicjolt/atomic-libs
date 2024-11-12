@@ -18,22 +18,41 @@ jobs:
           node-version: "18"
           registry-url: "https://registry.npmjs.org/"
 
+      - name: Install jq
+        run: sudo apt-get install jq
+
+      - name: Install dependencies
+        run: npm ci
+
       - name: Parse tag
         id: parse_tag
         run: |
           TAG=${GITHUB_REF#refs/tags/}
           PACKAGE_NAME=$(echo $TAG | cut -d':' -f1)
           VERSION=$(echo $TAG | cut -d':' -f2)
-          echo "PACKAGE_NAME=$PACKAGE_NAME" >> $GITHUB_ENV
-          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          echo "package_name=$PACKAGE_NAME" >> $GITHUB_OUTPUT
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Check that package exists
+        run: |
+          ALL_PACKAGES=$(npm query .workspace | jq -r '.[].name')
+          if [[ ! $ALL_PACKAGES =~ (^|[[:space:]])"${{ steps.parse_tag.outputs.package_name }}"($|[[:space:]]) ]]; then
+            echo "Package $PACKAGE_NAME does not exist"
+            exit 1
+          fi
+
+      - name: Check that the version matches
+        run: |
+          PACKAGE_VERSION=$(npm show ${{ steps.parse_tag.outputs.package_name }} version)
+          if [[ $PACKAGE_VERSION != ${{ steps.parse_tag.outputs.version }} ]]; then
+            echo "Version '${{ steps.parse_tag.outputs.version }}' does not match package version $PACKAGE_VERSION"
+            exit 1
+          fi
 
       - name: Build package
-        run: npm run build --workspace=${{ env.PACKAGE_NAME }}
+        run: npm run build --workspace=${{ steps.parse_tag.outputs.package_name }}
 
       - name: Publish package to npm
-        run: npm publish --workspace=${{ env.PACKAGE_NAME }}
+        run: npm publish --workspace=${{ steps.parse_tag.outputs.package_name }}
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
