@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "typings": "types/index.d.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc -p tsconfig.build.json",
     "test": "npx vitest",
     "prepublishOnly": "npm run build"
   },
