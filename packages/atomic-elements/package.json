@@ -70,18 +70,13 @@
     "@types/react-helmet": "^6.1.8",
     "@types/react-transition-group": "^4.4.10",
     "@vitejs/plugin-react": "^4.3.0",
-    "@vitest/ui": "^1.6.0",
     "gh-pages": "^5.0.0",
-    "jsdom": "^22.1.0",
     "react": "^18.0.0",
     "react-docgen-typescript": "^2.2.2",
     "react-dom": "^18.0.0",
     "react-highlight": "^0.14.0",
     "rollup": "^3.29.5",
-    "ts-node": "^10.7.0",
-    "typescript": "^5.4.5",
-    "vite": "^5.4.7",
-    "vitest": "^1.6.0"
+    "typescript": "^5.4.5"
   },
   "scripts": {
     "build": "rm -rf dist && rollup --config rollup.config.ts --configPlugin typescript && rm -rf dist/cjs/types && mv dist/esm/types dist/types",
