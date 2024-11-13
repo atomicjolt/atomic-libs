@@ -1,5 +1,5 @@
 {
-  "name": "@atomicjolt/atomic-fuel",
+  "name": "@atomicjolt/fuel",
   "version": "7.0.0",
   "description": "Atomic Jolt's front-end library code",
   "scripts": {
