@@ -1,12 +1,12 @@
 import type { Config } from "@docusaurus/types";
 
 const config: Config = {
-  title: "My Project",
+  title: "Atomic Libs",
   url: "https://your-site.com",
   baseUrl: "/",
   favicon: "favicon.svg",
   organizationName: "atomicjolt", // GitHub org/user name
-  projectName: "atomic-packages", // Repo name
+  projectName: "atomic-libs", // Repo name
   staticDirectories: ["../public"],
   onBrokenLinks: "log",
   presets: [
@@ -58,19 +58,19 @@ const config: Config = {
       },
       items: [
         {
-          to: "elements/intro/", // Link to the elements docs
+          to: "elements/",
           activeBasePath: "elements",
           label: "Elements",
           position: "left",
         },
         {
-          to: "forms/", // Link to the forms docs
+          to: "forms/",
           activeBasePath: "forms",
           label: "Forms",
           position: "left",
         },
         {
-          to: "hooks/", // Link to the hooks docs
+          to: "hooks/",
           activeBasePath: "hooks",
           label: "Hooks",
           position: "left",
@@ -83,13 +83,6 @@ const config: Config = {
       ],
     },
   },
-  stylesheets: [
-    {
-      href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css",
-      type: "text/css",
-    },
-    "/src/css/custom.css", // Add this line to load custom.css
-  ],
 };
 
 export default config;
