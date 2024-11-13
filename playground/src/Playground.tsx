@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./playground.css";
 
-import { Flex, Key, MaterialIcon, Tabs } from "@atomicjolt/atomic-elements";
+import { Key, Tabs } from "@atomicjolt/atomic-elements";
 import Buttons from "./tabs/Buttons";
 import Modals from "./tabs/Modals";
 import Tables from "./tabs/Tables";
