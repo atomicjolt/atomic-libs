@@ -76,7 +76,7 @@ const config: Config = {
           position: "left",
         },
         {
-          href: "https://github.com/atomicjolt/atomic-packages",
+          href: "https://github.com/atomicjolt/atomic-libs",
           position: "right",
           label: "GitHub",
         },
