@@ -6,7 +6,7 @@ import {
   LTI_VERSION,
   TARGET_LINK_URI_CLAIM,
   RESOURCE_LINK_CLAIM
-} from '@atomicjolt/lti-client/src/libs/lti_definitions';
+} from '@atomicjolt/lti-types';
 
 function validateResourceLinkRequest(
   decodedToken: IdToken,

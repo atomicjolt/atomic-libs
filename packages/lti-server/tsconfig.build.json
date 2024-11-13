@@ -1,10 +1,9 @@
 {
   "compilerOptions": {
-    "noEmit": true,
     "module": "es2022",
     "target": "es2021",
     "lib": ["ESNext", "dom"],
-    "outDir": "lti",
+    "outDir": "dist",
     "removeComments": true,
     "esModuleInterop": true,
     "strict": true,

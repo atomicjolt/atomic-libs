@@ -2,21 +2,18 @@
   "name": "@atomicjolt/lti-server",
   "version": "1.0.0",
   "description": "Server side Javascript libraries to handle LTI",
-  "main": "index.js",
+  "type": "module",
   "scripts": {
-    "build": "node esbuild.mjs",
-    "test": "npx vitest"
+    "build": "tsc --p tsconfig.build.json",
+    "test": "vitest run"
   },
   "keywords": [
     "LTI"
   ],
   "author": "Atomic Jolt",
   "license": "MIT",
-  "devDependencies": {
-    "esbuild": "^0.18.11"
-  },
   "dependencies": {
-    "@atomicjolt/lti-client": "file:../atomicjolt-lti-client",
+    "@atomicjolt/lti-client": "@atomicjolt/lti-client",
     "i18next": "^23.2.8",
     "i18next-browser-languagedetector": "^7.1.0"
   }
