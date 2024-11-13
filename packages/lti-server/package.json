@@ -19,7 +19,7 @@
     "i18next-browser-languagedetector": "^7.1.0"
   },
   "scripts": {
-    "build": "tsc --p tsconfig.build.json",
+    "build": "tsc -p tsconfig.build.json",
     "test": "vitest run"
   }
 }

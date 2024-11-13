@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build": "tsc --p ./tsconfig.build.json",
+    "build": "tsc -p ./tsconfig.build.json",
     "preview": "vite preview",
     "test": "echo 'TODO: Add tests'"
   },

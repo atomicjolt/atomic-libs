@@ -6,7 +6,7 @@
   "typings": "types/index.d.ts",
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
-    "test": "npx vitest",
+    "test": "vitest run",
     "prepublishOnly": "npm run build"
   },
   "keywords": [],
