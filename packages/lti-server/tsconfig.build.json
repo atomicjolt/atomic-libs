@@ -4,6 +4,8 @@
     "target": "es2021",
     "lib": ["ESNext", "dom"],
     "outDir": "dist",
+    "declarationDir": "dist/types",
+    "declaration": true,
     "removeComments": true,
     "esModuleInterop": true,
     "strict": true,

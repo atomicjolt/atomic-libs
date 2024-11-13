@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "Server side Javascript libraries to handle LTI",
   "type": "module",
+  "module": "dist/index.js",
+  "types": "dist/types/index.d.ts",
   "author": "Atomic Jolt",
   "license": "MIT",
   "files": [
