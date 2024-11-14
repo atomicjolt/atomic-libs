@@ -1,5 +1,3 @@
-import { useBool } from "@atomicjolt/hooks";
-
 # useBool
 
 `useBool` is a hook that provides a boolean state and a set of functions to manipulate it.
@@ -18,18 +16,6 @@ An array with the following elements:
 
 ## Usage
 
-export function UseBoolExample() {
-  const [bool, toggle, setBool] = useBool();
-
-  return (
-    <div>
-      <p>{bool ? "True" : "False"}</p>
-      <button onClick={toggle}>Toggle</button>
-      <button onClick={() => setBool(true)}>Set True</button>
-      <button onClick={() => setBool(false)}>Set False</button>
-    </div>
-  );
-}
 
 ```tsx
 import { useBool } from "@atomicjolt/hooks";
@@ -47,5 +33,3 @@ export function UseBoolExample() {
   );
 }
 ```
-
-<UseBoolExample />
