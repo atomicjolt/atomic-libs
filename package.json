@@ -3,7 +3,7 @@
   "private": true,
   "workspaces": [
     "packages/atomic-elements",
-    "packages/fuel",
+    "packages/atomic-fuel",
     "packages/hooks",
     "packages/forms",
     "packages/lti-types",
