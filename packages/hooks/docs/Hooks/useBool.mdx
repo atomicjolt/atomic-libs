@@ -1,0 +1,51 @@
+import { useBool } from "@atomicjolt/hooks";
+
+# useBool
+
+`useBool` is a hook that provides a boolean state and a set of functions to manipulate it.
+
+## Parameters
+
+- `initialState` (optional): The initial value of the boolean state. Default is `false`.
+
+## Returns
+
+An array with the following elements:
+
+- `bool`: The boolean state.
+- `toggle`: A function that toggles the boolean state.
+- `setBool`: A function that sets the boolean state.
+
+## Usage
+
+export function UseBoolExample() {
+  const [bool, toggle, setBool] = useBool();
+
+  return (
+    <div>
+      <p>{bool ? "True" : "False"}</p>
+      <button onClick={toggle}>Toggle</button>
+      <button onClick={() => setBool(true)}>Set True</button>
+      <button onClick={() => setBool(false)}>Set False</button>
+    </div>
+  );
+}
+
+```tsx
+import { useBool } from "@atomicjolt/hooks";
+
+export function UseBoolExample() {
+  const [bool, toggle, setBool] = useBool();
+
+  return (
+    <div>
+      <p>{bool ? "True" : "False"}</p>
+      <button onClick={toggle}>Toggle</button>
+      <button onClick={() => setBool(true)}>Set True</button>
+      <button onClick={() => setBool(false)}>Set False</button>
+    </div>
+  );
+}
+```
+
+<UseBoolExample />
