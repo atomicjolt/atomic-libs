@@ -33,8 +33,6 @@ export const CheckBox = React.forwardRef<HTMLInputElement, CheckBoxProps>(
     const { direction } = useLocale();
     const { inputProps, labelProps } = useCheckbox(props, state, internalRef);
 
-    console.log(props);
-
     return (
       <CheckboxWrapper
         className={cn("aje-checkbox", className)}

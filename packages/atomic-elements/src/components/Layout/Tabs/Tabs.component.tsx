@@ -5,13 +5,15 @@ import {
   useTabList,
   useTabPanel,
 } from "@react-aria/tabs";
-import { TabListState, useTabListState, Node } from "react-stately";
+import { useTabListState, Node } from "react-stately";
 import {
   BaseCollection,
   Collection,
   CollectionBuilder,
+  createHideableComponent,
   createLeafComponent,
 } from "@react-aria/collections";
+import { useObjectRef } from "@react-aria/utils";
 
 import { useContextPropsV2 } from "@hooks/useContextProps";
 import { useRenderProps } from "@hooks";
@@ -165,30 +167,35 @@ interface TabPanelProps extends AriaTabPanelProps {
   children?: React.ReactNode;
 }
 
-function TabPanel(props: TabPanelProps) {
+function TabPanelInner(
+  props: TabPanelProps,
+  forwardedRef: React.ForwardedRef<HTMLDivElement>
+) {
   const state = useContext(TabsStateContext);
-
-  if (!state) return null;
-  if (state.selectedKey !== props.id) return null;
-
-  return <TabPanelInner {...props} state={state} />;
-}
-
-interface TabPanelInnerProps extends TabPanelProps {
-  state: TabListState<any>;
-}
-
-function TabPanelInner(props: TabPanelInnerProps) {
-  const { state } = props;
-  const ref = useRef(null);
+  const ref = useObjectRef(forwardedRef);
   const { tabPanelProps } = useTabPanel(props, state, ref);
+
+  const isSelected = state?.selectedKey === props.id;
+
+  if (!isSelected) return null;
 
   return (
     <TabContentWrapper {...tabPanelProps} ref={ref}>
-      {props.children}
+      {/* May contain other tabs, so clear out the
+      providers below this in the tree */}
+      <Provider
+        values={[
+          [TabsContext.Provider, {}],
+          [TabsStateContext.Provider, null],
+        ]}
+      >
+        {props.children}
+      </Provider>
     </TabContentWrapper>
   );
 }
 
+const TabPanel = createHideableComponent(TabPanelInner);
+// @ts-expect-error
 TabPanel.displayName = "Tabs.Panel";
 Tabs.Panel = TabPanel;
