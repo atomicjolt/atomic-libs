@@ -32,12 +32,13 @@ const fontUrls: Record<SupportedFont, string> = {
   "material-icons-two-tone":
     "https://fonts.googleapis.com/icon?family=Material+Icons%7CMaterial+Icons+Two+Tone",
   "material-symbols-outlined":
-    "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0",
+    "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200",
   "material-symbols-rounded":
-    "https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,300,0,0",
+    "https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200",
   "material-symbols-sharp":
-    "https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,300,0,0",
+    "https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200",
 };
+
 const FontCSS = createGlobalStyle`
 /* Hide the icon fonts until they fully load */
 .material-icons {
@@ -77,7 +78,7 @@ export function LoadFonts(props: LoadFontsProps) {
       link.rel = "stylesheet";
       document.head.appendChild(link);
     });
-  }, [])
+  }, []);
 
   return <FontCSS />;
 }

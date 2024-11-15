@@ -1,48 +1,46 @@
-import React, { RefObject } from "react";
-import { ExtendedSize, MaterialIcons, RenderBaseProps } from "../../../types";
-import { useRenderProps } from "../../../hooks";
-import { StyledIcon } from "../Icons.styles";
+import React from "react";
 import { useFocusable } from "@react-aria/focus";
-import { filterDOMProps, mergeProps } from "@react-aria/utils";
-import useForwardedRef from "@hooks/useForwardedRef";
-
-export type MaterialSymbolVariants = "outlined" | "rounded" | "sharp";
+import { filterDOMProps, mergeProps, useObjectRef } from "@react-aria/utils";
+import {
+  IconComponentBase,
+  MaterialSymbolFontSettingsOptions,
+  MaterialSymbols,
+  MaterialSymbolVariants,
+} from "../../../types";
+import { useRenderProps } from "@hooks/useRenderProps";
+import { useMaterialSymbolFontVariationSettings } from "@hooks/useMaterialSymbolFontVariationSettings";
+import { StyledIcon } from "../Icons.styles";
 
 export interface MaterialSymbolProps
-  extends Omit<React.ComponentProps<"i">, "className" | "style" | "children">,
-    RenderBaseProps<never> {
-  // TODO: this probably isn't the right type
-  symbol: MaterialIcons;
+  extends IconComponentBase<never>,
+    MaterialSymbolFontSettingsOptions {
+  symbol: MaterialSymbols;
   /** The type of material symbol to
    * render. Note that the font for that style needs to
    * be in scope for it to render properly */
   variant?: MaterialSymbolVariants;
-
-  isDisabled?: boolean;
-
-  /** @deprecated - use isDisabled */
-  disabled?: boolean;
-
-  size?: ExtendedSize;
 }
 
 /** Render out material-symbols with sensible defaults. */
 export const MaterialSymbol = React.forwardRef<
   HTMLElement,
   MaterialSymbolProps
->(function MaterialSymbol(props, ref) {
+>(function MaterialSymbol(props, forwardedRef) {
   const {
     symbol,
     className,
     variant = "outlined",
     size = "medium",
-    disabled = false,
-    isDisabled = disabled,
+    isDisabled = false,
     style,
+    weight,
+    grade,
+    opticalSize,
+    fill,
     ...rest
   } = props;
 
-  const internalRef = useForwardedRef(ref);
+  const ref = useObjectRef(forwardedRef);
 
   const materialSymbolClass = `material-symbols-${variant}`;
 
@@ -56,9 +54,16 @@ export const MaterialSymbol = React.forwardRef<
     },
   });
 
+  const fontVariationSettings = useMaterialSymbolFontVariationSettings({
+    fill,
+    weight,
+    grade,
+    opticalSize,
+  });
+
   // We use the focusable hook so that the icon supports tooltips
   // the icon itself isn't actually focusable
-  const { focusableProps } = useFocusable({}, internalRef);
+  const { focusableProps } = useFocusable({}, ref);
 
   const componentProps = mergeProps(
     filterDOMProps(rest),
@@ -67,7 +72,15 @@ export const MaterialSymbol = React.forwardRef<
   );
 
   return (
-    <StyledIcon ref={internalRef} aria-hidden {...componentProps}>
+    <StyledIcon
+      ref={ref}
+      aria-hidden
+      {...componentProps}
+      style={{
+        fontVariationSettings: fontVariationSettings || undefined,
+        ...componentProps.style,
+      }}
+    >
       {symbol}
     </StyledIcon>
   );
