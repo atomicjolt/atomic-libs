@@ -7,10 +7,10 @@ type UseBooleanReturn = [value: boolean, toggle: () => void, set: (newState: boo
  * @param intialState - The boolean value to start with. Defaults to false
  * @example
  * const [bool, toggle, setBool] = useBool();
- * // bool === false
- * // toggle() => bool === true
- * // setBool(false) => bool === false
- * // setBool(true) => bool === true
+ *  bool === false
+ * toggle() // => bool === true
+ * setBool(false) // => bool === false
+ * setBool(true) // => bool === true
  * @returns {UseBooleanReturn} an array of:
  *  - the current value
  *  - a function to toggle the boolean value
