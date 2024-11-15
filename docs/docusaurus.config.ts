@@ -3,7 +3,7 @@ import type { Config } from "@docusaurus/types";
 const config: Config = {
   title: "Atomic Libs",
   url: "https://your-site.com",
-  baseUrl: "/",
+  baseUrl: "/atomic-libs/",
   favicon: "favicon.svg",
   organizationName: "atomicjolt", // GitHub org/user name
   projectName: "atomic-libs", // Repo name
