@@ -6,13 +6,13 @@
     "test": "jest --no-cache --config package.json",
     "test:debug": "node --inspect node_modules/.bin/jest --runInBand --watch --config package.json",
     "type-check": "tsc --noEmit",
-    "type-check:watch": "yarn type-check -- --watch",
+    "type-check:watch": "npm run type-check -- --watch",
     "build": "tsc -p tsconfig.build.json",
     "nuke": "rm -rf node_modules",
     "clean": "rm -rf libs/*",
     "lint": "eslint src",
     "lint_fix": "eslint src --fix",
-    "prepack": "yarn clean && yarn build"
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",

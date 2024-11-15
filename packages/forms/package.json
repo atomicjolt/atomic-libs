@@ -12,7 +12,8 @@
     "dev": "vite",
     "build": "tsc -p ./tsconfig.build.json",
     "preview": "vite preview",
-    "test": "echo 'TODO: Add tests'"
+    "test": "echo 'TODO: Add tests'",
+    "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
     "@atomicjolt/atomic-elements": "^2.6.3",

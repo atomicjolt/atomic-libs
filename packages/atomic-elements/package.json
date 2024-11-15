@@ -82,7 +82,8 @@
     "build": "rm -rf dist && rollup --config rollup.config.ts --configPlugin typescript && rm -rf dist/cjs/types && mv dist/esm/types dist/types",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:ui": "vitest --ui"
+    "test:ui": "vitest --ui",
+    "prepublishOnly": "npm run build"
   },
   "stableVersion": "1.0.1"
 }

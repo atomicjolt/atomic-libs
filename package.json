@@ -28,6 +28,7 @@
     "docs:publish": "gh-pages -d docs/build -f"
   },
   "dependencies": {
+    "@changesets/cli": "^2.27.9",
     "@docusaurus/core": "^3.6.1",
     "@docusaurus/plugin-content-docs": "^3.6.1",
     "@docusaurus/preset-classic": "^3.6.1",
