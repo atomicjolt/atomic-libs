@@ -2,11 +2,12 @@ import type { Config } from "@docusaurus/types";
 
 const config: Config = {
   title: "Atomic Libs",
-  url: "https://your-site.com",
+  url: "https://atomicjolt.github.io",
   baseUrl: "/atomic-libs/",
+  trailingSlash: false,
   favicon: "favicon.svg",
-  organizationName: "atomicjolt", // GitHub org/user name
-  projectName: "atomic-libs", // Repo name
+  organizationName: "atomicjolt",
+  projectName: "atomic-libs",
   staticDirectories: ["../public"],
   onBrokenLinks: "log",
   presets: [
