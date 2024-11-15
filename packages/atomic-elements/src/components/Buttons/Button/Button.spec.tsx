@@ -27,6 +27,7 @@ describe("Button", () => {
         </Button>
       );
       expect(result2.asFragment()).toMatchSnapshot();
+      expect(false).toBe(true);
     });
   });
 
