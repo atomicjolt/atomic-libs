@@ -6,12 +6,13 @@ import {
   FieldInputProps,
   HasVariant,
 } from "../../../types";
+import { useRenderProps } from "@hooks/useRenderProps";
+import { useTranslations } from "@hooks/useTranslations";
 import { Popover } from "../../Overlays/Popover";
 import { ListBox } from "../ListBox";
 import { SelectField } from "@components/Fields/SelectField";
 import { FloatingFieldInputWrapper } from "@components/Internal/FloatingFieldInputWrapper";
 import { StyledSelectField } from "./CustomSelect.styles";
-import { useRenderProps } from "@hooks";
 
 export type CustomSelectVariants = "default" | "floating" | "ghost";
 
@@ -31,11 +32,14 @@ export const CustomSelect = forwardRef(function CustomSelect<T extends object>(
     label,
     error,
     message,
-    placeholder = "Select an option",
     variant = "default",
     maxHeight = 300,
     dropdownPlacement = "bottom start",
   } = props;
+
+  const t = useTranslations();
+
+  const placeholder = props.placeholder ?? t("select.placeholder");
 
   const renderProps = useRenderProps({
     componentClassName: "aje-select",

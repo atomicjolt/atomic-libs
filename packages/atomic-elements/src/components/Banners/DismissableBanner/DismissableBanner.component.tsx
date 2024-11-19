@@ -7,6 +7,7 @@ import {
 } from "../../../types";
 import { MaterialIcon } from "../../Icons/MaterialIcon";
 import { Banner, BannerVariants } from "../Banner";
+import { useTranslations } from "@hooks/useTranslations";
 
 interface SharedProps extends HasClassName, HasChildren {
   /** When present, you control if the error is dismissed or not. When not present, the component will dismiss itself */
@@ -38,6 +39,8 @@ export function DismissableBanner(props: DismissableBannerProps) {
 
   const [visible, setVisible] = useState(true);
 
+  const t = useTranslations();
+
   if (!visible) {
     return null;
   }
@@ -49,7 +52,7 @@ export function DismissableBanner(props: DismissableBannerProps) {
       <Banner.IconButton
         icon="close"
         className="aje-banner__dismiss"
-        aria-label={`dismiss ${variant}`}
+        aria-label={t("dismiss")}
         onPress={() => {
           !onDismiss && setVisible(false);
           onDismiss && onDismiss();

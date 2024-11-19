@@ -8,6 +8,7 @@ import { IconButton } from "@components/Buttons/IconButton";
 import { Flex } from "@components/Layout/Flex/Flex";
 import { CellContent, RowHeader, StyledCell } from "../../Table.styles";
 import { TreeGridState, TableState } from "../../Table.types";
+import { useTranslations } from "@hooks/useTranslations";
 
 interface TableCellProps<T> {
   cell: GridNode<T>;
@@ -72,6 +73,8 @@ export function TableCell<T>(props: TableCellProps<T>) {
 
   const style = isRowHeaderCell ? { paddingLeft: levelOffset } : {};
 
+  const t = useTranslations();
+
   const customGridCellProps = cell.props.isStatic
     ? {
         ...gridCellProps,
@@ -101,7 +104,7 @@ export function TableCell<T>(props: TableCellProps<T>) {
             onPress={() =>
               (state as TreeGridState<T>).toggleKey(cell.parentKey!)
             }
-            aria-label="Expand row"
+            aria-label={isExpanded ? t("table.collapse") : t("table.expand")}
             className="aje-table__expand-button"
           />
         )}

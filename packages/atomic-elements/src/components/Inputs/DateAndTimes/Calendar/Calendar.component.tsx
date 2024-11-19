@@ -32,6 +32,7 @@ import {
   CalendarHeaderButtons,
   CalendarHeaderTitle,
 } from "./Calendar.styles";
+import { useTranslations } from "@hooks/useTranslations";
 
 export interface CalendarProps<T extends DateValue>
   extends AriaProps<AriaCalendarProps<T>>,
@@ -63,6 +64,8 @@ export function Calendar<T extends DateValue>(props: CalendarProps<T>) {
 
   const { calendarProps, prevButtonProps, nextButtonProps, title } =
     useCalendar(props, state);
+
+  const t = useTranslations();
 
   const className = classNames("aje-calendar", `is-${size}`);
 
@@ -103,7 +106,7 @@ export function Calendar<T extends DateValue>(props: CalendarProps<T>) {
             state.setFocusedDate(date);
           }}
         >
-          Today
+          {t("today")}
         </Button>
       </CalendarFooter>
     </CalendarWrapper>

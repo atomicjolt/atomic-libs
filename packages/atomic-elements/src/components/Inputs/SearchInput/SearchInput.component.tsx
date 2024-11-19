@@ -13,6 +13,7 @@ import {
 import { IconButton } from "../../Buttons/IconButton";
 import { ErrorMessage, Input, Label, Message, ComboInput } from "../../Fields";
 import { StyledField } from "../../Fields/Field.styles";
+import { useTranslations } from "@hooks/useTranslations";
 
 export interface SearchInputProps
   extends AriaProps<AriaSearchFieldProps>,
@@ -47,6 +48,8 @@ export const SearchInput = React.forwardRef(function SearchInput(
     isInvalid,
   } = useSearchField(props, searchState, internalRef);
 
+  const t = useTranslations();
+
   const renderProps = useRenderProps({
     ...props,
     componentClassName: "aje-input__search",
@@ -63,12 +66,13 @@ export const SearchInput = React.forwardRef(function SearchInput(
     <StyledField {...renderProps}>
       {label && <Label {...labelProps}>{label}</Label>}
       {message && <Message {...descriptionProps}>{message}</Message>}
-      <ComboInput>
+      <ComboInput padding={"left"}>
         <Input {...inputProps} size={undefined} />
         <IconButton
           icon="search"
-          variant="content"
+          variant="ghost"
           onPress={() => onSubmit && onSubmit(searchState.value)}
+          aria-label={t("search")}
         />
       </ComboInput>
       {isInvalid && <ErrorMessage {...errorMessageProps}>{error}</ErrorMessage>}
