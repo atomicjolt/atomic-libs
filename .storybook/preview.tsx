@@ -52,14 +52,12 @@ const preview: Preview = {
     options: {
       storySort: {
         order: [
-          "Introduction",
-          "Installation",
-          "Usage",
+          "Layouts",
           "Inputs",
-          "Fields",
           "Buttons",
           "Overlays",
           "Dropdowns",
+          "Fields",
         ],
       },
     },

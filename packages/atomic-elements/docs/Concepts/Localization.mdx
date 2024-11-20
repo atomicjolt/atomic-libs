@@ -1,0 +1,26 @@
+import { Meta } from "@storybook/blocks";
+import { useState } from "react";
+
+# Localization
+
+Atomic Elements components are designed to work with multiple languages and locales. The components are built to be easily localized, and we provide a number of tools to help you do so.
+
+Several components handle the details of localization for you. For instance:
+- The `DatePicker` component will automatically localize the month and day names
+- The `NumberInput` component will automatically localize the decimal and thousands separators.
+
+:::note
+
+Localization support for components is currently in-progress. If you need better support for localization in a component please [open an issue](https://github.com/atomicjolt/atomic-libs/issues/new)
+
+:::
+
+## Customizing the Locale
+
+By default, the locale is determined by the user's browser settings. You can override this by wrapping your component in a `LocaleProvider` and setting the `locale` prop.
+
+```jsx
+import { LocaleProvider } from "@atomicjolt/atomic-elements";
+
+<LocaleProvider locale="en">{/* Your app here */}</LocaleProvider>;
+```
