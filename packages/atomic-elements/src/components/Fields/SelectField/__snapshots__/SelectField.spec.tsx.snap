@@ -44,7 +44,7 @@ exports[`SelectField > matches snapshots > when closed 1`] = `
       aria-expanded="false"
       aria-haspopup="listbox"
       aria-labelledby="react-aria-:r7: react-aria-:r3:"
-      class="sc-ovuCP sc-hJRrWL jDlmat ikrVwe aje-btn sc-fwzISk gsuoQe aje-btn--dropdown is-medium"
+      class="sc-ovuCP jXkAbD aje-btn sc-hJRrWL hJvkfR aje-btn--dropdown is-medium"
       id="react-aria-:r2:"
       type="button"
     >
@@ -54,7 +54,7 @@ exports[`SelectField > matches snapshots > when closed 1`] = `
       />
       <i
         aria-hidden="true"
-        class="sc-cEzcPc csQlNh aje-icon material-icons is-medium"
+        class="sc-khLCKb gRpvEI aje-icon material-icons is-medium"
       >
         arrow_drop_down
       </i>
@@ -108,7 +108,7 @@ exports[`SelectField > matches snapshots > when open 1`] = `
       aria-expanded="true"
       aria-haspopup="listbox"
       aria-labelledby="react-aria-:rf: react-aria-:rb:"
-      class="sc-ovuCP sc-hJRrWL jDlmat ikrVwe aje-btn sc-fwzISk gsuoQe aje-btn--dropdown is-medium"
+      class="sc-ovuCP jXkAbD aje-btn sc-hJRrWL hJvkfR aje-btn--dropdown is-medium"
       data-pressed="true"
       id="react-aria-:ra:"
       type="button"
@@ -119,7 +119,7 @@ exports[`SelectField > matches snapshots > when open 1`] = `
       />
       <i
         aria-hidden="true"
-        class="sc-cEzcPc csQlNh aje-icon material-icons is-medium"
+        class="sc-khLCKb gRpvEI aje-icon material-icons is-medium"
       >
         arrow_drop_down
       </i>
