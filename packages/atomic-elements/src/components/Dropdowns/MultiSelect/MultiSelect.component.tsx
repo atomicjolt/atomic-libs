@@ -3,12 +3,14 @@ import { AriaProps, DropdownProps, FieldInputProps } from "../../../types";
 import { Popover } from "../../Overlays/Popover";
 import { ListBox } from "../ListBox";
 import { FloatingFieldInputWrapper } from "@components/Internal/FloatingFieldInputWrapper";
+import { MultiSelectStateContext } from "@components/Fields/MultiSelectField";
 import {
-  MultiSelectField,
-  MultiSelectStateContext,
-} from "@components/Fields/MultiSelectField";
-import { StyledMultiSelectField } from "./MultiSelect.styles";
+  MultiSelectButton,
+  StyledMultiSelectField,
+} from "./MultiSelect.styles";
 import { AriaMultiSelectProps } from "../../Fields/MultiSelectField";
+import { Button } from "@components/Buttons/Button";
+import { MaterialIcon } from "@components/Icons/MaterialIcon";
 
 export interface MultiSelectProps<T extends object>
   extends AriaProps<AriaMultiSelectProps<T>>,
@@ -41,13 +43,14 @@ export function MultiSelect<T extends object>(props: MultiSelectProps<T>) {
         error={error}
         floating={variant === "floating"}
       >
-        <MultiSelectField.Button>
+        <MultiSelectButton>
           <MultiSelectText
             selectionPlaceholder={selectionPlaceholder}
             placeholder={placeholder}
             variant={variant}
           />
-        </MultiSelectField.Button>
+          <MaterialIcon icon="arrow_drop_down" />
+        </MultiSelectButton>
       </FloatingFieldInputWrapper>
       <Popover maxHeight={maxHeight} placement={dropdownPlacement}>
         <ListBox items={props.items}>{props.children!}</ListBox>

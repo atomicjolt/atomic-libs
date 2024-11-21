@@ -10,8 +10,9 @@ import { Popover } from "../../Overlays/Popover";
 import { ListBox } from "../ListBox";
 import { SelectField } from "@components/Fields/SelectField";
 import { FloatingFieldInputWrapper } from "@components/Internal/FloatingFieldInputWrapper";
-import { StyledSelectField } from "./CustomSelect.styles";
+import { CustomSelectButton, StyledSelectField } from "./CustomSelect.styles";
 import { useRenderProps } from "@hooks";
+import { MaterialIcon } from "@components/Icons/MaterialIcon";
 
 export type CustomSelectVariants = "default" | "floating" | "ghost";
 
@@ -53,11 +54,12 @@ export const CustomSelect = forwardRef(function CustomSelect<T extends object>(
         message={message}
         error={error}
       >
-        <SelectField.Button>
+        <CustomSelectButton>
           <SelectField.Value
             placeholder={variant === "floating" ? null : placeholder}
           />
-        </SelectField.Button>
+          <MaterialIcon icon="arrow_drop_down" />
+        </CustomSelectButton>
       </FloatingFieldInputWrapper>
 
       <Popover maxHeight={maxHeight} placement={dropdownPlacement}>

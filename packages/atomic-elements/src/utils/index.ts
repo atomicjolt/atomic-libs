@@ -1,9 +1,8 @@
+import { SlottedContextValue } from "@hooks/useSlottedContext";
 import React from "react";
 
-export function createComponentContext<T extends object>(
-  defaultValue: Partial<T> = {}
-) {
-  return React.createContext<Partial<T & { ref?: React.Ref<any> }>>(
-    defaultValue
-  );
+export function createComponentContext<T>() {
+  return React.createContext<SlottedContextValue<T>>(null as any);
 }
+
+

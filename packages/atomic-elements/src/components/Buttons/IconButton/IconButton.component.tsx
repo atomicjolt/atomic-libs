@@ -11,8 +11,11 @@ import { useFocusRing } from "../../../hooks/useFocusRing";
 import { useButtonLink } from "@hooks/useButtonLink";
 import { useContextPropsV2 } from "@hooks/useContextProps";
 import { ButtonContext } from "../Button/Button.context";
+import { SlotProps } from "@hooks/useSlottedContext";
 
-export type IconButtonProps = Omit<ButtonProps, "children"> & HasIcon;
+export type IconButtonProps = Omit<ButtonProps, "children"> &
+  HasIcon &
+  SlotProps;
 
 /** Similar to the Button component, but is intended to display just an icon instead of text.
  * Because of this, you should provide an `aria-label` for accessiblity */

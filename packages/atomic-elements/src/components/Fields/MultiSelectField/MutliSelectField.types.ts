@@ -35,6 +35,6 @@ export interface AriaMultiSelectProps<T>
 
 export interface MultiSelectFieldProps<T extends object>
   extends Omit<AriaProps<AriaMultiSelectProps<T>>, "children">,
-    Omit<FieldProps, "children"> {
+    Omit<FieldProps, "children">{
   children: React.ReactNode;
 }

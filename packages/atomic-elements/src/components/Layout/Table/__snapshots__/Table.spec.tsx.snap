@@ -35,7 +35,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
                 Column 1
                 <div
                   aria-expanded="true"
-                  class="sc-dntaoT hZvNeh aje-combo-input sc-hbtGpV jIiSpe"
+                  class="sc-dntaoT hZvNeh aje-combo-input sc-hbtGpV jIiSpe padding-left padding-right"
                 >
                   <input
                     aria-label="Search a"
@@ -44,7 +44,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
                     value="search"
                   />
                   <button
-                    class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
+                    class="sc-jtQUzJ sc-cEzcPc gLVgao wabHi aje-btn aje-btn--icon aje-btn--content is-small"
                     type="button"
                   >
                     <i
@@ -199,7 +199,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
               Column 1
               <div
                 aria-expanded="true"
-                class="sc-dntaoT hZvNeh aje-combo-input sc-hbtGpV jIiSpe"
+                class="sc-dntaoT hZvNeh aje-combo-input sc-hbtGpV jIiSpe padding-left padding-right"
               >
                 <input
                   aria-label="Search a"
@@ -208,7 +208,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
                   value="search"
                 />
                 <button
-                  class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
+                  class="sc-jtQUzJ sc-cEzcPc gLVgao wabHi aje-btn aje-btn--icon aje-btn--content is-small"
                   type="button"
                 >
                   <i
@@ -413,7 +413,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
                 Column 1
                 <div
                   aria-expanded="false"
-                  class="sc-dntaoT hZvNeh aje-combo-input sc-hbtGpV jIiSpe"
+                  class="sc-dntaoT hZvNeh aje-combo-input sc-hbtGpV jIiSpe padding-left padding-right"
                 >
                   <input
                     aria-label="Search a"
@@ -423,7 +423,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
                     value=""
                   />
                   <button
-                    class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
+                    class="sc-jtQUzJ sc-cEzcPc gLVgao wabHi aje-btn aje-btn--icon aje-btn--content is-small"
                     type="button"
                   >
                     <i
@@ -435,7 +435,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
                   </button>
                 </div>
                 <button
-                  class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
+                  class="sc-jtQUzJ sc-cEzcPc gLVgao wabHi aje-btn aje-btn--icon aje-btn--content is-small"
                   type="button"
                 >
                   <i
@@ -588,7 +588,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
               Column 1
               <div
                 aria-expanded="false"
-                class="sc-dntaoT hZvNeh aje-combo-input sc-hbtGpV jIiSpe"
+                class="sc-dntaoT hZvNeh aje-combo-input sc-hbtGpV jIiSpe padding-left padding-right"
               >
                 <input
                   aria-label="Search a"
@@ -598,7 +598,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
                   value=""
                 />
                 <button
-                  class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
+                  class="sc-jtQUzJ sc-cEzcPc gLVgao wabHi aje-btn aje-btn--icon aje-btn--content is-small"
                   type="button"
                 >
                   <i
@@ -610,7 +610,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
                 </button>
               </div>
               <button
-                class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
+                class="sc-jtQUzJ sc-cEzcPc gLVgao wabHi aje-btn aje-btn--icon aje-btn--content is-small"
                 type="button"
               >
                 <i
@@ -815,7 +815,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                 Column 1
                 <div
                   aria-expanded="false"
-                  class="sc-dntaoT hZvNeh aje-combo-input sc-hbtGpV jIiSpe"
+                  class="sc-dntaoT hZvNeh aje-combo-input sc-hbtGpV jIiSpe padding-left padding-right"
                 >
                   <input
                     aria-label="Search a"
@@ -825,7 +825,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                     value=""
                   />
                   <button
-                    class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
+                    class="sc-jtQUzJ sc-cEzcPc gLVgao wabHi aje-btn aje-btn--icon aje-btn--content is-small"
                     type="button"
                   >
                     <i
@@ -837,7 +837,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   </button>
                 </div>
                 <button
-                  class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
+                  class="sc-jtQUzJ sc-cEzcPc gLVgao wabHi aje-btn aje-btn--icon aje-btn--content is-small"
                   type="button"
                 >
                   <i
@@ -2089,7 +2089,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
               Column 1
               <div
                 aria-expanded="false"
-                class="sc-dntaoT hZvNeh aje-combo-input sc-hbtGpV jIiSpe"
+                class="sc-dntaoT hZvNeh aje-combo-input sc-hbtGpV jIiSpe padding-left padding-right"
               >
                 <input
                   aria-label="Search a"
@@ -2099,7 +2099,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   value=""
                 />
                 <button
-                  class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
+                  class="sc-jtQUzJ sc-cEzcPc gLVgao wabHi aje-btn aje-btn--icon aje-btn--content is-small"
                   type="button"
                 >
                   <i
@@ -2111,7 +2111,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                 </button>
               </div>
               <button
-                class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
+                class="sc-jtQUzJ sc-cEzcPc gLVgao wabHi aje-btn aje-btn--icon aje-btn--content is-small"
                 type="button"
               >
                 <i
@@ -3414,7 +3414,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
                 Column 1
                 <div
                   aria-expanded="false"
-                  class="sc-dntaoT hZvNeh aje-combo-input sc-hbtGpV jIiSpe"
+                  class="sc-dntaoT hZvNeh aje-combo-input sc-hbtGpV jIiSpe padding-left padding-right"
                 >
                   <input
                     aria-label="Search a"
@@ -3424,7 +3424,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
                     value=""
                   />
                   <button
-                    class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
+                    class="sc-jtQUzJ sc-cEzcPc gLVgao wabHi aje-btn aje-btn--icon aje-btn--content is-small"
                     type="button"
                   >
                     <i
@@ -3436,7 +3436,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
                   </button>
                 </div>
                 <button
-                  class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
+                  class="sc-jtQUzJ sc-cEzcPc gLVgao wabHi aje-btn aje-btn--icon aje-btn--content is-small"
                   type="button"
                 >
                   <i
@@ -3559,7 +3559,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
           style="height: 100%;"
         >
           <div
-            class="sc-eWPXlR hdjNtL aje-select sc-eDHQDy kuHUDx aje-select aje-select--ghost aje-select--ghost is-auto"
+            class="sc-eWPXlR hdjNtL aje-select sc-iqyJx cJamVH aje-select aje-select--ghost aje-select--ghost is-auto"
           >
             <div
               aria-hidden="true"
@@ -3606,7 +3606,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
               aria-haspopup="listbox"
               aria-label="Select page size"
               aria-labelledby="react-aria-:rd: react-aria-:r8: react-aria-:r9:"
-              class="sc-jtQUzJ sc-lnsxGb cipAo hegzZT aje-btn sc-jSSkKI btCqZz aje-btn--dropdown is-auto"
+              class="sc-jtQUzJ sc-jSSkKI gLVgao mFzDI aje-btn sc-UblHX inKwhj aje-btn--dropdown is-auto"
               id="react-aria-:r8:"
               type="button"
             >
@@ -3632,7 +3632,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
             >
               <button
                 aria-label="First Page"
-                class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--ghost is-medium"
+                class="sc-jtQUzJ sc-cEzcPc gLVgao wabHi aje-btn aje-btn--icon aje-btn--ghost is-medium"
                 disabled=""
                 type="button"
               >
@@ -3645,7 +3645,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
               </button>
               <button
                 aria-label="Previous Page"
-                class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--ghost is-medium"
+                class="sc-jtQUzJ sc-cEzcPc gLVgao wabHi aje-btn aje-btn--icon aje-btn--ghost is-medium"
                 disabled=""
                 type="button"
               >
@@ -3658,7 +3658,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
               </button>
               <button
                 aria-label="Next Page"
-                class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--ghost is-medium"
+                class="sc-jtQUzJ sc-cEzcPc gLVgao wabHi aje-btn aje-btn--icon aje-btn--ghost is-medium"
                 type="button"
               >
                 <i
@@ -3670,7 +3670,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
               </button>
               <button
                 aria-label="Last Page"
-                class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--ghost is-medium"
+                class="sc-jtQUzJ sc-cEzcPc gLVgao wabHi aje-btn aje-btn--icon aje-btn--ghost is-medium"
                 type="button"
               >
                 <i
@@ -3723,7 +3723,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
               Column 1
               <div
                 aria-expanded="false"
-                class="sc-dntaoT hZvNeh aje-combo-input sc-hbtGpV jIiSpe"
+                class="sc-dntaoT hZvNeh aje-combo-input sc-hbtGpV jIiSpe padding-left padding-right"
               >
                 <input
                   aria-label="Search a"
@@ -3733,7 +3733,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
                   value=""
                 />
                 <button
-                  class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
+                  class="sc-jtQUzJ sc-cEzcPc gLVgao wabHi aje-btn aje-btn--icon aje-btn--content is-small"
                   type="button"
                 >
                   <i
@@ -3745,7 +3745,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
                 </button>
               </div>
               <button
-                class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
+                class="sc-jtQUzJ sc-cEzcPc gLVgao wabHi aje-btn aje-btn--icon aje-btn--content is-small"
                 type="button"
               >
                 <i
@@ -3868,7 +3868,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
         style="height: 100%;"
       >
         <div
-          class="sc-eWPXlR hdjNtL aje-select sc-eDHQDy kuHUDx aje-select aje-select--ghost aje-select--ghost is-auto"
+          class="sc-eWPXlR hdjNtL aje-select sc-iqyJx cJamVH aje-select aje-select--ghost aje-select--ghost is-auto"
         >
           <div
             aria-hidden="true"
@@ -3915,7 +3915,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
             aria-haspopup="listbox"
             aria-label="Select page size"
             aria-labelledby="react-aria-:rd: react-aria-:r8: react-aria-:r9:"
-            class="sc-jtQUzJ sc-lnsxGb cipAo hegzZT aje-btn sc-jSSkKI btCqZz aje-btn--dropdown is-auto"
+            class="sc-jtQUzJ sc-jSSkKI gLVgao mFzDI aje-btn sc-UblHX inKwhj aje-btn--dropdown is-auto"
             id="react-aria-:r8:"
             type="button"
           >
@@ -3941,7 +3941,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
           >
             <button
               aria-label="First Page"
-              class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--ghost is-medium"
+              class="sc-jtQUzJ sc-cEzcPc gLVgao wabHi aje-btn aje-btn--icon aje-btn--ghost is-medium"
               disabled=""
               type="button"
             >
@@ -3954,7 +3954,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
             </button>
             <button
               aria-label="Previous Page"
-              class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--ghost is-medium"
+              class="sc-jtQUzJ sc-cEzcPc gLVgao wabHi aje-btn aje-btn--icon aje-btn--ghost is-medium"
               disabled=""
               type="button"
             >
@@ -3967,7 +3967,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
             </button>
             <button
               aria-label="Next Page"
-              class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--ghost is-medium"
+              class="sc-jtQUzJ sc-cEzcPc gLVgao wabHi aje-btn aje-btn--icon aje-btn--ghost is-medium"
               type="button"
             >
               <i
@@ -3979,7 +3979,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
             </button>
             <button
               aria-label="Last Page"
-              class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--ghost is-medium"
+              class="sc-jtQUzJ sc-cEzcPc gLVgao wabHi aje-btn aje-btn--icon aje-btn--ghost is-medium"
               type="button"
             >
               <i

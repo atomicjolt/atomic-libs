@@ -3,6 +3,7 @@ import { render } from "@testing-library/react";
 import { Popover } from "@components/Overlays/Popover";
 import { ListBox } from "@components/Dropdowns/ListBox";
 import { Item } from "@components/Collection";
+import { Button } from "@components/Buttons/Button";
 import { SelectField } from ".";
 
 describe("SelectField", () => {
@@ -10,9 +11,9 @@ describe("SelectField", () => {
     test("when closed", () => {
       const result = render(
         <SelectField>
-          <SelectField.Button>
+          <Button>
             <SelectField.Value />
-          </SelectField.Button>
+          </Button>
           <Popover>
             <ListBox>
               <Item>Item 1</Item>
@@ -28,9 +29,9 @@ describe("SelectField", () => {
     test("when open", () => {
       const result = render(
         <SelectField isOpen>
-          <SelectField.Button>
+          <Button>
             <SelectField.Value />
-          </SelectField.Button>
+          </Button>
           <Popover>
             <ListBox>
               <Item>Item 1</Item>

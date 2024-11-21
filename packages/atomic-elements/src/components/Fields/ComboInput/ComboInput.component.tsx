@@ -17,7 +17,13 @@ export const ComboInput = React.forwardRef(function ComboInput(
 ) {
   [props, ref] = useContextPropsV2(ComboInputContext, props, ref);
 
-  const { className, padding = [], children, inputRef, ...rest } = props;
+  const {
+    className,
+    padding = ["left", "right"],
+    children,
+    inputRef,
+    ...rest
+  } = props;
 
   return (
     <StyledComboInput

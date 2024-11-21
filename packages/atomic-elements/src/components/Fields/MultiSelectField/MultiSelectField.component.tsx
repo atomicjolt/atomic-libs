@@ -9,7 +9,6 @@ import { BaseCollection, CollectionBuilder } from "@react-aria/collections";
 import { Provider } from "@components/Internal/Provider";
 import { PopoverContext } from "@components/Overlays/Popover/context";
 import { ButtonContext } from "@components/Buttons/Button/Button.context";
-import { DropdownButton } from "@components/Internal/DropdownButton";
 import {
   FieldErrorContext,
   FieldLabelContext,
@@ -24,15 +23,6 @@ import {
 import { useMultiSelectState } from "./useMultiSelectState";
 import { MultiSelectFieldProps } from "./MutliSelectField.types";
 import { useMultiSelect } from "./useMultiSelect";
-
-export interface MultiSelectFieldComponent
-  extends React.ForwardRefExoticComponent<
-    MultiSelectFieldProps<any> & RefAttributes<HTMLButtonElement>
-  > {
-  /** Wrapper around `Button` that configures default visual styling
-   * for the button that opens the dropdown for a `SelectField` */
-  Button: typeof DropdownButton;
-}
 
 /** Building blocks for building custom & accessible select components */
 export const MultiSelectField = forwardRef(function MultiSelectField<
@@ -51,7 +41,9 @@ export const MultiSelectField = forwardRef(function MultiSelectField<
       )}
     </CollectionBuilder>
   );
-}) as MultiSelectFieldComponent;
+}) as <T extends object>(
+  props: MultiSelectFieldProps<T> & RefAttributes<HTMLButtonElement>
+) => JSX.Element;
 
 interface MultiSelectFieldInnerProps<T extends object>
   extends MultiSelectFieldProps<T> {
@@ -113,7 +105,7 @@ export function MultiSelectFieldInner<T extends object>(
           [ListBoxContext.Provider, menuProps],
           [ListStateContext.Provider, state],
           [OverlayTriggerStateContext.Provider, state],
-          [ButtonContext.Provider, { size }],
+          [ButtonContext.Provider, { size, variant: "dropdown" }],
         ]}
       >
         <PressResponder
@@ -128,5 +120,3 @@ export function MultiSelectFieldInner<T extends object>(
     </MultiSelectFieldWrapper>
   );
 }
-
-MultiSelectField.Button = DropdownButton;

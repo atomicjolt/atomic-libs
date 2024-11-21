@@ -1,4 +1,4 @@
-import { useContext, useRef } from "react";
+import { useRef } from "react";
 import { AriaNumberFieldProps, useNumberField } from "@react-aria/numberfield";
 import { useLocale } from "@react-aria/i18n";
 import { useNumberFieldState } from "react-stately";
@@ -16,6 +16,7 @@ import {
 } from "../contexts";
 import { IconButton, IconButtonProps } from "../../Buttons/IconButton";
 import { ComboInputContext } from "../ComboInput";
+import { ButtonContext } from "@components/Buttons/Button/Button.context";
 
 export interface NumberFieldProps
   extends FieldProps,
@@ -77,6 +78,15 @@ export function NumberField(props: NumberFieldProps) {
             NumberFieldButtonContext.Provider,
             { incrementButtonProps, decrementButtonProps },
           ],
+          [
+            ButtonContext.Provider,
+            {
+              slots: {
+                increment: incrementButtonProps,
+                decrement: decrementButtonProps,
+              },
+            },
+          ],
           [ComboInputContext.Provider, { inputRef }],
           [
             FieldInputContext.Provider,
@@ -97,15 +107,11 @@ export function NumberField(props: NumberFieldProps) {
 }
 
 function NumberFieldIncrementButton(props: IconButtonProps) {
-  const { incrementButtonProps } = useContext(NumberFieldButtonContext);
-
-  return <IconButton {...props} {...incrementButtonProps} />;
+  return <IconButton {...props} slot="increment" />;
 }
 
 function NumberFieldDecrementButton(props: IconButtonProps) {
-  const { decrementButtonProps } = useContext(NumberFieldButtonContext);
-
-  return <IconButton {...props} {...decrementButtonProps} />;
+  return <IconButton {...props} slot="decrement" />;
 }
 
 NumberField.IncrementButton = NumberFieldIncrementButton;

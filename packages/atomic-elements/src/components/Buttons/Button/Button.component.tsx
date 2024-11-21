@@ -11,23 +11,27 @@ import {
 } from "../../../types";
 import { StyledButton } from "./Button.styles";
 import { ButtonVariants } from "../Buttons.types";
-import useForwardedRef from "../../../hooks/useForwardedRef";
-import { useFocusRing } from "../../../hooks/useFocusRing";
+import { useForwardedRef } from "@hooks/useForwardedRef";
+import { useFocusRing } from "@hooks/useFocusRing";
 import { useRenderProps } from "@hooks/useRenderProps";
 import { useButtonLink } from "@hooks/useButtonLink";
-import { useContextProps } from "@hooks/useContextProps";
+import { useContextPropsV2 } from "@hooks/useContextProps";
+import { SlotProps } from "@hooks/useSlottedContext";
 import { ButtonContext } from "./Button.context";
 
 export type ButtonProps = AriaButtonOptions<"button"> &
   LoadingProps &
   BaseProps &
   HasChildren &
-  HasVariant<ButtonVariants> & {
+  HasVariant<ButtonVariants> &
+  SlotProps & {
     as?: "button" | "a";
   };
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (props, ref) => {
+    [props, ref] = useContextPropsV2(ButtonContext, props, ref);
+
     const {
       children,
       size = "auto",
@@ -37,7 +41,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       loadingComplete = false,
       className,
       as = props.href ? "a" : "button",
-    } = useContextProps(ButtonContext, props);
+    } = props;
 
     const internalRef = useForwardedRef<HTMLButtonElement>(ref);
     const { buttonProps, isPressed } = useButtonLink(

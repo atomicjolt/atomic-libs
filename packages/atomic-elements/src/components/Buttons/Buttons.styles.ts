@@ -124,6 +124,27 @@ export const BaseStyledButton = styled.button`
     --btn-border: transparent;
   }
 
+  &.aje-btn--dropdown {
+    --btn-text-clr: var(--text-clr-alt);
+    --btn-bg-clr: var(--neutral50);
+    --btn-hover-text-clr: var(--text-clr);
+    --btn-hover-bg-clr: var(--neutral100);
+    // To match the actual select element
+    --btn-border: 1px solid var(--input-border-clr);
+    --btn-pressed-transform: translateY(0px);
+  }
+
+  &.aje-btn--dropdown-ghost {
+    --btn-text-clr: var(--text-clr-alt);
+    --btn-bg-clr: var(--neutral50);
+    --btn-hover-text-clr: var(--text-clr);
+    --btn-hover-bg-clr: var(--neutral100);
+    --btn-border: none;
+    --btn-pressed-transform: translateY(0px);
+
+    font-weight: normal;
+  }
+
   & > i {
     color: inherit;
     font-size: var(--btn-icon-size);

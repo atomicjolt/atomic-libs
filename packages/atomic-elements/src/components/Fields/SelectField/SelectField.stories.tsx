@@ -14,6 +14,8 @@ import { FieldMessage } from "../Field/FieldMessage";
 import { Button } from "@components/Buttons/Button";
 import { SelectField as SelectField } from ".";
 import { Item, Section } from "@components/Collection";
+import { MaterialIcon } from "@components/Icons/MaterialIcon";
+import { Flex } from "@components/Layout/Flex/Flex";
 
 export default {
   title: "Fields/SelectField",
@@ -76,9 +78,16 @@ export const Primary: Story = {
     children: [
       <FieldLabel key="label">Select an item</FieldLabel>,
       <FieldMessage key="message">Choose an item from the list</FieldMessage>,
-      <SelectField.Button key="button">
-        <SelectField.Value placeholder="Select an option" />
-      </SelectField.Button>,
+      <Button key="button">
+        <Flex
+          justifyContent="space-between"
+          alignItems="center"
+          style={{ width: "100%" }}
+        >
+          <SelectField.Value placeholder="Select an option" />
+          <MaterialIcon icon="arrow_drop_down" />
+        </Flex>
+      </Button>,
       <Popover key="popover">
         <ListBox>
           <Item id="1">Item 1</Item>
@@ -95,9 +104,9 @@ export const WithSections: Story = {
   args: {
     ...Primary.args,
     children: [
-      <SelectField.Button key="button">
+      <Button key="button">
         <SelectField.Value placeholder="Select an option" />
-      </SelectField.Button>,
+      </Button>,
       <Popover key="popover">
         <ListBox>
           <Section title="Section 1">

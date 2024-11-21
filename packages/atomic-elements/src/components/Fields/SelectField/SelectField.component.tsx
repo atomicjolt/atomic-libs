@@ -32,7 +32,7 @@ import {
   SelectFieldValueContext,
   SelectStateContext,
 } from "./SelectField.context";
-import { DropdownButton } from "@components/Internal/DropdownButton";
+import { DEFAULT_SLOT } from "@hooks/useSlottedContext";
 
 type ForwardedSelectField = {
   <T>(
@@ -41,9 +41,6 @@ type ForwardedSelectField = {
   displayName: string;
   /** Renders the selected value of a SelectField */
   Value: typeof SelectFieldValue;
-  /** Wrapper around `Button` that configures default visual styling
-   * for the button that opens the dropdown for a `SelectField` */
-  Button: typeof DropdownButton;
 };
 
 /** Building blocks for building custom & accessible select components */
@@ -123,7 +120,13 @@ export function SelectFieldInner<T extends object>(
           [ListBoxContext.Provider, menuProps],
           [ListStateContext.Provider, state],
           [OverlayTriggerStateContext.Provider, state],
-          [ButtonContext.Provider, { size }],
+          [
+            ButtonContext.Provider,
+            {
+              size,
+              variant: "dropdown",
+            },
+          ],
         ]}
       >
         <PressResponder
@@ -139,7 +142,7 @@ export function SelectFieldInner<T extends object>(
   );
 }
 
-function SelectFieldValue(props: SelectValueProps) {
+export function SelectFieldValue(props: SelectValueProps) {
   const { placeholder } = props;
 
   const valueProps = useContext(SelectFieldValueContext);
@@ -154,5 +157,5 @@ function SelectFieldValue(props: SelectValueProps) {
   );
 }
 
+SelectFieldValue.displayName = "SelectField.Value";
 SelectField.Value = SelectFieldValue;
-SelectField.Button = DropdownButton;

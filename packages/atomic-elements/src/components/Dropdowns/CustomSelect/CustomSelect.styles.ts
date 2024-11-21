@@ -2,6 +2,7 @@ import styled from "styled-components";
 import mixins from "../../../styles/mixins";
 import { FloatingDropdown } from "../Dropdowns.styles";
 import { SelectField } from "@components/Fields/SelectField";
+import { Button } from '@components/Buttons/Button';
 
 export const StyledSelectField = styled(SelectField)`
   &.aje-select--floating {
@@ -28,4 +29,9 @@ export const ButtonText = styled.span`
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+`;
+
+export const CustomSelectButton = styled(Button)`
+  justify-content: space-between;
+  padding-right: 0.8rem;
 `;
