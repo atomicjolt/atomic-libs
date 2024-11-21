@@ -4,6 +4,8 @@ import { HasChildren, HasClassName, SuggestStrings } from "../../../types";
 import { BannerContent, StyledBanner } from "../Banners.styles";
 import { IconButton, IconButtonProps } from "../../Buttons/IconButton";
 import { Button, ButtonProps } from "../../Buttons/Button";
+import { ButtonContext } from "@components/Buttons/Button/Button.context";
+import { DEFAULT_SLOT } from "@hooks/useSlottedContext";
 
 export type BannerVariants = SuggestStrings<
   "info" | "error" | "success" | "warning"
@@ -20,30 +22,33 @@ export interface BannerProps extends HasChildren, HasClassName {
 export function Banner(props: BannerProps) {
   const { variant = "info", children, className } = props;
 
-  let content: React.ReactNode;
-  if (typeof children === "string") {
-    content = (
-      <BannerContent style={{ paddingLeft: "10px" }}>{children}</BannerContent>
-    );
-  } else {
-    content = children;
-  }
-
   return (
-    <StyledBanner className={cn(`aje-banner--${variant}`, className)}>
-      {content}
-    </StyledBanner>
+    <ButtonContext.Provider
+      value={{
+        slots: {
+          [DEFAULT_SLOT]: {},
+          icon: {
+            variant: "banner",
+          },
+          action: {
+            variant: "inverted",
+          },
+        },
+      }}
+    >
+      <StyledBanner className={cn(`aje-banner--${variant}`, className)}>
+        {children}
+      </StyledBanner>
+    </ButtonContext.Provider>
   );
 }
 
 function BannerIconButon(props: IconButtonProps) {
-  const { variant = "banner", ...rest } = props;
-  return <IconButton variant={variant} {...rest} />;
+  return <IconButton slot="icon" {...props} />;
 }
 
 function BannerButton(props: ButtonProps) {
-  const { variant = "inverted", ...rest } = props;
-  return <Button variant={variant} {...rest} />;
+  return <Button slot="action" {...props} />;
 }
 
 /** Wrapper around the textual content of a Banner */

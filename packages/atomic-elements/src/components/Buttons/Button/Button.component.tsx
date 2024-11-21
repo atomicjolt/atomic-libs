@@ -4,10 +4,10 @@ import { mergeProps } from "@react-aria/utils";
 
 import { SpinnerLoader } from "../../Loaders/SpinnerLoader";
 import {
-  BaseProps,
-  HasChildren,
+  ExtendedSize,
   HasVariant,
   LoadingProps,
+  RenderBaseProps,
 } from "../../../types";
 import { StyledButton } from "./Button.styles";
 import { ButtonVariants } from "../Buttons.types";
@@ -19,14 +19,15 @@ import { useContextPropsV2 } from "@hooks/useContextProps";
 import { SlotProps } from "@hooks/useSlottedContext";
 import { ButtonContext } from "./Button.context";
 
-export type ButtonProps = AriaButtonOptions<"button"> &
-  LoadingProps &
-  BaseProps &
-  HasChildren &
-  HasVariant<ButtonVariants> &
-  SlotProps & {
-    as?: "button" | "a";
-  };
+export interface ButtonProps
+  extends AriaButtonOptions<"button">,
+    LoadingProps,
+    RenderBaseProps<never>,
+    HasVariant<ButtonVariants>,
+    SlotProps {
+  as?: "button" | "a";
+  size?: ExtendedSize;
+}
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (props, ref) => {
@@ -57,6 +58,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     const renderProps = useRenderProps({
       componentClassName: "aje-btn",
+      children,
       className,
       variant,
       size,
@@ -78,7 +80,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             placement="absolute center"
           />
         )}
-        {children}
+        {renderProps.children}
       </StyledButton>
     );
   }

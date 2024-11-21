@@ -22,7 +22,7 @@ type Story = StoryObj<typeof Banner>;
 
 export const Primary: Story = {
   args: {
-    children: "Content of the banner goes here",
+    children: <Banner.Content>This is a banner</Banner.Content>,
   },
 };
 
