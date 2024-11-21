@@ -1,8 +1,8 @@
 import React from "react";
 import { ButtonProps } from ".";
-import { IconButtonProps } from "../IconButton";
 import { createComponentContext } from "@utils/index";
+import { HasIcon } from '../../../types';
 
 export const ButtonContext = createComponentContext<
-  ButtonProps & IconButtonProps
+  ButtonProps & HasIcon
 >();
