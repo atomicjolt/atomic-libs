@@ -1,18 +1,21 @@
 import { TableProps } from "./Table.types";
 
-import { useTableState } from "./hooks/useTableState";
 import { useGridTreeState } from "./hooks/useGridTreeState";
 import { TableShared } from "./components/internal/TableShared";
 
-import { Row } from "./components/public/TableRow";
-import { TableCell } from "./components/public/TableCell";
-import { TableHeader } from "./components/public/TableHeader";
-import { TableColumn } from "./components/public/TableColumn";
-import { TableBody } from "./components/public/TableBody";
+import { TableRow } from "./components/internal/TableRow";
+import { TableCell } from "./components/internal/TableCell";
+import { TableHeader } from "./components/internal/TableHeader";
+import { TableColumn } from "./components/internal/TableColumn";
+import { TableBody } from "./components/internal/TableBody";
 import { TableFooter } from "./components/public/TableFooter";
 import { LoadingCellContent } from "./components/internal/Loading";
 import { PaginationDescriptor } from "../../../types";
 import { TableBottom } from "./components/public/TableBottom";
+import { Collection, CollectionBuilder } from "@react-aria/collections";
+import { TableCollection } from "./TableCollection";
+import { useTableState } from "./hooks/useTableState";
+import { TableStateContext } from "./Table.context";
 
 /** Table component that supports sorting, row selection, and column reordering.  */
 export function Table<T extends object>(props: TableProps<T>) {
@@ -22,19 +25,45 @@ export function Table<T extends object>(props: TableProps<T>) {
     return <TreeGridTable {...props} />;
   }
 
-  return <InternalTable {...props} />;
+  return <SimpleTable {...props} />;
 }
 
-export function InternalTable<T extends object>(props: TableProps<T>) {
+export function SimpleTable<T extends object>(props: TableProps<T>) {
   const { selectionMode, selectionBehavior } = props;
 
-  const state = useTableState({
+  return (
+    <CollectionBuilder
+      content={<Collection {...props} />}
+      createCollection={() => new TableCollection<T>()}
+    >
+      {(collection: TableCollection<T>) => (
+        <SimpleTableInternal {...props} collection={collection} />
+      )}
+    </CollectionBuilder>
+  );
+}
+
+interface SimpleTableInternalProps<T extends object> extends TableProps<T> {
+  collection: TableCollection<T>;
+}
+
+function SimpleTableInternal<T extends object>(
+  props: SimpleTableInternalProps<T>
+) {
+  const { selectionMode, selectionBehavior } = props;
+
+  const state = useTableState<T>({
     ...props,
+    children: undefined,
     showSelectionCheckboxes:
       selectionMode === "multiple" && selectionBehavior !== "replace",
   });
 
-  return <TableShared state={state} {...props} />;
+  return (
+    <TableStateContext.Provider value={state}>
+      <TableShared state={state} {...props} />;
+    </TableStateContext.Provider>
+  );
 }
 
 export function TreeGridTable<T extends object>(props: TableProps<T>) {
@@ -53,7 +82,7 @@ Table.Header = TableHeader;
 Table.Column = TableColumn;
 Table.Body = TableBody;
 Table.Footer = TableFooter;
-Table.Row = Row;
+Table.Row = TableRow;
 Table.Cell = TableCell;
 Table.Bottom = TableBottom;
 
@@ -87,7 +116,6 @@ function TableSkeleton(props: TableSkeletonProps) {
           </Table.Column>
         )}
       </Table.Header>
-      {/* @ts-expect-error - in this case, we don't care about an actual body since we won't be rendering one */}
       <Table.Body />
     </Table>
   );

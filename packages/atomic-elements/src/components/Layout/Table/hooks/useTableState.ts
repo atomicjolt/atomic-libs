@@ -1,19 +1,20 @@
 import {
   useTableState as useStatelyTableState,
   TableStateProps as StatelyTableStateProps,
-  TableCollection,
 } from "@react-stately/table";
 import { TableChildren, TableState } from "../Table.types";
 import {
   TableStateExtensionsProps,
   useTableStateExtensions,
 } from "./useTableStateExtensions";
-import { useTableCollection } from "./useTableCollection";
+import { TableCollection } from '../TableCollection';
+
 
 export interface TableStateProps<T extends object>
-  extends Omit<StatelyTableStateProps<T>, "children">,
+  extends Omit<StatelyTableStateProps<T>, "children" | "collection">,
     TableStateExtensionsProps {
   children?: TableChildren<T>;
+  collection: TableCollection<T>;
 }
 
 export function useTableState<T extends object>(
@@ -21,14 +22,10 @@ export function useTableState<T extends object>(
 ): TableState<T> {
   const state = useStatelyTableState(props as StatelyTableStateProps<T>);
   const stateExtensions = useTableStateExtensions(props, state);
-  const collection = useTableCollection(
-    props,
-    state.collection as TableCollection<T>
-  );
 
   return {
     ...state,
     ...stateExtensions,
-    collection,
+    collection: props.collection,
   };
 }

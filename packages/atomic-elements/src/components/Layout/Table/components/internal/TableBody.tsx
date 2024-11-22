@@ -1,6 +1,6 @@
-import { useRef } from "react";
-import { Expandable } from "@react-types/shared";
+import { Expandable, Node } from "@react-types/shared";
 import { useRenderProps } from "@hooks/useRenderProps";
+import { createBranchComponent } from "@react-aria/collections";
 import { TableRowGroup } from "./TableRowGroup";
 import { TableRow } from "./TableRow";
 import { TableCell } from "./TableCell";
@@ -15,34 +15,37 @@ import {
 import { StyledTBody } from "../../Table.styles";
 import { LoadingTableRows } from "./Loading";
 import { EmptyTable } from "./EmptyTable";
+import { TableStateContext } from "../../Table.context";
+import { useContext } from "react";
+import { HasChildren } from "../../../../../types";
+import { useCollectionRenderer } from "@hooks/useCollectionRenderer";
 
-interface TableBodyProps<T> extends Expandable, LoadingProps, PaginationProps {
-  state: TableState<T> | TreeGridState<T>;
-}
+export interface TableBodyProps<T>
+  extends Expandable,
+    LoadingProps,
+    HasChildren {}
 
-export function TableBody<T extends object>(props: TableBodyProps<T>) {
-  const {
-    state,
-    isLoading,
-    paginationDescriptor,
-    loadingRows = paginationDescriptor?.pageSize || 10,
-  } = props;
+export const TableBody = createBranchComponent("tablebody", function TableBody<
+  T extends object
+>(props: TableBodyProps<T>, ref: React.ForwardedRef<HTMLTableSectionElement>, body: Node<T>) {
+  const state = useContext(TableStateContext)!;
+  const { isLoading, loadingRows = 10 } = props;
   const { collection } = state;
-  const ref = useRef(null);
-
-  const rows = [...collection.body.childNodes];
 
   const renderProps = useRenderProps({
     componentClassName: "aje-table__body",
     ...collection.body.props,
     selectors: {
-      "data-empty": rows.length === 0,
+      // "data-empty": rows.length === 0,
     },
   });
 
+  const { CollectionBranchRenderer } = useCollectionRenderer();
+
   return (
     <TableRowGroup type={StyledTBody} ref={ref} {...renderProps}>
-      {rows.length === 0 && !isLoading && (
+      <CollectionBranchRenderer collection={state.collection} parent={body} />
+      {/* {rows.length === 0 && !isLoading && (
         <EmptyTable
           state={state}
           renderEmpty={state.collection.body.props?.renderEmpty}
@@ -68,7 +71,7 @@ export function TableBody<T extends object>(props: TableBodyProps<T>) {
               })}
             </TableRow>
           );
-        })}
+        })} */}
     </TableRowGroup>
   );
-}
+});

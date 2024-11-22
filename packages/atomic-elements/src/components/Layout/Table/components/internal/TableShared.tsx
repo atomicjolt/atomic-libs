@@ -8,6 +8,7 @@ import { TableFooter } from "./TableFooter";
 import { TablePagination } from "./TablePagination";
 import { TableHeader } from "./TableHeader";
 import { TableBody } from "./TableBody";
+import { useCollectionRenderer } from "@hooks/useCollectionRenderer";
 
 export interface TableInternalProps<T> extends TableProps<T> {
   state: TableState<T> | TreeGridState<T>;
@@ -22,8 +23,6 @@ export function TableShared<T extends object>(props: TableInternalProps<T>) {
     variant,
     isSticky,
     style,
-    paginationDescriptor = null,
-    onPaginationChange,
     isLoading = false,
     hasBottom = false,
   } = props;
@@ -60,25 +59,19 @@ export function TableShared<T extends object>(props: TableInternalProps<T>) {
     selectors: {
       "data-sticky": isSticky,
       "data-loading": isLoading,
-      "data-has-bottom": paginationDescriptor !== null || hasBottom,
+      "data-has-bottom": hasBottom,
     },
   });
+
+  console.log(state.collection);
+
+  const { CollectionRenderer } = useCollectionRenderer();
 
   return (
     <>
       <StyledTable {...gridProps} {...renderProps} ref={ref} id={props.id}>
-        <TableHeader state={state} />
-        <TableBody {...props} />
-        {state.collection.footer && <TableFooter state={state} />}
+        <CollectionRenderer collection={state.collection} />
       </StyledTable>
-
-      {paginationDescriptor && (
-        <TablePagination
-          descriptor={paginationDescriptor}
-          onChange={onPaginationChange}
-          isSticky={isSticky}
-        />
-      )}
     </>
   );
 }

@@ -21,7 +21,7 @@ import {
   SuggestStrings,
 } from "../../../types";
 import { TableFooterProps } from "./components/public/TableFooter";
-import { ElementsTableCollection } from "./TableCollection";
+import { TableCollection } from "./TableCollection";
 
 export interface PaginationProps {
   /** Object representing the current pagination state of the table */
@@ -93,7 +93,6 @@ export interface TableProps<T>
     SearchProps,
     ColumnReorderProps,
     RenderBaseProps<never>,
-    PaginationProps,
     Expandable,
     LoadingProps {
   /** Whether the table allows expandable rows.
@@ -127,11 +126,11 @@ export interface TableStateExtensions {
 export interface TableState<T>
   extends StatelyTableState<T>,
     TableStateExtensions {
-  collection: ElementsTableCollection<T>;
+  collection: TableCollection<T>;
 }
 
 export interface TreeGridState<T>
   extends StatelyTreeGridState<T>,
     TableStateExtensions {
-  collection: ElementsTableCollection<T>;
+  collection: TableCollection<T>;
 }

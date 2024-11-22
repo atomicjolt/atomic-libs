@@ -1,7 +1,8 @@
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import { useDrag, useDrop, TextDropItem } from "@react-aria/dnd";
-import { mergeProps } from "@react-aria/utils";
+import { mergeProps, useObjectRef } from "@react-aria/utils";
 import { GridNode } from "@react-types/grid";
+import { createLeafComponent } from "@react-aria/collections";
 
 import { useFocusRing } from "@hooks/useFocusRing";
 import { useRenderProps } from "@hooks/useRenderProps";
@@ -16,15 +17,21 @@ import {
 import { useExtendedTableColumnHeader } from "../../hooks/useExtendedTableColumnHeader";
 import { TableState, TreeGridState } from "../../Table.types";
 import { ColumnSearch } from "./ColumnSearch";
+import { TableStateContext } from "../../Table.context";
+import { Node } from "react-stately";
 
 interface TableColumnProps<T> {
-  column: GridNode<T>;
-  state: TableState<T> | TreeGridState<T>;
-  onDrop?: (columnKey: string) => void;
+  // column: GridNode<T>;
+  // state: TableState<T> | TreeGridState<T>;
+  // onDrop?: (columnKey: string) => void;
+  children?: React.ReactNode;
 }
 
-export function TableColumn<T extends object>(props: TableColumnProps<T>) {
-  const { column, state } = props;
+export const TableColumn = createLeafComponent("column", function TableColumn<
+  T extends object
+>(props: TableColumnProps<T>, forwardedRef: React.ForwardedRef<HTMLTableCellElement>, column: Node<T>) {
+  const state = useContext(TableStateContext)!;
+  const ref = useObjectRef(forwardedRef);
 
   // Placeholder cells don't have props
   column.props = column.props || {};
@@ -44,9 +51,8 @@ export function TableColumn<T extends object>(props: TableColumnProps<T>) {
 
   const showDivider = column.props.showDivider && !isLastCol;
 
-  const colSpan = column.colspan;
+  const colSpan = props.colspan;
 
-  const ref = useRef(null);
   const inputRef = useRef(null);
   const { columnHeaderProps, isSearching } = useExtendedTableColumnHeader(
     { node: column },
@@ -121,13 +127,13 @@ export function TableColumn<T extends object>(props: TableColumnProps<T>) {
           </>
         )}
 
-        {column.rendered}
+        {props.children}
         {column.props.allowsSorting &&
-          state.sortDescriptor.column === column.key && (
+          state.sortDescriptor?.column === column.key && (
             <MaterialIcon icon={arrowIcon} />
           )}
         {column.props.allowsSorting &&
-          state.sortDescriptor.column !== column.key && (
+          state.sortDescriptor?.column !== column.key && (
             <MaterialIcon icon="swap_vert" className="swap-icon" />
           )}
         {allowsSearching && (
@@ -141,4 +147,4 @@ export function TableColumn<T extends object>(props: TableColumnProps<T>) {
       </ColumnContent>
     </StyledTh>
   );
-}
+});
