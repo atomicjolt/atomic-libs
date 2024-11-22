@@ -1,5 +1,5 @@
-import { StyledCell, StyledRow } from "../../Table.styles";
-import { RenderEmptyProps, TableState, TreeGridState } from "../../Table.types";
+import { StyledCell, StyledRow } from "../Table.styles";
+import { RenderEmptyProps, TableState, TreeGridState } from "../Table.types";
 
 export interface EmptyTableProps<T> extends RenderEmptyProps {
   state: TableState<T> | TreeGridState<T>;

@@ -1,4 +1,4 @@
 import { createContext } from 'react';
-import { TableState } from './Table.types';
+import { TableState, TreeGridState } from './Table.types';
 
-export const TableStateContext = createContext<TableState<any> | null>(null);
+export const TableStateContext = createContext<TableState<any> | TreeGridState<any> | null>(null);

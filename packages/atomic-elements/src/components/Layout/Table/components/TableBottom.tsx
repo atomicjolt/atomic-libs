@@ -1,6 +1,6 @@
 import { useRenderProps } from "@hooks";
-import { RenderBaseProps } from "../../../../../types";
-import { StyledTableBottom } from "../../Table.styles";
+import { RenderBaseProps } from "../../../../types";
+import { StyledTableBottom } from "../Table.styles";
 
 interface TableBottomProps extends RenderBaseProps<never> {
   isSticky?: boolean;

@@ -1,5 +1,5 @@
-import { CellLoader, StyledCell, StyledRow } from "../../Table.styles";
-import { TableState, TreeGridState } from "../../Table.types";
+import { CellLoader, StyledCell, StyledRow } from "../Table.styles";
+import { TableState, TreeGridState } from "../Table.types";
 
 interface LoadingTableRowProps {
   state: TableState<any> | TreeGridState<any>;

@@ -2,8 +2,8 @@ import React, { ChangeEvent, forwardRef } from "react";
 import { GridNode } from "@react-types/grid";
 
 import { IconButton } from "@components/Buttons/IconButton";
-import { SearchInput, SearchComboInput } from "../../Table.styles";
-import { TableState, TreeGridState } from "../../Table.types";
+import { SearchInput, SearchComboInput } from "../Table.styles";
+import { TableState, TreeGridState } from "../Table.types";
 
 interface ColumnSearchProps<T> {
   column: GridNode<T>;

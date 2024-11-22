@@ -2,8 +2,8 @@ import { useRef } from "react";
 import { useTable } from "@react-aria/table";
 
 import { useRenderProps } from "@hooks/useRenderProps";
-import { TableProps, TableState, TreeGridState } from "../../Table.types";
-import { StyledTable } from "../../Table.styles";
+import { TableProps, TableState, TreeGridState } from "../Table.types";
+import { StyledTable } from "../Table.styles";
 import { TableFooter } from "./TableFooter";
 import { TablePagination } from "./TablePagination";
 import { TableHeader } from "./TableHeader";

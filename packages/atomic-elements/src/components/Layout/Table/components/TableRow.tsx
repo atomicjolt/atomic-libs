@@ -1,17 +1,20 @@
-import { useContext, useRef } from "react";
-import { mergeProps, useObjectRef } from "@react-aria/utils";
+import { useContext } from "react";
+import { filterDOMProps, mergeProps, useObjectRef } from "@react-aria/utils";
 import { useTableRow } from "@react-aria/table";
-import { Node } from "react-stately";
 import { createBranchComponent } from "@react-aria/collections";
+import { Node } from "react-stately";
 
-import { HasChildren } from "../../../../../types";
+import { DomProps, RenderBaseProps } from "../../../../types";
 import { useFocusRing } from "@hooks/useFocusRing";
 import { useRenderProps } from "@hooks/useRenderProps";
 import { useCollectionRenderer } from "@hooks/useCollectionRenderer";
-import { TableStateContext } from "../../Table.context";
-import { StyledRow } from "../../Table.styles";
+import { TableStateContext } from "../Table.context";
+import { StyledRow } from "../Table.styles";
 
-interface TableRowProps<T> extends HasChildren {}
+export interface TableRowProps<T> extends RenderBaseProps<never>, DomProps {
+  /** Callback when a user clicks on or otherwise interacts with the cell */
+  onAction?: () => void;
+}
 
 export const TableRow = createBranchComponent("row", function TableRow<
   T extends object
@@ -24,7 +27,7 @@ export const TableRow = createBranchComponent("row", function TableRow<
 
   const renderProps = useRenderProps({
     componentClassName: "aje-table__row",
-    className: props.className,
+    ...props,
     selectors: {
       "data-selected": isSelected,
     },
@@ -35,6 +38,7 @@ export const TableRow = createBranchComponent("row", function TableRow<
   return (
     <StyledRow
       {...mergeProps(rowProps, focusProps, renderProps)}
+      {...filterDOMProps(props)}
       ref={ref}
       id={props.id}
     >

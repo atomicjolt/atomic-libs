@@ -1,9 +1,9 @@
 import { useRef } from "react";
 import { useTableHeaderRow } from "@react-aria/table";
 import { Node } from "react-stately";
-import { HasChildren } from "../../../../../types";
+import { HasChildren } from "../../../../types";
 import { useRenderProps } from "@hooks/useRenderProps";
-import { TableState } from "../../Table.types";
+import { TableState } from "../Table.types";
 
 interface TableHeaderRowProps<T> extends HasChildren {
   item: Node<T>;

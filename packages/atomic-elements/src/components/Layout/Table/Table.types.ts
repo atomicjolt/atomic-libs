@@ -1,7 +1,5 @@
 import { AriaTableProps } from "@react-aria/table";
 import {
-  TableBodyProps,
-  TableHeaderProps,
   TableState as StatelyTableState,
   TreeGridState as StatelyTreeGridState,
 } from "@react-stately/table";
@@ -15,20 +13,11 @@ import {
 import {
   ExtendedSize,
   Key,
-  PaginationDescriptor,
   RenderBaseProps,
   SearchDescriptor,
   SuggestStrings,
 } from "../../../types";
-import { TableFooterProps } from "./components/public/TableFooter";
 import { TableCollection } from "./TableCollection";
-
-export interface PaginationProps {
-  /** Object representing the current pagination state of the table */
-  paginationDescriptor?: PaginationDescriptor;
-  /** Handler called whenever a change is made to the paginationDescriptor */
-  onPaginationChange?: (descriptor: PaginationDescriptor) => void;
-}
 
 export interface LoadingProps {
   /** Whether the table is in a loading state
@@ -62,22 +51,6 @@ export interface ColumnReorderProps {
 
 export type TableVariants = SuggestStrings<"default" | "grid" | "full-borders">;
 
-export type TableChildren<T> =
-  | [
-      React.ReactElement<TableHeaderProps<T>>,
-      React.ReactElement<TableBodyProps<T>>,
-    ]
-  | [
-      React.ReactElement<TableHeaderProps<T>>,
-      React.ReactElement<TableBodyProps<T>>,
-      React.ReactElement<TableFooterProps<T>>, // Footer is optional
-    ]
-  | [
-      React.ReactElement<TableHeaderProps<T>>,
-      React.ReactElement<TableFooterProps<T>>, // Footer is optional
-      React.ReactElement<TableBodyProps<T>>,
-    ];
-
 export interface RenderEmptyProps {
   /** The content to render when the table has no rows
    * The content provided is rendered within a Table row that
@@ -105,7 +78,7 @@ export interface TableProps<T>
   /** The selection behavior for the table. */
   selectionBehavior?: SelectionBehavior;
 
-  children?: TableChildren<T>;
+  children?: React.ReactNode;
 
   isSticky?: boolean;
 

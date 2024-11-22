@@ -3,33 +3,40 @@ import { useDrag, useDrop, TextDropItem } from "@react-aria/dnd";
 import { mergeProps, useObjectRef } from "@react-aria/utils";
 import { GridNode } from "@react-types/grid";
 import { createLeafComponent } from "@react-aria/collections";
+import { ColumnProps } from "@react-stately/table";
 
 import { useFocusRing } from "@hooks/useFocusRing";
 import { useRenderProps } from "@hooks/useRenderProps";
-import { MaterialIcon } from "../../../../Icons/MaterialIcon";
+import { MaterialIcon } from "../../../Icons/MaterialIcon";
 
-import {
-  ColumnDropIndicator,
-  ColumnContent,
-  StyledTh,
-} from "../../Table.styles";
+import { ColumnDropIndicator, ColumnContent, StyledTh } from "../Table.styles";
 
-import { useExtendedTableColumnHeader } from "../../hooks/useExtendedTableColumnHeader";
-import { TableState, TreeGridState } from "../../Table.types";
+import { useExtendedTableColumnHeader } from "../hooks/useExtendedTableColumnHeader";
 import { ColumnSearch } from "./ColumnSearch";
-import { TableStateContext } from "../../Table.context";
-import { Node } from "react-stately";
+import { TableStateContext } from "../Table.context";
+import { RenderBaseProps } from "../../../../types";
 
-interface TableColumnProps<T> {
-  // column: GridNode<T>;
-  // state: TableState<T> | TreeGridState<T>;
-  // onDrop?: (columnKey: string) => void;
-  children?: React.ReactNode;
+export interface TableColumnProps<T>
+  extends Omit<ColumnProps<T>, "children">,
+    RenderBaseProps<never> {
+  /** Whether the column can be re-orderd by dragging and dropping on another re-orderable column */
+  allowsReordering?: boolean;
+
+  /** Whether the column can be searched on */
+  allowsSearching?: boolean;
+
+  /** Whether to show a divider between this column and the next */
+  showDivider?: boolean;
+
+  id?: string;
+
+  /** The number of columns to span */
+  colSpan?: number;
 }
 
 export const TableColumn = createLeafComponent("column", function TableColumn<
   T extends object
->(props: TableColumnProps<T>, forwardedRef: React.ForwardedRef<HTMLTableCellElement>, column: Node<T>) {
+>(props: TableColumnProps<T>, forwardedRef: React.ForwardedRef<HTMLTableCellElement>, column: GridNode<T>) {
   const state = useContext(TableStateContext)!;
   const ref = useObjectRef(forwardedRef);
 
@@ -51,7 +58,7 @@ export const TableColumn = createLeafComponent("column", function TableColumn<
 
   const showDivider = column.props.showDivider && !isLastCol;
 
-  const colSpan = props.colspan;
+  const colSpan = props.colSpan;
 
   const inputRef = useRef(null);
   const { columnHeaderProps, isSearching } = useExtendedTableColumnHeader(
@@ -75,7 +82,6 @@ export const TableColumn = createLeafComponent("column", function TableColumn<
   const { dropProps, isDropTarget } = useDrop({
     ref,
     async onDrop(e) {
-      console.log("onDrop", e);
       const items = await Promise.all(
         e.items
           .filter(
@@ -86,7 +92,8 @@ export const TableColumn = createLeafComponent("column", function TableColumn<
       );
       const columnKey = items[0];
 
-      props.onDrop?.(columnKey);
+      // TODO: consider ripping this out?
+      // props.onDrop?.(columnKey);
     },
   });
 
@@ -97,8 +104,7 @@ export const TableColumn = createLeafComponent("column", function TableColumn<
 
   const renderProps = useRenderProps({
     componentClassName: "aje-table__column",
-    className,
-    style: column.props.style,
+    ...props,
     selectors: {
       "data-divider": showDivider,
       "data-sortable": allowsSorting,
@@ -126,7 +132,6 @@ export const TableColumn = createLeafComponent("column", function TableColumn<
             <MaterialIcon icon="drag_indicator" />
           </>
         )}
-
         {props.children}
         {column.props.allowsSorting &&
           state.sortDescriptor?.column === column.key && (

@@ -1,7 +1,7 @@
-import { StyledTableBottom } from "../../Table.styles";
+import { StyledTableBottom } from "../Table.styles";
 import { PageSizeSelect } from "@components/Pagination/PageSizeSelect";
 import { Pagination } from "@components/Pagination/Pagination";
-import { PaginationDescriptor } from "../../../../../types";
+import { PaginationDescriptor } from "../../../../types";
 import { useRenderProps } from "@hooks";
 import { Flex } from "@components/Layout/Flex/Flex";
 
