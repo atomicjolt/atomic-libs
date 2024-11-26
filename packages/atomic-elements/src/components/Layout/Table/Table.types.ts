@@ -64,7 +64,6 @@ export interface TableProps<T>
     MultipleSelection,
     Sortable,
     SearchProps,
-    ColumnReorderProps,
     RenderBaseProps<never>,
     Expandable,
     LoadingProps {

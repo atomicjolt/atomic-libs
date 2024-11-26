@@ -3,6 +3,15 @@ import { Table } from "../../../packages/atomic-elements/src/components/Layout/T
 import { CheckBox } from "../../../packages/atomic-elements/src/components/Inputs/Checkbox";
 import { SortDescriptor } from "react-stately";
 import { SearchDescriptor } from "@atomicjolt/atomic-elements";
+import { Collection } from "@react-aria/collections";
+
+function MyRow({ columns, children }) {
+  return (
+    <Table.Row>
+      <Collection items={columns}>{children}</Collection>
+    </Table.Row>
+  );
+}
 
 export default function Aria() {
   const [sortDesc, setSortDesc] = useState<SortDescriptor>({
@@ -40,14 +49,14 @@ export default function Aria() {
         "column-3": "Test value",
       },
     },
-    {
-      id: "row-2",
-      cells: {
-        "column-1": "Test value",
-        "column-2": "Test value",
-        "column-3": "Test value",
-      },
-    },
+    // {
+    //   id: "row-2",
+    //   cells: {
+    //     "column-1": "Test value",
+    //     "column-2": "Test value",
+    //     "column-3": "Test value",
+    //   },
+    // },
   ];
 
   return (
@@ -61,7 +70,7 @@ export default function Aria() {
         defaultSelectedKeys={["row-1"]}
       >
         <Table.Header>
-          <Table.Column width="5%">
+          <Table.Column width="1%">
             <CheckBox slot="selection" />
           </Table.Column>
           <Table.Column isRowHeader allowsSorting allowsSearching>
@@ -113,7 +122,9 @@ export default function Aria() {
         </Table.Header>
         <Table.Body items={rows}>
           {(row) => (
-            <MyRow name={row.cells["column-1"]} age={row.cells["column-2"]} />
+            <MyRow columns={columns}>
+              {(column) => <Table.Cell>{row.cells[column.id]}</Table.Cell>}
+            </MyRow>
           )}
         </Table.Body>
       </Table> */}
