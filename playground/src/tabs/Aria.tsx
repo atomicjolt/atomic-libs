@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   BaseCollection,
   Collection,
@@ -13,6 +13,8 @@ import {
 } from "@react-stately/table";
 import { useCollectionRenderer } from "../../../packages/atomic-elements/src/hooks/useCollectionRenderer";
 import { Table } from "../../../packages/atomic-elements/src/components/Layout/Table";
+import { SortDescriptor } from "react-stately";
+import { SearchDescriptor } from "@atomicjolt/atomic-elements";
 
 // function Table(props) {
 //   return (
@@ -100,7 +102,27 @@ import { Table } from "../../../packages/atomic-elements/src/components/Layout/T
 //   );
 // }
 
+function MyRow(props) {
+  return (
+    <Table.Row>
+      <Table.Cell>{props.name}</Table.Cell>
+      <Table.Cell>{props.age}</Table.Cell>
+      <Table.Cell>Test value</Table.Cell>
+    </Table.Row>
+  );
+}
+
 export default function Aria() {
+  const [sortDesc, setSortDesc] = useState<SortDescriptor>({
+    column: "column-1",
+    direction: "ascending",
+  });
+
+  const [searchDesc, setSearchDesc] = useState<SearchDescriptor>({
+    column: null,
+    search: "",
+  });
+
   const columns = [
     {
       id: "column-1",
@@ -138,22 +160,38 @@ export default function Aria() {
 
   return (
     <>
-      <Table>
+      <Table
+        onSortChange={setSortDesc}
+        sortDescriptor={sortDesc}
+        onSearchChange={setSearchDesc}
+        searchDescriptor={searchDesc}
+        selectionMode="multiple"
+        selectionBehavior="toggle"
+      >
         <Table.Header>
-          <Table.Column isRowHeader>Column 1</Table.Column>
-          <Table.Column>Column 2</Table.Column>
-          <Table.Column>Column 3</Table.Column>
+          <Table.Column isRowHeader allowsSorting allowsSearching>
+            Name
+          </Table.Column>
+          <Table.Column allowsSorting allowsSearching>
+            Type
+          </Table.Column>
+          <Table.Column>Level</Table.Column>
         </Table.Header>
         <Table.Body>
           <Table.Row>
-            <Table.Cell>Test value</Table.Cell>
-            <Table.Cell>Test value</Table.Cell>
-            <Table.Cell>Test value</Table.Cell>
+            <Table.Cell>Pikachu</Table.Cell>
+            <Table.Cell>Electric</Table.Cell>
+            <Table.Cell>25</Table.Cell>
           </Table.Row>
           <Table.Row>
-            <Table.Cell>Test value</Table.Cell>
-            <Table.Cell>Test value</Table.Cell>
-            <Table.Cell>Test value</Table.Cell>
+            <Table.Cell>Charmander</Table.Cell>
+            <Table.Cell>Fire</Table.Cell>
+            <Table.Cell>15</Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell>Bulbasaur</Table.Cell>
+            <Table.Cell>Grass/Poison</Table.Cell>
+            <Table.Cell>20</Table.Cell>
           </Table.Row>
         </Table.Body>
       </Table>
@@ -171,11 +209,7 @@ export default function Aria() {
         </Table.Header>
         <Table.Body items={rows}>
           {(row) => (
-            <Table.Row>
-              {columns.map((column) => (
-                <Table.Cell>{row.cells[column.id]}</Table.Cell>
-              ))}
-            </Table.Row>
+            <MyRow name={row.cells["column-1"]} age={row.cells["column-2"]} />
           )}
         </Table.Body>
       </Table>

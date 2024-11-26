@@ -63,8 +63,6 @@ export function TableShared<T extends object>(props: TableInternalProps<T>) {
     },
   });
 
-  console.log(state.collection);
-
   const { CollectionRenderer } = useCollectionRenderer();
 
   return (

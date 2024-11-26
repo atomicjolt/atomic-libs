@@ -8,11 +8,14 @@ import { StyledTBody } from "../Table.styles";
 import { LoadingTableRows } from "./Loading";
 import { EmptyTable } from "./EmptyTable";
 import { TableStateContext } from "../Table.context";
-import { TableBodyProps as StatelyBodyProps } from "react-stately";
 import { useCollectionRenderer } from "@hooks/useCollectionRenderer";
 
-export interface TableBodyProps<T> extends StatelyBodyProps<T>, LoadingProps {
+export interface TableBodyProps<T> extends LoadingProps {
   renderEmpty?: (() => React.ReactNode) | React.ReactNode;
+  /** The contents of the table body. Supports static items or a function for dynamic rendering. */
+  children?: React.ReactNode | ((item: T) => React.ReactNode);
+  /** A list of row objects in the table body used when dynamically rendering rows. */
+  items?: Iterable<T>;
 }
 
 export const TableBody = createBranchComponent(

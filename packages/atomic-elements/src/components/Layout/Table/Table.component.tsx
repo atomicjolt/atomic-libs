@@ -15,14 +15,13 @@ import { useTableState } from "./hooks/useTableState";
 import { TableStateContext } from "./Table.context";
 
 // TODO:
-// - Reimplement Column Ordering
-// - Reimplement Column Searching
-// - Reimplmenet Column Sorting
 // - Reimplement Row Selection (slots?)
 // - Reimplement Tree Grid Table
-// - Reimplement Column Nesting
 
 // TODO:
+// - Reimplement Column Ordering
+// - Reimplement Column Nesting
+// - Reimplement support for rendering cell children with <Collection />
 // - Implement Row ordering
 
 /** Table component that supports sorting, row selection, and column reordering.  */

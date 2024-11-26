@@ -21,7 +21,7 @@ export const ColumnSearch = forwardRef(function ColumnSearch<T>(
 
   return (
     <>
-      <SearchComboInput aria-expanded={isSearching}>
+      <SearchComboInput aria-expanded={isSearching} padding={"left"}>
         <SearchInput
           role="search"
           aria-label={`Search ${title || column.key}`}

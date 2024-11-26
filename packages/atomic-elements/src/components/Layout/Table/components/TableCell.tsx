@@ -76,7 +76,7 @@ export const TableCell = createLeafComponent("cell", function TableCell<
       state.expandedKeys === "all" || state.expandedKeys.has(cell.parentKey!);
   }
 
-  const nestedLevel = cell.level - 2;
+  const nestedLevel = Math.max(cell.level - 2, 0);
 
   const levelOffset = isRowHeaderCell
     ? `calc(var(--table-padding-horz) + var(--table-nesting-offset) * ${nestedLevel})`
