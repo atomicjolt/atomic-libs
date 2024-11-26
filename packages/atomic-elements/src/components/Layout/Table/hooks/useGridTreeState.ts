@@ -3,7 +3,7 @@ import {
   UNSTABLE_useTreeGridState,
 } from "@react-stately/table";
 import { enableTableNestedRows } from "@react-stately/flags";
-import { TableChildren, TableState } from "../Table.types";
+import { TableState } from "../Table.types";
 import {
   TableStateExtensionsProps,
   useTableStateExtensions,
@@ -11,11 +11,9 @@ import {
 import { Expandable } from "@react-types/shared";
 
 export interface TreeGridStateProps<T extends object>
-  extends Omit<StatelyTreeGridStateProps<T>, "children">,
+  extends StatelyTreeGridStateProps<T>,
     TableStateExtensionsProps,
-    Expandable {
-  children?: TableChildren<T>;
-}
+    Expandable {}
 
 export function useGridTreeState<T extends object>(
   props: TreeGridStateProps<T>

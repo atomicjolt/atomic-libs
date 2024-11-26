@@ -61,7 +61,93 @@ export default function Aria() {
 
   return (
     <>
-      <Table
+      <Table allowsExpandableRows>
+        <Table.Header>
+          <Table.Column id="name" isRowHeader>
+            Name
+          </Table.Column>
+          <Table.Column id="specialMove">Special Move</Table.Column>
+          <Table.Column id="level">Level</Table.Column>
+        </Table.Header>
+        <Table.Body>
+          <Table.Row>
+            <Table.Cell>Charmander</Table.Cell>
+            <Table.Cell>Ember</Table.Cell>
+            <Table.Cell>15</Table.Cell>
+          </Table.Row>
+
+          {/* <Table.Row id="Fire, Flying">
+            <Table.Cell>Fire, Flying </Table.Cell>
+            <Table.Cell />
+            <Table.Cell />
+            <Table.Row>
+              <Table.Cell>Charizard</Table.Cell>
+              <Table.Cell>Flamethrower</Table.Cell>
+              <Table.Cell>67</Table.Cell>
+            </Table.Row>
+
+            <Table.Row>
+              <Table.Cell>Moltres</Table.Cell>
+              <Table.Cell>Fire Spin</Table.Cell>
+              <Table.Cell>60</Table.Cell>
+            </Table.Row>
+          </Table.Row>
+          <Table.Row id="Water">
+            <Table.Cell>Water</Table.Cell>
+            <Table.Cell />
+            <Table.Cell />
+
+            <Table.Row>
+              <Table.Cell>Blastoise</Table.Cell>
+              <Table.Cell>Hydro Pump</Table.Cell>
+              <Table.Cell>56</Table.Cell>
+            </Table.Row>
+
+            <Table.Row>
+              <Table.Cell>Vaporeon</Table.Cell>
+              <Table.Cell>Aqua Tail</Table.Cell>
+              <Table.Cell>65</Table.Cell>
+            </Table.Row>
+          </Table.Row>
+          <Table.Row id="Grass, Poison">
+            <Table.Cell>Grass, Poison</Table.Cell>
+            <Table.Cell />
+            <Table.Cell />
+
+            <Table.Row>
+              <Table.Cell>Venusaur</Table.Cell>
+              <Table.Cell>Solar Beam</Table.Cell>
+              <Table.Cell>83</Table.Cell>
+            </Table.Row>
+
+            <Table.Row>
+              <Table.Cell>Victreebel</Table.Cell>
+              <Table.Cell>Leaf Blade</Table.Cell>
+              <Table.Cell>70</Table.Cell>
+            </Table.Row>
+          </Table.Row>
+
+          <Table.Row key="Electric">
+            <Table.Cell>Electric</Table.Cell>
+            <Table.Cell />
+            <Table.Cell />
+
+            <Table.Row>
+              <Table.Cell>Pikachu</Table.Cell>
+              <Table.Cell>Thunderbolt</Table.Cell>
+              <Table.Cell>100</Table.Cell>
+            </Table.Row>
+
+            <Table.Row>
+              <Table.Cell>Raichu</Table.Cell>
+              <Table.Cell>Thunder Punch</Table.Cell>
+              <Table.Cell>90</Table.Cell>
+            </Table.Row>
+          </Table.Row> */}
+        </Table.Body>
+      </Table>
+
+      {/* <Table
         onSortChange={setSortDesc}
         sortDescriptor={sortDesc}
         onSearchChange={setSearchDesc}
@@ -107,7 +193,7 @@ export default function Aria() {
             <Table.Cell>20</Table.Cell>
           </Table.Row>
         </Table.Body>
-      </Table>
+      </Table> */}
 
       <br />
       <br />

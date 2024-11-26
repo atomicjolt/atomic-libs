@@ -22,37 +22,62 @@ import { TableStateContext } from "./Table.context";
 // - Reimplement Column Ordering
 // - Implement Row ordering
 
-/** Table component that supports sorting, row selection, and column reordering.  */
+/** Table component
+ *
+ * Features:
+ * - Column Sorting
+ * - Column Searching
+ * - Row & Cell Actions
+ * - Row Selection
+ * - Row Nesting
+ *
+ * @example
+ * ```jsx
+ * <Table>
+ *  <Table.Header>
+ *    <Table.Column isRowHeader>Column 1</Table.Column>
+ *    <Table.Column>Column 2</Table.Column>
+ *    <Table.Column>Column 3</Table.Column>
+ *  </Table.Header>
+ *  <Table.Body>
+ *    <Table.Row>
+ *      <Table.Cell>Row 1, Cell 1</Table.Cell>
+ *      <Table.Cell>Row 1, Cell 2</Table.Cell>
+ *      <Table.Cell>Row 1, Cell 3</Table.Cell>
+ *    </Table.Row>
+ *    <Table.Row>
+ *      <Table.Cell>Row 2, Cell 1</Table.Cell>
+ *      <Table.Cell>Row 2, Cell 2</Table.Cell>
+ *      <Table.Cell>Row 2, Cell 3</Table.Cell>
+ *     </Table.Row>
+ *   </Table.Body>
+ * </Table>
+ */
 export function Table<T extends object>(props: TableProps<T>) {
   const { allowsExpandableRows } = props;
 
-  if (allowsExpandableRows) {
-    return <TreeGridTable {...props} />;
-  }
-
-  return <SimpleTable {...props} />;
-}
-
-export function SimpleTable<T extends object>(props: TableProps<T>) {
   return (
     <CollectionBuilder
       content={<Collection {...props} />}
       createCollection={() => new TableCollection<T>()}
     >
-      {(collection: TableCollection<T>) => (
-        <SimpleTableInternal {...props} collection={collection} />
-      )}
+      {(collection: TableCollection<T>) =>
+        allowsExpandableRows ? (
+          <SimpleTableInternal {...props} collection={collection} />
+        ) : (
+          <SimpleTableInternal {...props} collection={collection} />
+        )
+      }
     </CollectionBuilder>
   );
 }
 
-interface SimpleTableInternalProps<T extends object> extends TableProps<T> {
+interface TableInternalProps<T extends object> extends TableProps<T> {
   collection: TableCollection<T>;
 }
 
-function SimpleTableInternal<T extends object>(
-  props: SimpleTableInternalProps<T>
-) {
+function SimpleTableInternal<T extends object>(props: TableInternalProps<T>) {
+  console.log(props.collection);
   const state = useTableState<T>({
     ...props,
     children: undefined,
@@ -65,16 +90,17 @@ function SimpleTableInternal<T extends object>(
   );
 }
 
-export function TreeGridTable<T extends object>(props: TableProps<T>) {
-  const { selectionMode, selectionBehavior } = props;
-
-  const state = useGridTreeState({
+function TreeGridTableInternal<T extends object>(props: TableInternalProps<T>) {
+  const state = useGridTreeState<T>({
     ...props,
-    showSelectionCheckboxes:
-      selectionMode === "multiple" && selectionBehavior !== "replace",
+    children: undefined,
   });
 
-  return <TableShared state={state} {...props} />;
+  return (
+    <TableStateContext.Provider value={state}>
+      <TableShared state={state} {...props} />
+    </TableStateContext.Provider>
+  );
 }
 
 Table.Header = TableHeader;
@@ -85,9 +111,12 @@ Table.Cell = TableCell;
 Table.Bottom = TableBottom;
 
 interface TableSkeletonProps {
+  /** Number of columns in the table */
   columns: number;
+  /** Number of rows in the table
+   * @default 10
+   */
   rows?: number;
-  paginationDescriptor?: PaginationDescriptor;
 }
 
 function TableSkeleton(props: TableSkeletonProps) {

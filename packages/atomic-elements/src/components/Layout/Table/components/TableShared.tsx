@@ -6,11 +6,11 @@ import { StyledTable } from "../Table.styles";
 import { useRenderProps } from "@hooks/useRenderProps";
 import { useCollectionRenderer } from "@hooks/useCollectionRenderer";
 
-export interface TableInternalProps<T> extends TableProps<T> {
+export interface TableSharedProps<T> extends TableProps<T> {
   state: TableState<T> | TreeGridState<T>;
 }
 
-export function TableShared<T extends object>(props: TableInternalProps<T>) {
+export function TableShared<T extends object>(props: TableSharedProps<T>) {
   const {
     state,
     onRowAction,
