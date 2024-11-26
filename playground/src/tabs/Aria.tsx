@@ -1,116 +1,8 @@
 import React, { useState } from "react";
-import {
-  BaseCollection,
-  Collection,
-  CollectionBuilder,
-  createBranchComponent,
-  createLeafComponent,
-} from "@react-aria/collections";
-import {
-  useTableState as useStatelyTableState,
-  TableStateProps as StatelyTableStateProps,
-  TableCollection,
-} from "@react-stately/table";
-import { useCollectionRenderer } from "../../../packages/atomic-elements/src/hooks/useCollectionRenderer";
 import { Table } from "../../../packages/atomic-elements/src/components/Layout/Table";
+import { CheckBox } from "../../../packages/atomic-elements/src/components/Inputs/Checkbox";
 import { SortDescriptor } from "react-stately";
 import { SearchDescriptor } from "@atomicjolt/atomic-elements";
-
-// function Table(props) {
-//   return (
-//     <CollectionBuilder content={<Collection {...props} />}>
-//       {(collection: BaseCollection<any>) => (
-//         <InternalTable {...props} collection={collection} />
-//       )}
-//     </CollectionBuilder>
-//   );
-// }
-
-// const TableHeader = createBranchComponent(
-//   "tableheader",
-//   (props, ref, header) => {
-//     const state = React.useContext(TableStateContext);
-
-//     if (!state) return props.children;
-
-//     const { CollectionBranchRenderer } = useCollectionRenderer();
-//     return (
-//       <thead>
-//         <tr>
-//           <CollectionBranchRenderer
-//             collection={state.collection!}
-//             parent={header}
-//           />
-//         </tr>
-//       </thead>
-//     );
-//   }
-// );
-
-// const TableBody = createBranchComponent("tablebody", (props, ref, body) => {
-//   const state = React.useContext(TableStateContext);
-
-//   if (!state) return props.children;
-
-//   const { CollectionBranchRenderer } = useCollectionRenderer();
-//   return (
-//     <tbody>
-//       <CollectionBranchRenderer collection={state.collection} parent={body} />
-//     </tbody>
-//   );
-// });
-
-// const TableColumn = createBranchComponent("column", (props) => {
-//   return <td>{props.children}</td>;
-// });
-
-// const TableRow = createBranchComponent("row", (props, ref, row) => {
-//   const state = React.useContext(TableStateContext);
-
-//   if (!state) return props.children;
-
-//   const { CollectionBranchRenderer } = useCollectionRenderer();
-//   return (
-//     <tr>
-//       <CollectionBranchRenderer collection={state.collection} parent={row} />
-//     </tr>
-//   );
-// });
-
-// const TableCell = createLeafComponent("cell", (props) => {
-//   return <td>{props.children}</td>;
-// });
-
-// const TableStateContext =
-//   React.createContext<StatelyTableStateProps<any> | null>(null);
-
-// function InternalTable(props) {
-//   console.log(props.collection);
-//   const { CollectionRenderer } = useCollectionRenderer();
-
-//   const state = useStatelyTableState({
-//     ...props,
-//     children: undefined,
-//   });
-
-//   return (
-//     <TableStateContext.Provider value={state}>
-//       <table>
-//         <CollectionRenderer collection={props.collection} />
-//       </table>
-//     </TableStateContext.Provider>
-//   );
-// }
-
-function MyRow(props) {
-  return (
-    <Table.Row>
-      <Table.Cell>{props.name}</Table.Cell>
-      <Table.Cell>{props.age}</Table.Cell>
-      <Table.Cell>Test value</Table.Cell>
-    </Table.Row>
-  );
-}
 
 export default function Aria() {
   const [sortDesc, setSortDesc] = useState<SortDescriptor>({
@@ -166,9 +58,12 @@ export default function Aria() {
         onSearchChange={setSearchDesc}
         searchDescriptor={searchDesc}
         selectionMode="multiple"
-        selectionBehavior="toggle"
+        defaultSelectedKeys={["row-1"]}
       >
         <Table.Header>
+          <Table.Column width="5%">
+            <CheckBox slot="selection" />
+          </Table.Column>
           <Table.Column isRowHeader allowsSorting allowsSearching>
             Name
           </Table.Column>
@@ -178,17 +73,26 @@ export default function Aria() {
           <Table.Column>Level</Table.Column>
         </Table.Header>
         <Table.Body>
-          <Table.Row>
+          <Table.Row id="row-1">
+            <Table.Cell>
+              <CheckBox slot="selection" />
+            </Table.Cell>
             <Table.Cell>Pikachu</Table.Cell>
             <Table.Cell>Electric</Table.Cell>
             <Table.Cell>25</Table.Cell>
           </Table.Row>
           <Table.Row>
+            <Table.Cell>
+              <CheckBox slot="selection" />
+            </Table.Cell>
             <Table.Cell>Charmander</Table.Cell>
             <Table.Cell>Fire</Table.Cell>
             <Table.Cell>15</Table.Cell>
           </Table.Row>
           <Table.Row>
+            <Table.Cell>
+              <CheckBox slot="selection" />
+            </Table.Cell>
             <Table.Cell>Bulbasaur</Table.Cell>
             <Table.Cell>Grass/Poison</Table.Cell>
             <Table.Cell>20</Table.Cell>
@@ -199,7 +103,7 @@ export default function Aria() {
       <br />
       <br />
 
-      <Table>
+      {/* <Table>
         <Table.Header columns={columns}>
           {(column) => (
             <Table.Column isRowHeader={column.isRowHeader}>
@@ -212,7 +116,7 @@ export default function Aria() {
             <MyRow name={row.cells["column-1"]} age={row.cells["column-2"]} />
           )}
         </Table.Body>
-      </Table>
+      </Table> */}
     </>
   );
 }

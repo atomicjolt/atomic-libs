@@ -113,7 +113,7 @@ export const TableCell = createLeafComponent("cell", function TableCell<
 
   return (
     <Element {...cellProps} ref={ref}>
-      <Flex alignItems="center" gap={"var(--table-padding-horz)"}>
+      {/* <Flex alignItems="center" gap={"var(--table-padding-horz)"}>
         {showExpandButton && (
           <IconButton
             icon={isExpanded ? "expand_more" : "chevron_right"}
@@ -128,7 +128,8 @@ export const TableCell = createLeafComponent("cell", function TableCell<
         <CellContent className="aje-table__cell__content">
           {renderProps.children}
         </CellContent>
-      </Flex>
+      </Flex> */}
+      {renderProps.children}
     </Element>
   );
 });

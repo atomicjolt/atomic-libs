@@ -10,6 +10,9 @@ import {
 import { Collection, createBranchComponent } from "@react-aria/collections";
 import { TableStateContext } from "../Table.context";
 import { useCollectionRenderer } from "@hooks/useCollectionRenderer";
+import { CheckBoxContext } from "@components/Inputs/Checkbox";
+import { useTableSelectAllCheckbox } from "@react-aria/table";
+import { DEFAULT_SLOT } from "@hooks/useSlottedContext";
 
 export interface TableHeaderProps<T> extends StatelyTableHeaderProps<T> {}
 
@@ -21,6 +24,7 @@ export const TableHeader = createBranchComponent(
     header: Node<T>
   ) {
     const state = useContext(TableStateContext)!;
+    const { checkboxProps } = useTableSelectAllCheckbox(state);
 
     const { CollectionBranchRenderer } = useCollectionRenderer();
 
@@ -29,14 +33,23 @@ export const TableHeader = createBranchComponent(
     });
 
     return (
-      <TableRowGroup type={StyledThead} {...renderProps} ref={ref}>
-        <TableHeaderRow item={header} state={state}>
-          <CollectionBranchRenderer
-            collection={state.collection!}
-            parent={header}
-          />
-        </TableHeaderRow>
-      </TableRowGroup>
+      <CheckBoxContext.Provider
+        value={{
+          slots: {
+            [DEFAULT_SLOT]: {},
+            selection: checkboxProps,
+          },
+        }}
+      >
+        <TableRowGroup type={StyledThead} {...renderProps} ref={ref}>
+          <TableHeaderRow item={header} state={state}>
+            <CollectionBranchRenderer
+              collection={state.collection!}
+              parent={header}
+            />
+          </TableHeaderRow>
+        </TableRowGroup>
+      </CheckBoxContext.Provider>
     );
   },
   (props) => <Collection items={props.columns}>{props.children}</Collection>

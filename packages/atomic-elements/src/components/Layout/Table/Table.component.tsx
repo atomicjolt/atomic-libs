@@ -15,13 +15,11 @@ import { useTableState } from "./hooks/useTableState";
 import { TableStateContext } from "./Table.context";
 
 // TODO:
-// - Reimplement Row Selection (slots?)
-// - Reimplement Tree Grid Table
-
-// TODO:
-// - Reimplement Column Ordering
 // - Reimplement Column Nesting
 // - Reimplement support for rendering cell children with <Collection />
+// - Reimplement Tree Grid Table
+
+// - Reimplement Column Ordering
 // - Implement Row ordering
 
 /** Table component that supports sorting, row selection, and column reordering.  */
@@ -55,13 +53,9 @@ interface SimpleTableInternalProps<T extends object> extends TableProps<T> {
 function SimpleTableInternal<T extends object>(
   props: SimpleTableInternalProps<T>
 ) {
-  const { selectionMode, selectionBehavior } = props;
-
   const state = useTableState<T>({
     ...props,
     children: undefined,
-    showSelectionCheckboxes:
-      selectionMode === "multiple" && selectionBehavior !== "replace",
   });
 
   return (
