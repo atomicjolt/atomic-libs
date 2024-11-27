@@ -13,13 +13,6 @@ import { TableOptionsContext } from "./Table.context";
 import { SimpleTable } from "./components/SimpleTable";
 import { TreeGridTable } from "./components/TreeGridTable";
 
-// TODO:
-// - Reimplement Column Nesting
-// - Implement Row ordering
-
-// - Reimplement Tree Grid Table
-// - Reimplement Column Ordering
-
 /** Table component
  *
  * Features:
