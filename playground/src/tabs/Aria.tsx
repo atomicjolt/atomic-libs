@@ -2,16 +2,8 @@ import React, { useState } from "react";
 import { Table } from "../../../packages/atomic-elements/src/components/Layout/Table";
 import { CheckBox } from "../../../packages/atomic-elements/src/components/Inputs/Checkbox";
 import { SortDescriptor } from "react-stately";
-import { SearchDescriptor } from "@atomicjolt/atomic-elements";
+import { Button, SearchDescriptor } from "@atomicjolt/atomic-elements";
 import { Collection } from "@react-aria/collections";
-
-function MyRow({ columns, children }) {
-  return (
-    <Table.Row>
-      <Collection items={columns}>{children}</Collection>
-    </Table.Row>
-  );
-}
 
 export default function Aria() {
   const [sortDesc, setSortDesc] = useState<SortDescriptor>({
@@ -20,19 +12,25 @@ export default function Aria() {
   });
 
   const [searchDesc, setSearchDesc] = useState<SearchDescriptor>({
-    column: null,
+    column: "column-1",
     search: "",
   });
+
+  const [selectEnabled, setSelectEnabled] = useState(true);
 
   const columns = [
     {
       id: "column-1",
       title: "Column 1",
       isRowHeader: true,
+      allowsSorting: true,
+      allowsSearching: true,
     },
     {
       id: "column-2",
       title: "Column 2",
+      allowsSorting: true,
+      allowsSearching: true,
     },
     {
       id: "column-3",
@@ -49,19 +47,21 @@ export default function Aria() {
         "column-3": "Test value",
       },
     },
-    // {
-    //   id: "row-2",
-    //   cells: {
-    //     "column-1": "Test value",
-    //     "column-2": "Test value",
-    //     "column-3": "Test value",
-    //   },
-    // },
+    {
+      id: "row-2",
+      cells: {
+        "column-1": "Test value",
+        "column-2": "Test value",
+        "column-3": "Test value",
+      },
+    },
   ];
+
+  console.log(searchDesc);
 
   return (
     <>
-      <Table allowsExpandableRows>
+      {/* <Table >
         <Table.Header>
           <Table.Column id="name" isRowHeader>
             Name
@@ -75,77 +75,8 @@ export default function Aria() {
             <Table.Cell>Ember</Table.Cell>
             <Table.Cell>15</Table.Cell>
           </Table.Row>
-
-          {/* <Table.Row id="Fire, Flying">
-            <Table.Cell>Fire, Flying </Table.Cell>
-            <Table.Cell />
-            <Table.Cell />
-            <Table.Row>
-              <Table.Cell>Charizard</Table.Cell>
-              <Table.Cell>Flamethrower</Table.Cell>
-              <Table.Cell>67</Table.Cell>
-            </Table.Row>
-
-            <Table.Row>
-              <Table.Cell>Moltres</Table.Cell>
-              <Table.Cell>Fire Spin</Table.Cell>
-              <Table.Cell>60</Table.Cell>
-            </Table.Row>
-          </Table.Row>
-          <Table.Row id="Water">
-            <Table.Cell>Water</Table.Cell>
-            <Table.Cell />
-            <Table.Cell />
-
-            <Table.Row>
-              <Table.Cell>Blastoise</Table.Cell>
-              <Table.Cell>Hydro Pump</Table.Cell>
-              <Table.Cell>56</Table.Cell>
-            </Table.Row>
-
-            <Table.Row>
-              <Table.Cell>Vaporeon</Table.Cell>
-              <Table.Cell>Aqua Tail</Table.Cell>
-              <Table.Cell>65</Table.Cell>
-            </Table.Row>
-          </Table.Row>
-          <Table.Row id="Grass, Poison">
-            <Table.Cell>Grass, Poison</Table.Cell>
-            <Table.Cell />
-            <Table.Cell />
-
-            <Table.Row>
-              <Table.Cell>Venusaur</Table.Cell>
-              <Table.Cell>Solar Beam</Table.Cell>
-              <Table.Cell>83</Table.Cell>
-            </Table.Row>
-
-            <Table.Row>
-              <Table.Cell>Victreebel</Table.Cell>
-              <Table.Cell>Leaf Blade</Table.Cell>
-              <Table.Cell>70</Table.Cell>
-            </Table.Row>
-          </Table.Row>
-
-          <Table.Row key="Electric">
-            <Table.Cell>Electric</Table.Cell>
-            <Table.Cell />
-            <Table.Cell />
-
-            <Table.Row>
-              <Table.Cell>Pikachu</Table.Cell>
-              <Table.Cell>Thunderbolt</Table.Cell>
-              <Table.Cell>100</Table.Cell>
-            </Table.Row>
-
-            <Table.Row>
-              <Table.Cell>Raichu</Table.Cell>
-              <Table.Cell>Thunder Punch</Table.Cell>
-              <Table.Cell>90</Table.Cell>
-            </Table.Row>
-          </Table.Row> */}
         </Table.Body>
-      </Table>
+      </Table> */}
 
       {/* <Table
         onSortChange={setSortDesc}
@@ -198,22 +129,37 @@ export default function Aria() {
       <br />
       <br />
 
-      {/* <Table>
+      <Button onPress={() => setSelectEnabled(!selectEnabled)}>
+        Toggle selection ({selectEnabled ? "enabled" : "disabled"})
+      </Button>
+
+      <Table
+        selectionMode={selectEnabled ? "multiple" : "none"}
+        sortDescriptor={sortDesc}
+        onSortChange={setSortDesc}
+        searchDescriptor={searchDesc}
+        onSearchChange={setSearchDesc}
+      >
         <Table.Header columns={columns}>
           {(column) => (
-            <Table.Column isRowHeader={column.isRowHeader}>
+            <Table.Column
+              isRowHeader={column.isRowHeader}
+              allowsSorting={column.allowsSorting}
+              textValue={column.title}
+              allowsSearching={column.allowsSearching}
+            >
               {column.title}
             </Table.Column>
           )}
         </Table.Header>
         <Table.Body items={rows}>
           {(row) => (
-            <MyRow columns={columns}>
+            <Table.Row columns={columns}>
               {(column) => <Table.Cell>{row.cells[column.id]}</Table.Cell>}
-            </MyRow>
+            </Table.Row>
           )}
         </Table.Body>
-      </Table> */}
+      </Table>
     </>
   );
 }

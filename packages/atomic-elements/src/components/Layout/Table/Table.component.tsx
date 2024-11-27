@@ -1,24 +1,26 @@
 import { Collection, CollectionBuilder } from "@react-aria/collections";
-import { TableProps } from "./Table.types";
+import { TableOptions, TableProps } from "./Table.types";
 import { useGridTreeState } from "./hooks/useGridTreeState";
 import { TableShared } from "./components/TableShared";
-import { TableRow } from "./components/TableRow";
+import { TableRow, TableRowWrapper } from "./components/TableRow";
 import { TableCell } from "./components/TableCell";
-import { TableHeader } from "./components/TableHeader";
-import { TableColumn } from "./components/TableColumn";
+import { TableHeader, TableHeaderWrapper } from "./components/TableHeader";
+import { TableColumn, TableColumnWrapper } from "./components/TableColumn";
 import { TableBody } from "./components/TableBody";
 import { LoadingCellContent } from "./components/Loading";
 import { PaginationDescriptor } from "../../../types";
 import { TableBottom } from "./components/TableBottom";
 import { TableCollection } from "./TableCollection";
 import { useTableState } from "./hooks/useTableState";
-import { TableStateContext } from "./Table.context";
+import { TableOptionsContext, TableStateContext } from "./Table.context";
+import { useMemo } from "react";
+import { Provider } from "@components/Internal/Provider";
 
 // TODO:
 // - Reimplement Column Nesting
 // - Reimplement support for rendering cell children with <Collection />
-// - Reimplement Tree Grid Table
 
+// - Reimplement Tree Grid Table
 // - Reimplement Column Ordering
 // - Implement Row ordering
 
@@ -56,14 +58,36 @@ import { TableStateContext } from "./Table.context";
 export function Table<T extends object>(props: TableProps<T>) {
   const { allowsExpandableRows } = props;
 
+  const tableOptions: TableOptions = useMemo(
+    () => ({
+      allowsExpandableRows: false,
+      hasBottom: props.hasBottom,
+      isSticky: props.isSticky,
+      selectionBehavior: props.selectionBehavior,
+      selectionMode: props.selectionMode,
+    }),
+    [
+      props.hasBottom,
+      props.isSticky,
+      props.selectionBehavior,
+      props.selectionMode,
+    ]
+  );
+
+  const content = (
+    <TableOptionsContext.Provider value={tableOptions}>
+      <Collection {...props} />
+    </TableOptionsContext.Provider>
+  );
+
   return (
     <CollectionBuilder
-      content={<Collection {...props} />}
+      content={content}
       createCollection={() => new TableCollection<T>()}
     >
       {(collection: TableCollection<T>) =>
         allowsExpandableRows ? (
-          <SimpleTableInternal {...props} collection={collection} />
+          <TreeGridTableInternal {...props} collection={collection} />
         ) : (
           <SimpleTableInternal {...props} collection={collection} />
         )
@@ -77,20 +101,21 @@ interface TableInternalProps<T extends object> extends TableProps<T> {
 }
 
 function SimpleTableInternal<T extends object>(props: TableInternalProps<T>) {
-  console.log(props.collection);
   const state = useTableState<T>({
     ...props,
     children: undefined,
   });
 
   return (
-    <TableStateContext.Provider value={state}>
+    <Provider values={[[TableStateContext.Provider, state]]}>
       <TableShared state={state} {...props} />
-    </TableStateContext.Provider>
+    </Provider>
   );
 }
 
 function TreeGridTableInternal<T extends object>(props: TableInternalProps<T>) {
+  throw new Error("allowExpandableRows is not currently implemented");
+
   const state = useGridTreeState<T>({
     ...props,
     children: undefined,
@@ -103,10 +128,10 @@ function TreeGridTableInternal<T extends object>(props: TableInternalProps<T>) {
   );
 }
 
-Table.Header = TableHeader;
-Table.Column = TableColumn;
+Table.Header = TableHeaderWrapper;
+Table.Column = TableColumnWrapper;
 Table.Body = TableBody;
-Table.Row = TableRow;
+Table.Row = TableRowWrapper;
 Table.Cell = TableCell;
 Table.Bottom = TableBottom;
 

@@ -1,20 +1,26 @@
 import { useContext } from "react";
+import { Node } from "react-stately";
+import { useTableSelectAllCheckbox } from "@react-aria/table";
 import { useRenderProps } from "@hooks/useRenderProps";
+import { Collection, createBranchComponent } from "@react-aria/collections";
+
+import { useCollectionRenderer } from "@hooks/useCollectionRenderer";
+import { CheckBox, CheckBoxContext } from "@components/Inputs/Checkbox";
+import { DEFAULT_SLOT } from "@hooks/useSlottedContext";
+
+import { TableOptionsContext, TableStateContext } from "../Table.context";
 import { StyledThead } from "../Table.styles";
 import { TableRowGroup } from "./TableRowGroup";
 import { TableHeaderRow } from "./TableHeaderRow";
-import {
-  Node,
-  TableHeaderProps as StatelyTableHeaderProps,
-} from "react-stately";
-import { Collection, createBranchComponent } from "@react-aria/collections";
-import { TableStateContext } from "../Table.context";
-import { useCollectionRenderer } from "@hooks/useCollectionRenderer";
-import { CheckBoxContext } from "@components/Inputs/Checkbox";
-import { useTableSelectAllCheckbox } from "@react-aria/table";
-import { DEFAULT_SLOT } from "@hooks/useSlottedContext";
+import { TableColumn } from "./TableColumn";
 
-export interface TableHeaderProps<T> extends StatelyTableHeaderProps<T> {}
+export interface TableHeaderProps<T> {
+  columns?: T[];
+  children?:
+    | React.ReactNode
+    | React.ReactNode[]
+    | ((column: T) => React.ReactNode);
+}
 
 export const TableHeader = createBranchComponent(
   "tableheader",
@@ -54,3 +60,21 @@ export const TableHeader = createBranchComponent(
   },
   (props) => <Collection items={props.columns}>{props.children}</Collection>
 );
+
+export function TableHeaderWrapper<T extends object>(
+  props: TableHeaderProps<T>
+) {
+  const { selectionMode } = useContext(TableOptionsContext)!;
+
+  return (
+    <TableHeader {...props}>
+      {selectionMode === "multiple" && (
+        // 32 is the width of the checkbox
+        <TableColumn width={32}>
+          <CheckBox slot="selection" />
+        </TableColumn>
+      )}
+      <Collection items={props.columns}>{props.children}</Collection>
+    </TableHeader>
+  );
+}

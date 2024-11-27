@@ -3,7 +3,7 @@ import {
   TableState as StatelyTableState,
   TreeGridState as StatelyTreeGridState,
 } from "@react-stately/table";
-import { Expandable } from "@react-types/shared";
+import { Expandable, SelectionMode } from "@react-types/shared";
 import {
   SelectionBehavior,
   Sortable,
@@ -25,7 +25,7 @@ export interface LoadingProps {
    */
   isLoading?: boolean;
   /** The number of rows to render when loading
-   * @default paginationDescriptor.pageSize ?? 10
+   * @default 10
    */
   loadingRows?: number;
 }
@@ -105,4 +105,24 @@ export interface TreeGridState<T>
   extends StatelyTreeGridState<T>,
     TableStateExtensions {
   collection: TableCollection<T>;
+}
+
+
+export interface TableOptions {
+  /** Whether the table allows expandable rows.
+   * When it's `false`, rows cannot have nested rows.
+   */
+  allowsExpandableRows?: boolean;
+
+  /** The selection behavior for the table. */
+  selectionBehavior?: SelectionBehavior;
+
+  /**  */
+  selectionMode?: SelectionMode;
+
+  /** Whether the table is in a sticky state */
+  isSticky?: boolean;
+
+  /** Whether to show a bottom to the table */
+  hasBottom?: boolean;
 }
