@@ -8,13 +8,27 @@ import { useCollectionRenderer } from "@hooks/useCollectionRenderer";
 import { CheckBox, CheckBoxContext } from "@components/Inputs/Checkbox";
 import { DEFAULT_SLOT } from "@hooks/useSlottedContext";
 
-import { TableOptionsContext, TableStateContext } from "../Table.context";
+import { TableStateContext } from "../Table.context";
 import { StyledThead } from "../Table.styles";
 import { TableRowGroup } from "./TableRowGroup";
 import { TableHeaderRow } from "./TableHeaderRow";
 import { TableColumn } from "./TableColumn";
+import { useTableOptions } from "../hooks/useTableOptions";
 
 export interface TableHeaderProps<T> {
+  /** Columns to render in the header in a dynamic collection
+   *
+   * @example
+   * ```jsx
+   * const columns = [
+   *  { id: "column-1", title: "Column 1" },
+   *  { id: "column-2", title: "Column 2" },
+   *  { id: "column-3", title: "Column 3" },
+   * ];
+   * <Table.Header columns={columns}>
+   *   {(column) => <Table.Column>{column.title}</Table.Column>}
+   * </Table.Header>
+   */
   columns?: T[];
   children?:
     | React.ReactNode
@@ -64,7 +78,7 @@ export const TableHeader = createBranchComponent(
 export function TableHeaderWrapper<T extends object>(
   props: TableHeaderProps<T>
 ) {
-  const { selectionMode } = useContext(TableOptionsContext)!;
+  const { selectionMode } = useTableOptions();
 
   return (
     <TableHeader {...props}>

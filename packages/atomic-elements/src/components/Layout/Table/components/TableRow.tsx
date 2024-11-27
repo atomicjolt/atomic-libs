@@ -2,17 +2,18 @@ import { useContext } from "react";
 import { filterDOMProps, mergeProps, useObjectRef } from "@react-aria/utils";
 import { useTableRow, useTableSelectionCheckbox } from "@react-aria/table";
 import { Collection, createBranchComponent } from "@react-aria/collections";
-import { Node, RowProps as StatelyRowProps } from "react-stately";
+import { Node } from "react-stately";
 
 import { DomProps, RenderStyleProps } from "../../../../types";
 import { useFocusRing } from "@hooks/useFocusRing";
 import { useRenderProps } from "@hooks/useRenderProps";
 import { useCollectionRenderer } from "@hooks/useCollectionRenderer";
 import { DEFAULT_SLOT } from "@hooks/useSlottedContext";
-import { TableOptionsContext, TableStateContext } from "../Table.context";
-import { StyledRow } from "../Table.styles";
 import { CheckBox, CheckBoxContext } from "@components/Inputs/Checkbox";
+import { TableStateContext } from "../Table.context";
+import { StyledRow } from "../Table.styles";
 import { TableCell } from "./TableCell";
+import { useTableOptions } from "../hooks/useTableOptions";
 
 export interface TableRowProps<T> extends RenderStyleProps<never>, DomProps {
   /** Callback when a user clicks on or otherwise interacts with the cell */
@@ -86,7 +87,7 @@ export const TableRow = createBranchComponent(
 );
 
 export function TableRowWrapper<T extends object>(props: TableRowProps<T>) {
-  const { selectionMode } = useContext(TableOptionsContext)!;
+  const { selectionMode } = useTableOptions();
 
   return (
     <TableRow {...props}>

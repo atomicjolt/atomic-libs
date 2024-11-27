@@ -57,8 +57,6 @@ export default function Aria() {
     },
   ];
 
-  console.log(searchDesc);
-
   return (
     <>
       {/* <Table >

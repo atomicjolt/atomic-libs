@@ -2,13 +2,12 @@ import { Collection, CollectionBuilder } from "@react-aria/collections";
 import { TableOptions, TableProps } from "./Table.types";
 import { useGridTreeState } from "./hooks/useGridTreeState";
 import { TableShared } from "./components/TableShared";
-import { TableRow, TableRowWrapper } from "./components/TableRow";
+import { TableRowWrapper } from "./components/TableRow";
 import { TableCell } from "./components/TableCell";
-import { TableHeader, TableHeaderWrapper } from "./components/TableHeader";
-import { TableColumn, TableColumnWrapper } from "./components/TableColumn";
+import { TableHeaderWrapper } from "./components/TableHeader";
+import { TableColumnWrapper } from "./components/TableColumn";
 import { TableBody } from "./components/TableBody";
 import { LoadingCellContent } from "./components/Loading";
-import { PaginationDescriptor } from "../../../types";
 import { TableBottom } from "./components/TableBottom";
 import { TableCollection } from "./TableCollection";
 import { useTableState } from "./hooks/useTableState";
@@ -18,7 +17,6 @@ import { Provider } from "@components/Internal/Provider";
 
 // TODO:
 // - Reimplement Column Nesting
-// - Reimplement support for rendering cell children with <Collection />
 
 // - Reimplement Tree Grid Table
 // - Reimplement Column Ordering
