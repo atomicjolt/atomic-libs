@@ -71,8 +71,6 @@ export interface TableProps<T>
    */
   allowsExpandableRows?: boolean;
 
-  variant?: TableVariants;
-
   /** The selection behavior for the table. */
   selectionBehavior?: SelectionBehavior;
 

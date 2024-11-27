@@ -16,10 +16,8 @@ export function TableShared<T extends object>(props: TableSharedProps<T>) {
     onRowAction,
     onCellAction,
     className,
-    variant,
     isSticky,
     style,
-    isLoading = false,
     hasBottom = false,
   } = props;
 
@@ -50,11 +48,9 @@ export function TableShared<T extends object>(props: TableSharedProps<T>) {
   const renderProps = useRenderProps({
     componentClassName: "aje-table",
     className,
-    variant,
     style,
     selectors: {
       "data-sticky": isSticky,
-      "data-loading": isLoading,
       "data-has-bottom": hasBottom,
     },
   });

@@ -7,20 +7,41 @@ import { getCssProps } from "@sb/cssprops";
 import { Flex } from "../Flex/Flex";
 import { Button } from "@components/Buttons/Button";
 import { MaterialIcon, Pagination } from "@components/index";
+import { RenderPropsArgTypes } from "@sb/helpers";
 
 const meta: Meta<typeof Table> = {
   title: "Layouts/Table",
   component: Table,
-  // tags: ["!autodocs"],
   parameters: {
     cssprops: getCssProps("Table"),
   },
   argTypes: {
+    ...RenderPropsArgTypes,
+    isSticky: {
+      description: "Whether the bottom content should be sticky",
+      control: "boolean",
+    },
+    hasBottom: {
+      description: "Whether the table has a bottom content",
+      control: "boolean",
+    },
     children: {
       control: false,
     },
     sortDescriptor: {
       description: "The current sort descriptor, if any",
+    },
+    onCellAction: {
+      description: "Fires when the user interacts with a cell",
+      table: {
+        category: "Events",
+      },
+    },
+    onRowAction: {
+      description: "Fires when the user interacts with a row",
+      table: {
+        category: "Events",
+      },
     },
     onSortChange: {
       description: "Fires when the user changes the sort descriptor",
@@ -44,6 +65,7 @@ type Story = StoryObj<typeof Table>;
 export const Primary: Story = {
   args: {
     onCellAction: fn(),
+    onRowAction: fn(),
     onSortChange: fn(),
     onSearchChange: fn(),
     children: [
@@ -331,7 +353,6 @@ export const SearchableColumns: Story = {
     );
   },
   args: {
-    variant: "full-borders",
     "aria-label": "Table with searching",
   },
 };
@@ -547,5 +568,69 @@ export const WithPagination: Story = {
   args: {
     ...Primary.args,
     hasBottom: true,
+  },
+};
+
+export const StickyRowHeader: Story = {
+  ...Primary,
+  decorators: [
+    (Story) => (
+      <div style={{ width: "800px", overflow: "auto" }}>
+        <Story />
+      </div>
+    ),
+  ],
+  args: {
+    ...Primary.args,
+    children: [
+      <Table.Header>
+        <Table.Column isRowHeader showDivider width={100}>
+          Name
+        </Table.Column>
+        <Table.Column>Type</Table.Column>
+        <Table.Column>Level</Table.Column>
+        <Table.Column>HP</Table.Column>
+        <Table.Column>Attack</Table.Column>
+        <Table.Column>Defense</Table.Column>
+      </Table.Header>,
+      <Table.Body>
+        <Table.Row key="1">
+          <Table.Cell>Charizard</Table.Cell>
+          <Table.Cell>Fire, Flying</Table.Cell>
+          <Table.Cell>67</Table.Cell>
+          <Table.Cell>78</Table.Cell>
+          <Table.Cell>84</Table.Cell>
+          <Table.Cell>78</Table.Cell>
+        </Table.Row>
+        <Table.Row key="2">
+          <Table.Cell>Blastoise</Table.Cell>
+          <Table.Cell>Water</Table.Cell>
+          <Table.Cell>56</Table.Cell>
+          <Table.Cell>79</Table.Cell>
+          <Table.Cell>83</Table.Cell>
+          <Table.Cell>100</Table.Cell>
+        </Table.Row>
+        <Table.Row key="3">
+          <Table.Cell>Venusaur</Table.Cell>
+          <Table.Cell>Grass, Poison</Table.Cell>
+          <Table.Cell>83</Table.Cell>
+          <Table.Cell>80</Table.Cell>
+          <Table.Cell>82</Table.Cell>
+          <Table.Cell>83</Table.Cell>
+        </Table.Row>
+        <Table.Row key="4">
+          <Table.Cell>Pikachu</Table.Cell>
+          <Table.Cell>Electric</Table.Cell>
+          <Table.Cell>100</Table.Cell>
+          <Table.Cell>35</Table.Cell>
+          <Table.Cell>55</Table.Cell>
+          <Table.Cell>40</Table.Cell>
+        </Table.Row>
+      </Table.Body>,
+    ],
+    isSticky: true,
+    style: {
+      width: "1000px",
+    },
   },
 };
