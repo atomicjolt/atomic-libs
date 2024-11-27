@@ -7,7 +7,7 @@ const TestTable = (props: TableProps<any> & LoadingProps) => {
   return (
     <Table aria-label="table" {...props}>
       <Table.Header>
-        <Table.Column id="a" allowsSearching>
+        <Table.Column id="a" allowsSearching isRowHeader>
           Column 1
         </Table.Column>
         <Table.Column id="b">Column 2</Table.Column>
@@ -53,7 +53,9 @@ describe("Table", () => {
     render(
       <Table aria-label="Table">
         <Table.Header>
-          <Table.Column id="a">Column 1</Table.Column>
+          <Table.Column id="a" isRowHeader>
+            Column 1
+          </Table.Column>
           <Table.Column id="b">Column 2</Table.Column>
         </Table.Header>
         <Table.Body items={[]} renderEmpty={() => "No data"}>

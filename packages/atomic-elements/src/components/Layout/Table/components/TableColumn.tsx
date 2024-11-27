@@ -1,5 +1,5 @@
 import { useContext, useRef } from "react";
-import { mergeProps, useObjectRef } from "@react-aria/utils";
+import { filterDOMProps, mergeProps, useObjectRef } from "@react-aria/utils";
 import { GridNode } from "@react-types/grid";
 import { createLeafComponent } from "@react-aria/collections";
 import { ColumnProps } from "@react-stately/table";
@@ -105,7 +105,7 @@ export const TableColumn = createLeafComponent("column", function TableColumn<
   });
 
   const headerProps = mergeProps(
-    props as any,
+    filterDOMProps(props as any),
     columnHeaderProps,
     focusProps,
     renderProps

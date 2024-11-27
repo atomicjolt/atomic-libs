@@ -197,88 +197,6 @@ export const SortableHeaders: Story = {
   },
 };
 
-// export const WithColumnReordering: Story = {
-//   render: (args) => {
-//     const [columnOrder, setColumnOrder] = useState<Key[]>([
-//       "name",
-//       "type",
-//       "level",
-//     ]);
-
-//     const columns = [
-//       {
-//         key: "name",
-//         name: "Name",
-//         allowsReordering: true,
-//       },
-//       {
-//         key: "type",
-//         name: "Type",
-//         allowsReordering: true,
-//       },
-//       {
-//         key: "level",
-//         name: "Level",
-//         allowsReordering: true,
-//       },
-//     ];
-
-//     const sortedColumns = columnOrder.map((key) =>
-//       columns.find((c) => c.key === key)
-//     ) as typeof columns;
-
-//     const pokemons: Record<string, string | number>[] = [
-//       {
-//         name: "Charizard",
-//         type: "Fire, Flying",
-//         level: 67,
-//       },
-//       {
-//         name: "Blastoise",
-//         type: "Water",
-//         level: 56,
-//       },
-//       {
-//         name: "Venusaur",
-//         type: "Grass, Poison",
-//         level: 83,
-//       },
-//       {
-//         name: "Pikachu",
-//         type: "Electric",
-//         level: 100,
-//       },
-//     ];
-
-//     return (
-//       <Table
-//         aria-label="Table with orderable columns"
-//         onColumnReorder={setColumnOrder}
-//       >
-//         <Table.Header columns={sortedColumns}>
-//           {(column) => (
-//             <Table.Column
-//               key={column.key}
-//               allowsReordering={column.allowsReordering}
-//             >
-//               {column.name}
-//             </Table.Column>
-//           )}
-//         </Table.Header>
-//         <Table.Body items={pokemons}>
-//           {(pokemon) => (
-//             <Table.Row key={pokemon.name}>
-//               {sortedColumns.map((column) => (
-//                 <Table.Cell key={column.key}>{pokemon[column.key]}</Table.Cell>
-//               ))}
-//             </Table.Row>
-//           )}
-//         </Table.Body>
-//       </Table>
-//     );
-//   },
-// };
-
 export const SearchableColumns: Story = {
   render: (props) => {
     const [searchDescriptor, setSearchDescriptor] = useState<SearchDescriptor>({
@@ -462,17 +380,6 @@ export const SearchableColumns: Story = {
 //     allowsExpandableRows: true,
 //     defaultExpandedKeys: ["Fire, Flying", "Water"],
 //     onExpandedChange: fn(),
-//   },
-// };
-
-// export const PaginatedTable: Story = {
-//   args: {
-//     ...Primary.args,
-//     paginationDescriptor: {
-//       page: 1,
-//       pageSize: 10,
-//       totalPages: 10,
-//     },
 //   },
 // };
 
