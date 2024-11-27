@@ -70,15 +70,18 @@ export class TableCollection<T>
 
     this.headerRows = buildHeaderRows(columnKeyMap, this.columns);
     this.columnsDirty = false;
-    if (
-      this.rowHeaderColumnKeys.size === 0 &&
-      this.columns.length > 0 &&
-      !isSSR
-    ) {
-      throw new Error(
-        "A table must have at least one Column with the isRowHeader prop set to true"
-      );
-    }
+
+    // For accessibility react-aria-component enforces that there is a
+    // row header for every table. We don't want to enforce this
+    // if (
+    //   this.rowHeaderColumnKeys.size === 0 &&
+    //   this.columns.length > 0 &&
+    //   !isSSR
+    // ) {
+    //   throw new Error(
+    //     "A table must have at least one Column with the isRowHeader prop set to true"
+    //   );
+    // }
   }
 
   get columnCount() {
