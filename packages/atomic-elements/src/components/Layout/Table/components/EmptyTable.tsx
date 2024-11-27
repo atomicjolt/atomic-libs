@@ -11,7 +11,7 @@ export function EmptyTable<T>(props: EmptyTableProps<T>) {
   if (!renderEmpty) return null;
 
   return (
-    <StyledRow>
+    <StyledRow className="aje-table__empty">
       <StyledCell colSpan={state.collection.columnCount}>
         {typeof renderEmpty === "function" ? renderEmpty() : renderEmpty}
       </StyledCell>

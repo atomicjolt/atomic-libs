@@ -18,6 +18,7 @@ import { Provider } from "@components/Internal/Provider";
 import { DEFAULT_SLOT } from "@hooks/useSlottedContext";
 import { ButtonContext } from "@components/Buttons/Button/Button.context";
 import { IconButton } from "@components/Buttons/IconButton";
+import { TableHeaderWrapper } from "./TableHeader";
 
 interface TableColumnRenderProps {
   allowsSorting: boolean;
@@ -103,7 +104,12 @@ export const TableColumn = createLeafComponent("column", function TableColumn<
     },
   });
 
-  const headerProps = [columnHeaderProps, focusProps, renderProps];
+  const headerProps = mergeProps(
+    props as any,
+    columnHeaderProps,
+    focusProps,
+    renderProps
+  );
 
   return (
     <Provider
@@ -132,7 +138,7 @@ export const TableColumn = createLeafComponent("column", function TableColumn<
         ],
       ]}
     >
-      <StyledTh colSpan={colSpan} ref={ref} {...mergeProps(...headerProps)}>
+      <StyledTh colSpan={colSpan} ref={ref} {...headerProps}>
         {renderProps.children}
       </StyledTh>
     </Provider>

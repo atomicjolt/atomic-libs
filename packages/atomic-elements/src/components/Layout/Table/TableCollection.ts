@@ -3,7 +3,7 @@ import { TableCollection as ITableCollection, buildHeaderRows } from "@react-sta
 import { GridNode } from "@react-types/grid";
 import { Key, Node } from "react-stately";
 
-// https://github.com/adobe/react-spectrum/blob/main/packages/react-aria-components/src/Table.tsx
+// From https://github.com/adobe/react-spectrum/blob/main/packages/react-aria-components/src/Table.tsx
 
 export class TableCollection<T>
   extends BaseCollection<T>

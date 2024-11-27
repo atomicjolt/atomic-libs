@@ -91,7 +91,7 @@ export function TableRowWrapper<T extends object>(props: TableRowProps<T>) {
 
   return (
     <TableRow {...props}>
-      {selectionMode === "multiple" && (
+      {["multiple", "single"].includes(selectionMode ?? "") && (
         <TableCell>
           <CheckBox slot="selection" />
         </TableCell>

@@ -1,7 +1,6 @@
+import { useMemo } from "react";
 import { Collection, CollectionBuilder } from "@react-aria/collections";
 import { TableOptions, TableProps } from "./Table.types";
-import { useGridTreeState } from "./hooks/useGridTreeState";
-import { TableShared } from "./components/TableShared";
 import { TableRowWrapper } from "./components/TableRow";
 import { TableCell } from "./components/TableCell";
 import { TableHeaderWrapper } from "./components/TableHeader";
@@ -10,17 +9,16 @@ import { TableBody } from "./components/TableBody";
 import { LoadingCellContent } from "./components/Loading";
 import { TableBottom } from "./components/TableBottom";
 import { TableCollection } from "./TableCollection";
-import { useTableState } from "./hooks/useTableState";
-import { TableOptionsContext, TableStateContext } from "./Table.context";
-import { useMemo } from "react";
-import { Provider } from "@components/Internal/Provider";
+import { TableOptionsContext } from "./Table.context";
+import { SimpleTable } from "./components/SimpleTable";
+import { TreeGridTable } from "./components/TreeGridTable";
 
 // TODO:
 // - Reimplement Column Nesting
+// - Implement Row ordering
 
 // - Reimplement Tree Grid Table
 // - Reimplement Column Ordering
-// - Implement Row ordering
 
 /** Table component
  *
@@ -85,44 +83,12 @@ export function Table<T extends object>(props: TableProps<T>) {
     >
       {(collection: TableCollection<T>) =>
         allowsExpandableRows ? (
-          <TreeGridTableInternal {...props} collection={collection} />
+          <TreeGridTable {...props} collection={collection} />
         ) : (
-          <SimpleTableInternal {...props} collection={collection} />
+          <SimpleTable {...props} collection={collection} />
         )
       }
     </CollectionBuilder>
-  );
-}
-
-interface TableInternalProps<T extends object> extends TableProps<T> {
-  collection: TableCollection<T>;
-}
-
-function SimpleTableInternal<T extends object>(props: TableInternalProps<T>) {
-  const state = useTableState<T>({
-    ...props,
-    children: undefined,
-  });
-
-  return (
-    <Provider values={[[TableStateContext.Provider, state]]}>
-      <TableShared state={state} {...props} />
-    </Provider>
-  );
-}
-
-function TreeGridTableInternal<T extends object>(props: TableInternalProps<T>) {
-  throw new Error("allowExpandableRows is not currently implemented");
-
-  const state = useGridTreeState<T>({
-    ...props,
-    children: undefined,
-  });
-
-  return (
-    <TableStateContext.Provider value={state}>
-      <TableShared state={state} {...props} />
-    </TableStateContext.Provider>
   );
 }
 

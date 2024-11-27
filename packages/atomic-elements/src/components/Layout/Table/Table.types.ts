@@ -65,8 +65,7 @@ export interface TableProps<T>
     Sortable,
     SearchProps,
     RenderBaseProps<never>,
-    Expandable,
-    LoadingProps {
+    Expandable {
   /** Whether the table allows expandable rows.
    * When it's `false`, rows cannot have nested rows.
    */
@@ -104,6 +103,10 @@ export interface TableState<T>
 export interface TreeGridState<T>
   extends StatelyTreeGridState<T>,
     TableStateExtensions {
+  collection: TableCollection<T>;
+}
+
+export interface TableInternalProps<T extends object> extends TableProps<T> {
   collection: TableCollection<T>;
 }
 

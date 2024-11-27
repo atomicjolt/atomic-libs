@@ -2,7 +2,7 @@ import {
   useTableState as useStatelyTableState,
   TableStateProps as StatelyTableStateProps,
 } from "@react-stately/table";
-import { TableChildren, TableState } from "../Table.types";
+import { TableState } from "../Table.types";
 import {
   TableStateExtensionsProps,
   useTableStateExtensions,
@@ -13,7 +13,7 @@ import { TableCollection } from '../TableCollection';
 export interface TableStateProps<T extends object>
   extends Omit<StatelyTableStateProps<T>, "children" | "collection">,
     TableStateExtensionsProps {
-  children?: TableChildren<T>;
+  children?: React.ReactNode;
   collection: TableCollection<T>;
 }
 

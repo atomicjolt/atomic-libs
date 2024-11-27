@@ -82,10 +82,10 @@ export function TableHeaderWrapper<T extends object>(
 
   return (
     <TableHeader {...props}>
-      {selectionMode === "multiple" && (
+      {["multiple", "single"].includes(selectionMode ?? "") && (
         // 32 is the width of the checkbox
         <TableColumn width={32}>
-          <CheckBox slot="selection" />
+          {selectionMode === "multiple" && <CheckBox slot="selection" />}
         </TableColumn>
       )}
       <Collection items={props.columns}>{props.children}</Collection>
