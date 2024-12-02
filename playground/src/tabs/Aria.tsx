@@ -1,5 +1,5 @@
 import React from "react";
 
 export default function Aria() {
-  return <div>Hi There</div>;
+  return <div>Hi there</div>;
 }

@@ -8,7 +8,7 @@ import {
 } from "@react-aria/table";
 import { VisuallyHidden } from "@react-aria/visually-hidden";
 import { CheckBox } from "@components/Inputs/Checkbox";
-import { StyledCell, StyledTh } from "../../Table.styles";
+import { StyledCell, StyledTh } from "../Table.styles";
 
 interface TableCheckboxCellProps<T> {
   cell: Node<T>;

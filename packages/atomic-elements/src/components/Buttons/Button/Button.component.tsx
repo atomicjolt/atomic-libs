@@ -17,12 +17,14 @@ import { useRenderProps } from "@hooks/useRenderProps";
 import { useButtonLink } from "@hooks/useButtonLink";
 import { useContextProps } from "@hooks/useContextProps";
 import { ButtonContext } from "./Button.context";
+import { SlotProps } from "@hooks/useSlottedContext";
 
 export type ButtonProps = AriaButtonOptions<"button"> &
   LoadingProps &
   BaseProps &
   HasChildren &
-  HasVariant<ButtonVariants> & {
+  HasVariant<ButtonVariants> &
+  SlotProps & {
     as?: "button" | "a";
   };
 

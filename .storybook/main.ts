@@ -3,6 +3,7 @@ import { StorybookConfig } from "@storybook/react-vite";
 const config: StorybookConfig = {
   stories: [
     "../packages/atomic-elements/**/*.stories.@(js|jsx|ts|tsx)",
+    "../packages/atomic-elements/src/**/*.mdx",
   ],
 
   addons: [

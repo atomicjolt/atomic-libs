@@ -3,19 +3,24 @@ import cn from "classnames";
 import { useToggleState } from "react-stately";
 import { AriaCheckboxProps, useCheckbox } from "@react-aria/checkbox";
 import { useLocale } from "@react-aria/i18n";
-import { useForwardedRef } from "../../../hooks/useForwardedRef";
 import { AriaProps, FieldInputProps } from "../../../types";
 import { ChooseInput, ChooseLabel } from "../Inputs.styles";
 import { CheckboxWrapper } from "./Checkbox.styles";
 import { ErrorMessage, Message } from "../../Fields";
+import { useContextPropsV2 } from "@hooks/useContextProps";
+import { CheckBoxContext } from "./Checkbox.context";
+import { SlotProps } from "@hooks/useSlottedContext";
 
 export interface CheckBoxProps
   extends AriaProps<AriaCheckboxProps>,
-    Omit<FieldInputProps, "label"> {}
+    Omit<FieldInputProps, "label">,
+    SlotProps {}
 
 /** Checkbox Component. Accepts a `ref` */
 export const CheckBox = React.forwardRef<HTMLInputElement, CheckBoxProps>(
   (props, ref) => {
+    [props, ref] = useContextPropsV2(CheckBoxContext, props, ref);
+
     const {
       children,
       error = "error",
@@ -28,10 +33,10 @@ export const CheckBox = React.forwardRef<HTMLInputElement, CheckBoxProps>(
       size = "medium",
       isIndeterminate = false,
     } = props;
-    const internalRef = useForwardedRef(ref);
+
     const state = useToggleState(props);
     const { direction } = useLocale();
-    const { inputProps, labelProps } = useCheckbox(props, state, internalRef);
+    const { inputProps, labelProps } = useCheckbox(props, state, ref);
 
     return (
       <CheckboxWrapper
@@ -46,8 +51,8 @@ export const CheckBox = React.forwardRef<HTMLInputElement, CheckBoxProps>(
       >
         <ChooseInput
           {...inputProps}
-          ref={internalRef}
-          data-indeterminate={isIndeterminate || null}
+          ref={ref}
+          data-indeterminate={isIndeterminate || undefined}
         />
         <ChooseLabel className="aje-checkbox__label" $rtl={direction === "rtl"}>
           {children}
@@ -59,5 +64,3 @@ export const CheckBox = React.forwardRef<HTMLInputElement, CheckBoxProps>(
     );
   }
 );
-
-export default CheckBox;

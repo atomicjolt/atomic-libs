@@ -1,18 +1,18 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { Table } from ".";
-import { TableProps } from "./Table.types";
+import { TableProps, LoadingProps } from "./Table.types";
 
-const TestTable = (props: TableProps<any>) => {
+const TestTable = (props: TableProps<any> & LoadingProps) => {
   return (
     <Table aria-label="table" {...props}>
       <Table.Header>
-        <Table.Column key="a" allowsSearching>
+        <Table.Column id="a" allowsSearching isRowHeader>
           Column 1
         </Table.Column>
-        <Table.Column key="b">Column 2</Table.Column>
+        <Table.Column id="b">Column 2</Table.Column>
       </Table.Header>
-      <Table.Body>
+      <Table.Body isLoading={props.isLoading}>
         <Table.Row>
           <Table.Cell>Row 1, Cell 1</Table.Cell>
           <Table.Cell>Row 1, Cell 2</Table.Cell>
@@ -43,16 +43,6 @@ describe("Table", () => {
       expect(res).toMatchSnapshot();
     });
 
-    it("should match the snapshot with pagination", () => {
-      const res = render(
-        <TestTable
-          paginationDescriptor={{ page: 1, totalPages: 10, pageSize: 10 }}
-        />
-      );
-
-      expect(res).toMatchSnapshot();
-    });
-
     it("should match the snapshot when in a loading state", () => {
       const res = render(<TestTable isLoading />);
       expect(res).toMatchSnapshot();
@@ -61,10 +51,12 @@ describe("Table", () => {
 
   it("should renderEmpty when there is no rows", () => {
     render(
-      <Table>
+      <Table aria-label="Table">
         <Table.Header>
-          <Table.Column key="a">Column 1</Table.Column>
-          <Table.Column key="b">Column 2</Table.Column>
+          <Table.Column id="a" isRowHeader>
+            Column 1
+          </Table.Column>
+          <Table.Column id="b">Column 2</Table.Column>
         </Table.Header>
         <Table.Body items={[]} renderEmpty={() => "No data"}>
           {() => (
