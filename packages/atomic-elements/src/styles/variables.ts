@@ -242,10 +242,15 @@ export const CssVariables = createGlobalStyle`
   --choose-label-padding-left: 32px;
   --choose-label-height: 24px;
 
-  /* # Calendar */
+  /* # TimePicker */
   --time-clr: var(--neutral200);
   --time-selected-back-clr: var(--primary600);
   --time-selected-text-clr: var(--neutral100);
+
+  /* # Calendar */
+  --calendar-clr: var(--neutral200);
+  --calendar-selected-bg-clr: var(--accent-clr);
+  --calendar-selected-text-clr: var(--neutral100);
 
   /* # Card */
   --card-bg-clr: var(--background-clr-alt);

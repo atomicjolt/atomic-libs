@@ -43,47 +43,16 @@ export const CalendarWrapper = styled.div`
   }
 `;
 
-export const CalendarHeader = styled.div`
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  margin: 0 15px;
-  margin-bottom: 5px;
-`;
-
 export const CalendarHeaderTitle = styled.h2`
   ${mixins.Bold}
   font-size: var(--font-size);
   color: var(--neutral600);
 `;
 
-export const CalendarHeaderButtons = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`;
-
 export const CalendarContent = styled.table`
   height: var(--calendar-content-height);
   min-width: var(--calendar-content-height);
-`;
-
-export const CalendarFooter = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  margin-top: auto;
-
-  .aje-btn--calendar-footer {
-    border: none;
-    background-color: transparent;
-    color: var(--primary600);
-    padding: 5px;
-
-    &:hover {
-      cursor: pointer;
-      color: var(--primary800);
-    }
-  }
+  margin: auto;
 `;
 
 export const CalendarWeekDay = styled.th`
@@ -101,18 +70,18 @@ export const StyledCalendarCell = styled.td`
   color: var(--text-clr);
   height: var(--calendar-cell-size);
 
-  &.is-selected {
-    background-color: var(--time-selected-back-clr);
-    color: var(--time-selected-text-clr);
+  &[aria-selected="true"] {
+    background-color: var(--calendar-selected-bg-clr);
+    color: var(--calendar-selected-text-clr);
     border-radius: 3px;
 
     &:hover {
-      background-color: var(--time-selected-back-clr);
+      background-color: var(--calendar-selected-bg-clr);
     }
   }
 
   &[aria-invalid="true"] {
-    background-color: var(--error500);
+    background-color: var(--error-clr);
   }
 
   &:hover {
@@ -121,7 +90,7 @@ export const StyledCalendarCell = styled.td`
     background-color: var(--neutral200);
   }
 
-  &.is-disabled {
+  &[data-disabled] {
     color: var(--neutral400);
 
     &:hover {
@@ -129,32 +98,6 @@ export const StyledCalendarCell = styled.td`
       background-color: transparent;
     }
   }
-
-  /*
-
-  &.in-interval {
-    border-radius: 0px;
-    background-color: var(--neutral200);
-  }
-
-  &.in-potential-interval {
-    border-top: 1px dashed var(--neutral400);
-    border-bottom: 1px dashed var(--neutral400);
-  }
-
-  &.neighboring-month {
-    color: var(--neutral400);
-  }
-
-  &.interval-start {
-    background-color: var(--primary700);
-    border-radius: 5px 0px 0px 5px;
-  }
-
-  &.interval-end {
-    background-color: var(--primary700);
-    border-radius: 0px 5px 5px 0px;
-  } */
 `;
 
 export const CalendarCellButton = styled.div`
@@ -163,10 +106,4 @@ export const CalendarCellButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
-  &[hidden] {
-    visibility: hidden;
-    display: auto;
-    pointer-events: none;
-  }
 `;

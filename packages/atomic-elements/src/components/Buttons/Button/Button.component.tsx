@@ -17,6 +17,7 @@ import { useButtonLink } from "@hooks/useButtonLink";
 import { useContextPropsV2 } from "@hooks/useContextProps";
 import { StyledButton } from "./Button.styles";
 import { ButtonContext } from "./Button.context";
+import { SlotProps } from "@hooks/useSlottedContext";
 
 export type ButtonVariants = SuggestStrings<
   | "primary"
@@ -41,7 +42,8 @@ export interface ButtonProps
   extends AriaButtonOptions<"button">,
     LoadingProps,
     RenderBaseProps<ButtonRenderProps>,
-    HasVariant<ButtonVariants> {
+    HasVariant<ButtonVariants>,
+    SlotProps {
   as?: "button" | "a";
   size?: ExtendedSize;
 }

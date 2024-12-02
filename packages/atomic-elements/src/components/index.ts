@@ -125,11 +125,7 @@ export { LiveMessage } from "./Accessibility/LiveMessage";
 export type { BannerProps, BannerVariants } from "./Banners/Banner";
 export type { ButtonProps } from "./Buttons/Button";
 export type { IconButtonProps } from "./Buttons/IconButton";
-export type {
-  ButtonGroupProps,
-  ButtonGroupChild,
-  ButtonGroupChildProps,
-} from "./Buttons/ButtonGroup";
+export type { ButtonGroupProps } from "./Buttons/ButtonGroup";
 export type { ComboBoxProps } from "./Dropdowns/Combobox";
 export type { CustomSelectProps } from "./Dropdowns/CustomSelect";
 export type { SelectProps, SelectValue } from "./Dropdowns/Select";
