@@ -1,0 +1,19 @@
+import{j as r}from"./jsx-runtime-CkxqCPlQ.js";import{G as d}from"./index-uJHdaalB.js";import{B as i}from"./Button.component-Bg3ttyxF.js";import{T as p}from"./TextInput.component-4VwGPs30.js";import"./index-DJO9vBfz.js";import"./styled-components.browser.esm-WCay-hu9.js";import"./index-i5X67GZP.js";import"./useObjectRef-C4RVQRRU.js";import"./useLayoutEffect-Bj1hLagI.js";import"./SSRProvider-DAMUgb6s.js";import"./useFocusRing-MU4psFt8.js";import"./useFocus-C-we61At.js";import"./utils-DHlq6CLd.js";import"./focusSafely-GXGk_mpd.js";import"./useFocusWithin-DOCmU_ML.js";import"./useRenderProps-BqJZ5b79.js";import"./useButton-GWYvoXvT.js";import"./filterDOMProps-CeZl_uWj.js";import"./useFocusable-DyKXFx56.js";import"./useKeyboard-A8_doyNT.js";import"./usePress-DG8LklVH.js";import"./useLink-ytCU544I.js";import"./index-CXdyvu6V.js";import"./mixins-TlkgTuSN.js";import"./SpinnerLoader.component-BS7s8xEm.js";import"./Loader.component-CqkhvLsa.js";import"./index-K1z_EpAd.js";import"./utils-CWBnbg5w.js";import"./Checkmark.component-CAhyXLZS.js";import"./Spinner.component-DpjfBBgU.js";import"./variants-Dln-jX-v.js";import"./Inputs.styles-D8K_qOL9.js";import"./FieldWrapper-CecreuUM.js";import"./ComboInput.styles-BWDkoKPy.js";import"./TextField.component-D_6mN1w8.js";import"./useTextField-DlCCrWX2.js";import"./useFormReset-BxS8FGOL.js";import"./useControlledState-CN8sBTKq.js";import"./useField-4WjA1Loi.js";import"./useLabel-D3wT2o0c.js";import"./useLabels-DtS694vG.js";import"./useFormValidation-B89CjNwR.js";import"./useFormValidationState-Cu8bp2uX.js";import"./Field.styles-DrMU21uN.js";import"./Provider-B9Eqn13H.js";import"./Label.context-Cwics8Eu.js";import"./Message.context-DfHBDHY_.js";import"./ErrorMessage.context-D3nT9BuV.js";import"./ComboInput.context-BK6VI2KB.js";import"./Input.context-B2W9bKHg.js";import"./NumberField.component-nRCwf4HE.js";import"./useEvent-CWcEg10T.js";import"./useLocalizedStringFormatter-CIL7QaWo.js";import"./context-CKyfYUWk.js";import"./useNumberFormatter-DWLeCNi8.js";import"./NumberFormatter-DNR9MAW-.js";import"./useSpinButton-Bem_PVW3.js";import"./LiveAnnouncer-CeCcBDbP.js";import"./number-nHrFdSb-.js";import"./IconButton.component-C815Wh4m.js";import"./index-C_RUmn9I.js";import"./Icons.styles-Doaby5xe.js";import"./FloatingFieldInputWrapper-CEMLf6YP.js";import"./Label.component-5ShF5vdw.js";import"./Message.component-DgHLwaZZ.js";import"./ErrorMessage.component-DYIqQ3G7.js";import"./Input.component-DbyHBw8L.js";const Ir={title:"Layouts/Group",component:d,parameters:{layout:"centered"}},t={args:{isMerged:!0,children:[r.jsx(i,{variant:"secondary",children:"Button 1"},"1"),r.jsx(i,{variant:"secondary",children:"Button 2"},"2"),r.jsx(i,{variant:"secondary",children:"Button 3"},"3")]}},o={args:{isMerged:!0,children:[r.jsx(p,{"aria-label":"Password",placeholder:"Username"},"1"),r.jsx(p,{"aria-label":"Password",placeholder:"Password"},"2"),r.jsx(i,{variant:"primary",children:"Login"},"2")]}};var m,e,a;t.parameters={...t.parameters,docs:{...(m=t.parameters)==null?void 0:m.docs,source:{originalSource:`{
+  args: {
+    isMerged: true,
+    children: [<Button key="1" variant="secondary">
+        Button 1
+      </Button>, <Button key="2" variant="secondary">
+        Button 2
+      </Button>, <Button key="3" variant="secondary">
+        Button 3
+      </Button>]
+  }
+}`,...(a=(e=t.parameters)==null?void 0:e.docs)==null?void 0:a.source}}};var n,s,u;o.parameters={...o.parameters,docs:{...(n=o.parameters)==null?void 0:n.docs,source:{originalSource:`{
+  args: {
+    isMerged: true,
+    children: [<TextInput key="1" aria-label="Password" placeholder="Username" />, <TextInput key="2" aria-label="Password" placeholder="Password" />, <Button key="2" variant="primary">
+        Login
+      </Button>]
+  }
+}`,...(u=(s=o.parameters)==null?void 0:s.docs)==null?void 0:u.source}}};const br=["Buttons","InputsAndButton"];export{t as Buttons,o as InputsAndButton,br as __namedExportsOrder,Ir as default};

@@ -1,0 +1,1 @@
+import{$ as l}from"./CollectionBuilder-Vf4TV1hX.js";import{r as c}from"./index-DJO9vBfz.js";function o(e){const{collection:r,parent:t}=e;return l({items:t?r.getChildren(t.key):r,children:n=>n.render(n)})}const i={CollectionRenderer:e=>o({...e,parent:null}),CollectionBranchRenderer:e=>o(e)},u=c.createContext(i);function C(){return c.useContext(u)}export{C as u};
