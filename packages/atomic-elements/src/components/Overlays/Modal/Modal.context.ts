@@ -1,4 +1,5 @@
 import React from "react";
 import { ModalProps } from ".";
+import { createComponentContext } from '@utils/index';
 
-export const ModalContext = React.createContext<ModalProps | null>(null);
+export const ModalContext = createComponentContext<ModalProps>();

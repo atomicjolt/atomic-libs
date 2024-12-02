@@ -3,7 +3,7 @@ import { Button } from "../../Buttons/Button";
 import { MaterialIcon } from "../../Icons/MaterialIcon";
 import { Modal, BaseModalProps } from "../Modal";
 
-export interface ErrorModalProps extends Omit<BaseModalProps, "children"> {
+export interface ErrorModalProps extends BaseModalProps {
   children: React.ReactNode;
   /** Must include a title. Titles are always in Title case. */
   title: string;

@@ -18,7 +18,7 @@ export interface IconButtonProps
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
   function IconButton(props, forwardedRef) {
     [props, forwardedRef] = useContextPropsV2(
-      ButtonContext,
+      ButtonContext as any,
       props,
       forwardedRef
     );

@@ -5,7 +5,6 @@ import { mergeProps, useObjectRef } from "@react-aria/utils";
 import { SpinnerLoader } from "../../Loaders/SpinnerLoader";
 import {
   ExtendedSize,
-  HasIcon,
   HasVariant,
   LoadingProps,
   RenderBaseProps,
@@ -56,8 +55,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   function Button(props, forwardedRef) {
     [props, forwardedRef] = useContextPropsV2(
       ButtonContext,
-      // Button doesn't have Icon props, but the context does
-      props as ButtonProps & HasIcon,
+      props,
       forwardedRef
     );
 
