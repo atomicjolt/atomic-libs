@@ -6,11 +6,13 @@ import {
 } from "@react-aria/table";
 import { RefObject } from "react";
 import { TableState } from "../Table.types";
+import { useTableSearchInput } from './useTableSearchInput';
 
-interface TableColumnHeaderProps<T> extends AriaTableColumnHeaderProps<T> {}
+interface TableColumnHeaderProps<T> extends AriaTableColumnHeaderProps<T> {
+  isSearching?: boolean;
+}
 
 interface TableColumnHeader extends TableColumnHeaderAria {
-  isSearching: boolean;
 }
 
 export function useExtendedTableColumnHeader<T>(
@@ -21,11 +23,7 @@ export function useExtendedTableColumnHeader<T>(
 ): TableColumnHeader {
   const tableColumnHeader = useTableColumnHeader(props, state, ref);
 
-  const column = props.node;
-
-  const allowsSearching = state.search.column === column.key;
-
-  const isSearching = state.search.column === column.key && allowsSearching;
+  const { isSearching, node: column} = props;
 
   if (isSearching) {
     const headerProps = tableColumnHeader.columnHeaderProps;
@@ -64,6 +62,5 @@ export function useExtendedTableColumnHeader<T>(
         width: column.props.width,
       },
     },
-    isSearching,
   };
 }

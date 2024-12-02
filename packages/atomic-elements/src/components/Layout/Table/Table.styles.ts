@@ -171,7 +171,6 @@ export const RowHeader = styled.th`
   background-color: var(--table-bg-clr);
   text-align: left;
   font-weight: inherit;
-  width: 25%;
 
   height: var(--table-cell-height);
   vertical-align: middle;

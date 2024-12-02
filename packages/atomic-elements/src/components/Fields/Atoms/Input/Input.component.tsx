@@ -5,6 +5,7 @@ import { ElementWrapperProps } from "../../../../types";
 import { useContextPropsV2 } from "@hooks/useContextProps";
 import { useRenderProps } from "@hooks";
 import { InputContext } from "./Input.context";
+import { SlotProps } from "@hooks/useSlottedContext";
 
 const StyledInput = styled.input`
   ${mixins.Regular}
@@ -13,7 +14,11 @@ const StyledInput = styled.input`
 `;
 
 export interface InputProps
-  extends ElementWrapperProps<React.InputHTMLAttributes<HTMLInputElement>> {}
+  extends Omit<
+      ElementWrapperProps<React.InputHTMLAttributes<HTMLInputElement>>,
+      "slot"
+    >,
+    SlotProps {}
 
 /** A wrapped `<input type="text" />` element */
 export const Input = forwardRef(function Input(
@@ -30,5 +35,12 @@ export const Input = forwardRef(function Input(
     style,
   });
 
-  return <StyledInput ref={ref} {...renderProps} {...rest} />;
+  return (
+    <StyledInput
+      ref={ref}
+      {...renderProps}
+      {...rest}
+      slot={rest.slot || undefined}
+    />
+  );
 });

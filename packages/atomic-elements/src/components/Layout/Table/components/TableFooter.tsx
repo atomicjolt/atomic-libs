@@ -1,6 +1,6 @@
 import { TableRowGroup } from "./TableRowGroup";
-import { StyledTableFooter } from "../../Table.styles";
-import { TableState, TreeGridState } from "../../Table.types";
+import { StyledTableFooter } from "../Table.styles";
+import { TableState, TreeGridState } from "../Table.types";
 import { TableRow } from "./TableRow";
 import { TableCell } from "./TableCell";
 import { useRenderProps } from "@hooks";

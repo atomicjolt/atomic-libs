@@ -1,94 +1,124 @@
-import { TableProps } from "./Table.types";
+import { useMemo } from "react";
+import { Collection, CollectionBuilder } from "@react-aria/collections";
+import { TableOptions, TableProps } from "./Table.types";
+import { TableRowWrapper } from "./components/TableRow";
+import { TableCell } from "./components/TableCell";
+import { TableHeaderWrapper } from "./components/TableHeader";
+import { TableColumnWrapper } from "./components/TableColumn";
+import { TableBody } from "./components/TableBody";
+import { LoadingCellContent } from "./components/Loading";
+import { TableBottom } from "./components/TableBottom";
+import { TableCollection } from "./TableCollection";
+import { TableOptionsContext } from "./Table.context";
+import { SimpleTable } from "./components/SimpleTable";
+import { TreeGridTable } from "./components/TreeGridTable";
 
-import { useTableState } from "./hooks/useTableState";
-import { useGridTreeState } from "./hooks/useGridTreeState";
-import { TableShared } from "./components/internal/TableShared";
-
-import { Row } from "./components/public/TableRow";
-import { TableCell } from "./components/public/TableCell";
-import { TableHeader } from "./components/public/TableHeader";
-import { TableColumn } from "./components/public/TableColumn";
-import { TableBody } from "./components/public/TableBody";
-import { TableFooter } from "./components/public/TableFooter";
-import { LoadingCellContent } from "./components/internal/Loading";
-import { PaginationDescriptor } from "../../../types";
-import { TableBottom } from "./components/public/TableBottom";
-
-/** Table component that supports sorting, row selection, and column reordering.  */
+/** Table component
+ *
+ * Features:
+ * - Column Sorting
+ * - Column Searching
+ * - Row & Cell Actions
+ * - Row Selection
+ * - Row Nesting
+ *
+ * @example
+ * ```jsx
+ * <Table>
+ *  <Table.Header>
+ *    <Table.Column isRowHeader>Column 1</Table.Column>
+ *    <Table.Column>Column 2</Table.Column>
+ *    <Table.Column>Column 3</Table.Column>
+ *  </Table.Header>
+ *  <Table.Body>
+ *    <Table.Row>
+ *      <Table.Cell>Row 1, Cell 1</Table.Cell>
+ *      <Table.Cell>Row 1, Cell 2</Table.Cell>
+ *      <Table.Cell>Row 1, Cell 3</Table.Cell>
+ *    </Table.Row>
+ *    <Table.Row>
+ *      <Table.Cell>Row 2, Cell 1</Table.Cell>
+ *      <Table.Cell>Row 2, Cell 2</Table.Cell>
+ *      <Table.Cell>Row 2, Cell 3</Table.Cell>
+ *     </Table.Row>
+ *   </Table.Body>
+ * </Table>
+ */
 export function Table<T extends object>(props: TableProps<T>) {
   const { allowsExpandableRows } = props;
 
-  if (allowsExpandableRows) {
-    return <TreeGridTable {...props} />;
-  }
+  const tableOptions: TableOptions = useMemo(
+    () => ({
+      allowsExpandableRows: false,
+      hasBottom: props.hasBottom,
+      isSticky: props.isSticky,
+      selectionBehavior: props.selectionBehavior,
+      selectionMode: props.selectionMode,
+    }),
+    [
+      props.hasBottom,
+      props.isSticky,
+      props.selectionBehavior,
+      props.selectionMode,
+    ]
+  );
 
-  return <InternalTable {...props} />;
+  const content = (
+    <TableOptionsContext.Provider value={tableOptions}>
+      <Collection {...props} />
+    </TableOptionsContext.Provider>
+  );
+
+  return (
+    <CollectionBuilder
+      content={content}
+      createCollection={() => new TableCollection<T>()}
+    >
+      {(collection: TableCollection<T>) =>
+        allowsExpandableRows ? (
+          <TreeGridTable {...props} collection={collection} />
+        ) : (
+          <SimpleTable {...props} collection={collection} />
+        )
+      }
+    </CollectionBuilder>
+  );
 }
 
-export function InternalTable<T extends object>(props: TableProps<T>) {
-  const { selectionMode, selectionBehavior } = props;
-
-  const state = useTableState({
-    ...props,
-    showSelectionCheckboxes:
-      selectionMode === "multiple" && selectionBehavior !== "replace",
-  });
-
-  return <TableShared state={state} {...props} />;
-}
-
-export function TreeGridTable<T extends object>(props: TableProps<T>) {
-  const { selectionMode, selectionBehavior } = props;
-
-  const state = useGridTreeState({
-    ...props,
-    showSelectionCheckboxes:
-      selectionMode === "multiple" && selectionBehavior !== "replace",
-  });
-
-  return <TableShared state={state} {...props} />;
-}
-
-Table.Header = TableHeader;
-Table.Column = TableColumn;
+Table.Header = TableHeaderWrapper;
+Table.Column = TableColumnWrapper;
 Table.Body = TableBody;
-Table.Footer = TableFooter;
-Table.Row = Row;
+Table.Row = TableRowWrapper;
 Table.Cell = TableCell;
 Table.Bottom = TableBottom;
 
 interface TableSkeletonProps {
+  /** Number of columns in the table */
   columns: number;
+  /** Number of rows in the table
+   * @default 10
+   */
   rows?: number;
-  paginationDescriptor?: PaginationDescriptor;
 }
 
 function TableSkeleton(props: TableSkeletonProps) {
-  const {
-    columns,
-    paginationDescriptor,
-    rows = paginationDescriptor?.pageSize ?? 10,
-  } = props;
+  const { columns, rows = 10 } = props;
 
   const cols = Array.from({ length: columns }).map((_, index) => ({
-    key: index,
+    isRowHeader: index === 0,
+    id: index,
   }));
 
   return (
-    <Table
-      isLoading
-      loadingRows={rows}
-      paginationDescriptor={paginationDescriptor}
-    >
+    <Table>
       <Table.Header columns={cols}>
         {(col) => (
-          <Table.Column key={col.key}>
+          <Table.Column isRowHeader={col.isRowHeader}>
             <LoadingCellContent />
           </Table.Column>
         )}
       </Table.Header>
-      {/* @ts-expect-error - in this case, we don't care about an actual body since we won't be rendering one */}
-      <Table.Body />
+      <Table.Body isLoading loadingRows={rows} />
     </Table>
   );
 }
