@@ -1,63 +1,92 @@
 import { forwardRef } from "react";
 import { AriaButtonOptions } from "@react-aria/button";
-import { mergeProps } from "@react-aria/utils";
+import { mergeProps, useObjectRef } from "@react-aria/utils";
 
 import { SpinnerLoader } from "../../Loaders/SpinnerLoader";
 import {
-  BaseProps,
-  HasChildren,
+  ExtendedSize,
+  HasIcon,
   HasVariant,
   LoadingProps,
+  RenderBaseProps,
+  SuggestStrings,
 } from "../../../types";
-import { StyledButton } from "./Button.styles";
-import { ButtonVariants } from "../Buttons.types";
-import useForwardedRef from "../../../hooks/useForwardedRef";
-import { useFocusRing } from "../../../hooks/useFocusRing";
+import { useFocusRing } from "@hooks/useFocusRing";
 import { useRenderProps } from "@hooks/useRenderProps";
 import { useButtonLink } from "@hooks/useButtonLink";
-import { useContextProps } from "@hooks/useContextProps";
+import { useContextPropsV2 } from "@hooks/useContextProps";
+import { StyledButton } from "./Button.styles";
 import { ButtonContext } from "./Button.context";
-import { SlotProps } from "@hooks/useSlottedContext";
 
-export type ButtonProps = AriaButtonOptions<"button"> &
-  LoadingProps &
-  BaseProps &
-  HasChildren &
-  HasVariant<ButtonVariants> &
-  SlotProps & {
-    as?: "button" | "a";
-  };
+export type ButtonVariants = SuggestStrings<
+  | "primary"
+  | "secondary"
+  | "link"
+  | "success"
+  | "error"
+  | "inverted"
+  | "content"
+  | "border"
+  | "ghost"
+>;
 
+interface ButtonRenderProps {
+  isLoading: boolean;
+  isPressed: boolean;
+  isFocusVisible: boolean;
+  isFocused: boolean;
+}
+
+export interface ButtonProps
+  extends AriaButtonOptions<"button">,
+    LoadingProps,
+    RenderBaseProps<ButtonRenderProps>,
+    HasVariant<ButtonVariants> {
+  as?: "button" | "a";
+  size?: ExtendedSize;
+}
+
+/** A button component that can be used to trigger actions or events
+ *
+ * @example <Button onPress={() => alert("Hello, world!")}>Click me</Button>
+ */
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  (props, ref) => {
+  function Button(props, forwardedRef) {
+    [props, forwardedRef] = useContextPropsV2(
+      ButtonContext,
+      // Button doesn't have Icon props, but the context does
+      props as ButtonProps & HasIcon,
+      forwardedRef
+    );
+
+    const ref = useObjectRef(forwardedRef);
+
     const {
-      children,
-      size = "auto",
-      variant = "primary",
       isLoading = false,
       loadingLabel,
       loadingComplete = false,
-      className,
       as = props.href ? "a" : "button",
-    } = useContextProps(ButtonContext, props);
+      variant = "primary",
+      size = "auto",
+    } = props;
 
-    const internalRef = useForwardedRef<HTMLButtonElement>(ref);
     const { buttonProps, isPressed } = useButtonLink(
       {
         ...props,
         elementType: as,
         "aria-label": isLoading ? loadingLabel : props["aria-label"],
       },
-      internalRef
+      ref
     );
 
-    const { focusProps } = useFocusRing();
+    const { focusProps, isFocusVisible, isFocused } = useFocusRing();
 
     const renderProps = useRenderProps({
       componentClassName: "aje-btn",
-      className,
+      ...props,
       variant,
       size,
+      values: { isPressed, isLoading, isFocusVisible, isFocused },
       selectors: {
         "data-pressed": isPressed,
         "data-loading": isLoading,
@@ -67,7 +96,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <StyledButton
         as={as}
-        ref={internalRef}
+        ref={ref}
         {...mergeProps(buttonProps, focusProps, renderProps)}
       >
         {isLoading && (
@@ -76,12 +105,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             placement="absolute center"
           />
         )}
-        {children}
+        {renderProps.children}
       </StyledButton>
     );
   }
 );
-
-Button.displayName = "Button";
-
-export default Button;

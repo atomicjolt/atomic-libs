@@ -1,29 +1,23 @@
 import React from "react";
-import { HasVariant } from "../../../types";
-import { ButtonVariants } from "../Buttons.types";
 import { Group, GroupProps } from "../../Layout/Group";
-
-export interface SharedProps extends HasVariant<ButtonVariants> {
-  isDisabled?: boolean;
-}
-
-export interface ButtonGroupChildProps extends SharedProps {
-  buttonVariant?: ButtonVariants;
-}
-
-export type ButtonGroupChild = React.ReactElement<ButtonGroupChildProps>;
+import { ButtonContext } from "../Button/Button.context";
+import { ButtonProps } from "../Button/Button.component";
+import { HasIcon } from "../../../types";
 
 export interface ButtonGroupProps
-  extends SharedProps,
-    Omit<GroupProps, "children"> {
-  children: ButtonGroupChild | ButtonGroupChild[];
+  extends Omit<ButtonProps, "className" | "id">,
+    HasIcon,
+    Omit<GroupProps, "children" | "size"> {
+  children: React.ReactNode;
 }
 
-/** Wrapper around the  [Group Component](/docs/layouts-group--overview)
- * Used to group several buttons / icon buttons / icon menus together into a visual & logical group.
+/** Group a set of buttoons together & provide a common context to all buttons in the group
  *
- * In addition to the normal behavior of the Group component, this component also passes down several
- * of it's props to it's children as defaults.
+ * @example
+ * <ButtonGroup variant="border" isDisabled>
+ *   <Button>Button 1</Button>
+ *   <Button>Button 2</Button>
+ * </ButtonGroup>
  */
 export function ButtonGroup(props: ButtonGroupProps) {
   const {
@@ -31,30 +25,22 @@ export function ButtonGroup(props: ButtonGroupProps) {
     isMerged,
     className,
     id,
-    size,
     gap,
     direction = "row",
-    ...overrides
+    ...buttonProps
   } = props;
 
-  const mergedPropsChildren = React.Children.map(children, (child) => {
-    return React.cloneElement(child, {
-      ...overrides,
-      buttonVariant: props.variant,
-      ...child.props,
-    });
-  });
-
   return (
-    <Group
-      isMerged={isMerged}
-      className={className}
-      id={id}
-      size={size}
-      gap={gap}
-      direction={direction}
-    >
-      {mergedPropsChildren}
-    </Group>
+    <ButtonContext.Provider value={buttonProps}>
+      <Group
+        isMerged={isMerged}
+        className={className}
+        id={id}
+        gap={gap}
+        direction={direction}
+      >
+        {children}
+      </Group>
+    </ButtonContext.Provider>
   );
 }

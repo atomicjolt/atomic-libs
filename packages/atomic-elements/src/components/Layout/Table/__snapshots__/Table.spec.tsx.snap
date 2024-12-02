@@ -45,12 +45,12 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
                     value="search"
                   />
                   <button
-                    class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
+                    class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
                     type="button"
                   >
                     <i
                       aria-hidden="true"
-                      class="sc-cHqXqK cswpJl aje-icon material-icons is-small"
+                      class="sc-kLhKbu gELXHy aje-icon material-icons is-small"
                     >
                       close
                     </i>
@@ -172,12 +172,12 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
                   value="search"
                 />
                 <button
-                  class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
+                  class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
                   type="button"
                 >
                   <i
                     aria-hidden="true"
-                    class="sc-cHqXqK cswpJl aje-icon material-icons is-small"
+                    class="sc-kLhKbu gELXHy aje-icon material-icons is-small"
                   >
                     close
                   </i>
@@ -356,24 +356,24 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
                     value=""
                   />
                   <button
-                    class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
+                    class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
                     type="button"
                   >
                     <i
                       aria-hidden="true"
-                      class="sc-cHqXqK cswpJl aje-icon material-icons is-small"
+                      class="sc-kLhKbu gELXHy aje-icon material-icons is-small"
                     >
                       close
                     </i>
                   </button>
                 </div>
                 <button
-                  class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
+                  class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
                   type="button"
                 >
                   <i
                     aria-hidden="true"
-                    class="sc-cHqXqK cswpJl aje-icon material-icons is-small"
+                    class="sc-kLhKbu gELXHy aje-icon material-icons is-small"
                   >
                     search
                   </i>
@@ -494,24 +494,24 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
                   value=""
                 />
                 <button
-                  class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
+                  class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
                   type="button"
                 >
                   <i
                     aria-hidden="true"
-                    class="sc-cHqXqK cswpJl aje-icon material-icons is-small"
+                    class="sc-kLhKbu gELXHy aje-icon material-icons is-small"
                   >
                     close
                   </i>
                 </button>
               </div>
               <button
-                class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
+                class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
                 type="button"
               >
                 <i
                   aria-hidden="true"
-                  class="sc-cHqXqK cswpJl aje-icon material-icons is-small"
+                  class="sc-kLhKbu gELXHy aje-icon material-icons is-small"
                 >
                   search
                 </i>
@@ -689,24 +689,24 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                     value=""
                   />
                   <button
-                    class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
+                    class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
                     type="button"
                   >
                     <i
                       aria-hidden="true"
-                      class="sc-cHqXqK cswpJl aje-icon material-icons is-small"
+                      class="sc-kLhKbu gELXHy aje-icon material-icons is-small"
                     >
                       close
                     </i>
                   </button>
                 </div>
                 <button
-                  class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
+                  class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
                   type="button"
                 >
                   <i
                     aria-hidden="true"
-                    class="sc-cHqXqK cswpJl aje-icon material-icons is-small"
+                    class="sc-kLhKbu gELXHy aje-icon material-icons is-small"
                   >
                     search
                   </i>
@@ -1958,24 +1958,24 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   value=""
                 />
                 <button
-                  class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
+                  class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
                   type="button"
                 >
                   <i
                     aria-hidden="true"
-                    class="sc-cHqXqK cswpJl aje-icon material-icons is-small"
+                    class="sc-kLhKbu gELXHy aje-icon material-icons is-small"
                   >
                     close
                   </i>
                 </button>
               </div>
               <button
-                class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
+                class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
                 type="button"
               >
                 <i
                   aria-hidden="true"
-                  class="sc-cHqXqK cswpJl aje-icon material-icons is-small"
+                  class="sc-kLhKbu gELXHy aje-icon material-icons is-small"
                 >
                   search
                 </i>
