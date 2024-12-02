@@ -5,7 +5,6 @@ import { mergeProps, useObjectRef } from "@react-aria/utils";
 import { SpinnerLoader } from "../../Loaders/SpinnerLoader";
 import {
   ExtendedSize,
-  HasIcon,
   HasVariant,
   LoadingProps,
   RenderBaseProps,
@@ -17,6 +16,7 @@ import { useButtonLink } from "@hooks/useButtonLink";
 import { useContextPropsV2 } from "@hooks/useContextProps";
 import { StyledButton } from "./Button.styles";
 import { ButtonContext } from "./Button.context";
+import { SlotProps } from "@hooks/useSlottedContext";
 
 export type ButtonVariants = SuggestStrings<
   | "primary"
@@ -41,7 +41,8 @@ export interface ButtonProps
   extends AriaButtonOptions<"button">,
     LoadingProps,
     RenderBaseProps<ButtonRenderProps>,
-    HasVariant<ButtonVariants> {
+    HasVariant<ButtonVariants>,
+    SlotProps {
   as?: "button" | "a";
   size?: ExtendedSize;
 }
@@ -54,8 +55,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   function Button(props, forwardedRef) {
     [props, forwardedRef] = useContextPropsV2(
       ButtonContext,
-      // Button doesn't have Icon props, but the context does
-      props as ButtonProps & HasIcon,
+      props,
       forwardedRef
     );
 

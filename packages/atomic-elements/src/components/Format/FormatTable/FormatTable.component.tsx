@@ -20,8 +20,10 @@ export function FormatTable(props: FormatTableProps) {
       </Table.Header>
       <Table.Body items={value || []}>
         {(item) => (
-          <Table.Row>
-            {(colKey) => <Table.Cell key={colKey}>{item[colKey]}</Table.Cell>}
+          <Table.Row columns={columns}>
+            {(column) => (
+              <Table.Cell key={column.key}>{item[column.key]}</Table.Cell>
+            )}
           </Table.Row>
         )}
       </Table.Body>
