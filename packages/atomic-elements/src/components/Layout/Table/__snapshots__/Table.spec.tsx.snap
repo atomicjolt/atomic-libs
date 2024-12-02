@@ -44,12 +44,12 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
                     value="search"
                   />
                   <button
-                    class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
+                    class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
                     type="button"
                   >
                     <i
                       aria-hidden="true"
-                      class="sc-cHqXqK cswpJl aje-icon material-icons is-small"
+                      class="sc-kLhKbu gELXHy aje-icon material-icons is-small"
                     >
                       close
                     </i>
@@ -91,7 +91,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
               tabindex="-1"
             >
               <div
-                class="sc-kLhKbu kNHYgZ aje-flex"
+                class="sc-ixGGxD fqzOIT aje-flex"
               >
                 <span
                   class="sc-iuUfFv hBsQNL aje-table__cell__content"
@@ -107,7 +107,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
               tabindex="-1"
             >
               <div
-                class="sc-kLhKbu kNHYgZ aje-flex"
+                class="sc-ixGGxD fqzOIT aje-flex"
               >
                 <span
                   class="sc-iuUfFv hBsQNL aje-table__cell__content"
@@ -132,7 +132,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
               tabindex="-1"
             >
               <div
-                class="sc-kLhKbu kNHYgZ aje-flex"
+                class="sc-ixGGxD fqzOIT aje-flex"
               >
                 <span
                   class="sc-iuUfFv hBsQNL aje-table__cell__content"
@@ -148,7 +148,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
               tabindex="-1"
             >
               <div
-                class="sc-kLhKbu kNHYgZ aje-flex"
+                class="sc-ixGGxD fqzOIT aje-flex"
               >
                 <span
                   class="sc-iuUfFv hBsQNL aje-table__cell__content"
@@ -208,12 +208,12 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
                   value="search"
                 />
                 <button
-                  class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
+                  class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
                   type="button"
                 >
                   <i
                     aria-hidden="true"
-                    class="sc-cHqXqK cswpJl aje-icon material-icons is-small"
+                    class="sc-kLhKbu gELXHy aje-icon material-icons is-small"
                   >
                     close
                   </i>
@@ -255,7 +255,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
             tabindex="-1"
           >
             <div
-              class="sc-kLhKbu kNHYgZ aje-flex"
+              class="sc-ixGGxD fqzOIT aje-flex"
             >
               <span
                 class="sc-iuUfFv hBsQNL aje-table__cell__content"
@@ -271,7 +271,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
             tabindex="-1"
           >
             <div
-              class="sc-kLhKbu kNHYgZ aje-flex"
+              class="sc-ixGGxD fqzOIT aje-flex"
             >
               <span
                 class="sc-iuUfFv hBsQNL aje-table__cell__content"
@@ -296,7 +296,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
             tabindex="-1"
           >
             <div
-              class="sc-kLhKbu kNHYgZ aje-flex"
+              class="sc-ixGGxD fqzOIT aje-flex"
             >
               <span
                 class="sc-iuUfFv hBsQNL aje-table__cell__content"
@@ -312,7 +312,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
             tabindex="-1"
           >
             <div
-              class="sc-kLhKbu kNHYgZ aje-flex"
+              class="sc-ixGGxD fqzOIT aje-flex"
             >
               <span
                 class="sc-iuUfFv hBsQNL aje-table__cell__content"
@@ -423,24 +423,24 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
                     value=""
                   />
                   <button
-                    class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
+                    class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
                     type="button"
                   >
                     <i
                       aria-hidden="true"
-                      class="sc-cHqXqK cswpJl aje-icon material-icons is-small"
+                      class="sc-kLhKbu gELXHy aje-icon material-icons is-small"
                     >
                       close
                     </i>
                   </button>
                 </div>
                 <button
-                  class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
+                  class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
                   type="button"
                 >
                   <i
                     aria-hidden="true"
-                    class="sc-cHqXqK cswpJl aje-icon material-icons is-small"
+                    class="sc-kLhKbu gELXHy aje-icon material-icons is-small"
                   >
                     search
                   </i>
@@ -481,7 +481,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
               tabindex="-1"
             >
               <div
-                class="sc-kLhKbu kNHYgZ aje-flex"
+                class="sc-ixGGxD fqzOIT aje-flex"
               >
                 <span
                   class="sc-iuUfFv hBsQNL aje-table__cell__content"
@@ -497,7 +497,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
               tabindex="-1"
             >
               <div
-                class="sc-kLhKbu kNHYgZ aje-flex"
+                class="sc-ixGGxD fqzOIT aje-flex"
               >
                 <span
                   class="sc-iuUfFv hBsQNL aje-table__cell__content"
@@ -522,7 +522,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
               tabindex="-1"
             >
               <div
-                class="sc-kLhKbu kNHYgZ aje-flex"
+                class="sc-ixGGxD fqzOIT aje-flex"
               >
                 <span
                   class="sc-iuUfFv hBsQNL aje-table__cell__content"
@@ -538,7 +538,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
               tabindex="-1"
             >
               <div
-                class="sc-kLhKbu kNHYgZ aje-flex"
+                class="sc-ixGGxD fqzOIT aje-flex"
               >
                 <span
                   class="sc-iuUfFv hBsQNL aje-table__cell__content"
@@ -598,24 +598,24 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
                   value=""
                 />
                 <button
-                  class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
+                  class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
                   type="button"
                 >
                   <i
                     aria-hidden="true"
-                    class="sc-cHqXqK cswpJl aje-icon material-icons is-small"
+                    class="sc-kLhKbu gELXHy aje-icon material-icons is-small"
                   >
                     close
                   </i>
                 </button>
               </div>
               <button
-                class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
+                class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
                 type="button"
               >
                 <i
                   aria-hidden="true"
-                  class="sc-cHqXqK cswpJl aje-icon material-icons is-small"
+                  class="sc-kLhKbu gELXHy aje-icon material-icons is-small"
                 >
                   search
                 </i>
@@ -656,7 +656,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
             tabindex="-1"
           >
             <div
-              class="sc-kLhKbu kNHYgZ aje-flex"
+              class="sc-ixGGxD fqzOIT aje-flex"
             >
               <span
                 class="sc-iuUfFv hBsQNL aje-table__cell__content"
@@ -672,7 +672,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
             tabindex="-1"
           >
             <div
-              class="sc-kLhKbu kNHYgZ aje-flex"
+              class="sc-ixGGxD fqzOIT aje-flex"
             >
               <span
                 class="sc-iuUfFv hBsQNL aje-table__cell__content"
@@ -697,7 +697,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
             tabindex="-1"
           >
             <div
-              class="sc-kLhKbu kNHYgZ aje-flex"
+              class="sc-ixGGxD fqzOIT aje-flex"
             >
               <span
                 class="sc-iuUfFv hBsQNL aje-table__cell__content"
@@ -713,7 +713,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
             tabindex="-1"
           >
             <div
-              class="sc-kLhKbu kNHYgZ aje-flex"
+              class="sc-ixGGxD fqzOIT aje-flex"
             >
               <span
                 class="sc-iuUfFv hBsQNL aje-table__cell__content"
@@ -825,24 +825,24 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                     value=""
                   />
                   <button
-                    class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
+                    class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
                     type="button"
                   >
                     <i
                       aria-hidden="true"
-                      class="sc-cHqXqK cswpJl aje-icon material-icons is-small"
+                      class="sc-kLhKbu gELXHy aje-icon material-icons is-small"
                     >
                       close
                     </i>
                   </button>
                 </div>
                 <button
-                  class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
+                  class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
                   type="button"
                 >
                   <i
                     aria-hidden="true"
-                    class="sc-cHqXqK cswpJl aje-icon material-icons is-small"
+                    class="sc-kLhKbu gELXHy aje-icon material-icons is-small"
                   >
                     search
                   </i>
@@ -2099,24 +2099,24 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   value=""
                 />
                 <button
-                  class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
+                  class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
                   type="button"
                 >
                   <i
                     aria-hidden="true"
-                    class="sc-cHqXqK cswpJl aje-icon material-icons is-small"
+                    class="sc-kLhKbu gELXHy aje-icon material-icons is-small"
                   >
                     close
                   </i>
                 </button>
               </div>
               <button
-                class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
+                class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
                 type="button"
               >
                 <i
                   aria-hidden="true"
-                  class="sc-cHqXqK cswpJl aje-icon material-icons is-small"
+                  class="sc-kLhKbu gELXHy aje-icon material-icons is-small"
                 >
                   search
                 </i>
@@ -3424,24 +3424,24 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
                     value=""
                   />
                   <button
-                    class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
+                    class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
                     type="button"
                   >
                     <i
                       aria-hidden="true"
-                      class="sc-cHqXqK cswpJl aje-icon material-icons is-small"
+                      class="sc-kLhKbu gELXHy aje-icon material-icons is-small"
                     >
                       close
                     </i>
                   </button>
                 </div>
                 <button
-                  class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
+                  class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
                   type="button"
                 >
                   <i
                     aria-hidden="true"
-                    class="sc-cHqXqK cswpJl aje-icon material-icons is-small"
+                    class="sc-kLhKbu gELXHy aje-icon material-icons is-small"
                   >
                     search
                   </i>
@@ -3482,7 +3482,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
               tabindex="-1"
             >
               <div
-                class="sc-kLhKbu kNHYgZ aje-flex"
+                class="sc-ixGGxD fqzOIT aje-flex"
               >
                 <span
                   class="sc-iuUfFv hBsQNL aje-table__cell__content"
@@ -3498,7 +3498,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
               tabindex="-1"
             >
               <div
-                class="sc-kLhKbu kNHYgZ aje-flex"
+                class="sc-ixGGxD fqzOIT aje-flex"
               >
                 <span
                   class="sc-iuUfFv hBsQNL aje-table__cell__content"
@@ -3523,7 +3523,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
               tabindex="-1"
             >
               <div
-                class="sc-kLhKbu kNHYgZ aje-flex"
+                class="sc-ixGGxD fqzOIT aje-flex"
               >
                 <span
                   class="sc-iuUfFv hBsQNL aje-table__cell__content"
@@ -3539,7 +3539,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
               tabindex="-1"
             >
               <div
-                class="sc-kLhKbu kNHYgZ aje-flex"
+                class="sc-ixGGxD fqzOIT aje-flex"
               >
                 <span
                   class="sc-iuUfFv hBsQNL aje-table__cell__content"
@@ -3555,11 +3555,11 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
         class="sc-dprtRQ fpLNau aje-table__bottom"
       >
         <div
-          class="sc-kLhKbu gIEVSm aje-flex"
+          class="sc-ixGGxD lfkMXE aje-flex"
           style="height: 100%;"
         >
           <div
-            class="sc-eWPXlR hdjNtL aje-select sc-eDHQDy kuHUDx aje-select aje-select--ghost aje-select--ghost is-auto"
+            class="sc-eWPXlR hdjNtL aje-select sc-iqyJx cJamVH aje-select aje-select--ghost aje-select--ghost is-auto"
           >
             <div
               aria-hidden="true"
@@ -3606,7 +3606,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
               aria-haspopup="listbox"
               aria-label="Select page size"
               aria-labelledby="react-aria-:rd: react-aria-:r8: react-aria-:r9:"
-              class="sc-jtQUzJ sc-lnsxGb cipAo hegzZT aje-btn sc-jSSkKI btCqZz aje-btn--dropdown is-auto"
+              class="sc-jtQUzJ dHBwgm aje-btn sc-lnsxGb ertuho aje-btn--dropdown is-auto"
               id="react-aria-:r8:"
               type="button"
             >
@@ -3618,7 +3618,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
               </span>
               <i
                 aria-hidden="true"
-                class="sc-cHqXqK cswpJl aje-icon material-icons is-medium"
+                class="sc-kLhKbu gELXHy aje-icon material-icons is-medium"
               >
                 arrow_drop_down
               </i>
@@ -3628,54 +3628,54 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
             class="aje-pagination"
           >
             <div
-              class="sc-kLhKbu gTdSnB aje-flex"
+              class="sc-ixGGxD hmhcuX aje-flex"
             >
               <button
                 aria-label="First Page"
-                class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--ghost is-medium"
+                class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--ghost is-medium"
                 disabled=""
                 type="button"
               >
                 <i
                   aria-hidden="true"
-                  class="sc-cHqXqK cswpJl aje-icon material-icons is-medium"
+                  class="sc-kLhKbu gELXHy aje-icon material-icons is-medium"
                 >
                   first_page
                 </i>
               </button>
               <button
                 aria-label="Previous Page"
-                class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--ghost is-medium"
+                class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--ghost is-medium"
                 disabled=""
                 type="button"
               >
                 <i
                   aria-hidden="true"
-                  class="sc-cHqXqK cswpJl aje-icon material-icons is-medium"
+                  class="sc-kLhKbu gELXHy aje-icon material-icons is-medium"
                 >
                   chevron_left
                 </i>
               </button>
               <button
                 aria-label="Next Page"
-                class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--ghost is-medium"
+                class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--ghost is-medium"
                 type="button"
               >
                 <i
                   aria-hidden="true"
-                  class="sc-cHqXqK cswpJl aje-icon material-icons is-medium"
+                  class="sc-kLhKbu gELXHy aje-icon material-icons is-medium"
                 >
                   chevron_right
                 </i>
               </button>
               <button
                 aria-label="Last Page"
-                class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--ghost is-medium"
+                class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--ghost is-medium"
                 type="button"
               >
                 <i
                   aria-hidden="true"
-                  class="sc-cHqXqK cswpJl aje-icon material-icons is-medium"
+                  class="sc-kLhKbu gELXHy aje-icon material-icons is-medium"
                 >
                   last_page
                 </i>
@@ -3733,24 +3733,24 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
                   value=""
                 />
                 <button
-                  class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
+                  class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
                   type="button"
                 >
                   <i
                     aria-hidden="true"
-                    class="sc-cHqXqK cswpJl aje-icon material-icons is-small"
+                    class="sc-kLhKbu gELXHy aje-icon material-icons is-small"
                   >
                     close
                   </i>
                 </button>
               </div>
               <button
-                class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
+                class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
                 type="button"
               >
                 <i
                   aria-hidden="true"
-                  class="sc-cHqXqK cswpJl aje-icon material-icons is-small"
+                  class="sc-kLhKbu gELXHy aje-icon material-icons is-small"
                 >
                   search
                 </i>
@@ -3791,7 +3791,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
             tabindex="-1"
           >
             <div
-              class="sc-kLhKbu kNHYgZ aje-flex"
+              class="sc-ixGGxD fqzOIT aje-flex"
             >
               <span
                 class="sc-iuUfFv hBsQNL aje-table__cell__content"
@@ -3807,7 +3807,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
             tabindex="-1"
           >
             <div
-              class="sc-kLhKbu kNHYgZ aje-flex"
+              class="sc-ixGGxD fqzOIT aje-flex"
             >
               <span
                 class="sc-iuUfFv hBsQNL aje-table__cell__content"
@@ -3832,7 +3832,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
             tabindex="-1"
           >
             <div
-              class="sc-kLhKbu kNHYgZ aje-flex"
+              class="sc-ixGGxD fqzOIT aje-flex"
             >
               <span
                 class="sc-iuUfFv hBsQNL aje-table__cell__content"
@@ -3848,7 +3848,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
             tabindex="-1"
           >
             <div
-              class="sc-kLhKbu kNHYgZ aje-flex"
+              class="sc-ixGGxD fqzOIT aje-flex"
             >
               <span
                 class="sc-iuUfFv hBsQNL aje-table__cell__content"
@@ -3864,11 +3864,11 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
       class="sc-dprtRQ fpLNau aje-table__bottom"
     >
       <div
-        class="sc-kLhKbu gIEVSm aje-flex"
+        class="sc-ixGGxD lfkMXE aje-flex"
         style="height: 100%;"
       >
         <div
-          class="sc-eWPXlR hdjNtL aje-select sc-eDHQDy kuHUDx aje-select aje-select--ghost aje-select--ghost is-auto"
+          class="sc-eWPXlR hdjNtL aje-select sc-iqyJx cJamVH aje-select aje-select--ghost aje-select--ghost is-auto"
         >
           <div
             aria-hidden="true"
@@ -3915,7 +3915,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
             aria-haspopup="listbox"
             aria-label="Select page size"
             aria-labelledby="react-aria-:rd: react-aria-:r8: react-aria-:r9:"
-            class="sc-jtQUzJ sc-lnsxGb cipAo hegzZT aje-btn sc-jSSkKI btCqZz aje-btn--dropdown is-auto"
+            class="sc-jtQUzJ dHBwgm aje-btn sc-lnsxGb ertuho aje-btn--dropdown is-auto"
             id="react-aria-:r8:"
             type="button"
           >
@@ -3927,7 +3927,7 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
             </span>
             <i
               aria-hidden="true"
-              class="sc-cHqXqK cswpJl aje-icon material-icons is-medium"
+              class="sc-kLhKbu gELXHy aje-icon material-icons is-medium"
             >
               arrow_drop_down
             </i>
@@ -3937,54 +3937,54 @@ exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
           class="aje-pagination"
         >
           <div
-            class="sc-kLhKbu gTdSnB aje-flex"
+            class="sc-ixGGxD hmhcuX aje-flex"
           >
             <button
               aria-label="First Page"
-              class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--ghost is-medium"
+              class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--ghost is-medium"
               disabled=""
               type="button"
             >
               <i
                 aria-hidden="true"
-                class="sc-cHqXqK cswpJl aje-icon material-icons is-medium"
+                class="sc-kLhKbu gELXHy aje-icon material-icons is-medium"
               >
                 first_page
               </i>
             </button>
             <button
               aria-label="Previous Page"
-              class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--ghost is-medium"
+              class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--ghost is-medium"
               disabled=""
               type="button"
             >
               <i
                 aria-hidden="true"
-                class="sc-cHqXqK cswpJl aje-icon material-icons is-medium"
+                class="sc-kLhKbu gELXHy aje-icon material-icons is-medium"
               >
                 chevron_left
               </i>
             </button>
             <button
               aria-label="Next Page"
-              class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--ghost is-medium"
+              class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--ghost is-medium"
               type="button"
             >
               <i
                 aria-hidden="true"
-                class="sc-cHqXqK cswpJl aje-icon material-icons is-medium"
+                class="sc-kLhKbu gELXHy aje-icon material-icons is-medium"
               >
                 chevron_right
               </i>
             </button>
             <button
               aria-label="Last Page"
-              class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--ghost is-medium"
+              class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--ghost is-medium"
               type="button"
             >
               <i
                 aria-hidden="true"
-                class="sc-cHqXqK cswpJl aje-icon material-icons is-medium"
+                class="sc-kLhKbu gELXHy aje-icon material-icons is-medium"
               >
                 last_page
               </i>
