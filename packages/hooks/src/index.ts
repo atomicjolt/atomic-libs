@@ -7,3 +7,4 @@ export { useRenderCount } from './hooks/lifecycle/useRenderCount';
 export { useRender } from './hooks/lifecycle/useRender';
 export { useUnmount } from './hooks/lifecycle/useUnmount';
 export { useMount } from './hooks/lifecycle/useMount';
+export { useDebouncedState } from './hooks/useDebouncedState';
