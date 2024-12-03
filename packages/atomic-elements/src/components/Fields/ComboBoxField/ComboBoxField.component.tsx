@@ -1,5 +1,5 @@
 import React, { forwardRef, useRef } from "react";
-import { useContextPropsV2 } from "@hooks/useContextProps";
+import { useContextProps } from "@hooks/useContextProps";
 import { PressResponder } from "@react-aria/interactions";
 import { CollectionBuilder } from "@react-aria/collections";
 import { useComboBoxState } from "react-stately";
@@ -36,7 +36,7 @@ import { ComboBoxFieldWrapper } from "./ComboBoxField.styles";
 export const ComboBoxField = forwardRef(function ComboBoxField<
   T extends object
 >(props: ComboBoxFieldProps<T>, ref: React.Ref<HTMLInputElement>) {
-  [props, ref] = useContextPropsV2(ComboBoxFieldContext, props, ref);
+  [props, ref] = useContextProps(ComboBoxFieldContext, props, ref);
 
   return (
     <CollectionBuilder content={props.children}>

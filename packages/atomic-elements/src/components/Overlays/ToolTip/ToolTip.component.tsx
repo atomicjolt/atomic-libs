@@ -11,7 +11,7 @@ import { Transition } from "react-transition-group";
 import { ToolTipArrow, ToolTipOverlay } from "./ToolTip.styles";
 import { RenderBaseProps } from "../../../types";
 import { TooltipContext, TooltipStateContext } from "./ToolTip.context";
-import { useContextPropsV2 } from "../../../hooks/useContextProps";
+import { useContextProps } from "../../../hooks/useContextProps";
 import { mergeProps } from "@react-aria/utils";
 import { useRenderProps } from "@hooks";
 
@@ -37,7 +37,7 @@ export interface ToolTipProps
 /** A ToolTip component displays a popup with additional information when a user hovers over or focuses on an element. */
 export function ToolTip(props: ToolTipProps) {
   let ref = useRef(null);
-  [props, ref] = useContextPropsV2(TooltipContext, props, ref);
+  [props, ref] = useContextProps(TooltipContext, props, ref);
   const { triggerRef, transitionDuration = 300, ...rest } = props;
 
   const state = useContext(TooltipStateContext);

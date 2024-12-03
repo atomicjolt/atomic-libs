@@ -19,7 +19,7 @@ import {
   ModalTitle,
 } from "./Modal.styles";
 import classNames from "classnames";
-import { useContextPropsV2 } from "../../../hooks/useContextProps";
+import { useContextProps } from "../../../hooks/useContextProps";
 import { ModalContext } from "./Modal.context";
 import { OverlayTriggerStateContext } from "../OverlayTrigger/context";
 import { useRenderProps } from "@hooks";
@@ -45,7 +45,7 @@ export interface ModalProps extends BaseModalProps {
  */
 export function Modal(props: ModalProps) {
   let ref = useRef(null);
-  [props, ref] = useContextPropsV2(ModalContext, props, ref);
+  [props, ref] = useContextProps(ModalContext, props, ref);
 
   const { children, centered = false, variant = "default", ...rest } = props;
 

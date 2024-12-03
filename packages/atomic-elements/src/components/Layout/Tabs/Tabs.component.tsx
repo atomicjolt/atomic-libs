@@ -15,7 +15,7 @@ import {
 } from "@react-aria/collections";
 import { useObjectRef } from "@react-aria/utils";
 
-import { useContextPropsV2 } from "@hooks/useContextProps";
+import { useContextProps } from "@hooks/useContextProps";
 import { useRenderProps } from "@hooks";
 import { useCollectionRenderer } from "@hooks/useCollectionRenderer";
 import { Provider } from "@components/Internal/Provider";
@@ -48,7 +48,7 @@ export const Tabs = forwardRef(function Tabs<T extends object>(
   props: TabsProps<T>,
   ref: React.ForwardedRef<HTMLDivElement>
 ) {
-  [props, ref] = useContextPropsV2(TabsContext, props, ref);
+  [props, ref] = useContextProps(TabsContext, props, ref);
 
   return (
     <CollectionBuilder content={props.children}>
@@ -129,7 +129,7 @@ function Tab<T extends object>(
   ref: React.ForwardedRef<HTMLDivElement>,
   item: Node<T>
 ) {
-  [props, ref] = useContextPropsV2(TabContext, props, ref);
+  [props, ref] = useContextProps(TabContext, props, ref);
   const state = useContext(TabsStateContext)!;
 
   const { key } = item;

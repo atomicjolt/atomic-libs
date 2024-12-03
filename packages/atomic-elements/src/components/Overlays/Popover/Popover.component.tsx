@@ -16,7 +16,7 @@ import { mergeProps } from "@react-aria/utils";
 
 import { RenderBaseProps, HasVariant } from "../../../types";
 import { useRenderProps } from "@hooks";
-import { useContextPropsV2 } from "@hooks/useContextProps";
+import { useContextProps } from "@hooks/useContextProps";
 import { useResizeObserver } from "@hooks/useResizeObserver";
 import { useForwardedRef } from "@hooks/useForwardedRef";
 import { PopoverUnderlay, PopoverContent } from "./Popover.styles";
@@ -42,7 +42,7 @@ export interface PopoverProps
 /** A popover is an overlay element positioned relative to a target. */
 export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(
   (props: PopoverProps, ref) => {
-    [props, ref] = useContextPropsV2(PopoverContext, props, ref);
+    [props, ref] = useContextProps(PopoverContext, props, ref);
 
     const { triggerRef, ...rest } = props;
 
