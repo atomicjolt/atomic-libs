@@ -6,7 +6,7 @@ import { createLeafComponent } from "@react-aria/collections";
 import { IconButton } from "@components/Buttons/IconButton";
 import { useConditionalPress } from "@hooks/useConditionalPress";
 import { useFocusRing } from "@hooks/useFocusRing";
-import { useContextPropsV2 } from "@hooks/useContextProps";
+import { useContextProps } from "@hooks/useContextProps";
 import { useRenderProps } from "@hooks";
 import { ChipGroupStateContext } from "@components/Fields/ChipGroupField/ChipGroupField.context";
 
@@ -15,7 +15,7 @@ import { ChipContent, ChipWrapper } from "./Chip.styles";
 import { ChipContext } from "./Chip.context";
 
 export function ChipLeaf<T>(...args: ChipArgs<T>) {
-  const [props, ref] = useContextPropsV2(ChipContext, args[0], args[1]);
+  const [props, ref] = useContextProps(ChipContext, args[0], args[1]);
 
   // We're being rendered standalone
   if (args.length === 2) {

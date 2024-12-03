@@ -7,7 +7,7 @@ import {
 import { createContext } from "react";
 
 export const ChipGroupFieldContext =
-  createComponentContext<ChipGroupFieldProps<any>>();
+  createComponentContext<ChipGroupFieldProps>();
 
 export const ChipGroupStateContext = createContext<ListState<any> | null>(null);
 

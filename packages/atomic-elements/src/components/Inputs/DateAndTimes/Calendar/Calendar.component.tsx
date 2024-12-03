@@ -13,7 +13,7 @@ import { useRenderProps } from "@hooks";
 import { Provider } from "@components/Internal/Provider";
 import { ButtonContext } from "@components/Buttons/Button/Button.context";
 import { DEFAULT_SLOT } from "@hooks/useSlottedContext";
-import { useContextPropsV2 } from "@hooks/useContextProps";
+import { useContextProps } from "@hooks/useContextProps";
 import { ErrorMessageContext } from "@components/Fields/Atoms/ErrorMessage";
 
 import { CalendarTitle } from "./components/CalendarTitle";
@@ -56,8 +56,8 @@ export interface CalendarProps<T extends DateValue>
 export function Calendar<T extends DateValue>(props: CalendarProps<T>) {
   let ref = useRef(null);
   // TS is getting confused because react-aria uses some conditional types that
-  // it doesn't understand how to resolve when using useContextPropsV2
-  [props, ref] = useContextPropsV2(CalendarContext as any, props, ref);
+  // it doesn't understand how to resolve when using useContextProps
+  [props, ref] = useContextProps(CalendarContext as any, props, ref);
 
   const { size = "medium" } = props;
   const { locale } = useLocale();

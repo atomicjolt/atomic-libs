@@ -26,7 +26,7 @@ import {
   FieldProps,
 } from "@components/Fields";
 import { useRenderProps } from "@hooks";
-import { useContextPropsV2 } from "@hooks/useContextProps";
+import { useContextProps } from "@hooks/useContextProps";
 import { Provider } from "@components/Internal/Provider";
 import { useCollectionRenderer } from "@hooks/useCollectionRenderer";
 
@@ -71,9 +71,9 @@ interface ForwardedChipGroupField {
 
 /** Building blocks for constructing a ChipGroup field. */
 export const ChipGroupField = forwardRef(function ChipGroupField<
-  T extends object,
+  T extends object
 >(props: ChipGroupFieldProps, ref: React.ForwardedRef<HTMLDivElement>) {
-  [props, ref] = useContextPropsV2(ChipGroupFieldContext, props, ref);
+  [props, ref] = useContextProps(ChipGroupFieldContext, props, ref);
 
   return (
     <CollectionBuilder content={props.children}>
@@ -151,9 +151,9 @@ interface ForwardedChipGroupFieldList {
 }
 
 const ChipGroupFieldList = forwardRef(function ChipGroupFieldList<
-  T extends object,
+  T extends object
 >(props: ChipGroupFieldListProps<T>, ref: React.ForwardedRef<HTMLDivElement>) {
-  [props, ref] = useContextPropsV2(ChipGroupListContext, props, ref);
+  [props, ref] = useContextProps(ChipGroupListContext, props, ref);
   const state = useContext(ChipGroupStateContext);
 
   // We're building the collection in the ChipGroupField component
