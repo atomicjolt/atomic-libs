@@ -9,8 +9,7 @@ import {
   OverlayTriggerState,
   useOverlayTriggerState,
 } from "react-stately";
-import { useVariantClass } from "../../../hooks/variants";
-import { HasClassName } from "../../../types";
+import { RenderStyleProps } from "../../../types";
 import {
   ModalBackground,
   ModalWrapper,
@@ -20,52 +19,46 @@ import {
   ModalTitle,
 } from "./Modal.styles";
 import classNames from "classnames";
-import { useContextProps } from "../../../hooks/useContextProps";
+import { useContextPropsV2 } from "../../../hooks/useContextProps";
 import { ModalContext } from "./Modal.context";
 import { OverlayTriggerStateContext } from "../OverlayTrigger/context";
+import { useRenderProps } from "@hooks";
+import { filterDOMProps } from "@react-aria/utils";
 
 type CloseModal = () => void;
-export interface BaseModalProps extends HasClassName, OverlayTriggerProps {
-  id?: string;
-  children?: React.ReactNode | ((close: CloseModal) => React.ReactNode);
 
+export interface BaseModalProps
+  extends RenderStyleProps<never>,
+    OverlayTriggerProps {
+  id?: string;
   /** Centers the modal within the viewport */
   centered?: boolean;
 }
 
 export interface ModalProps extends BaseModalProps {
   variant?: string;
+  children?: React.ReactNode | ((close: CloseModal) => React.ReactNode);
 }
 
 /**
  * Modal Component to render content overlayed on top of the page content.
  */
 export function Modal(props: ModalProps) {
-  const {
-    children,
-    centered = false,
-    variant = "default",
-    className,
-    ...rest
-  } = useContextProps(ModalContext, props);
+  let ref = useRef(null);
+  [props, ref] = useContextPropsV2(ModalContext, props, ref);
+
+  const { children, centered = false, variant = "default", ...rest } = props;
 
   const contextState = useContext(OverlayTriggerStateContext);
   const localState = useOverlayTriggerState(props);
   const state = contextState ?? localState;
-
-  const variantClassName = useVariantClass("aje-modal", variant);
 
   if (!state.isOpen) {
     return null;
   }
 
   return (
-    <ModalOverlay
-      {...rest}
-      state={state}
-      className={classNames(className, variantClassName)}
-      centered={centered}
-    >
+    <ModalOverlay state={state} centered={centered} variant={variant} {...rest}>
       {children}
     </ModalOverlay>
   );
@@ -73,12 +66,19 @@ export function Modal(props: ModalProps) {
 
 interface ModalOverlayProps extends BaseModalProps, AriaModalOverlayProps {
   state: OverlayTriggerState;
+  children: React.ReactNode | ((close: CloseModal) => React.ReactNode);
+  variant?: string;
 }
 
 function ModalOverlay(props: ModalOverlayProps) {
-  const { children, state, centered, className } = props;
+  const { children, state, centered } = props;
   const ref = useRef(null);
   const { modalProps, underlayProps } = useModalOverlay(props, state, ref);
+
+  const renderProps = useRenderProps({
+    componentClassName: "aje-modal",
+    ...props,
+  });
 
   return (
     <Overlay>
@@ -87,7 +87,8 @@ function ModalOverlay(props: ModalOverlayProps) {
         className={classNames({ "is-centered": centered })}
       >
         <ModalWrapper
-          className={classNames("aje-modal", className)}
+          {...renderProps}
+          {...filterDOMProps(props)}
           onClick={(e: React.MouseEvent<HTMLDivElement>) => e.stopPropagation()}
           ref={ref}
           id={props.id}
