@@ -7,7 +7,7 @@ import { AriaProps, FieldInputProps } from "../../../types";
 import { ChooseInput, ChooseLabel } from "../Inputs.styles";
 import { CheckboxWrapper } from "./Checkbox.styles";
 import { ErrorMessage, Message } from "../../Fields";
-import { useContextPropsV2 } from "@hooks/useContextProps";
+import { useContextProps } from "@hooks/useContextProps";
 import { CheckBoxContext } from "./Checkbox.context";
 import { SlotProps } from "@hooks/useSlottedContext";
 
@@ -19,7 +19,7 @@ export interface CheckBoxProps
 /** Checkbox Component. Accepts a `ref` */
 export const CheckBox = React.forwardRef<HTMLInputElement, CheckBoxProps>(
   (props, ref) => {
-    [props, ref] = useContextPropsV2(CheckBoxContext, props, ref);
+    [props, ref] = useContextProps(CheckBoxContext, props, ref);
 
     const {
       children,

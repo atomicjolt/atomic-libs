@@ -1,8 +1,7 @@
 import styled from "styled-components";
 import mixins from "../../../styles/mixins";
-import { FieldWrapper } from "../../Internal/FieldWrapper";
 
-export const ChipGroupWrapper = styled(FieldWrapper)`
+export const ChipGroupWrapper = styled.div`
   ${mixins.FieldStatus}
   ${mixins.SizingX}
 

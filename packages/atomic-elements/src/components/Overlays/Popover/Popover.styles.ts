@@ -32,7 +32,7 @@ export const PopoverContent = styled.div<{
   }
 
   &.aje-popover--datepicker {
-    --popover-min-height: 330px;
+    --popover-min-height: auto;
     --popover-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
     --popover-radius: 5px;
     --popover-border: 1px solid var(--neutral300);

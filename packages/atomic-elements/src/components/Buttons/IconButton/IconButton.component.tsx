@@ -3,7 +3,7 @@ import { HasIcon } from "../../../types";
 import { MaterialIcon } from "../../Icons/MaterialIcon";
 import { StyledIconButton } from "./IconButton.styles";
 import { ButtonProps } from "../Button";
-import { useContextPropsV2 } from "@hooks/useContextProps";
+import { useContextProps } from "@hooks/useContextProps";
 import { ButtonContext } from "../Button/Button.context";
 
 export interface IconButtonProps
@@ -17,8 +17,8 @@ export interface IconButtonProps
  * */
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
   function IconButton(props, forwardedRef) {
-    [props, forwardedRef] = useContextPropsV2(
-      ButtonContext,
+    [props, forwardedRef] = useContextProps(
+      ButtonContext as any,
       props,
       forwardedRef
     );

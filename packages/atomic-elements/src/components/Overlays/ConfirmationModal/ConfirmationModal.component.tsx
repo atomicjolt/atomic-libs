@@ -3,8 +3,7 @@ import { Button } from "../../Buttons/Button";
 import { Modal, BaseModalProps } from "../Modal";
 import { OverlayTriggerStateContext } from "../OverlayTrigger/context";
 
-export interface ConfirmationModalProps
-  extends Omit<BaseModalProps, "children"> {
+export interface ConfirmationModalProps extends BaseModalProps {
   children: React.ReactNode;
   /** Must include a title. Titles are always in Title case. */
   title: string;
