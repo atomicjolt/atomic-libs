@@ -1,3 +1,4 @@
+import { useContext, useRef } from "react";
 import {
   useCalendar,
   AriaCalendarProps,
@@ -7,22 +8,30 @@ import { useLocale } from "@react-aria/i18n";
 import { createCalendar } from "@internationalized/date";
 import { useCalendarState } from "react-stately";
 
-import { ExtendedSize, RenderBaseProps } from "../../../../types";
+import { AriaProps, ExtendedSize, RenderBaseProps } from "../../../../types";
 import { useRenderProps } from "@hooks";
 import { Provider } from "@components/Internal/Provider";
 import { ButtonContext } from "@components/Buttons/Button/Button.context";
 import { DEFAULT_SLOT } from "@hooks/useSlottedContext";
+import { useContextPropsV2 } from "@hooks/useContextProps";
 import { ErrorMessageContext } from "@components/Fields/Atoms/ErrorMessage";
-import { CalendarWrapper } from "./Calendar.styles";
-import { CalendarStateContext, CalendarTitleContext } from "./Calendar.context";
+
 import { CalendarTitle } from "./components/CalendarTitle";
 import { CalendarGrid } from "./components/CalendarGrid";
 import { CalendarCell } from "./components/CalendarCell";
+import { CalendarWrapper } from "./Calendar.styles";
+import {
+  CalendarContext,
+  CalendarStateContext,
+  CalendarTitleContext,
+} from "./Calendar.context";
 
 export interface CalendarProps<T extends DateValue>
-  extends AriaCalendarProps<T>,
+  extends AriaProps<AriaCalendarProps<T>>,
     RenderBaseProps<never> {
   size?: ExtendedSize;
+  isDisabled?: boolean;
+  isInvalid?: boolean;
 }
 
 /**
@@ -36,9 +45,20 @@ export interface CalendarProps<T extends DateValue>
  * import { parseDate } from "@internationalized/date";
  *
  * const [date, setDate] = useState(parseDate("2021-01-01"));
- * <Calendar value={date} onChange={setDate} />
+ *
+ * <Calendar value={date} onChange={setDate}>
+ *   <Calendar.Title />
+ *   <Calendar.Grid>
+ *     {(date) => <Calendar.Cell date={date} />}
+ *   </Calendar.Grid>
+ * </Calendar>
  */
 export function Calendar<T extends DateValue>(props: CalendarProps<T>) {
+  let ref = useRef(null);
+  // TS is getting confused because react-aria uses some conditional types that
+  // it doesn't understand how to resolve when using useContextPropsV2
+  [props, ref] = useContextPropsV2(CalendarContext as any, props, ref);
+
   const { size = "medium" } = props;
   const { locale } = useLocale();
   const state = useCalendarState({
@@ -62,7 +82,7 @@ export function Calendar<T extends DateValue>(props: CalendarProps<T>) {
   });
 
   return (
-    <CalendarWrapper {...calendarProps} {...renderProps}>
+    <CalendarWrapper {...calendarProps} {...renderProps} ref={ref}>
       <Provider
         values={[
           [CalendarStateContext.Provider, state],
@@ -77,7 +97,10 @@ export function Calendar<T extends DateValue>(props: CalendarProps<T>) {
               },
             },
           ],
-          [ErrorMessageContext.Provider, errorMessageProps],
+          [
+            ErrorMessageContext.Provider,
+            { isInvalid: props.isInvalid, ...errorMessageProps },
+          ],
         ]}
       >
         {renderProps.children}
@@ -86,6 +109,9 @@ export function Calendar<T extends DateValue>(props: CalendarProps<T>) {
   );
 }
 
+/** The current Month & Year formatted & localized */
 Calendar.Title = CalendarTitle;
+/** The grid of days in the calendar */
 Calendar.Grid = CalendarGrid;
+/** A cell in the calendar grid */
 Calendar.Cell = CalendarCell;
