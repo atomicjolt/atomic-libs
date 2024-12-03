@@ -18,7 +18,7 @@ import {
   FieldLabelContext,
   FieldMessageContext,
 } from "@components/Fields";
-import { PopoverContext } from "@components/Overlays/Popover/context";
+import { PopoverContext } from "@components/Overlays/Popover/Popover.context";
 import { ButtonContext } from "@components/Buttons/Button/Button.context";
 
 import { ButtonText, SelectFieldWrapper } from "./SelectField.styles";

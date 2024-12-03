@@ -9,7 +9,7 @@ import { Provider } from "@components/Internal/Provider";
 import { useFilter } from "@react-aria/i18n";
 
 import { OverlayTriggerStateContext } from "@components/Overlays/OverlayTrigger/context";
-import { PopoverContext } from "@components/Overlays/Popover/context";
+import { PopoverContext } from "@components/Overlays/Popover/Popover.context";
 import {
   ListBoxContext,
   ListStateContext,
@@ -34,7 +34,7 @@ import { ComboInputContext } from "../ComboInput";
 import { ComboBoxFieldWrapper } from "./ComboBoxField.styles";
 
 export const ComboBoxField = forwardRef(function ComboBoxField<
-  T extends object,
+  T extends object
 >(props: ComboBoxFieldProps<T>, ref: React.Ref<HTMLInputElement>) {
   [props, ref] = useContextPropsV2(ComboBoxFieldContext, props, ref);
 

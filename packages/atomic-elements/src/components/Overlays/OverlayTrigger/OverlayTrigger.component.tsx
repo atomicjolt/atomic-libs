@@ -6,7 +6,7 @@ import {
   useOverlayTriggerState,
 } from "react-stately";
 
-import { PopoverContext } from "../Popover/context";
+import { PopoverContext } from "../Popover/Popover.context";
 import { Provider } from "../../Internal/Provider";
 import { HasChildren } from "../../../types";
 import { OverlayTriggerStateContext } from "./context";

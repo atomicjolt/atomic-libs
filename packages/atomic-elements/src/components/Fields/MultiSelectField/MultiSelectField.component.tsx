@@ -7,7 +7,7 @@ import { useRenderProps } from "@hooks/useRenderProps";
 import { useContextPropsV2 } from "@hooks/useContextProps";
 import { BaseCollection, CollectionBuilder } from "@react-aria/collections";
 import { Provider } from "@components/Internal/Provider";
-import { PopoverContext } from "@components/Overlays/Popover/context";
+import { PopoverContext } from "@components/Overlays/Popover/Popover.context";
 import { ButtonContext } from "@components/Buttons/Button/Button.context";
 import { DropdownButton } from "@components/Internal/DropdownButton";
 import {
