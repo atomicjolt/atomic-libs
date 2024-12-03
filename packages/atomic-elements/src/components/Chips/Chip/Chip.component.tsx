@@ -1,98 +1,130 @@
-import React from "react";
-import classNames from "classnames";
-import type { ItemProps } from "react-stately";
-import { PressEvent, PressProps } from "@react-aria/interactions";
-import { AriaButtonProps } from "@react-aria/button";
-import { mergeProps } from "@react-aria/utils";
+import React, { useContext } from "react";
+import { filterDOMProps, mergeProps, useObjectRef } from "@react-aria/utils";
+import { useTag } from "@react-aria/tag";
+import { createLeafComponent } from "@react-aria/collections";
 
-import { copyStaticProperties } from "@utils/clone";
-import { useVariantClass } from "@hooks/variants";
-import { Item } from "@components/Collection";
 import { IconButton } from "@components/Buttons/IconButton";
 import { useConditionalPress } from "@hooks/useConditionalPress";
+import { useFocusRing } from "@hooks/useFocusRing";
+import { useContextPropsV2 } from "@hooks/useContextProps";
+import { useRenderProps } from "@hooks";
+import { ChipGroupStateContext } from "@components/Fields/ChipGroupField/ChipGroupField.context";
+
+import { ChipArgs, ChipGroupChipProps, ChipInternalProps } from "./Chip.types";
 import { ChipContent, ChipWrapper } from "./Chip.styles";
-import { SuggestStrings, HasClassName } from "../../../types";
+import { ChipContext } from "./Chip.context";
 
-type ChipVariants = SuggestStrings<
-  "default" | "warning" | "success" | "danger"
->;
+export function ChipLeaf<T>(...args: ChipArgs<T>) {
+  const [props, ref] = useContextPropsV2(ChipContext, args[0], args[1]);
 
-export interface ChipProps<T> extends ItemProps<T>, PressProps, HasClassName {
-  children: React.ReactNode;
-  variant?: ChipVariants;
-  /** Handler that is called when the user
-   * clicks the remove button for the chip */
-  onRemove?: (e: PressEvent) => void;
-  isDisabled?: boolean;
-}
-
-/** Chip component */
-export function Chip<T>(props: ChipProps<T>) {
-  return <ChipInternal {...props} allowsRemoving={!!props.onRemove} />;
-}
-
-copyStaticProperties(Item, Chip);
-
-interface ChipInternalProps<T> extends ChipProps<T> {
-  wrapperProps?: React.DOMAttributes<HTMLDivElement>;
-  contentProps?: React.DOMAttributes<HTMLDivElement>;
-  removeButtonProps?: AriaButtonProps<"button">;
-  allowsRemoving?: boolean;
-}
-
-export const ChipInternal = React.forwardRef<
-  HTMLDivElement,
-  ChipInternalProps<any>
->(function ChipInternal<T>(
-  props: ChipInternalProps<T>,
-  ref: React.Ref<HTMLDivElement>
-) {
-  const {
-    className,
-    variant = "default",
-    onRemove,
-    isDisabled,
-    children,
-    wrapperProps = {},
-    contentProps = {},
-    removeButtonProps = {},
-    allowsRemoving = false,
-    ...rest
-  } = props;
-
-  const variantClass = useVariantClass("aje-chip", variant);
-  const { pressProps } = useConditionalPress(rest);
-
-  const allWrapperProps = [
-    wrapperProps,
-    { "aria-disabled": isDisabled || undefined },
-  ];
-
-  if (!isDisabled) {
-    allWrapperProps.push(pressProps);
+  // We're being rendered standalone
+  if (args.length === 2) {
+    return (
+      <ChipInternal {...props} ref={ref} allowsRemoving={!!props.onRemove} />
+    );
   }
+
+  // We're being rendered as part of a collection (i.e ChipGroup)
+  const item = args[2];
+  return <ChipGroupChip item={item} itemRef={ref} {...props} />;
+}
+
+/**
+ * Chip component. Can be used stand-alone, or within a parent
+ * `ChipGroup`
+ */
+export const Chip = createLeafComponent("item", ChipLeaf);
+
+function ChipGroupChip<T>(props: ChipGroupChipProps<T>) {
+  const { item } = props;
+  const ref = useObjectRef<HTMLDivElement>(props.itemRef);
+  const state = useContext(ChipGroupStateContext)!;
+  const {
+    rowProps,
+    gridCellProps,
+    removeButtonProps,
+    allowsRemoving,
+    isFocused,
+    isSelected,
+  } = useTag(props, state, ref);
+
+  const { focusProps, isFocusVisible } = useFocusRing({ within: true });
+
+  const isDisabled = state.disabledKeys.has(item.key);
+
+  const renderProps = useRenderProps({
+    componentClassName: "aje-chip",
+    values: {
+      isSelected,
+      isFocusVisible,
+      isFocused,
+    },
+    ...props,
+  });
 
   return (
     <ChipWrapper
-      className={classNames("aje-chip", variantClass, className)}
       ref={ref}
-      {...mergeProps(...allWrapperProps)}
+      {...mergeProps(rowProps, focusProps)}
+      {...renderProps}
     >
-      <ChipContent {...contentProps}>
-        {children}
-
+      <ChipContent {...gridCellProps}>
+        {renderProps.children}
         {allowsRemoving && (
           <IconButton
             icon="close"
             size="small"
             variant="chip"
-            {...mergeProps(
-              {
-                isDisabled,
-                onPress: onRemove,
-              },
-              removeButtonProps
-            )}
+            {...mergeProps(removeButtonProps, { isDisabled })}
+          />
+        )}
+      </ChipContent>
+    </ChipWrapper>
+  );
+}
+
+export const ChipInternal = React.forwardRef(function ChipInternal<T>(
+  props: ChipInternalProps<T>,
+  ref: React.Ref<HTMLDivElement>
+) {
+  const {
+    className,
+    variant,
+    onRemove,
+    isDisabled,
+    children,
+    allowsRemoving = false,
+    ...rest
+  } = props;
+
+  const { pressProps } = useConditionalPress(rest);
+
+  const renderProps = useRenderProps({
+    componentClassName: "aje-chip",
+    values: {
+      isSelected: false,
+      isFocusVisible: false,
+      isFocused: false,
+    },
+    ...props,
+  });
+
+  return (
+    <ChipWrapper
+      ref={ref}
+      {...mergeProps({ "aria-disabled": isDisabled || undefined }, pressProps)}
+      {...renderProps}
+      {...filterDOMProps(props as any)}
+    >
+      <ChipContent>
+        {renderProps.children}
+        {allowsRemoving && (
+          <IconButton
+            icon="close"
+            size="small"
+            variant="chip"
+            isDisabled={isDisabled}
+            onPress={onRemove}
           />
         )}
       </ChipContent>

@@ -93,6 +93,7 @@ export {
 export { SelectField } from "./Fields/SelectField";
 export { MultiSelectField } from "./Fields/MultiSelectField";
 export { ComboBoxField } from "./Fields/ComboBoxField";
+export { ChipGroupField } from "./Fields/ChipGroupField";
 
 export { FormatDate } from "./Format/FormatDate";
 export { FormatNumber } from "./Format/FormatNumber";
@@ -175,6 +176,9 @@ export type {
   NumberFieldProps,
   ComboInputProps,
 } from "./Fields";
+export type { SelectFieldProps } from "./Fields/SelectField";
+export type { ComboBoxFieldProps } from "./Fields/ComboBoxField";
+export type { ChipGroupFieldProps } from "./Fields/ChipGroupField";
 export type { TableProps } from "./Layout/Table/Table.types";
 export type { TabsProps } from "./Layout/Tabs";
 export type { CardProps } from "./Layout/Card";

@@ -23,6 +23,11 @@ export default {
         category: "Events",
       },
     },
+    onAction: {
+      table: {
+        disable: true,
+      },
+    },
   },
 } as Meta<typeof Chip>;
 
