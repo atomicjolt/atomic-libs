@@ -77,8 +77,12 @@ export function Calendar<T extends DateValue>(props: CalendarProps<T>) {
 
   const renderProps = useRenderProps({
     componentClassName: "aje-calendar",
-    size,
     ...props,
+    size,
+    selectors: {
+      "data-disabled": props.isDisabled,
+      "data-invalid": props.isInvalid,
+    },
   });
 
   return (

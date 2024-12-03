@@ -5,7 +5,6 @@ import { useCalendarCell } from "@react-aria/calendar";
 import { CalendarCellButton, StyledCalendarCell } from "../Calendar.styles";
 import { useRenderProps } from "@hooks";
 import { RenderBaseProps } from "../../../../../types";
-import { CalendarRenderProps } from "../Calendar.types";
 
 interface CalendarCellRenderProps {
   focusedDate: CalendarDate;

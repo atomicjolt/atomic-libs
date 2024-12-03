@@ -7,9 +7,12 @@ import {
   CalendarTitleContext,
 } from "../Calendar.context";
 import { CalendarHeaderTitle } from "../Calendar.styles";
-import { CalendarRenderProps } from "../Calendar.types";
+import { CalendarDate } from "@internationalized/date";
 
-interface CalendarTitleRenderProps extends CalendarRenderProps {
+interface CalendarTitleRenderProps {
+  focusedDate: CalendarDate;
+  isDisabled: boolean;
+  isFocused: boolean;
   title: string;
 }
 
