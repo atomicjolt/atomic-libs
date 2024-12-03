@@ -7,7 +7,7 @@ import {
 } from "react-stately";
 import { HasChildren } from "../../../types";
 import { Provider } from "../../Internal/Provider";
-import { PopoverContext } from "../../Overlays/Popover/context";
+import { PopoverContext } from "../../Overlays/Popover/Popover.context";
 import { MenuContext } from "./Menu.context";
 import { OverlayTriggerStateContext } from "../../Overlays/OverlayTrigger/context";
 

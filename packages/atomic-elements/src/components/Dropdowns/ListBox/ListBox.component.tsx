@@ -17,7 +17,7 @@ import { Label } from "@components/Fields";
 import { Divider } from "@components/Layout/Divider";
 import { Provider } from "@components/Internal/Provider";
 import { ItemContext, ItemProps, SectionContext } from "@components/Collection";
-import { useContextPropsV2 } from "@hooks/useContextProps";
+import { useContextProps } from "@hooks/useContextProps";
 
 import { List, ListItem, SectionTitle, SubList } from "./ListBox.styles";
 import { ListBoxProps } from "./ListBox.types";
@@ -35,7 +35,7 @@ export const ListBox = forwardRef(function ListBox<T extends object>(
   ref: React.Ref<HTMLUListElement>
 ) {
   const state = useContext(ListStateContext);
-  [props, ref] = useContextPropsV2(ListBoxContext, props, ref);
+  [props, ref] = useContextProps(ListBoxContext, props, ref);
 
   // When used within a SelectField or similar component,
   // the state will be provided by the parent component

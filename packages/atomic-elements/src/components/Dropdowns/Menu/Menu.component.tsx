@@ -24,7 +24,7 @@ import { Provider } from "@components/Internal/Provider";
 import { useCollectionRenderer } from "@hooks/useCollectionRenderer";
 import { useRenderProps } from "@hooks";
 import { useFocusRing } from "@hooks/useFocusRing";
-import { useContextPropsV2 } from "@hooks/useContextProps";
+import { useContextProps } from "@hooks/useContextProps";
 import { ItemContext, ItemProps, SectionContext } from "@components/Collection";
 
 import { MenuContext, MenuStateContext } from "./Menu.context";
@@ -58,7 +58,7 @@ export const Menu = forwardRef(function Menu<T extends object>(
   props: MenuProps<T>,
   ref: React.Ref<HTMLUListElement>
 ) {
-  [props, ref] = useContextPropsV2(MenuContext, props, ref);
+  [props, ref] = useContextProps(MenuContext, props, ref);
 
   return (
     <CollectionBuilder content={<Collection {...props} />}>

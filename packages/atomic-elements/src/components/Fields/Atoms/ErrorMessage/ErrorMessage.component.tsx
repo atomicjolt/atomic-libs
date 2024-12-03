@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import mixins from "../../../../styles/mixins";
 import { ElementWrapperProps } from "../../../../types";
-import { useContextPropsV2 } from "@hooks/useContextProps";
+import { useContextProps } from "@hooks/useContextProps";
 import { useRenderProps } from "@hooks";
 import { ErrorMessageContext } from "./ErrorMessage.context";
 
@@ -25,7 +25,7 @@ export const ErrorMessage = React.forwardRef(function ErrorMessage(
   props: ErrorMessageProps,
   ref: React.Ref<HTMLParagraphElement>
 ) {
-  [props, ref] = useContextPropsV2(ErrorMessageContext, props, ref);
+  [props, ref] = useContextProps(ErrorMessageContext, props, ref);
   const { className, size = "medium", as = "p", isInvalid, ...rest } = props;
 
   const renderProps = useRenderProps({

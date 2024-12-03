@@ -11,14 +11,14 @@ import {
 } from "@components/Dropdowns/ListBox";
 import { OverlayTriggerStateContext } from "../../Overlays/OverlayTrigger/context";
 import { useRenderProps } from "@hooks/useRenderProps";
-import { useContextPropsV2 } from "@hooks/useContextProps";
+import { useContextProps } from "@hooks/useContextProps";
 import { Provider } from "@components/Internal/Provider";
 import {
   FieldErrorContext,
   FieldLabelContext,
   FieldMessageContext,
 } from "@components/Fields";
-import { PopoverContext } from "@components/Overlays/Popover/context";
+import { PopoverContext } from "@components/Overlays/Popover/Popover.context";
 import { ButtonContext } from "@components/Buttons/Button/Button.context";
 
 import { ButtonText, SelectFieldWrapper } from "./SelectField.styles";
@@ -51,7 +51,7 @@ export const SelectField = forwardRef(function SelectField<T extends object>(
   props: SelectFieldProps<T>,
   ref: React.Ref<HTMLButtonElement>
 ) {
-  [props, ref] = useContextPropsV2(SelectFieldContext, props, ref);
+  [props, ref] = useContextProps(SelectFieldContext, props, ref);
 
   return (
     <CollectionBuilder content={props.children}>

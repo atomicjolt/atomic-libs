@@ -13,7 +13,7 @@ import {
 import { useFocusRing } from "@hooks/useFocusRing";
 import { useRenderProps } from "@hooks/useRenderProps";
 import { useButtonLink } from "@hooks/useButtonLink";
-import { useContextPropsV2 } from "@hooks/useContextProps";
+import { useContextProps } from "@hooks/useContextProps";
 import { StyledButton } from "./Button.styles";
 import { ButtonContext } from "./Button.context";
 import { SlotProps } from "@hooks/useSlottedContext";
@@ -53,11 +53,7 @@ export interface ButtonProps
  */
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   function Button(props, forwardedRef) {
-    [props, forwardedRef] = useContextPropsV2(
-      ButtonContext,
-      props,
-      forwardedRef
-    );
+    [props, forwardedRef] = useContextProps(ButtonContext, props, forwardedRef);
 
     const ref = useObjectRef(forwardedRef);
 
