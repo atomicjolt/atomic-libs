@@ -52,7 +52,7 @@ const date = now(getLocalTimeZone());
 export const Primary: Story = {
   args: {
     defaultValue: date,
-    label: "Date input",
+    label: "Time input",
     size: "medium",
     hideTimeZone: true,
     shouldForceLeadingZeros: false,

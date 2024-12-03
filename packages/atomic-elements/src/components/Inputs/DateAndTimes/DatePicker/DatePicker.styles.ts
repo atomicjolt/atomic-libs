@@ -1,10 +1,9 @@
 import styled from "styled-components";
 import mixins from "../../../../styles/mixins";
-import { FieldWrapper } from "../../../Internal/FieldWrapper";
 import { ComboInput } from "../../../Fields";
 import { StyledComboInput } from "../../../Fields/ComboInput";
 
-export const DatePickerWrapper = styled(FieldWrapper)`
+export const DatePickerWrapper = styled.div`
   ${mixins.FieldStatus}
   ${mixins.SizingX}
 
