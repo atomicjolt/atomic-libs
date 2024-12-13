@@ -9,6 +9,12 @@
   "files": [
     "dist"
   ],
+  "exports": {
+    "import": "./dist/esm/index.js",
+    "require": "./dist/cjs/index.js",
+    "default": "./dist/esm/index.js",
+    "types": "./dist/types/index.d.ts"
+  },
   "license": "MIT",
   "dependencies": {
     "@internationalized/date": "^3.5.2",
