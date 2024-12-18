@@ -1,0 +1,21 @@
+# `useMount`
+
+Run `callback` after the initial render of the component.
+
+### Parameters
+
+- `callback` (function): The function to run after the initial render.
+
+### Example
+
+```jsx
+import { useMount } from '@atomicjolt/hooks';
+
+function MyComponent() {
+  useMount(() => {
+    console.log('Mounted!');
+  });
+
+  return <div>My Component</div>;
+}
+```

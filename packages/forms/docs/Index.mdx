@@ -1,0 +1,39 @@
+# Introduction
+
+`@atomicjolt/forms` is a package that provides a set of React hooks and components to help manage form state and validation.
+
+At it's core the library is a wrapper / integration of [react-hook-form](https://react-hook-form.com/)
+and `@atomicjolt/atomic-elements`. It exposes form components that wrap Atomic Elements components and
+integrates them with react-hook-form. You are then able to build your own custom form components just as you would
+with react-hook-form.
+
+
+# Installation
+
+```bash
+npm install @atomicjolt/forms
+```
+
+# Usage
+
+```tsx
+import { Form } from '@atomicjolt/forms';
+import { Button } from '@atomicjolt/atomic-elements';
+
+const MyForm = () => {
+   const onSubmit = (data) => {
+     console.log(data);
+     // { firstName: "John", lastName: "Doe", age: 21 }
+   }
+
+   return (
+      <Form onSubmit={onSubmit}>
+         <Form.TextInput name="firstName" label="First Name" />
+         <Form.TextInput name="lastName" label="Last Name" />
+         <Form.NumberInput name="age" label="Age" />
+         <Button type="submit">Submit</Button>
+      </Form>
+   )
+};
+```
+

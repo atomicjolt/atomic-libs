@@ -1,0 +1,28 @@
+# `makeContext`
+
+Creates a React context and an associated context hook.
+
+## Parameters
+
+- `defaultValue` - The default value for the context.
+
+## Returns
+
+A tuple containing:
+- The context provider.
+- The context hook.
+
+## Example
+
+```tsx
+const [MyContextProvider, useMyContext] = makeContext('default value');
+
+const MyComponent = () => {
+  const value = useMyContext();
+  return <div>{value}</div>;
+};
+
+<MyContextProvider>
+  <MyComponent />
+</MyContextProvider>
+```

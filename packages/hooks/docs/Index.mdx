@@ -1,0 +1,46 @@
+---
+id: intro
+title: Introduction
+sidebar_position: 1
+---
+
+# Introduction
+
+`@atomicjolt/hooks` is a collection of React hooks that can be used to simplify common tasks in React applications.
+The hooks are designed to be simple to use and easy to understand. The hooks are also designed to be composable,
+so you can use them together to create more complex behavior.
+
+## Installation
+
+To install `@atomicjolt/hooks` run the following command:
+
+```bash
+npm install @atomicjolt/hooks
+```
+
+or
+
+```bash
+yarn add @atomicjolt/hooks
+```
+
+## Usage
+
+To use a hook, import it from `@atomicjolt/hooks` and call it in your component.
+
+```tsx
+import { useDefaultState } from '@atomicjolt/hooks';
+
+function MyComponent() {
+  const [state, setState, revert] = useDefaultState(0);
+
+  return (
+    <div>
+      <p>State: {state}</p>
+      <button onClick={() => setState(5)}>Set state to 5</button>
+      <button onClick={revert}>Revert state</button>
+    </div>
+  );
+}
+```
+

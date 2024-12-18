@@ -1,0 +1,38 @@
+# `useSessionStorage`
+
+The `useSessionStorage` hook allows you to manage a `sessionStorage` value as a React state value. Setting the value will also write it to `sessionStorage`. Upon a reload, if the `key` exists in `sessionStorage`, the value will be loaded and used as the initial state, instead of `initialState`.
+
+:::tip
+If you'd like to configure how the value is serialized and deserialized, you can use
+[makeStorageHook](../Constructors/makeStorageHook.mdx) to build your own hook.
+:::
+
+## Parameters
+
+- `key` (string): A unique key to set and access the value with.
+- `initialState` (any): Initial state value.
+
+## Returns
+
+An array containing:
+- The state value.
+- The state setter function (which will also set the value in `sessionStorage`).
+- A function to remove the value from `sessionStorage`. This does not change the value held in state.
+
+## Usage
+
+```jsx
+import { useSessionStorage } from '@atomicjolt/hooks';
+
+function Component() {
+  const [value, setValue, removeValue] = useSessionStorage('myKey', 'defaultValue');
+
+  return (
+    <div>
+      <p>{value}</p>
+      <button onClick={() => setValue('newValue')}>Set Value</button>
+      <button onClick={removeValue}>Remove Value</button>
+    </div>
+  );
+}
+```

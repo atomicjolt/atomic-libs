@@ -1,0 +1,131 @@
+# Validations
+
+Each component supports a set of pre-defined validations that can be passed in as props.
+
+These props essentially match the API of the [`react-hook-form` register() function](https://react-hook-form.com/docs/useform/register),
+but they're only exposed on the components that make sense. For example, the `Form.TextInput` component supports
+the `minLength` and `maxLength` props, and the `Form.NumberInput` component supports the `minValue` and `maxValue` props, but not vice versa.
+
+```jsx
+import { Form  } from '@atomicjolt/forms';
+
+const MyForm = () => {
+   const onSubmit = (data) => {
+     console.log(data);
+   }
+
+   const isEmail = (value: string) => {
+        if (!value) {
+            return "Email is required";
+        }
+        if (!value.includes("@")) {
+            return "Email must be valid";
+        }
+        return true;
+    }
+
+   return (
+      <Form onSubmit={onSubmit}>
+         <Form.TextInput
+            name="firstName"
+            label="First Name"
+            minLength={{ value: 3, message: "Name must be 3 characters or longer" }}
+            isRequired="First names is required"
+         />
+         <Form.TextInput
+            name="lastName"
+            label="Last Name"
+            isRequired="Last name is Required"
+         />
+         <Form.NumberInput
+            name="age"
+            label="Age"
+            minValue={{ value: 13, message: "You must be 13 or older to sign up" }}
+         />
+         <Form.SubmitButton>Submit</Form.SubmitButton>
+      </Form>
+   )
+};
+```
+Attempting to submit the above form without valid data will result in the related error
+messages being displayed below each input & the form will not submit.
+
+## Custom Validations
+
+You can also pass in a custom validation function to the `validate` prop.
+
+```jsx
+import { Form } from '@atomicjolt/forms';
+
+const MyForm = () => {
+   const onSubmit = (data) => {
+     console.log(data);
+   }
+
+   const isEmail = (value: string) => {
+        if (!value) {
+            return "Email is required";
+        }
+        if (!value.includes("@")) {
+            return "Email must be valid";
+        }
+        return true;
+    }
+
+   return (
+      <Form onSubmit={onSubmit}>
+         <Form.TextInput name="firstName" label="First Name" />
+         <Form.TextInput name="lastName" label="Last Name" />
+         <Form.TextInput name="email" label="Email" validate={isEmail} />
+         <Form.SubmitButton>Submit</Form.SubmitButton>
+      </Form>
+   )
+};
+```
+
+### Multiple Validations
+
+If you have multiple validations, you can also pass in an object
+
+```jsx
+import { Form } from '@atomicjolt/forms';
+
+const MyForm = () => {
+   const onSubmit = (data) => {
+     console.log(data);
+   }
+
+   const isEmail = (value) => {
+      if (!value) {
+         return "Email is required";
+      }
+      if (!value.includes("@")) {
+         return "Email must be valid";
+      }
+      return true;
+   }
+
+   const isDomainEmail = (value) => {
+      if (!value) {
+         return "Email is required";
+      }
+      if (!value.includes("@domain.com")) {
+         return "Email must be from domain.com";
+      }
+      return true;
+   }
+
+   return (
+        <Form onSubmit={onSubmit}>
+            <Form.TextInput name="firstName" label="First Name" />
+            <Form.TextInput name="lastName" label="Last Name" />
+            <Form.TextInput
+                name="email"
+                label="Email"
+                validate={{ isEmail, isDomainEmail }}
+            />
+            <Form.SubmitButton>Submit</Form.SubmitButton>
+        </Form>
+   )
+};
+```

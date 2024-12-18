@@ -1,0 +1,23 @@
+## `useDefaultState`
+
+A `setState` wrapper to "reset" your state back to default values.
+
+### Parameters
+
+- `initialState` - The initial state to store.
+
+### Returns
+
+An array of:
+- The state value.
+- A function to update the state.
+- A function to revert the state back to its initial value.
+
+### Example
+
+```tsx
+const [state, setState, revert] = useDefaultState(0);
+
+setState(5); // state will be updated to 5
+revert(); // state will be reverted back to 0
+```

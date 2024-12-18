@@ -1,0 +1,112 @@
+# Usage
+
+`@atomicjolt/forms` is a package that provides a set of React hooks and components to help manage form state and validation.
+
+:::tip
+At it's core the library is a wrapper / integration of [react-hook-form](https://react-hook-form.com/), so I would
+recommend reading the documentation for `react-hook-form` to get a better understanding of how the library works.
+:::
+
+## Default Values
+
+Provide default values by passing in an object to the `defaultValues` prop on the `Form` component.
+The keys of the object should match the `name` prop of the form components.
+
+```jsx
+import { Form  } from '@atomicjolt/forms';
+
+const MyForm = () => {
+   const onSubmit = (data) => {
+     console.log(data);
+     // { firstName: "John", lastName: "Doe", age: 21 }
+   }
+
+   return (
+      <Form onSubmit={onSubmit} defaultValues={{ age: 20 }}>
+         <Form.TextInput name="firstName" label="First Name" defaultValue="John" />
+         <Form.TextInput name="lastName" label="Last Name" />
+         <Form.NumberInput name="age" label="Age" />
+         <Form.Submitbutton>Submit</Form.SubmitButton>
+      </Form>
+   )
+};
+```
+
+## Submitting the Form
+
+To submit the form, you simply need to include a button with `type="submit"` inside the `Form` component.
+
+```jsx
+import { Form } from '@atomicjolt/forms';
+
+const MyForm = () => {
+   const onSubmit = (data) => {
+     console.log(data);
+   }
+
+   return (
+      <Form onSubmit={onSubmit}>
+         <Form.TextInput name="firstName" label="First Name" />
+         <Form.TextInput name="lastName" label="Last Name" />
+         <Form.NumberInput name="age" label="Age" />
+         <button type="submit">Submit</button>
+      </Form>
+   )
+};
+```
+
+## FormProvider
+
+If you want to use the `useForm` hook from `react-hook-form` directly, you can use the `FormProvider` component to pass the form methods down to your form components.
+
+```jsx
+import { useForm } from 'react-hook-form';
+import { FormProvider, Form } from '@atomicjolt/forms';
+
+const MyForm = () => {
+   const methods = useForm();
+
+   const onSubmit = (data) => {
+     console.log(data);
+   }
+
+   return (
+      <FormProvider onSubmit={onSubmit} {...methods}>
+         <Form.TextInput name="firstName" label="First Name" />
+         <Form.TextInput name="lastName" label="Last Name" />
+         <Form.NumberInput name="age" label="Age" />
+         <Form.SubmitButton>Submit</Form.SubmitButton>
+      </FormProvider>
+   )
+};
+```
+
+## Custom Components
+
+It's simple to build your own custom form components using the `useFormContext` hook from `react-hook-form`.
+
+```jsx
+import { useFormContext } from 'react-hook-form';
+
+const MyForm = () => {
+   const onSubmit = (data) => {
+     console.log(data);
+   }
+
+   return (
+      <Form onSubmit={onSubmit}>
+         <Form.TextInput name="firstName" label="First Name" />
+         <Form.TextInput name="lastName" label="Last Name" />
+         <CustomInput />
+      </Form>
+   )
+}
+
+const CustomInput = () => {
+   const { register } = useFormContext();
+
+   return (
+      <input {...register("nestedInput")} />
+   )
+}
+```

@@ -1,0 +1,21 @@
+# `useRender`
+
+Run `callback` on every render of the component.
+
+### Parameters
+
+- `callback` (function): The function to run after the initial render.
+
+### Example
+
+```jsx
+import { useRender } from '@atomicjolt/hooks';
+
+function MyComponent() {
+  useRender(() => {
+    console.log('Rendered!');
+  });
+
+  return <div>My Component</div>;
+}
+```
