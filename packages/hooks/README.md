@@ -14,7 +14,7 @@ yarn add @atomicjolt/hooks
 
 ## Documentation
 
-[Docs can be found here](https://atomicjolt.github.io/react-hooks/)
+[Docs can be found here](https://atomicjolt.github.io/atomic-libs/hooks)
 
 ## Usage
 
