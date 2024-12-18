@@ -7,7 +7,8 @@
   "type": "module",
   "types": "dist/types/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "exports": {
     "import": "./dist/esm/index.js",
