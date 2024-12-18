@@ -7,8 +7,15 @@
   "type": "module",
   "types": "dist/types/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
+  "exports": {
+    "import": "./dist/esm/index.js",
+    "require": "./dist/cjs/index.js",
+    "default": "./dist/esm/index.js",
+    "types": "./dist/types/index.d.ts"
+  },
   "license": "MIT",
   "dependencies": {
     "@internationalized/date": "^3.5.2",

@@ -3,6 +3,7 @@
   "include": ["src/index.ts"],
   "compilerOptions": {
     "outDir": "./dist",
-    "declarationDir": "./dist/types"
+    "declarationDir": "./dist/types",
+    "module": "ESNext"
   }
 }
