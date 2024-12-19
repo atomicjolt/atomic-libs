@@ -1,0 +1,22 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "shell",
+      "label": "Run Storybook",
+      "command": "yarn storybook:dev",
+      "runOptions": {
+        "runOn": "folderOpen"
+      }
+    },
+    {
+      "type": "shell",
+      "label": "Run Playground",
+      "command": "yarn playground",
+      "runOptions": {
+        "runOn": "folderOpen"
+      },
+      "problemMatcher": []
+    }
+  ]
+}

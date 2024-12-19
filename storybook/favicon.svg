@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="56" height="56" viewBox="0 0 56 56">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.254" y1="0.878" x2="0.828" y2="0.079" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ffea00"/>
+      <stop offset="1" stop-color="#ffff56"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_112" data-name="Group 112" transform="translate(-12 -8)">
+    <circle id="Ellipse_37" data-name="Ellipse 37" cx="28" cy="28" r="28" transform="translate(12 8)" fill="url(#linear-gradient)"/>
+    <path id="Path_113" data-name="Path 113" d="M20.54,4.8,14.66.277a1.138,1.138,0,0,0-1.615.258L.187,19.079A1.085,1.085,0,0,0,.316,20.5l10.6,11.178a1.017,1.017,0,0,0,1.1.323l13.246-3.489a1.166,1.166,0,0,0,.84-1.357L20.928,5.446A1.1,1.1,0,0,0,20.54,4.8ZM18.149,6.027,16.663,8.159,15.952,4.8c-.065-.194.194-.388.452-.258L18.149,5.9ZM13.5,4.735l1.292,6.138L6.131,23.279,2.9,19.919a.506.506,0,0,1-.065-.517l10.209-14.8C13.174,4.412,13.432,4.476,13.5,4.735ZM17.18,22.116a.4.4,0,0,1-.323.517L7.94,25.217l-.194-.194,7.689-10.984Zm-7.366,5.04,9.3-2.649a1.032,1.032,0,0,0,.711-1.228L17.309,11.39l1.745-2.52a.139.139,0,0,1,.258.065l4.071,17.316a.367.367,0,0,1-.258.452L12.076,29.611Z" transform="translate(26.02 18.949)" fill="rgba(0,0,0,0.8)"/>
+  </g>
+<script xmlns="" id="bw-fido2-page-script"/></svg>

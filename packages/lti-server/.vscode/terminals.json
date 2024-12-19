@@ -1,0 +1,29 @@
+{
+  "autorun": true,
+  "autokill": true,
+  "terminals": [
+    {
+      "name": "Console",
+      "execute": true,
+      "commands": [
+        "cd [workspaceFolder]"
+      ]
+    },
+    {
+      "name": "Build",
+      "execute": true,
+      "commands": [
+        "cd [workspaceFolder]",
+        "npm run build"
+      ]
+    },
+    {
+      "name": "Tests",
+      "execute": true,
+      "commands": [
+        "cd [workspaceFolder]",
+        "npm run test"
+      ]
+    }
+  ]
+}
