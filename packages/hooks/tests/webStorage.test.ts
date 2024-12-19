@@ -1,11 +1,9 @@
-import { expect, test, describe, afterEach, vi } from 'vitest';
-import { renderHook, act } from '@testing-library/react';
-import { makeStorageHook } from '../src';
+import { expect, test, describe, afterEach, vi } from "vitest";
+import { renderHook, act } from "@testing-library/react";
+import { makeStorageHook } from "../src";
 
 class MockedStorage {
-  data: {
-    [key: string]: string;
-  };
+  data: Record<string, string>;
 
   constructor() {
     this.data = {};
@@ -31,33 +29,33 @@ class MockedStorage {
   };
 }
 
-describe('Web Storage hooks', () => {
+describe("Web Storage hooks", () => {
   const storage = new MockedStorage();
   const useStorage = makeStorageHook(storage);
 
   afterEach(storage.clear);
 
-  test('should set a value in storage', () => {
+  test("should set a value in storage", () => {
     storage.clear();
-    const { result } = renderHook(() => useStorage(1, 'key'));
+    const { result } = renderHook(() => useStorage("key", 1));
 
     expect(result.current[0]).toEqual(1);
 
     act(() => result.current[1](2));
-    expect(storage.getItem('key')).toEqual('2');
+    expect(storage.getItem("key")).toEqual("2");
   });
 
-  test('should use cached value', () => {
-    storage.setItem('key', '2');
-    const { result } = renderHook(() => useStorage(1, 'key'));
+  test("should use cached value", () => {
+    storage.setItem("key", "2");
+    const { result } = renderHook(() => useStorage("key", 1));
 
     expect(result.current[0]).toEqual(2);
 
     act(() => result.current[1](1));
-    expect(storage.getItem('key')).toEqual('1');
+    expect(storage.getItem("key")).toEqual("1");
   });
 
-  test('prepare and parse options', () => {
+  test("prepare and parse options", () => {
     const prepare = vi.fn((value: number) => {
       return value.toString();
     });
@@ -70,14 +68,30 @@ describe('Web Storage hooks', () => {
       return parseInt(value, 10);
     });
 
-    storage.setItem('key', '1');
-    const { result } = renderHook(() => useStorage<number>(1, 'key', { prepare, parse }));
+    const myUseStorage = makeStorageHook(storage, {
+      prepare,
+      parse,
+    });
+
+    storage.setItem("key", "1");
+    const { result } = renderHook(() => myUseStorage<number>("key", 1));
 
     expect(prepare.mock.calls.length).toEqual(0);
     expect(parse.mock.calls.length).toEqual(1);
 
     act(() => result.current[1](2));
     expect(prepare.mock.calls.length).toEqual(1);
-    expect(storage.getItem('key')).toEqual('2');
+    expect(storage.getItem("key")).toEqual("2");
+  });
+
+  test("prefix option", () => {
+    const myUseStorage = makeStorageHook(storage, {
+      prefix: "myPrefix-",
+    });
+
+    const { result } = renderHook(() => myUseStorage("key", 1));
+    act(() => result.current[1](1));
+
+    expect(storage.getItem("myPrefix-key")).toEqual("1");
   });
 });
