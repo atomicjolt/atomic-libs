@@ -1,0 +1,51 @@
+# `makeStorageHook`
+
+`makeStorageHook` is a factory function that creates custom hooks for managing state with web storage (`localStorage` or `sessionStorage`). The created hooks synchronize the state with the specified storage, allowing the state to persist across page reloads.
+
+## Parameters
+
+- `storage`: An object implementing the `StorageInterface` with methods `getItem`, `setItem`, and `removeItem`.
+- `options` (optional): An object with optional parameters:
+  - `prepare`: A function to encode the data as a string to store. Defaults to `JSON.stringify`.
+  - `parse`: A function to decode a value retrieved from storage. Defaults to `JSON.parse`.
+  - `prefix` (optional): A string to prefix all the keys with.
+
+## Returns
+
+An array containing:
+- The state value.
+- The state setter function (which will also set the value in the specified storage).
+- A function to remove the value from the specified storage. This does not change the value held in state.
+
+### Example
+
+```tsx
+import { makeStorageHook } from '@atomicjolt/hooks';
+
+const useCustomStorage = makeStorageHook(localStorage);
+
+function MyComponent() {
+  const [value, setValue, removeValue] = useCustomStorage('myKey', 'value');
+
+  return (
+    <div>
+      <p>{value.default}</p>
+      <button onClick={() => setValue('value')}>Set Value</button>
+      <button onClick={removeValue}>Remove Value</button>
+    </div>
+  );
+}
+```
+
+And you can customize the serialization and deserialization of the data:
+
+```tsx
+import { makeStorageHook } from '@atomicjolt/hooks';
+
+const useNumberStorage= makeStorageHook(localStorage, {
+  // Convert your data into a string to store
+  prepare: (data) => data.toString(),
+  // Convert the stored string back into your data
+  parse: (data) => parseInt(data, 10),
+});
+```

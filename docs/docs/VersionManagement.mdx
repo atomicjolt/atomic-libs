@@ -1,35 +1,11 @@
-# Atomic Libraries
 
-A collection of NPM packages maintained by Atomic Jolt.
+# Version Management
 
-[Documentation can be found here](https://atomicjolt.github.io/atomic-libs/)
-
-## Development
-
-```bash
-# Install Dependencies
-npm install
-
-# Build all packages
-npm run build --workspaces
-
-# Run the playground
-npm run playground
-```
-
-## Testing
-
-```bash
-npm run test --workspaces
-```
-
-## Version Management
-
-This repo uses [changsets](https://github.com/changesets/changesets/tree/main) for managing versions. To publish a new version of a package, follow these steps:
+This repo uses [changesets](https://github.com/changesets/changesets/tree/main) for managing versions. To publish a new version of a package, follow these steps:
 
 ### Create a new changeset
 
-Each time that you make meanginful changes to a package, you should create a new changeset. To do this, run the following command:
+Each time that you make meaningful changes to a package, you should create a new changeset. To do this, run the following command:
 ```bash
 npx changeset
 ```
@@ -51,7 +27,6 @@ npx changeset version
 This will consume all of the changesets that have been created and bump the versions of the packages accordingly.
 Additionally, it will write changelog entries for each package.
 
-
 ### Publish
 
 To publish the new versions of the packages, run the following command:
@@ -61,4 +36,3 @@ npx changeset publish
 ```
 
 This will loop through all of the packages and publish any that have a newer version than what is on NPM.
-

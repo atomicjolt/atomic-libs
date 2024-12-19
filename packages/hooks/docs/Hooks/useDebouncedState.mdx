@@ -1,0 +1,23 @@
+## `useDebouncedState`
+
+A hook that debounces updates to a state value.
+If a new value is set before the delay has elapsed, the timer is reset.
+
+### Parameters
+
+- `value` - The state value.
+- `delay` - The debounce delay in milliseconds.
+
+### Returns
+
+An array of:
+- The debounced state value.
+- State setter function.
+
+### Example
+
+```tsx
+const [state, setState] = useDebouncedState('initial', 500);
+
+setState('new value'); // state will be updated to 'new value' after 500ms
+```
