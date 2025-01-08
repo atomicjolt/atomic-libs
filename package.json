@@ -56,5 +56,8 @@
   },
   "optionalDependencies": {
     "@rollup/rollup-linux-x64-gnu": "^4.26.0"
+  },
+  "devDependencies": {
+    "simple-scaffold": "^2.3.2"
   }
 }
