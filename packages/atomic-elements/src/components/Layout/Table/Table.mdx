@@ -98,13 +98,11 @@ export default function SortableTable() {
 
 ### Searchable Table Columns
 
-Any column in the table can be made searchable by setting the `allowsSearching` prop to `true` on a given column.
+You can make any column in the table searchable by setting the `allowsSearching` prop to `true` on that column.
 
-If there are multiple columns that are searchable, when the user selects a new column to search by, 
-the current search term will be cleared. Closing the search input will also clear the search term.
+If multiple columns are searchable, selecting a new column to search by will clear the current search term. Closing the search input will also clear the search term.
 
-
-<Canvas of={TableStories.WithColumnSearch} source={{language: 'tsx', code: `
+<Canvas of={TableStories.SearchableColumns} source={{language: 'tsx', code: `
 function SearchableTable() {
   const [searchDescriptor, setSearchDescriptor] = useState<SearchDescriptor>({
     column: null,
@@ -181,154 +179,39 @@ function SearchableTable() {
 
 ### Table with Row Selection
 
-The table component supports row selection. By default, the selected rows will be managed internally, but you can
-also provide `selectedKeys` and `onSelectionChange` props to manage the selected rows externally.
+The table component supports row selection. By default, the selected rows are managed internally, but you can also provide `selectedKeys` and `onSelectionChange` props to manage the selected rows externally.
 
-The table component supports two types of row selection: 'single' and 'multiple'
+The table supports two types of row selection: 'single' and 'multiple'.
 
 #### Single Selection
 
-In single selection mode, only one row can be selected at a time. Clicking on a row will select it and deselect any other selected row.
+In single selection mode, only one row can be selected at a time.
 
 <Canvas of={TableStories.SingleSelection} />
 
 #### Multiple Selection
 
-In multiple selection mode, multiple rows can be selected at the same time. Clicking on a row will toggle its selection state.
+In multiple selection mode, multiple rows can be selected at the same time. Or all rows can be selected by clicking the checkbox in the header.
 
-Multiple selection also displays a checkbox in each row to allow the user to select or deselect the row.
+Note that selecting all rows sets `selectedKeys` to `"all"`, so you can handle either selecting a single page or all rows in your application.
 
 <Canvas of={TableStories.MultipleSelection} />
 
-### Table with reoderable columns
-
-The table supports the ability to drag-and-drop columns to reorder them.
-
-<Canvas of={TableStories.WithColumnReordering} source={{language: 'tsx', code: `
-
-function ReorderableTable() {
-  const [columnOrder, setColumnOrder] = useState<React.Key[]>([
-    "name",
-    "type",
-    "level",
-  ]);
-
-  // Define your columns programatically
-  const columns = [
-    {
-      key: "name",
-      name: "Name",
-    },
-    {
-      key: "type",
-      name: "Type",
-    },
-    {
-      key: "level",
-      name: "Level",
-    },
-  ];
-
-  // Sort those columns based on the order you have in state
-  const sortedColumns = columnOrder.map((key) =>
-    columns.find((c) => c.key === key)
-  ) as typeof columns;
-
-  const pokemons = [
-    {
-      name: "Charizard",
-      type: "Fire, Flying",
-      level: 67,
-    },
-    {
-      name: "Blastoise",
-      type: "Water",
-      level: 56,
-    },
-    {
-      name: "Venusaur",
-      type: "Grass, Poison",
-      level: 83,
-    },
-    {
-      name: "Pikachu",
-      type: "Electric",
-      level: 100,
-    },
-  ];
-
-  return (
-    <Table
-      aria-label="Table with orderable columns"
-      // onColumnReorder will be called with the new ordering
-      // whenever the user finishes reordering the columns
-      onColumnReorder={setColumnOrder}
-    >
-      <Table.Header columns={sortedColumns}>
-        {(column) => (
-          <Table.Column
-            key={column.key}
-            // Allow this column to be reordered
-            // If this is false, the column cannot be dragged nor dropped on
-            allowsReordering          
-          >
-            {column.name}
-          </Table.Column>
-        )}
-      </Table.Header>
-      <Table.Body items={pokemons}>
-        {(pokemon) => (
-          // The cells of the row should be rendered in the same order as the columns
-          <Table.Row key={pokemon.name}>
-            {sortedColumns.map((column) => (
-              <Table.Cell key={column.key}>{pokemon[column.key]}</Table.Cell>
-            ))}
-          </Table.Row>
-        )}
-      </Table.Body>
-    </Table>
-  );
-}
-`
-}} />
-
-
-### Nested Columns 
-
-The table component supports nested columns. Nested columns can be used to group columns together under a common header.
-
-<Canvas of={TableStories.NestedColumns} />
-
-### Nested Rows 
-
-Rows can be nested into collapsible groups with the `allowsExpandableRows` prop on the `Table` component. 
-
-For any row that should have nested Children, provide those rows as children to their parent, after all 
-the cells of the parent row have been defined.
-
-<Canvas of={TableStories.WithNestedRows} />
-
-
 ### Loading States
 
-The table component supports two loading variants. 
-The first is for when the columns of the table are known but the content is not.
+The table component supports two loading variants. The first is for when the columns of the table are known but the content is not.
 
-
-This is almost always going to be the one you want 
+This is almost always the one you want.
 
 <Canvas of={TableStories.LoadingState} />
 
-
-In the cases where you don't know the columns or the content of the table, you can make use of `<Table.Skeleton />`
+In cases where you don't know the columns or the content of the table, you can use `<Table.Skeleton />`.
 
 <Canvas of={TableStories.TableSkeleton} />
 
+### Table Bottom
 
-### Table Bottom 
-
-The `Table.Bottom` component can be used to render a visual footer for the table. It is not actually a footer in the DOM, 
-but rather a visual footer that is rendered at the bottom of the table. The reason for this is so that it can be made sticky.
+The `Table.Bottom` component can be used to render a visual footer for the table. It is not actually a footer in the DOM, but rather a visual footer that is rendered at the bottom of the table. This allows it to be made sticky.
 
 <Canvas of={TableStories.WithTableBottom} />
 

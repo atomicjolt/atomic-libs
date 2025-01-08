@@ -1,9 +1,7 @@
 import styled from "styled-components";
-import { BaseStyledButton } from "../Buttons.styles";
-import mixins from "@styles/mixins";
+import { Button } from '../Button';
 
-export const StyledIconButton = styled(BaseStyledButton)`
-  ${mixins.Sizing}
+export const StyledIconButton = styled(Button)`
   --size-sm-x: 30px;
   --size-sm-y: 30px;
   --size-md-x: 40px;

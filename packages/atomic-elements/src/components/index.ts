@@ -93,6 +93,7 @@ export {
 export { SelectField } from "./Fields/SelectField";
 export { MultiSelectField } from "./Fields/MultiSelectField";
 export { ComboBoxField } from "./Fields/ComboBoxField";
+export { ChipGroupField } from "./Fields/ChipGroupField";
 
 export { FormatDate } from "./Format/FormatDate";
 export { FormatNumber } from "./Format/FormatNumber";
@@ -125,11 +126,7 @@ export { LiveMessage } from "./Accessibility/LiveMessage";
 export type { BannerProps, BannerVariants } from "./Banners/Banner";
 export type { ButtonProps } from "./Buttons/Button";
 export type { IconButtonProps } from "./Buttons/IconButton";
-export type {
-  ButtonGroupProps,
-  ButtonGroupChild,
-  ButtonGroupChildProps,
-} from "./Buttons/ButtonGroup";
+export type { ButtonGroupProps } from "./Buttons/ButtonGroup";
 export type { ComboBoxProps } from "./Dropdowns/Combobox";
 export type { CustomSelectProps } from "./Dropdowns/CustomSelect";
 export type { SelectProps, SelectValue } from "./Dropdowns/Select";
@@ -179,6 +176,9 @@ export type {
   NumberFieldProps,
   ComboInputProps,
 } from "./Fields";
+export type { SelectFieldProps } from "./Fields/SelectField";
+export type { ComboBoxFieldProps } from "./Fields/ComboBoxField";
+export type { ChipGroupFieldProps } from "./Fields/ChipGroupField";
 export type { TableProps } from "./Layout/Table/Table.types";
 export type { TabsProps } from "./Layout/Tabs";
 export type { CardProps } from "./Layout/Card";

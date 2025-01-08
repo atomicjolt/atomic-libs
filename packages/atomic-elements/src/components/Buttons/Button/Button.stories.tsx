@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { Button } from ".";
-import { PressableArgTypes } from "@sb/helpers";
+import { PressableArgTypes, RenderPropsArgTypes } from "@sb/helpers";
 import { MaterialIcon } from "@components/Icons/MaterialIcon";
 import { getCssProps } from "@sb/cssprops";
 
@@ -13,6 +13,7 @@ const meta: Meta<typeof Button> = {
   },
   argTypes: {
     ...PressableArgTypes,
+    ...RenderPropsArgTypes,
     children: {
       control: "text",
     },
@@ -48,11 +49,6 @@ const meta: Meta<typeof Button> = {
       description:
         "If true, the button will be excluded from the tab order and will not be focusable via keyboard navigation.",
     },
-    // elementType: {
-    //   control: "text",
-    //   description:
-    //     "The type of element to render. By default, it will render a button element.",
-    // },
   },
 };
 

@@ -1,0 +1,69 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ChipGroupField > matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-ovuCP euVikJ aje-chip-group"
+  >
+    <div
+      aria-atomic="false"
+      aria-labelledby="react-aria-:r1:"
+      aria-live="off"
+      aria-relevant="additions"
+      class="sc-eOzmre foFCjW"
+      id="react-aria-:r0:"
+      role="grid"
+      tabindex="0"
+    >
+      <div
+        aria-label="Item 1"
+        class="sc-fFoeYl kvHja-d aje-chip"
+        data-key="react-aria-1"
+        id="react-aria-:r0:-react-aria-1"
+        role="row"
+        tabindex="0"
+      >
+        <div
+          aria-colindex="1"
+          class="sc-eauhAA jzqQfF"
+          role="gridcell"
+        >
+          Item 1
+        </div>
+      </div>
+      <div
+        aria-label="Item 2"
+        class="sc-fFoeYl kvHja-d aje-chip"
+        data-key="react-aria-2"
+        id="react-aria-:r0:-react-aria-2"
+        role="row"
+        tabindex="0"
+      >
+        <div
+          aria-colindex="1"
+          class="sc-eauhAA jzqQfF"
+          role="gridcell"
+        >
+          Item 2
+        </div>
+      </div>
+      <div
+        aria-label="Item 3"
+        class="sc-fFoeYl kvHja-d aje-chip"
+        data-key="react-aria-3"
+        id="react-aria-:r0:-react-aria-3"
+        role="row"
+        tabindex="0"
+      >
+        <div
+          aria-colindex="1"
+          class="sc-eauhAA jzqQfF"
+          role="gridcell"
+        >
+          Item 3
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

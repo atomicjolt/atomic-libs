@@ -10,6 +10,8 @@ import {
   OverlayTriggerState,
   useOverlayTriggerState,
 } from "react-stately";
+import { useIsHidden } from "@react-aria/collections";
+
 import { mergeProps } from "@react-aria/utils";
 
 import { RenderBaseProps, HasVariant } from "../../../types";
@@ -18,10 +20,9 @@ import { useContextProps } from "@hooks/useContextProps";
 import { useResizeObserver } from "@hooks/useResizeObserver";
 import { useForwardedRef } from "@hooks/useForwardedRef";
 import { PopoverUnderlay, PopoverContent } from "./Popover.styles";
-import { PopoverContext } from "./context";
+import { PopoverContext } from "./Popover.context";
 import { OverlayTriggerStateContext } from "../OverlayTrigger/context";
 import { invertPlacementAxis } from "@utils/placement";
-import { useIsHidden } from "@react-aria/collections";
 
 export interface PopoverRenderProps {
   /** Width in pixels of the triggering element that opened this popover  */
@@ -41,8 +42,9 @@ export interface PopoverProps
 /** A popover is an overlay element positioned relative to a target. */
 export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(
   (props: PopoverProps, ref) => {
-    const contextProps = useContextProps(PopoverContext, props);
-    const { triggerRef, ...rest } = contextProps;
+    [props, ref] = useContextProps(PopoverContext, props, ref);
+
+    const { triggerRef, ...rest } = props;
 
     const contextState = useContext(OverlayTriggerStateContext);
     const localState = useOverlayTriggerState(props);

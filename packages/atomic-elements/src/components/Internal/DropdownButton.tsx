@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Button, ButtonProps } from "@components/Buttons/Button";
 import { MaterialIcon } from "@components/Icons/MaterialIcon";
+import React from "react";
 
 export const StyledButton = styled(Button)`
   justify-content: space-between;
@@ -36,7 +37,7 @@ export function DropdownButton(props: ButtonProps) {
       {...props}
       variant={variant === "ghost" ? "dropdown-ghost" : variant}
     >
-      {props.children}
+      {props.children as React.ReactNode}
       <MaterialIcon icon="arrow_drop_down" />
     </StyledButton>
   );

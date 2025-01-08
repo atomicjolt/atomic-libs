@@ -1,0 +1,19 @@
+# `useForceRender`
+
+Forces a component to re-render.
+
+### Example
+
+```jsx
+import { useForceRender } from '@atomicjolt/hooks';
+
+function MyComponent() {
+  const forceRender = useForceRender();
+
+  return (
+    <div>
+      <button onClick={forceRender}>Force Render</button>
+    </div>
+  );
+}
+```

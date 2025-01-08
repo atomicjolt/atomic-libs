@@ -24,7 +24,7 @@ export default defineConfig({
         __dirname,
         "../packages/atomic-elements/src/utils"
       ),
-      "@sb": path.resolve(__dirname, ".storybook/utils"),
+      "@sb": path.resolve(__dirname, "../.storybook/utils"),
     },
   },
 });

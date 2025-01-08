@@ -8,12 +8,12 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
       <table
         aria-describedby=""
         aria-label="table"
-        class="sc-fFoeYl jetEzw aje-table"
+        class="sc-hJRrWL ftCgLi aje-table"
         role="grid"
         tabindex="0"
       >
         <thead
-          class="sc-eUlrpB bWAwNR aje-table__header"
+          class="sc-jhZTHU javOsY aje-table__header"
           role="rowgroup"
         >
           <tr
@@ -21,35 +21,36 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
             role="row"
           >
             <th
-              class="sc-hJRrWL fYOEcw aje-table__column"
+              class="sc-uYFMi hBWEWs aje-table__column"
               data-key="a"
               data-searchable="true"
               data-searching="true"
-              id="react-aria-:r2:-a"
+              id="react-aria-:r4:-a"
               role="columnheader"
               tabindex="-1"
             >
               <div
-                class="sc-geXuza hDExiT"
+                class="sc-epnzzT dFEYDI"
               >
                 Column 1
                 <div
                   aria-expanded="true"
-                  class="sc-dntaoT hZvNeh aje-combo-input sc-hbtGpV jIiSpe"
+                  class="sc-dntaoT hZvNeh aje-combo-input sc-iwXfZk cvUWSo padding-left"
                 >
                   <input
                     aria-label="Search a"
-                    class="sc-fAUdSK cfCVRY sc-bMTdWJ"
+                    class="sc-fAUdSK cfCVRY"
                     role="search"
+                    slot="search"
                     value="search"
                   />
                   <button
-                    class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
+                    class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
                     type="button"
                   >
                     <i
                       aria-hidden="true"
-                      class="sc-cHqXqK cswpJl aje-icon material-icons is-small"
+                      class="sc-kLhKbu gELXHy aje-icon material-icons is-small"
                     >
                       close
                     </i>
@@ -58,14 +59,14 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
               </div>
             </th>
             <th
-              class="sc-hJRrWL fYOEcw aje-table__column"
+              class="sc-uYFMi hBWEWs aje-table__column"
               data-key="b"
-              id="react-aria-:r2:-b"
+              id="react-aria-:r4:-b"
               role="columnheader"
               tabindex="-1"
             >
               <div
-                class="sc-geXuza hDExiT"
+                class="sc-epnzzT dFEYDI"
               >
                 Column 2
               </div>
@@ -73,111 +74,73 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
           </tr>
         </thead>
         <tbody
-          class="sc-jhZTHU aje-table__body"
+          class="sc-kZrBCu aje-table__body"
           role="rowgroup"
         >
           <tr
-            aria-labelledby="react-aria-:r2:-$.2.0-a"
-            class="sc-gQaihK dxFeBA aje-table__row"
-            data-key="$.2.0"
+            aria-labelledby="react-aria-:r4:-react-aria-6-a"
+            class="sc-fwzISk dorCxf aje-table__row"
+            data-key="react-aria-6"
             role="row"
             tabindex="-1"
           >
             <th
-              class="sc-epnzzT gYzcUD aje-table__cell"
-              data-key="$.2.0.0"
-              id="react-aria-:r2:-$.2.0-a"
+              class="sc-diYFot cCKata aje-table__cell"
+              data-key="react-aria-4"
+              id="react-aria-:r4:-react-aria-6-a"
               role="rowheader"
               tabindex="-1"
             >
-              <div
-                class="sc-kLhKbu kNHYgZ aje-flex"
-              >
-                <span
-                  class="sc-iuUfFv hBsQNL aje-table__cell__content"
-                >
-                  Row 1, Cell 1
-                </span>
-              </div>
+              Row 1, Cell 1
             </th>
             <td
-              class="sc-uYFMi kNJIYQ aje-table__cell"
-              data-key="$.2.0.1"
+              class="sc-kEfuZE gnabOo aje-table__cell"
+              data-key="react-aria-5"
               role="gridcell"
               tabindex="-1"
             >
-              <div
-                class="sc-kLhKbu kNHYgZ aje-flex"
-              >
-                <span
-                  class="sc-iuUfFv hBsQNL aje-table__cell__content"
-                >
-                  Row 1, Cell 2
-                </span>
-              </div>
+              Row 1, Cell 2
             </td>
           </tr>
           <tr
-            aria-labelledby="react-aria-:r2:-$.2.1-a"
-            class="sc-gQaihK dxFeBA aje-table__row"
-            data-key="$.2.1"
+            aria-labelledby="react-aria-:r4:-react-aria-9-a"
+            class="sc-fwzISk dorCxf aje-table__row"
+            data-key="react-aria-9"
             role="row"
             tabindex="-1"
           >
             <th
-              class="sc-epnzzT gYzcUD aje-table__cell"
-              data-key="$.2.1.0"
-              id="react-aria-:r2:-$.2.1-a"
+              class="sc-diYFot cCKata aje-table__cell"
+              data-key="react-aria-7"
+              id="react-aria-:r4:-react-aria-9-a"
               role="rowheader"
               tabindex="-1"
             >
-              <div
-                class="sc-kLhKbu kNHYgZ aje-flex"
-              >
-                <span
-                  class="sc-iuUfFv hBsQNL aje-table__cell__content"
-                >
-                  Row 2, Cell 1
-                </span>
-              </div>
+              Row 2, Cell 1
             </th>
             <td
-              class="sc-uYFMi kNJIYQ aje-table__cell"
-              data-key="$.2.1.1"
+              class="sc-kEfuZE gnabOo aje-table__cell"
+              data-key="react-aria-8"
               role="gridcell"
               tabindex="-1"
             >
-              <div
-                class="sc-kLhKbu kNHYgZ aje-flex"
-              >
-                <span
-                  class="sc-iuUfFv hBsQNL aje-table__cell__content"
-                >
-                  Row 2, Cell 2
-                </span>
-              </div>
+              Row 2, Cell 2
             </td>
           </tr>
         </tbody>
       </table>
-    </div>
-    <div
-      id="react-aria-description-1"
-      style="display: none;"
-    >
-      Double tap to start dragging.
     </div>
   </body>,
   "container": <div>
     <table
       aria-describedby=""
       aria-label="table"
-      class="sc-fFoeYl jetEzw aje-table"
+      class="sc-hJRrWL ftCgLi aje-table"
       role="grid"
       tabindex="0"
     >
       <thead
-        class="sc-eUlrpB bWAwNR aje-table__header"
+        class="sc-jhZTHU javOsY aje-table__header"
         role="rowgroup"
       >
         <tr
@@ -185,35 +148,36 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
           role="row"
         >
           <th
-            class="sc-hJRrWL fYOEcw aje-table__column"
+            class="sc-uYFMi hBWEWs aje-table__column"
             data-key="a"
             data-searchable="true"
             data-searching="true"
-            id="react-aria-:r2:-a"
+            id="react-aria-:r4:-a"
             role="columnheader"
             tabindex="-1"
           >
             <div
-              class="sc-geXuza hDExiT"
+              class="sc-epnzzT dFEYDI"
             >
               Column 1
               <div
                 aria-expanded="true"
-                class="sc-dntaoT hZvNeh aje-combo-input sc-hbtGpV jIiSpe"
+                class="sc-dntaoT hZvNeh aje-combo-input sc-iwXfZk cvUWSo padding-left"
               >
                 <input
                   aria-label="Search a"
-                  class="sc-fAUdSK cfCVRY sc-bMTdWJ"
+                  class="sc-fAUdSK cfCVRY"
                   role="search"
+                  slot="search"
                   value="search"
                 />
                 <button
-                  class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
+                  class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
                   type="button"
                 >
                   <i
                     aria-hidden="true"
-                    class="sc-cHqXqK cswpJl aje-icon material-icons is-small"
+                    class="sc-kLhKbu gELXHy aje-icon material-icons is-small"
                   >
                     close
                   </i>
@@ -222,14 +186,14 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
             </div>
           </th>
           <th
-            class="sc-hJRrWL fYOEcw aje-table__column"
+            class="sc-uYFMi hBWEWs aje-table__column"
             data-key="b"
-            id="react-aria-:r2:-b"
+            id="react-aria-:r4:-b"
             role="columnheader"
             tabindex="-1"
           >
             <div
-              class="sc-geXuza hDExiT"
+              class="sc-epnzzT dFEYDI"
             >
               Column 2
             </div>
@@ -237,89 +201,57 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
         </tr>
       </thead>
       <tbody
-        class="sc-jhZTHU aje-table__body"
+        class="sc-kZrBCu aje-table__body"
         role="rowgroup"
       >
         <tr
-          aria-labelledby="react-aria-:r2:-$.2.0-a"
-          class="sc-gQaihK dxFeBA aje-table__row"
-          data-key="$.2.0"
+          aria-labelledby="react-aria-:r4:-react-aria-6-a"
+          class="sc-fwzISk dorCxf aje-table__row"
+          data-key="react-aria-6"
           role="row"
           tabindex="-1"
         >
           <th
-            class="sc-epnzzT gYzcUD aje-table__cell"
-            data-key="$.2.0.0"
-            id="react-aria-:r2:-$.2.0-a"
+            class="sc-diYFot cCKata aje-table__cell"
+            data-key="react-aria-4"
+            id="react-aria-:r4:-react-aria-6-a"
             role="rowheader"
             tabindex="-1"
           >
-            <div
-              class="sc-kLhKbu kNHYgZ aje-flex"
-            >
-              <span
-                class="sc-iuUfFv hBsQNL aje-table__cell__content"
-              >
-                Row 1, Cell 1
-              </span>
-            </div>
+            Row 1, Cell 1
           </th>
           <td
-            class="sc-uYFMi kNJIYQ aje-table__cell"
-            data-key="$.2.0.1"
+            class="sc-kEfuZE gnabOo aje-table__cell"
+            data-key="react-aria-5"
             role="gridcell"
             tabindex="-1"
           >
-            <div
-              class="sc-kLhKbu kNHYgZ aje-flex"
-            >
-              <span
-                class="sc-iuUfFv hBsQNL aje-table__cell__content"
-              >
-                Row 1, Cell 2
-              </span>
-            </div>
+            Row 1, Cell 2
           </td>
         </tr>
         <tr
-          aria-labelledby="react-aria-:r2:-$.2.1-a"
-          class="sc-gQaihK dxFeBA aje-table__row"
-          data-key="$.2.1"
+          aria-labelledby="react-aria-:r4:-react-aria-9-a"
+          class="sc-fwzISk dorCxf aje-table__row"
+          data-key="react-aria-9"
           role="row"
           tabindex="-1"
         >
           <th
-            class="sc-epnzzT gYzcUD aje-table__cell"
-            data-key="$.2.1.0"
-            id="react-aria-:r2:-$.2.1-a"
+            class="sc-diYFot cCKata aje-table__cell"
+            data-key="react-aria-7"
+            id="react-aria-:r4:-react-aria-9-a"
             role="rowheader"
             tabindex="-1"
           >
-            <div
-              class="sc-kLhKbu kNHYgZ aje-flex"
-            >
-              <span
-                class="sc-iuUfFv hBsQNL aje-table__cell__content"
-              >
-                Row 2, Cell 1
-              </span>
-            </div>
+            Row 2, Cell 1
           </th>
           <td
-            class="sc-uYFMi kNJIYQ aje-table__cell"
-            data-key="$.2.1.1"
+            class="sc-kEfuZE gnabOo aje-table__cell"
+            data-key="react-aria-8"
             role="gridcell"
             tabindex="-1"
           >
-            <div
-              class="sc-kLhKbu kNHYgZ aje-flex"
-            >
-              <span
-                class="sc-iuUfFv hBsQNL aje-table__cell__content"
-              >
-                Row 2, Cell 2
-              </span>
-            </div>
+            Row 2, Cell 2
           </td>
         </tr>
       </tbody>
@@ -387,12 +319,12 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
       <table
         aria-describedby=""
         aria-label="table"
-        class="sc-fFoeYl jetEzw aje-table"
+        class="sc-hJRrWL ftCgLi aje-table"
         role="grid"
         tabindex="0"
       >
         <thead
-          class="sc-eUlrpB bWAwNR aje-table__header"
+          class="sc-jhZTHU javOsY aje-table__header"
           role="rowgroup"
         >
           <tr
@@ -400,7 +332,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
             role="row"
           >
             <th
-              class="sc-hJRrWL fYOEcw aje-table__column"
+              class="sc-uYFMi hBWEWs aje-table__column"
               data-key="a"
               data-searchable="true"
               id="react-aria-:r0:-a"
@@ -408,39 +340,40 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
               tabindex="-1"
             >
               <div
-                class="sc-geXuza hDExiT"
+                class="sc-epnzzT dFEYDI"
               >
                 Column 1
                 <div
                   aria-expanded="false"
-                  class="sc-dntaoT hZvNeh aje-combo-input sc-hbtGpV jIiSpe"
+                  class="sc-dntaoT hZvNeh aje-combo-input sc-iwXfZk cvUWSo padding-left"
                 >
                   <input
                     aria-label="Search a"
-                    class="sc-fAUdSK cfCVRY sc-bMTdWJ"
+                    class="sc-fAUdSK cfCVRY"
                     disabled=""
                     role="search"
+                    slot="search"
                     value=""
                   />
                   <button
-                    class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
+                    class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
                     type="button"
                   >
                     <i
                       aria-hidden="true"
-                      class="sc-cHqXqK cswpJl aje-icon material-icons is-small"
+                      class="sc-kLhKbu gELXHy aje-icon material-icons is-small"
                     >
                       close
                     </i>
                   </button>
                 </div>
                 <button
-                  class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
+                  class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
                   type="button"
                 >
                   <i
                     aria-hidden="true"
-                    class="sc-cHqXqK cswpJl aje-icon material-icons is-small"
+                    class="sc-kLhKbu gELXHy aje-icon material-icons is-small"
                   >
                     search
                   </i>
@@ -448,14 +381,14 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
               </div>
             </th>
             <th
-              class="sc-hJRrWL fYOEcw aje-table__column"
+              class="sc-uYFMi hBWEWs aje-table__column"
               data-key="b"
               id="react-aria-:r0:-b"
               role="columnheader"
               tabindex="-1"
             >
               <div
-                class="sc-geXuza hDExiT"
+                class="sc-epnzzT dFEYDI"
               >
                 Column 2
               </div>
@@ -463,111 +396,73 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
           </tr>
         </thead>
         <tbody
-          class="sc-jhZTHU aje-table__body"
+          class="sc-kZrBCu aje-table__body"
           role="rowgroup"
         >
           <tr
-            aria-labelledby="react-aria-:r0:-$.2.0-a"
-            class="sc-gQaihK dxFeBA aje-table__row"
-            data-key="$.2.0"
+            aria-labelledby="react-aria-:r0:-react-aria-6-a"
+            class="sc-fwzISk dorCxf aje-table__row"
+            data-key="react-aria-6"
             role="row"
             tabindex="-1"
           >
             <th
-              class="sc-epnzzT gYzcUD aje-table__cell"
-              data-key="$.2.0.0"
-              id="react-aria-:r0:-$.2.0-a"
+              class="sc-diYFot cCKata aje-table__cell"
+              data-key="react-aria-4"
+              id="react-aria-:r0:-react-aria-6-a"
               role="rowheader"
               tabindex="-1"
             >
-              <div
-                class="sc-kLhKbu kNHYgZ aje-flex"
-              >
-                <span
-                  class="sc-iuUfFv hBsQNL aje-table__cell__content"
-                >
-                  Row 1, Cell 1
-                </span>
-              </div>
+              Row 1, Cell 1
             </th>
             <td
-              class="sc-uYFMi kNJIYQ aje-table__cell"
-              data-key="$.2.0.1"
+              class="sc-kEfuZE gnabOo aje-table__cell"
+              data-key="react-aria-5"
               role="gridcell"
               tabindex="-1"
             >
-              <div
-                class="sc-kLhKbu kNHYgZ aje-flex"
-              >
-                <span
-                  class="sc-iuUfFv hBsQNL aje-table__cell__content"
-                >
-                  Row 1, Cell 2
-                </span>
-              </div>
+              Row 1, Cell 2
             </td>
           </tr>
           <tr
-            aria-labelledby="react-aria-:r0:-$.2.1-a"
-            class="sc-gQaihK dxFeBA aje-table__row"
-            data-key="$.2.1"
+            aria-labelledby="react-aria-:r0:-react-aria-9-a"
+            class="sc-fwzISk dorCxf aje-table__row"
+            data-key="react-aria-9"
             role="row"
             tabindex="-1"
           >
             <th
-              class="sc-epnzzT gYzcUD aje-table__cell"
-              data-key="$.2.1.0"
-              id="react-aria-:r0:-$.2.1-a"
+              class="sc-diYFot cCKata aje-table__cell"
+              data-key="react-aria-7"
+              id="react-aria-:r0:-react-aria-9-a"
               role="rowheader"
               tabindex="-1"
             >
-              <div
-                class="sc-kLhKbu kNHYgZ aje-flex"
-              >
-                <span
-                  class="sc-iuUfFv hBsQNL aje-table__cell__content"
-                >
-                  Row 2, Cell 1
-                </span>
-              </div>
+              Row 2, Cell 1
             </th>
             <td
-              class="sc-uYFMi kNJIYQ aje-table__cell"
-              data-key="$.2.1.1"
+              class="sc-kEfuZE gnabOo aje-table__cell"
+              data-key="react-aria-8"
               role="gridcell"
               tabindex="-1"
             >
-              <div
-                class="sc-kLhKbu kNHYgZ aje-flex"
-              >
-                <span
-                  class="sc-iuUfFv hBsQNL aje-table__cell__content"
-                >
-                  Row 2, Cell 2
-                </span>
-              </div>
+              Row 2, Cell 2
             </td>
           </tr>
         </tbody>
       </table>
-    </div>
-    <div
-      id="react-aria-description-0"
-      style="display: none;"
-    >
-      Double tap to start dragging.
     </div>
   </body>,
   "container": <div>
     <table
       aria-describedby=""
       aria-label="table"
-      class="sc-fFoeYl jetEzw aje-table"
+      class="sc-hJRrWL ftCgLi aje-table"
       role="grid"
       tabindex="0"
     >
       <thead
-        class="sc-eUlrpB bWAwNR aje-table__header"
+        class="sc-jhZTHU javOsY aje-table__header"
         role="rowgroup"
       >
         <tr
@@ -575,7 +470,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
           role="row"
         >
           <th
-            class="sc-hJRrWL fYOEcw aje-table__column"
+            class="sc-uYFMi hBWEWs aje-table__column"
             data-key="a"
             data-searchable="true"
             id="react-aria-:r0:-a"
@@ -583,39 +478,40 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
             tabindex="-1"
           >
             <div
-              class="sc-geXuza hDExiT"
+              class="sc-epnzzT dFEYDI"
             >
               Column 1
               <div
                 aria-expanded="false"
-                class="sc-dntaoT hZvNeh aje-combo-input sc-hbtGpV jIiSpe"
+                class="sc-dntaoT hZvNeh aje-combo-input sc-iwXfZk cvUWSo padding-left"
               >
                 <input
                   aria-label="Search a"
-                  class="sc-fAUdSK cfCVRY sc-bMTdWJ"
+                  class="sc-fAUdSK cfCVRY"
                   disabled=""
                   role="search"
+                  slot="search"
                   value=""
                 />
                 <button
-                  class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
+                  class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
                   type="button"
                 >
                   <i
                     aria-hidden="true"
-                    class="sc-cHqXqK cswpJl aje-icon material-icons is-small"
+                    class="sc-kLhKbu gELXHy aje-icon material-icons is-small"
                   >
                     close
                   </i>
                 </button>
               </div>
               <button
-                class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
+                class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
                 type="button"
               >
                 <i
                   aria-hidden="true"
-                  class="sc-cHqXqK cswpJl aje-icon material-icons is-small"
+                  class="sc-kLhKbu gELXHy aje-icon material-icons is-small"
                 >
                   search
                 </i>
@@ -623,14 +519,14 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
             </div>
           </th>
           <th
-            class="sc-hJRrWL fYOEcw aje-table__column"
+            class="sc-uYFMi hBWEWs aje-table__column"
             data-key="b"
             id="react-aria-:r0:-b"
             role="columnheader"
             tabindex="-1"
           >
             <div
-              class="sc-geXuza hDExiT"
+              class="sc-epnzzT dFEYDI"
             >
               Column 2
             </div>
@@ -638,89 +534,57 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
         </tr>
       </thead>
       <tbody
-        class="sc-jhZTHU aje-table__body"
+        class="sc-kZrBCu aje-table__body"
         role="rowgroup"
       >
         <tr
-          aria-labelledby="react-aria-:r0:-$.2.0-a"
-          class="sc-gQaihK dxFeBA aje-table__row"
-          data-key="$.2.0"
+          aria-labelledby="react-aria-:r0:-react-aria-6-a"
+          class="sc-fwzISk dorCxf aje-table__row"
+          data-key="react-aria-6"
           role="row"
           tabindex="-1"
         >
           <th
-            class="sc-epnzzT gYzcUD aje-table__cell"
-            data-key="$.2.0.0"
-            id="react-aria-:r0:-$.2.0-a"
+            class="sc-diYFot cCKata aje-table__cell"
+            data-key="react-aria-4"
+            id="react-aria-:r0:-react-aria-6-a"
             role="rowheader"
             tabindex="-1"
           >
-            <div
-              class="sc-kLhKbu kNHYgZ aje-flex"
-            >
-              <span
-                class="sc-iuUfFv hBsQNL aje-table__cell__content"
-              >
-                Row 1, Cell 1
-              </span>
-            </div>
+            Row 1, Cell 1
           </th>
           <td
-            class="sc-uYFMi kNJIYQ aje-table__cell"
-            data-key="$.2.0.1"
+            class="sc-kEfuZE gnabOo aje-table__cell"
+            data-key="react-aria-5"
             role="gridcell"
             tabindex="-1"
           >
-            <div
-              class="sc-kLhKbu kNHYgZ aje-flex"
-            >
-              <span
-                class="sc-iuUfFv hBsQNL aje-table__cell__content"
-              >
-                Row 1, Cell 2
-              </span>
-            </div>
+            Row 1, Cell 2
           </td>
         </tr>
         <tr
-          aria-labelledby="react-aria-:r0:-$.2.1-a"
-          class="sc-gQaihK dxFeBA aje-table__row"
-          data-key="$.2.1"
+          aria-labelledby="react-aria-:r0:-react-aria-9-a"
+          class="sc-fwzISk dorCxf aje-table__row"
+          data-key="react-aria-9"
           role="row"
           tabindex="-1"
         >
           <th
-            class="sc-epnzzT gYzcUD aje-table__cell"
-            data-key="$.2.1.0"
-            id="react-aria-:r0:-$.2.1-a"
+            class="sc-diYFot cCKata aje-table__cell"
+            data-key="react-aria-7"
+            id="react-aria-:r0:-react-aria-9-a"
             role="rowheader"
             tabindex="-1"
           >
-            <div
-              class="sc-kLhKbu kNHYgZ aje-flex"
-            >
-              <span
-                class="sc-iuUfFv hBsQNL aje-table__cell__content"
-              >
-                Row 2, Cell 1
-              </span>
-            </div>
+            Row 2, Cell 1
           </th>
           <td
-            class="sc-uYFMi kNJIYQ aje-table__cell"
-            data-key="$.2.1.1"
+            class="sc-kEfuZE gnabOo aje-table__cell"
+            data-key="react-aria-8"
             role="gridcell"
             tabindex="-1"
           >
-            <div
-              class="sc-kLhKbu kNHYgZ aje-flex"
-            >
-              <span
-                class="sc-iuUfFv hBsQNL aje-table__cell__content"
-              >
-                Row 2, Cell 2
-              </span>
-            </div>
+            Row 2, Cell 2
           </td>
         </tr>
       </tbody>
@@ -788,13 +652,12 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
       <table
         aria-describedby=""
         aria-label="table"
-        class="sc-fFoeYl jetEzw aje-table"
-        data-loading="true"
+        class="sc-hJRrWL ftCgLi aje-table"
         role="grid"
         tabindex="0"
       >
         <thead
-          class="sc-eUlrpB bWAwNR aje-table__header"
+          class="sc-jhZTHU javOsY aje-table__header"
           role="rowgroup"
         >
           <tr
@@ -802,47 +665,48 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             role="row"
           >
             <th
-              class="sc-hJRrWL fYOEcw aje-table__column"
+              class="sc-uYFMi hBWEWs aje-table__column"
               data-key="a"
               data-searchable="true"
-              id="react-aria-:re:-a"
+              id="react-aria-:r8:-a"
               role="columnheader"
               tabindex="-1"
             >
               <div
-                class="sc-geXuza hDExiT"
+                class="sc-epnzzT dFEYDI"
               >
                 Column 1
                 <div
                   aria-expanded="false"
-                  class="sc-dntaoT hZvNeh aje-combo-input sc-hbtGpV jIiSpe"
+                  class="sc-dntaoT hZvNeh aje-combo-input sc-iwXfZk cvUWSo padding-left"
                 >
                   <input
                     aria-label="Search a"
-                    class="sc-fAUdSK cfCVRY sc-bMTdWJ"
+                    class="sc-fAUdSK cfCVRY"
                     disabled=""
                     role="search"
+                    slot="search"
                     value=""
                   />
                   <button
-                    class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
+                    class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
                     type="button"
                   >
                     <i
                       aria-hidden="true"
-                      class="sc-cHqXqK cswpJl aje-icon material-icons is-small"
+                      class="sc-kLhKbu gELXHy aje-icon material-icons is-small"
                     >
                       close
                     </i>
                   </button>
                 </div>
                 <button
-                  class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
+                  class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
                   type="button"
                 >
                   <i
                     aria-hidden="true"
-                    class="sc-cHqXqK cswpJl aje-icon material-icons is-small"
+                    class="sc-kLhKbu gELXHy aje-icon material-icons is-small"
                   >
                     search
                   </i>
@@ -850,14 +714,14 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
               </div>
             </th>
             <th
-              class="sc-hJRrWL fYOEcw aje-table__column"
+              class="sc-uYFMi hBWEWs aje-table__column"
               data-key="b"
-              id="react-aria-:re:-b"
+              id="react-aria-:r8:-b"
               role="columnheader"
               tabindex="-1"
             >
               <div
-                class="sc-geXuza hDExiT"
+                class="sc-epnzzT dFEYDI"
               >
                 Column 2
               </div>
@@ -865,18 +729,373 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
           </tr>
         </thead>
         <tbody
-          class="sc-jhZTHU aje-table__body"
+          class="sc-kZrBCu aje-table__body"
+          data-loading="true"
           role="rowgroup"
         >
           <tr
-            class="sc-gQaihK dxFeBA"
+            class="sc-fwzISk dorCxf"
           >
             <td
-              class="sc-uYFMi kNJIYQ"
+              class="sc-kEfuZE gnabOo"
+            >
+              <svg
+                aria-labelledby=":ra:-aria"
+                class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+                role="img"
+              >
+                <rect
+                  clip-path="url(#:ra:-diff)"
+                  height="100%"
+                  role="presentation"
+                  style="fill: url(#:ra:-animated-diff);"
+                  width="100%"
+                  x="0"
+                  y="0"
+                />
+                <defs>
+                  <clippath
+                    id=":ra:-diff"
+                  >
+                    <rect
+                      height="100%"
+                      rx="5"
+                      ry="5"
+                      width="100%"
+                      x="0"
+                      y="0"
+                    />
+                  </clippath>
+                  <lineargradient
+                    gradientTransform="translate(-2 0)"
+                    id=":ra:-animated-diff"
+                  >
+                    <stop
+                      class="sc-eUlrpB dwUQHx"
+                      offset="0%"
+                    />
+                    <stop
+                      class="sc-geXuza iflhsR"
+                      offset="50%"
+                    />
+                    <stop
+                      class="sc-eUlrpB dwUQHx"
+                      offset="100%"
+                    />
+                    <animatetransform
+                      attributeName="gradientTransform"
+                      dur="1.2s"
+                      repeatCount="indefinite"
+                      type="translate"
+                      values="-2 0; 0 0; 2 0"
+                    />
+                  </lineargradient>
+                </defs>
+              </svg>
+            </td>
+            <td
+              class="sc-kEfuZE gnabOo"
+            >
+              <svg
+                aria-labelledby=":rb:-aria"
+                class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+                role="img"
+              >
+                <rect
+                  clip-path="url(#:rb:-diff)"
+                  height="100%"
+                  role="presentation"
+                  style="fill: url(#:rb:-animated-diff);"
+                  width="100%"
+                  x="0"
+                  y="0"
+                />
+                <defs>
+                  <clippath
+                    id=":rb:-diff"
+                  >
+                    <rect
+                      height="100%"
+                      rx="5"
+                      ry="5"
+                      width="100%"
+                      x="0"
+                      y="0"
+                    />
+                  </clippath>
+                  <lineargradient
+                    gradientTransform="translate(-2 0)"
+                    id=":rb:-animated-diff"
+                  >
+                    <stop
+                      class="sc-eUlrpB dwUQHx"
+                      offset="0%"
+                    />
+                    <stop
+                      class="sc-geXuza iflhsR"
+                      offset="50%"
+                    />
+                    <stop
+                      class="sc-eUlrpB dwUQHx"
+                      offset="100%"
+                    />
+                    <animatetransform
+                      attributeName="gradientTransform"
+                      dur="1.2s"
+                      repeatCount="indefinite"
+                      type="translate"
+                      values="-2 0; 0 0; 2 0"
+                    />
+                  </lineargradient>
+                </defs>
+              </svg>
+            </td>
+          </tr>
+          <tr
+            class="sc-fwzISk dorCxf"
+          >
+            <td
+              class="sc-kEfuZE gnabOo"
+            >
+              <svg
+                aria-labelledby=":rc:-aria"
+                class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+                role="img"
+              >
+                <rect
+                  clip-path="url(#:rc:-diff)"
+                  height="100%"
+                  role="presentation"
+                  style="fill: url(#:rc:-animated-diff);"
+                  width="100%"
+                  x="0"
+                  y="0"
+                />
+                <defs>
+                  <clippath
+                    id=":rc:-diff"
+                  >
+                    <rect
+                      height="100%"
+                      rx="5"
+                      ry="5"
+                      width="100%"
+                      x="0"
+                      y="0"
+                    />
+                  </clippath>
+                  <lineargradient
+                    gradientTransform="translate(-2 0)"
+                    id=":rc:-animated-diff"
+                  >
+                    <stop
+                      class="sc-eUlrpB dwUQHx"
+                      offset="0%"
+                    />
+                    <stop
+                      class="sc-geXuza iflhsR"
+                      offset="50%"
+                    />
+                    <stop
+                      class="sc-eUlrpB dwUQHx"
+                      offset="100%"
+                    />
+                    <animatetransform
+                      attributeName="gradientTransform"
+                      dur="1.2s"
+                      repeatCount="indefinite"
+                      type="translate"
+                      values="-2 0; 0 0; 2 0"
+                    />
+                  </lineargradient>
+                </defs>
+              </svg>
+            </td>
+            <td
+              class="sc-kEfuZE gnabOo"
+            >
+              <svg
+                aria-labelledby=":rd:-aria"
+                class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+                role="img"
+              >
+                <rect
+                  clip-path="url(#:rd:-diff)"
+                  height="100%"
+                  role="presentation"
+                  style="fill: url(#:rd:-animated-diff);"
+                  width="100%"
+                  x="0"
+                  y="0"
+                />
+                <defs>
+                  <clippath
+                    id=":rd:-diff"
+                  >
+                    <rect
+                      height="100%"
+                      rx="5"
+                      ry="5"
+                      width="100%"
+                      x="0"
+                      y="0"
+                    />
+                  </clippath>
+                  <lineargradient
+                    gradientTransform="translate(-2 0)"
+                    id=":rd:-animated-diff"
+                  >
+                    <stop
+                      class="sc-eUlrpB dwUQHx"
+                      offset="0%"
+                    />
+                    <stop
+                      class="sc-geXuza iflhsR"
+                      offset="50%"
+                    />
+                    <stop
+                      class="sc-eUlrpB dwUQHx"
+                      offset="100%"
+                    />
+                    <animatetransform
+                      attributeName="gradientTransform"
+                      dur="1.2s"
+                      repeatCount="indefinite"
+                      type="translate"
+                      values="-2 0; 0 0; 2 0"
+                    />
+                  </lineargradient>
+                </defs>
+              </svg>
+            </td>
+          </tr>
+          <tr
+            class="sc-fwzISk dorCxf"
+          >
+            <td
+              class="sc-kEfuZE gnabOo"
+            >
+              <svg
+                aria-labelledby=":re:-aria"
+                class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+                role="img"
+              >
+                <rect
+                  clip-path="url(#:re:-diff)"
+                  height="100%"
+                  role="presentation"
+                  style="fill: url(#:re:-animated-diff);"
+                  width="100%"
+                  x="0"
+                  y="0"
+                />
+                <defs>
+                  <clippath
+                    id=":re:-diff"
+                  >
+                    <rect
+                      height="100%"
+                      rx="5"
+                      ry="5"
+                      width="100%"
+                      x="0"
+                      y="0"
+                    />
+                  </clippath>
+                  <lineargradient
+                    gradientTransform="translate(-2 0)"
+                    id=":re:-animated-diff"
+                  >
+                    <stop
+                      class="sc-eUlrpB dwUQHx"
+                      offset="0%"
+                    />
+                    <stop
+                      class="sc-geXuza iflhsR"
+                      offset="50%"
+                    />
+                    <stop
+                      class="sc-eUlrpB dwUQHx"
+                      offset="100%"
+                    />
+                    <animatetransform
+                      attributeName="gradientTransform"
+                      dur="1.2s"
+                      repeatCount="indefinite"
+                      type="translate"
+                      values="-2 0; 0 0; 2 0"
+                    />
+                  </lineargradient>
+                </defs>
+              </svg>
+            </td>
+            <td
+              class="sc-kEfuZE gnabOo"
+            >
+              <svg
+                aria-labelledby=":rf:-aria"
+                class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+                role="img"
+              >
+                <rect
+                  clip-path="url(#:rf:-diff)"
+                  height="100%"
+                  role="presentation"
+                  style="fill: url(#:rf:-animated-diff);"
+                  width="100%"
+                  x="0"
+                  y="0"
+                />
+                <defs>
+                  <clippath
+                    id=":rf:-diff"
+                  >
+                    <rect
+                      height="100%"
+                      rx="5"
+                      ry="5"
+                      width="100%"
+                      x="0"
+                      y="0"
+                    />
+                  </clippath>
+                  <lineargradient
+                    gradientTransform="translate(-2 0)"
+                    id=":rf:-animated-diff"
+                  >
+                    <stop
+                      class="sc-eUlrpB dwUQHx"
+                      offset="0%"
+                    />
+                    <stop
+                      class="sc-geXuza iflhsR"
+                      offset="50%"
+                    />
+                    <stop
+                      class="sc-eUlrpB dwUQHx"
+                      offset="100%"
+                    />
+                    <animatetransform
+                      attributeName="gradientTransform"
+                      dur="1.2s"
+                      repeatCount="indefinite"
+                      type="translate"
+                      values="-2 0; 0 0; 2 0"
+                    />
+                  </lineargradient>
+                </defs>
+              </svg>
+            </td>
+          </tr>
+          <tr
+            class="sc-fwzISk dorCxf"
+          >
+            <td
+              class="sc-kEfuZE gnabOo"
             >
               <svg
                 aria-labelledby=":rg:-aria"
-                class="sc-ovuCP fPAPXp aje-skeleton-loader sc-bbQqnZ cJelqt"
+                class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
                 role="img"
               >
                 <rect
@@ -906,15 +1125,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                     id=":rg:-animated-diff"
                   >
                     <stop
-                      class="sc-eOzmre dXgdxb"
+                      class="sc-eUlrpB dwUQHx"
                       offset="0%"
                     />
                     <stop
-                      class="sc-eauhAA dBJSSE"
+                      class="sc-geXuza iflhsR"
                       offset="50%"
                     />
                     <stop
-                      class="sc-eOzmre dXgdxb"
+                      class="sc-eUlrpB dwUQHx"
                       offset="100%"
                     />
                     <animatetransform
@@ -929,11 +1148,11 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
               </svg>
             </td>
             <td
-              class="sc-uYFMi kNJIYQ"
+              class="sc-kEfuZE gnabOo"
             >
               <svg
                 aria-labelledby=":rh:-aria"
-                class="sc-ovuCP fPAPXp aje-skeleton-loader sc-bbQqnZ cJelqt"
+                class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
                 role="img"
               >
                 <rect
@@ -963,15 +1182,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                     id=":rh:-animated-diff"
                   >
                     <stop
-                      class="sc-eOzmre dXgdxb"
+                      class="sc-eUlrpB dwUQHx"
                       offset="0%"
                     />
                     <stop
-                      class="sc-eauhAA dBJSSE"
+                      class="sc-geXuza iflhsR"
                       offset="50%"
                     />
                     <stop
-                      class="sc-eOzmre dXgdxb"
+                      class="sc-eUlrpB dwUQHx"
                       offset="100%"
                     />
                     <animatetransform
@@ -987,14 +1206,14 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </td>
           </tr>
           <tr
-            class="sc-gQaihK dxFeBA"
+            class="sc-fwzISk dorCxf"
           >
             <td
-              class="sc-uYFMi kNJIYQ"
+              class="sc-kEfuZE gnabOo"
             >
               <svg
                 aria-labelledby=":ri:-aria"
-                class="sc-ovuCP fPAPXp aje-skeleton-loader sc-bbQqnZ cJelqt"
+                class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
                 role="img"
               >
                 <rect
@@ -1024,15 +1243,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                     id=":ri:-animated-diff"
                   >
                     <stop
-                      class="sc-eOzmre dXgdxb"
+                      class="sc-eUlrpB dwUQHx"
                       offset="0%"
                     />
                     <stop
-                      class="sc-eauhAA dBJSSE"
+                      class="sc-geXuza iflhsR"
                       offset="50%"
                     />
                     <stop
-                      class="sc-eOzmre dXgdxb"
+                      class="sc-eUlrpB dwUQHx"
                       offset="100%"
                     />
                     <animatetransform
@@ -1047,11 +1266,11 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
               </svg>
             </td>
             <td
-              class="sc-uYFMi kNJIYQ"
+              class="sc-kEfuZE gnabOo"
             >
               <svg
                 aria-labelledby=":rj:-aria"
-                class="sc-ovuCP fPAPXp aje-skeleton-loader sc-bbQqnZ cJelqt"
+                class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
                 role="img"
               >
                 <rect
@@ -1081,15 +1300,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                     id=":rj:-animated-diff"
                   >
                     <stop
-                      class="sc-eOzmre dXgdxb"
+                      class="sc-eUlrpB dwUQHx"
                       offset="0%"
                     />
                     <stop
-                      class="sc-eauhAA dBJSSE"
+                      class="sc-geXuza iflhsR"
                       offset="50%"
                     />
                     <stop
-                      class="sc-eOzmre dXgdxb"
+                      class="sc-eUlrpB dwUQHx"
                       offset="100%"
                     />
                     <animatetransform
@@ -1105,14 +1324,14 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </td>
           </tr>
           <tr
-            class="sc-gQaihK dxFeBA"
+            class="sc-fwzISk dorCxf"
           >
             <td
-              class="sc-uYFMi kNJIYQ"
+              class="sc-kEfuZE gnabOo"
             >
               <svg
                 aria-labelledby=":rk:-aria"
-                class="sc-ovuCP fPAPXp aje-skeleton-loader sc-bbQqnZ cJelqt"
+                class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
                 role="img"
               >
                 <rect
@@ -1142,15 +1361,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                     id=":rk:-animated-diff"
                   >
                     <stop
-                      class="sc-eOzmre dXgdxb"
+                      class="sc-eUlrpB dwUQHx"
                       offset="0%"
                     />
                     <stop
-                      class="sc-eauhAA dBJSSE"
+                      class="sc-geXuza iflhsR"
                       offset="50%"
                     />
                     <stop
-                      class="sc-eOzmre dXgdxb"
+                      class="sc-eUlrpB dwUQHx"
                       offset="100%"
                     />
                     <animatetransform
@@ -1165,11 +1384,11 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
               </svg>
             </td>
             <td
-              class="sc-uYFMi kNJIYQ"
+              class="sc-kEfuZE gnabOo"
             >
               <svg
                 aria-labelledby=":rl:-aria"
-                class="sc-ovuCP fPAPXp aje-skeleton-loader sc-bbQqnZ cJelqt"
+                class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
                 role="img"
               >
                 <rect
@@ -1199,15 +1418,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                     id=":rl:-animated-diff"
                   >
                     <stop
-                      class="sc-eOzmre dXgdxb"
+                      class="sc-eUlrpB dwUQHx"
                       offset="0%"
                     />
                     <stop
-                      class="sc-eauhAA dBJSSE"
+                      class="sc-geXuza iflhsR"
                       offset="50%"
                     />
                     <stop
-                      class="sc-eOzmre dXgdxb"
+                      class="sc-eUlrpB dwUQHx"
                       offset="100%"
                     />
                     <animatetransform
@@ -1223,14 +1442,14 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </td>
           </tr>
           <tr
-            class="sc-gQaihK dxFeBA"
+            class="sc-fwzISk dorCxf"
           >
             <td
-              class="sc-uYFMi kNJIYQ"
+              class="sc-kEfuZE gnabOo"
             >
               <svg
                 aria-labelledby=":rm:-aria"
-                class="sc-ovuCP fPAPXp aje-skeleton-loader sc-bbQqnZ cJelqt"
+                class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
                 role="img"
               >
                 <rect
@@ -1260,15 +1479,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                     id=":rm:-animated-diff"
                   >
                     <stop
-                      class="sc-eOzmre dXgdxb"
+                      class="sc-eUlrpB dwUQHx"
                       offset="0%"
                     />
                     <stop
-                      class="sc-eauhAA dBJSSE"
+                      class="sc-geXuza iflhsR"
                       offset="50%"
                     />
                     <stop
-                      class="sc-eOzmre dXgdxb"
+                      class="sc-eUlrpB dwUQHx"
                       offset="100%"
                     />
                     <animatetransform
@@ -1283,11 +1502,11 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
               </svg>
             </td>
             <td
-              class="sc-uYFMi kNJIYQ"
+              class="sc-kEfuZE gnabOo"
             >
               <svg
                 aria-labelledby=":rn:-aria"
-                class="sc-ovuCP fPAPXp aje-skeleton-loader sc-bbQqnZ cJelqt"
+                class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
                 role="img"
               >
                 <rect
@@ -1317,15 +1536,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                     id=":rn:-animated-diff"
                   >
                     <stop
-                      class="sc-eOzmre dXgdxb"
+                      class="sc-eUlrpB dwUQHx"
                       offset="0%"
                     />
                     <stop
-                      class="sc-eauhAA dBJSSE"
+                      class="sc-geXuza iflhsR"
                       offset="50%"
                     />
                     <stop
-                      class="sc-eOzmre dXgdxb"
+                      class="sc-eUlrpB dwUQHx"
                       offset="100%"
                     />
                     <animatetransform
@@ -1341,14 +1560,14 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </td>
           </tr>
           <tr
-            class="sc-gQaihK dxFeBA"
+            class="sc-fwzISk dorCxf"
           >
             <td
-              class="sc-uYFMi kNJIYQ"
+              class="sc-kEfuZE gnabOo"
             >
               <svg
                 aria-labelledby=":ro:-aria"
-                class="sc-ovuCP fPAPXp aje-skeleton-loader sc-bbQqnZ cJelqt"
+                class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
                 role="img"
               >
                 <rect
@@ -1378,15 +1597,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                     id=":ro:-animated-diff"
                   >
                     <stop
-                      class="sc-eOzmre dXgdxb"
+                      class="sc-eUlrpB dwUQHx"
                       offset="0%"
                     />
                     <stop
-                      class="sc-eauhAA dBJSSE"
+                      class="sc-geXuza iflhsR"
                       offset="50%"
                     />
                     <stop
-                      class="sc-eOzmre dXgdxb"
+                      class="sc-eUlrpB dwUQHx"
                       offset="100%"
                     />
                     <animatetransform
@@ -1401,11 +1620,11 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
               </svg>
             </td>
             <td
-              class="sc-uYFMi kNJIYQ"
+              class="sc-kEfuZE gnabOo"
             >
               <svg
                 aria-labelledby=":rp:-aria"
-                class="sc-ovuCP fPAPXp aje-skeleton-loader sc-bbQqnZ cJelqt"
+                class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
                 role="img"
               >
                 <rect
@@ -1435,15 +1654,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                     id=":rp:-animated-diff"
                   >
                     <stop
-                      class="sc-eOzmre dXgdxb"
+                      class="sc-eUlrpB dwUQHx"
                       offset="0%"
                     />
                     <stop
-                      class="sc-eauhAA dBJSSE"
+                      class="sc-geXuza iflhsR"
                       offset="50%"
                     />
                     <stop
-                      class="sc-eOzmre dXgdxb"
+                      class="sc-eUlrpB dwUQHx"
                       offset="100%"
                     />
                     <animatetransform
@@ -1459,14 +1678,14 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </td>
           </tr>
           <tr
-            class="sc-gQaihK dxFeBA"
+            class="sc-fwzISk dorCxf"
           >
             <td
-              class="sc-uYFMi kNJIYQ"
+              class="sc-kEfuZE gnabOo"
             >
               <svg
                 aria-labelledby=":rq:-aria"
-                class="sc-ovuCP fPAPXp aje-skeleton-loader sc-bbQqnZ cJelqt"
+                class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
                 role="img"
               >
                 <rect
@@ -1496,15 +1715,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                     id=":rq:-animated-diff"
                   >
                     <stop
-                      class="sc-eOzmre dXgdxb"
+                      class="sc-eUlrpB dwUQHx"
                       offset="0%"
                     />
                     <stop
-                      class="sc-eauhAA dBJSSE"
+                      class="sc-geXuza iflhsR"
                       offset="50%"
                     />
                     <stop
-                      class="sc-eOzmre dXgdxb"
+                      class="sc-eUlrpB dwUQHx"
                       offset="100%"
                     />
                     <animatetransform
@@ -1519,11 +1738,11 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
               </svg>
             </td>
             <td
-              class="sc-uYFMi kNJIYQ"
+              class="sc-kEfuZE gnabOo"
             >
               <svg
                 aria-labelledby=":rr:-aria"
-                class="sc-ovuCP fPAPXp aje-skeleton-loader sc-bbQqnZ cJelqt"
+                class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
                 role="img"
               >
                 <rect
@@ -1553,15 +1772,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                     id=":rr:-animated-diff"
                   >
                     <stop
-                      class="sc-eOzmre dXgdxb"
+                      class="sc-eUlrpB dwUQHx"
                       offset="0%"
                     />
                     <stop
-                      class="sc-eauhAA dBJSSE"
+                      class="sc-geXuza iflhsR"
                       offset="50%"
                     />
                     <stop
-                      class="sc-eOzmre dXgdxb"
+                      class="sc-eUlrpB dwUQHx"
                       offset="100%"
                     />
                     <animatetransform
@@ -1577,14 +1796,14 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </td>
           </tr>
           <tr
-            class="sc-gQaihK dxFeBA"
+            class="sc-fwzISk dorCxf"
           >
             <td
-              class="sc-uYFMi kNJIYQ"
+              class="sc-kEfuZE gnabOo"
             >
               <svg
                 aria-labelledby=":rs:-aria"
-                class="sc-ovuCP fPAPXp aje-skeleton-loader sc-bbQqnZ cJelqt"
+                class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
                 role="img"
               >
                 <rect
@@ -1614,15 +1833,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                     id=":rs:-animated-diff"
                   >
                     <stop
-                      class="sc-eOzmre dXgdxb"
+                      class="sc-eUlrpB dwUQHx"
                       offset="0%"
                     />
                     <stop
-                      class="sc-eauhAA dBJSSE"
+                      class="sc-geXuza iflhsR"
                       offset="50%"
                     />
                     <stop
-                      class="sc-eOzmre dXgdxb"
+                      class="sc-eUlrpB dwUQHx"
                       offset="100%"
                     />
                     <animatetransform
@@ -1637,11 +1856,11 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
               </svg>
             </td>
             <td
-              class="sc-uYFMi kNJIYQ"
+              class="sc-kEfuZE gnabOo"
             >
               <svg
                 aria-labelledby=":rt:-aria"
-                class="sc-ovuCP fPAPXp aje-skeleton-loader sc-bbQqnZ cJelqt"
+                class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
                 role="img"
               >
                 <rect
@@ -1671,369 +1890,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                     id=":rt:-animated-diff"
                   >
                     <stop
-                      class="sc-eOzmre dXgdxb"
+                      class="sc-eUlrpB dwUQHx"
                       offset="0%"
                     />
                     <stop
-                      class="sc-eauhAA dBJSSE"
+                      class="sc-geXuza iflhsR"
                       offset="50%"
                     />
                     <stop
-                      class="sc-eOzmre dXgdxb"
-                      offset="100%"
-                    />
-                    <animatetransform
-                      attributeName="gradientTransform"
-                      dur="1.2s"
-                      repeatCount="indefinite"
-                      type="translate"
-                      values="-2 0; 0 0; 2 0"
-                    />
-                  </lineargradient>
-                </defs>
-              </svg>
-            </td>
-          </tr>
-          <tr
-            class="sc-gQaihK dxFeBA"
-          >
-            <td
-              class="sc-uYFMi kNJIYQ"
-            >
-              <svg
-                aria-labelledby=":ru:-aria"
-                class="sc-ovuCP fPAPXp aje-skeleton-loader sc-bbQqnZ cJelqt"
-                role="img"
-              >
-                <rect
-                  clip-path="url(#:ru:-diff)"
-                  height="100%"
-                  role="presentation"
-                  style="fill: url(#:ru:-animated-diff);"
-                  width="100%"
-                  x="0"
-                  y="0"
-                />
-                <defs>
-                  <clippath
-                    id=":ru:-diff"
-                  >
-                    <rect
-                      height="100%"
-                      rx="5"
-                      ry="5"
-                      width="100%"
-                      x="0"
-                      y="0"
-                    />
-                  </clippath>
-                  <lineargradient
-                    gradientTransform="translate(-2 0)"
-                    id=":ru:-animated-diff"
-                  >
-                    <stop
-                      class="sc-eOzmre dXgdxb"
-                      offset="0%"
-                    />
-                    <stop
-                      class="sc-eauhAA dBJSSE"
-                      offset="50%"
-                    />
-                    <stop
-                      class="sc-eOzmre dXgdxb"
-                      offset="100%"
-                    />
-                    <animatetransform
-                      attributeName="gradientTransform"
-                      dur="1.2s"
-                      repeatCount="indefinite"
-                      type="translate"
-                      values="-2 0; 0 0; 2 0"
-                    />
-                  </lineargradient>
-                </defs>
-              </svg>
-            </td>
-            <td
-              class="sc-uYFMi kNJIYQ"
-            >
-              <svg
-                aria-labelledby=":rv:-aria"
-                class="sc-ovuCP fPAPXp aje-skeleton-loader sc-bbQqnZ cJelqt"
-                role="img"
-              >
-                <rect
-                  clip-path="url(#:rv:-diff)"
-                  height="100%"
-                  role="presentation"
-                  style="fill: url(#:rv:-animated-diff);"
-                  width="100%"
-                  x="0"
-                  y="0"
-                />
-                <defs>
-                  <clippath
-                    id=":rv:-diff"
-                  >
-                    <rect
-                      height="100%"
-                      rx="5"
-                      ry="5"
-                      width="100%"
-                      x="0"
-                      y="0"
-                    />
-                  </clippath>
-                  <lineargradient
-                    gradientTransform="translate(-2 0)"
-                    id=":rv:-animated-diff"
-                  >
-                    <stop
-                      class="sc-eOzmre dXgdxb"
-                      offset="0%"
-                    />
-                    <stop
-                      class="sc-eauhAA dBJSSE"
-                      offset="50%"
-                    />
-                    <stop
-                      class="sc-eOzmre dXgdxb"
-                      offset="100%"
-                    />
-                    <animatetransform
-                      attributeName="gradientTransform"
-                      dur="1.2s"
-                      repeatCount="indefinite"
-                      type="translate"
-                      values="-2 0; 0 0; 2 0"
-                    />
-                  </lineargradient>
-                </defs>
-              </svg>
-            </td>
-          </tr>
-          <tr
-            class="sc-gQaihK dxFeBA"
-          >
-            <td
-              class="sc-uYFMi kNJIYQ"
-            >
-              <svg
-                aria-labelledby=":r10:-aria"
-                class="sc-ovuCP fPAPXp aje-skeleton-loader sc-bbQqnZ cJelqt"
-                role="img"
-              >
-                <rect
-                  clip-path="url(#:r10:-diff)"
-                  height="100%"
-                  role="presentation"
-                  style="fill: url(#:r10:-animated-diff);"
-                  width="100%"
-                  x="0"
-                  y="0"
-                />
-                <defs>
-                  <clippath
-                    id=":r10:-diff"
-                  >
-                    <rect
-                      height="100%"
-                      rx="5"
-                      ry="5"
-                      width="100%"
-                      x="0"
-                      y="0"
-                    />
-                  </clippath>
-                  <lineargradient
-                    gradientTransform="translate(-2 0)"
-                    id=":r10:-animated-diff"
-                  >
-                    <stop
-                      class="sc-eOzmre dXgdxb"
-                      offset="0%"
-                    />
-                    <stop
-                      class="sc-eauhAA dBJSSE"
-                      offset="50%"
-                    />
-                    <stop
-                      class="sc-eOzmre dXgdxb"
-                      offset="100%"
-                    />
-                    <animatetransform
-                      attributeName="gradientTransform"
-                      dur="1.2s"
-                      repeatCount="indefinite"
-                      type="translate"
-                      values="-2 0; 0 0; 2 0"
-                    />
-                  </lineargradient>
-                </defs>
-              </svg>
-            </td>
-            <td
-              class="sc-uYFMi kNJIYQ"
-            >
-              <svg
-                aria-labelledby=":r11:-aria"
-                class="sc-ovuCP fPAPXp aje-skeleton-loader sc-bbQqnZ cJelqt"
-                role="img"
-              >
-                <rect
-                  clip-path="url(#:r11:-diff)"
-                  height="100%"
-                  role="presentation"
-                  style="fill: url(#:r11:-animated-diff);"
-                  width="100%"
-                  x="0"
-                  y="0"
-                />
-                <defs>
-                  <clippath
-                    id=":r11:-diff"
-                  >
-                    <rect
-                      height="100%"
-                      rx="5"
-                      ry="5"
-                      width="100%"
-                      x="0"
-                      y="0"
-                    />
-                  </clippath>
-                  <lineargradient
-                    gradientTransform="translate(-2 0)"
-                    id=":r11:-animated-diff"
-                  >
-                    <stop
-                      class="sc-eOzmre dXgdxb"
-                      offset="0%"
-                    />
-                    <stop
-                      class="sc-eauhAA dBJSSE"
-                      offset="50%"
-                    />
-                    <stop
-                      class="sc-eOzmre dXgdxb"
-                      offset="100%"
-                    />
-                    <animatetransform
-                      attributeName="gradientTransform"
-                      dur="1.2s"
-                      repeatCount="indefinite"
-                      type="translate"
-                      values="-2 0; 0 0; 2 0"
-                    />
-                  </lineargradient>
-                </defs>
-              </svg>
-            </td>
-          </tr>
-          <tr
-            class="sc-gQaihK dxFeBA"
-          >
-            <td
-              class="sc-uYFMi kNJIYQ"
-            >
-              <svg
-                aria-labelledby=":r12:-aria"
-                class="sc-ovuCP fPAPXp aje-skeleton-loader sc-bbQqnZ cJelqt"
-                role="img"
-              >
-                <rect
-                  clip-path="url(#:r12:-diff)"
-                  height="100%"
-                  role="presentation"
-                  style="fill: url(#:r12:-animated-diff);"
-                  width="100%"
-                  x="0"
-                  y="0"
-                />
-                <defs>
-                  <clippath
-                    id=":r12:-diff"
-                  >
-                    <rect
-                      height="100%"
-                      rx="5"
-                      ry="5"
-                      width="100%"
-                      x="0"
-                      y="0"
-                    />
-                  </clippath>
-                  <lineargradient
-                    gradientTransform="translate(-2 0)"
-                    id=":r12:-animated-diff"
-                  >
-                    <stop
-                      class="sc-eOzmre dXgdxb"
-                      offset="0%"
-                    />
-                    <stop
-                      class="sc-eauhAA dBJSSE"
-                      offset="50%"
-                    />
-                    <stop
-                      class="sc-eOzmre dXgdxb"
-                      offset="100%"
-                    />
-                    <animatetransform
-                      attributeName="gradientTransform"
-                      dur="1.2s"
-                      repeatCount="indefinite"
-                      type="translate"
-                      values="-2 0; 0 0; 2 0"
-                    />
-                  </lineargradient>
-                </defs>
-              </svg>
-            </td>
-            <td
-              class="sc-uYFMi kNJIYQ"
-            >
-              <svg
-                aria-labelledby=":r13:-aria"
-                class="sc-ovuCP fPAPXp aje-skeleton-loader sc-bbQqnZ cJelqt"
-                role="img"
-              >
-                <rect
-                  clip-path="url(#:r13:-diff)"
-                  height="100%"
-                  role="presentation"
-                  style="fill: url(#:r13:-animated-diff);"
-                  width="100%"
-                  x="0"
-                  y="0"
-                />
-                <defs>
-                  <clippath
-                    id=":r13:-diff"
-                  >
-                    <rect
-                      height="100%"
-                      rx="5"
-                      ry="5"
-                      width="100%"
-                      x="0"
-                      y="0"
-                    />
-                  </clippath>
-                  <lineargradient
-                    gradientTransform="translate(-2 0)"
-                    id=":r13:-animated-diff"
-                  >
-                    <stop
-                      class="sc-eOzmre dXgdxb"
-                      offset="0%"
-                    />
-                    <stop
-                      class="sc-eauhAA dBJSSE"
-                      offset="50%"
-                    />
-                    <stop
-                      class="sc-eOzmre dXgdxb"
+                      class="sc-eUlrpB dwUQHx"
                       offset="100%"
                     />
                     <animatetransform
@@ -2051,24 +1916,17 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
         </tbody>
       </table>
     </div>
-    <div
-      id="react-aria-description-3"
-      style="display: none;"
-    >
-      Double tap to start dragging.
-    </div>
   </body>,
   "container": <div>
     <table
       aria-describedby=""
       aria-label="table"
-      class="sc-fFoeYl jetEzw aje-table"
-      data-loading="true"
+      class="sc-hJRrWL ftCgLi aje-table"
       role="grid"
       tabindex="0"
     >
       <thead
-        class="sc-eUlrpB bWAwNR aje-table__header"
+        class="sc-jhZTHU javOsY aje-table__header"
         role="rowgroup"
       >
         <tr
@@ -2076,47 +1934,48 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
           role="row"
         >
           <th
-            class="sc-hJRrWL fYOEcw aje-table__column"
+            class="sc-uYFMi hBWEWs aje-table__column"
             data-key="a"
             data-searchable="true"
-            id="react-aria-:re:-a"
+            id="react-aria-:r8:-a"
             role="columnheader"
             tabindex="-1"
           >
             <div
-              class="sc-geXuza hDExiT"
+              class="sc-epnzzT dFEYDI"
             >
               Column 1
               <div
                 aria-expanded="false"
-                class="sc-dntaoT hZvNeh aje-combo-input sc-hbtGpV jIiSpe"
+                class="sc-dntaoT hZvNeh aje-combo-input sc-iwXfZk cvUWSo padding-left"
               >
                 <input
                   aria-label="Search a"
-                  class="sc-fAUdSK cfCVRY sc-bMTdWJ"
+                  class="sc-fAUdSK cfCVRY"
                   disabled=""
                   role="search"
+                  slot="search"
                   value=""
                 />
                 <button
-                  class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
+                  class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
                   type="button"
                 >
                   <i
                     aria-hidden="true"
-                    class="sc-cHqXqK cswpJl aje-icon material-icons is-small"
+                    class="sc-kLhKbu gELXHy aje-icon material-icons is-small"
                   >
                     close
                   </i>
                 </button>
               </div>
               <button
-                class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
+                class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
                 type="button"
               >
                 <i
                   aria-hidden="true"
-                  class="sc-cHqXqK cswpJl aje-icon material-icons is-small"
+                  class="sc-kLhKbu gELXHy aje-icon material-icons is-small"
                 >
                   search
                 </i>
@@ -2124,14 +1983,14 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </div>
           </th>
           <th
-            class="sc-hJRrWL fYOEcw aje-table__column"
+            class="sc-uYFMi hBWEWs aje-table__column"
             data-key="b"
-            id="react-aria-:re:-b"
+            id="react-aria-:r8:-b"
             role="columnheader"
             tabindex="-1"
           >
             <div
-              class="sc-geXuza hDExiT"
+              class="sc-epnzzT dFEYDI"
             >
               Column 2
             </div>
@@ -2139,18 +1998,373 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
         </tr>
       </thead>
       <tbody
-        class="sc-jhZTHU aje-table__body"
+        class="sc-kZrBCu aje-table__body"
+        data-loading="true"
         role="rowgroup"
       >
         <tr
-          class="sc-gQaihK dxFeBA"
+          class="sc-fwzISk dorCxf"
         >
           <td
-            class="sc-uYFMi kNJIYQ"
+            class="sc-kEfuZE gnabOo"
+          >
+            <svg
+              aria-labelledby=":ra:-aria"
+              class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+              role="img"
+            >
+              <rect
+                clip-path="url(#:ra:-diff)"
+                height="100%"
+                role="presentation"
+                style="fill: url(#:ra:-animated-diff);"
+                width="100%"
+                x="0"
+                y="0"
+              />
+              <defs>
+                <clippath
+                  id=":ra:-diff"
+                >
+                  <rect
+                    height="100%"
+                    rx="5"
+                    ry="5"
+                    width="100%"
+                    x="0"
+                    y="0"
+                  />
+                </clippath>
+                <lineargradient
+                  gradientTransform="translate(-2 0)"
+                  id=":ra:-animated-diff"
+                >
+                  <stop
+                    class="sc-eUlrpB dwUQHx"
+                    offset="0%"
+                  />
+                  <stop
+                    class="sc-geXuza iflhsR"
+                    offset="50%"
+                  />
+                  <stop
+                    class="sc-eUlrpB dwUQHx"
+                    offset="100%"
+                  />
+                  <animatetransform
+                    attributeName="gradientTransform"
+                    dur="1.2s"
+                    repeatCount="indefinite"
+                    type="translate"
+                    values="-2 0; 0 0; 2 0"
+                  />
+                </lineargradient>
+              </defs>
+            </svg>
+          </td>
+          <td
+            class="sc-kEfuZE gnabOo"
+          >
+            <svg
+              aria-labelledby=":rb:-aria"
+              class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+              role="img"
+            >
+              <rect
+                clip-path="url(#:rb:-diff)"
+                height="100%"
+                role="presentation"
+                style="fill: url(#:rb:-animated-diff);"
+                width="100%"
+                x="0"
+                y="0"
+              />
+              <defs>
+                <clippath
+                  id=":rb:-diff"
+                >
+                  <rect
+                    height="100%"
+                    rx="5"
+                    ry="5"
+                    width="100%"
+                    x="0"
+                    y="0"
+                  />
+                </clippath>
+                <lineargradient
+                  gradientTransform="translate(-2 0)"
+                  id=":rb:-animated-diff"
+                >
+                  <stop
+                    class="sc-eUlrpB dwUQHx"
+                    offset="0%"
+                  />
+                  <stop
+                    class="sc-geXuza iflhsR"
+                    offset="50%"
+                  />
+                  <stop
+                    class="sc-eUlrpB dwUQHx"
+                    offset="100%"
+                  />
+                  <animatetransform
+                    attributeName="gradientTransform"
+                    dur="1.2s"
+                    repeatCount="indefinite"
+                    type="translate"
+                    values="-2 0; 0 0; 2 0"
+                  />
+                </lineargradient>
+              </defs>
+            </svg>
+          </td>
+        </tr>
+        <tr
+          class="sc-fwzISk dorCxf"
+        >
+          <td
+            class="sc-kEfuZE gnabOo"
+          >
+            <svg
+              aria-labelledby=":rc:-aria"
+              class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+              role="img"
+            >
+              <rect
+                clip-path="url(#:rc:-diff)"
+                height="100%"
+                role="presentation"
+                style="fill: url(#:rc:-animated-diff);"
+                width="100%"
+                x="0"
+                y="0"
+              />
+              <defs>
+                <clippath
+                  id=":rc:-diff"
+                >
+                  <rect
+                    height="100%"
+                    rx="5"
+                    ry="5"
+                    width="100%"
+                    x="0"
+                    y="0"
+                  />
+                </clippath>
+                <lineargradient
+                  gradientTransform="translate(-2 0)"
+                  id=":rc:-animated-diff"
+                >
+                  <stop
+                    class="sc-eUlrpB dwUQHx"
+                    offset="0%"
+                  />
+                  <stop
+                    class="sc-geXuza iflhsR"
+                    offset="50%"
+                  />
+                  <stop
+                    class="sc-eUlrpB dwUQHx"
+                    offset="100%"
+                  />
+                  <animatetransform
+                    attributeName="gradientTransform"
+                    dur="1.2s"
+                    repeatCount="indefinite"
+                    type="translate"
+                    values="-2 0; 0 0; 2 0"
+                  />
+                </lineargradient>
+              </defs>
+            </svg>
+          </td>
+          <td
+            class="sc-kEfuZE gnabOo"
+          >
+            <svg
+              aria-labelledby=":rd:-aria"
+              class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+              role="img"
+            >
+              <rect
+                clip-path="url(#:rd:-diff)"
+                height="100%"
+                role="presentation"
+                style="fill: url(#:rd:-animated-diff);"
+                width="100%"
+                x="0"
+                y="0"
+              />
+              <defs>
+                <clippath
+                  id=":rd:-diff"
+                >
+                  <rect
+                    height="100%"
+                    rx="5"
+                    ry="5"
+                    width="100%"
+                    x="0"
+                    y="0"
+                  />
+                </clippath>
+                <lineargradient
+                  gradientTransform="translate(-2 0)"
+                  id=":rd:-animated-diff"
+                >
+                  <stop
+                    class="sc-eUlrpB dwUQHx"
+                    offset="0%"
+                  />
+                  <stop
+                    class="sc-geXuza iflhsR"
+                    offset="50%"
+                  />
+                  <stop
+                    class="sc-eUlrpB dwUQHx"
+                    offset="100%"
+                  />
+                  <animatetransform
+                    attributeName="gradientTransform"
+                    dur="1.2s"
+                    repeatCount="indefinite"
+                    type="translate"
+                    values="-2 0; 0 0; 2 0"
+                  />
+                </lineargradient>
+              </defs>
+            </svg>
+          </td>
+        </tr>
+        <tr
+          class="sc-fwzISk dorCxf"
+        >
+          <td
+            class="sc-kEfuZE gnabOo"
+          >
+            <svg
+              aria-labelledby=":re:-aria"
+              class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+              role="img"
+            >
+              <rect
+                clip-path="url(#:re:-diff)"
+                height="100%"
+                role="presentation"
+                style="fill: url(#:re:-animated-diff);"
+                width="100%"
+                x="0"
+                y="0"
+              />
+              <defs>
+                <clippath
+                  id=":re:-diff"
+                >
+                  <rect
+                    height="100%"
+                    rx="5"
+                    ry="5"
+                    width="100%"
+                    x="0"
+                    y="0"
+                  />
+                </clippath>
+                <lineargradient
+                  gradientTransform="translate(-2 0)"
+                  id=":re:-animated-diff"
+                >
+                  <stop
+                    class="sc-eUlrpB dwUQHx"
+                    offset="0%"
+                  />
+                  <stop
+                    class="sc-geXuza iflhsR"
+                    offset="50%"
+                  />
+                  <stop
+                    class="sc-eUlrpB dwUQHx"
+                    offset="100%"
+                  />
+                  <animatetransform
+                    attributeName="gradientTransform"
+                    dur="1.2s"
+                    repeatCount="indefinite"
+                    type="translate"
+                    values="-2 0; 0 0; 2 0"
+                  />
+                </lineargradient>
+              </defs>
+            </svg>
+          </td>
+          <td
+            class="sc-kEfuZE gnabOo"
+          >
+            <svg
+              aria-labelledby=":rf:-aria"
+              class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+              role="img"
+            >
+              <rect
+                clip-path="url(#:rf:-diff)"
+                height="100%"
+                role="presentation"
+                style="fill: url(#:rf:-animated-diff);"
+                width="100%"
+                x="0"
+                y="0"
+              />
+              <defs>
+                <clippath
+                  id=":rf:-diff"
+                >
+                  <rect
+                    height="100%"
+                    rx="5"
+                    ry="5"
+                    width="100%"
+                    x="0"
+                    y="0"
+                  />
+                </clippath>
+                <lineargradient
+                  gradientTransform="translate(-2 0)"
+                  id=":rf:-animated-diff"
+                >
+                  <stop
+                    class="sc-eUlrpB dwUQHx"
+                    offset="0%"
+                  />
+                  <stop
+                    class="sc-geXuza iflhsR"
+                    offset="50%"
+                  />
+                  <stop
+                    class="sc-eUlrpB dwUQHx"
+                    offset="100%"
+                  />
+                  <animatetransform
+                    attributeName="gradientTransform"
+                    dur="1.2s"
+                    repeatCount="indefinite"
+                    type="translate"
+                    values="-2 0; 0 0; 2 0"
+                  />
+                </lineargradient>
+              </defs>
+            </svg>
+          </td>
+        </tr>
+        <tr
+          class="sc-fwzISk dorCxf"
+        >
+          <td
+            class="sc-kEfuZE gnabOo"
           >
             <svg
               aria-labelledby=":rg:-aria"
-              class="sc-ovuCP fPAPXp aje-skeleton-loader sc-bbQqnZ cJelqt"
+              class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
               role="img"
             >
               <rect
@@ -2180,15 +2394,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   id=":rg:-animated-diff"
                 >
                   <stop
-                    class="sc-eOzmre dXgdxb"
+                    class="sc-eUlrpB dwUQHx"
                     offset="0%"
                   />
                   <stop
-                    class="sc-eauhAA dBJSSE"
+                    class="sc-geXuza iflhsR"
                     offset="50%"
                   />
                   <stop
-                    class="sc-eOzmre dXgdxb"
+                    class="sc-eUlrpB dwUQHx"
                     offset="100%"
                   />
                   <animatetransform
@@ -2203,11 +2417,11 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </svg>
           </td>
           <td
-            class="sc-uYFMi kNJIYQ"
+            class="sc-kEfuZE gnabOo"
           >
             <svg
               aria-labelledby=":rh:-aria"
-              class="sc-ovuCP fPAPXp aje-skeleton-loader sc-bbQqnZ cJelqt"
+              class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
               role="img"
             >
               <rect
@@ -2237,15 +2451,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   id=":rh:-animated-diff"
                 >
                   <stop
-                    class="sc-eOzmre dXgdxb"
+                    class="sc-eUlrpB dwUQHx"
                     offset="0%"
                   />
                   <stop
-                    class="sc-eauhAA dBJSSE"
+                    class="sc-geXuza iflhsR"
                     offset="50%"
                   />
                   <stop
-                    class="sc-eOzmre dXgdxb"
+                    class="sc-eUlrpB dwUQHx"
                     offset="100%"
                   />
                   <animatetransform
@@ -2261,14 +2475,14 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
           </td>
         </tr>
         <tr
-          class="sc-gQaihK dxFeBA"
+          class="sc-fwzISk dorCxf"
         >
           <td
-            class="sc-uYFMi kNJIYQ"
+            class="sc-kEfuZE gnabOo"
           >
             <svg
               aria-labelledby=":ri:-aria"
-              class="sc-ovuCP fPAPXp aje-skeleton-loader sc-bbQqnZ cJelqt"
+              class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
               role="img"
             >
               <rect
@@ -2298,15 +2512,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   id=":ri:-animated-diff"
                 >
                   <stop
-                    class="sc-eOzmre dXgdxb"
+                    class="sc-eUlrpB dwUQHx"
                     offset="0%"
                   />
                   <stop
-                    class="sc-eauhAA dBJSSE"
+                    class="sc-geXuza iflhsR"
                     offset="50%"
                   />
                   <stop
-                    class="sc-eOzmre dXgdxb"
+                    class="sc-eUlrpB dwUQHx"
                     offset="100%"
                   />
                   <animatetransform
@@ -2321,11 +2535,11 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </svg>
           </td>
           <td
-            class="sc-uYFMi kNJIYQ"
+            class="sc-kEfuZE gnabOo"
           >
             <svg
               aria-labelledby=":rj:-aria"
-              class="sc-ovuCP fPAPXp aje-skeleton-loader sc-bbQqnZ cJelqt"
+              class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
               role="img"
             >
               <rect
@@ -2355,15 +2569,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   id=":rj:-animated-diff"
                 >
                   <stop
-                    class="sc-eOzmre dXgdxb"
+                    class="sc-eUlrpB dwUQHx"
                     offset="0%"
                   />
                   <stop
-                    class="sc-eauhAA dBJSSE"
+                    class="sc-geXuza iflhsR"
                     offset="50%"
                   />
                   <stop
-                    class="sc-eOzmre dXgdxb"
+                    class="sc-eUlrpB dwUQHx"
                     offset="100%"
                   />
                   <animatetransform
@@ -2379,14 +2593,14 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
           </td>
         </tr>
         <tr
-          class="sc-gQaihK dxFeBA"
+          class="sc-fwzISk dorCxf"
         >
           <td
-            class="sc-uYFMi kNJIYQ"
+            class="sc-kEfuZE gnabOo"
           >
             <svg
               aria-labelledby=":rk:-aria"
-              class="sc-ovuCP fPAPXp aje-skeleton-loader sc-bbQqnZ cJelqt"
+              class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
               role="img"
             >
               <rect
@@ -2416,15 +2630,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   id=":rk:-animated-diff"
                 >
                   <stop
-                    class="sc-eOzmre dXgdxb"
+                    class="sc-eUlrpB dwUQHx"
                     offset="0%"
                   />
                   <stop
-                    class="sc-eauhAA dBJSSE"
+                    class="sc-geXuza iflhsR"
                     offset="50%"
                   />
                   <stop
-                    class="sc-eOzmre dXgdxb"
+                    class="sc-eUlrpB dwUQHx"
                     offset="100%"
                   />
                   <animatetransform
@@ -2439,11 +2653,11 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </svg>
           </td>
           <td
-            class="sc-uYFMi kNJIYQ"
+            class="sc-kEfuZE gnabOo"
           >
             <svg
               aria-labelledby=":rl:-aria"
-              class="sc-ovuCP fPAPXp aje-skeleton-loader sc-bbQqnZ cJelqt"
+              class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
               role="img"
             >
               <rect
@@ -2473,15 +2687,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   id=":rl:-animated-diff"
                 >
                   <stop
-                    class="sc-eOzmre dXgdxb"
+                    class="sc-eUlrpB dwUQHx"
                     offset="0%"
                   />
                   <stop
-                    class="sc-eauhAA dBJSSE"
+                    class="sc-geXuza iflhsR"
                     offset="50%"
                   />
                   <stop
-                    class="sc-eOzmre dXgdxb"
+                    class="sc-eUlrpB dwUQHx"
                     offset="100%"
                   />
                   <animatetransform
@@ -2497,14 +2711,14 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
           </td>
         </tr>
         <tr
-          class="sc-gQaihK dxFeBA"
+          class="sc-fwzISk dorCxf"
         >
           <td
-            class="sc-uYFMi kNJIYQ"
+            class="sc-kEfuZE gnabOo"
           >
             <svg
               aria-labelledby=":rm:-aria"
-              class="sc-ovuCP fPAPXp aje-skeleton-loader sc-bbQqnZ cJelqt"
+              class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
               role="img"
             >
               <rect
@@ -2534,15 +2748,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   id=":rm:-animated-diff"
                 >
                   <stop
-                    class="sc-eOzmre dXgdxb"
+                    class="sc-eUlrpB dwUQHx"
                     offset="0%"
                   />
                   <stop
-                    class="sc-eauhAA dBJSSE"
+                    class="sc-geXuza iflhsR"
                     offset="50%"
                   />
                   <stop
-                    class="sc-eOzmre dXgdxb"
+                    class="sc-eUlrpB dwUQHx"
                     offset="100%"
                   />
                   <animatetransform
@@ -2557,11 +2771,11 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </svg>
           </td>
           <td
-            class="sc-uYFMi kNJIYQ"
+            class="sc-kEfuZE gnabOo"
           >
             <svg
               aria-labelledby=":rn:-aria"
-              class="sc-ovuCP fPAPXp aje-skeleton-loader sc-bbQqnZ cJelqt"
+              class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
               role="img"
             >
               <rect
@@ -2591,15 +2805,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   id=":rn:-animated-diff"
                 >
                   <stop
-                    class="sc-eOzmre dXgdxb"
+                    class="sc-eUlrpB dwUQHx"
                     offset="0%"
                   />
                   <stop
-                    class="sc-eauhAA dBJSSE"
+                    class="sc-geXuza iflhsR"
                     offset="50%"
                   />
                   <stop
-                    class="sc-eOzmre dXgdxb"
+                    class="sc-eUlrpB dwUQHx"
                     offset="100%"
                   />
                   <animatetransform
@@ -2615,14 +2829,14 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
           </td>
         </tr>
         <tr
-          class="sc-gQaihK dxFeBA"
+          class="sc-fwzISk dorCxf"
         >
           <td
-            class="sc-uYFMi kNJIYQ"
+            class="sc-kEfuZE gnabOo"
           >
             <svg
               aria-labelledby=":ro:-aria"
-              class="sc-ovuCP fPAPXp aje-skeleton-loader sc-bbQqnZ cJelqt"
+              class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
               role="img"
             >
               <rect
@@ -2652,15 +2866,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   id=":ro:-animated-diff"
                 >
                   <stop
-                    class="sc-eOzmre dXgdxb"
+                    class="sc-eUlrpB dwUQHx"
                     offset="0%"
                   />
                   <stop
-                    class="sc-eauhAA dBJSSE"
+                    class="sc-geXuza iflhsR"
                     offset="50%"
                   />
                   <stop
-                    class="sc-eOzmre dXgdxb"
+                    class="sc-eUlrpB dwUQHx"
                     offset="100%"
                   />
                   <animatetransform
@@ -2675,11 +2889,11 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </svg>
           </td>
           <td
-            class="sc-uYFMi kNJIYQ"
+            class="sc-kEfuZE gnabOo"
           >
             <svg
               aria-labelledby=":rp:-aria"
-              class="sc-ovuCP fPAPXp aje-skeleton-loader sc-bbQqnZ cJelqt"
+              class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
               role="img"
             >
               <rect
@@ -2709,15 +2923,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   id=":rp:-animated-diff"
                 >
                   <stop
-                    class="sc-eOzmre dXgdxb"
+                    class="sc-eUlrpB dwUQHx"
                     offset="0%"
                   />
                   <stop
-                    class="sc-eauhAA dBJSSE"
+                    class="sc-geXuza iflhsR"
                     offset="50%"
                   />
                   <stop
-                    class="sc-eOzmre dXgdxb"
+                    class="sc-eUlrpB dwUQHx"
                     offset="100%"
                   />
                   <animatetransform
@@ -2733,14 +2947,14 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
           </td>
         </tr>
         <tr
-          class="sc-gQaihK dxFeBA"
+          class="sc-fwzISk dorCxf"
         >
           <td
-            class="sc-uYFMi kNJIYQ"
+            class="sc-kEfuZE gnabOo"
           >
             <svg
               aria-labelledby=":rq:-aria"
-              class="sc-ovuCP fPAPXp aje-skeleton-loader sc-bbQqnZ cJelqt"
+              class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
               role="img"
             >
               <rect
@@ -2770,15 +2984,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   id=":rq:-animated-diff"
                 >
                   <stop
-                    class="sc-eOzmre dXgdxb"
+                    class="sc-eUlrpB dwUQHx"
                     offset="0%"
                   />
                   <stop
-                    class="sc-eauhAA dBJSSE"
+                    class="sc-geXuza iflhsR"
                     offset="50%"
                   />
                   <stop
-                    class="sc-eOzmre dXgdxb"
+                    class="sc-eUlrpB dwUQHx"
                     offset="100%"
                   />
                   <animatetransform
@@ -2793,11 +3007,11 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </svg>
           </td>
           <td
-            class="sc-uYFMi kNJIYQ"
+            class="sc-kEfuZE gnabOo"
           >
             <svg
               aria-labelledby=":rr:-aria"
-              class="sc-ovuCP fPAPXp aje-skeleton-loader sc-bbQqnZ cJelqt"
+              class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
               role="img"
             >
               <rect
@@ -2827,15 +3041,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   id=":rr:-animated-diff"
                 >
                   <stop
-                    class="sc-eOzmre dXgdxb"
+                    class="sc-eUlrpB dwUQHx"
                     offset="0%"
                   />
                   <stop
-                    class="sc-eauhAA dBJSSE"
+                    class="sc-geXuza iflhsR"
                     offset="50%"
                   />
                   <stop
-                    class="sc-eOzmre dXgdxb"
+                    class="sc-eUlrpB dwUQHx"
                     offset="100%"
                   />
                   <animatetransform
@@ -2851,14 +3065,14 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
           </td>
         </tr>
         <tr
-          class="sc-gQaihK dxFeBA"
+          class="sc-fwzISk dorCxf"
         >
           <td
-            class="sc-uYFMi kNJIYQ"
+            class="sc-kEfuZE gnabOo"
           >
             <svg
               aria-labelledby=":rs:-aria"
-              class="sc-ovuCP fPAPXp aje-skeleton-loader sc-bbQqnZ cJelqt"
+              class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
               role="img"
             >
               <rect
@@ -2888,15 +3102,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   id=":rs:-animated-diff"
                 >
                   <stop
-                    class="sc-eOzmre dXgdxb"
+                    class="sc-eUlrpB dwUQHx"
                     offset="0%"
                   />
                   <stop
-                    class="sc-eauhAA dBJSSE"
+                    class="sc-geXuza iflhsR"
                     offset="50%"
                   />
                   <stop
-                    class="sc-eOzmre dXgdxb"
+                    class="sc-eUlrpB dwUQHx"
                     offset="100%"
                   />
                   <animatetransform
@@ -2911,11 +3125,11 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </svg>
           </td>
           <td
-            class="sc-uYFMi kNJIYQ"
+            class="sc-kEfuZE gnabOo"
           >
             <svg
               aria-labelledby=":rt:-aria"
-              class="sc-ovuCP fPAPXp aje-skeleton-loader sc-bbQqnZ cJelqt"
+              class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
               role="img"
             >
               <rect
@@ -2945,369 +3159,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   id=":rt:-animated-diff"
                 >
                   <stop
-                    class="sc-eOzmre dXgdxb"
+                    class="sc-eUlrpB dwUQHx"
                     offset="0%"
                   />
                   <stop
-                    class="sc-eauhAA dBJSSE"
+                    class="sc-geXuza iflhsR"
                     offset="50%"
                   />
                   <stop
-                    class="sc-eOzmre dXgdxb"
-                    offset="100%"
-                  />
-                  <animatetransform
-                    attributeName="gradientTransform"
-                    dur="1.2s"
-                    repeatCount="indefinite"
-                    type="translate"
-                    values="-2 0; 0 0; 2 0"
-                  />
-                </lineargradient>
-              </defs>
-            </svg>
-          </td>
-        </tr>
-        <tr
-          class="sc-gQaihK dxFeBA"
-        >
-          <td
-            class="sc-uYFMi kNJIYQ"
-          >
-            <svg
-              aria-labelledby=":ru:-aria"
-              class="sc-ovuCP fPAPXp aje-skeleton-loader sc-bbQqnZ cJelqt"
-              role="img"
-            >
-              <rect
-                clip-path="url(#:ru:-diff)"
-                height="100%"
-                role="presentation"
-                style="fill: url(#:ru:-animated-diff);"
-                width="100%"
-                x="0"
-                y="0"
-              />
-              <defs>
-                <clippath
-                  id=":ru:-diff"
-                >
-                  <rect
-                    height="100%"
-                    rx="5"
-                    ry="5"
-                    width="100%"
-                    x="0"
-                    y="0"
-                  />
-                </clippath>
-                <lineargradient
-                  gradientTransform="translate(-2 0)"
-                  id=":ru:-animated-diff"
-                >
-                  <stop
-                    class="sc-eOzmre dXgdxb"
-                    offset="0%"
-                  />
-                  <stop
-                    class="sc-eauhAA dBJSSE"
-                    offset="50%"
-                  />
-                  <stop
-                    class="sc-eOzmre dXgdxb"
-                    offset="100%"
-                  />
-                  <animatetransform
-                    attributeName="gradientTransform"
-                    dur="1.2s"
-                    repeatCount="indefinite"
-                    type="translate"
-                    values="-2 0; 0 0; 2 0"
-                  />
-                </lineargradient>
-              </defs>
-            </svg>
-          </td>
-          <td
-            class="sc-uYFMi kNJIYQ"
-          >
-            <svg
-              aria-labelledby=":rv:-aria"
-              class="sc-ovuCP fPAPXp aje-skeleton-loader sc-bbQqnZ cJelqt"
-              role="img"
-            >
-              <rect
-                clip-path="url(#:rv:-diff)"
-                height="100%"
-                role="presentation"
-                style="fill: url(#:rv:-animated-diff);"
-                width="100%"
-                x="0"
-                y="0"
-              />
-              <defs>
-                <clippath
-                  id=":rv:-diff"
-                >
-                  <rect
-                    height="100%"
-                    rx="5"
-                    ry="5"
-                    width="100%"
-                    x="0"
-                    y="0"
-                  />
-                </clippath>
-                <lineargradient
-                  gradientTransform="translate(-2 0)"
-                  id=":rv:-animated-diff"
-                >
-                  <stop
-                    class="sc-eOzmre dXgdxb"
-                    offset="0%"
-                  />
-                  <stop
-                    class="sc-eauhAA dBJSSE"
-                    offset="50%"
-                  />
-                  <stop
-                    class="sc-eOzmre dXgdxb"
-                    offset="100%"
-                  />
-                  <animatetransform
-                    attributeName="gradientTransform"
-                    dur="1.2s"
-                    repeatCount="indefinite"
-                    type="translate"
-                    values="-2 0; 0 0; 2 0"
-                  />
-                </lineargradient>
-              </defs>
-            </svg>
-          </td>
-        </tr>
-        <tr
-          class="sc-gQaihK dxFeBA"
-        >
-          <td
-            class="sc-uYFMi kNJIYQ"
-          >
-            <svg
-              aria-labelledby=":r10:-aria"
-              class="sc-ovuCP fPAPXp aje-skeleton-loader sc-bbQqnZ cJelqt"
-              role="img"
-            >
-              <rect
-                clip-path="url(#:r10:-diff)"
-                height="100%"
-                role="presentation"
-                style="fill: url(#:r10:-animated-diff);"
-                width="100%"
-                x="0"
-                y="0"
-              />
-              <defs>
-                <clippath
-                  id=":r10:-diff"
-                >
-                  <rect
-                    height="100%"
-                    rx="5"
-                    ry="5"
-                    width="100%"
-                    x="0"
-                    y="0"
-                  />
-                </clippath>
-                <lineargradient
-                  gradientTransform="translate(-2 0)"
-                  id=":r10:-animated-diff"
-                >
-                  <stop
-                    class="sc-eOzmre dXgdxb"
-                    offset="0%"
-                  />
-                  <stop
-                    class="sc-eauhAA dBJSSE"
-                    offset="50%"
-                  />
-                  <stop
-                    class="sc-eOzmre dXgdxb"
-                    offset="100%"
-                  />
-                  <animatetransform
-                    attributeName="gradientTransform"
-                    dur="1.2s"
-                    repeatCount="indefinite"
-                    type="translate"
-                    values="-2 0; 0 0; 2 0"
-                  />
-                </lineargradient>
-              </defs>
-            </svg>
-          </td>
-          <td
-            class="sc-uYFMi kNJIYQ"
-          >
-            <svg
-              aria-labelledby=":r11:-aria"
-              class="sc-ovuCP fPAPXp aje-skeleton-loader sc-bbQqnZ cJelqt"
-              role="img"
-            >
-              <rect
-                clip-path="url(#:r11:-diff)"
-                height="100%"
-                role="presentation"
-                style="fill: url(#:r11:-animated-diff);"
-                width="100%"
-                x="0"
-                y="0"
-              />
-              <defs>
-                <clippath
-                  id=":r11:-diff"
-                >
-                  <rect
-                    height="100%"
-                    rx="5"
-                    ry="5"
-                    width="100%"
-                    x="0"
-                    y="0"
-                  />
-                </clippath>
-                <lineargradient
-                  gradientTransform="translate(-2 0)"
-                  id=":r11:-animated-diff"
-                >
-                  <stop
-                    class="sc-eOzmre dXgdxb"
-                    offset="0%"
-                  />
-                  <stop
-                    class="sc-eauhAA dBJSSE"
-                    offset="50%"
-                  />
-                  <stop
-                    class="sc-eOzmre dXgdxb"
-                    offset="100%"
-                  />
-                  <animatetransform
-                    attributeName="gradientTransform"
-                    dur="1.2s"
-                    repeatCount="indefinite"
-                    type="translate"
-                    values="-2 0; 0 0; 2 0"
-                  />
-                </lineargradient>
-              </defs>
-            </svg>
-          </td>
-        </tr>
-        <tr
-          class="sc-gQaihK dxFeBA"
-        >
-          <td
-            class="sc-uYFMi kNJIYQ"
-          >
-            <svg
-              aria-labelledby=":r12:-aria"
-              class="sc-ovuCP fPAPXp aje-skeleton-loader sc-bbQqnZ cJelqt"
-              role="img"
-            >
-              <rect
-                clip-path="url(#:r12:-diff)"
-                height="100%"
-                role="presentation"
-                style="fill: url(#:r12:-animated-diff);"
-                width="100%"
-                x="0"
-                y="0"
-              />
-              <defs>
-                <clippath
-                  id=":r12:-diff"
-                >
-                  <rect
-                    height="100%"
-                    rx="5"
-                    ry="5"
-                    width="100%"
-                    x="0"
-                    y="0"
-                  />
-                </clippath>
-                <lineargradient
-                  gradientTransform="translate(-2 0)"
-                  id=":r12:-animated-diff"
-                >
-                  <stop
-                    class="sc-eOzmre dXgdxb"
-                    offset="0%"
-                  />
-                  <stop
-                    class="sc-eauhAA dBJSSE"
-                    offset="50%"
-                  />
-                  <stop
-                    class="sc-eOzmre dXgdxb"
-                    offset="100%"
-                  />
-                  <animatetransform
-                    attributeName="gradientTransform"
-                    dur="1.2s"
-                    repeatCount="indefinite"
-                    type="translate"
-                    values="-2 0; 0 0; 2 0"
-                  />
-                </lineargradient>
-              </defs>
-            </svg>
-          </td>
-          <td
-            class="sc-uYFMi kNJIYQ"
-          >
-            <svg
-              aria-labelledby=":r13:-aria"
-              class="sc-ovuCP fPAPXp aje-skeleton-loader sc-bbQqnZ cJelqt"
-              role="img"
-            >
-              <rect
-                clip-path="url(#:r13:-diff)"
-                height="100%"
-                role="presentation"
-                style="fill: url(#:r13:-animated-diff);"
-                width="100%"
-                x="0"
-                y="0"
-              />
-              <defs>
-                <clippath
-                  id=":r13:-diff"
-                >
-                  <rect
-                    height="100%"
-                    rx="5"
-                    ry="5"
-                    width="100%"
-                    x="0"
-                    y="0"
-                  />
-                </clippath>
-                <lineargradient
-                  gradientTransform="translate(-2 0)"
-                  id=":r13:-animated-diff"
-                >
-                  <stop
-                    class="sc-eOzmre dXgdxb"
-                    offset="0%"
-                  />
-                  <stop
-                    class="sc-eauhAA dBJSSE"
-                    offset="50%"
-                  />
-                  <stop
-                    class="sc-eOzmre dXgdxb"
+                    class="sc-eUlrpB dwUQHx"
                     offset="100%"
                   />
                   <animatetransform
@@ -3324,675 +3184,6 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
         </tr>
       </tbody>
     </table>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
-`;
-
-exports[`Table > Snapshots > should match the snapshot with pagination 1`] = `
-{
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <table
-        aria-describedby=""
-        aria-label="table"
-        class="sc-fFoeYl jetEzw aje-table"
-        data-has-bottom="true"
-        role="grid"
-        tabindex="0"
-      >
-        <thead
-          class="sc-eUlrpB bWAwNR aje-table__header"
-          role="rowgroup"
-        >
-          <tr
-            class="aje-table__header__row"
-            role="row"
-          >
-            <th
-              class="sc-hJRrWL fYOEcw aje-table__column"
-              data-key="a"
-              data-searchable="true"
-              id="react-aria-:r4:-a"
-              role="columnheader"
-              tabindex="-1"
-            >
-              <div
-                class="sc-geXuza hDExiT"
-              >
-                Column 1
-                <div
-                  aria-expanded="false"
-                  class="sc-dntaoT hZvNeh aje-combo-input sc-hbtGpV jIiSpe"
-                >
-                  <input
-                    aria-label="Search a"
-                    class="sc-fAUdSK cfCVRY sc-bMTdWJ"
-                    disabled=""
-                    role="search"
-                    value=""
-                  />
-                  <button
-                    class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
-                    type="button"
-                  >
-                    <i
-                      aria-hidden="true"
-                      class="sc-cHqXqK cswpJl aje-icon material-icons is-small"
-                    >
-                      close
-                    </i>
-                  </button>
-                </div>
-                <button
-                  class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
-                  type="button"
-                >
-                  <i
-                    aria-hidden="true"
-                    class="sc-cHqXqK cswpJl aje-icon material-icons is-small"
-                  >
-                    search
-                  </i>
-                </button>
-              </div>
-            </th>
-            <th
-              class="sc-hJRrWL fYOEcw aje-table__column"
-              data-key="b"
-              id="react-aria-:r4:-b"
-              role="columnheader"
-              tabindex="-1"
-            >
-              <div
-                class="sc-geXuza hDExiT"
-              >
-                Column 2
-              </div>
-            </th>
-          </tr>
-        </thead>
-        <tbody
-          class="sc-jhZTHU aje-table__body"
-          role="rowgroup"
-        >
-          <tr
-            aria-labelledby="react-aria-:r4:-$.2.0-a"
-            class="sc-gQaihK dxFeBA aje-table__row"
-            data-key="$.2.0"
-            role="row"
-            tabindex="-1"
-          >
-            <th
-              class="sc-epnzzT gYzcUD aje-table__cell"
-              data-key="$.2.0.0"
-              id="react-aria-:r4:-$.2.0-a"
-              role="rowheader"
-              tabindex="-1"
-            >
-              <div
-                class="sc-kLhKbu kNHYgZ aje-flex"
-              >
-                <span
-                  class="sc-iuUfFv hBsQNL aje-table__cell__content"
-                >
-                  Row 1, Cell 1
-                </span>
-              </div>
-            </th>
-            <td
-              class="sc-uYFMi kNJIYQ aje-table__cell"
-              data-key="$.2.0.1"
-              role="gridcell"
-              tabindex="-1"
-            >
-              <div
-                class="sc-kLhKbu kNHYgZ aje-flex"
-              >
-                <span
-                  class="sc-iuUfFv hBsQNL aje-table__cell__content"
-                >
-                  Row 1, Cell 2
-                </span>
-              </div>
-            </td>
-          </tr>
-          <tr
-            aria-labelledby="react-aria-:r4:-$.2.1-a"
-            class="sc-gQaihK dxFeBA aje-table__row"
-            data-key="$.2.1"
-            role="row"
-            tabindex="-1"
-          >
-            <th
-              class="sc-epnzzT gYzcUD aje-table__cell"
-              data-key="$.2.1.0"
-              id="react-aria-:r4:-$.2.1-a"
-              role="rowheader"
-              tabindex="-1"
-            >
-              <div
-                class="sc-kLhKbu kNHYgZ aje-flex"
-              >
-                <span
-                  class="sc-iuUfFv hBsQNL aje-table__cell__content"
-                >
-                  Row 2, Cell 1
-                </span>
-              </div>
-            </th>
-            <td
-              class="sc-uYFMi kNJIYQ aje-table__cell"
-              data-key="$.2.1.1"
-              role="gridcell"
-              tabindex="-1"
-            >
-              <div
-                class="sc-kLhKbu kNHYgZ aje-flex"
-              >
-                <span
-                  class="sc-iuUfFv hBsQNL aje-table__cell__content"
-                >
-                  Row 2, Cell 2
-                </span>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <div
-        class="sc-dprtRQ fpLNau aje-table__bottom"
-      >
-        <div
-          class="sc-kLhKbu gIEVSm aje-flex"
-          style="height: 100%;"
-        >
-          <div
-            class="sc-eWPXlR hdjNtL aje-select sc-eDHQDy kuHUDx aje-select aje-select--ghost aje-select--ghost is-auto"
-          >
-            <div
-              aria-hidden="true"
-              data-a11y-ignore="aria-hidden-focus"
-              data-react-aria-prevent-focus="true"
-              data-testid="hidden-select-container"
-              style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-            >
-              <input
-                style="font-size: 16px;"
-                tabindex="-1"
-                type="text"
-              />
-              <label>
-                <select
-                  tabindex="-1"
-                >
-                  <option />
-                  <option
-                    value="10"
-                  >
-                    1-10 of 100
-                  </option>
-                  <option
-                    value="25"
-                  >
-                    1-25 of 100
-                  </option>
-                  <option
-                    value="50"
-                  >
-                    1-50 of 100
-                  </option>
-                  <option
-                    value="100"
-                  >
-                    1-100 of 100
-                  </option>
-                </select>
-              </label>
-            </div>
-            <button
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-label="Select page size"
-              aria-labelledby="react-aria-:rd: react-aria-:r8: react-aria-:r9:"
-              class="sc-jtQUzJ sc-lnsxGb cipAo hegzZT aje-btn sc-jSSkKI btCqZz aje-btn--dropdown is-auto"
-              id="react-aria-:r8:"
-              type="button"
-            >
-              <span
-                class="sc-jIyAiq kXsuQw"
-                id="react-aria-:rd:"
-              >
-                Select an option
-              </span>
-              <i
-                aria-hidden="true"
-                class="sc-cHqXqK cswpJl aje-icon material-icons is-medium"
-              >
-                arrow_drop_down
-              </i>
-            </button>
-          </div>
-          <div
-            class="aje-pagination"
-          >
-            <div
-              class="sc-kLhKbu gTdSnB aje-flex"
-            >
-              <button
-                aria-label="First Page"
-                class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--ghost is-medium"
-                disabled=""
-                type="button"
-              >
-                <i
-                  aria-hidden="true"
-                  class="sc-cHqXqK cswpJl aje-icon material-icons is-medium"
-                >
-                  first_page
-                </i>
-              </button>
-              <button
-                aria-label="Previous Page"
-                class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--ghost is-medium"
-                disabled=""
-                type="button"
-              >
-                <i
-                  aria-hidden="true"
-                  class="sc-cHqXqK cswpJl aje-icon material-icons is-medium"
-                >
-                  chevron_left
-                </i>
-              </button>
-              <button
-                aria-label="Next Page"
-                class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--ghost is-medium"
-                type="button"
-              >
-                <i
-                  aria-hidden="true"
-                  class="sc-cHqXqK cswpJl aje-icon material-icons is-medium"
-                >
-                  chevron_right
-                </i>
-              </button>
-              <button
-                aria-label="Last Page"
-                class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--ghost is-medium"
-                type="button"
-              >
-                <i
-                  aria-hidden="true"
-                  class="sc-cHqXqK cswpJl aje-icon material-icons is-medium"
-                >
-                  last_page
-                </i>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      id="react-aria-description-2"
-      style="display: none;"
-    >
-      Double tap to start dragging.
-    </div>
-  </body>,
-  "container": <div>
-    <table
-      aria-describedby=""
-      aria-label="table"
-      class="sc-fFoeYl jetEzw aje-table"
-      data-has-bottom="true"
-      role="grid"
-      tabindex="0"
-    >
-      <thead
-        class="sc-eUlrpB bWAwNR aje-table__header"
-        role="rowgroup"
-      >
-        <tr
-          class="aje-table__header__row"
-          role="row"
-        >
-          <th
-            class="sc-hJRrWL fYOEcw aje-table__column"
-            data-key="a"
-            data-searchable="true"
-            id="react-aria-:r4:-a"
-            role="columnheader"
-            tabindex="-1"
-          >
-            <div
-              class="sc-geXuza hDExiT"
-            >
-              Column 1
-              <div
-                aria-expanded="false"
-                class="sc-dntaoT hZvNeh aje-combo-input sc-hbtGpV jIiSpe"
-              >
-                <input
-                  aria-label="Search a"
-                  class="sc-fAUdSK cfCVRY sc-bMTdWJ"
-                  disabled=""
-                  role="search"
-                  value=""
-                />
-                <button
-                  class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
-                  type="button"
-                >
-                  <i
-                    aria-hidden="true"
-                    class="sc-cHqXqK cswpJl aje-icon material-icons is-small"
-                  >
-                    close
-                  </i>
-                </button>
-              </div>
-              <button
-                class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--content is-small"
-                type="button"
-              >
-                <i
-                  aria-hidden="true"
-                  class="sc-cHqXqK cswpJl aje-icon material-icons is-small"
-                >
-                  search
-                </i>
-              </button>
-            </div>
-          </th>
-          <th
-            class="sc-hJRrWL fYOEcw aje-table__column"
-            data-key="b"
-            id="react-aria-:r4:-b"
-            role="columnheader"
-            tabindex="-1"
-          >
-            <div
-              class="sc-geXuza hDExiT"
-            >
-              Column 2
-            </div>
-          </th>
-        </tr>
-      </thead>
-      <tbody
-        class="sc-jhZTHU aje-table__body"
-        role="rowgroup"
-      >
-        <tr
-          aria-labelledby="react-aria-:r4:-$.2.0-a"
-          class="sc-gQaihK dxFeBA aje-table__row"
-          data-key="$.2.0"
-          role="row"
-          tabindex="-1"
-        >
-          <th
-            class="sc-epnzzT gYzcUD aje-table__cell"
-            data-key="$.2.0.0"
-            id="react-aria-:r4:-$.2.0-a"
-            role="rowheader"
-            tabindex="-1"
-          >
-            <div
-              class="sc-kLhKbu kNHYgZ aje-flex"
-            >
-              <span
-                class="sc-iuUfFv hBsQNL aje-table__cell__content"
-              >
-                Row 1, Cell 1
-              </span>
-            </div>
-          </th>
-          <td
-            class="sc-uYFMi kNJIYQ aje-table__cell"
-            data-key="$.2.0.1"
-            role="gridcell"
-            tabindex="-1"
-          >
-            <div
-              class="sc-kLhKbu kNHYgZ aje-flex"
-            >
-              <span
-                class="sc-iuUfFv hBsQNL aje-table__cell__content"
-              >
-                Row 1, Cell 2
-              </span>
-            </div>
-          </td>
-        </tr>
-        <tr
-          aria-labelledby="react-aria-:r4:-$.2.1-a"
-          class="sc-gQaihK dxFeBA aje-table__row"
-          data-key="$.2.1"
-          role="row"
-          tabindex="-1"
-        >
-          <th
-            class="sc-epnzzT gYzcUD aje-table__cell"
-            data-key="$.2.1.0"
-            id="react-aria-:r4:-$.2.1-a"
-            role="rowheader"
-            tabindex="-1"
-          >
-            <div
-              class="sc-kLhKbu kNHYgZ aje-flex"
-            >
-              <span
-                class="sc-iuUfFv hBsQNL aje-table__cell__content"
-              >
-                Row 2, Cell 1
-              </span>
-            </div>
-          </th>
-          <td
-            class="sc-uYFMi kNJIYQ aje-table__cell"
-            data-key="$.2.1.1"
-            role="gridcell"
-            tabindex="-1"
-          >
-            <div
-              class="sc-kLhKbu kNHYgZ aje-flex"
-            >
-              <span
-                class="sc-iuUfFv hBsQNL aje-table__cell__content"
-              >
-                Row 2, Cell 2
-              </span>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <div
-      class="sc-dprtRQ fpLNau aje-table__bottom"
-    >
-      <div
-        class="sc-kLhKbu gIEVSm aje-flex"
-        style="height: 100%;"
-      >
-        <div
-          class="sc-eWPXlR hdjNtL aje-select sc-eDHQDy kuHUDx aje-select aje-select--ghost aje-select--ghost is-auto"
-        >
-          <div
-            aria-hidden="true"
-            data-a11y-ignore="aria-hidden-focus"
-            data-react-aria-prevent-focus="true"
-            data-testid="hidden-select-container"
-            style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-          >
-            <input
-              style="font-size: 16px;"
-              tabindex="-1"
-              type="text"
-            />
-            <label>
-              <select
-                tabindex="-1"
-              >
-                <option />
-                <option
-                  value="10"
-                >
-                  1-10 of 100
-                </option>
-                <option
-                  value="25"
-                >
-                  1-25 of 100
-                </option>
-                <option
-                  value="50"
-                >
-                  1-50 of 100
-                </option>
-                <option
-                  value="100"
-                >
-                  1-100 of 100
-                </option>
-              </select>
-            </label>
-          </div>
-          <button
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-label="Select page size"
-            aria-labelledby="react-aria-:rd: react-aria-:r8: react-aria-:r9:"
-            class="sc-jtQUzJ sc-lnsxGb cipAo hegzZT aje-btn sc-jSSkKI btCqZz aje-btn--dropdown is-auto"
-            id="react-aria-:r8:"
-            type="button"
-          >
-            <span
-              class="sc-jIyAiq kXsuQw"
-              id="react-aria-:rd:"
-            >
-              Select an option
-            </span>
-            <i
-              aria-hidden="true"
-              class="sc-cHqXqK cswpJl aje-icon material-icons is-medium"
-            >
-              arrow_drop_down
-            </i>
-          </button>
-        </div>
-        <div
-          class="aje-pagination"
-        >
-          <div
-            class="sc-kLhKbu gTdSnB aje-flex"
-          >
-            <button
-              aria-label="First Page"
-              class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--ghost is-medium"
-              disabled=""
-              type="button"
-            >
-              <i
-                aria-hidden="true"
-                class="sc-cHqXqK cswpJl aje-icon material-icons is-medium"
-              >
-                first_page
-              </i>
-            </button>
-            <button
-              aria-label="Previous Page"
-              class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--ghost is-medium"
-              disabled=""
-              type="button"
-            >
-              <i
-                aria-hidden="true"
-                class="sc-cHqXqK cswpJl aje-icon material-icons is-medium"
-              >
-                chevron_left
-              </i>
-            </button>
-            <button
-              aria-label="Next Page"
-              class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--ghost is-medium"
-              type="button"
-            >
-              <i
-                aria-hidden="true"
-                class="sc-cHqXqK cswpJl aje-icon material-icons is-medium"
-              >
-                chevron_right
-              </i>
-            </button>
-            <button
-              aria-label="Last Page"
-              class="sc-jtQUzJ sc-cEzcPc cipAo wabHi aje-btn aje-btn--icon aje-btn--ghost is-medium"
-              type="button"
-            >
-              <i
-                aria-hidden="true"
-                class="sc-cHqXqK cswpJl aje-icon material-icons is-medium"
-              >
-                last_page
-              </i>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

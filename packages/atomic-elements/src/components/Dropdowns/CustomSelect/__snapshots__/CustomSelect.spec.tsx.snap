@@ -3,7 +3,7 @@
 exports[`matches snapshots > matches default variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-eUlrpB ecftEH aje-select sc-bMTdWJ fErLam aje-select aje-select--default"
+    class="sc-eUlrpB ecftEH aje-select sc-hbtGpV fPxRoz aje-select aje-select--default"
   >
     <div
       aria-hidden="true"
@@ -45,7 +45,7 @@ exports[`matches snapshots > matches default variant 1`] = `
       aria-expanded="false"
       aria-haspopup="listbox"
       aria-labelledby="react-aria-:r7: react-aria-:r3:"
-      class="sc-ovuCP sc-hJRrWL jDlmat ikrVwe aje-btn sc-fwzISk gsuoQe aje-btn--dropdown is-medium"
+      class="sc-ovuCP jXkAbD aje-btn sc-hJRrWL hJvkfR aje-btn--dropdown is-medium"
       id="react-aria-:r2:"
       type="button"
     >
@@ -57,7 +57,7 @@ exports[`matches snapshots > matches default variant 1`] = `
       </span>
       <i
         aria-hidden="true"
-        class="sc-cEzcPc csQlNh aje-icon material-icons is-medium"
+        class="sc-khLCKb gRpvEI aje-icon material-icons is-medium"
       >
         arrow_drop_down
       </i>
@@ -69,7 +69,7 @@ exports[`matches snapshots > matches default variant 1`] = `
 exports[`matches snapshots > matches floating variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-eUlrpB ecftEH aje-select sc-bMTdWJ fErLam aje-select aje-select--floating aje-select--floating"
+    class="sc-eUlrpB ecftEH aje-select sc-hbtGpV fPxRoz aje-select aje-select--floating aje-select--floating"
   >
     <div
       aria-hidden="true"
@@ -102,13 +102,13 @@ exports[`matches snapshots > matches floating variant 1`] = `
       </label>
     </div>
     <div
-      class="sc-hbtGpV fgifvA"
+      class="sc-fwzISk ABzRF"
     >
       <button
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-labelledby="react-aria-:rf: react-aria-:rb:"
-        class="sc-ovuCP sc-hJRrWL jDlmat ikrVwe aje-btn sc-fwzISk gsuoQe aje-btn--dropdown is-medium"
+        class="sc-ovuCP jXkAbD aje-btn sc-hJRrWL hJvkfR aje-btn--dropdown is-medium"
         id="react-aria-:ra:"
         type="button"
       >
@@ -118,7 +118,7 @@ exports[`matches snapshots > matches floating variant 1`] = `
         />
         <i
           aria-hidden="true"
-          class="sc-cEzcPc csQlNh aje-icon material-icons is-medium"
+          class="sc-khLCKb gRpvEI aje-icon material-icons is-medium"
         >
           arrow_drop_down
         </i>

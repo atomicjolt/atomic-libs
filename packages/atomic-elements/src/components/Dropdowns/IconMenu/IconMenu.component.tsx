@@ -5,8 +5,8 @@ import { BaseProps, CanHaveIcon, LoadingProps } from "../../../types";
 import { Popover } from "../../Overlays/Popover";
 import { MenuTrigger } from "../Menu/MenuTrigger";
 import { Menu, MenuSectionProps } from "../Menu";
-import { IconButton } from "../../Buttons/IconButton";
-import { ButtonVariants } from "../../Buttons/Buttons.types";
+import { IconButton } from "@components/Buttons/IconButton";
+import { ButtonVariants } from "@components/Buttons/Button";
 import { ItemProps } from "@components/Collection";
 import { CollectionChildren } from "@react-types/shared";
 

@@ -8,7 +8,7 @@ import {
 } from "../../../types";
 import { MaterialIcon } from "../../Icons/MaterialIcon";
 import { Banner, BannerVariants } from "../Banner";
-import { ButtonVariants } from "../../Buttons/Buttons.types";
+import { ButtonVariants } from "../../Buttons/Button";
 
 export interface ActionBannerProps extends HasChildren, HasClassName {
   readonly variant?: BannerVariants;

@@ -23,12 +23,12 @@ exports[`matches snapshot > displays with search button 1`] = `
         value=""
       />
       <button
-        class="sc-ixGGxD sc-khLCKb jaxoaH hXPODb aje-btn aje-btn--icon aje-btn--content is-medium"
+        class="sc-ixGGxD hnVyCZ aje-btn sc-khLCKb fwcJqo aje-btn--content is-medium"
         type="button"
       >
         <i
           aria-hidden="true"
-          class="sc-kLhKbu gELXHy aje-icon material-icons is-medium"
+          class="sc-blHHSb GNRNu aje-icon material-icons is-medium"
         >
           search
         </i>
@@ -61,12 +61,12 @@ exports[`matches snapshot > displays without button 1`] = `
         value=""
       />
       <button
-        class="sc-ixGGxD sc-khLCKb jaxoaH hXPODb aje-btn aje-btn--icon aje-btn--content is-medium"
+        class="sc-ixGGxD hnVyCZ aje-btn sc-khLCKb fwcJqo aje-btn--content is-medium"
         type="button"
       >
         <i
           aria-hidden="true"
-          class="sc-kLhKbu gELXHy aje-icon material-icons is-medium"
+          class="sc-blHHSb GNRNu aje-icon material-icons is-medium"
         >
           search
         </i>

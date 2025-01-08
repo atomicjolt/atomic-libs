@@ -2,7 +2,7 @@ import React from "react";
 import classNames from "classnames";
 import { ComboInputProps } from "./ComboInput.types";
 import { StyledComboInput } from "./ComboInput.styles";
-import { useContextPropsV2 } from "@hooks/useContextProps";
+import { useContextProps } from "@hooks/useContextProps";
 import { ComboInputContext } from "./ComboInput.context";
 
 /**
@@ -15,7 +15,7 @@ export const ComboInput = React.forwardRef(function ComboInput(
   props: ComboInputProps,
   ref: React.Ref<HTMLDivElement>
 ) {
-  [props, ref] = useContextPropsV2(ComboInputContext, props, ref);
+  [props, ref] = useContextProps(ComboInputContext, props, ref);
 
   const { className, padding = [], children, inputRef, ...rest } = props;
 

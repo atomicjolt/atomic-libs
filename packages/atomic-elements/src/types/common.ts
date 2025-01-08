@@ -46,21 +46,15 @@ export interface HasVariant<Variants> {
 
 export type CanHaveVariant<Variants> = Partial<HasVariant<Variants>>;
 
-export type LoadingProps =
-  | {
-      /** When loading is true, the content will be replaced with a spinner.
-       * When it is false, the content will be shown normally */
-      isLoading?: false;
-      /** aria accessiblity label to inform screen-readers that it is loading */
-      loadingLabel?: never;
-      /** Transitions the loading spinner to a checkmark */
-      loadingComplete?: never;
-    }
-  | {
-      isLoading: true;
-      loadingLabel?: string;
-      loadingComplete?: boolean;
-    };
+export type LoadingProps = {
+  /** When loading is true, the content will be replaced with a spinner.
+   * When it is false, the content will be shown normally */
+  isLoading?: boolean;
+  /** aria accessiblity label to inform screen-readers that it is loading */
+  loadingLabel?: string;
+  /** Transitions the loading spinner to a checkmark */
+  loadingComplete?: boolean;
+};
 
 export type SortDirection = "ascending" | "descending" | undefined;
 

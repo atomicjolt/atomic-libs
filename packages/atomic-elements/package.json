@@ -7,15 +7,22 @@
   "type": "module",
   "types": "dist/types/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
+  "exports": {
+    "import": "./dist/esm/index.js",
+    "require": "./dist/cjs/index.js",
+    "default": "./dist/esm/index.js",
+    "types": "./dist/types/index.d.ts"
+  },
   "license": "MIT",
   "dependencies": {
     "@internationalized/date": "^3.5.2",
     "@react-aria/button": "^3.9.5",
     "@react-aria/calendar": "^3.5.8",
     "@react-aria/checkbox": "^3.14.3",
-    "@react-aria/collections": "^3.0.0-alpha.5",
+    "@react-aria/collections": "^3.0.0-alpha.6",
     "@react-aria/combobox": "^3.9.1",
     "@react-aria/datepicker": "^3.10.1",
     "@react-aria/dialog": "^3.5.14",
@@ -45,7 +52,7 @@
     "@react-aria/utils": "^3.24.1",
     "@react-aria/visually-hidden": "^3.8.12",
     "@react-stately/flags": "^3.0.3",
-    "@react-stately/table": "^3.11.8",
+    "@react-stately/table": "^3.13.0",
     "@react-stately/utils": "^3.10.1",
     "classnames": "^2.3.1",
     "react-stately": "^3.34.0",

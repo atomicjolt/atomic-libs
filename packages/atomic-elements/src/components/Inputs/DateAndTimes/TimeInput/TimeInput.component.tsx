@@ -56,6 +56,7 @@ export function TimeInput<T extends TimeValue>(props: TimeInputProps<T>) {
         {...fieldProps}
         ref={ref}
         className={"aje-input__date-segments"}
+        padding={["left", "right"]}
       >
         {state.segments.map((segment, i) => (
           <DateSegment key={i} segment={segment} state={state} />

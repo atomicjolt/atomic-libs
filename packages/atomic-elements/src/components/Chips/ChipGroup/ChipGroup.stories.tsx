@@ -20,6 +20,9 @@ export default {
     },
     onRemove: {
       description: "Function to call when a chip is removed",
+      table: {
+        category: "Events",
+      },
     },
   },
 } as Meta<typeof ChipGroup>;
@@ -30,10 +33,10 @@ export const Primary: Story = {
   args: {
     label: "Chip Group",
     children: [
-      <Chip key="news">News</Chip>,
-      <Chip key="travel">Travel</Chip>,
-      <Chip key="gaming">Gaming</Chip>,
-      <Chip key="shopping">Shopping</Chip>,
+      <Chip id="news">News</Chip>,
+      <Chip id="travel">Travel</Chip>,
+      <Chip id="gaming">Gaming</Chip>,
+      <Chip id="shopping">Shopping</Chip>,
     ],
   },
 };

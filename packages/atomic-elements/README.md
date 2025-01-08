@@ -29,13 +29,11 @@ $ yarn add @atomicjolt/atomic-elements
 Include the following in your project
 
 ```js
-import { LoadFonts, CssVariables, CssGlobalDefaults } from "@atomicjolt/atomic-elements";
+import { CssVariables } from "@atomicjolt/atomic-elements";
 
 const App = () => (
   <>
-    <LoadFonts />
     <CssVariables />
-    <CssGlobalDefaults />
     <YourApp />
   </>
 );
