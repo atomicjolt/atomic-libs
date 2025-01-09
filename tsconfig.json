@@ -18,5 +18,5 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": ["packages/**/*.tsx", "packages/**/*.ts", "vite.config.ts"],
-  "exclude": ["node_modules", "dist", ".storybook"]
+  "exclude": ["node_modules", "dist", ".storybook", "templates"]
 }
