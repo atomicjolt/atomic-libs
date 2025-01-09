@@ -1,4 +1,4 @@
-export { Disclosure } from "./Disclosure.component";
+export { Disclosure, DisclosureGroup } from "./Disclosure.component";
 export type {
   DisclosureProps,
   DisclosureGroupProps,

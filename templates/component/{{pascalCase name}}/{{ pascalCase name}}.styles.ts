@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
 
-export const Styled{{ pascalCase name }} = styled.div`
+export const {{ pascalCase name }}Wrapper = styled.div`
   /* Add your styles here */
 `;
