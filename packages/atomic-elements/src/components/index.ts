@@ -65,6 +65,7 @@ export { Group } from "./Layout/Group";
 export { Flex } from "./Layout/Flex/Flex";
 export { FlexItem } from "./Layout/Flex/FlexItem";
 export { Divider } from "./Layout/Divider";
+export { Disclosure, DisclosureGroup } from "./Layout/Disclosure";
 
 export { Item, Section } from "./Collection";
 
@@ -186,6 +187,10 @@ export type { GroupProps } from "./Layout/Group";
 export type { DividerProps } from "./Layout/Divider";
 export type { FlexProps } from "./Layout/Flex/Flex";
 export type { FlexItemProps } from "./Layout/Flex/FlexItem";
+export type {
+  DisclosureProps,
+  DisclosureGroupProps,
+} from "./Layout/Disclosure";
 export type { ChipGroupProps } from "./Chips/ChipGroup";
 export type { ChipProps } from "./Chips/Chip";
 export type { FormatterProps } from "./Format/Format.types";

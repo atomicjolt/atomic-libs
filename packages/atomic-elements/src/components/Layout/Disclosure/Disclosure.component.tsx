@@ -116,9 +116,7 @@ export const Disclosure = forwardRef<HTMLDivElement, DisclosureProps>(
             ],
           ]}
         >
-          {/* <PressResponder {...buttonProps} ref={triggerRef}> */}
           {renderProps.children}
-          {/* </PressResponder> */}
         </Provider>
       </DisclosureWrapper>
     );
@@ -194,6 +192,9 @@ export interface DisclosureGroupProps
   children: React.ReactNode;
 }
 
+/** DisclosureGroup wraps several Disclosures so that their behavior can be
+ * controlled together. This is often used to create an accordion.
+ */
 export function DisclosureGroup(props: DisclosureGroupProps) {
   const state = useDisclosureGroupState(props);
 
