@@ -8,7 +8,7 @@ import {
   HelpTextProps,
   RenderBaseProps,
 } from "../../../types";
-import { HiddenInput, ChooseLabel } from "../Inputs.styles";
+import { HiddenInput } from "../Inputs.styles";
 import { CheckBoxLabel, CheckboxWrapper } from "./Checkbox.styles";
 import { ErrorMessage, Message } from "../../Fields";
 import { useContextProps } from "@hooks/useContextProps";
@@ -77,18 +77,12 @@ export const CheckBox = React.forwardRef<HTMLInputElement, CheckBoxProps>(
       ...props,
     });
 
+    const ariaChecked = isIndeterminate ? "mixed" : undefined;
+
     return (
       <CheckboxWrapper $rtl={direction === "rtl"} {...renderProps}>
-        <HiddenInput
-          {...inputProps}
-          ref={ref}
-          data-indeterminate={isIndeterminate || undefined}
-        />
-        <CheckBoxLabel
-          {...labelProps}
-          className="aje-checkbox__label"
-          $rtl={direction === "rtl"}
-        >
+        <HiddenInput {...inputProps} ref={ref} aria-checked={ariaChecked} />
+        <CheckBoxLabel {...labelProps} $rtl={direction === "rtl"}>
           {renderProps.children}
           {isRequired && <RequiredMarker />}
           {message && <Message>{message}</Message>}
