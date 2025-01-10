@@ -1,5 +1,9 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { InputControls } from "@sb/helpers";
+import {
+  FieldStateControls,
+  FocusEventsArgTypes,
+  RenderPropsArgTypes,
+} from "@sb/helpers";
 import { getCssProps } from "@sb/cssprops";
 import { CheckBox } from ".";
 
@@ -11,7 +15,21 @@ const meta: Meta<typeof CheckBox> = {
     cssprops: getCssProps("Choose"),
   },
   argTypes: {
-    ...InputControls,
+    ...FieldStateControls,
+    ...RenderPropsArgTypes,
+    ...FocusEventsArgTypes,
+    error: {
+      control: "text",
+      table: {
+        category: "Helper Text",
+      },
+    },
+    message: {
+      control: "text",
+      table: {
+        category: "Helper Text",
+      },
+    },
     isReadOnly: {
       table: {
         category: "Field State",
@@ -30,6 +48,14 @@ const meta: Meta<typeof CheckBox> = {
       type: "boolean",
       description:
         "Indeterminate state of the checkbox. When true, the checkbox will always be displayed in an indeterminate state, regardless of the selected state.",
+    },
+    onChange: {
+      action: "onChange",
+      description:
+        "Callback function that is called when the checkbox value changes.",
+      table: {
+        category: "Events",
+      },
     },
   },
 };
