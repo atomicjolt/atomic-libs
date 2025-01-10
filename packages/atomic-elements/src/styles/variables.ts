@@ -251,9 +251,8 @@ export const CssVariables = createGlobalStyle`
   --checkbox-bg-clr: none;
   --checkbox-text-clr: var(--text-clr);
   --checkbox-size: 20px;
+  --checkbox-label-spacing: 12px;
   --checkbox-label-font-size: 1.6rem;
-  --checkbox-label-padding-top: 0;
-  --checkbox-label-padding-left: 32px;
   --checkbox-label-height: 24px;
 
   /* # Radio */
