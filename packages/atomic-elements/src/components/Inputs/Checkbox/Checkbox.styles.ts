@@ -24,13 +24,12 @@ export const CheckBoxLabel = styled.span<DirectionProps>`
     content: "";
     position: absolute;
     top: 2px;
-    ${({ $rtl }) => ($rtl ? "right: 2px;" : "left: 2px;")}
     width: var(--checkbox-size);
     height: var(--checkbox-size);
     box-sizing: border-box;
     background-color: var(--checkbox-bg-clr);
-    border: 2px solid var(--checkbox-border-clr);
-    border-radius: var(--checkbox-radius);
+    ${mixins.Border("checkbox", "solid")}
+    ${({ $rtl }) => ($rtl ? "right: 2px;" : "left: 2px;")}
   }
 
   /* :after contains the checkmark in the "checkbox" */
@@ -59,22 +58,22 @@ export const CheckboxWrapper = styled.div<DirectionProps>`
   &[data-selected] ${CheckBoxLabel} {
     &:after {
       top: 5px;
-      ${({ $rtl }) => ($rtl ? "right: 9px;" : "left: 9px;")}
       width: 4px;
       height: 9px;
       border-width: 0 2px 2px 0;
       transform: rotate(45deg);
+      ${({ $rtl }) => ($rtl ? "right: 9px;" : "left: 9px;")}
     }
   }
 
   &[data-indeterminate] ${CheckBoxLabel} {
     &:after {
       top: 3px;
-      ${({ $rtl }) => ($rtl ? "right: 6px;" : "left: 6px;")}
       width: 12px;
       height: 8px;
       border-width: 0 0px 2px 0;
       transform: none;
+      ${({ $rtl }) => ($rtl ? "right: 6px;" : "left: 6px;")}
     }
   }
 

@@ -112,6 +112,12 @@ const mixins = {
       border-color: var(--error700);
     }
   `,
+  Border: (prefix: string, style: string) => css`
+    border-width: var(--${prefix}-border-width);
+    border-color: var(--${prefix}-border-clr);
+    border-style: ${style};
+    border-radius: var(--${prefix}-radius, 0);
+  `,
 };
 
 export default mixins;

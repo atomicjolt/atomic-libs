@@ -244,10 +244,9 @@ export const CssVariables = createGlobalStyle`
 
   /* # CheckBox */
   --checkbox-radius: var(--radius);
-  --checkbox-unchecked: var(--neutral600);
   --checkbox-checked: var(--accent-clr);
-  --checkbox-border-clr: var(--checkbox-unchecked);
-  --checkbox-radius: var(--radius);
+  --checkbox-border-clr: var(--neutral600);
+  --checkbox-border-width: 2px;
   --checkbox-icon-clr: var(--neutral50);
   --checkbox-bg-clr: none;
   --checkbox-text-clr: var(--text-clr);
