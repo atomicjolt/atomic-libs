@@ -242,6 +242,32 @@ export const CssVariables = createGlobalStyle`
   --choose-label-padding-left: 32px;
   --choose-label-height: 24px;
 
+  /* # CheckBox */
+  --checkbox-radius: var(--radius);
+  --checkbox-unchecked: var(--neutral600);
+  --checkbox-checked: var(--accent-clr);
+  --checkbox-border-clr: var(--checkbox-unchecked);
+  --checkbox-radius: var(--radius);
+  --checkbox-icon-clr: var(--neutral50);
+  --checkbox-bg-clr: none;
+  --checkbox-text-clr: var(--text-clr);
+  --checkbox-size: 20px;
+  --checkbox-label-font-size: 1.6rem;
+  --checkbox-label-padding-top: 0;
+  --checkbox-label-padding-left: 32px;
+  --checkbox-label-height: 24px;
+
+  /* # Radio */
+  --radio-unchecked: var(--neutral600);
+  --radio-checked: var(--accent-clr);
+  --radio-border-clr: var(--radio-unchecked);
+  --radio-bg-clr: none;
+  --radio-size: 20px;
+  --radio-label-text-size: 1.6rem;
+  --radio-label-padding-top: 0;
+  --radio-label-padding-left: 32px;
+  --radio-label-height: 24px;
+
   /* # TimePicker */
   --time-clr: var(--neutral200);
   --time-selected-back-clr: var(--primary600);

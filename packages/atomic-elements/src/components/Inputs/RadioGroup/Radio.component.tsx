@@ -4,7 +4,7 @@ import { AriaRadioProps, useRadio } from "@react-aria/radio";
 import { useLocale } from "@react-aria/i18n";
 
 import { HasClassName, HelpTextProps } from "../../../types";
-import { ChooseInput, ChooseLabel } from "../Inputs.styles";
+import { HiddenInput, ChooseLabel } from "../Inputs.styles";
 import RadioContext from "./context";
 import { RadioWrapper } from "./RadioGroup.styles";
 import { ErrorMessage, Message } from "../../Fields";
@@ -32,7 +32,7 @@ export function Radio(props: RadioProps) {
       {...labelProps}
       $rtl={direction === "rtl"}
     >
-      <ChooseInput {...inputProps} />
+      <HiddenInput {...inputProps} />
       <ChooseLabel className="aje-checkbox__label" $rtl={direction === "rtl"}>
         {children}
         {message && <Message>{message}</Message>}

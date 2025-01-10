@@ -1,51 +1,84 @@
 import styled from "styled-components";
-import { ChooseInputWrapper } from "../Inputs.styles";
 import { DirectionProps } from "../../../types";
+import mixins from "@styles/mixins";
 
-export const CheckboxWrapper = styled(ChooseInputWrapper)<DirectionProps>`
-  --check-box-radius: var(--radius);
+export const CheckBoxLabel = styled.span<DirectionProps>`
+  ${mixins.Regular}
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  line-height: 1.5;
 
-  input[type="checkbox"] + .aje-checkbox__label:before {
-    border-radius: var(--check-box-radius);
+  font-size: var(--checkbox-label-font-size);
+  color: var(--checkbox-text-clr);
+  padding-top: var(--checkbox-label-padding-top);
+  min-height: var(--checkbox-label-height);
+
+  ${({ $rtl }) =>
+    $rtl
+      ? "padding-right: var(--checkbox-label-padding-left);"
+      : "padding-left: var(--checkbox-label-padding-left);"}
+
+  /* :before contains the box in the "checkbox" */
+  &:before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    ${({ $rtl }) => ($rtl ? "right: 2px;" : "left: 2px;")}
+    width: var(--checkbox-size);
+    height: var(--checkbox-size);
+    box-sizing: border-box;
+    background-color: var(--checkbox-bg-clr);
+    border: 2px solid var(--checkbox-border-clr);
+    border-radius: var(--checkbox-radius);
   }
 
-  input[type="checkbox"]:checked ~ .aje-checkbox__label {
+  /* :after contains the checkmark in the "checkbox" */
+  &:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+`;
+
+export const CheckboxWrapper = styled.div<DirectionProps>`
+  ${mixins.ToggleInputLike}
+
+  &[data-selected] ${CheckBoxLabel}, &[data-indeterminate] ${CheckBoxLabel} {
     &:before {
-      --choose-check-bg-clr: var(--choose-checked);
-      --choose-check-border-clr: var(--choose-checked);
+      --checkbox-bg-clr: var(--checkbox-checked);
+      --checkbox-border-clr: var(--checkbox-checked);
     }
+
     &:after {
       display: block;
+      border: solid var(--checkbox-icon-clr);
+    }
+  }
+
+  &[data-selected] ${CheckBoxLabel} {
+    &:after {
       top: 5px;
       ${({ $rtl }) => ($rtl ? "right: 9px;" : "left: 9px;")}
       width: 4px;
       height: 9px;
-      border: solid var(--neutral50);
       border-width: 0 2px 2px 0;
       transform: rotate(45deg);
     }
   }
 
-  input[type="checkbox"][data-indeterminate] ~ .aje-checkbox__label {
-    &:before {
-      --choose-check-bg-clr: var(--choose-checked);
-      --choose-check-border-clr: var(--choose-checked);
-    }
+  &[data-indeterminate] ${CheckBoxLabel} {
     &:after {
-      display: block;
       top: 3px;
       ${({ $rtl }) => ($rtl ? "right: 6px;" : "left: 6px;")}
       width: 12px;
       height: 8px;
-      border: solid var(--neutral50);
       border-width: 0 0px 2px 0;
       transform: none;
     }
   }
 
-  //Disabled states
-  input[type="checkbox"]:disabled ~ .aje-checkbox__label,
-  input[type="checkbox"]:checked:disabled ~ .aje-checkbox__label:before {
+  &[data-disabled] ${CheckBoxLabel}, &[data-disabled] ${CheckBoxLabel}:before {
     cursor: auto;
     opacity: 0.5;
   }

@@ -104,7 +104,7 @@ export const ChooseInputWrapper = styled(FieldWrapper)`
   }
 `;
 
-export const ChooseInput = styled.input`
+export const HiddenInput = styled.input`
   opacity: 0;
   margin: 0;
   height: 0.01rem;

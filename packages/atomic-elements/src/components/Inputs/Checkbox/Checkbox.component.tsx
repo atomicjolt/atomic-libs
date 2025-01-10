@@ -8,8 +8,8 @@ import {
   HelpTextProps,
   RenderBaseProps,
 } from "../../../types";
-import { ChooseInput, ChooseLabel } from "../Inputs.styles";
-import { CheckboxWrapper } from "./Checkbox.styles";
+import { HiddenInput, ChooseLabel } from "../Inputs.styles";
+import { CheckBoxLabel, CheckboxWrapper } from "./Checkbox.styles";
 import { ErrorMessage, Message } from "../../Fields";
 import { useContextProps } from "@hooks/useContextProps";
 import { CheckBoxContext } from "./Checkbox.context";
@@ -19,6 +19,11 @@ import { RequiredMarker } from "@components/Internal/RequiredMarker";
 
 interface CheckBoxRenderProps {
   isSelected: boolean;
+  isIndeterminate: boolean;
+  isInvalid: boolean;
+  isDisabled: boolean;
+  isReadOnly: boolean;
+  isRequired: boolean;
 }
 
 export interface CheckBoxProps
@@ -36,11 +41,11 @@ export const CheckBox = React.forwardRef<HTMLInputElement, CheckBoxProps>(
     const {
       error = "error",
       message,
-      isRequired,
-      isInvalid,
+      isRequired = false,
+      isInvalid = false,
       isIndeterminate = false,
-      isReadOnly,
-      isDisabled,
+      isReadOnly = false,
+      isDisabled = false,
     } = props;
 
     const state = useToggleState(props);
@@ -53,7 +58,17 @@ export const CheckBox = React.forwardRef<HTMLInputElement, CheckBoxProps>(
 
     const renderProps = useRenderProps({
       componentClassName: "aje-checkbox",
+      values: {
+        isSelected: state.isSelected,
+        isIndeterminate,
+        isInvalid,
+        isDisabled,
+        isReadOnly,
+        isRequired,
+      },
       selectors: {
+        "data-selected": state.isSelected,
+        "data-indeterminate": isIndeterminate,
         "data-invalid": isInvalid,
         "data-disabled": isDisabled,
         "data-readonly": isReadOnly,
@@ -63,22 +78,22 @@ export const CheckBox = React.forwardRef<HTMLInputElement, CheckBoxProps>(
     });
 
     return (
-      <CheckboxWrapper
-        $rtl={direction === "rtl"}
-        {...renderProps}
-        {...labelProps}
-      >
-        <ChooseInput
+      <CheckboxWrapper $rtl={direction === "rtl"} {...renderProps}>
+        <HiddenInput
           {...inputProps}
           ref={ref}
           data-indeterminate={isIndeterminate || undefined}
         />
-        <ChooseLabel className="aje-checkbox__label" $rtl={direction === "rtl"}>
+        <CheckBoxLabel
+          {...labelProps}
+          className="aje-checkbox__label"
+          $rtl={direction === "rtl"}
+        >
           {renderProps.children}
           {isRequired && <RequiredMarker />}
           {message && <Message>{message}</Message>}
           {isInvalid && <ErrorMessage isInvalid>{error}</ErrorMessage>}
-        </ChooseLabel>
+        </CheckBoxLabel>
       </CheckboxWrapper>
     );
   }
