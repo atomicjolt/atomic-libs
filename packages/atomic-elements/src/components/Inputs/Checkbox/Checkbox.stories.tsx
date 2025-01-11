@@ -12,7 +12,7 @@ const meta: Meta<typeof CheckBox> = {
   component: CheckBox,
   parameters: {
     layout: "centered",
-    cssprops: getCssProps("Choose"),
+    cssprops: getCssProps("CheckBox"),
   },
   argTypes: {
     ...FieldStateControls,

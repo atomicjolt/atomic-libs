@@ -5,61 +5,63 @@ exports[`matches snapshot 1`] = `
   <fieldset
     aria-labelledby="react-aria-:r1:"
     aria-orientation="vertical"
-    class="sc-dprtRQ kWLtnY aje-radio-group"
+    class="sc-egkSDF ibvsCF aje-radio-group"
     id="react-aria-:r0:"
+    name="radiogroup"
     role="radiogroup"
   >
     <legend
-      class="sc-blHHSb hjDrEC aje-radio-group__label"
+      class="sc-fAUdSK hzoJVz"
       id="react-aria-:r1:"
     >
       Label
     </legend>
     <div
-      class="sc-eauhAA sc-iuUfFv hccysv dDaMYJ aje-radio"
+      class="sc-gtLWhw DDQWD aje-radio"
+      data-selected="true"
     >
       <input
         checked=""
-        class="sc-fFoeYl bLHCDp"
+        class="sc-dprtRQ la-dZdX"
         name="radiogroup"
         tabindex="0"
         type="radio"
         value="opt1"
       />
       <span
-        class="sc-gQaihK bBshQm aje-checkbox__label"
+        class="sc-blHHSb ikiVSw aje-checkbox__label"
       >
         Option 1
       </span>
     </div>
     <div
-      class="sc-eauhAA sc-iuUfFv hccysv dDaMYJ aje-radio"
+      class="sc-gtLWhw DDQWD aje-radio"
     >
       <input
-        class="sc-fFoeYl bLHCDp"
+        class="sc-dprtRQ la-dZdX"
         name="radiogroup"
         tabindex="-1"
         type="radio"
         value="opt2"
       />
       <span
-        class="sc-gQaihK bBshQm aje-checkbox__label"
+        class="sc-blHHSb ikiVSw aje-checkbox__label"
       >
         Option 2
       </span>
     </div>
     <div
-      class="sc-eauhAA sc-iuUfFv hccysv dDaMYJ aje-radio"
+      class="sc-gtLWhw DDQWD aje-radio"
     >
       <input
-        class="sc-fFoeYl bLHCDp"
+        class="sc-dprtRQ la-dZdX"
         name="radiogroup"
         tabindex="-1"
         type="radio"
         value="opt3"
       />
       <span
-        class="sc-gQaihK bBshQm aje-checkbox__label"
+        class="sc-blHHSb ikiVSw aje-checkbox__label"
       >
         Option 3
       </span>

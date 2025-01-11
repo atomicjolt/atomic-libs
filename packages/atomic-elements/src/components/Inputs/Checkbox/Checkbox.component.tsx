@@ -31,7 +31,9 @@ export interface CheckBoxProps
     Omit<HelpTextProps, "label">,
     FieldStatusProps,
     RenderBaseProps<CheckBoxRenderProps>,
-    SlotProps {}
+    SlotProps {
+  name?: string;
+}
 
 /** Checkbox Component. Accepts a `ref` */
 export const CheckBox = React.forwardRef<HTMLInputElement, CheckBoxProps>(
@@ -46,12 +48,13 @@ export const CheckBox = React.forwardRef<HTMLInputElement, CheckBoxProps>(
       isIndeterminate = false,
       isReadOnly = false,
       isDisabled = false,
+      name,
     } = props;
 
     const state = useToggleState(props);
     const { direction } = useLocale();
     const { inputProps, labelProps } = useCheckbox(
-      { ...props, children: undefined },
+      { ...props, children: true },
       state,
       ref
     );
@@ -81,7 +84,12 @@ export const CheckBox = React.forwardRef<HTMLInputElement, CheckBoxProps>(
 
     return (
       <CheckboxWrapper $rtl={direction === "rtl"} {...renderProps}>
-        <HiddenInput {...inputProps} ref={ref} aria-checked={ariaChecked} />
+        <HiddenInput
+          {...inputProps}
+          ref={ref}
+          aria-checked={ariaChecked}
+          name={name}
+        />
         <CheckBoxLabel {...labelProps} $rtl={direction === "rtl"}>
           {renderProps.children}
           {isRequired && <RequiredMarker />}

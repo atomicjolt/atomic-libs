@@ -1,20 +1,36 @@
-import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
-import { RadioGroup, Radio } from ".";
-import { InputControls } from "@sb/helpers";
+import { FieldStateControls, RenderPropsArgTypes } from "@sb/helpers";
 import { getCssProps } from "@sb/cssprops";
+import { Radio, RadioGroup } from ".";
 
 const meta: Meta<typeof RadioGroup> = {
   title: "Inputs/Choose State/RadioGroup",
   parameters: {
     layout: "centered",
-    cssprops: getCssProps("Choose"),
+    cssprops: getCssProps("Radio"),
   },
   component: RadioGroup,
-  //  @ts-ignore
-  subcomponents: { Radio },
   argTypes: {
-    ...InputControls,
+    ...FieldStateControls,
+    ...RenderPropsArgTypes,
+    label: {
+      control: "text",
+      table: {
+        category: "Helper Text",
+      },
+    },
+    error: {
+      control: "text",
+      table: {
+        category: "Helper Text",
+      },
+    },
+    message: {
+      control: "text",
+      table: {
+        category: "Helper Text",
+      },
+    },
     children: {
       control: false,
     },

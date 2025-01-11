@@ -231,17 +231,6 @@ export const CssVariables = createGlobalStyle`
   --popover-animation: transform 200ms ease, opacity 200ms;
   --popover-distance: 5px;
 
-  /* # Choose */
-  --choose-unchecked: var(--neutral600);
-  --choose-checked: var(--accent-clr);
-  --choose-check-border-clr: var(--choose-unchecked);
-  --choose-check-bg-clr: none;
-  --choose-check-size: 20px;
-  --choose-label-text-size: 1.6rem;
-  --choose-label-padding-top: 0;
-  --choose-label-padding-left: 32px;
-  --choose-label-height: 24px;
-
   /* # CheckBox */
   --checkbox-radius: var(--radius);
   --checkbox-checked: var(--accent-clr);
@@ -256,12 +245,14 @@ export const CssVariables = createGlobalStyle`
   --checkbox-label-height: 24px;
 
   /* # Radio */
-  --radio-unchecked: var(--neutral600);
+  --radio-radius: 50%;
   --radio-checked: var(--accent-clr);
-  --radio-border-clr: var(--radio-unchecked);
+  --radio-border-clr: var(--neutral600);
+  --radio-border-width: 2px;
   --radio-bg-clr: none;
   --radio-size: 20px;
-  --radio-label-text-size: 1.6rem;
+  --radio-label-spacing: 12px;
+  --radio-label-font-size: 1.6rem;
   --radio-label-padding-top: 0;
   --radio-label-padding-left: 32px;
   --radio-label-height: 24px;
