@@ -86,23 +86,6 @@ export const StyledNumberField = styled(NumberField)`
   ${InputVariants}
 `;
 
-export const ChooseInputWrapper = styled(FieldWrapper)`
-  display: block;
-
-  :is(input):focus-visible ~ .aje-checkbox__label:before {
-    outline: var(--outline);
-    outline-offset: 2px;
-  }
-
-  :is(input):focus:not(:focus-visible) {
-    outline: none;
-  }
-
-  &[data-invalid] span::before {
-    border-color: var(--error700);
-  }
-`;
-
 export const HiddenInput = styled.input`
   opacity: 0;
   margin: 0;
