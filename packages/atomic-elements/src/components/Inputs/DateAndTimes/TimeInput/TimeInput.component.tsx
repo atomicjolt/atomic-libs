@@ -6,29 +6,19 @@ import {
 } from "@react-aria/datepicker";
 import { useLocale } from "@react-aria/i18n";
 import { useTimeFieldState } from "react-stately";
-import classNames from "classnames";
 
 import { DateSegment } from "../DateInput";
 import { TimeInputWrapper } from "./TimeInput.styles";
 import { AriaProps, FieldInputProps } from "../../../../types";
 import { ErrorMessage, Label, Message, ComboInput } from "../../../Fields";
+import { useRenderProps, fieldStatusSelectors } from "@hooks/useRenderProps";
 
 export interface TimeInputProps<T extends TimeValue>
   extends AriaProps<AriaTimeFieldProps<T>>,
     FieldInputProps {}
 
 export function TimeInput<T extends TimeValue>(props: TimeInputProps<T>) {
-  const {
-    label,
-    error,
-    message,
-    size = "medium",
-    isDisabled,
-    isInvalid,
-    isReadOnly,
-    isRequired,
-    className,
-  } = props;
+  const { label, error, message, size = "medium", isInvalid } = props;
   const { locale } = useLocale();
   const state = useTimeFieldState({
     ...props,
@@ -40,15 +30,15 @@ export function TimeInput<T extends TimeValue>(props: TimeInputProps<T>) {
   const { labelProps, fieldProps, errorMessageProps, descriptionProps } =
     useTimeField(props, state, ref);
 
+  const renderProps = useRenderProps({
+    componentClassName: "aje-input__time",
+    ...props,
+    size,
+    selectors: fieldStatusSelectors(props),
+  });
+
   return (
-    <TimeInputWrapper
-      className={classNames("aje-input__time", className)}
-      isInvalid={isInvalid}
-      isDisabled={isDisabled}
-      isRequired={isRequired}
-      isReadOnly={isReadOnly}
-      size={size}
-    >
+    <TimeInputWrapper {...renderProps}>
       {label && <Label {...labelProps}>{label}</Label>}
       {message && <Message {...descriptionProps}>{message}</Message>}
 

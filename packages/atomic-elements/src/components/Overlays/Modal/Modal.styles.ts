@@ -1,7 +1,5 @@
 import styled from "styled-components";
 import mixins from "../../../styles/mixins";
-import { CheckboxWrapper } from "../../Inputs/Checkbox/Checkbox.styles";
-import { ChooseLabel } from "../../Inputs/Inputs.styles";
 
 export const ModalHeader = styled.div.attrs({ className: "aje-modal__top" })`
   display: flex;

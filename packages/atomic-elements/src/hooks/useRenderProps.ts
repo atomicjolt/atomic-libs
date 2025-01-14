@@ -1,6 +1,6 @@
 import classNames, { Argument } from "classnames";
 import { useMemo } from "react";
-import { ExtendedSize } from "..";
+import { ExtendedSize, FieldStatusProps } from "..";
 
 interface UseRenderPropsOptions<T extends {}> {
   readonly componentClassName: Argument;
@@ -90,4 +90,13 @@ export function useRenderProps<T extends object>(
     variant,
     selectors,
   ]);
+}
+
+export function fieldStatusSelectors(props: Partial<FieldStatusProps>) {
+  return {
+    "data-disabled": props.isDisabled,
+    "data-required": props.isRequired,
+    "data-invalid": props.isInvalid,
+    "data-readonly": props.isReadOnly,
+  };
 }
