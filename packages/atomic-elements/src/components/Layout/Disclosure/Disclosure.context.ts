@@ -1,7 +1,7 @@
 import React from "react";
 import { DisclosureGroupState, DisclosureState } from "react-stately";
 import { createComponentContext } from "@utils/index";
-import { DisclosureProps } from ".";
+import { DisclosureProps, DisclosurePanelProps } from ".";
 
 export const DisclosureContext = createComponentContext<DisclosureProps>();
 

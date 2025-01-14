@@ -88,7 +88,7 @@
     "typescript": "^5.4.5"
   },
   "scripts": {
-    "build": "rm -rf dist && rollup --config rollup.config.ts --configPlugin typescript && rm -rf dist/cjs/types && mv dist/esm/types dist/types",
+    "build": "rm -rf dist && rollup --config rollup.config.js && rm -rf dist/cjs/types && mv dist/esm/types dist/types",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:ui": "vitest --ui",
