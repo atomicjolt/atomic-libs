@@ -1,4 +1,3 @@
-import { Key } from "react";
 import {
   FocusableProps,
   HelpTextProps,
@@ -7,9 +6,8 @@ import {
   TextInputBase,
   Validation,
   CollectionStateBase,
-  MultipleSelection,
 } from "@react-types/shared";
-import { AriaProps } from "../../../types";
+import { AriaProps, Key } from "../../../types";
 import { FieldProps } from "../Field";
 
 export interface AriaMultiSelectProps<T>
@@ -19,7 +17,6 @@ export interface AriaMultiSelectProps<T>
     HelpTextProps,
     LabelableProps,
     TextInputBase,
-    Omit<MultipleSelection, "disallowEmptySelection" | "selectionMode">,
     FocusableProps {
   /** Sets the open state of the menu. */
   isOpen?: boolean;
@@ -27,10 +24,16 @@ export interface AriaMultiSelectProps<T>
   defaultOpen?: boolean;
   /** Method that is called when the open state of the menu changes. */
   onOpenChange?: (isOpen: boolean) => void;
-  /**
-   * The name of the input, used when submitting an HTML form.
-   */
+  /** The name of the input, used when submitting an HTML form. */
   name?: string;
+  /** The currently selected keys in the collection (controlled). */
+  selectedKeys?: Iterable<Key>;
+  /** The initial selected keys in the collection (uncontrolled). */
+  defaultSelectedKeys?: Iterable<Key>;
+  /** Handler that is called when the selection changes. */
+  onSelectionChange?: (keys: Set<Key>) => void;
+  /** The currently disabled keys in the collection (controlled). */
+  disabledKeys?: Iterable<Key>;
 }
 
 export interface MultiSelectFieldProps<T extends object>
