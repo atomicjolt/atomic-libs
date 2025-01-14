@@ -22,7 +22,7 @@ exports[`matches snapshot 1`] = `
     >
       <input
         checked=""
-        class="sc-dprtRQ la-dZdX"
+        class="sc-iuUfFv eKXvkB"
         name="radiogroup"
         tabindex="0"
         type="radio"
@@ -38,7 +38,7 @@ exports[`matches snapshot 1`] = `
       class="sc-gtLWhw DDQWD aje-radio"
     >
       <input
-        class="sc-dprtRQ la-dZdX"
+        class="sc-iuUfFv eKXvkB"
         name="radiogroup"
         tabindex="-1"
         type="radio"
@@ -54,7 +54,7 @@ exports[`matches snapshot 1`] = `
       class="sc-gtLWhw DDQWD aje-radio"
     >
       <input
-        class="sc-dprtRQ la-dZdX"
+        class="sc-iuUfFv eKXvkB"
         name="radiogroup"
         tabindex="-1"
         type="radio"
