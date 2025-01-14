@@ -1,5 +1,10 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import cn from "classnames";
+import {
+  DateFieldState,
+  DateSegment as ReactStatelyDateSegment,
+  useDateFieldState,
+} from "react-stately";
 import {
   AriaDateFieldProps,
   DateValue,
@@ -11,21 +16,14 @@ import { createCalendar } from "@internationalized/date";
 
 import { AriaProps, FieldInputProps } from "../../../../types";
 import { DateInputWrapper, StyledDateSegment } from "./DateInput.styles";
-import {
-  DateFieldState,
-  DateSegment as ReactStatelyDateSegment,
-  useDateFieldState,
-} from "react-stately";
 import { Label, Message, ComboInput, ErrorMessage } from "../../../Fields";
+import { useRenderProps, fieldStatusSelectors } from "@hooks/useRenderProps";
 
 export interface DateInputProps<T extends DateValue>
   extends AriaProps<AriaDateFieldProps<T>>,
-    Omit<FieldInputProps, "label"> {
-  // Optional because DatePicker renders it's own label
-  label?: React.ReactNode;
-}
+    FieldInputProps {}
 
-/** Date Input Component. Accepts a `ref` */
+/** DateInput Component */
 export function DateInput<T extends DateValue>(props: DateInputProps<T>) {
   const { locale } = useLocale();
   const state = useDateFieldState({
@@ -38,43 +36,32 @@ export function DateInput<T extends DateValue>(props: DateInputProps<T>) {
   const { labelProps, fieldProps, descriptionProps, errorMessageProps } =
     useDateField(props, state, ref);
 
-  const {
-    label,
-    size = "medium",
-    error,
-    message,
-    className,
-    isInvalid,
-    isDisabled,
-    isReadOnly,
-    isRequired,
-  } = props;
+  const { label, size = "medium", error, message, isInvalid } = props;
+
+  const renderProps = useRenderProps({
+    componentClassName: "aje-input__date",
+    ...props,
+    size,
+    selectors: fieldStatusSelectors(props),
+  });
 
   return (
-    <DateInputWrapper
-      className={cn("aje-input__date", className)}
-      size={size}
-      isDisabled={isDisabled}
-      isInvalid={isInvalid}
-      isReadOnly={isReadOnly}
-      isRequired={isRequired}
-    >
+    <DateInputWrapper {...renderProps}>
       {label && <Label {...labelProps}>{label}</Label>}
       {message && <Message {...descriptionProps}>{message}</Message>}
-
       <ComboInput
         {...fieldProps}
         ref={ref}
         className={"aje-input__date-segments"}
+        padding={["left", "right"]}
       >
         {state.segments.map((segment, i) => (
           <DateSegment key={i} segment={segment} state={state} />
         ))}
       </ComboInput>
-
-      {isInvalid && error && (
-        <ErrorMessage {...errorMessageProps}>{error}</ErrorMessage>
-      )}
+      <ErrorMessage {...errorMessageProps} isInvalid={isInvalid}>
+        {error}
+      </ErrorMessage>
     </DateInputWrapper>
   );
 }
@@ -99,6 +86,3 @@ export function DateSegment(props: DateSegmentProps) {
     </StyledDateSegment>
   );
 }
-
-DateInput.displayName = "DateInput";
-export default DateInput;
