@@ -1,6 +1,5 @@
 import styled, { keyframes } from "styled-components";
 import mixins from "../../../styles/mixins";
-import { FieldWrapper } from "../../Internal/FieldWrapper";
 
 const squishy = keyframes`
   0% {
@@ -114,7 +113,7 @@ export const ToggleSwitchLabel = styled.span`
   }
 `;
 
-export const ToggleSwitchWrapper = styled(FieldWrapper)`
+export const ToggleSwitchWrapper = styled.label`
   &[data-invalid] ${ToggleSwitchContainer} {
     background-color: var(--toggle-error);
 

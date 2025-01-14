@@ -1,9 +1,7 @@
 import styled, { css } from "styled-components";
 import mixins from "../../styles/mixins";
-import { DirectionProps } from "../../types";
 import { NumberField, TextField } from "../Fields";
 import { StyledComboInput } from "../Fields/ComboInput";
-import { FieldWrapper } from "../Internal/FieldWrapper";
 
 // TODO: consider if we want all these styled compiled together like this
 
@@ -87,61 +85,10 @@ export const StyledNumberField = styled(NumberField)`
   ${InputVariants}
 `;
 
-export const ChooseInputWrapper = styled(FieldWrapper)`
-  display: block;
-
-  :is(input):focus-visible ~ .aje-checkbox__label:before {
-    outline: var(--outline);
-    outline-offset: 2px;
-  }
-
-  :is(input):focus:not(:focus-visible) {
-    outline: none;
-  }
-
-  &[data-invalid] span::before {
-    border-color: var(--error700);
-  }
-`;
-
-export const ChooseInput = styled.input`
+export const HiddenInput = styled.input`
   opacity: 0;
   margin: 0;
   height: 0.01rem;
   width: 0.01rem;
   position: absolute;
-`;
-
-export const ChooseLabel = styled.span<DirectionProps>`
-  ${mixins.Regular}
-  display: inline-block;
-  cursor: pointer;
-  position: relative;
-  font-size: var(--choose-label-text-size);
-  line-height: 1.5;
-  color: var(--text-clr);
-  padding-top: var(--choose-label-padding-top);
-  min-height: var(--choose-label-height);
-
-  ${({ $rtl }) =>
-    $rtl
-      ? "padding-right: var(--choose-label-padding-left);"
-      : "padding-left: var(--choose-label-padding-left);"}
-
-  &:before {
-    content: "";
-    position: absolute;
-    top: 2px;
-    ${({ $rtl }) => ($rtl ? "right: 2px;" : "left: 2px;")}
-    width: var(--choose-check-size);
-    height: var(--choose-check-size);
-    box-sizing: border-box;
-    background-color: var(--choose-check-bg-clr);
-    border: 2px solid var(--choose-check-border-clr);
-  }
-  &:after {
-    content: "";
-    position: absolute;
-    display: none;
-  }
 `;

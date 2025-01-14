@@ -96,6 +96,28 @@ const mixins = {
       outline-offset: ${oultineOffset}px;
     }
   `,
+  ToggleInputLike: css`
+    display: block;
+
+    :is(input):focus-visible ~ .aje-checkbox__label:before {
+      outline: var(--outline);
+      outline-offset: 2px;
+    }
+
+    :is(input):focus:not(:focus-visible) {
+      outline: none;
+    }
+
+    &[data-invalid] span::before {
+      border-color: var(--error700);
+    }
+  `,
+  Border: (prefix: string, style: string) => css`
+    border-width: var(--${prefix}-border-width);
+    border-color: var(--${prefix}-border-clr);
+    border-style: ${style};
+    border-radius: var(--${prefix}-radius, 0);
+  `,
 };
 
 export default mixins;

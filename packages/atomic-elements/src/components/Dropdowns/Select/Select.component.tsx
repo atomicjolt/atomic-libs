@@ -1,10 +1,9 @@
 import React, { DetailedHTMLProps, SelectHTMLAttributes } from "react";
-import cn from "classnames";
 import { FieldInputProps } from "../../../types";
 import { useIds } from "../../../hooks/util";
 import { SelectWrapper, StyledSelect } from "./Select.styles";
 import { ErrorMessage, Label, Message } from "../../Fields";
-import { FieldWrapper } from "../../Internal/FieldWrapper";
+import { useRenderProps } from "@hooks/useRenderProps";
 
 type LimitedSelectProps = Omit<
   DetailedHTMLProps<SelectHTMLAttributes<HTMLSelectElement>, HTMLSelectElement>,
@@ -45,18 +44,22 @@ export const Select = React.forwardRef<
     ...selectProps
   } = props;
 
+  const renderProps = useRenderProps({
+    componentClassName: "aje-input__select",
+    ...props,
+    selectors: {
+      "data-disabled": isDisabled,
+      "data-required": isRequired,
+      "data-invalid": isInvalid,
+    },
+  });
+
   return (
-    <FieldWrapper
-      className={cn("aje-input__select", className)}
-      size={size}
-      isInvalid={isInvalid}
-      isRequired={isRequired}
-      isDisabled={isDisabled}
-    >
+    <div {...renderProps}>
       {label && <Label htmlFor={id}>{label}</Label>}
       {message && <Message id={messageId}>{message}</Message>}
 
-      <SelectWrapper className="aje-input__select">
+      <SelectWrapper>
         <StyledSelect
           id={id}
           aria-describedby={isInvalid && error ? errorId : messageId}
@@ -66,11 +69,11 @@ export const Select = React.forwardRef<
           ref={ref}
           {...selectProps}
         >
-          {children}
+          {renderProps.children}
         </StyledSelect>
       </SelectWrapper>
       {isInvalid && error && <ErrorMessage id={errorId}>{error}</ErrorMessage>}
-    </FieldWrapper>
+    </div>
   );
 });
 

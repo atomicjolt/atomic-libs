@@ -1,7 +1,5 @@
 import styled from "styled-components";
 import mixins from "../../../styles/mixins";
-import { CheckboxWrapper } from '../../Inputs/Checkbox/Checkbox.styles';
-import { ChooseLabel } from '../../Inputs/Inputs.styles';
 
 export const ModalHeader = styled.div.attrs({ className: "aje-modal__top" })`
   display: flex;
@@ -9,11 +7,13 @@ export const ModalHeader = styled.div.attrs({ className: "aje-modal__top" })`
   gap: 8px;
 `;
 
-export const ModalTitle = styled.h2.attrs({ className: "aje-modal__title" })<{fill?: boolean}>`
+export const ModalTitle = styled.h2.attrs({ className: "aje-modal__title" })<{
+  fill?: boolean;
+}>`
   ${mixins.Bold}
   margin: 0;
   font-size: 2rem;
-  ${({ fill = true })=> fill && "flex: 1;"}
+  ${({ fill = true }) => fill && "flex: 1;"}
   line-height: 1;
   color: var(--text-clr);
 `;
@@ -79,10 +79,6 @@ export const ModalWrapper = styled.div`
   &.aje-modal--developer-error {
     max-width: 1200px;
     background-color: #181818;
-
-    ${ChooseLabel} {
-      color: var(--text-clr-inverted);
-    }
 
     ${ModalHeader} {
       color: var(--error700) !important;
