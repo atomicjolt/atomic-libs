@@ -114,7 +114,7 @@ export const ToggleSwitchLabel = styled.span`
   }
 `;
 
-export const ToggleSwitchWrapper = styled(FieldWrapper)`
+export const ToggleSwitchWrapper = styled.label`
   &[data-invalid] ${ToggleSwitchContainer} {
     background-color: var(--toggle-error);
 
