@@ -2,7 +2,6 @@ import styled, { css } from "styled-components";
 import mixins from "../../styles/mixins";
 import { NumberField, TextField } from "../Fields";
 import { StyledComboInput } from "../Fields/ComboInput";
-import { FieldWrapper } from "../Internal/FieldWrapper";
 
 // TODO: consider if we want all these styled compiled together like this
 

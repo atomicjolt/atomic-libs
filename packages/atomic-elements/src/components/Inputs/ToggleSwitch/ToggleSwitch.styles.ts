@@ -1,6 +1,5 @@
 import styled, { keyframes } from "styled-components";
 import mixins from "../../../styles/mixins";
-import { FieldWrapper } from "../../Internal/FieldWrapper";
 
 const squishy = keyframes`
   0% {
