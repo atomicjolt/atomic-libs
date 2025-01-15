@@ -78,7 +78,7 @@ export default function Fields() {
       >
         <FieldLabel>Label</FieldLabel>
         <FieldMessage>Message</FieldMessage>
-        <ComboInput>
+        <ComboInput padding="both">
           <MaterialIcon icon="search" />
           <FieldInput placeholder="placeholder" />
         </ComboInput>
