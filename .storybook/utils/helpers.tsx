@@ -1,8 +1,8 @@
 import { ArgTypes } from "@storybook/react";
 import { createGlobalStyle } from "styled-components";
 import { PressEvents } from "@react-aria/interactions";
-import { Item } from "@atomicjolt/atomic-elements";
 import { OverlayTriggerProps } from "react-stately";
+import { Item } from "../../packages/atomic-elements/src/components";
 
 export const FieldStateControls: ArgTypes = {
   isDisabled: {

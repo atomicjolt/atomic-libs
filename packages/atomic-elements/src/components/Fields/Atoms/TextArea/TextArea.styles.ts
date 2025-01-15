@@ -3,10 +3,8 @@ import styled from "styled-components";
 
 export const StyledTextArea = styled.textarea`
   ${mixins.Regular}
+  ${mixins.Border("input")}
 
-  border: var(--input-border);
-  border-color: var(--input-border-clr);
-  border-radius: var(--input-border-radius);
   min-height: 80px;
   min-width: 200px;
   height: var(--textarea-height);
@@ -32,6 +30,6 @@ export const StyledTextArea = styled.textarea`
   &:focus {
     box-shadow: 0 0 0 1px var(--input-border-clr);
     outline: var(--input-outline);
-    outline-color: var(--input-border-clr);
+    --input-border-clr: var(--outline-clr-primary);
   }
 `;

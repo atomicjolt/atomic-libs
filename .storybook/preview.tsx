@@ -14,7 +14,7 @@ import {
   LoadFonts,
   CssVariables,
   CssGlobalDefaults,
-} from "@atomicjolt/atomic-elements";
+} from "../packages/atomic-elements/src/styles";
 
 const preview: Preview = {
   decorators: [
