@@ -7,10 +7,15 @@ export const CssVariables = createGlobalStyle`
   /* # General */
 
   /* ## Borders */
-  --border: 1px solid var(--border-clr-primary);
-  --outline: 2px solid var(--outline-clr-primary);
+  --border-width: 1px;
+  --border-style: solid;
   --border-clr-primary: var(--neutral300);
+  --border: var(--border-width) var(--border-style) var(--border-clr-primary);
+
+  --outline-width: 2px;
+  --oultin-style: solid;
   --outline-clr-primary: var(--neutral600);
+  --outline: var(--outline-width) var(--outline-style) var(--outline-clr-primary);
   --radius: 5px;
 
   /* ## Fonts */
@@ -100,12 +105,11 @@ export const CssVariables = createGlobalStyle`
   --size-full-y: 100%;
 
   /* # Input */
-  --input-border-clr: var(--neutral300);
-  --input-border-width: 1px;
-  --input-border-style: solid;
+  --input-border-clr: var(--border-clr-primary);
+  --input-border-width: var(--border-width);
+  --input-border-style: var(--border-style);
   --input-border-radius: var(--radius);
   --input-border: 1px solid var(--input-border-clr);
-
   --input-outline: 1px solid var(--outline-clr-primary);
   --input-height: 40px;
   --input-padding-horiz: 12px;
