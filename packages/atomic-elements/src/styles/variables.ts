@@ -7,10 +7,15 @@ export const CssVariables = createGlobalStyle`
   /* # General */
 
   /* ## Borders */
-  --border: 1px solid var(--border-clr-primary);
-  --outline: 2px solid var(--outline-clr-primary);
+  --border-width: 1px;
+  --border-style: solid;
   --border-clr-primary: var(--neutral300);
+  --border: var(--border-width) var(--border-style) var(--border-clr-primary);
+
+  --outline-width: 2px;
+  --oultin-style: solid;
   --outline-clr-primary: var(--neutral600);
+  --outline: var(--outline-width) var(--outline-style) var(--outline-clr-primary);
   --radius: 5px;
 
   /* ## Fonts */
@@ -100,7 +105,11 @@ export const CssVariables = createGlobalStyle`
   --size-full-y: 100%;
 
   /* # Input */
-  --input-border-clr: var(--neutral300);
+  --input-border-clr: var(--border-clr-primary);
+  --input-border-width: var(--border-width);
+  --input-border-style: var(--border-style);
+  --input-border-radius: var(--radius);
+  --input-border: 1px solid var(--input-border-clr);
   --input-outline: 1px solid var(--outline-clr-primary);
   --input-height: 40px;
   --input-padding-horiz: 12px;
@@ -109,8 +118,6 @@ export const CssVariables = createGlobalStyle`
   --input-icon-size: 2.4rem;
   --input-icon-clr: var(--neutral600);
   --input-text-clr: var(--text-clr);
-  --input-border: 1px solid var(--input-border-clr);
-  --input-border-radius: var(--radius);
   --input-bg-clr: none;
   --input-transition: none;
 
@@ -232,7 +239,7 @@ export const CssVariables = createGlobalStyle`
   --popover-distance: 5px;
 
   /* # CheckBox */
-  --checkbox-radius: var(--radius);
+  --checkbox-border-radius: var(--radius);
   --checkbox-checked: var(--accent-clr);
   --checkbox-border-clr: var(--neutral600);
   --checkbox-border-width: 2px;
@@ -245,7 +252,7 @@ export const CssVariables = createGlobalStyle`
   --checkbox-label-height: 24px;
 
   /* # Radio */
-  --radio-radius: 50%;
+  --radio-border-radius: 50%;
   --radio-checked: var(--accent-clr);
   --radio-border-clr: var(--neutral600);
   --radio-border-width: 2px;

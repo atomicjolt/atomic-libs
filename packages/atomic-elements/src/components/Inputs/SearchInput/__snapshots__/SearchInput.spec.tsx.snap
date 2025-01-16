@@ -13,11 +13,11 @@ exports[`matches snapshot > displays with search button 1`] = `
       search
     </label>
     <div
-      class="sc-cHqXqK bjeXUZ aje-combo-input"
+      class="sc-cHqXqK gYPaYd aje-combo-input"
     >
       <input
         aria-labelledby="react-aria-:r6:"
-        class="sc-jwIPbr lmnZFO"
+        class="sc-jwIPbr ePvIDm"
         id="react-aria-:r5:"
         type="search"
         value=""
@@ -51,11 +51,11 @@ exports[`matches snapshot > displays without button 1`] = `
       search
     </label>
     <div
-      class="sc-cHqXqK bjeXUZ aje-combo-input"
+      class="sc-cHqXqK gYPaYd aje-combo-input"
     >
       <input
         aria-labelledby="react-aria-:r1:"
-        class="sc-jwIPbr lmnZFO"
+        class="sc-jwIPbr ePvIDm"
         id="react-aria-:r0:"
         type="search"
         value=""

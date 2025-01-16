@@ -1,7 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { Menu } from ".";
 import { Item, Section } from "@components/Collection";
-import { Flex } from "@components/Layout/Flex/Flex";
 
 export default {
   title: "Dropdowns/Menu/Menu",
@@ -10,8 +9,8 @@ export default {
     (Story) => (
       <div
         style={{
-          border: "1px solid gray",
-          borderRadius: "5px",
+          border: "var(--border)",
+          borderRadius: "var(--radius)",
           padding: "1px",
         }}
       >

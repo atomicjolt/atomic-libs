@@ -1,7 +1,7 @@
 import { HTMLAttributes } from "react";
 import { BaseProps, HasChildren } from "../../../types";
 
-export type PaddingSide = "left" | "right";
+export type PaddingSide = "left" | "right" | "both";
 
 export interface ComboInputProps
   extends Omit<BaseProps, "size">,
@@ -13,5 +13,5 @@ export interface ComboInputProps
    */
   inputRef?: React.RefObject<HTMLInputElement>;
 
-  padding?: PaddingSide[] | PaddingSide;
+  padding?: PaddingSide;
 }

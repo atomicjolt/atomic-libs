@@ -29,7 +29,7 @@ exports[`matches snapshot 1`] = `
         value="opt1"
       />
       <span
-        class="sc-blHHSb ikiVSw aje-checkbox__label"
+        class="sc-blHHSb itIOEH aje-checkbox__label"
       >
         Option 1
       </span>
@@ -45,7 +45,7 @@ exports[`matches snapshot 1`] = `
         value="opt2"
       />
       <span
-        class="sc-blHHSb ikiVSw aje-checkbox__label"
+        class="sc-blHHSb itIOEH aje-checkbox__label"
       >
         Option 2
       </span>
@@ -61,7 +61,7 @@ exports[`matches snapshot 1`] = `
         value="opt3"
       />
       <span
-        class="sc-blHHSb ikiVSw aje-checkbox__label"
+        class="sc-blHHSb itIOEH aje-checkbox__label"
       >
         Option 3
       </span>

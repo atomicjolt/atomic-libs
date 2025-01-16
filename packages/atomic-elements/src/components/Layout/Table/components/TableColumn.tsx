@@ -176,7 +176,7 @@ export function TableColumnWrapper<T extends object>(
             )}
             {allowsSearching && (
               <>
-                <SearchComboInput aria-expanded={isSearching} padding={"left"}>
+                <SearchComboInput aria-expanded={isSearching} padding="left">
                   <Input slot="search" />
                   <IconButton
                     icon="close"

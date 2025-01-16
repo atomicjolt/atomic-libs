@@ -57,7 +57,8 @@ const mixins = {
     }
   `,
   InputLike: css`
-    border: var(--input-border);
+    border-style: var(--input-border-style);
+    border-width: var(--input-border-width);
     border-color: var(--input-border-clr);
     border-radius: var(--input-border-radius);
     min-height: var(--input-height);
@@ -112,11 +113,11 @@ const mixins = {
       border-color: var(--error700);
     }
   `,
-  Border: (prefix: string, style: string) => css`
+  Border: (prefix: string, style: string = "solid") => css`
     border-width: var(--${prefix}-border-width);
     border-color: var(--${prefix}-border-clr);
-    border-style: ${style};
-    border-radius: var(--${prefix}-radius, 0);
+    border-style: var(--${prefix}-border-style, ${style});
+    border-radius: var(--${prefix}-border-radius, 0);
   `,
 };
 

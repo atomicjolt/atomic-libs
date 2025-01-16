@@ -53,7 +53,7 @@ export const ComboBox = forwardRef(function ComboBox<T extends object>(
         error={error}
         floating={variant === "floating"}
       >
-        <ComboInput padding={["left", "right"]}>
+        <ComboInput padding="both">
           {prefixIcon && (
             <MaterialIcon icon={prefixIcon} variant={iconVariant} />
           )}

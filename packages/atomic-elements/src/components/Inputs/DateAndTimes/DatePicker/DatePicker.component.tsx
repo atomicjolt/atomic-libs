@@ -60,7 +60,7 @@ export function DatePicker<T extends DateValue>(props: DatePickerProps<T>) {
         {...groupProps}
         ref={ref}
         className={"aje-input__date-segments"}
-        padding={["left", "right"]}
+        padding="both"
       >
         <DateInput {...fieldProps} size="full" isRequired={isRequired} />
         <IconButton icon="today" variant="content" {...buttonProps} />

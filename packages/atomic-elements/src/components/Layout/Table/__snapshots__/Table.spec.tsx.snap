@@ -35,11 +35,11 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
                 Column 1
                 <div
                   aria-expanded="true"
-                  class="sc-dntaoT hZvNeh aje-combo-input sc-bbQqnZ jOVqkt padding-left"
+                  class="sc-dntaoT hLviyf aje-combo-input sc-bbQqnZ jOVqkt"
                 >
                   <input
                     aria-label="Search a"
-                    class="sc-fAUdSK cfCVRY"
+                    class="sc-fAUdSK iwDUbw"
                     role="search"
                     slot="search"
                     value="search"
@@ -162,11 +162,11 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
               Column 1
               <div
                 aria-expanded="true"
-                class="sc-dntaoT hZvNeh aje-combo-input sc-bbQqnZ jOVqkt padding-left"
+                class="sc-dntaoT hLviyf aje-combo-input sc-bbQqnZ jOVqkt"
               >
                 <input
                   aria-label="Search a"
-                  class="sc-fAUdSK cfCVRY"
+                  class="sc-fAUdSK iwDUbw"
                   role="search"
                   slot="search"
                   value="search"
@@ -345,11 +345,11 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
                 Column 1
                 <div
                   aria-expanded="false"
-                  class="sc-dntaoT hZvNeh aje-combo-input sc-bbQqnZ jOVqkt padding-left"
+                  class="sc-dntaoT hLviyf aje-combo-input sc-bbQqnZ jOVqkt"
                 >
                   <input
                     aria-label="Search a"
-                    class="sc-fAUdSK cfCVRY"
+                    class="sc-fAUdSK iwDUbw"
                     disabled=""
                     role="search"
                     slot="search"
@@ -483,11 +483,11 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
               Column 1
               <div
                 aria-expanded="false"
-                class="sc-dntaoT hZvNeh aje-combo-input sc-bbQqnZ jOVqkt padding-left"
+                class="sc-dntaoT hLviyf aje-combo-input sc-bbQqnZ jOVqkt"
               >
                 <input
                   aria-label="Search a"
-                  class="sc-fAUdSK cfCVRY"
+                  class="sc-fAUdSK iwDUbw"
                   disabled=""
                   role="search"
                   slot="search"
@@ -678,11 +678,11 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                 Column 1
                 <div
                   aria-expanded="false"
-                  class="sc-dntaoT hZvNeh aje-combo-input sc-bbQqnZ jOVqkt padding-left"
+                  class="sc-dntaoT hLviyf aje-combo-input sc-bbQqnZ jOVqkt"
                 >
                   <input
                     aria-label="Search a"
-                    class="sc-fAUdSK cfCVRY"
+                    class="sc-fAUdSK iwDUbw"
                     disabled=""
                     role="search"
                     slot="search"
@@ -1947,11 +1947,11 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
               Column 1
               <div
                 aria-expanded="false"
-                class="sc-dntaoT hZvNeh aje-combo-input sc-bbQqnZ jOVqkt padding-left"
+                class="sc-dntaoT hLviyf aje-combo-input sc-bbQqnZ jOVqkt"
               >
                 <input
                   aria-label="Search a"
-                  class="sc-fAUdSK cfCVRY"
+                  class="sc-fAUdSK iwDUbw"
                   disabled=""
                   role="search"
                   slot="search"

@@ -1,9 +1,9 @@
 import React from "react";
-import classNames from "classnames";
 import { ComboInputProps } from "./ComboInput.types";
 import { StyledComboInput } from "./ComboInput.styles";
 import { useContextProps } from "@hooks/useContextProps";
 import { ComboInputContext } from "./ComboInput.context";
+import { useRenderProps } from "@hooks";
 
 /**
  * ComboInput is a wrapper component that allows you present a input-like component
@@ -17,19 +17,22 @@ export const ComboInput = React.forwardRef(function ComboInput(
 ) {
   [props, ref] = useContextProps(ComboInputContext, props, ref);
 
-  const { className, padding = [], children, inputRef, ...rest } = props;
+  const { className, padding, children, inputRef, ...rest } = props;
+
+  const renderProps = useRenderProps({
+    componentClassName: "aje-combo-input",
+    ...props,
+  });
 
   return (
     <StyledComboInput
-      className={classNames("aje-combo-input", className, {
-        "padding-left": padding.includes("left"),
-        "padding-right": padding.includes("right"),
-      })}
       ref={ref}
       onClick={() => inputRef?.current?.focus()}
+      $paddingSide={padding}
       {...rest}
+      {...renderProps}
     >
-      {children}
+      {renderProps.children}
     </StyledComboInput>
   );
 });

@@ -52,8 +52,8 @@ export function DateInput<T extends DateValue>(props: DateInputProps<T>) {
       <ComboInput
         {...fieldProps}
         ref={ref}
-        className={"aje-input__date-segments"}
-        padding={["left", "right"]}
+        className="aje-input__date-segments"
+        padding="both"
       >
         {state.segments.map((segment, i) => (
           <DateSegment key={i} segment={segment} state={state} />
