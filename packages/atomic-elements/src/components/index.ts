@@ -1,4 +1,5 @@
 /* ---- Components ---- */
+export { ElementsProvider, useElementsConfig } from "./ElementsProvider";
 export { Banner } from "./Banners/Banner";
 export { ActionBanner } from "./Banners/ActionBanner";
 export {
@@ -123,7 +124,7 @@ export {
 export { LiveMessage } from "./Accessibility/LiveMessage";
 
 /* ---- Types ---- */
-
+export type { ElementsProviderProps, ElementsConfig } from "./ElementsProvider";
 export type { BannerProps, BannerVariants } from "./Banners/Banner";
 export type { ButtonProps } from "./Buttons/Button";
 export type { IconButtonProps } from "./Buttons/IconButton";
