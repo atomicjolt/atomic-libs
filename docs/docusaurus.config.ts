@@ -109,6 +109,22 @@ const config: Config = {
       ],
     },
   },
+  headTags: [
+    {
+      tagName: "link",
+      attributes: {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap",
+      },
+    },
+    {
+      tagName: "link",
+      attributes: {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/icon?family=Material+Icons",
+      },
+    },
+  ],
 };
 
 export default config;

@@ -57,4 +57,5 @@ def main() -> None:
         f.write(f"export const cssprops = {props}")
 
 
-main()
+# Isn't working right now
+# main()

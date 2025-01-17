@@ -8,14 +8,28 @@ By default, Atomic Elements makes use of the following Fonts
 
 ## Changing Fonts
 
-The font-family and weights are determined by a set of CSS variables. You can override these variables to change the font used by Atomic Elements.
+The font-family is configured in the theme. You can set an alternative one if need be.
 
-```css
-:root {
-  --font-family: "Lato", sans-serif;
-  --font-weight-light: 200;
-  --font-weight-regular: 400;
-  --font-weight-bold: 700;
+```tsx
+import { createTheme, defaultTheme, ElementsProvider } from '@atomicjolt/atomic-elements';
+
+const theme = createTheme({
+  variables: {
+    "font-family": "Arial, sans-serif",
+    "font-weight-light": 200,
+    "font-weight-normal": 400,
+    "font-weight-bold": 700,
+  },
+  base: defaultTheme,
+})
+
+
+function App() {
+  return (
+    <ElementsProvider theme={theme}>
+      Your app here
+    </ElementsProvider>
+  );
 }
 ```
 
