@@ -14,4 +14,10 @@ export type AriaProps<P> = Omit<
 
 export type Key = string | number;
 
-export type { SortDescriptor } from "react-stately";
+export type {
+  SortDescriptor,
+  SortDirection,
+  Selection,
+  SelectionMode,
+  SelectionBehavior,
+} from "react-stately";

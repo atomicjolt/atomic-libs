@@ -1,4 +1,3 @@
-import { StyledTarget } from "styled-components/dist/types";
 import { BaseProps } from "./common";
 
 export interface HelpMessageProps {
