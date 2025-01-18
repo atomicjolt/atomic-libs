@@ -3,6 +3,7 @@ import { filterDOMProps, mergeProps, useObjectRef } from "@react-aria/utils";
 import { GridNode } from "@react-types/grid";
 import { createLeafComponent } from "@react-aria/collections";
 import { ColumnProps } from "@react-stately/table";
+import { SortDirection } from "react-stately";
 
 import { useFocusRing } from "@hooks/useFocusRing";
 import { useRenderProps } from "@hooks/useRenderProps";
@@ -18,14 +19,13 @@ import { Provider } from "@components/Internal/Provider";
 import { DEFAULT_SLOT } from "@hooks/useSlottedContext";
 import { ButtonContext } from "@components/Buttons/Button/Button.context";
 import { IconButton } from "@components/Buttons/IconButton";
-import { TableHeaderWrapper } from "./TableHeader";
 
 interface TableColumnRenderProps {
   allowsSorting: boolean;
   isSorting: boolean;
   allowsSearching: boolean;
   isSearching: boolean;
-  sortDirection: "ascending" | "descending" | undefined;
+  sortDirection?: SortDirection;
 }
 
 export interface TableColumnProps<T>

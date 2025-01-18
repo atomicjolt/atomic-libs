@@ -16,8 +16,8 @@ export type Key = string | number;
 
 export type {
   SortDescriptor,
-  SortDirection,
   Selection,
+  SortDirection,
   SelectionMode,
   SelectionBehavior,
 } from "react-stately";
