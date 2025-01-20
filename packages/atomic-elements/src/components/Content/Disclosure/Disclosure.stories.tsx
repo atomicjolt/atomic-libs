@@ -5,7 +5,7 @@ import { Button } from "@components/Buttons/Button";
 import { Disclosure } from ".";
 
 export default {
-  title: "Layouts/Disclosure/Disclosure",
+  title: "Content/Disclosure/Disclosure",
   component: Disclosure,
   argTypes: {
     ...RenderPropsArgTypes,

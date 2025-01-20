@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import mixins from "@styles/mixins";
 import { ComboInput, Input } from "@components/Fields";
 import { SkeletonLoader } from "../../Loaders/SkeletonLoader";
-import { Flex } from "../Flex/Flex";
+import { Flex } from "../../Layout/Flex/Flex";
 
 const ShowVerticalDividerMixin = css`
   &[data-divider] {

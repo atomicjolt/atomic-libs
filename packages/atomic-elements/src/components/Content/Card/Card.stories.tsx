@@ -5,7 +5,7 @@ import { ExtendedSize } from "../../../types";
 import { getCssProps } from "@sb/cssprops";
 
 export default {
-  title: "Layouts/Card",
+  title: "Content/Card",
   component: Card,
   parameters: {
     cssprops: getCssProps("Card"),

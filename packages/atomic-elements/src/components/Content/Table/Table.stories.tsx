@@ -4,13 +4,13 @@ import { fn } from "@storybook/test";
 import { Table } from ".";
 import { SearchDescriptor } from "../../../types";
 import { getCssProps } from "@sb/cssprops";
-import { Flex } from "../Flex/Flex";
+import { Flex } from "../../Layout/Flex/Flex";
 import { Button } from "@components/Buttons/Button";
 import { MaterialIcon, Pagination } from "@components/index";
 import { RenderPropsArgTypes } from "@sb/helpers";
 
 const meta: Meta<typeof Table> = {
-  title: "Layouts/Table",
+  title: "Content/Table",
   component: Table,
   parameters: {
     cssprops: getCssProps("Table"),

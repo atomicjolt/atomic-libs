@@ -59,14 +59,15 @@ export { LoadingStatus } from "./Loaders/LoadingStatus";
 export { MaterialIcon } from "./Icons/MaterialIcon";
 export { MaterialSymbol } from "./Icons/MaterialSymbol";
 
-export { Table } from "./Layout/Table";
-export { Tabs } from "./Layout/Tabs";
-export { Card } from "./Layout/Card";
 export { Group } from "./Layout/Group";
 export { Flex } from "./Layout/Flex/Flex";
 export { FlexItem } from "./Layout/Flex/FlexItem";
-export { Divider } from "./Layout/Divider";
-export { Disclosure, DisclosureGroup } from "./Layout/Disclosure";
+
+export { Table } from "./Content/Table";
+export { Tabs } from "./Content/Tabs";
+export { Card } from "./Content/Card";
+export { Divider } from "./Content/Divider";
+export { Disclosure, DisclosureGroup } from "./Content/Disclosure";
 
 export { Item, Section } from "./Collection";
 
@@ -180,17 +181,17 @@ export type {
 export type { SelectFieldProps } from "./Fields/SelectField";
 export type { ComboBoxFieldProps } from "./Fields/ComboBoxField";
 export type { ChipGroupFieldProps } from "./Fields/ChipGroupField";
-export type { TableProps } from "./Layout/Table/Table.types";
-export type { TabsProps } from "./Layout/Tabs";
-export type { CardProps } from "./Layout/Card";
-export type { GroupProps } from "./Layout/Group";
-export type { DividerProps } from "./Layout/Divider";
 export type { FlexProps } from "./Layout/Flex/Flex";
 export type { FlexItemProps } from "./Layout/Flex/FlexItem";
+export type { GroupProps } from "./Layout/Group";
+export type { TableProps } from "./Content/Table/Table.types";
+export type { TabsProps } from "./Content/Tabs";
+export type { CardProps } from "./Content/Card";
+export type { DividerProps } from "./Content/Divider";
 export type {
   DisclosureProps,
   DisclosureGroupProps,
-} from "./Layout/Disclosure";
+} from "./Content/Disclosure";
 export type { ChipGroupProps } from "./Chips/ChipGroup";
 export type { ChipProps } from "./Chips/Chip";
 export type { FormatterProps } from "./Format/Format.types";

@@ -6,7 +6,7 @@ import {
   CardHeader,
 } from "./Card.styles";
 import { BaseProps, ExtendedSize, HasChildren } from "../../../types";
-import { Flex } from "../Flex/Flex";
+import { Flex } from "../../Layout/Flex/Flex";
 import { Divider } from "../Divider";
 
 export interface CardProps extends HasChildren, Omit<BaseProps, "size"> {}

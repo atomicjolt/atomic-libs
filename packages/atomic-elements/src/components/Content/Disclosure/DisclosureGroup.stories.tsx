@@ -1,11 +1,11 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { Disclosure, DisclosureGroup } from ".";
-import { Flex } from "../Flex/Flex";
+import { Flex } from "../../Layout/Flex/Flex";
 import { RenderPropsArgTypes } from "@sb/helpers";
 import { fn } from "@storybook/test";
 
 export default {
-  title: "Layouts/Disclosure/DisclosureGroup",
+  title: "Content/Disclosure/DisclosureGroup",
   component: DisclosureGroup,
   argTypes: {
     ...RenderPropsArgTypes,

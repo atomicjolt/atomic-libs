@@ -14,7 +14,7 @@ import { useFocusRing } from "@hooks/useFocusRing";
 import { useForwardedRef } from "@hooks/useForwardedRef";
 import { useCollectionRenderer } from "@hooks/useCollectionRenderer";
 import { Label } from "@components/Fields";
-import { Divider } from "@components/Layout/Divider";
+import { Divider } from "@components/Content/Divider";
 import { Provider } from "@components/Internal/Provider";
 import { ItemContext, ItemProps, SectionContext } from "@components/Collection";
 import { useContextProps } from "@hooks/useContextProps";

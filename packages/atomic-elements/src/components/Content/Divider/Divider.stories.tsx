@@ -3,7 +3,7 @@ import { Divider } from ".";
 import { getCssProps } from "@sb/cssprops";
 
 export default {
-  title: "Layouts/Divider",
+  title: "Content/Divider",
   component: Divider,
   parameters: {
     cssprops: getCssProps("Divider"),
