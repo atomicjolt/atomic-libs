@@ -6,7 +6,7 @@ import {
   CardHeader,
 } from "./Card.styles";
 import { BaseProps, ExtendedSize, HasChildren } from "../../../types";
-import { Flex } from "../../Layout/Flex/Flex";
+import { Flex } from "../../Layout/Flex";
 import { Divider } from "../Divider";
 
 export interface CardProps extends HasChildren, Omit<BaseProps, "size"> {}
@@ -38,7 +38,7 @@ function CardPanel(props: CardPanelProps) {
 function CardColumns(props: HasChildren) {
   const { children } = props;
 
-  return <Flex gap="var(--card-padding)">{children}</Flex>;
+  return <Flex $gap="var(--card-padding)">{children}</Flex>;
 }
 
 Card.Title = CardTitle;

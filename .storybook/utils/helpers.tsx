@@ -3,6 +3,7 @@ import { createGlobalStyle } from "styled-components";
 import { PressEvents } from "@react-aria/interactions";
 import { OverlayTriggerProps } from "react-stately";
 import { Item } from "../../packages/atomic-elements/src/components";
+import { SpacingSteps } from "../../packages/atomic-elements/src/styles/spacing";
 
 export const FieldStateControls: ArgTypes = {
   isDisabled: {
@@ -333,49 +334,56 @@ export const PurpleButtonStyles = createGlobalStyle`
 
 export const PaddingArgTypes: ArgTypes = {
   $p: {
-    control: "text",
+    control: "select",
+    options: SpacingSteps,
     description: "Padding",
     table: {
       category: "Padding",
     },
   },
   $pt: {
-    control: "text",
+    control: "select",
+    options: SpacingSteps,
     description: "Padding Top",
     table: {
       category: "Padding",
     },
   },
   $pr: {
-    control: "text",
+    control: "select",
+    options: SpacingSteps,
     description: "Padding Right",
     table: {
       category: "Padding",
     },
   },
   $pb: {
-    control: "text",
+    control: "select",
+    options: SpacingSteps,
     description: "Padding Bottom",
     table: {
       category: "Padding",
     },
   },
   $pl: {
-    control: "text",
+    control: "select",
+    options: SpacingSteps,
     description: "Padding Left",
     table: {
       category: "Padding",
     },
   },
   $px: {
-    control: "text",
+    control: "select",
+    options: SpacingSteps,
     description: "Padding Horizontal",
     table: {
       category: "Padding",
     },
   },
   $py: {
-    control: "text",
+    control: "select",
+    options: SpacingSteps,
     description: "Padding Vertical",
     table: {
       category: "Padding",
@@ -385,49 +393,56 @@ export const PaddingArgTypes: ArgTypes = {
 
 export const MarginArgTypes: ArgTypes = {
   $m: {
-    control: "text",
+    control: "select",
+    options: SpacingSteps,
     description: "Margin",
     table: {
       category: "Margin",
     },
   },
   $mt: {
-    control: "text",
+    control: "select",
+    options: SpacingSteps,
     description: "Margin Top",
     table: {
       category: "Margin",
     },
   },
   $mr: {
-    control: "text",
+    control: "select",
+    options: SpacingSteps,
     description: "Margin Right",
     table: {
       category: "Margin",
     },
   },
   $mb: {
-    control: "text",
+    control: "select",
+    options: SpacingSteps,
     description: "Margin Bottom",
     table: {
       category: "Margin",
     },
   },
   $ml: {
-    control: "text",
+    control: "select",
+    options: SpacingSteps,
     description: "Margin Left",
     table: {
       category: "Margin",
     },
   },
   $mx: {
-    control: "text",
+    control: "select",
+    options: SpacingSteps,
     description: "Margin Horizontal",
     table: {
       category: "Margin",
     },
   },
   $my: {
-    control: "text",
+    control: "select",
+    options: SpacingSteps,
     description: "Margin Vertical",
     table: {
       category: "Margin",
@@ -452,14 +467,14 @@ export const WidthArgTypes: ArgTypes = {
     control: "text",
     description: "Minimum Width",
     table: {
-      category: "Sizing",
+      category: "Dimensions",
     },
   },
   $maxWidth: {
     control: "text",
     description: "Maximum Width",
     table: {
-      category: "Sizing",
+      category: "Dimensions",
     },
   },
 };
@@ -476,14 +491,14 @@ export const HeightArgTypes: ArgTypes = {
     control: "text",
     description: "Minimum Height",
     table: {
-      category: "Sizing",
+      category: "Dimensions",
     },
   },
   $maxHeight: {
     control: "text",
     description: "Maximum Height",
     table: {
-      category: "Sizing",
+      category: "Dimensions",
     },
   },
 };

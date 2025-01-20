@@ -1,5 +1,5 @@
 import { forwardRef } from "react";
-import { RenderBaseProps } from "../../../types";
+import { ElementWrapper, RenderBaseProps } from "../../../types";
 import { useContextProps } from "@hooks/useContextProps";
 import { useRenderProps } from "@hooks/useRenderProps";
 import { DisplayProps, LayoutProps } from "@styles/layout";
@@ -9,7 +9,8 @@ import { ViewWrapper } from "./View.styles";
 export interface ViewProps
   extends RenderBaseProps<never>,
     LayoutProps,
-    DisplayProps {
+    DisplayProps,
+    ElementWrapper<HTMLDivElement> {
   as?: "div" | "span";
   children?: React.ReactNode;
 }

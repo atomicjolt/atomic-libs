@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { Disclosure, DisclosureGroup } from ".";
-import { Flex } from "../../Layout/Flex/Flex";
+import { Flex } from "../../Layout/Flex";
 import { RenderPropsArgTypes } from "@sb/helpers";
 import { fn } from "@storybook/test";
 

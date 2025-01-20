@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import { today, getLocalTimeZone } from "@internationalized/date";
 import { Calendar } from ".";
 import { IconButton } from "@components/Buttons/IconButton";
-import { Flex } from "@components/Layout/Flex/Flex";
+import { Flex } from "@components/Layout/Flex";
 import { FieldStateControls, RenderPropsArgTypes } from "@sb/helpers";
 import { ErrorMessage } from "@components/Fields";
 

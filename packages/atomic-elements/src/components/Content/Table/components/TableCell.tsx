@@ -5,7 +5,7 @@ import { GridNode } from "@react-types/grid";
 import { useFocusRing } from "@hooks/useFocusRing";
 import { useRenderProps } from "@hooks/useRenderProps";
 import { IconButton } from "@components/Buttons/IconButton";
-import { Flex } from "@components/Layout/Flex/Flex";
+import { Flex } from "@components/Layout/Flex";
 import { CellContent, RowHeader, StyledCell } from "../Table.styles";
 import { TreeGridState } from "../Table.types";
 import { createLeafComponent } from "@react-aria/collections";

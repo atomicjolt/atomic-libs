@@ -1,6 +1,23 @@
 import { Spacing, getSpacing } from "@styles/spacing";
 import { SuggestStrings } from "../types/common";
 
+export interface FlexStyleProps {
+  $display?: "flex" | "inline-flex" | "none";
+  $direction?: "row" | "row-reverse" | "column" | "column-reverse";
+  $align?: "start" | "end" | "center" | "baseline" | "stretch";
+  $justify?:
+    | "start"
+    | "end"
+    | "center"
+    | "space-between"
+    | "space-around"
+    | "space-evenly";
+  $wrap?: "nowrap" | "wrap" | "wrap-reverse";
+  $gap?: SuggestStrings<Spacing>;
+  $gapX?: SuggestStrings<Spacing>;
+  $gapY?: SuggestStrings<Spacing>;
+}
+
 export interface DisplayProps {
   $display?: "block" | "inline" | "inline-block" | "none";
 }
@@ -188,6 +205,30 @@ const flexAlignMap: Record<string, string | undefined> = {
   end: "flex-end",
   start: "flex-start",
 };
+
+export function flex(props: FlexStyleProps) {
+  const {
+    $display = "flex",
+    $direction,
+    $align,
+    $justify,
+    $wrap,
+    $gap,
+    $gapX,
+    $gapY,
+  } = props;
+
+  return {
+    display: $display,
+    flexDirection: $direction,
+    alignItems: ($align && flexAlignMap[$align]) || $align,
+    justifyContent: $justify,
+    flexWrap: $wrap,
+    gap: getSpacing($gap),
+    columnGap: getSpacing($gapX),
+    rowGap: getSpacing($gapY),
+  };
+}
 
 export function flexItem(props: FlexItemProps) {
   const { $flexAlign, $flexOrder, $flexGrow, $flexShrink, $flexBasis } = props;

@@ -4,7 +4,7 @@ import { fn } from "@storybook/test";
 import { Table } from ".";
 import { SearchDescriptor } from "../../../types";
 import { getCssProps } from "@sb/cssprops";
-import { Flex } from "../../Layout/Flex/Flex";
+import { Flex } from "../../Layout/Flex";
 import { Button } from "@components/Buttons/Button";
 import { MaterialIcon, Pagination } from "@components/index";
 import { RenderPropsArgTypes } from "@sb/helpers";
@@ -417,7 +417,7 @@ export const RenderEmptyTable: Story = {
       <Table.Body
         key="body"
         renderEmpty={
-          <Flex justifyContent="center">There are no rows available!</Flex>
+          <Flex $justify="center">There are no rows available!</Flex>
         }
       />,
     ],
@@ -430,10 +430,7 @@ export const WithTableBottom: Story = {
     <>
       <Table {...args} />
       <Table.Bottom isSticky={args.isSticky}>
-        <Flex
-          alignItems="center"
-          style={{ height: "100%", paddingLeft: "var(--table-padding-horz)" }}
-        >
+        <Flex $align="center" $height="100%" $pl="var(--table-padding-horz)">
           <Button variant="secondary">
             <MaterialIcon icon="add" />
             Add Pokemon
@@ -455,12 +452,13 @@ export const WithPagination: Story = {
       <Table {...args} />
       <Table.Bottom isSticky={args.isSticky}>
         <Flex
-          alignItems="center"
-          justifyContent="flex-end"
-          style={{ height: "100%", paddingRight: "var(--table-padding-horz)" }}
+          $align="center"
+          $justify="end"
+          $height="100%"
+          $pr="var(--table-padding-horz)"
         >
           <Pagination>
-            <Flex alignItems="center">
+            <Flex $align="center">
               <Pagination.FirstPage />
               <Pagination.PrevPage />
               <Pagination.CurrentPage />

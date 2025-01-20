@@ -61,8 +61,8 @@ export { MaterialSymbol } from "./Icons/MaterialSymbol";
 
 export { View } from "./Layout/View";
 export { Group } from "./Layout/Group";
-export { Flex } from "./Layout/Flex/Flex";
-export { FlexItem } from "./Layout/Flex/FlexItem";
+export { Flex } from "./Layout/Flex";
+export { FlexItem } from "./Layout/FlexItem";
 
 export { Table } from "./Content/Table";
 export { Tabs } from "./Content/Tabs";
@@ -182,8 +182,8 @@ export type {
 export type { SelectFieldProps } from "./Fields/SelectField";
 export type { ComboBoxFieldProps } from "./Fields/ComboBoxField";
 export type { ChipGroupFieldProps } from "./Fields/ChipGroupField";
-export type { FlexProps } from "./Layout/Flex/Flex";
-export type { FlexItemProps } from "./Layout/Flex/FlexItem";
+export type { FlexProps } from "./Layout/Flex";
+export type { FlexItemProps } from "./Layout/FlexItem";
 export type { GroupProps } from "./Layout/Group";
 export type { ViewProps } from "./Layout/View";
 export type { TableProps } from "./Content/Table/Table.types";

@@ -1,4 +1,4 @@
-import { RenderBaseProps } from "../../../../types";
+import { RenderBaseProps } from "../../../types";
 import { FlexBoxItemProperties } from "./FlexItem.types";
 import { FlexBoxItem } from "./FlexItem.styles";
 import { useRenderProps } from "@hooks";
