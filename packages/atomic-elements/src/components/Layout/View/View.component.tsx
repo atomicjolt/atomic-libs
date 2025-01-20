@@ -12,7 +12,6 @@ export interface ViewProps
     DisplayProps,
     ElementWrapper<HTMLDivElement> {
   as?: "div" | "span";
-  children?: React.ReactNode;
 }
 
 /** View is the fundemental layout building block.  */

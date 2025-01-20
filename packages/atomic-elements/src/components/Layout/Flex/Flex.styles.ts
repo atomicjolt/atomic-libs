@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { flex, FlexStyleProps, layout, LayoutProps } from "@styles/layout";
+import { layout, LayoutProps } from "@styles/layout";
+import { flex, FlexStyleProps } from "@styles/flex";
 
 export const FlexWrapper = styled.div<LayoutProps & FlexStyleProps>`
   ${flex}

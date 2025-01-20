@@ -1,7 +1,11 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { Flex } from ".";
 import { View } from "@components/Layout/View";
-import { LayoutArgTypes, RenderPropsArgTypes } from "@sb/helpers";
+import {
+  DecorativeBox,
+  LayoutArgTypes,
+  RenderPropsArgTypes,
+} from "@sb/helpers";
 import { SpacingSteps } from "@styles/spacing";
 
 export default {
@@ -53,19 +57,6 @@ export default {
 } as Meta<typeof Flex>;
 
 type Story = StoryObj<typeof Flex>;
-
-function DecorativeBox() {
-  return (
-    <View
-      style={{
-        height: "100%",
-        width: "100%",
-        backgroundColor: "rebeccapurple",
-        borderRadius: "8px",
-      }}
-    />
-  );
-}
 
 export const Primary: Story = {
   args: {

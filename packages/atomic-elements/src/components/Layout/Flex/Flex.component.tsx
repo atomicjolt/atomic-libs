@@ -1,8 +1,9 @@
 import { forwardRef } from "react";
 import { ElementWrapper, RenderBaseProps } from "../../../types";
-import { FlexStyleProps, LayoutProps } from "@styles/layout";
+import { LayoutProps } from "@styles/layout";
 import { useContextProps } from "@hooks/useContextProps";
 import { useRenderProps } from "@hooks/useRenderProps";
+import { FlexStyleProps } from "@styles/flex";
 import { FlexContext } from "./Flex.context";
 import { FlexWrapper } from "./Flex.styles";
 
@@ -12,7 +13,6 @@ export interface FlexProps
     LayoutProps,
     ElementWrapper<HTMLDivElement> {
   as?: "div" | "span";
-  children?: React.ReactNode;
 }
 
 /** Component to create flex layouts */

@@ -2,7 +2,7 @@ import { ArgTypes } from "@storybook/react";
 import { createGlobalStyle } from "styled-components";
 import { PressEvents } from "@react-aria/interactions";
 import { OverlayTriggerProps } from "react-stately";
-import { Item } from "../../packages/atomic-elements/src/components";
+import { Item, View } from "../../packages/atomic-elements/src/components";
 import { SpacingSteps } from "../../packages/atomic-elements/src/styles/spacing";
 
 export const FieldStateControls: ArgTypes = {
@@ -659,3 +659,17 @@ export const LayoutArgTypes: ArgTypes = {
   ...FlexItemArgTypes,
   ...GridItemArgTypes,
 };
+
+export function DecorativeBox() {
+  return (
+    <View
+      style={{
+        height: "100%",
+        width: "100%",
+        backgroundColor: "rebeccapurple",
+        borderRadius: "4px",
+        border: "1px solid #3c3c3c",
+      }}
+    />
+  );
+}
