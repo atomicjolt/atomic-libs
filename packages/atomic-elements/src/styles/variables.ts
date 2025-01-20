@@ -1,327 +1,327 @@
-import { createGlobalStyle } from "styled-components";
+// prettier-ignore
+export const variables = {
 
-export const CssVariables = createGlobalStyle`
-:root {
-  color-scheme: base;
+  // # General
 
-  /* # General */
+  // ## Border
+  "border-width": "1px",
+  "border-style": "solid",
+  "border-clr-primary": "{neutral300}",
+  "radius": "5px",
+  "border": "{border-width} {border-style} {border-clr-primary}",
+  "outline-width": "2px",
+  "outline-style": "solid",
+  "outline-clr-primary": "{neutral600}",
+  "outline": "{outline-width} {outline-style} {outline-clr-primary}",
 
-  /* ## Borders */
-  --border-width: 1px;
-  --border-style: solid;
-  --border-clr-primary: var(--neutral300);
-  --border: var(--border-width) var(--border-style) var(--border-clr-primary);
+  // ## Font
+  "font-family": '"Lato", sans-serif',
+  "font-weight-light": "200",
+  "font-weight-regular": "400",
+  "font-weight-bold": "700",
 
-  --outline-width: 2px;
-  --oultin-style: solid;
-  --outline-clr-primary: var(--neutral600);
-  --outline: var(--outline-width) var(--outline-style) var(--outline-clr-primary);
-  --radius: 5px;
+  // ## Colors
 
-  /* ## Fonts */
-  --font-family: "Lato", sans-serif;
-  --font-weight-light: 200;
-  --font-weight-regular: 400;
-  --font-weight-bold: 700;
+  // ### Neutral colors
+  "neutral50": "hsl(0, 0%, 100%)",
+  "neutral100": "hsl(220, 14%, 96%)",
+  "neutral200": "hsl(220, 13%, 91%)",
+  "neutral300": "hsl(216, 12%, 84%)",
+  "neutral400": "hsl(218, 11%, 66%)",
+  "neutral500": "hsl(220, 9%, 44%)",
+  "neutral600": "hsl(215, 14%, 36%)",
+  "neutral700": "hsl(217, 19%, 27%)",
+  "neutral800": "hsl(215, 28%, 17%)",
+  "neutral900": "hsl(221, 39%, 11%)",
 
-  /* ## Global Colors */
-  /* ### Neutral */
-  --neutral50: hsl(0, 0%, 100%);
-  --neutral100: hsl(220, 14%, 96%);
-  --neutral200: hsl(220, 13%, 91%);
-  --neutral300: hsl(216, 12%, 84%);
-  --neutral400: hsl(218, 11%, 66%);
-  --neutral500: hsl(220, 9%, 44%);
-  --neutral600: hsl(215, 14%, 36%);
-  --neutral700: hsl(217, 19%, 27%);
-  --neutral800: hsl(215, 28%, 17%);
-  --neutral900: hsl(221, 39%, 11%);
-  /* ### Error */
-  --error100: hsl(0, 93%, 94%);
-  --error200: hsl(0, 96%, 89%);
-  --error300: hsl(0, 94%, 82%);
-  --error400: hsl(0, 91%, 71%);
-  --error500: hsl(0, 84%, 60%);
-  --error600: hsl(0, 72%, 51%);
-  --error700: hsl(0, 74%, 42%);
-  --error800: hsl(0, 70%, 35%);
-  --error900: hsl(0, 63%, 31%);
-  /* ### Warning */
-  --warning100: hsl(55, 97%, 90%);
-  --warning200: hsl(53, 98%, 83%);
-  --warning300: hsl(50, 98%, 75%);
-  --warning400: hsl(48, 96%, 53%);
-  --warning500: hsl(45, 93%, 47%);
-  --warning600: hsl(41, 96%, 40%);
-  --warning700: hsl(35, 92%, 33%);
-  --warning800: hsl(32, 81%, 29%);
-  --warning900: hsl(28, 73%, 26%);
-  /* ### Success */
-  --success100: hsl(100, 89%, 89%);
-  --success200: hsl(101, 88%, 80%);
-  --success300: hsl(102, 85%, 67%);
-  --success400: hsl(103, 78%, 55%);
-  --success500: hsl(104, 81%, 44%);
-  --success600: hsl(105, 85%, 35%);
-  --success700: hsl(106, 78%, 27%);
-  --success800: hsl(107, 69%, 23%);
-  --success900: hsl(108, 61%, 20%);
-  /* ### Primary */
-  --primary100: hsl(185, 96%, 94%);
-  --primary200: hsl(186, 94%, 88%);
-  --primary300: hsl(187, 92%, 75%);
-  --primary400: hsl(188, 86%, 53%);
-  --primary500: hsl(189, 94%, 43%);
-  --primary600: hsl(190, 91%, 36%);
-  --primary700: hsl(191, 82%, 31%);
-  --primary800: hsl(192, 70%, 27%);
-  --primary900: hsl(193, 64%, 24%);
+  // ### Error colors
+  "error100": "hsl(0, 93%, 94%)",
+  "error200": "hsl(0, 96%, 89%)",
+  "error300": "hsl(0, 94%, 82%)",
+  "error400": "hsl(0, 91%, 71%)",
+  "error500": "hsl(0, 84%, 60%)",
+  "error600": "hsl(0, 72%, 51%)",
+  "error700": "hsl(0, 74%, 42%)",
+  "error800": "hsl(0, 70%, 35%)",
+  "error900": "hsl(0, 63%, 31%)",
 
-  /* ## Text Colors */
-  --text-clr: var(--neutral800);
-  --text-clr-alt: var(--neutral600);
-  --text-clr-inverted: var(--neutral50);
+  // ### Warning colors
+  "warning100": "hsl(55, 97%, 90%)",
+  "warning200": "hsl(53, 98%, 83%)",
+  "warning300": "hsl(50, 98%, 75%)",
+  "warning400": "hsl(48, 96%, 53%)",
+  "warning500": "hsl(45, 93%, 47%)",
+  "warning600": "hsl(41, 96%, 40%)",
+  "warning700": "hsl(35, 92%, 33%)",
+  "warning800": "hsl(32, 81%, 29%)",
+  "warning900": "hsl(28, 73%, 26%)",
 
-  /* ## Background Colors */
-  --background-clr: var(--neutral50);
-  --background-clr-alt: var(--neutral100);
-  --background-clr-inverted: var(--neutral800);
+  // ### Success colors
+  "success100": "hsl(100, 89%, 89%)",
+  "success200": "hsl(101, 88%, 80%)",
+  "success300": "hsl(102, 85%, 67%)",
+  "success400": "hsl(103, 78%, 55%)",
+  "success500": "hsl(104, 81%, 44%)",
+  "success600": "hsl(105, 85%, 35%)",
+  "success700": "hsl(106, 78%, 27%)",
+  "success800": "hsl(107, 69%, 23%)",
+  "success900": "hsl(108, 61%, 20%)",
 
-  /* ## Accent Colors */
-  --accent-clr: var(--primary700);
-  --accent-clr-alt: var(--primary800);
-  --error-clr: var(--error600);
-  --success-clr: var(--success600);
-  --warning-clr: var(--warning600);
+  // ### Primary colors
+  "primary100": "hsl(185, 96%, 94%)",
+  "primary200": "hsl(186, 94%, 88%)",
+  "primary300": "hsl(187, 92%, 75%)",
+  "primary400": "hsl(188, 86%, 53%)",
+  "primary500": "hsl(189, 94%, 43%)",
+  "primary600": "hsl(190, 91%, 36%)",
+  "primary700": "hsl(191, 82%, 31%)",
+  "primary800": "hsl(192, 70%, 27%)",
+  "primary900": "hsl(193, 64%, 24%)",
 
-  /* ## Sizing */
-  --size-sm-x: 100px;
-  --size-md-x: 200px;
-  --size-lg-x: 300px;
-  --size-full-x: 100%;
-  --size-sm-y: 40px;
-  --size-md-y: 60px;
-  --size-lg-y: 80px;
-  --size-full-y: 100%;
+  // ### Text colors
+  "text-clr": "{neutral800}",
+  "text-clr-alt": "{neutral600}",
+  "text-clr-inverted": "{neutral50}",
 
-  /* # Input */
-  --input-border-clr: var(--border-clr-primary);
-  --input-border-width: var(--border-width);
-  --input-border-style: var(--border-style);
-  --input-border-radius: var(--radius);
-  --input-border: 1px solid var(--input-border-clr);
-  --input-outline: 1px solid var(--outline-clr-primary);
-  --input-height: 40px;
-  --input-padding-horiz: 12px;
-  --input-gap: 12px;
-  --input-font-size: 1.6rem;
-  --input-icon-size: 2.4rem;
-  --input-icon-clr: var(--neutral600);
-  --input-text-clr: var(--text-clr);
-  --input-bg-clr: none;
-  --input-transition: none;
+  // ### Background colors
+  "background-clr": "{neutral50}",
+  "background-clr-alt": "{neutral100}",
+  "background-clr-inverted": "{neutral800}",
 
-  /* # Button */
-  --btn-font-size: 1.6rem;
-  --btn-icon-size: 2.4rem;
-  --btn-icon-gap: 8px;
-  --btn-text-clr: var(--text-clr-alt);
-  --btn-bg-clr: var(--neutral50);
-  --btn-hover-text-clr: var(--text-clr);
-  --btn-hover-bg-clr: var(--neutral100);
-  --btn-hover-shadow: none;
-  --btn-border: none;
-  --btn-border-radius: var(--radius);
-  --btn-height: 40px;
-  --btn-padding-vert: 0.25em;
-  --btn-padding-horiz: 1em;
-  --btn-pressed-transform: translateY(1px);
+  // ### Accent colors
+  "accent-clr": "{primary700}",
+  "accent-clr-alt": "{primary800}",
 
-  /* # Banner */
-  --banner-bg-clr: var(--neutral100);
-  --banner-text-clr: var(--text-clr);
-  --banner-icon-clr: var(--primary700);
-  --banner-btn-hover-clr: var(--neutral200);
-  --banner-btn-active-clr: var(--neutral300);
-  --banner-btn-size: 40px;
-  --banner-border-radius: var(--radius);
+  // ### Status colors
+  "error-clr": "{error600}",
+  "error-clr-alt": "{error700}",
+  "success-clr": "{success600}",
+  "success-clr-alt": "{success700}",
+  "warning-clr": "{warning600}",
+  "warning-clr-alt": "{warning700}",
+  "info-clr": "{primary100}",
+  "info-clr-alt": "{primary200}",
 
-  /* # Dropdown */
-  --dropdown-max-height: 300px;
-  --dropdown-text-clr: var(--text-clr);
-  --dropdown-bg-clr: var(--background-clr);
-  --dropdown-text-size: 1.6rem;
-  --dropdown-icon-size: 2.4rem;
-  --dropdown-icon-gap: calc(
-    (var(--dropdown-height) - var(--dropdown-icon-size)) / 2
-  );
-  --dropdown-icon-clr: var(--neutral600);
-  --dropdown-box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.5);
-  --dropdown-border-radius: var(--radius);
+  // ## Size
+  "size-sm-x": "100px",
+  "size-md-x": "200px",
+  "size-lg-x": "300px",
+  "size-full-x": "100%",
+  "size-sm-y": "40px",
+  "size-md-y": "60px",
+  "size-lg-y": "80px",
+  "size-full-y": "100%",
 
-  /* # Menu */
-  --menu-bg-clr: var(--dropdown-bg-clr);
-  --menu-box-shadow: var(--dropdown-box-shadow);
-  --menu-border-radius: var(--dropdown-border-radius);
-  --menu-item-font-size: var(--dropdown-text-size);
-  --menu-item-icon-size: var(--dropdown-icon-size);
-  --menu-item-padding: var(--dropdown-padding);
-  --menu-item-padding-horizontal: calc(var(--dropdown-padding) * 2);
-  --menu-item-border-clr: var(--dropdown-bg-clr, transparent);
-  --menu-item-height: 32px;
-  --menu-padding-top: calc(var(--menu-item-height) / 8);
+  // # Input
+  "input-border-clr": "{border-clr-primary}",
+  "input-border-width": "{border-width}",
+  "input-border-style": "{border-style}",
+  "input-border-radius": "{radius}",
+  "input-border": "1px solid {input-border-clr}",
+  "input-outline": "1px solid {outline-clr-primary}",
+  "input-height": "40px",
+  "input-padding-horiz": "12px",
+  "input-gap": "12px",
+  "input-font-size": "1.6rem",
+  "input-icon-size": "2.4rem",
+  "input-icon-clr": "{neutral600}",
+  "input-text-clr": "{text-clr}",
+  "input-bg-clr": "none",
+  "input-transition": "none",
 
-  /* # Listbox */
-  --listbox-text-clr: var(--dropdown-text-clr);
-  --listbox-bg-clr: var(--dropdown-bg-clr);
-  --listbox-selected-clr: var(--text-clr-inverted);
-  --listbox-box-shadow: var(--dropdown-box-shadow);
-  --listbox-font-size: var(--dropdown-text-size);
-  --listbox-icon-clr: var(--dropdown-icon-clr);
-  --listbox-max-height: var(--dropdown-max-height);
-  --listbox-item-height: 36px;
-  --listbox-border-radius: var(--dropdown-border-radius);
+  // # Button
+  "btn-font-size": "1.6rem",
+  "btn-icon-size": "2.4rem",
+  "btn-icon-gap": "8px",
+  "btn-text-clr": "{text-clr-alt}",
+  "btn-bg-clr": "{neutral50}",
+  "btn-hover-text-clr": "{text-clr}",
+  "btn-hover-bg-clr": "{neutral100}",
+  "btn-hover-shadow": "none",
+  "btn-border": "none",
+  "btn-border-radius": "{radius}",
+  "btn-height": "40px",
+  "btn-padding-vert": "0.25em",
+  "btn-padding-horiz": "1em",
+  "btn-pressed-transform": "translateY(1px)",
 
-  /* # TextArea */
-  --textarea-height-sm: 80px;
-  --textarea-height-md: 140px;
-  --textarea-height-lg: 200px;
+  // # Banner
+  "banner-bg-clr": "{neutral100}",
+  "banner-text-clr": "{text-clr}",
+  "banner-icon-clr": "{primary700}",
+  "banner-btn-hover-clr": "{neutral200}",
+  "banner-btn-active-clr": "{neutral300}",
+  "banner-btn-size": "40px",
+  "banner-border-radius": "{radius}",
 
-  /* # Toggle */
-  --toggle-unchecked: var(--neutral400);
-  --toggle-checked: var(--primary700);
-  --toggle-error: var(--error600);
-  --toggle-size: 2.4rem;
-  --toggle-travel: calc(var(--toggle-size) * 0.666);
+  // # Dropdown
+  "dropdown-bg-clr": "{background-clr}",
+  "dropdown-max-height": "300px",
+  "dropdown-text-clr": "{text-clr}",
+  "dropdown-text-size": "1.6rem",
+  "dropdown-icon-size": "2.4rem",
+  "dropdown-icon-clr": "{neutral600}",
+  "dropdown-box-shadow": "0 1px 3px hsla(0, 0%, 0%, 0.5)",
+  "dropdown-border-radius": "{radius}",
 
-  /* # Loader */
-  --loader-clr: var(--neutral500);
-  --loader-size: 16px;
+  // # Menu
+  "menu-bg-clr": "{dropdown-bg-clr}",
+  "menu-box-shadow": "{dropdown-box-shadow}",
+  "menu-border-radius": "{dropdown-border-radius}",
+  "menu-item-font-size": "{dropdown-text-size}",
+  "menu-item-icon-size": "{dropdown-icon-size}",
+  "menu-item-border-clr": "{dropdown-bg-clr:transparent}",
+  "menu-item-height": "32px",
+  "menu-padding-top": "calc({menu-item-height} / 8)",
 
-  /* # SkeletonLoader */
-  --skeleton-bg-clr: var(--neutral200);
-  --skeleton-fg-clr: var(--neutral100);
-  --skeleton-bg-opacity: 1;
-  --skeleton-fg-opacity: 1;
+  // # Listbox
+  "listbox-bg-clr": "{dropdown-bg-clr}",
+  "listbox-selected-clr": "{text-clr-inverted}",
+  "listbox-box-shadow": "{dropdown-box-shadow}",
+  "listbox-font-size": "{dropdown-text-size}",
+  "listbox-icon-clr": "{dropdown-icon-clr}",
+  "listbox-max-height": "{dropdown-max-height}",
+  "listbox-item-height": "36px",
+  "listbox-border-radius": "{dropdown-border-radius}",
 
-  /* # Table */
-  --table-border-clr: var(--neutral300);
-  --table-border-width: 1px;
-  --table-bg-clr: var(--neutral50);
-  --table-font-size: 1.6rem;
-  --table-header-font-size: 1.4rem;
-  --table-cell-font-size: 1em;
-  --table-border-radius: var(--radius);
-  --table-padding-vert: 8px;
-  --table-padding-horz: 12px;
-  --table-sort-icon-clr: var(--text-clr);
-  --table-sort-icon-hover-clr: var(--neutral400);
-  --table-nesting-offset: var(--table-padding-horz);
-  --table-cell-height: 48px;
+  // # Textarea
+  "textarea-height-sm": "80px",
+  "textarea-height-md": "140px",
+  "textarea-height-lg": "200px",
 
-  /* # Tab */
-  --tab-border-width: 1px;
-  --tab-border-clr: transparent;
-  --tab-padding-hori: 16px;
-  --tab-padding-vert: 8px;
-  --tab-radius: var(--radius);
-  --tab-border-width: 1px;
-  --tab-text-clr: var(--text-clr-alt);
-  --tab-bg-clr: var(--neutral50);
+  // # Toggle
+  "toggle-unchecked": "{neutral400}",
+  "toggle-checked": "{primary700}",
+  "toggle-error": "{error600}",
+  "toggle-size": "2.4rem",
+  "toggle-travel": "calc({toggle-size} * 0.666)",
 
-  /* # Icon */
-  --icon-size-sm: 18px;
-  --icon-size-md: 24px;
-  --icon-size-lg: 36px;
+  // # Loader
+  "loader-clr": "{neutral500}",
+  "loader-size": "16px",
 
-  /* # Popover */
-  --popover-animation: transform 200ms ease, opacity 200ms;
-  --popover-distance: 5px;
+  // # Skeleton
+  "skeleton-bg-clr": "{neutral200}",
+  "skeleton-fg-clr": "{neutral100}",
+  "skeleton-bg-opacity": "1",
+  "skeleton-fg-opacity": "1",
 
-  /* # CheckBox */
-  --checkbox-border-radius: var(--radius);
-  --checkbox-checked: var(--accent-clr);
-  --checkbox-border-clr: var(--neutral600);
-  --checkbox-border-width: 2px;
-  --checkbox-icon-clr: var(--neutral50);
-  --checkbox-bg-clr: none;
-  --checkbox-text-clr: var(--text-clr);
-  --checkbox-size: 20px;
-  --checkbox-label-spacing: 12px;
-  --checkbox-label-font-size: 1.6rem;
-  --checkbox-label-height: 24px;
+  // # Table
+  "table-border-clr": "{neutral300}",
+  "table-border-width": "1px",
+  "table-bg-clr": "{neutral50}",
+  "table-font-size": "1.6rem",
+  "table-header-font-size": "1.4rem",
+  "table-cell-font-size": "1em",
+  "table-border-radius": "{radius}",
+  "table-padding-vert": "8px",
+  "table-padding-horz": "12px",
+  "table-sort-icon-clr": "{text-clr}",
+  "table-sort-icon-hover-clr": "{neutral400}",
+  "table-nesting-offset": "{table-padding-horz}",
+  "table-cell-height": "48px",
 
-  /* # Radio */
-  --radio-border-radius: 50%;
-  --radio-checked: var(--accent-clr);
-  --radio-border-clr: var(--neutral600);
-  --radio-border-width: 2px;
-  --radio-bg-clr: none;
-  --radio-size: 20px;
-  --radio-label-spacing: 12px;
-  --radio-label-font-size: 1.6rem;
-  --radio-label-padding-top: 0;
-  --radio-label-padding-left: 32px;
-  --radio-label-height: 24px;
+  // # Tab
+  "tab-border-width": "1px",
+  "tab-border-clr": "transparent",
+  "tab-padding-hori": "16px",
+  "tab-padding-vert": "8px",
+  "tab-radius": "{radius}",
+  "tab-text-clr": "{text-clr-alt}",
+  "tab-bg-clr": "{neutral50}",
 
-  /* # TimePicker */
-  --time-clr: var(--neutral200);
-  --time-selected-back-clr: var(--primary600);
-  --time-selected-text-clr: var(--neutral100);
+  // # Icon sizes
+  "icon-size-sm": "18px",
+  "icon-size-md": "24px",
+  "icon-size-lg": "36px",
 
-  /* # Calendar */
-  --calendar-clr: var(--neutral200);
-  --calendar-selected-bg-clr: var(--accent-clr);
-  --calendar-selected-text-clr: var(--neutral100);
+  // # Popover
+  "popover-animation": "transform 200ms ease, opacity 200ms",
+  "popover-distance": "5px",
 
-  /* # Card */
-  --card-bg-clr: var(--background-clr-alt);
-  --card-text-clr: var(--text-clr);
-  --card-radius: var(--radius);
-  --card-border: none;
-  --card-padding: 10px;
-  --card-panel-bg-clr: var(--background-clr);
-  --card-panel-text-clr: var(--text-clr);
-  --card-panel-padding: 10px;
-  --card-divider-border: 1px solid var(--neutral300);
-  --card-divider-margin: 10px;
+  // # Checkbox
+  "checkbox-border-radius": "{radius}",
+  "checkbox-checked": "{accent-clr}",
+  "checkbox-border-clr": "{neutral600}",
+  "checkbox-border-width": "2px",
+  "checkbox-icon-clr": "{neutral50}",
+  "checkbox-bg-clr": "none",
+  "checkbox-text-clr": "{text-clr}",
+  "checkbox-size": "20px",
+  "checkbox-label-spacing": "12px",
+  "checkbox-label-font-size": "1.6rem",
+  "checkbox-label-height": "24px",
 
-  /* # ToolTip */
-  --tooltip-bg-clr: var(--background-clr-inverted);
-  --tooltip-text-clr: var(--text-clr-inverted);
-  --tooltip-radius: var(--radius);
-  --tooltip-arrow-radius: 2px;
-  --tooltip-padding-vert: 8px;
-  --tooltip-padding-horiz: 8px;
-  --tooltip-font-size: 1.3rem;
-  --tooltip-font-weight: normal;
+  // # Radio
+  "radio-border-radius": "50%",
+  "radio-checked": "{accent-clr}",
+  "radio-border-clr": "{neutral600}",
+  "radio-border-width": "2px",
+  "radio-bg-clr": "none",
+  "radio-size": "20px",
+  "radio-label-spacing": "12px",
+  "radio-label-font-size": "1.6rem",
+  "radio-label-padding-top": "0",
+  "radio-label-padding-left": "32px",
+  "radio-label-height": "24px",
 
-  /* # ChipGroup */
-  --chip-bg-clr: var(--neutral100);
-  --chip-text-clr: var(--text-clr-alt);
-  --chip-radius: var(--radius);
-  --chip-hover-bg-clr: var(--neutral200);
-  --chip-selected-bg-clr: var(--accent-clr);
-  --chip-selected-hover-bg-clr: var(--primary800);
-  --chip-selected-text-clr: var(--text-clr-inverted);
-  --chip-btn-hover-bg-clr: var(--neutral200);
-  --chip-border-clr: var(--neutral300);
-  --chip-border: 1px solid var(--chip-border-clr);
+  // # Time
+  "time-clr": "{neutral200}",
+  "time-selected-back-clr": "{primary600}",
+  "time-selected-text-clr": "{neutral100}",
 
-  /* # Divider */
-  --divider-bg-clr: var(--neutral300);
-  --divider-width: 1px;
-  --divider-margin-main: 5px;
-  --divider-margin-secondary: 0px;
+  // # Calendar
+  "calendar-clr": "{neutral200}",
+  "calendar-selected-bg-clr": "{accent-clr}",
+  "calendar-selected-text-clr": "{neutral100}",
 
-  /* # Link */
-  --link-text-clr: var(--accent-clr);
-  --link-bg-clr: var(--neutral50);
-  --link-hover-text-clr: var(--accent-clr-alt);
-  --link-hover-bg-clr: transparent;
-  --link-text-decoration: underline;
+  // # Card
+  "card-bg-clr": "{background-clr-alt}",
+  "card-text-clr": "{text-clr}",
+  "card-radius": "{radius}",
+  "card-border": "none",
+  "card-padding": "10px",
+  "card-panel-bg-clr": "{background-clr}",
+  "card-panel-text-clr": "{text-clr}",
+  "card-panel-padding": "10px",
+  "card-divider-border": "1px solid {neutral300}",
+  "card-divider-margin": "10px",
 
-  /* # Animations */
-  --animation-clr: var(--neutral500);
-}
-`;
+  // # Tooltip
+  "tooltip-bg-clr": "{background-clr-inverted}",
+  "tooltip-text-clr": "{text-clr-inverted}",
+  "tooltip-radius": "{radius}",
+  "tooltip-arrow-radius": "2px",
+  "tooltip-padding-vert": "8px",
+  "tooltip-padding-horiz": "8px",
+  "tooltip-font-size": "1.3rem",
+  "tooltip-font-weight": "normal",
+
+  // # Chip
+  "chip-bg-clr": "{neutral100}",
+  "chip-text-clr": "{text-clr-alt}",
+  "chip-radius": "{radius}",
+  "chip-hover-bg-clr": "{neutral200}",
+  "chip-selected-bg-clr": "{accent-clr}",
+  "chip-selected-hover-bg-clr": "{primary800}",
+  "chip-selected-text-clr": "{text-clr-inverted}",
+  "chip-btn-hover-bg-clr": "{neutral200}",
+  "chip-border-clr": "{neutral300}",
+  "chip-border": "1px solid {chip-border-clr}",
+
+  // # Divider
+  "divider-bg-clr": "{neutral300}",
+  "divider-width": "1px",
+  "divider-margin-main": "5px",
+  "divider-margin-secondary": "0px",
+
+  // # Link
+  "link-text-clr": "{accent-clr}",
+  "link-bg-clr": "{neutral50}",
+  "link-hover-text-clr": "{accent-clr-alt}",
+  "link-hover-bg-clr": "transparent",
+  "link-text-decoration": "underline",
+
+  // # Animation
+  "animation-clr": "{neutral500}",
+} as const;

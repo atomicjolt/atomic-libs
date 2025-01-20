@@ -56,8 +56,6 @@ export type LoadingProps = {
   loadingComplete?: boolean;
 };
 
-export type SortDirection = "ascending" | "descending" | undefined;
-
 export type SuggestStrings<T> = T | (string & {});
 
 export interface HasClassName {

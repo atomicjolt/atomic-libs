@@ -14,7 +14,7 @@ import Links from "./tabs/Links";
 import { Home } from "./tabs/Home";
 
 function Playground() {
-  const [currentTab, setCurrentTab] = useState<Key>("aria");
+  const [currentTab, setCurrentTab] = useState<Key>("buttons");
 
   return (
     <div className="padder" style={{ height: "100%" }}>

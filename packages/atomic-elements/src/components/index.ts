@@ -1,4 +1,5 @@
 /* ---- Components ---- */
+export { ElementsProvider, useElementsConfig } from "./ElementsProvider";
 export { Banner } from "./Banners/Banner";
 export { ActionBanner } from "./Banners/ActionBanner";
 export {
@@ -109,7 +110,6 @@ export { DropZone } from "./DragAndDrop/DropZone";
 export { FileTrigger } from "./Buttons/FileTrigger";
 
 export { Pagination } from "./Pagination/Pagination";
-export { PageSizeSelect } from "./Pagination/PageSizeSelect";
 
 export { Spinner } from "./Animations/Spinner";
 export { BouncingDots } from "./Animations/BouncingDots";
@@ -123,7 +123,7 @@ export {
 export { LiveMessage } from "./Accessibility/LiveMessage";
 
 /* ---- Types ---- */
-
+export type { ElementsProviderProps, ElementsConfig } from "./ElementsProvider";
 export type { BannerProps, BannerVariants } from "./Banners/Banner";
 export type { ButtonProps } from "./Buttons/Button";
 export type { IconButtonProps } from "./Buttons/IconButton";
@@ -203,7 +203,6 @@ export type { LinkProps } from "./Routing/Link";
 export type { DropZoneProps } from "./DragAndDrop/DropZone";
 export type { FileTriggerProps } from "./Buttons/FileTrigger";
 export type { PaginationProps } from "./Pagination/Pagination";
-export type { PageSizeSelectProps } from "./Pagination/PageSizeSelect";
 export type { SpinnerProps } from "./Animations/Spinner";
 export type { BouncingDotsProps } from "./Animations/BouncingDots";
 export type { CheckmarkProps } from "./Animations/Checkmark";

@@ -29,13 +29,12 @@ $ yarn add @atomicjolt/atomic-elements
 Include the following in your project
 
 ```js
-import { CssVariables } from "@atomicjolt/atomic-elements";
+import { ElementsProvider } from "@atomicjolt/atomic-elements";
 
 const App = () => (
-  <>
-    <CssVariables />
+  <ElementsProvider>
     <YourApp />
-  </>
+  </ElementsProvider>
 );
 ```
 
