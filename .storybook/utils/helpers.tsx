@@ -330,3 +330,317 @@ export const PurpleButtonStyles = createGlobalStyle`
   --btn-hover-text-clr: white;
 }
 `;
+
+export const PaddingArgTypes: ArgTypes = {
+  $p: {
+    control: "text",
+    description: "Padding",
+    table: {
+      category: "Padding",
+    },
+  },
+  $pt: {
+    control: "text",
+    description: "Padding Top",
+    table: {
+      category: "Padding",
+    },
+  },
+  $pr: {
+    control: "text",
+    description: "Padding Right",
+    table: {
+      category: "Padding",
+    },
+  },
+  $pb: {
+    control: "text",
+    description: "Padding Bottom",
+    table: {
+      category: "Padding",
+    },
+  },
+  $pl: {
+    control: "text",
+    description: "Padding Left",
+    table: {
+      category: "Padding",
+    },
+  },
+  $px: {
+    control: "text",
+    description: "Padding Horizontal",
+    table: {
+      category: "Padding",
+    },
+  },
+  $py: {
+    control: "text",
+    description: "Padding Vertical",
+    table: {
+      category: "Padding",
+    },
+  },
+};
+
+export const MarginArgTypes: ArgTypes = {
+  $m: {
+    control: "text",
+    description: "Margin",
+    table: {
+      category: "Margin",
+    },
+  },
+  $mt: {
+    control: "text",
+    description: "Margin Top",
+    table: {
+      category: "Margin",
+    },
+  },
+  $mr: {
+    control: "text",
+    description: "Margin Right",
+    table: {
+      category: "Margin",
+    },
+  },
+  $mb: {
+    control: "text",
+    description: "Margin Bottom",
+    table: {
+      category: "Margin",
+    },
+  },
+  $ml: {
+    control: "text",
+    description: "Margin Left",
+    table: {
+      category: "Margin",
+    },
+  },
+  $mx: {
+    control: "text",
+    description: "Margin Horizontal",
+    table: {
+      category: "Margin",
+    },
+  },
+  $my: {
+    control: "text",
+    description: "Margin Vertical",
+    table: {
+      category: "Margin",
+    },
+  },
+};
+
+export const SpacingArgTypes: ArgTypes = {
+  ...PaddingArgTypes,
+  ...MarginArgTypes,
+};
+
+export const WidthArgTypes: ArgTypes = {
+  $width: {
+    control: "text",
+    description: "Width",
+    table: {
+      category: "Dimensions",
+    },
+  },
+  $minWidth: {
+    control: "text",
+    description: "Minimum Width",
+    table: {
+      category: "Sizing",
+    },
+  },
+  $maxWidth: {
+    control: "text",
+    description: "Maximum Width",
+    table: {
+      category: "Sizing",
+    },
+  },
+};
+
+export const HeightArgTypes: ArgTypes = {
+  $height: {
+    control: "text",
+    description: "Height",
+    table: {
+      category: "Dimensions",
+    },
+  },
+  $minHeight: {
+    control: "text",
+    description: "Minimum Height",
+    table: {
+      category: "Sizing",
+    },
+  },
+  $maxHeight: {
+    control: "text",
+    description: "Maximum Height",
+    table: {
+      category: "Sizing",
+    },
+  },
+};
+
+export const DimensionsArgTypes: ArgTypes = {
+  ...WidthArgTypes,
+  ...HeightArgTypes,
+};
+
+export const PositionArgTypes: ArgTypes = {
+  $position: {
+    control: "select",
+    options: ["static", "relative", "absolute", "fixed", "sticky"],
+    description: "Position",
+    table: {
+      category: "Position",
+    },
+  },
+  $top: {
+    control: "text",
+    description: "Top",
+    table: {
+      category: "Position",
+    },
+  },
+  $right: {
+    control: "text",
+    description: "Right",
+    table: {
+      category: "Position",
+    },
+  },
+  $bottom: {
+    control: "text",
+    description: "Bottom",
+    table: {
+      category: "Position",
+    },
+  },
+  $left: {
+    control: "text",
+    description: "Left",
+    table: {
+      category: "Position",
+    },
+  },
+};
+
+export const OverflowArgTypes: ArgTypes = {
+  $overflow: {
+    control: "select",
+    options: ["visible", "hidden", "scroll", "auto"],
+    description: "Overflow",
+    table: {
+      category: "Overflow",
+    },
+  },
+  $overflowX: {
+    control: "select",
+    options: ["visible", "hidden", "scroll", "auto"],
+    description: "Overflow X",
+    table: {
+      category: "Overflow",
+    },
+  },
+  $overflowY: {
+    control: "select",
+    options: ["visible", "hidden", "scroll", "auto"],
+    description: "Overflow Y",
+    table: {
+      category: "Overflow",
+    },
+  },
+};
+
+export const FlexItemArgTypes: ArgTypes = {
+  $flexGrow: {
+    control: "text",
+    description: "Flex Grow",
+    table: {
+      category: "Flex",
+    },
+  },
+  $flexShrink: {
+    control: "text",
+    description: "Flex Shrink",
+    table: {
+      category: "Flex",
+    },
+  },
+  $flexBasis: {
+    control: "text",
+    description: "Flex Basis",
+    table: {
+      category: "Flex",
+    },
+  },
+  $flexAlgin: {
+    control: "select",
+    options: ["auto", "start", "end", "center", "baseline", "stretch"],
+    description: "Align Self",
+    table: {
+      category: "Flex",
+    },
+  },
+};
+
+export const GridItemArgTypes: ArgTypes = {
+  $gridRow: {
+    control: "text",
+    description: "Grid Row",
+    table: {
+      category: "Grid",
+    },
+  },
+  $gridRowStart: {
+    control: "text",
+    description: "Grid Row Start",
+    table: {
+      category: "Grid",
+    },
+  },
+  $gridRowEnd: {
+    control: "text",
+    description: "Grid Row End",
+    table: {
+      category: "Grid",
+    },
+  },
+  $gridColumn: {
+    control: "text",
+    description: "Grid Column",
+    table: {
+      category: "Grid",
+    },
+  },
+  $gridColumnStart: {
+    control: "text",
+    description: "Grid Column Start",
+    table: {
+      category: "Grid",
+    },
+  },
+  $gridColumnEnd: {
+    control: "text",
+    description: "Grid Column End",
+    table: {
+      category: "Grid",
+    },
+  },
+};
+
+export const LayoutArgTypes: ArgTypes = {
+  ...SpacingArgTypes,
+  ...DimensionsArgTypes,
+  ...PositionArgTypes,
+  ...OverflowArgTypes,
+  ...FlexItemArgTypes,
+  ...GridItemArgTypes,
+};

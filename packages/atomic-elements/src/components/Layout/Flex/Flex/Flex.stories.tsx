@@ -3,7 +3,7 @@ import { Flex } from ".";
 import { FlexItem } from "../FlexItem";
 
 export default {
-  title: "Layouts/Flex/Flex",
+  title: "Layouts/Flex",
   component: Flex,
   argTypes: {
     children: {

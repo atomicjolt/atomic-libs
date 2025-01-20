@@ -59,6 +59,7 @@ export { LoadingStatus } from "./Loaders/LoadingStatus";
 export { MaterialIcon } from "./Icons/MaterialIcon";
 export { MaterialSymbol } from "./Icons/MaterialSymbol";
 
+export { View } from "./Layout/View";
 export { Group } from "./Layout/Group";
 export { Flex } from "./Layout/Flex/Flex";
 export { FlexItem } from "./Layout/Flex/FlexItem";
@@ -184,6 +185,7 @@ export type { ChipGroupFieldProps } from "./Fields/ChipGroupField";
 export type { FlexProps } from "./Layout/Flex/Flex";
 export type { FlexItemProps } from "./Layout/Flex/FlexItem";
 export type { GroupProps } from "./Layout/Group";
+export type { ViewProps } from "./Layout/View";
 export type { TableProps } from "./Content/Table/Table.types";
 export type { TabsProps } from "./Content/Tabs";
 export type { CardProps } from "./Content/Card";
