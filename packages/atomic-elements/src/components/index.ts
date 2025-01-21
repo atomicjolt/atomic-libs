@@ -68,6 +68,7 @@ export { Text, type TextProps } from "./Typography/Text";
 export { Heading, type HeadingProps } from "./Typography/Heading";
 export { Strong, type StrongProps } from "./Typography/Strong";
 export { Em, type EmProps } from "./Typography/Em";
+export { Link, type LinkProps } from "./Typography/Link";
 
 export { Table } from "./Content/Table";
 export { Tabs } from "./Content/Tabs";
@@ -110,9 +111,6 @@ export { FormatTable } from "./Format/FormatTable";
 export { FormatDuration } from "./Format/FormatDuration";
 export { FormatOptional } from "./Format/FormatOptional";
 
-export { RouterProvider } from "@react-aria/utils";
-export { Link } from "./Routing/Link";
-
 export { DropZone } from "./DragAndDrop/DropZone";
 export { FileTrigger } from "./Buttons/FileTrigger";
 
@@ -128,6 +126,8 @@ export {
   useAnnouncer,
 } from "./Accessibility/LiveAnnouncer";
 export { LiveMessage } from "./Accessibility/LiveMessage";
+
+export { RouterProvider } from "@react-aria/utils";
 
 /* ---- Types ---- */
 export type { ElementsProviderProps, ElementsConfig } from "./ElementsProvider";
@@ -207,7 +207,6 @@ export type { FormatDateProps } from "./Format/FormatDate";
 export type { FormatNumberProps } from "./Format/FormatNumber";
 export type { FormatTableProps } from "./Format/FormatTable";
 export type { FormatDurationProps } from "./Format/FormatDuration";
-export type { LinkProps } from "./Routing/Link";
 export type { DropZoneProps } from "./DragAndDrop/DropZone";
 export type { FileTriggerProps } from "./Buttons/FileTrigger";
 export type { PaginationProps } from "./Pagination/Pagination";

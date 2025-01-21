@@ -379,7 +379,7 @@ const divider = {
 
 const link = {
   "link-text-clr": "{accent-clr}",
-  "link-bg-clr": "{neutral50}",
+  "link-bg-clr": "transparent",
   "link-hover-text-clr": "{accent-clr-alt}",
   "link-hover-bg-clr": "transparent",
   "link-text-decoration": "underline",

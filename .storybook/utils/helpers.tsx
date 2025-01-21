@@ -699,6 +699,11 @@ export const TypographyArgTypes: ArgTypes = {
     options: ["nowrap", "pretty", "balanced"],
     description: "Controls the wrapping of the text.",
   },
+  $decoration: {
+    control: "select",
+    options: ["none", "underline"],
+    description: "Controls the text decoration.",
+  },
 };
 
 export const ColorArgTypes: ArgTypes = {

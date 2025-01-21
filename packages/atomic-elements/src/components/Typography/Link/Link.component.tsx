@@ -1,20 +1,26 @@
 import { useRef } from "react";
 import { useLink, AriaLinkOptions } from "@react-aria/link";
 import { mergeProps } from "@react-aria/utils";
-import { StyledLink } from "./Link.styles";
-import { BaseProps } from "../../../types";
+import { DomProps, RenderBaseProps } from "../../../types";
+import { TypographyProps } from "@styles/typography";
+import { MarginProps } from "@styles/layout";
+import { ColorProps } from "@styles/colors";
 import { useRenderProps } from "@hooks/useRenderProps";
+import { StyledLink } from "./Link.styles";
 
 export interface LinkProps
   extends Omit<AriaLinkOptions, "elementType">,
-    BaseProps {
+    RenderBaseProps<never>,
+    TypographyProps,
+    MarginProps,
+    ColorProps,
+    DomProps {
   as?: "a" | "span";
-  children: React.ReactNode;
 }
 
 /** Link component for both native browser-navigation and client-side navigation */
 export function Link(props: LinkProps) {
-  const { as, children, className, id } = props;
+  const { as, children, className, style, ...rest } = props;
   const ref = useRef(null);
   const { linkProps, isPressed } = useLink(
     {
@@ -27,6 +33,8 @@ export function Link(props: LinkProps) {
   const renderProps = useRenderProps({
     componentClassName: "aje-link",
     className,
+    children,
+    style,
     selectors: {
       "data-pressed": isPressed,
     },
@@ -34,12 +42,12 @@ export function Link(props: LinkProps) {
 
   return (
     <StyledLink
-      {...mergeProps(linkProps, renderProps)}
-      id={id}
       ref={ref}
       as={as}
+      {...mergeProps(linkProps, renderProps)}
+      {...rest}
     >
-      {children}
+      {renderProps.children}
     </StyledLink>
   );
 }
