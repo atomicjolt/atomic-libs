@@ -6,13 +6,13 @@ exports[`Heading > Snapshots > should match snapshot 1`] = `
   "baseElement": <body>
     <div>
       <h1
-        class="sc-blHHSb hbrzkn aje-heading"
+        class="sc-blHHSb giUgHa aje-heading"
       />
     </div>
   </body>,
   "container": <div>
     <h1
-      class="sc-blHHSb hbrzkn aje-heading"
+      class="sc-blHHSb giUgHa aje-heading"
     />
   </div>,
   "debug": [Function],

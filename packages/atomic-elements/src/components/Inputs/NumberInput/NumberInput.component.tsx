@@ -49,7 +49,7 @@ export const NumberInput = React.forwardRef(
         >
           <ComboInput padding="both">
             <FieldInput />
-            <Group direction="column" isMerged>
+            <Group $direction="column" isMerged>
               <NumberField.IncrementButton
                 icon="arrow_drop_up"
                 variant="content"
