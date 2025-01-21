@@ -18,7 +18,7 @@ import {
 } from "@react-aria/collections";
 
 import { RenderBaseProps, RenderStyleProps } from "../../../types";
-import { Divider } from "@components/Layout/Divider";
+import { Divider } from "@components/Content/Divider";
 import { useForwardedRef } from "@hooks/useForwardedRef";
 import { Provider } from "@components/Internal/Provider";
 import { useCollectionRenderer } from "@hooks/useCollectionRenderer";

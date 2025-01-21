@@ -1,5 +1,11 @@
 # @atomicjolt/atomic-elements
 
+## 3.1.0
+
+### Minor Changes
+
+- Implemented Typographcy and Layout components
+
 ## 3.0.0
 
 ### Major Changes

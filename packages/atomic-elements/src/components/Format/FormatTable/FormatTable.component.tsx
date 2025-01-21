@@ -1,4 +1,4 @@
-import { Table } from "@components/Layout/Table";
+import { Table } from "@components/Content/Table";
 import { FormatterProps } from "../Format.types";
 import { Key } from "react-stately";
 

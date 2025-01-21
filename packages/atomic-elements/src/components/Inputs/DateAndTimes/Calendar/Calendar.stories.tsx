@@ -2,8 +2,8 @@ import { Meta, StoryObj } from "@storybook/react";
 import { today, getLocalTimeZone } from "@internationalized/date";
 import { Calendar } from ".";
 import { IconButton } from "@components/Buttons/IconButton";
-import { Flex } from "@components/Layout/Flex/Flex";
-import { FieldStateControls, RenderPropsArgTypes } from "@sb/helpers";
+import { Flex } from "@components/Layout/Flex";
+import { RenderPropsArgTypes } from "@sb/helpers";
 import { ErrorMessage } from "@components/Fields";
 
 const meta: Meta<typeof Calendar> = {
@@ -93,12 +93,7 @@ export const Primary: Story = {
     size: "medium",
     defaultValue: date,
     children: [
-      <Flex
-        key="header"
-        gap={20}
-        alignItems="center"
-        justifyContent="space-between"
-      >
+      <Flex key="header" $gap="20px" $align="center" $justify="space-between">
         <IconButton slot="previous-month" icon="chevron_left" variant="ghost" />
         <Calendar.Title />
         <IconButton slot="next-month" icon="chevron_right" variant="ghost" />
@@ -114,7 +109,7 @@ export const Primary: Story = {
         language: "jsx",
         code: `
 <Calendar>
-  <Flex gap={20} alignItems="center" justifyContent="space-between">
+  <Flex $gap="20px" $align="center" $justify="space-between">
     <IconButton slot="previous-month" icon="chevron_left" variant="ghost" />
     <Calendar.Title />
     <IconButton slot="next-month" icon="chevron_right" variant="ghost" />
@@ -145,12 +140,7 @@ export const WithErrorMessage: Story = {
     ...Primary.args,
     isInvalid: true,
     children: [
-      <Flex
-        key="header"
-        gap={20}
-        alignItems="center"
-        justifyContent="space-between"
-      >
+      <Flex key="header" $gap="20px" $align="center" $justify="space-between">
         <IconButton slot="previous-month" icon="chevron_left" variant="ghost" />
         <Calendar.Title />
         <IconButton slot="next-month" icon="chevron_right" variant="ghost" />
@@ -167,7 +157,7 @@ export const WithErrorMessage: Story = {
         language: "jsx",
         code: `
 <Calendar isInvalid>
-  <Flex gap={20} alignItems="center" justifyContent="space-between">
+  <Flex key="header" $gap="20px" $align="center" $justify="space-between">
     <IconButton slot="previous-month" icon="chevron_left" variant="ghost" />
     <Calendar.Title />
     <IconButton slot="next-month" icon="chevron_right" variant="ghost" />

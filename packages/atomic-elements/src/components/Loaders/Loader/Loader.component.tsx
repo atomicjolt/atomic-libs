@@ -1,5 +1,5 @@
 import { filterDOMProps } from "@react-aria/utils";
-import { Flex } from "@components/Layout/Flex/Flex";
+import { Flex } from "@components/Layout/Flex";
 import { useRenderProps } from "@hooks/useRenderProps";
 import { AriaLabelProps, RenderBaseProps, Size } from "../../../types";
 import { LoaderMessage, LoaderWrapper } from "../Loader.styles";
@@ -62,11 +62,11 @@ export function Loader(props: LoaderProps) {
     <LoaderWrapper {...renderProps} {...rest} data-placement={placement}>
       {isLoading ? (
         <Flex
-          inline={placementType === "inline"}
-          direction={direction}
-          gap={direction === "row" ? "1rem" : 0}
-          justifyContent="center"
-          alignItems="center"
+          $display={placementType === "inline" ? "inline-flex" : "flex"}
+          $direction={direction}
+          $gap={direction === "row" ? "1rem" : "0"}
+          $justify="center"
+          $align="center"
         >
           {renderProps.children}
           {message && <LoaderMessage>{message}</LoaderMessage>}

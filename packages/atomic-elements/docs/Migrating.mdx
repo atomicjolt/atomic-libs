@@ -47,6 +47,34 @@ but all collection item `key` props will need to be replaced with `id` props.
 </CustomSelect>
 ```
 
+### Flex Component
+
+The Flex component has recieved an updated set of props to match the other new Layout components.
+
+```tsx
+// Before
+<Flex
+    gap={20}
+    alignItems="center"
+    justifyContent="space-between"
+>
+    <Button>Button 1</Button>
+    <Button>Button 2</Button>
+</Flex>
+
+// After
+<Flex
+    $gap="20px"
+    $align="center"
+    $justfiy="space-between"
+>
+    <Button>Button 1</Button>
+    <Button>Button 2</Button>
+</Flex>
+```
+
+Reference  [Storybook](https://atomicjolt.github.io/atomic-libs/storybook/?path=/docs/layouts-flex--overview) for the full set of props
+
 ### Calendar Component
 
 The Calendar component now exposes a composition API for more flexibility.
@@ -54,9 +82,9 @@ The Calendar component now exposes a composition API for more flexibility.
 ```tsx
 <Calendar>
     <Flex
-        gap={20}
-        alignItems="center"
-        justifyContent="space-between"
+        $gap={20}
+        $align="center"
+        $justfiy="space-between"
       >
         <IconButton slot="previous-month" icon="chevron_left" variant="ghost" />
         <Calendar.Title />
