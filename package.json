@@ -1,7 +1,6 @@
 {
   "name": "atomic-packages",
   "private": true,
-  "type": "module",
   "workspaces": [
     "packages/atomic-elements",
     "packages/atomic-fuel",
@@ -16,7 +15,7 @@
     "prepare": "npm run storybook:cssprops",
     "playground": "vite --config playground/vite.config.ts dev",
     "storybook:dev": "storybook dev -p 6006 ",
-    "storybook:cssprops": "tsx bin/update-css-props.ts",
+    "storybook:cssprops": "tsx bin/update-css-props.mts",
     "storybook:build": "npm run storybook:cssprops && storybook build -o docs/build/storybook",
     "storybook:publish": "npm run storybook:build ${0} && gh-pages -d docs -m ${0}",
     "storybook:publish:next": "npm run storybook:build next && gh-pages -d docs/next -m next -e next",
@@ -31,10 +30,10 @@
   },
   "dependencies": {
     "@changesets/cli": "^2.27.10",
-    "@docusaurus/core": "^3.6.1",
-    "@docusaurus/plugin-content-docs": "^3.6.1",
-    "@docusaurus/preset-classic": "^3.6.1",
-    "@docusaurus/theme-classic": "^3.6.1",
+    "@docusaurus/core": "^3.7.0",
+    "@docusaurus/plugin-content-docs": "^3.7.0",
+    "@docusaurus/preset-classic": "^3.7.0",
+    "@docusaurus/theme-classic": "^3.7.0",
     "@ljcl/storybook-addon-cssprops": "^4.0.0",
     "@storybook/addon-actions": "^8.0.10",
     "@storybook/addon-docs": "^8.0.10",
