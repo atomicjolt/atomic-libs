@@ -7,6 +7,7 @@ export const HeadingWrapper = styled.h1<
   TypographyProps & MarginProps & ColorProps
 >`
   margin: 0;
+  color: var(--text-clr);
   ${typography}
   ${margins}
   ${colors}

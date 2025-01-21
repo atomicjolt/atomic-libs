@@ -9,7 +9,7 @@ export interface ColorProps {
 export function colors(props: ColorProps & { theme: DefaultTheme }) {
   const { $color, theme } = props;
 
-  if ($color && $color in theme.variables) {
+  if (theme?.variables && $color && $color in theme.variables) {
     return {
       color: theme.getVar($color),
     };

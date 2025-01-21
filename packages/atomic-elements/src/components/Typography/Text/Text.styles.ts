@@ -6,6 +6,7 @@ import { ColorProps, colors } from "@styles/colors";
 export const TextWrapper = styled.span<
   TypographyProps & MarginProps & ColorProps
 >`
+  color: var(--text-clr);
   ${typography}
   ${margins}
   ${colors}
