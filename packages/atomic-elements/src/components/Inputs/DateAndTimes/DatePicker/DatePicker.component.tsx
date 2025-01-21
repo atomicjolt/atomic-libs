@@ -14,7 +14,7 @@ import { Calendar } from "../Calendar";
 import { ErrorMessage, Label, Message } from "../../../Fields";
 import { OverlayTriggerStateContext } from "@components/Overlays/OverlayTrigger/context";
 import { useRenderProps } from "@hooks";
-import { Flex } from "@components/Layout/Flex/Flex";
+import { Flex } from "@components/Layout/Flex";
 import { filterDOMProps } from "@react-aria/utils";
 
 export interface DatePickerProps<T extends DateValue>
@@ -66,14 +66,14 @@ export function DatePicker<T extends DateValue>(props: DatePickerProps<T>) {
         <IconButton icon="today" variant="content" {...buttonProps} />
       </DatePickerComboInput>
 
-      {isInvalid && error && (
-        <ErrorMessage {...errorMessageProps}>{error}</ErrorMessage>
-      )}
+      <ErrorMessage {...errorMessageProps} isInvalid={isInvalid}>
+        {error}
+      </ErrorMessage>
 
       <OverlayTriggerStateContext.Provider value={state}>
         <Popover triggerRef={ref} placement="bottom start" variant="datepicker">
           <Calendar {...calendarProps} size={calendarSize}>
-            <Flex justifyContent="space-between" alignItems="center">
+            <Flex $justify="space-between" $align="center">
               <IconButton
                 icon="chevron_left"
                 variant="ghost"

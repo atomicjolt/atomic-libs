@@ -23,8 +23,12 @@ const formatEntryPoint = (format) => ({
     typescript({
       tsconfig: "./tsconfig.build.json",
       compilerOptions: {
+        baseUrl: "./",
         outDir: `dist/${format}`,
         declarationDir: `dist/${format}/types`,
+        plugins: [
+          { transform: "typescript-transform-paths", afterDeclarations: true },
+        ],
       },
     }),
   ],

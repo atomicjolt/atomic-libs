@@ -44,7 +44,7 @@ exports[`Button > matches snapshots > loading state 1`] = `
       data-placement="absolute center"
     >
       <div
-        class="sc-blHHSb kbTQCs aje-flex"
+        class="sc-blHHSb bOYlKO aje-flex"
       >
         <div
           class="sc-dntaoT khvDeC aje-spinner is-medium"

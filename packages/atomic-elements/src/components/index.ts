@@ -59,14 +59,22 @@ export { LoadingStatus } from "./Loaders/LoadingStatus";
 export { MaterialIcon } from "./Icons/MaterialIcon";
 export { MaterialSymbol } from "./Icons/MaterialSymbol";
 
-export { Table } from "./Layout/Table";
-export { Tabs } from "./Layout/Tabs";
-export { Card } from "./Layout/Card";
+export { View } from "./Layout/View";
 export { Group } from "./Layout/Group";
-export { Flex } from "./Layout/Flex/Flex";
-export { FlexItem } from "./Layout/Flex/FlexItem";
-export { Divider } from "./Layout/Divider";
-export { Disclosure, DisclosureGroup } from "./Layout/Disclosure";
+export { Flex } from "./Layout/Flex";
+export { FlexItem } from "./Layout/FlexItem";
+
+export { Text, type TextProps } from "./Typography/Text";
+export { Heading, type HeadingProps } from "./Typography/Heading";
+export { Strong, type StrongProps } from "./Typography/Strong";
+export { Em, type EmProps } from "./Typography/Em";
+export { Link, type LinkProps } from "./Typography/Link";
+
+export { Table } from "./Content/Table";
+export { Tabs } from "./Content/Tabs";
+export { Card } from "./Content/Card";
+export { Divider } from "./Content/Divider";
+export { Disclosure, DisclosureGroup } from "./Content/Disclosure";
 
 export { Item, Section } from "./Collection";
 
@@ -103,9 +111,6 @@ export { FormatTable } from "./Format/FormatTable";
 export { FormatDuration } from "./Format/FormatDuration";
 export { FormatOptional } from "./Format/FormatOptional";
 
-export { RouterProvider } from "@react-aria/utils";
-export { Link } from "./Routing/Link";
-
 export { DropZone } from "./DragAndDrop/DropZone";
 export { FileTrigger } from "./Buttons/FileTrigger";
 
@@ -121,6 +126,8 @@ export {
   useAnnouncer,
 } from "./Accessibility/LiveAnnouncer";
 export { LiveMessage } from "./Accessibility/LiveMessage";
+
+export { RouterProvider } from "@react-aria/utils";
 
 /* ---- Types ---- */
 export type { ElementsProviderProps, ElementsConfig } from "./ElementsProvider";
@@ -180,17 +187,18 @@ export type {
 export type { SelectFieldProps } from "./Fields/SelectField";
 export type { ComboBoxFieldProps } from "./Fields/ComboBoxField";
 export type { ChipGroupFieldProps } from "./Fields/ChipGroupField";
-export type { TableProps } from "./Layout/Table/Table.types";
-export type { TabsProps } from "./Layout/Tabs";
-export type { CardProps } from "./Layout/Card";
+export type { FlexProps } from "./Layout/Flex";
+export type { FlexItemProps } from "./Layout/FlexItem";
 export type { GroupProps } from "./Layout/Group";
-export type { DividerProps } from "./Layout/Divider";
-export type { FlexProps } from "./Layout/Flex/Flex";
-export type { FlexItemProps } from "./Layout/Flex/FlexItem";
+export type { ViewProps } from "./Layout/View";
+export type { TableProps } from "./Content/Table/Table.types";
+export type { TabsProps } from "./Content/Tabs";
+export type { CardProps } from "./Content/Card";
+export type { DividerProps } from "./Content/Divider";
 export type {
   DisclosureProps,
   DisclosureGroupProps,
-} from "./Layout/Disclosure";
+} from "./Content/Disclosure";
 export type { ChipGroupProps } from "./Chips/ChipGroup";
 export type { ChipProps } from "./Chips/Chip";
 export type { FormatterProps } from "./Format/Format.types";
@@ -199,7 +207,6 @@ export type { FormatDateProps } from "./Format/FormatDate";
 export type { FormatNumberProps } from "./Format/FormatNumber";
 export type { FormatTableProps } from "./Format/FormatTable";
 export type { FormatDurationProps } from "./Format/FormatDuration";
-export type { LinkProps } from "./Routing/Link";
 export type { DropZoneProps } from "./DragAndDrop/DropZone";
 export type { FileTriggerProps } from "./Buttons/FileTrigger";
 export type { PaginationProps } from "./Pagination/Pagination";
