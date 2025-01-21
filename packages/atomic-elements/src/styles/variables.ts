@@ -1,5 +1,5 @@
 // prettier-ignore
-const border = {
+export const border = {
   "border-width": "1px",
   "border-style": "solid",
   "border-clr-primary": "{neutral300}",
@@ -9,9 +9,9 @@ const border = {
   "outline-style": "solid",
   "outline-clr-primary": "{neutral600}",
   "outline": "{outline-width} {outline-style} {outline-clr-primary}",
-}
+};
 
-const font = {
+export const font = {
   "font-family": '"Lato", sans-serif',
   "font-weight-light": "200",
   "font-weight-regular": "400",
@@ -19,7 +19,7 @@ const font = {
   "font-weight-bold": "700",
 };
 
-const fontSize = {
+export const fontSize = {
   "font-size-1": "12px",
   "font-size-2": "14px",
   "font-size-3": "16px",
@@ -31,7 +31,7 @@ const fontSize = {
   "font-size-9": "60px",
 };
 
-const letterSpacing = {
+export const letterSpacing = {
   "letter-spacing-1": ".0025em",
   "letter-spacing-2": "0em",
   "letter-spacing-3": "0em",
@@ -43,7 +43,7 @@ const letterSpacing = {
   "letter-spacing-9": "-.025em",
 };
 
-const lineHeight = {
+export const lineHeight = {
   "line-height-1": "16px",
   "line-height-2": "20px",
   "line-height-3": "24px",
@@ -128,7 +128,7 @@ export const colors = {
   "info-clr-alt": "{primary200}",
 };
 
-const spacing = {
+export const spacing = {
   "space-0": "0",
   "space-1": "4px",
   "space-2": "8px",
@@ -141,7 +141,7 @@ const spacing = {
   "space-9": "64px",
 };
 
-const sizes = {
+export const sizes = {
   "size-sm-x": "100px",
   "size-md-x": "200px",
   "size-lg-x": "300px",
@@ -152,7 +152,7 @@ const sizes = {
   "size-full-y": "100%",
 };
 
-const input = {
+export const input = {
   "input-border-clr": "{border-clr-primary}",
   "input-border-width": "{border-width}",
   "input-border-style": "{border-style}",
@@ -170,7 +170,7 @@ const input = {
   "input-transition": "none",
 };
 
-const button = {
+export const button = {
   "btn-font-size": "1.6rem",
   "btn-icon-size": "2.4rem",
   "btn-icon-gap": "8px",
@@ -187,7 +187,7 @@ const button = {
   "btn-pressed-transform": "translateY(1px)",
 };
 
-const banner = {
+export const banner = {
   "banner-bg-clr": "{neutral100}",
   "banner-text-clr": "{text-clr}",
   "banner-icon-clr": "{primary700}",
@@ -197,7 +197,7 @@ const banner = {
   "banner-border-radius": "{radius}",
 };
 
-const dropdown = {
+export const dropdown = {
   "dropdown-bg-clr": "{background-clr}",
   "dropdown-max-height": "300px",
   "dropdown-text-clr": "{text-clr}",
@@ -208,7 +208,7 @@ const dropdown = {
   "dropdown-border-radius": "{radius}",
 };
 
-const menu = {
+export const menu = {
   "menu-bg-clr": "{dropdown-bg-clr}",
   "menu-box-shadow": "{dropdown-box-shadow}",
   "menu-border-radius": "{dropdown-border-radius}",
@@ -219,7 +219,7 @@ const menu = {
   "menu-padding-top": "calc({menu-item-height} / 8)",
 };
 
-const listbox = {
+export const listbox = {
   "listbox-bg-clr": "{dropdown-bg-clr}",
   "listbox-selected-clr": "{text-clr-inverted}",
   "listbox-box-shadow": "{dropdown-box-shadow}",
@@ -230,13 +230,13 @@ const listbox = {
   "listbox-border-radius": "{dropdown-border-radius}",
 };
 
-const textarea = {
+export const textarea = {
   "textarea-height-sm": "80px",
   "textarea-height-md": "140px",
   "textarea-height-lg": "200px",
 };
 
-const toggle = {
+export const toggle = {
   "toggle-unchecked": "{neutral400}",
   "toggle-checked": "{primary700}",
   "toggle-error": "{error600}",
@@ -244,19 +244,19 @@ const toggle = {
   "toggle-travel": "calc({toggle-size} * 0.666)",
 };
 
-const loader = {
+export const loader = {
   "loader-clr": "{neutral500}",
   "loader-size": "16px",
 };
 
-const skeleton = {
+export const skeleton = {
   "skeleton-bg-clr": "{neutral200}",
   "skeleton-fg-clr": "{neutral100}",
   "skeleton-bg-opacity": "1",
   "skeleton-fg-opacity": "1",
 };
 
-const table = {
+export const table = {
   "table-border-clr": "{neutral300}",
   "table-border-width": "1px",
   "table-bg-clr": "{neutral50}",
@@ -272,7 +272,7 @@ const table = {
   "table-cell-height": "48px",
 };
 
-const tab = {
+export const tab = {
   "tab-border-width": "1px",
   "tab-border-clr": "transparent",
   "tab-padding-hori": "16px",
@@ -282,18 +282,18 @@ const tab = {
   "tab-bg-clr": "{neutral50}",
 };
 
-const iconSizes = {
+export const iconSizes = {
   "icon-size-sm": "18px",
   "icon-size-md": "24px",
   "icon-size-lg": "36px",
 };
 
-const popover = {
+export const popover = {
   "popover-animation": "transform 200ms ease, opacity 200ms",
   "popover-distance": "5px",
 };
 
-const checkbox = {
+export const checkbox = {
   "checkbox-border-radius": "{radius}",
   "checkbox-checked": "{accent-clr}",
   "checkbox-border-clr": "{neutral600}",
@@ -307,7 +307,7 @@ const checkbox = {
   "checkbox-label-height": "24px",
 };
 
-const radio = {
+export const radio = {
   "radio-border-radius": "50%",
   "radio-checked": "{accent-clr}",
   "radio-border-clr": "{neutral600}",
@@ -321,19 +321,19 @@ const radio = {
   "radio-label-height": "24px",
 };
 
-const time = {
+export const time = {
   "time-clr": "{neutral200}",
   "time-selected-back-clr": "{primary600}",
   "time-selected-text-clr": "{neutral100}",
 };
 
-const calendar = {
+export const calendar = {
   "calendar-clr": "{neutral200}",
   "calendar-selected-bg-clr": "{accent-clr}",
   "calendar-selected-text-clr": "{neutral100}",
 };
 
-const card = {
+export const card = {
   "card-bg-clr": "{background-clr-alt}",
   "card-text-clr": "{text-clr}",
   "card-radius": "{radius}",
@@ -346,7 +346,7 @@ const card = {
   "card-divider-margin": "10px",
 };
 
-const tooltip = {
+export const tooltip = {
   "tooltip-bg-clr": "{background-clr-inverted}",
   "tooltip-text-clr": "{text-clr-inverted}",
   "tooltip-radius": "{radius}",
@@ -357,7 +357,7 @@ const tooltip = {
   "tooltip-font-weight": "normal",
 };
 
-const chip = {
+export const chip = {
   "chip-bg-clr": "{neutral100}",
   "chip-text-clr": "{text-clr-alt}",
   "chip-radius": "{radius}",
@@ -370,14 +370,14 @@ const chip = {
   "chip-border": "1px solid {chip-border-clr}",
 };
 
-const divider = {
+export const divider = {
   "divider-bg-clr": "{neutral300}",
   "divider-width": "1px",
   "divider-margin-main": "5px",
   "divider-margin-secondary": "0px",
 };
 
-const link = {
+export const link = {
   "link-text-clr": "{accent-clr}",
   "link-bg-clr": "{neutral50}",
   "link-hover-text-clr": "{accent-clr-alt}",
@@ -385,7 +385,7 @@ const link = {
   "link-text-decoration": "underline",
 };
 
-const animation = {
+export const animation = {
   "animation-clr": "{neutral500}",
 };
 
