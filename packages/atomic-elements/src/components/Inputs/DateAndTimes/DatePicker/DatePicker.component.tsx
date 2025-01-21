@@ -66,9 +66,9 @@ export function DatePicker<T extends DateValue>(props: DatePickerProps<T>) {
         <IconButton icon="today" variant="content" {...buttonProps} />
       </DatePickerComboInput>
 
-      {isInvalid && error && (
-        <ErrorMessage {...errorMessageProps}>{error}</ErrorMessage>
-      )}
+      <ErrorMessage {...errorMessageProps} isInvalid={isInvalid}>
+        {error}
+      </ErrorMessage>
 
       <OverlayTriggerStateContext.Provider value={state}>
         <Popover triggerRef={ref} placement="bottom start" variant="datepicker">
