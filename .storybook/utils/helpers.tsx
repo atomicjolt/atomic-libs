@@ -701,6 +701,14 @@ export const TypographyArgTypes: ArgTypes = {
   },
 };
 
+export const ColorArgTypes: ArgTypes = {
+  $color: {
+    control: "color",
+    description:
+      "Text Color. Can be either a color from the theme or a valid CSS color value.",
+  },
+};
+
 export function DecorativeBox() {
   return (
     <View

@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { Text } from ".";
 import {
+  ColorArgTypes,
   MarginArgTypes,
   RenderPropsArgTypes,
   TypographyArgTypes,
@@ -14,6 +15,7 @@ export default {
     ...MarginArgTypes,
     ...RenderPropsArgTypes,
     ...TypographyArgTypes,
+    ...ColorArgTypes,
   },
 } as Meta<typeof Text>;
 

@@ -55,7 +55,7 @@ const lineHeight = {
   "line-height-9": "60px",
 };
 
-const colors = {
+export const colors = {
   neutral50: "hsl(0, 0%, 100%)",
   neutral100: "hsl(220, 14%, 96%)",
   neutral200: "hsl(220, 13%, 91%)",

@@ -6,12 +6,14 @@ import { TypographyProps } from "../../../styles/typography";
 import { TextContext } from "./Text.context";
 import { TextWrapper } from "./Text.styles";
 import { MarginProps } from "@styles/layout";
+import { ColorProps } from "@styles/colors";
 
 export interface TextProps
   extends RenderBaseProps<never>,
     ElementWrapper<HTMLSpanElement>,
     TypographyProps,
-    MarginProps {
+    MarginProps,
+    ColorProps {
   as?: "div" | "span" | "p" | "label";
 }
 
@@ -26,7 +28,7 @@ export const Text = forwardRef<
     style,
     children,
     $size = "3",
-    $weight = "bold",
+    $color = "text-clr",
     ...rest
   } = props;
 
@@ -38,7 +40,13 @@ export const Text = forwardRef<
   });
 
   return (
-    <TextWrapper ref={ref} $size={$size} {...renderProps} {...rest}>
+    <TextWrapper
+      ref={ref}
+      $size={$size}
+      $color={$color}
+      {...renderProps}
+      {...rest}
+    >
       {renderProps.children}
     </TextWrapper>
   );
