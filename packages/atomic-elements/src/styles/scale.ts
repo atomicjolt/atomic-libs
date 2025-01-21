@@ -21,6 +21,6 @@ export const ScaleSteps: NumericScaleValue[] = [
   "9",
 ];
 
-export function inScale(value: string): value is NumericScaleValue {
+export function inScale(value?: string | null): value is NumericScaleValue {
   return ScaleSteps.includes(value as NumericScaleValue);
 }

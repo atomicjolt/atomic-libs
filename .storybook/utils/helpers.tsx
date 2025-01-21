@@ -4,6 +4,7 @@ import { PressEvents } from "@react-aria/interactions";
 import { OverlayTriggerProps } from "react-stately";
 import { Item, View } from "../../packages/atomic-elements/src/components";
 import { SpacingSteps } from "../../packages/atomic-elements/src/styles/spacing";
+import { ScaleSteps } from "../../packages/atomic-elements/src/styles/scale";
 
 export const FieldStateControls: ArgTypes = {
   isDisabled: {
@@ -658,6 +659,46 @@ export const LayoutArgTypes: ArgTypes = {
   ...OverflowArgTypes,
   ...FlexItemArgTypes,
   ...GridItemArgTypes,
+};
+
+export const TypographyArgTypes: ArgTypes = {
+  $size: {
+    control: "select",
+    options: ScaleSteps,
+    description:
+      "Controls the size of the text. Can either be a scale step or a valid CSS value.",
+  },
+  $align: {
+    control: "select",
+    options: ["left", "center", "right", "justify"],
+  },
+  $letterSpacing: {
+    control: "select",
+    options: ScaleSteps,
+    description:
+      "Controls the space between characters. Can either be a scale step or a valid CSS value. When not set, the value is set by the $size prop.",
+  },
+  $lineHeight: {
+    control: "select",
+    options: ScaleSteps,
+    description:
+      "Controls the space between lines. Can either be a scale step or a valid CSS value. When not set, the value is set by the $size prop.",
+  },
+  $weight: {
+    control: "select",
+    options: ["light", "regular", "medium", "bold"],
+    description: "Controls the weight of the text.",
+  },
+  $truncate: {
+    control: "boolean",
+    description:
+      "Truncates the text with an ellipsis when it overflows its container ",
+  },
+  $wrap: {
+    control: "select",
+    options: ["nowrap", "pretty", "balanced"],
+    description: "Controls the wrapping of the text.",
+  },
 };
 
 export function DecorativeBox() {

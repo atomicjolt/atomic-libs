@@ -19,6 +19,42 @@ const font = {
   "font-weight-bold": "700",
 };
 
+const fontSize = {
+  "font-size-1": "12px",
+  "font-size-2": "14px",
+  "font-size-3": "16px",
+  "font-size-4": "18px",
+  "font-size-5": "20px",
+  "font-size-6": "24px",
+  "font-size-7": "28px",
+  "font-size-8": "35px",
+  "font-size-9": "60px",
+};
+
+const letterSpacing = {
+  "letter-spacing-1": ".0025em",
+  "letter-spacing-2": "0em",
+  "letter-spacing-3": "0em",
+  "letter-spacing-4": "-.0025em",
+  "letter-spacing-5": "-.005em",
+  "letter-spacing-6": "-.00625em",
+  "letter-spacing-7": "-.0075em",
+  "letter-spacing-8": "-.01em",
+  "letter-spacing-9": "-.025em",
+};
+
+const lineHeight = {
+  "line-height-1": "16px",
+  "line-height-2": "20px",
+  "line-height-3": "24px",
+  "line-height-4": "26px",
+  "line-height-5": "28px",
+  "line-height-6": "30px",
+  "line-height-7": "36px",
+  "line-height-8": "40px",
+  "line-height-9": "60px",
+};
+
 const colors = {
   neutral50: "hsl(0, 0%, 100%)",
   neutral100: "hsl(220, 14%, 96%)",
@@ -356,6 +392,9 @@ const animation = {
 export const variables = {
   ...border,
   ...font,
+  ...fontSize,
+  ...letterSpacing,
+  ...lineHeight,
   ...colors,
   ...sizes,
   ...spacing,
@@ -384,3 +423,5 @@ export const variables = {
   ...link,
   ...animation,
 } as const;
+
+export type Color = keyof typeof colors;

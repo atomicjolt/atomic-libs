@@ -64,6 +64,8 @@ export { Group } from "./Layout/Group";
 export { Flex } from "./Layout/Flex";
 export { FlexItem } from "./Layout/FlexItem";
 
+export { Text, type TextProps } from "./Typography/Text";
+
 export { Table } from "./Content/Table";
 export { Tabs } from "./Content/Tabs";
 export { Card } from "./Content/Card";

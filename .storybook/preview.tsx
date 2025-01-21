@@ -37,6 +37,7 @@ const preview: Preview = {
       storySort: {
         order: [
           "Layouts",
+          "Typography",
           "Content",
           "Inputs",
           "Buttons",
