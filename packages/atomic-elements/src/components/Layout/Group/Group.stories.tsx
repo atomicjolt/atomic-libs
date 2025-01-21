@@ -1,14 +1,20 @@
-import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import { Group } from ".";
 import { Button } from "../../Buttons/Button";
 import { TextInput } from "../../Inputs/TextInput";
+import { FlexArgTypes, LayoutArgTypes, RenderPropsArgTypes } from "@sb/helpers";
 
 export default {
   title: "Layouts/Group",
   component: Group,
   parameters: {
     layout: "centered",
+  },
+
+  argTypes: {
+    ...RenderPropsArgTypes,
+    ...LayoutArgTypes,
+    ...FlexArgTypes,
   },
 } as Meta<typeof Group>;
 

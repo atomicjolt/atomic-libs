@@ -3,10 +3,10 @@ import { Flex } from ".";
 import { View } from "@components/Layout/View";
 import {
   DecorativeBox,
+  FlexArgTypes,
   LayoutArgTypes,
   RenderPropsArgTypes,
 } from "@sb/helpers";
-import { SpacingSteps } from "@styles/spacing";
 
 export default {
   title: "Layouts/Flex",
@@ -14,45 +14,7 @@ export default {
   argTypes: {
     ...RenderPropsArgTypes,
     ...LayoutArgTypes,
-    $display: {
-      control: "select",
-      options: ["flex", "inline-flex", "none"],
-    },
-    $direction: {
-      control: "select",
-      options: ["row", "column", "row-reverse", "column-reverse"],
-    },
-    $wrap: {
-      control: "select",
-      options: ["nowrap", "wrap", "wrap-reverse"],
-    },
-    $justify: {
-      control: "select",
-      options: [
-        "start",
-        "end",
-        "center",
-        "space-between",
-        "space-around",
-        "space-evenly",
-      ],
-    },
-    $align: {
-      control: "select",
-      options: ["stretch", "start", "end", "center", "baseline"],
-    },
-    $gap: {
-      control: "select",
-      options: SpacingSteps,
-    },
-    $gapX: {
-      control: "select",
-      options: SpacingSteps,
-    },
-    $gapY: {
-      control: "select",
-      options: SpacingSteps,
-    },
+    ...FlexArgTypes,
   },
 } as Meta<typeof Flex>;
 

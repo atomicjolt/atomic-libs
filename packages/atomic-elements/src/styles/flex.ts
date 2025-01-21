@@ -30,6 +30,8 @@ export function flex(props: FlexStyleProps) {
     $gapY,
   } = props;
 
+  console.log($direction);
+
   return {
     display: $display,
     flexDirection: $direction,

@@ -580,21 +580,21 @@ export const FlexItemArgTypes: ArgTypes = {
     control: "text",
     description: "Flex Grow",
     table: {
-      category: "Flex",
+      category: "Flex Item",
     },
   },
   $flexShrink: {
     control: "text",
     description: "Flex Shrink",
     table: {
-      category: "Flex",
+      category: "Flex Item",
     },
   },
   $flexBasis: {
     control: "text",
     description: "Flex Basis",
     table: {
-      category: "Flex",
+      category: "Flex Item",
     },
   },
   $flexAlgin: {
@@ -602,7 +602,7 @@ export const FlexItemArgTypes: ArgTypes = {
     options: ["auto", "start", "end", "center", "baseline", "stretch"],
     description: "Align Self",
     table: {
-      category: "Flex",
+      category: "Flex Item",
     },
   },
 };
@@ -711,6 +711,48 @@ export const ColorArgTypes: ArgTypes = {
     control: "color",
     description:
       "Text Color. Can be either a color from the theme or a valid CSS color value.",
+  },
+};
+
+export const FlexArgTypes: ArgTypes = {
+  $display: {
+    control: "select",
+    options: ["flex", "inline-flex", "none"],
+  },
+  $direction: {
+    control: "select",
+    options: ["row", "column", "row-reverse", "column-reverse"],
+  },
+  $wrap: {
+    control: "select",
+    options: ["nowrap", "wrap", "wrap-reverse"],
+  },
+  $justify: {
+    control: "select",
+    options: [
+      "start",
+      "end",
+      "center",
+      "space-between",
+      "space-around",
+      "space-evenly",
+    ],
+  },
+  $align: {
+    control: "select",
+    options: ["stretch", "start", "end", "center", "baseline"],
+  },
+  $gap: {
+    control: "select",
+    options: SpacingSteps,
+  },
+  $gapX: {
+    control: "select",
+    options: SpacingSteps,
+  },
+  $gapY: {
+    control: "select",
+    options: SpacingSteps,
   },
 };
 
