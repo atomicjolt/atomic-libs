@@ -85,14 +85,17 @@
     "react-dom": "^18.0.0",
     "react-highlight": "^0.14.0",
     "rollup": "^3.29.5",
-    "typescript": "^5.4.5"
+    "ts-patch": "^3.3.0",
+    "typescript": "^5.4.5",
+    "typescript-transform-paths": "^3.5.3"
   },
   "scripts": {
     "build": "rm -rf dist && rollup --config rollup.config.js && rm -rf dist/cjs/types && mv dist/esm/types dist/types",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:ui": "vitest --ui",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "prepare": "ts-patch install -s"
   },
   "stableVersion": "1.0.1"
 }

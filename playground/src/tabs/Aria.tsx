@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Flex } from "../elements";
+import { View, Text, Flex } from "@atomicjolt/atomic-elements";
 
 export default function Aria() {
   return (
