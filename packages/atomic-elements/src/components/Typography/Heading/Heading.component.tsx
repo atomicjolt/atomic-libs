@@ -23,14 +23,7 @@ export const Heading = forwardRef<HTMLHeadingElement, HeadingProps>(
   function Heading(props, ref) {
     [props, ref] = useContextProps(HeadingContext, props, ref);
 
-    const {
-      className,
-      style,
-      children,
-      $size = "6",
-      $color = "text-clr",
-      ...rest
-    } = props;
+    const { className, style, children, ...rest } = props;
 
     const renderProps = useRenderProps({
       componentClassName: "aje-heading",
@@ -40,13 +33,7 @@ export const Heading = forwardRef<HTMLHeadingElement, HeadingProps>(
     });
 
     return (
-      <HeadingWrapper
-        ref={ref}
-        $size={$size}
-        $color={$color}
-        {...renderProps}
-        {...rest}
-      >
+      <HeadingWrapper ref={ref} {...renderProps} {...rest}>
         {renderProps.children}
       </HeadingWrapper>
     );

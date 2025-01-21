@@ -9,10 +9,11 @@ export interface TypographyProps {
   $align?: "left" | "center" | "right" | "justify";
   $wrap?: "nowrap" | "pretty" | "balanced";
   $truncate?: boolean;
+  $decoration?: SuggestStrings<"none" | "underline">;
 }
 
 export function typography(props: TypographyProps) {
-  const { $weight, $align, $wrap, $truncate } = props;
+  const { $weight, $align, $wrap, $truncate, $decoration } = props;
 
   return {
     ...resolveSize(props),
@@ -22,8 +23,12 @@ export function typography(props: TypographyProps) {
     whiteSpace: $truncate ? "nowrap" : $wrap,
     textOverflow: $truncate ? "ellipsis" : undefined,
     overflow: $truncate ? "hidden" : undefined,
+    textDecoration: $decoration,
   };
 }
+
+typography.defaults = (defaults: TypographyProps) => (props: TypographyProps) =>
+  typography({ ...defaults, ...props });
 
 function resolveSize(props: TypographyProps) {
   const { $size, $letterSpacing, $lineHeight } = props;

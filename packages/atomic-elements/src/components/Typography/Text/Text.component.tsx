@@ -23,14 +23,7 @@ export const Text = forwardRef<
 >(function Text(props, ref) {
   [props, ref] = useContextProps(TextContext, props, ref);
 
-  const {
-    className,
-    style,
-    children,
-    $size = "3",
-    $color = "text-clr",
-    ...rest
-  } = props;
+  const { className, style, children, ...rest } = props;
 
   const renderProps = useRenderProps({
     componentClassName: "aje-text",
@@ -40,13 +33,7 @@ export const Text = forwardRef<
   });
 
   return (
-    <TextWrapper
-      ref={ref}
-      $size={$size}
-      $color={$color}
-      {...renderProps}
-      {...rest}
-    >
+    <TextWrapper ref={ref} {...renderProps} {...rest}>
       {renderProps.children}
     </TextWrapper>
   );

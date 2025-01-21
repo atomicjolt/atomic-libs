@@ -19,3 +19,7 @@ export function colors(props: ColorProps & { theme: DefaultTheme }) {
     color: $color,
   };
 }
+
+colors.defaults =
+  (defaults: ColorProps) => (props: ColorProps & { theme: DefaultTheme }) =>
+    colors({ ...defaults, ...props });

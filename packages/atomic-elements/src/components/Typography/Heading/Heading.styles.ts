@@ -8,7 +8,7 @@ export const HeadingWrapper = styled.h1<
 >`
   margin: 0;
   color: var(--text-clr);
-  ${typography}
+  ${typography.defaults({ $size: "6" })}
   ${margins}
   ${colors}
 `;
