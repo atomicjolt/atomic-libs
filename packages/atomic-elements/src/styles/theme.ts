@@ -15,6 +15,9 @@ export interface Theme {
   variables: Record<string, string>;
   resolvedVariables: Record<string, string>;
   cssVarPrefix: string;
+  getVar: (name: string) => string;
+  getVarName: (name: string) => string;
+  getVarValue: (name: string) => string;
   _Component: React.ComponentType;
 }
 
@@ -73,6 +76,9 @@ export function createTheme(props: CreateThemeProps): Theme {
     variables: allVariables,
     resolvedVariables: resolved,
     cssVarPrefix,
+    getVar: (name) => `var(--${cssVarPrefix}${name})`,
+    getVarName: (name) => `--${cssVarPrefix}${name}`,
+    getVarValue: (name) => resolved[`--${cssVarPrefix}${name}`],
     _Component: component,
   };
 }
