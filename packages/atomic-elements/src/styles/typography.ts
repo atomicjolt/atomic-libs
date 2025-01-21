@@ -26,7 +26,7 @@ export function typography(props: TypographyProps) {
 }
 
 function resolveSize(props: TypographyProps) {
-  const { $size = "3", $letterSpacing, $lineHeight } = props;
+  const { $size, $letterSpacing, $lineHeight } = props;
 
   const styles: Record<string, string> = {};
 
