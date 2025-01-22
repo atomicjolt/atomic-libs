@@ -75,6 +75,7 @@ export { Tabs } from "./Content/Tabs";
 export { Card } from "./Content/Card";
 export { Divider } from "./Content/Divider";
 export { Disclosure, DisclosureGroup } from "./Content/Disclosure";
+export { List, type ListProps, type ListItemProps } from "./Content/List";
 
 export { Item, Section } from "./Collection";
 

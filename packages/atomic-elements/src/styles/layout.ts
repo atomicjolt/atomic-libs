@@ -1,6 +1,7 @@
 import { Spacing, getSpacing } from "@styles/spacing";
 import { SuggestStrings } from "../types/common";
 import { flexAlignMap } from "./flex";
+import { makeDefault } from "./utils";
 
 export interface DisplayProps {
   $display?: "block" | "inline" | "inline-block" | "none";
@@ -116,6 +117,8 @@ export function margins(props: MarginProps) {
   return margin;
 }
 
+margins.defaults = makeDefault(margins);
+
 export function padding(props: PaddingProps) {
   const { $p, $px, $py, $pt, $pr, $pb, $pl } = props;
 
@@ -129,6 +132,8 @@ export function padding(props: PaddingProps) {
 
   return padding;
 }
+
+padding.defaults = makeDefault(padding);
 
 export function spacing(props: SpacingProps) {
   return {

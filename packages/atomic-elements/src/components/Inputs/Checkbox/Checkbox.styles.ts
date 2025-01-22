@@ -28,7 +28,7 @@ export const CheckBoxLabel = styled.span<DirectionProps>`
     height: var(--checkbox-size);
     box-sizing: border-box;
     background-color: var(--checkbox-bg-clr);
-    ${mixins.Border("checkbox", "solid")}
+    ${mixins.Border("checkbox")}
     ${direction({ ltr: "left: 2px", rtl: "right: 2px" })}
   }
 
