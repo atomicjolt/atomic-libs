@@ -7,13 +7,39 @@ exports[`List > Snapshots > should match snapshot 1`] = `
     <div>
       <ul
         class="sc-blHHSb hgGTYX aje-list"
-      />
+      >
+        <li
+          class="sc-gtLWhw MvHHk aje-list__item"
+          data-divider="true"
+        >
+          Item 1
+        </li>
+        <li
+          class="sc-gtLWhw MvHHk aje-list__item"
+          data-divider="true"
+        >
+          Item 2
+        </li>
+      </ul>
     </div>
   </body>,
   "container": <div>
     <ul
       class="sc-blHHSb hgGTYX aje-list"
-    />
+    >
+      <li
+        class="sc-gtLWhw MvHHk aje-list__item"
+        data-divider="true"
+      >
+        Item 1
+      </li>
+      <li
+        class="sc-gtLWhw MvHHk aje-list__item"
+        data-divider="true"
+      >
+        Item 2
+      </li>
+    </ul>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
