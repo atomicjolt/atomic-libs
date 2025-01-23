@@ -94,6 +94,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:ui": "vitest --ui",
+    "test:update": "vitest run -u",
     "prepublishOnly": "npm run build",
     "prepare": "ts-patch install -s"
   },

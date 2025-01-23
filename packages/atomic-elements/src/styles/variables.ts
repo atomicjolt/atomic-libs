@@ -389,6 +389,18 @@ export const animation = {
   "animation-clr": "{neutral500}",
 };
 
+export const list = {
+  "list-bg-clr": "transparent",
+  "list-border-clr": "{border-clr-primary}",
+  "list-border-width": "{border-width}",
+  "list-border-style": "{border-style}",
+  "list-border-radius": "{radius}",
+  "list-item-padding": "{space-4}",
+  "list-divider-border-clr": "{list-border-clr}",
+  "list-divider-border-width": "{list-border-width}",
+  "list-divider-border-style": "{list-border-style}",
+};
+
 export const variables = {
   ...border,
   ...font,
@@ -422,6 +434,7 @@ export const variables = {
   ...divider,
   ...link,
   ...animation,
+  ...list,
 } as const;
 
 export type Color = keyof typeof colors;

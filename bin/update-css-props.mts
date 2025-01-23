@@ -34,12 +34,20 @@ function getCssProps() {
 
       cssProps[groupName][name] = {
         value: cssVarValue,
+        control: guessControlType(name, cssVarValue),
         category: groupName,
       };
     });
   });
 
   return cssProps;
+}
+
+function guessControlType(name: string, value: string) {
+  if (name.includes("color") || name.includes("clr")) {
+    return "color";
+  }
+  return "text";
 }
 
 main();

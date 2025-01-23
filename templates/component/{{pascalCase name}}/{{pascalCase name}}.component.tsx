@@ -15,7 +15,7 @@ export const {{ pascalCase name }} = forwardRef<HTMLElement, {{ pascalCase name 
     ...props
   });
 
-  return <{{ pascalCase name }}Wrapper {...renderProps}>{{ pascalCase name }}</{{ pascalCase name }}Wrapper>;
+  return <{{ pascalCase name }}Wrapper ref={ref} {...renderProps}>{{ pascalCase name }}</{{ pascalCase name }}Wrapper>;
 });
 
 {{ pascalCase name }}.displayName = "{{ pascalCase name }}";

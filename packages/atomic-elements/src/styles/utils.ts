@@ -17,3 +17,9 @@ export function direction({ ltr, rtl }: RtlProps) {
     return $rtl ? rtl : ltr;
   };
 }
+
+export function makeDefault<T, R>(func: (props: T) => R) {
+  return (defaults: T) => (props: T) => {
+    return func({ ...defaults, ...props });
+  };
+}
