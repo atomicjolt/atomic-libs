@@ -704,6 +704,19 @@ export const TypographyArgTypes: ArgTypes = {
     options: ["none", "underline"],
     description: "Controls the text decoration.",
   },
+  $transform: {
+    control: "select",
+    options: [
+      "uppercase",
+      "lowercase",
+      "capitalize",
+      "none",
+      "full-width",
+      "full-size-kana",
+      "math-auto",
+    ],
+    description: "Controls the text transformation.",
+  },
 };
 
 export const ColorArgTypes: ArgTypes = {
