@@ -2,6 +2,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import { IconButton } from ".";
 import buttonMeta from "../Button/Button.stories";
 import { getCssProps } from "@sb/cssprops";
+import { MaterialSymbol } from "@components/Icons/MaterialSymbol";
 
 const meta: Meta<typeof IconButton> = {
   title: "Buttons/IconButton",
@@ -21,19 +22,17 @@ type Story = StoryObj<typeof IconButton>;
 
 export const Primary: Story = {
   args: {
+    children: <MaterialSymbol symbol="more_vert" />,
     isDisabled: false,
-    icon: "more_vert",
     "aria-label": "More options",
     isLoading: false,
-    iconVariant: "default",
     variant: "border",
   },
 };
 
-export const isLoading: Story = {
+export const IsLoading: Story = {
   args: {
-    icon: "more_vert",
-    "aria-label": "More options",
+    ...Primary.args,
     isLoading: true,
     loadingLabel: "Loading...",
     loadingComplete: false,
