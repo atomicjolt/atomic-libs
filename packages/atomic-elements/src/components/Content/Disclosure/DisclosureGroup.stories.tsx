@@ -39,7 +39,7 @@ export const Primary: Story = {
     allowsMultipleExpanded: false,
     onExpandedChange: fn(),
     children: [
-      <Flex key="flex" direction="column" gap="10px">
+      <Flex key="flex" $direction="column" $gap="10px">
         <Disclosure key="d1" id="d1">
           <Disclosure.Trigger>First Disclosure</Disclosure.Trigger>
           <Disclosure.Panel>
