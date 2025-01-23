@@ -34,6 +34,7 @@
   background-color: rgb(247, 247, 247);
   padding: 20px;
   border-bottom: 2px solid #646363;
+  overflow-x: auto;
 }
 
 .example__code * {

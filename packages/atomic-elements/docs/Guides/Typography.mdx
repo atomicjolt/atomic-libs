@@ -1,5 +1,6 @@
 import { Example } from '../components/Example';
-import { Heading, Text, ElementsProvider } from '@atomicjolt/atomic-elements';
+import { TypographyScaleTable } from '../components/TypographyScaleTable';
+import { Heading, Text, Em, Strong, Flex, ElementsProvider } from '@atomicjolt/atomic-elements';
 
 <ElementsProvider />
 
@@ -17,25 +18,71 @@ The two base components are `Text` and `Heading`.
 These component share props for `size`, `weight`,
 `color`, `align`, and `transform`.
 
-
-```tsx
-import { Text, Heading } from '@atomicjolt/atomic-elements';
-
-<Heading as="h2">Heading component</Heading>
-<Text>Text component</Text>
-```
 <Example>
-    <Example.Rendered>
-        <Heading as="h2">Heading component</Heading>
-        <Text>Text component</Text>
-    </Example.Rendered>
-    <Example.Code>
-        ```tsx
-        import { Text, Heading } from '@atomicjolt/atomic-elements';
-
-        <Heading as="h2">Heading component</Heading>
-        <Text>Text component</Text>
-        ```
-    </Example.Code>
+  <Example.Rendered>
+    <Heading as="h2">Heading component</Heading>
+    <Text>Text component</Text>
+  </Example.Rendered>
+  <Example.Code>
+    ```tsx
+    <Heading as="h2">Heading component</Heading>
+    <Text>Text component</Text>
+    ```
+  </Example.Code>
 </Example>
 
+### Formatting Components
+
+There are also some formatting components that can be used to format text in a specific way.
+
+
+<Example>
+  <Example.Rendered>
+    <Text as="div">This text is in <Em>italics</Em></Text>
+    <Text>This text is in <Strong>bold</Strong></Text>
+  </Example.Rendered>
+  <Example.Code>
+    ```tsx
+    <Text as="div">This text is in <Em>italics</Em></Text>
+    <Text>This text is in <Strong>bold</Strong></Text>
+    ```
+  </Example.Code>
+</Example>
+
+
+### Typographic Scale
+
+The system is based on a 9-step `$size` scale. Each size step configures a line height, font size, and letter spacing.
+
+<TypographyScaleTable />
+
+<Example>
+  <Example.Rendered>
+    <Flex $direction="column" $gap="3">
+      <Text $size="1">The quick brown fox jumps over the lazy dog.</Text>
+      <Text $size="2">The quick brown fox jumps over the lazy dog.</Text>
+      <Text $size="3">The quick brown fox jumps over the lazy dog.</Text>
+      <Text $size="4">The quick brown fox jumps over the lazy dog.</Text>
+      <Text $size="5">The quick brown fox jumps over the lazy dog.</Text>
+      <Text $size="6">The quick brown fox jumps over the lazy dog.</Text>
+      <Text $size="7">The quick brown fox jumps over the lazy dog.</Text>
+      <Text $size="8">The quick brown fox jumps over the lazy dog.</Text>
+      <Text $size="9" $wrap="nowrap">The quick brown fox jumps over the lazy dog.</Text>
+    </Flex>
+  </Example.Rendered>
+  <Example.Code>
+    ```tsx
+    <Flex $direction="column" $gap="3">
+      <Text $size="1">The quick brown fox jumps over the lazy dog.</Text>
+      <Text $size="2">The quick brown fox jumps over the lazy dog.</Text>
+      <Text $size="3">The quick brown fox jumps over the lazy dog.</Text>
+      <Text $size="4">The quick brown fox jumps over the lazy dog.</Text>
+      <Text $size="5">The quick brown fox jumps over the lazy dog.</Text>
+      <Text $size="6">The quick brown fox jumps over the lazy dog.</Text>
+      <Text $size="7">The quick brown fox jumps over the lazy dog.</Text>
+      <Text $size="8">The quick brown fox jumps over the lazy dog.</Text>
+      <Text $size="9">The quick brown fox jumps over the lazy dog.</Text>
+    </Flex>
+    ```
+  </Example.Code>
+</Example>
