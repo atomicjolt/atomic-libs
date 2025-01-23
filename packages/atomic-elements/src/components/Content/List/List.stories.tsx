@@ -5,6 +5,7 @@ import { Text } from "../../Typography/Text";
 import { Flex } from "../../Layout/Flex";
 import { View } from "@components/Layout/View";
 import { IconButton } from "@components/Buttons/IconButton";
+import { CheckBox } from "@components/Inputs/Checkbox";
 
 export default {
   title: "Content/List",
@@ -98,6 +99,55 @@ export const WithActions: Story = {
           </View>
           <IconButton icon="edit" variant="ghost" />
           <IconButton icon="close" variant="ghost" />
+        </Flex>
+      </List.Item>,
+    ],
+  },
+};
+
+export const WithSelection: Story = {
+  args: {
+    children: [
+      <List.Item key="4">
+        <Flex $gap="2" $align="center">
+          <CheckBox aria-label="Select medicine" defaultSelected />
+          <View $flexGrow="1">
+            <Text as="div" $size="3" $weight="bold">
+              Medicine
+            </Text>
+            <Text $size="2" $color="neutral500">
+              Description for medicine. Lorem ipsum dolor sit amet, consectetur
+              adipiscing elit.
+            </Text>
+          </View>
+        </Flex>
+      </List.Item>,
+      <List.Item key="5">
+        <Flex $gap="2" $align="center">
+          <CheckBox aria-label="Select travelling" />
+          <View $flexGrow="1">
+            <Text as="div" $size="3" $weight="bold">
+              Travelling
+            </Text>
+            <Text $size="2" $color="neutral500">
+              Description for travelling. Lorem ipsum dolor sit amet,
+              consectetur adipiscing elit.
+            </Text>
+          </View>
+        </Flex>
+      </List.Item>,
+      <List.Item key="6">
+        <Flex $gap="2" $align="center">
+          <CheckBox aria-label="Select gaming" defaultSelected />
+          <View $flexGrow="1">
+            <Text as="div" $size="3" $weight="bold">
+              Gaming
+            </Text>
+            <Text $size="2" $color="neutral500">
+              Description for gaming. Lorem ipsum dolor sit amet, consectetur
+              adipiscing elit.
+            </Text>
+          </View>
         </Flex>
       </List.Item>,
     ],
