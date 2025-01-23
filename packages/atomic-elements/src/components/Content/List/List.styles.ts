@@ -13,8 +13,8 @@ export const ListItemWrapper = styled.li<PaddingProps>`
   ${padding.defaults({ $p: "var(--list-item-padding)" })}
 
   &[data-divider]:not(:last-child) {
-    border-bottom-color: var(--list-border-clr);
-    border-bottom-width: var(--list-border-width);
-    border-bottom-style: var(--list-border-style);
+    border-bottom-color: var(--list-divider-border-clr);
+    border-bottom-width: var(--list-divider-border-width);
+    border-bottom-style: var(--list-divider-border-style);
   }
 `;

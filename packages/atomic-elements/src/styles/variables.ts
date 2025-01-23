@@ -396,6 +396,9 @@ export const list = {
   "list-border-style": "{border-style}",
   "list-border-radius": "{radius}",
   "list-item-padding": "{space-4}",
+  "list-divider-border-clr": "{list-border-clr}",
+  "list-divider-border-width": "{list-border-width}",
+  "list-divider-border-style": "{list-border-style}",
 };
 
 export const variables = {

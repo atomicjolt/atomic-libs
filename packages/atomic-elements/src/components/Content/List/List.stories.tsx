@@ -6,11 +6,15 @@ import { Flex } from "../../Layout/Flex";
 import { View } from "@components/Layout/View";
 import { IconButton } from "@components/Buttons/IconButton";
 import { CheckBox } from "@components/Inputs/Checkbox";
+import { getCssProps } from "@sb/cssprops";
 
 export default {
   title: "Content/List",
   component: List,
   subcomponents: { "List.Item": List.Item },
+  parameters: {
+    cssprops: getCssProps("List"),
+  },
   argTypes: {
     ...RenderPropsArgTypes,
     ...MarginArgTypes,
