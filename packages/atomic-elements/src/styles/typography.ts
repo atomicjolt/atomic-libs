@@ -10,10 +10,18 @@ export interface TypographyProps {
   $wrap?: "nowrap" | "pretty" | "balanced";
   $truncate?: boolean;
   $decoration?: SuggestStrings<"none" | "underline">;
+  $transform?:
+    | "uppercase"
+    | "lowercase"
+    | "capitalize"
+    | "none"
+    | "full-width"
+    | "full-size-kana"
+    | "math-auto";
 }
 
 export function typography(props: TypographyProps) {
-  const { $weight, $align, $wrap, $truncate, $decoration } = props;
+  const { $weight, $align, $wrap, $truncate, $decoration, $transform } = props;
 
   return {
     ...resolveSize(props),
@@ -24,6 +32,7 @@ export function typography(props: TypographyProps) {
     textOverflow: $truncate ? "ellipsis" : undefined,
     overflow: $truncate ? "hidden" : undefined,
     textDecoration: $decoration,
+    textTransform: $transform,
   };
 }
 
