@@ -1,0 +1,1 @@
+import{j as i}from"./jsx-runtime-CkxqCPlQ.js";function r(e){const{values:n,children:d}=e;return n.reduce((o,[t,a])=>i.jsx(t,{value:a,children:o}),d)}try{r.displayName="Provider",r.__docgenInfo={description:"",displayName:"Provider",props:{values:{defaultValue:null,description:"",name:"values",required:!0,type:{name:"[Provider<any>, any][]"}}}}}catch{}export{r as P};

@@ -1,0 +1,1 @@
+import{$ as r}from"./context-BQ3_Es2z.js";import{$ as o}from"./NumberFormatter-DNR9MAW-.js";import{r as a}from"./index-DJO9vBfz.js";function b(e={}){let{locale:f}=r();return a.useMemo(()=>new o(f,e),[f,e])}export{b as $};
