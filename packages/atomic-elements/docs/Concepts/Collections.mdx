@@ -23,68 +23,83 @@ It is used by components that render a collection of items, such as `Menu`, `Lis
 
 When the component's items are known statically, you can define them using the JSX children of the component:
 
-```jsx
-<CustomSelect>
-  <Item id="david">David</Item>
-  <Item id="sam">Sam</Item>
-  <Item id="jane">Jane</Item>
-</CustomSelect>
-```
+<Example>
+  <Example.Rendered>
+    <CustomSelect>
+      <Item id="david">David</Item>
+      <Item id="sam">Sam</Item>
+      <Item id="jane">Jane</Item>
+    </CustomSelect>
+  </Example.Rendered>
+  <Example.Code>
+    ```jsx
+    <CustomSelect>
+      <Item id="david">David</Item>
+      <Item id="sam">Sam</Item>
+      <Item id="jane">Jane</Item>
+    </CustomSelect>
+    ```
+  </Example.Code>
+</Example>
 
 ### Collection IDs
 
 Each element in a collection should have a unique id prop. This is used to identify the item in the collection. It is what the event handler will receive when an item is selected.
 
-```jsx
-<CustomSelect onSelectionChange={alert}>
-  <Item id="david">David</Item>
-  <Item id="sam">Sam</Item>
-  <Item id="jane">Jane</Item>
-</CustomSelect>
-```
-
-Clicking on an item will log the id of the item to the console.
-
-<Example style={{ "--btn-font-size": "16px", "--listbox-font-size": "16px" }}>
-  <CustomSelect onSelectionChange={(key) => alert(key)} >
-    <Item id="david">David</Item>
-    <Item id="sam">Sam</Item>
-    <Item id="jane">Jane</Item>
-  </CustomSelect>
+<Example>
+  <Example.Rendered>
+    <CustomSelect onSelectionChange={alert}>
+      <Item id="david">David</Item>
+      <Item id="sam">Sam</Item>
+      <Item id="jane">Jane</Item>
+    </CustomSelect>
+  </Example.Rendered>
+  <Example.Code>
+    ```jsx
+    <CustomSelect onSelectionChange={alert}>
+      <Item id="david">David</Item>
+      <Item id="sam">Sam</Item>
+      <Item id="jane">Jane</Item>
+    </CustomSelect>
+    ```
+  </Example.Code>
 </Example>
 
 ### Sections
 
 Sections or groups of items can be constructed by wrapping the items as needed.
 
-```jsx
-<CustomSelect>
-  <Section title="People">
-    <Item>David</Item>
-    <Item>Sam</Item>
-    <Item>Jane</Item>
-  </Section>
-  <Section title="Animals">
-    <Item>Aardvark</Item>
-    <Item>Kangaroo</Item>
-    <Item>Snake</Item>
-  </Section>
-</CustomSelect>
-```
-
-<Example style={{ "--btn-font-size": "16px", "--listbox-font-size": "16px" }}>
-  <CustomSelect>
-    <Section title="People">
-      <Item>David</Item>
-      <Item>Sam</Item>
-      <Item>Jane</Item>
-    </Section>
-    <Section title="Animals">
-      <Item>Aardvark</Item>
-      <Item>Kangaroo</Item>
-      <Item>Snake</Item>
-    </Section>
-  </CustomSelect>
+<Example>
+  <Example.Rendered>
+    <CustomSelect>
+      <Section title="People">
+        <Item>David</Item>
+        <Item>Sam</Item>
+        <Item>Jane</Item>
+      </Section>
+      <Section title="Animals">
+        <Item>Aardvark</Item>
+        <Item>Kangaroo</Item>
+        <Item>Snake</Item>
+      </Section>
+    </CustomSelect>
+  </Example.Rendered>
+  <Example.Code>
+    ```jsx
+    <CustomSelect>
+      <Section title="People">
+        <Item>David</Item>
+        <Item>Sam</Item>
+        <Item>Jane</Item>
+      </Section>
+      <Section title="Animals">
+        <Item>Aardvark</Item>
+        <Item>Kangaroo</Item>
+        <Item>Snake</Item>
+      </Section>
+    </CustomSelect>
+    ```
+  </Example.Code>
 </Example>
 
 The `<Item>` and `<Section>` components are used across multiple collection components to ensure a consistent interface.
@@ -95,19 +110,21 @@ They define the data for the items and sections, while the rendering, visual app
 When the items are not known statically, you can use the `items` prop to provide an array of items.
 Then the child of the component must be a function that takes an item and returns the JSX for that item.
 
-```jsx
-let [animals, setAnimals] = useState([
-  { id: "aardvark", name: "Aardvark" },
-  { id: "kangaroo", name: "Kangaroo" },
-  { id: "snake",  name: "Snake" },
-]);
+<Example>
+  <Example.Code>
+    ```jsx
+    let [animals, setAnimals] = useState([
+      { id: "aardvark", name: "Aardvark" },
+      { id: "kangaroo", name: "Kangaroo" },
+      { id: "snake",  name: "Snake" },
+    ]);
 
-<CustomSelect items={animals}>
-  {/* You can provide the id prop manually, but if each item
-  has an id property, you can omit it */}
-  {(item) => <Item>{item.name}</Item>}
-</CustomSelect>
-```
+    <CustomSelect items={animals}>
+      {(item) => <Item>{item.name}</Item>}
+    </CustomSelect>
+    ```
+  </Example.Code>
+</Example>
 
 :::warning
 
@@ -126,19 +143,23 @@ You will get an error. This is because internally the elements in `items` are us
 
 You may be wondering why we didn't use `animals.map` in this example. In fact, you can do this if you want and it will work, but it will not be as performant.
 
-```jsx
-let [animals, setAnimals] = useState([
-  { id: "aardvark", name: "Aardvark" },
-  { id: "kangaroo", name: "Kangaroo" },
-  { id: "snake",  name: "Snake" },
-]);
+<Example>
+  <Example.Code>
+    ```jsx
+    let [animals, setAnimals] = useState([
+      { id: "aardvark", name: "Aardvark" },
+      { id: "kangaroo", name: "Kangaroo" },
+      { id: "snake",  name: "Snake" },
+    ]);
 
-<CustomSelect>
-  {animals.map((item) => (
-    <Item id={item.id}>{item.name}</Item>
-  ))}
-</CustomSelect>
-```
+    <CustomSelect>
+      {animals.map((item) => (
+        <Item id={item.id}>{item.name}</Item>
+      ))}
+    </CustomSelect>
+    ```
+  </Example.Code>
+</Example>
 
 By using the `items` prop and a render function, we can optimize performance by caching the rendered results of each item. This avoids unnecessary re-rendering of the entire collection when only a single item changes. This optimization is particularly beneficial for large collections.
 
@@ -146,44 +167,52 @@ By using the `items` prop and a render function, we can optimize performance by 
 
 Sections can also be used within dynamic collections.
 
-```jsx
-let [sections, setSections] = useState([
-  {
-    name: "People",
-    items: [{ name: "David" }, { name: "Same" }, { name: "Jane" }],
-  },
-  {
-    name: "Animals",
-    items: [{ name: "Aardvark" }, { name: "Kangaroo" }, { name: "Snake" }],
-  },
-]);
+<Example>
+  <Example.Code>
+    ```jsx
+    let [sections, setSections] = useState([
+      {
+        name: "People",
+        items: [{ name: "David" }, { name: "Sam" }, { name: "Jane" }],
+      },
+      {
+        name: "Animals",
+        items: [{ name: "Aardvark" }, { name: "Kangaroo" }, { name: "Snake" }],
+      },
+    ]);
 
-<CustomSelect items={sections}>
-  {(section) => (
-    <Section id={section.name} title={section.name} items={section.items}>
-      {(item) => <Item id={item.name}>{item.name}</Item>}
-    </Section>
-  )}
-</CustomSelect>;
-```
+    <CustomSelect items={sections}>
+      {(section) => (
+        <Section id={section.name} title={section.name} items={section.items}>
+          {(item) => <Item id={item.name}>{item.name}</Item>}
+        </Section>
+      )}
+    </CustomSelect>
+    ```
+  </Example.Code>
+</Example>
 
 ## Accessibility Considerations
 
 When rendering non plain-text content in `Item`, it is important to add a `textValue` prop to the `Item` component. This is used to provide a textual representation of the item to assistive technologies.
 
-```jsx
-<CustomSelect>
-  <Item id="1" textValue="Add">
-    <MaterialIcon icon="add" />
-    Add
-  </Item>
-  <Item id="3" textValue="Edit">
-    <MaterialIcon icon="edit" />
-    Edit
-  </Item>
-  <Item id="2" textValue="Delete">
-    <MaterialIcon icon="delete" />
-    Delete
-  </Item>
-</CustomSelect>
-```
+<Example>
+  <Example.Code>
+    ```jsx
+    <CustomSelect>
+      <Item id="1" textValue="Add">
+        <MaterialIcon icon="add" />
+        Add
+      </Item>
+      <Item id="3" textValue="Edit">
+        <MaterialIcon icon="edit" />
+        Edit
+      </Item>
+      <Item id="2" textValue="Delete">
+        <MaterialIcon icon="delete" />
+        Delete
+      </Item>
+    </CustomSelect>
+    ```
+  </Example.Code>
+</Example>

@@ -25,44 +25,50 @@ For example, you could use the `TextField` component to create a field with a me
 rather than above. This level of customization allows you to tailor the user interface to better match
 your application's design requirements:
 
-```jsx
-<TextField value="" onChange={() => {}}>
-  <Label>Label</Label>
-  <Input />
-  <Message>Message</Message>
-</TextField>
-```
-
 <Example>
-  <TextField value="" onChange={() => {}}>
-    <Label>Label</Label>
-    <Input />
-    <Message>Message</Message>
-  </TextField>
+  <Example.Rendered>
+    <TextField value="" onChange={() => {}}>
+      <Label>Label</Label>
+      <Input />
+      <Message>Message</Message>
+    </TextField>
+  </Example.Rendered>
+  <Example.Code>
+    ```jsx
+    <TextField value="" onChange={() => {}}>
+      <Label>Label</Label>
+      <Input />
+      <Message>Message</Message>
+    </TextField>
+    ```
+  </Example.Code>
 </Example>
 
 Or you could use the `TextField` component to create a field with a button and input.
 
-```jsx
-<TextField value="" onChange={() => {}}>
-  <Label>Label</Label>
-  <Message>Message</Message>
-  <Group isMerged>
-    <Input />
-    <Button variant="border">Save</Button>
-  </Group>
-</TextField>
-```
-
 <Example>
-  <TextField>
-    <Label>Label</Label>
-    <Message>Message</Message>
-    <Group isMerged>
-      <Input />
-      <Button variant="border">Save</Button>
-    </Group>
-  </TextField>
+  <Example.Rendered>
+    <TextField value="" onChange={() => {}}>
+      <Label>Label</Label>
+      <Message>Message</Message>
+      <Group isMerged>
+        <Input />
+        <Button variant="border">Save</Button>
+      </Group>
+    </TextField>
+  </Example.Rendered>
+  <Example.Code>
+    ```jsx
+    <TextField value="" onChange={() => {}}>
+      <Label>Label</Label>
+      <Message>Message</Message>
+      <Group isMerged>
+        <Input />
+        <Button variant="border">Save</Button>
+      </Group>
+    </TextField>
+    ```
+  </Example.Code>
 </Example>
 
 ## Props API
@@ -70,20 +76,23 @@ Or you could use the `TextField` component to create a field with a button and i
 The props API is designed to be more specific and to provide a more opinionated layout and customization.
 For example, the `TextInput` component is a wrapper around `TextField` that provides a more specific layout and customization is handled via props. This makes it easier to quickly create form fields with a consistent look and feel, without having to manually manage the layout and markup.
 
-```jsx
-<TextInput
-  label="Label"
-  message="Message"
-  size="full"
-/>
-```
-
 <Example>
-  <TextInput
-    label="Label"
-    message="Message"
-    size="full"
-  />
+  <Example.Rendered>
+    <TextInput
+      label="Label"
+      message="Message"
+      size="full"
+    />
+  </Example.Rendered>
+  <Example.Code>
+    ```jsx
+    <TextInput
+      label="Label"
+      message="Message"
+      size="full"
+    />
+    ```
+  </Example.Code>
 </Example>
 
 :::tip

@@ -1,0 +1,41 @@
+import { Example } from '../components/Example';
+import { Heading, Text, ElementsProvider } from '@atomicjolt/atomic-elements';
+
+<ElementsProvider />
+
+# Typography
+
+## Overview
+
+Typography is the art and technique of arranging type to make written language legible, readable, and appealing when displayed. The arrangement of type involves selecting typefaces, point sizes, line lengths, line-spacing, and letter-spacing, and adjusting the space between pairs of letters.
+
+Atomic Elements exposes some opionated typographic components to make building your application easier.
+
+## Base Components
+
+The two base components are `Text` and `Heading`.
+These component share props for `size`, `weight`,
+`color`, `align`, and `transform`.
+
+
+```tsx
+import { Text, Heading } from '@atomicjolt/atomic-elements';
+
+<Heading as="h2">Heading component</Heading>
+<Text>Text component</Text>
+```
+<Example>
+    <Example.Rendered>
+        <Heading as="h2">Heading component</Heading>
+        <Text>Text component</Text>
+    </Example.Rendered>
+    <Example.Code>
+        ```tsx
+        import { Text, Heading } from '@atomicjolt/atomic-elements';
+
+        <Heading as="h2">Heading component</Heading>
+        <Text>Text component</Text>
+        ```
+    </Example.Code>
+</Example>
+

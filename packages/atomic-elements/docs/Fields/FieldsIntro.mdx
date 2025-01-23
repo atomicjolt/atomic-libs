@@ -13,38 +13,40 @@ The "Fields" API is Atomic Elements composition API for building interactive for
 
 For example, the `TextField` components handles the details of managing the input and accessibility, while you provide the semantic structure of the field.
 
-```jsx
-import React, { useState } from "react";
-import {
-  TextField,
-  Label,
-  Message,
-  ErrorMessage,
-  Input,
-} from "@atomicjolt/atomic-elements";
-
-function MyComponent() {
-  const [name, setName] = useState("John Doe");
-
-  return (
-    <TextField value={name} onChange={setName}>
+<Example>
+  <Example.Rendered>
+    <TextField size="large">
       <Label>Name</Label>
-      <Message>Enter your name</Message>
+      <Message className="sb-unstyled">Enter your name</Message>
       <Input />
       <ErrorMessage>Invalid name</ErrorMessage>
     </TextField>
-  );
-}
-```
+  </Example.Rendered>
+  <Example.Code>
+    ```jsx
+    import React, { useState } from "react";
+    import {
+      TextField,
+      Label,
+      Message,
+      ErrorMessage,
+      Input,
+    } from "@atomicjolt/atomic-elements";
 
-Which, when rendered, will look like this:
-<Example>
-  <TextField size="large">
-    <Label>Name</Label>
-    <Message className="sb-unstyled">Enter your name</Message>
-    <Input />
-    <ErrorMessage>Invalid name</ErrorMessage>
-  </TextField>
+    function MyComponent() {
+      const [name, setName] = useState("John Doe");
+
+      return (
+        <TextField value={name} onChange={setName}>
+          <Label>Name</Label>
+          <Message>Enter your name</Message>
+          <Input />
+          <ErrorMessage>Invalid name</ErrorMessage>
+        </TextField>
+      );
+    }
+    ```
+  </Example.Code>
 </Example>
 
 ## Group Fields & Buttons
@@ -52,51 +54,56 @@ Which, when rendered, will look like this:
 Because you are defining the markup for the field, you can customize the layout and appearance of the field to suit your needs.
 For example, you can use the `Group` component to create a field with a button and input:
 
-```jsx
-<TextField size="large">
-  <Label>Name</Label>
-  <Message>Enter your name</Message>
-  <Group isMerged>
-    <Input />
-    <Button variant="border">Save</Button>
-  </Group>
-  <ErrorMessage>Invalid name</ErrorMessage>
-</TextField>
-```
-
-Which will in turn render like this:
 <Example>
-  <TextField size="large">
-    <Label>Name</Label>
-    <Message className="sb-unstyled">Enter your name</Message>
-    <Group isMerged>
-      <Input />
-      <Button variant="primary">Save</Button>
-    </Group>
-    <ErrorMessage>Invalid name</ErrorMessage>
-  </TextField>
+  <Example.Rendered>
+    <TextField size="large">
+      <Label>Name</Label>
+      <Message className="sb-unstyled">Enter your name</Message>
+      <Group isMerged>
+        <Input />
+        <Button variant="primary">Save</Button>
+      </Group>
+      <ErrorMessage>Invalid name</ErrorMessage>
+    </TextField>
+  </Example.Rendered>
+  <Example.Code>
+    ```jsx
+    <TextField size="large">
+      <Label>Name</Label>
+      <Message>Enter your name</Message>
+      <Group isMerged>
+        <Input />
+        <Button variant="border">Save</Button>
+      </Group>
+      <ErrorMessage>Invalid name</ErrorMessage>
+    </TextField>
+    ```
+  </Example.Code>
 </Example>
 
 ## ComboInput
 
 The `ComboInput` component wraps multiple elements into a single visual input. This is useful for creating complex inputs, such as a date picker or a search input.
 
-```jsx
-<TextField size="large">
-  <ComboInput padding="left">
-    <Input placeholder="search" />
-    <IconButton icon="search" variant="ghost" />
-  </ComboInput>
-  <ErrorMessage>Invalid name</ErrorMessage>
-</TextField>
-```
-
 <Example>
-  <TextField size="large">
-    <ComboInput padding="left">
-      <Input placeholder="Search" />
-      <IconButton icon="search" variant="ghost" />
-    </ComboInput>
-    <ErrorMessage>Invalid name</ErrorMessage>
-  </TextField>
+  <Example.Rendered>
+    <TextField size="large">
+      <ComboInput padding="left">
+        <Input placeholder="Search" />
+        <IconButton icon="search" variant="ghost" />
+      </ComboInput>
+      <ErrorMessage>Invalid name</ErrorMessage>
+    </TextField>
+  </Example.Rendered>
+  <Example.Code>
+    ```jsx
+    <TextField size="large">
+      <ComboInput padding="left">
+        <Input placeholder="search" />
+        <IconButton icon="search" variant="ghost" />
+      </ComboInput>
+      <ErrorMessage>Invalid name</ErrorMessage>
+    </TextField>
+    ```
+  </Example.Code>
 </Example>

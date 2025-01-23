@@ -9,17 +9,32 @@ export function Example(props: ExampleProps) {
   const { style = {}, children } = props;
 
   return (
+    <div className="example" style={style}>
+      {children}
+    </div>
+  );
+}
+
+Example.Code = function ExampleCode(props: ExampleProps) {
+  const { style = {}, children } = props;
+
+  return (
     <div
+      className="example__code"
       style={{
-        backgroundColor: "white",
-        padding: "20px",
-        borderRadius: "5px",
-        margin: "20px 0",
-        border: "1px solid #e0e0e0",
         ...style,
       }}
     >
       {children}
     </div>
   );
-}
+};
+
+Example.Rendered = function ExampleRendered(props: ExampleProps) {
+  const { style = {}, children } = props;
+  return (
+    <div className="example__rendered" style={style}>
+      {children}
+    </div>
+  );
+};
