@@ -86,3 +86,58 @@ The system is based on a 9-step `$size` scale. Each size step configures a line 
     ```
   </Example.Code>
 </Example>
+
+:::info
+The `$size` prop also accepts any valid CSS unit value which will be used as the font-size instead of drawing from the theme.
+When using a custom value, you will want to configure the `$letterSpacing` and `$lineHeight` values separately.
+:::
+
+## Customizing
+
+### Font Scale
+
+The font scale is configured in the theme
+
+```tsx
+import { createTheme, defaultTheme, ElementsProvider } from '@atomicjolt/atomic-elements';
+
+const theme = createTheme({
+  variables: {
+    "font-size-1": "1rem",
+    "font-size-2": "1.25rem",
+    //...
+    "letter-spacing-1": "0.01em",
+    "letter-spacing-2": "0.02em",
+    //...
+    "line-height-1": "15px",
+    "line-height-2": "16px",
+    //...
+  },
+  base: defaultTheme,
+})
+
+```
+
+### Font Family & Weights
+
+By default, Atomic Elements makes use of the following Fonts
+
+- [Lato](https://fonts.google.com/specimen/Lato?query=lato) (Text Font)
+- [Material Icons](https://fonts.google.com/icons) (For the [`MaterialIcon`](https://atomicjolt.github.io/atomic-libs/storybook/?path=/docs/icons-materialicon--overview) component & any other components that make use of an icon)
+- [Material Symbols](https://fonts.google.com/icons) (Only needed if you want to use the [`MaterialSybmol`](https://atomicjolt.github.io/atomic-libs/storybook/?path=/docs/icons-materialsymbol--overview) component)
+
+The font-family is configured in the theme
+
+```tsx
+import { createTheme, defaultTheme, ElementsProvider } from '@atomicjolt/atomic-elements';
+
+const theme = createTheme({
+  variables: {
+    "font-family": "Arial, sans-serif",
+    "font-weight-light": 200,
+    "font-weight-normal": 400,
+    "font-weight-bold": 700,
+  },
+  base: defaultTheme,
+})
+```

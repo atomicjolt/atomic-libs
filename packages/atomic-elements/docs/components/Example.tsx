@@ -1,3 +1,4 @@
+import { ElementsProvider } from "@atomicjolt/atomic-elements";
 import React from "react";
 
 interface ExampleProps {
@@ -34,7 +35,7 @@ Example.Rendered = function ExampleRendered(props: ExampleProps) {
   const { style = {}, children } = props;
   return (
     <div className="example__rendered" style={style}>
-      {children}
+      <ElementsProvider>{children}</ElementsProvider>
     </div>
   );
 };
