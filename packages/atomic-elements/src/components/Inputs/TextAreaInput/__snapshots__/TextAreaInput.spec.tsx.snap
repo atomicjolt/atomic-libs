@@ -3,18 +3,18 @@
 exports[`matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-ghWlax dMEeIv aje-input__text sc-ovuCP fTnTCf aje-input__textarea is-medium"
+    class="sc-ghWlax iRVmMf aje-input__text sc-ovuCP enhjhj aje-input__textarea is-medium"
     data-resize="both"
   >
     <label
-      class="sc-blHHSb hjDrEC"
+      class="sc-blHHSb cBLGYC"
       for="react-aria-:r0:"
       id="react-aria-:r1:"
     >
       label
     </label>
     <textarea
-      class="sc-ivxoEo cWLuDS"
+      class="sc-ivxoEo lkCcFK"
     />
   </div>
 </DocumentFragment>

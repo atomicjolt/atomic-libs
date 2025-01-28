@@ -3,7 +3,7 @@
 exports[`LoadingStatus > matches error snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-kLhKbu kxPFWO aje-banner--error"
+    class="sc-kLhKbu gIopdm aje-banner--error"
   >
     <i
       aria-hidden="true"
@@ -18,7 +18,8 @@ exports[`LoadingStatus > matches error snapshot 1`] = `
     </div>
     <button
       aria-label="dismiss error"
-      class="sc-jwIPbr cfypkI aje-btn sc-cHqXqK gkldit aje-banner__dismiss aje-btn--banner is-medium"
+      class="sc-jwIPbr aBTDX aje-btn sc-cHqXqK gkldit aje-banner__dismiss aje-btn--banner is-medium"
+      data-icon-button="true"
       type="button"
     >
       <i

@@ -8,7 +8,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
       <table
         aria-describedby=""
         aria-label="table"
-        class="sc-geXuza jxcGbT aje-table"
+        class="sc-geXuza jtpYjT aje-table"
         role="grid"
         tabindex="0"
       >
@@ -21,7 +21,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
             role="row"
           >
             <th
-              class="sc-epnzzT gyNgxb aje-table__column"
+              class="sc-epnzzT dGkIGS aje-table__column"
               data-key="a"
               data-searchable="true"
               data-searching="true"
@@ -35,17 +35,18 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
                 Column 1
                 <div
                   aria-expanded="true"
-                  class="sc-dntaoT hLviyf aje-combo-input sc-bbQqnZ jOVqkt"
+                  class="sc-dntaoT fJCHjt aje-combo-input sc-bbQqnZ jOVqkt"
                 >
                   <input
                     aria-label="Search a"
-                    class="sc-fAUdSK iwDUbw"
+                    class="sc-fAUdSK kLOCYc"
                     role="search"
                     slot="search"
                     value="search"
                   />
                   <button
-                    class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
+                    class="sc-jtQUzJ fDQKmR aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
+                    data-icon-button="true"
                     type="button"
                   >
                     <i
@@ -59,7 +60,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
               </div>
             </th>
             <th
-              class="sc-epnzzT gyNgxb aje-table__column"
+              class="sc-epnzzT dGkIGS aje-table__column"
               data-key="b"
               id="react-aria-:r4:-b"
               role="columnheader"
@@ -135,7 +136,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
     <table
       aria-describedby=""
       aria-label="table"
-      class="sc-geXuza jxcGbT aje-table"
+      class="sc-geXuza jtpYjT aje-table"
       role="grid"
       tabindex="0"
     >
@@ -148,7 +149,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
           role="row"
         >
           <th
-            class="sc-epnzzT gyNgxb aje-table__column"
+            class="sc-epnzzT dGkIGS aje-table__column"
             data-key="a"
             data-searchable="true"
             data-searching="true"
@@ -162,17 +163,18 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
               Column 1
               <div
                 aria-expanded="true"
-                class="sc-dntaoT hLviyf aje-combo-input sc-bbQqnZ jOVqkt"
+                class="sc-dntaoT fJCHjt aje-combo-input sc-bbQqnZ jOVqkt"
               >
                 <input
                   aria-label="Search a"
-                  class="sc-fAUdSK iwDUbw"
+                  class="sc-fAUdSK kLOCYc"
                   role="search"
                   slot="search"
                   value="search"
                 />
                 <button
-                  class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
+                  class="sc-jtQUzJ fDQKmR aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
+                  data-icon-button="true"
                   type="button"
                 >
                   <i
@@ -186,7 +188,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
             </div>
           </th>
           <th
-            class="sc-epnzzT gyNgxb aje-table__column"
+            class="sc-epnzzT dGkIGS aje-table__column"
             data-key="b"
             id="react-aria-:r4:-b"
             role="columnheader"
@@ -319,7 +321,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
       <table
         aria-describedby=""
         aria-label="table"
-        class="sc-geXuza jxcGbT aje-table"
+        class="sc-geXuza jtpYjT aje-table"
         role="grid"
         tabindex="0"
       >
@@ -332,7 +334,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
             role="row"
           >
             <th
-              class="sc-epnzzT gyNgxb aje-table__column"
+              class="sc-epnzzT dGkIGS aje-table__column"
               data-key="a"
               data-searchable="true"
               id="react-aria-:r0:-a"
@@ -345,18 +347,19 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
                 Column 1
                 <div
                   aria-expanded="false"
-                  class="sc-dntaoT hLviyf aje-combo-input sc-bbQqnZ jOVqkt"
+                  class="sc-dntaoT fJCHjt aje-combo-input sc-bbQqnZ jOVqkt"
                 >
                   <input
                     aria-label="Search a"
-                    class="sc-fAUdSK iwDUbw"
+                    class="sc-fAUdSK kLOCYc"
                     disabled=""
                     role="search"
                     slot="search"
                     value=""
                   />
                   <button
-                    class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
+                    class="sc-jtQUzJ fDQKmR aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
+                    data-icon-button="true"
                     type="button"
                   >
                     <i
@@ -368,7 +371,8 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
                   </button>
                 </div>
                 <button
-                  class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
+                  class="sc-jtQUzJ fDQKmR aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
+                  data-icon-button="true"
                   type="button"
                 >
                   <i
@@ -381,7 +385,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
               </div>
             </th>
             <th
-              class="sc-epnzzT gyNgxb aje-table__column"
+              class="sc-epnzzT dGkIGS aje-table__column"
               data-key="b"
               id="react-aria-:r0:-b"
               role="columnheader"
@@ -457,7 +461,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
     <table
       aria-describedby=""
       aria-label="table"
-      class="sc-geXuza jxcGbT aje-table"
+      class="sc-geXuza jtpYjT aje-table"
       role="grid"
       tabindex="0"
     >
@@ -470,7 +474,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
           role="row"
         >
           <th
-            class="sc-epnzzT gyNgxb aje-table__column"
+            class="sc-epnzzT dGkIGS aje-table__column"
             data-key="a"
             data-searchable="true"
             id="react-aria-:r0:-a"
@@ -483,18 +487,19 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
               Column 1
               <div
                 aria-expanded="false"
-                class="sc-dntaoT hLviyf aje-combo-input sc-bbQqnZ jOVqkt"
+                class="sc-dntaoT fJCHjt aje-combo-input sc-bbQqnZ jOVqkt"
               >
                 <input
                   aria-label="Search a"
-                  class="sc-fAUdSK iwDUbw"
+                  class="sc-fAUdSK kLOCYc"
                   disabled=""
                   role="search"
                   slot="search"
                   value=""
                 />
                 <button
-                  class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
+                  class="sc-jtQUzJ fDQKmR aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
+                  data-icon-button="true"
                   type="button"
                 >
                   <i
@@ -506,7 +511,8 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
                 </button>
               </div>
               <button
-                class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
+                class="sc-jtQUzJ fDQKmR aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
+                data-icon-button="true"
                 type="button"
               >
                 <i
@@ -519,7 +525,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
             </div>
           </th>
           <th
-            class="sc-epnzzT gyNgxb aje-table__column"
+            class="sc-epnzzT dGkIGS aje-table__column"
             data-key="b"
             id="react-aria-:r0:-b"
             role="columnheader"
@@ -652,7 +658,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
       <table
         aria-describedby=""
         aria-label="table"
-        class="sc-geXuza jxcGbT aje-table"
+        class="sc-geXuza jtpYjT aje-table"
         role="grid"
         tabindex="0"
       >
@@ -665,7 +671,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             role="row"
           >
             <th
-              class="sc-epnzzT gyNgxb aje-table__column"
+              class="sc-epnzzT dGkIGS aje-table__column"
               data-key="a"
               data-searchable="true"
               id="react-aria-:r8:-a"
@@ -678,18 +684,19 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                 Column 1
                 <div
                   aria-expanded="false"
-                  class="sc-dntaoT hLviyf aje-combo-input sc-bbQqnZ jOVqkt"
+                  class="sc-dntaoT fJCHjt aje-combo-input sc-bbQqnZ jOVqkt"
                 >
                   <input
                     aria-label="Search a"
-                    class="sc-fAUdSK iwDUbw"
+                    class="sc-fAUdSK kLOCYc"
                     disabled=""
                     role="search"
                     slot="search"
                     value=""
                   />
                   <button
-                    class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
+                    class="sc-jtQUzJ fDQKmR aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
+                    data-icon-button="true"
                     type="button"
                   >
                     <i
@@ -701,7 +708,8 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   </button>
                 </div>
                 <button
-                  class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
+                  class="sc-jtQUzJ fDQKmR aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
+                  data-icon-button="true"
                   type="button"
                 >
                   <i
@@ -714,7 +722,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
               </div>
             </th>
             <th
-              class="sc-epnzzT gyNgxb aje-table__column"
+              class="sc-epnzzT dGkIGS aje-table__column"
               data-key="b"
               id="react-aria-:r8:-b"
               role="columnheader"
@@ -1921,7 +1929,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
     <table
       aria-describedby=""
       aria-label="table"
-      class="sc-geXuza jxcGbT aje-table"
+      class="sc-geXuza jtpYjT aje-table"
       role="grid"
       tabindex="0"
     >
@@ -1934,7 +1942,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
           role="row"
         >
           <th
-            class="sc-epnzzT gyNgxb aje-table__column"
+            class="sc-epnzzT dGkIGS aje-table__column"
             data-key="a"
             data-searchable="true"
             id="react-aria-:r8:-a"
@@ -1947,18 +1955,19 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
               Column 1
               <div
                 aria-expanded="false"
-                class="sc-dntaoT hLviyf aje-combo-input sc-bbQqnZ jOVqkt"
+                class="sc-dntaoT fJCHjt aje-combo-input sc-bbQqnZ jOVqkt"
               >
                 <input
                   aria-label="Search a"
-                  class="sc-fAUdSK iwDUbw"
+                  class="sc-fAUdSK kLOCYc"
                   disabled=""
                   role="search"
                   slot="search"
                   value=""
                 />
                 <button
-                  class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
+                  class="sc-jtQUzJ fDQKmR aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
+                  data-icon-button="true"
                   type="button"
                 >
                   <i
@@ -1970,7 +1979,8 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                 </button>
               </div>
               <button
-                class="sc-jtQUzJ dHBwgm aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
+                class="sc-jtQUzJ fDQKmR aje-btn sc-cEzcPc jiGxDd aje-btn--content is-small"
+                data-icon-button="true"
                 type="button"
               >
                 <i
@@ -1983,7 +1993,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </div>
           </th>
           <th
-            class="sc-epnzzT gyNgxb aje-table__column"
+            class="sc-epnzzT dGkIGS aje-table__column"
             data-key="b"
             id="react-aria-:r8:-b"
             role="columnheader"
