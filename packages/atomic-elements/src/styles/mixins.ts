@@ -1,4 +1,4 @@
-import { css } from "styled-components";
+import { css, Interpolation } from "styled-components";
 
 const Sizing = css`
   &.is-small {
@@ -97,22 +97,24 @@ const mixins = {
       outline-offset: ${oultineOffset}px;
     }
   `,
-  ToggleInputLike: css`
-    display: block;
+  ToggleInputLike: (element: Interpolation<any>) => {
+    return css`
+      display: block;
 
-    :is(input):focus-visible ~ .aje-checkbox__label:before {
-      outline: var(--outline);
-      outline-offset: 2px;
-    }
+      :is(input):focus-visible ~ ${element}:before {
+        outline: var(--outline);
+        outline-offset: 2px;
+      }
 
-    :is(input):focus:not(:focus-visible) {
-      outline: none;
-    }
+      :is(input):focus:not(:focus-visible) {
+        outline: none;
+      }
 
-    &[data-invalid] span::before {
-      border-color: var(--error700);
-    }
-  `,
+      &[data-invalid] span::before {
+        border-color: var(--error700);
+      }
+    `;
+  },
   Border: (prefix: string, { style = "solid" } = {}) => css`
     border-width: var(--${prefix}-border-width);
     border-color: var(--${prefix}-border-clr);
