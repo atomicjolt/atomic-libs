@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import cn from "classnames";
 import { HasChildren, HasClassName, SuggestStrings } from "../../../types";
 import { BannerContent, StyledBanner } from "../Banners.styles";
@@ -13,11 +13,7 @@ export interface BannerProps extends HasChildren, HasClassName {
   readonly variant?: BannerVariants;
 }
 
-/** A view-spanning Banner. The most Basic kind of banner,
- * with no associated actions / buttons. Useful building block when constructing
- * your own banners.
- */
-export function Banner(props: BannerProps) {
+function Banner(props: BannerProps, ref: React.Ref<HTMLDivElement>) {
   const { variant = "info", children, className } = props;
 
   let content: React.ReactNode;
@@ -30,30 +26,48 @@ export function Banner(props: BannerProps) {
   }
 
   return (
-    <StyledBanner className={cn(`aje-banner--${variant}`, className)}>
+    <StyledBanner ref={ref} className={cn(`aje-banner--${variant}`, className)}>
       {content}
     </StyledBanner>
   );
 }
 
-function BannerIconButon(props: IconButtonProps) {
-  const { variant = "banner", ...rest } = props;
-  return <IconButton variant={variant} {...rest} />;
-}
+const BannerIconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
+  (props, ref) => {
+    const { variant = "banner", ...rest } = props;
+    return <IconButton ref={ref} variant={variant} {...rest} />;
+  }
+);
 
-function BannerButton(props: ButtonProps) {
-  const { variant = "inverted", ...rest } = props;
-  return <Button variant={variant} {...rest} />;
-}
+const BannerButton = forwardRef<HTMLButtonElement, ButtonProps>(
+  (props, ref) => {
+    const { variant = "inverted", ...rest } = props;
+    return <Button ref={ref} variant={variant} {...rest} />;
+  }
+);
 
 /** Wrapper around the textual content of a Banner */
 Banner.Content = BannerContent;
 BannerContent.displayName = "Banner.Content";
 
 /** IconButton for Banners */
-Banner.IconButton = BannerIconButon;
-BannerIconButon.displayName = "Banner.IconButton";
+Banner.IconButton = BannerIconButton;
+BannerIconButton.displayName = "Banner.IconButton";
 
 /** Button for Banners */
 Banner.Button = BannerButton;
 BannerButton.displayName = "Banner.Button";
+
+/** A view-spanning Banner. The most Basic kind of banner,
+ * with no associated actions / buttons. Useful building block when constructing
+ * your own banners.
+ */
+const _Banner = forwardRef(Banner) as unknown as typeof Banner & {
+  ref: React.Ref<HTMLDivElement>;
+};
+
+_Banner.Content = BannerContent;
+_Banner.IconButton = BannerIconButton;
+_Banner.Button = BannerButton;
+
+export { _Banner as Banner };
