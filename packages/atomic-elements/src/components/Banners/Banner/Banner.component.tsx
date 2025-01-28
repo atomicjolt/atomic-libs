@@ -1,6 +1,6 @@
-import React, { forwardRef } from "react";
-import cn from "classnames";
-import { HasChildren, HasClassName, SuggestStrings } from "../../../types";
+import React, { forwardRef, RefAttributes } from "react";
+import { useRenderProps } from "@hooks/useRenderProps";
+import { RenderBaseProps, SuggestStrings } from "../../../types";
 import { BannerContent, StyledBanner } from "../Banners.styles";
 import { IconButton, IconButtonProps } from "../../Buttons/IconButton";
 import { Button, ButtonProps } from "../../Buttons/Button";
@@ -9,27 +9,17 @@ export type BannerVariants = SuggestStrings<
   "info" | "error" | "success" | "warning"
 >;
 
-export interface BannerProps extends HasChildren, HasClassName {
+export interface BannerProps extends RenderBaseProps<never> {
   readonly variant?: BannerVariants;
 }
 
 function Banner(props: BannerProps, ref: React.Ref<HTMLDivElement>) {
-  const { variant = "info", children, className } = props;
+  const renderProps = useRenderProps({
+    componentClassName: "aje-banner",
+    ...props,
+  });
 
-  let content: React.ReactNode;
-  if (typeof children === "string") {
-    content = (
-      <BannerContent style={{ paddingLeft: "10px" }}>{children}</BannerContent>
-    );
-  } else {
-    content = children;
-  }
-
-  return (
-    <StyledBanner ref={ref} className={cn(`aje-banner--${variant}`, className)}>
-      {content}
-    </StyledBanner>
-  );
+  return <StyledBanner ref={ref} {...renderProps} />;
 }
 
 const BannerIconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
@@ -46,28 +36,31 @@ const BannerButton = forwardRef<HTMLButtonElement, ButtonProps>(
   }
 );
 
-/** Wrapper around the textual content of a Banner */
-Banner.Content = BannerContent;
-BannerContent.displayName = "Banner.Content";
-
-/** IconButton for Banners */
-Banner.IconButton = BannerIconButton;
-BannerIconButton.displayName = "Banner.IconButton";
-
-/** Button for Banners */
-Banner.Button = BannerButton;
-BannerButton.displayName = "Banner.Button";
+interface ForwardedBanner {
+  (props: BannerProps & RefAttributes<HTMLDivElement>): JSX.Element;
+  displayName: string;
+  Content: typeof BannerContent;
+  IconButton: typeof BannerIconButton;
+  Button: typeof BannerButton;
+}
 
 /** A view-spanning Banner. The most Basic kind of banner,
  * with no associated actions / buttons. Useful building block when constructing
  * your own banners.
  */
-const _Banner = forwardRef(Banner) as unknown as typeof Banner & {
-  ref: React.Ref<HTMLDivElement>;
-};
+const _Banner = forwardRef(Banner) as unknown as ForwardedBanner;
+_Banner.displayName = "Banner";
 
+/** Wrapper around the textual content of a Banner */
 _Banner.Content = BannerContent;
+BannerContent.displayName = "Banner.Content";
+
+/** IconButton for Banners */
 _Banner.IconButton = BannerIconButton;
+BannerIconButton.displayName = "Banner.IconButton";
+
+/** Button for Banners */
 _Banner.Button = BannerButton;
+BannerButton.displayName = "Banner.Button";
 
 export { _Banner as Banner };
