@@ -11,13 +11,13 @@ exports[`matches snapshot 1`] = `
     role="radiogroup"
   >
     <legend
-      class="sc-fAUdSK hzoJVz"
+      class="sc-fAUdSK fOPsZz"
       id="react-aria-:r1:"
     >
       Label
     </legend>
     <div
-      class="sc-gtLWhw DDQWD aje-radio"
+      class="sc-gtLWhw bYERxT aje-radio"
       data-selected="true"
     >
       <input
@@ -29,13 +29,13 @@ exports[`matches snapshot 1`] = `
         value="opt1"
       />
       <span
-        class="sc-blHHSb itIOEH aje-checkbox__label"
+        class="sc-blHHSb jgsrJn aje-checkbox__label"
       >
         Option 1
       </span>
     </div>
     <div
-      class="sc-gtLWhw DDQWD aje-radio"
+      class="sc-gtLWhw bYERxT aje-radio"
     >
       <input
         class="sc-iuUfFv eKXvkB"
@@ -45,13 +45,13 @@ exports[`matches snapshot 1`] = `
         value="opt2"
       />
       <span
-        class="sc-blHHSb itIOEH aje-checkbox__label"
+        class="sc-blHHSb jgsrJn aje-checkbox__label"
       >
         Option 2
       </span>
     </div>
     <div
-      class="sc-gtLWhw DDQWD aje-radio"
+      class="sc-gtLWhw bYERxT aje-radio"
     >
       <input
         class="sc-iuUfFv eKXvkB"
@@ -61,7 +61,7 @@ exports[`matches snapshot 1`] = `
         value="opt3"
       />
       <span
-        class="sc-blHHSb itIOEH aje-checkbox__label"
+        class="sc-blHHSb jgsrJn aje-checkbox__label"
       >
         Option 3
       </span>

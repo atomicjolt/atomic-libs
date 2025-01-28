@@ -3,10 +3,10 @@
 exports[`ChipGroup > matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-ovuCP euVikJ aje-chip-group"
+    class="sc-ovuCP eiAkiR aje-chip-group"
   >
     <label
-      class="sc-blHHSb jKAkSr"
+      class="sc-blHHSb fcIAmr"
       id="react-aria-:r1:"
     >
       My Chip Group
@@ -31,7 +31,7 @@ exports[`ChipGroup > matches snapshot 1`] = `
       >
         <div
           aria-colindex="1"
-          class="sc-eauhAA jzqQfF"
+          class="sc-eauhAA hNmxTV"
           role="gridcell"
         >
           Item
