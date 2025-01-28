@@ -40,6 +40,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
         variant={variant}
         ref={forwardedRef}
         forwardedAs={as}
+        data-icon-button
       >
         <MaterialIcon icon={icon} variant={iconVariant} size={size} />
       </StyledIconButton>
