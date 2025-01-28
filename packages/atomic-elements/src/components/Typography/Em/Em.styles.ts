@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { colors, ColorProps } from "@styles/colors";
+import { textColor, TextColorProps } from "@styles/colors";
 import { MarginProps, margins } from "@styles/layout";
 
-export const EmWrapper = styled.em<MarginProps & ColorProps>`
+export const EmWrapper = styled.em<MarginProps & TextColorProps>`
   ${margins}
-  ${colors}
+  ${textColor}
 `;

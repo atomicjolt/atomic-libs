@@ -1,11 +1,8 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { Grid } from ".";
-import {
-  DecorativeBox,
-  LayoutArgTypes,
-  RenderPropsArgTypes,
-} from "@sb/helpers";
+import { LayoutArgTypes, RenderPropsArgTypes } from "@sb/helpers";
 import { SpacingSteps } from "@styles/spacing";
+import { View } from "../View";
 
 export default {
   title: "Layouts/Grid",
@@ -84,15 +81,18 @@ export const Primary: Story = {
   args: {
     $columns: "3",
     $gap: "3",
-    $rows: "repeat(2, 64px)",
+    $rows: "repeat(3, 64px)",
     $width: "auto",
     children: [
-      <DecorativeBox key="1" />,
-      <DecorativeBox key="2" />,
-      <DecorativeBox key="3" />,
-      <DecorativeBox key="4" />,
-      <DecorativeBox key="5" />,
-      <DecorativeBox key="6" />,
+      <View key="1" $bg="primary100" />,
+      <View key="2" $bg="primary200" />,
+      <View key="3" $bg="primary300" />,
+      <View key="4" $bg="primary400" />,
+      <View key="5" $bg="primary500" />,
+      <View key="6" $bg="primary600" />,
+      <View key="7" $bg="primary700" />,
+      <View key="8" $bg="primary800" />,
+      <View key="9" $bg="primary900" />,
     ],
   },
 };
