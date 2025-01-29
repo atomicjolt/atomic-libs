@@ -35,7 +35,13 @@ export function DropdownButton(props: ButtonProps) {
   return (
     <StyledButton
       {...props}
-      variant={variant === "ghost" ? "dropdown-ghost" : variant}
+      variant={
+        variant === "ghost"
+          ? "dropdown-ghost"
+          : variant === "default"
+          ? "dropdown"
+          : variant
+      }
     >
       {props.children as React.ReactNode}
       <MaterialIcon icon="arrow_drop_down" />

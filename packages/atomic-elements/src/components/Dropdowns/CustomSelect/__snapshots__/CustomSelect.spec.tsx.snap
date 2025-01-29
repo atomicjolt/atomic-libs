@@ -108,7 +108,7 @@ exports[`matches snapshots > matches floating variant 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-labelledby="react-aria-:rf: react-aria-:rb:"
-        class="sc-ovuCP gUXsEw aje-btn sc-hJRrWL hJvkfR aje-btn--dropdown is-medium"
+        class="sc-ovuCP gUXsEw aje-btn sc-hJRrWL hJvkfR aje-btn--floating is-medium"
         id="react-aria-:ra:"
         type="button"
       >

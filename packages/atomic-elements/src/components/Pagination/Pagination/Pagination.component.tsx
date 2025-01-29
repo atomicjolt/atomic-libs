@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import { useControlledState } from "@react-stately/utils";
 import { AriaLabelProps, ExtendedSize, RenderBaseProps } from "../../../types";
 import { useRenderProps } from "@hooks/useRenderProps";
@@ -6,14 +6,17 @@ import { IconButton } from "@components/Buttons/IconButton";
 import { ButtonVariants, ButtonProps } from "@components/Buttons/Button";
 import { PageProps, PageState } from "../Pagination.types";
 import { ButtonContext } from "@components/Buttons/Button/Button.context";
-import { PaginationContext } from "./Pagination.context";
+import { PaginationStateContext } from "./Pagination.context";
 import { Button } from "@components/Buttons/Button";
 import { IconButtonProps } from "../../Buttons/IconButton";
 import { CustomSelectProps } from "../../Dropdowns/CustomSelect";
 import { CustomSelect } from "@components/Dropdowns/CustomSelect";
+import { useContextProps } from "@hooks/useContextProps";
+import { PaginationContext } from ".";
 
 interface PaginationRenderProps {
   page: number;
+  pageSize: number;
 }
 
 export interface PaginationProps
@@ -32,6 +35,9 @@ export interface PaginationProps
  * for navigating through pages.
  */
 export function Pagination(props: PaginationProps) {
+  let ref = useRef<HTMLDivElement>(null);
+  [props, ref] = useContextProps(PaginationContext, props, ref);
+
   const {
     totalPages,
     defaultPage = 1,
@@ -54,14 +60,14 @@ export function Pagination(props: PaginationProps) {
 
   const renderProps = useRenderProps({
     componentClassName: "aje-pagination",
-    values: { page },
+    values: { page, pageSize },
     ...props,
   });
 
   return (
     <div {...renderProps}>
       <ButtonContext.Provider value={{ variant, size }}>
-        <PaginationContext.Provider
+        <PaginationStateContext.Provider
           value={{
             page,
             onPageChange: setPage,
@@ -71,7 +77,7 @@ export function Pagination(props: PaginationProps) {
           }}
         >
           {renderProps.children}
-        </PaginationContext.Provider>
+        </PaginationStateContext.Provider>
       </ButtonContext.Provider>
     </div>
   );
@@ -80,14 +86,17 @@ export function Pagination(props: PaginationProps) {
 Pagination.FirstPage = function PaginationFirstPage(
   props: Partial<IconButtonProps>
 ) {
-  const { icon = "first_page", ...rest } = props;
-  const { page, onPageChange: onChange } = useContext(PaginationContext);
+  const { icon = "first_page", onPress, ...rest } = props;
+  const { page, onPageChange: onChange } = useContext(PaginationStateContext);
 
   return (
     <IconButton
       aria-label="First Page"
       isDisabled={page === 1}
-      onPress={() => onChange(1)}
+      onPress={(e) => {
+        onChange(1);
+        onPress?.(e);
+      }}
       icon={icon}
       {...rest}
     />
@@ -97,14 +106,17 @@ Pagination.FirstPage = function PaginationFirstPage(
 Pagination.PrevPage = function PaginationPrevPage(
   props: Partial<IconButtonProps>
 ) {
-  const { icon = "chevron_left", ...rest } = props;
-  const { page, onPageChange: onChange } = useContext(PaginationContext);
+  const { icon = "chevron_left", onPress, ...rest } = props;
+  const { page, onPageChange: onChange } = useContext(PaginationStateContext);
 
   return (
     <IconButton
       aria-label="Previous Page"
       isDisabled={page === 1}
-      onPress={() => onChange(page - 1)}
+      onPress={(e) => {
+        onChange(page - 1);
+        onPress?.(e);
+      }}
       icon={icon}
       {...rest}
     />
@@ -114,18 +126,21 @@ Pagination.PrevPage = function PaginationPrevPage(
 Pagination.NextPage = function PaginationNextPage(
   props: Partial<IconButtonProps>
 ) {
-  const { icon = "chevron_right", ...rest } = props;
+  const { icon = "chevron_right", onPress, ...rest } = props;
   const {
     page,
     totalPages,
     onPageChange: onChange,
-  } = useContext(PaginationContext);
+  } = useContext(PaginationStateContext);
 
   return (
     <IconButton
       aria-label="Next Page"
       isDisabled={page === totalPages}
-      onPress={() => onChange(page + 1)}
+      onPress={(e) => {
+        onChange(page + 1);
+        onPress?.(e);
+      }}
       icon={icon}
       {...rest}
     />
@@ -135,18 +150,21 @@ Pagination.NextPage = function PaginationNextPage(
 Pagination.LastPage = function PaginationLastPage(
   props: Partial<IconButtonProps>
 ) {
-  const { icon = "last_page", ...rest } = props;
+  const { icon = "last_page", onPress, ...rest } = props;
   const {
     page,
     totalPages,
     onPageChange: onChange,
-  } = useContext(PaginationContext);
+  } = useContext(PaginationStateContext);
 
   return (
     <IconButton
       aria-label="Last Page"
       isDisabled={page === totalPages}
-      onPress={() => totalPages && onChange(totalPages)}
+      onPress={(e) => {
+        totalPages && onChange(totalPages);
+        onPress?.(e);
+      }}
       icon={icon}
       {...rest}
     />
@@ -159,10 +177,18 @@ type PaginationPageProps = ButtonProps & {
 };
 
 Pagination.Page = function PaginationPage(props: PaginationPageProps) {
-  const { page, ...rest } = props;
-  const { onPageChange: onChange } = useContext(PaginationContext);
+  const { page, onPress, ...rest } = props;
+  const { onPageChange: onChange } = useContext(PaginationStateContext);
 
-  return <Button onPress={() => onChange(page)} {...rest} />;
+  return (
+    <Button
+      onPress={(e) => {
+        onChange(page);
+        onPress?.(e);
+      }}
+      {...rest}
+    />
+  );
 };
 
 interface PaginationPagesProps {
@@ -171,7 +197,7 @@ interface PaginationPagesProps {
 }
 
 Pagination.PageList = function PaginationPages(props: PaginationPagesProps) {
-  const state = useContext(PaginationContext);
+  const state = useContext(PaginationStateContext);
   const { children, totalPages = state.totalPages } = props;
 
   if (!totalPages) {
@@ -196,7 +222,7 @@ Pagination.CurrentPage = function PaginationCurrentPage(
   props: PaginationCurrentPageProps
 ) {
   const { children } = props;
-  const state = useContext(PaginationContext);
+  const state = useContext(PaginationStateContext);
 
   if (children) {
     return children(state.page, state);
@@ -208,13 +234,17 @@ Pagination.CurrentPage = function PaginationCurrentPage(
 Pagination.PageSize = function PaginationPageSize<T extends object>(
   props: CustomSelectProps<T>
 ) {
-  const { pageSize, onPageSizeChange } = useContext(PaginationContext);
+  const { pageSize, onPageSizeChange } = useContext(PaginationStateContext);
 
   return (
     <CustomSelect
       {...props}
-      selectedKey={pageSize.toString()}
-      onSelectionChange={(key) => onPageSizeChange(parseInt(key as string))}
+      selectedKey={pageSize}
+      onSelectionChange={(key) =>
+        onPageSizeChange(
+          typeof key === "string" ? parseInt(key as string, 10) : key
+        )
+      }
     />
   );
 };
