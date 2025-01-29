@@ -1,15 +1,22 @@
-import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import { Modal } from ".";
 import { IconButton } from "../../Buttons/IconButton";
 import { Button } from "../../Buttons/Button";
 import { MaterialIcon } from "../../Icons/MaterialIcon";
 import { OverlayTrigger } from "../OverlayTrigger";
+import { Text } from "@components/Typography/Text";
+import {
+  DimensionsArgTypes,
+  OverflowArgTypes,
+  OverlayTriggerArgTypes,
+  PositionArgTypes,
+  RenderPropsArgTypes,
+  SpacingArgTypes,
+} from "@sb/helpers";
 
 const meta: Meta<typeof Modal> = {
   title: "Overlays/Modals/Modal",
   component: Modal,
-  tags: ["!autodocs"],
   parameters: {
     docs: {
       story: {
@@ -19,13 +26,12 @@ const meta: Meta<typeof Modal> = {
     },
   },
   argTypes: {
-    children: {
-      control: false,
-    },
-    variant: {
-      control: "select",
-      options: ["default", "popup"],
-    },
+    ...RenderPropsArgTypes,
+    ...SpacingArgTypes,
+    ...DimensionsArgTypes,
+    ...PositionArgTypes,
+    ...OverflowArgTypes,
+    ...OverlayTriggerArgTypes,
   },
 };
 
@@ -41,43 +47,19 @@ type Story = StoryObj<typeof Modal>;
 export const Primary: Story = {
   args: {
     isOpen: true,
-    children: (
-      <>
-        <Modal.Header>
-          <Modal.Title>Title</Modal.Title>
-          <IconButton icon="close" variant="ghost" />
-        </Modal.Header>
-        <Modal.Body>
-          <p>This is the content of the modal</p>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary">Cancel</Button>
-          <Button variant="primary">Save</Button>
-        </Modal.Footer>
-      </>
-    ),
-  },
-  parameters: {
-    docs: {
-      source: {
-        language: "jsx",
-        code: `
-<Modal isOpen>
-  <Modal.Header>
-    <Modal.Title>Title</Modal.Title>
-    <IconButton icon="close" variant="ghost" />
-  </Modal.Header>
-  <Modal.Body>
-    <p>This is the content of the modal</p>
-  </Modal.Body>
-  <Modal.Footer>
-    <Button variant="secondary">Cancel</Button>
-    <Button variant="primary">Save</Button>
-  </Modal.Footer>
-</Modal>
-        `,
-      },
-    },
+    children: [
+      <Modal.Header key="header">
+        <Modal.Title>Title</Modal.Title>
+        <IconButton icon="close" variant="ghost" />
+      </Modal.Header>,
+      <Modal.Body key="body">
+        <Text $size="3">This is the content of the modal</Text>
+      </Modal.Body>,
+      <Modal.Footer key="footer">
+        <Button variant="secondary">Cancel</Button>
+        <Button variant="primary">Save</Button>
+      </Modal.Footer>,
+    ],
   },
 };
 
@@ -94,7 +76,7 @@ export const WithOverlayTrigger: Story = {
                 <IconButton icon="close" variant="ghost" onPress={close} />
               </Modal.Header>
               <Modal.Body>
-                <p>Modal Body</p>
+                <Text $size="3">Modal Body</Text>
               </Modal.Body>
               <Modal.Footer>
                 <Button variant="secondary" onPress={close}>
@@ -125,7 +107,7 @@ export const WithOverlayTrigger: Story = {
           <IconButton icon="close" variant="ghost" onPress={close} />
         </Modal.Header>
         <Modal.Body>
-          <p>Modal Body</p>
+          <Text $size="3">Modal Body</Text>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onPress={close}>Cancel</Button>
@@ -144,7 +126,7 @@ export const WithOverlayTrigger: Story = {
 export const PopupModal: Story = {
   args: {
     ...Primary.args,
-    variant: "popup",
+    $width: "400px",
     children: (
       <>
         <Modal.Header>
@@ -152,10 +134,10 @@ export const PopupModal: Story = {
           <Modal.Title>Your Download is Ready!</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p>
+          <Text $size="3">
             Your download is ready! Click the button below to download your
             file.
-          </p>
+          </Text>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="success">
@@ -166,39 +148,16 @@ export const PopupModal: Story = {
       </>
     ),
   },
-  parameters: {
-    docs: {
-      source: {
-        code: `
-<Modal isOpen variant="popup">
-  <Modal.Header>
-    <MaterialIcon icon="check" />
-    <Modal.Title>Your Download is Ready!</Modal.Title>
-  </Modal.Header>
-  <Modal.Body>
-    <p>Your download is ready! Click the button below to download your file.</p>
-  </Modal.Body>
-  <Modal.Footer>
-    <Button variant="success">
-      <MaterialIcon icon="download" />
-      Download
-    </Button>
-  </Modal.Footer>
-</Modal>
-        `,
-      },
-    },
-  },
 };
 
 export const WithCustomContent: Story = {
   args: {
     ...Primary.args,
     children: (
-      <p style={{ fontSize: "20px" }}>
+      <Text $size="20px">
         You are able to put whatever content you'd like into the modal, the
         helper components are there for the common use cases.
-      </p>
+      </Text>
     ),
   },
 };

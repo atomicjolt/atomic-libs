@@ -2,7 +2,6 @@ import styled, { css } from "styled-components";
 import mixins from "@styles/mixins";
 import { ComboInput, Input } from "@components/Fields";
 import { SkeletonLoader } from "../../Loaders/SkeletonLoader";
-import { Flex } from "../../Layout/Flex";
 
 const ShowVerticalDividerMixin = css`
   &[data-divider] {
@@ -95,7 +94,6 @@ export const StyledTh = styled.th`
   text-align: left;
   font-size: var(--table-header-font-size);
   color: var(--text-clr-alt);
-  text-transform: uppercase;
   padding: calc(var(--table-padding-vert) + 0.25em) var(--table-padding-horz);
 
   ${ShowVerticalDividerMixin}

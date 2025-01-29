@@ -186,9 +186,7 @@ const DisclosureTrigger = forwardRef<HTMLButtonElement, DisclosureTriggerProps>(
 DisclosureTrigger.displayName = "Disclosure.Trigger";
 Disclosure.Trigger = DisclosureTrigger;
 
-export interface DisclosureGroupProps
-  extends StatelyDisclosureGroupProps,
-    RenderBaseProps<never> {
+export interface DisclosureGroupProps extends StatelyDisclosureGroupProps {
   children: React.ReactNode;
 }
 

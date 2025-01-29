@@ -6,7 +6,7 @@ exports[`List > Snapshots > should match snapshot 1`] = `
   "baseElement": <body>
     <div>
       <ul
-        class="sc-blHHSb hgGTYX aje-list"
+        class="sc-blHHSb cHzCsb aje-list"
       >
         <li
           class="sc-gtLWhw MvHHk aje-list__item"
@@ -25,7 +25,7 @@ exports[`List > Snapshots > should match snapshot 1`] = `
   </body>,
   "container": <div>
     <ul
-      class="sc-blHHSb hgGTYX aje-list"
+      class="sc-blHHSb cHzCsb aje-list"
     >
       <li
         class="sc-gtLWhw MvHHk aje-list__item"

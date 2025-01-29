@@ -46,7 +46,7 @@ export const RadioLabel = styled.span<DirectionProps>`
 `;
 
 export const RadioWrapper = styled.div<DirectionProps>`
-  ${mixins.ToggleInputLike}
+  ${mixins.ToggleInputLike(RadioLabel)}
 
   &[data-selected] .aje-checkbox__label {
     &:before {

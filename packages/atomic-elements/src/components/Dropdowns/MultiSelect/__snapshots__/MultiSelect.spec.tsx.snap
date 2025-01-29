@@ -3,10 +3,10 @@
 exports[`MultiSelect > matches default variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-hJRrWL eQYRpW aje-multiselect sc-fwzISk etxnkv"
+    class="sc-hJRrWL VhpMe aje-multiselect sc-fwzISk bZQazz"
   >
     <label
-      class="sc-egkSDF eRgKMR"
+      class="sc-egkSDF lbEJIl"
       for="react-aria-:r2:"
       id="react-aria-:r3:"
     >
@@ -16,7 +16,7 @@ exports[`MultiSelect > matches default variant 1`] = `
       aria-expanded="false"
       aria-haspopup="listbox"
       aria-labelledby="react-aria-:r7: react-aria-:r3:"
-      class="sc-ovuCP jXkAbD aje-btn sc-geXuza jnQWUQ aje-btn--dropdown is-medium"
+      class="sc-ovuCP gUXsEw aje-btn sc-geXuza jnQWUQ aje-btn--dropdown is-medium"
       id="react-aria-:r2:"
       type="button"
     >
@@ -35,7 +35,7 @@ exports[`MultiSelect > matches default variant 1`] = `
 exports[`MultiSelect > matches floating variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-hJRrWL eQYRpW aje-multiselect sc-fwzISk etxnkv aje-multiselect--floating"
+    class="sc-hJRrWL VhpMe aje-multiselect sc-fwzISk bZQazz aje-multiselect--floating"
   >
     <div
       class="sc-eUlrpB imBDzj"
@@ -44,7 +44,7 @@ exports[`MultiSelect > matches floating variant 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-labelledby="react-aria-:rf: react-aria-:rb:"
-        class="sc-ovuCP jXkAbD aje-btn sc-geXuza jnQWUQ aje-btn--dropdown is-medium"
+        class="sc-ovuCP gUXsEw aje-btn sc-geXuza jnQWUQ aje-btn--dropdown is-medium"
         id="react-aria-:ra:"
         type="button"
       >
@@ -56,7 +56,7 @@ exports[`MultiSelect > matches floating variant 1`] = `
         </i>
       </button>
       <label
-        class="sc-egkSDF eRgKMR"
+        class="sc-egkSDF lbEJIl"
         for="react-aria-:ra:"
         id="react-aria-:rb:"
       >

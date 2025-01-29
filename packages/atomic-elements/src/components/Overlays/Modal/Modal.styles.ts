@@ -1,36 +1,13 @@
+import { layout, LayoutProps } from '@styles/layout';
 import styled from "styled-components";
-import mixins from "../../../styles/mixins";
 
-export const ModalHeader = styled.div.attrs({ className: "aje-modal__top" })`
-  display: flex;
-  align-items: center;
-  gap: 8px;
-`;
+export const ModalWrapper = styled.div<LayoutProps & { $isCentered?: boolean }>`
+  ${({ $isCentered }) => !$isCentered && "margin-top: 58px;" }
+  ${layout.defaults({ $width: "100%", $maxWidth: "800px", $p: "5" })};
 
-export const ModalTitle = styled.h2.attrs({ className: "aje-modal__title" })<{
-  fill?: boolean;
-}>`
-  ${mixins.Bold}
-  margin: 0;
-  font-size: 2rem;
-  ${({ fill = true }) => fill && "flex: 1;"}
-  line-height: 1;
-  color: var(--text-clr);
-`;
-
-export const ModalBody = styled.div.attrs({ className: "aje-modal__main" })`
-  ${mixins.Regular}
-  padding: 16px 0 24px;
-  font-size: 1.6rem;
-  color: var(--text-clr);
-  line-height: 1.5;
-`;
-
-export const ModalFooter = styled.div.attrs({ className: "aje-modal__bottom" })`
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 8px;
+  border-radius: calc(var(--radius) * 2);
+  background-color: var(--neutral50);
+  box-shadow: 0 10px 40px hsla(0, 0%, 0%, 0.25);
 `;
 
 export const ModalBackground = styled.div`
@@ -44,48 +21,9 @@ export const ModalBackground = styled.div`
   align-items: flex-start;
   z-index: 1000;
 
-  &.is-centered {
+  &[data-placement="center"] {
     display: grid;
     place-items: center;
     justify-content: initial;
-
-    .aje-modal {
-      margin: 0;
-    }
-  }
-`;
-
-export const ModalWrapper = styled.div`
-  width: 90%;
-  max-width: 800px;
-  border-radius: 10px;
-  background-color: var(--neutral50);
-  padding: 24px;
-  box-shadow: 0 10px 40px hsla(0, 0%, 0%, 0.25);
-  margin-top: 56px;
-
-  &.aje-modal--popup {
-    max-width: 400px;
-  }
-
-  &.aje-modal--error {
-    max-width: 400px;
-
-    .aje-modal__top > i {
-      color: var(--error700);
-    }
-  }
-
-  &.aje-modal--developer-error {
-    max-width: 1200px;
-    background-color: #181818;
-
-    ${ModalHeader} {
-      color: var(--error700) !important;
-    }
-
-    ${ModalTitle} {
-      color: var(--error700) !important;
-    }
   }
 `;

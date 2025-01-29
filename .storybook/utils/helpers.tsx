@@ -769,16 +769,10 @@ export const FlexArgTypes: ArgTypes = {
   },
 };
 
-export function DecorativeBox() {
-  return (
-    <View
-      style={{
-        height: "100%",
-        width: "100%",
-        backgroundColor: "rebeccapurple",
-        borderRadius: "4px",
-        border: "1px solid #3c3c3c",
-      }}
-    />
-  );
-}
+export const BackgroundArgTypes: ArgTypes = {
+  $bg: {
+    control: "color",
+    description:
+      "Control the CSS background. Can be either a color from the theme or a valid CSS background value.",
+  },
+};

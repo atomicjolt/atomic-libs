@@ -4,7 +4,7 @@ import { useContextProps } from "@hooks/useContextProps";
 import { useRenderProps } from "@hooks/useRenderProps";
 import { TypographyProps } from "@styles/typography";
 import { MarginProps } from "@styles/layout";
-import { ColorProps } from "@styles/colors";
+import { TextColorProps } from "@styles/colors";
 import { HeadingContext } from "./Heading.context";
 import { HeadingWrapper } from "./Heading.styles";
 
@@ -15,7 +15,7 @@ export interface HeadingProps
     ElementWrapper<HTMLSpanElement>,
     TypographyProps,
     MarginProps,
-    ColorProps {
+    TextColorProps {
   as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 }
 

@@ -1,6 +1,10 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { View } from ".";
-import { LayoutArgTypes, RenderPropsArgTypes } from "@sb/helpers";
+import {
+  BackgroundArgTypes,
+  LayoutArgTypes,
+  RenderPropsArgTypes,
+} from "@sb/helpers";
 
 export default {
   title: "Layouts/View",
@@ -11,6 +15,7 @@ export default {
   argTypes: {
     ...RenderPropsArgTypes,
     ...LayoutArgTypes,
+    ...BackgroundArgTypes,
   },
 } as Meta<typeof View>;
 
