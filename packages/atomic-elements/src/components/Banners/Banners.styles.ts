@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import mixins from "../../styles/mixins";
+import { MarginProps, margins } from "@styles/layout";
 
 export const StyledBanner = styled.div`
   ${mixins.Bold}
@@ -89,7 +90,8 @@ export const StyledBanner = styled.div`
   }
 `;
 
-export const BannerContent = styled.div`
+export const BannerContent = styled.div<MarginProps>`
+  ${margins}
   flex: 1;
   padding: 10px 0;
   line-height: 1.4;

@@ -3,7 +3,7 @@
 exports[`LoadingStatus > matches error snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-kLhKbu gIopdm aje-banner--error"
+    class="sc-kLhKbu gIopdm aje-banner aje-banner aje-banner--error"
   >
     <i
       aria-hidden="true"
@@ -12,7 +12,7 @@ exports[`LoadingStatus > matches error snapshot 1`] = `
       error
     </i>
     <div
-      class="sc-ixGGxD BOaqi"
+      class="sc-ixGGxD iMhwZx"
     >
       An error occurred
     </div>
