@@ -32,8 +32,8 @@ export const WithIcon: Story = {
   args: {
     ...Primary.args,
     children: [
-      <MaterialIcon icon="info" />,
-      <Banner.Content>This is a banner</Banner.Content>,
+      <MaterialIcon key="icon" icon="info" />,
+      <Banner.Content key="content">This is a banner</Banner.Content>,
     ],
   },
 };
@@ -42,9 +42,9 @@ export const WithIconButton: Story = {
   args: {
     ...Primary.args,
     children: [
-      <MaterialIcon icon="info" />,
-      <Banner.Content>This is a banner</Banner.Content>,
-      <Banner.IconButton icon="close" />,
+      <MaterialIcon icon="info" key="icon" />,
+      <Banner.Content key="content">This is a banner</Banner.Content>,
+      <Banner.IconButton key="action" icon="close" />,
     ],
   },
 };

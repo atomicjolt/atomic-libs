@@ -1,5 +1,6 @@
 import { forwardRef } from "react";
 import {
+  ElementWrapper,
   MaterialIconVariants,
   MaterialIcons,
   RenderBaseProps,
@@ -8,7 +9,9 @@ import { useRenderProps } from "@hooks/useRenderProps";
 import { MaterialIcon } from "../../Icons/MaterialIcon";
 import { Banner, BannerVariants } from "../Banner";
 
-interface SharedProps extends RenderBaseProps<never> {
+interface SharedProps
+  extends RenderBaseProps<never>,
+    ElementWrapper<HTMLDivElement> {
   /** Called when the user dismisses the banner */
   readonly onDismiss?: () => void;
 }
@@ -30,15 +33,26 @@ export const DismissableBanner = forwardRef<
   HTMLDivElement,
   DismissableBannerProps
 >((props, ref) => {
-  const { variant = "info", iconVariant = "default", icon, onDismiss } = props;
+  const {
+    variant = "info",
+    iconVariant = "default",
+    icon,
+    onDismiss,
+    className,
+    children,
+    style,
+    ...rest
+  } = props;
 
   const renderProps = useRenderProps({
     componentClassName: "aje-banner",
-    ...props,
+    className,
+    style,
+    children,
   });
 
   return (
-    <Banner {...renderProps} ref={ref}>
+    <Banner ref={ref} {...renderProps} {...rest}>
       {icon && <MaterialIcon icon={icon} variant={iconVariant} />}
       <Banner.Content>{renderProps.children}</Banner.Content>
       <Banner.IconButton

@@ -241,13 +241,13 @@ exports[`Banner > Snapshots > should match snapshot 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="sc-blHHSb hgXpyK aje-banner"
+        class="sc-blHHSb hgXpyK aje-banner aje-banner--info"
       />
     </div>
   </body>,
   "container": <div>
     <div
-      class="sc-blHHSb hgXpyK aje-banner"
+      class="sc-blHHSb hgXpyK aje-banner aje-banner--info"
     />
   </div>,
   "debug": [Function],

@@ -3,7 +3,7 @@
 exports[`LoadingStatus > matches error snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-kLhKbu gIopdm aje-banner aje-banner aje-banner--error"
+    class="sc-kLhKbu gIopdm aje-banner aje-banner aje-banner--info"
   >
     <i
       aria-hidden="true"

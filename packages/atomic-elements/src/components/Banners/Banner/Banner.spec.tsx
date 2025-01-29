@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { expect, it, describe } from "vitest";
 import { Banner } from "./Banner.component";
 
@@ -13,6 +13,13 @@ describe("Banner", () => {
       const res = render(<Banner variant="success" />);
       expect(res).toMatchSnapshot();
     });
+  });
+
+  it("should forward props to the element", () => {
+    render(<Banner className="test" data-attribute data-testid="aje-banner" />);
+    expect(screen.getByTestId("aje-banner")).toBeInTheDocument();
+    expect(screen.getByTestId("aje-banner")).toHaveClass("test");
+    expect(screen.getByTestId("aje-banner")).toHaveAttribute("data-attribute");
   });
 
   describe("Banner.Content", () => {
