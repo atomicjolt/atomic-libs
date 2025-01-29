@@ -1,6 +1,10 @@
 import React, { forwardRef, RefAttributes } from "react";
 import { useRenderProps } from "@hooks/useRenderProps";
-import { RenderBaseProps, SuggestStrings } from "../../../types";
+import {
+  ElementWrapper,
+  RenderBaseProps,
+  SuggestStrings,
+} from "../../../types";
 import { BannerContent, StyledBanner } from "../Banners.styles";
 import { IconButton, IconButtonProps } from "../../Buttons/IconButton";
 import { Button, ButtonProps } from "../../Buttons/Button";
@@ -9,17 +13,24 @@ export type BannerVariants = SuggestStrings<
   "info" | "error" | "success" | "warning"
 >;
 
-export interface BannerProps extends RenderBaseProps<never> {
+export interface BannerProps
+  extends RenderBaseProps<never>,
+    ElementWrapper<HTMLDivElement> {
   readonly variant?: BannerVariants;
 }
 
 function Banner(props: BannerProps, ref: React.Ref<HTMLDivElement>) {
+  const { variant = "info", children, className, style, ...rest } = props;
+
   const renderProps = useRenderProps({
     componentClassName: "aje-banner",
-    ...props,
+    variant,
+    children,
+    className,
+    style,
   });
 
-  return <StyledBanner ref={ref} {...renderProps} />;
+  return <StyledBanner ref={ref} {...renderProps} {...rest} />;
 }
 
 const BannerIconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
