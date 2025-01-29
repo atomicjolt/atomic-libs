@@ -12,10 +12,7 @@ export function ModalOverlay(props: ModalOverlayProps) {
 
   return (
     <Overlay>
-      <ModalBackground
-        {...rest}
-        className={classNames({ "is-centered": isCentered })}
-      >
+      <ModalBackground {...rest} data-placement={isCentered ? "center" : "top"}>
         {children}
       </ModalBackground>
     </Overlay>

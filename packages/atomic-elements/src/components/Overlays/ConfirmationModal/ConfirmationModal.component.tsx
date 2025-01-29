@@ -28,7 +28,7 @@ export interface ConfirmationModalProps extends BaseModalProps {
  * Confirmation Modal Component. For when you need a small modal to confirm an action, like deleting a record
  *
  * Keep in mind that the `ConfirmationModal` is a simple wrapper around the `Modal` component for a simple default
- * If you need a more complex modal, you can use the `Modal` component directly. [Check the ConfirmationModal implementation for a starting point](https://github.com/atomicjolt/atomic-elements/blob/next/src/components/Overlays/ConfirmationModal/index.tsx)
+ * If you need a more complex modal, you can use the `Modal` component directly. [Check the ConfirmationModal implementation for a starting point](https://github.com/atomicjolt/atomic-libs/blob/main/packages/atomic-elements/src/components/Overlays/ConfirmationModal/ConfirmationModal.component.tsx)
  * */
 export function ConfirmationModal(props: ConfirmationModalProps) {
   const {
@@ -42,7 +42,7 @@ export function ConfirmationModal(props: ConfirmationModalProps) {
   } = props;
 
   return (
-    <Modal {...rest} variant="popup">
+    <Modal $width="400px" {...rest}>
       {(close) => (
         <>
           <Modal.Header>

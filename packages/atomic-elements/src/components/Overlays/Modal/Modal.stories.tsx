@@ -21,10 +21,6 @@ const meta: Meta<typeof Modal> = {
     children: {
       control: false,
     },
-    variant: {
-      control: "select",
-      options: ["default", "popup"],
-    },
   },
 };
 
@@ -143,7 +139,7 @@ export const WithOverlayTrigger: Story = {
 export const PopupModal: Story = {
   args: {
     ...Primary.args,
-    variant: "popup",
+    $width: "400px",
     children: (
       <>
         <Modal.Header>
@@ -169,7 +165,7 @@ export const PopupModal: Story = {
     docs: {
       source: {
         code: `
-<Modal isOpen variant="popup">
+<Modal isOpen width="400px">
   <Modal.Header>
     <MaterialIcon icon="check" />
     <Modal.Title>Your Download is Ready!</Modal.Title>

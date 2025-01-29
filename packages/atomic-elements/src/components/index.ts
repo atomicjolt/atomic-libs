@@ -31,10 +31,6 @@ export { Modal } from "./Overlays/Modal";
 export { ConfirmationModal } from "./Overlays/ConfirmationModal";
 export { ErrorModal } from "./Overlays/ErrorModal";
 export { Popover } from "./Overlays/Popover";
-export {
-  DevelopmentErrorModal,
-  DevelopmentErrorBoundary,
-} from "./Overlays/DevelopmentErrorModal";
 
 export { CheckBox } from "./Inputs/Checkbox";
 export { NumberInput } from "./Inputs/NumberInput";
@@ -171,7 +167,6 @@ export type { DateInputProps } from "./Inputs/DateAndTimes/DateInput";
 export type { TimeInputProps } from "./Inputs/DateAndTimes/TimeInput";
 export type { DatePickerProps } from "./Inputs/DateAndTimes/DatePicker";
 export type { ListBoxProps } from "./Dropdowns/ListBox";
-export type { DevelopmentErrorModalProps } from "./Overlays/DevelopmentErrorModal";
 export type { MultiSelectProps } from "./Dropdowns/MultiSelect";
 export type { MultiSelectFieldProps } from "./Fields/MultiSelectField";
 export type { PopoverProps } from "./Overlays/Popover";

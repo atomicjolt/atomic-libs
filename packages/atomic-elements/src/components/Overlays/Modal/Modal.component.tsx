@@ -1,12 +1,14 @@
 import React, { useContext, useRef } from "react";
 import { AriaModalOverlayProps, useModalOverlay } from "@react-aria/overlays";
 import { OverlayTriggerState, useOverlayTriggerState } from "react-stately";
+
 import { useContextProps } from "@hooks/useContextProps";
 import { OverlayTriggerStateContext } from "../OverlayTrigger/context";
 import { useRenderProps } from "@hooks/useRenderProps";
+
+import { BaseModalProps, ModalChildren } from "./Modal.types";
 import { ModalContext } from "./Modal.context";
 import { ModalWrapper } from "./Modal.styles";
-import { BaseModalProps, ModalChildren } from "./Modal.types";
 import { ModalOverlay } from "./components/ModalOverlay";
 import { ModalHeader } from "./components/ModalHeader";
 import { ModalTitle } from "./components/ModalTitle";
@@ -63,6 +65,7 @@ function ModalInternal(props: ModalInternalProps) {
       <ModalWrapper
         onClick={(e: React.MouseEvent<HTMLDivElement>) => e.stopPropagation()}
         ref={ref}
+        $isCentered={isCentered}
         {...rest}
         {...modalProps}
         {...renderProps}
