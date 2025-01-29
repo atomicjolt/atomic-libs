@@ -4,7 +4,7 @@ import { mergeProps } from "@react-aria/utils";
 import { DomProps, RenderBaseProps } from "../../../types";
 import { TypographyProps } from "@styles/typography";
 import { MarginProps } from "@styles/layout";
-import { ColorProps } from "@styles/colors";
+import { TextColorProps } from "@styles/colors";
 import { useRenderProps } from "@hooks/useRenderProps";
 import { StyledLink } from "./Link.styles";
 
@@ -13,7 +13,7 @@ export interface LinkProps
     RenderBaseProps<never>,
     TypographyProps,
     MarginProps,
-    ColorProps,
+    TextColorProps,
     DomProps {
   as?: "a" | "span";
 }

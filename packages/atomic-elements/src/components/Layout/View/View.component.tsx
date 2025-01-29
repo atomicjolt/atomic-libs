@@ -3,6 +3,7 @@ import { ElementWrapper, RenderBaseProps } from "../../../types";
 import { useContextProps } from "@hooks/useContextProps";
 import { useRenderProps } from "@hooks/useRenderProps";
 import { DisplayProps, LayoutProps } from "@styles/layout";
+import { BackgroundColorProps } from "@styles/colors";
 import { ViewContext } from "./View.context";
 import { ViewWrapper } from "./View.styles";
 
@@ -10,6 +11,7 @@ export interface ViewProps
   extends RenderBaseProps<never>,
     LayoutProps,
     DisplayProps,
+    BackgroundColorProps,
     ElementWrapper<HTMLDivElement> {
   as?: "div" | "span";
 }

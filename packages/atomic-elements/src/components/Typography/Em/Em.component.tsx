@@ -5,13 +5,13 @@ import { useRenderProps } from "@hooks/useRenderProps";
 import { MarginProps } from "@styles/layout";
 import { EmContext } from "./Em.context";
 import { EmWrapper } from "./Em.styles";
-import { ColorProps } from "@styles/colors";
+import { TextColorProps } from "@styles/colors";
 
 export interface EmProps
   extends RenderBaseProps<never>,
     ElementWrapper<HTMLSpanElement>,
     MarginProps,
-    ColorProps {}
+    TextColorProps {}
 
 export const Em = forwardRef<HTMLElement, EmProps>(function Em(props, ref) {
   [props, ref] = useContextProps(EmContext, props, ref);
