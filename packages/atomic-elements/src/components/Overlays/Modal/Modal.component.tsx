@@ -4,7 +4,6 @@ import { OverlayTriggerState, useOverlayTriggerState } from "react-stately";
 import { useContextProps } from "@hooks/useContextProps";
 import { OverlayTriggerStateContext } from "../OverlayTrigger/context";
 import { useRenderProps } from "@hooks/useRenderProps";
-import { filterDOMProps } from "@react-aria/utils";
 import { ModalContext } from "./Modal.context";
 import { ModalWrapper } from "./Modal.styles";
 import { BaseModalProps, ModalChildren } from "./Modal.types";
@@ -15,7 +14,6 @@ import { ModalBody } from "./components/ModalBody";
 import { ModalFooter } from "./components/ModalFooter";
 
 export interface ModalProps extends BaseModalProps {
-  variant?: string;
   children?: ModalChildren;
 }
 
@@ -26,13 +24,7 @@ export function Modal(props: ModalProps) {
   let ref = useRef(null);
   [props, ref] = useContextProps(ModalContext, props, ref);
 
-  const {
-    children,
-    centered = false,
-    isCentered = centered,
-    variant = "default",
-    ...rest
-  } = props;
+  const { children, centered = false, isCentered = centered, ...rest } = props;
 
   const contextState = useContext(OverlayTriggerStateContext);
   const localState = useOverlayTriggerState(props);
@@ -43,12 +35,7 @@ export function Modal(props: ModalProps) {
   }
 
   return (
-    <ModalInternal
-      state={state}
-      isCentered={isCentered}
-      variant={variant}
-      {...rest}
-    >
+    <ModalInternal state={state} isCentered={isCentered} {...rest}>
       {children}
     </ModalInternal>
   );
@@ -57,28 +44,28 @@ export function Modal(props: ModalProps) {
 interface ModalInternalProps extends BaseModalProps, AriaModalOverlayProps {
   state: OverlayTriggerState;
   children: ModalChildren;
-  variant?: string;
 }
 
 function ModalInternal(props: ModalInternalProps) {
-  const { children, state, isCentered } = props;
+  const { children, className, style, state, isCentered, ...rest } = props;
   const ref = useRef(null);
   const { modalProps, underlayProps } = useModalOverlay(props, state, ref);
 
   const renderProps = useRenderProps({
     componentClassName: "aje-modal",
-    ...props,
+    children,
+    className,
+    style,
   });
 
   return (
     <ModalOverlay isCentered={isCentered} {...underlayProps}>
       <ModalWrapper
-        {...renderProps}
-        {...filterDOMProps(props)}
         onClick={(e: React.MouseEvent<HTMLDivElement>) => e.stopPropagation()}
         ref={ref}
-        id={props.id}
+        {...rest}
         {...modalProps}
+        {...renderProps}
       >
         {typeof children === "function" ? children(state.close) : children}
       </ModalWrapper>

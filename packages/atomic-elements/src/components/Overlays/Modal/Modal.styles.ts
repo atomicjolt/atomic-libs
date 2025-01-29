@@ -1,21 +1,13 @@
+import { layout, LayoutProps } from '@styles/layout';
 import styled from "styled-components";
 
-export const ModalWrapper = styled.div`
-  width: 90%;
-  max-width: 800px;
-  border-radius: 10px;
+export const ModalWrapper = styled.div<LayoutProps>`
+  ${layout.defaults({ $width: "100%", $maxWidth: "800px", $p: "5" })};
+
+  border-radius: calc(var(--radius) * 2);
   background-color: var(--neutral50);
-  padding: 24px;
   box-shadow: 0 10px 40px hsla(0, 0%, 0%, 0.25);
   margin-top: 56px;
-
-  &.aje-modal--popup {
-    max-width: 400px;
-  }
-
-  &.aje-modal--error {
-    max-width: 400px;
-  }
 `;
 
 export const ModalBackground = styled.div`
