@@ -1,43 +1,22 @@
 import React, { useContext, useRef } from "react";
-import {
-  AriaModalOverlayProps,
-  Overlay,
-  useModalOverlay,
-} from "@react-aria/overlays";
-import {
-  OverlayTriggerProps,
-  OverlayTriggerState,
-  useOverlayTriggerState,
-} from "react-stately";
-import { RenderStyleProps } from "../../../types";
-import {
-  ModalBackground,
-  ModalWrapper,
-  ModalBody,
-  ModalFooter,
-  ModalHeader,
-  ModalTitle,
-} from "./Modal.styles";
-import classNames from "classnames";
-import { useContextProps } from "../../../hooks/useContextProps";
-import { ModalContext } from "./Modal.context";
+import { AriaModalOverlayProps, useModalOverlay } from "@react-aria/overlays";
+import { OverlayTriggerState, useOverlayTriggerState } from "react-stately";
+
+import { useContextProps } from "@hooks/useContextProps";
 import { OverlayTriggerStateContext } from "../OverlayTrigger/context";
-import { useRenderProps } from "@hooks";
-import { filterDOMProps } from "@react-aria/utils";
+import { useRenderProps } from "@hooks/useRenderProps";
 
-type CloseModal = () => void;
-
-export interface BaseModalProps
-  extends RenderStyleProps<never>,
-    OverlayTriggerProps {
-  id?: string;
-  /** Centers the modal within the viewport */
-  centered?: boolean;
-}
+import { BaseModalProps, ModalChildren } from "./Modal.types";
+import { ModalContext } from "./Modal.context";
+import { ModalWrapper } from "./Modal.styles";
+import { ModalOverlay } from "./components/ModalOverlay";
+import { ModalHeader } from "./components/ModalHeader";
+import { ModalTitle } from "./components/ModalTitle";
+import { ModalBody } from "./components/ModalBody";
+import { ModalFooter } from "./components/ModalFooter";
 
 export interface ModalProps extends BaseModalProps {
-  variant?: string;
-  children?: React.ReactNode | ((close: CloseModal) => React.ReactNode);
+  children?: ModalChildren;
 }
 
 /**
@@ -47,7 +26,7 @@ export function Modal(props: ModalProps) {
   let ref = useRef(null);
   [props, ref] = useContextProps(ModalContext, props, ref);
 
-  const { children, centered = false, variant = "default", ...rest } = props;
+  const { children, centered = false, isCentered = centered, ...rest } = props;
 
   const contextState = useContext(OverlayTriggerStateContext);
   const localState = useOverlayTriggerState(props);
@@ -58,56 +37,63 @@ export function Modal(props: ModalProps) {
   }
 
   return (
-    <ModalOverlay state={state} centered={centered} variant={variant} {...rest}>
+    <ModalInternal state={state} isCentered={isCentered} {...rest}>
       {children}
-    </ModalOverlay>
+    </ModalInternal>
   );
 }
 
-interface ModalOverlayProps extends BaseModalProps, AriaModalOverlayProps {
+interface ModalInternalProps extends BaseModalProps, AriaModalOverlayProps {
   state: OverlayTriggerState;
-  children: React.ReactNode | ((close: CloseModal) => React.ReactNode);
-  variant?: string;
+  children: ModalChildren;
+  triggerRef?: React.RefObject<HTMLElement>;
 }
 
-function ModalOverlay(props: ModalOverlayProps) {
-  const { children, state, centered } = props;
+function ModalInternal(props: ModalInternalProps) {
+  const {
+    children,
+    className,
+    style,
+    state,
+    isCentered,
+    isOpen,
+    triggerRef,
+    ...rest
+  } = props;
   const ref = useRef(null);
   const { modalProps, underlayProps } = useModalOverlay(props, state, ref);
 
   const renderProps = useRenderProps({
     componentClassName: "aje-modal",
-    ...props,
+    children,
+    className,
+    style,
   });
 
   return (
-    <Overlay>
-      <ModalBackground
-        {...underlayProps}
-        className={classNames({ "is-centered": centered })}
+    <ModalOverlay isCentered={isCentered} {...underlayProps}>
+      <ModalWrapper
+        onClick={(e: React.MouseEvent<HTMLDivElement>) => e.stopPropagation()}
+        ref={ref}
+        $isCentered={isCentered}
+        {...rest}
+        {...modalProps}
+        {...renderProps}
       >
-        <ModalWrapper
-          {...renderProps}
-          {...filterDOMProps(props)}
-          onClick={(e: React.MouseEvent<HTMLDivElement>) => e.stopPropagation()}
-          ref={ref}
-          id={props.id}
-          {...modalProps}
-        >
-          {typeof children === "function" ? children(state.close) : children}
-        </ModalWrapper>
-      </ModalBackground>
-    </Overlay>
+        {typeof children === "function" ? children(state.close) : children}
+      </ModalWrapper>
+    </ModalOverlay>
   );
 }
 
-ModalHeader.displayName = "Modal.Header";
+/** Wrapper around Flex to provide some sensible defaults for Modals */
 Modal.Header = ModalHeader;
-ModalTitle.displayName = "Modal.Title";
-Modal.Title = ModalTitle;
-ModalBody.displayName = "Modal.Body";
-Modal.Body = ModalBody;
-ModalFooter.displayName = "Modal.Footer";
-Modal.Footer = ModalFooter;
 
-export default Modal;
+/** Wrapper around Heading to provide some sensible defaults for Modals */
+Modal.Title = ModalTitle;
+
+/** Wrapper around View to provide some sensible defaults for Modals */
+Modal.Body = ModalBody;
+
+/** Wrapper around Flex to provide some sensible defaults for Modals */
+Modal.Footer = ModalFooter;
