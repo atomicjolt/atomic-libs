@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "../../Buttons/Button";
 import { MaterialIcon } from "../../Icons/MaterialIcon";
 import { Modal, BaseModalProps } from "../Modal";
+import { Text } from "@components/Typography/Text";
 
 export interface ErrorModalProps extends BaseModalProps {
   children: React.ReactNode;
@@ -25,11 +26,13 @@ export function ErrorModal(props: ErrorModalProps) {
     <Modal {...rest} variant="error">
       {(close) => (
         <>
-          <Modal.Header>
+          <Modal.Header $justify="start">
             <MaterialIcon icon="error" />
             <Modal.Title>{title}</Modal.Title>
           </Modal.Header>
-          <Modal.Body>{children}</Modal.Body>
+          <Modal.Body>
+            <Text $size="3">{children}</Text>
+          </Modal.Body>
           <Modal.Footer>
             <Button
               variant="error"

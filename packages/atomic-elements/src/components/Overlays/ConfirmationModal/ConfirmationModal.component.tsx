@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Button } from "../../Buttons/Button";
+import { Text } from "@components/Typography/Text";
 import { Modal, BaseModalProps } from "../Modal";
-import { OverlayTriggerStateContext } from "../OverlayTrigger/context";
 
 export interface ConfirmationModalProps extends BaseModalProps {
   children: React.ReactNode;
@@ -30,15 +30,17 @@ export interface ConfirmationModalProps extends BaseModalProps {
  * Keep in mind that the `ConfirmationModal` is a simple wrapper around the `Modal` component for a simple default
  * If you need a more complex modal, you can use the `Modal` component directly. [Check the ConfirmationModal implementation for a starting point](https://github.com/atomicjolt/atomic-elements/blob/next/src/components/Overlays/ConfirmationModal/index.tsx)
  * */
-export function ConfirmationModal({
-  title,
-  children,
-  confirmText,
-  rejectText = "Cancel",
-  onConfirm,
-  onReject,
-  ...rest
-}: ConfirmationModalProps) {
+export function ConfirmationModal(props: ConfirmationModalProps) {
+  const {
+    title,
+    children,
+    confirmText,
+    rejectText = "Cancel",
+    onConfirm,
+    onReject,
+    ...rest
+  } = props;
+
   return (
     <Modal {...rest} variant="popup">
       {(close) => (
@@ -46,7 +48,9 @@ export function ConfirmationModal({
           <Modal.Header>
             <Modal.Title>{title}</Modal.Title>
           </Modal.Header>
-          <Modal.Body>{children}</Modal.Body>
+          <Modal.Body>
+            <Text $size="3">{children}</Text>
+          </Modal.Body>
           <Modal.Footer>
             <Button
               variant="secondary"

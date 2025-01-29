@@ -6,7 +6,8 @@ import {
   OverlayTrigger,
   ErrorModal,
   ConfirmationModal,
-} from "@atomicjolt/atomic-elements";
+  Text,
+} from "../elements";
 
 export default function Modals() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -28,7 +29,7 @@ export default function Modals() {
           </Modal.Header>
 
           <Modal.Body>
-            <p>This modals state is controlled externally</p>
+            <Text $size="3">This modal's state is controlled externally</Text>
           </Modal.Body>
         </Modal>
       </div>
@@ -44,11 +45,16 @@ export default function Modals() {
                   <IconButton icon="close" onPress={close} variant="ghost" />
                 </Modal.Header>
                 <Modal.Body>
-                  <p>
+                  <Text $size="3">
                     This modal's state is controlled internally by
                     OverlayTrigger
-                  </p>
+                  </Text>
                 </Modal.Body>
+                <Modal.Footer>
+                  <Button onPress={close} variant="secondary">
+                    Close
+                  </Button>
+                </Modal.Footer>
               </>
             )}
           </Modal>
@@ -70,7 +76,7 @@ export default function Modals() {
           <Button>Confirmation Modal</Button>
           <ConfirmationModal
             isOpen
-            title="Error!"
+            title="Are you sure?"
             confirmText="Yes"
             onConfirm={() => console.log("confirm")}
             onReject={() => console.log("reject")}

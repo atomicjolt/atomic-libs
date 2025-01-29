@@ -30,7 +30,6 @@ export { ToolTipTrigger, ToolTip, ToolTipTarget } from "./Overlays/ToolTip";
 export { Modal } from "./Overlays/Modal";
 export { ConfirmationModal } from "./Overlays/ConfirmationModal";
 export { ErrorModal } from "./Overlays/ErrorModal";
-export { Dialog } from "./Overlays/Dialog";
 export { Popover } from "./Overlays/Popover";
 export {
   DevelopmentErrorModal,
