@@ -5,9 +5,8 @@ export const StyledTextArea = styled.textarea`
   ${mixins.Regular}
   ${mixins.Border("input")}
 
-  min-height: 80px;
   min-width: 200px;
-  height: var(--textarea-height);
+  min-height: var(--textarea-height, 80px);
   width: 100%;
   padding: calc(var(--input-font-size) / 2) var(--input-padding-horiz);
   font-size: var(--input-font-size);

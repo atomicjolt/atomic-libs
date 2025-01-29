@@ -28,7 +28,7 @@ export const RadioLabel = styled.span<DirectionProps>`
     height: var(--radio-size);
     box-sizing: border-box;
     background-color: var(--radio-bg-clr);
-    ${mixins.Border("radio", "solid")}
+    ${mixins.Border("radio")}
     ${direction({ ltr: "left: 2px", rtl: "right: 2px" })}
   }
 

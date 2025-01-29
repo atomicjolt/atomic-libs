@@ -1,5 +1,15 @@
 # @atomicjolt/atomic-elements
 
+## 3.2.0
+
+### Minor Changes
+
+- Implement List component
+- TextArea now passes rows and cols prop to the underlying element
+- Typography component now have a $transform prop to control text-transform
+- MaterialIcon type includes `push_pin`
+- IconMenu passes appropriate props to the IconButton
+
 ## 3.1.0
 
 ### Minor Changes

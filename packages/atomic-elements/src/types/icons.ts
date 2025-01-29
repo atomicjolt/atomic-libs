@@ -25,6 +25,7 @@ export type MaterialIconVariants =
   | "two-tone";
 
 export type MaterialIcons =
+  | "push_pin"
   | "clear"
   | "search"
   | "home"

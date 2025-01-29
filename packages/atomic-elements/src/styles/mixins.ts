@@ -113,7 +113,7 @@ const mixins = {
       border-color: var(--error700);
     }
   `,
-  Border: (prefix: string, style: string = "solid") => css`
+  Border: (prefix: string, { style = "solid" } = {}) => css`
     border-width: var(--${prefix}-border-width);
     border-color: var(--${prefix}-border-clr);
     border-style: var(--${prefix}-border-style, ${style});

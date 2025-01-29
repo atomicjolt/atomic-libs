@@ -3,7 +3,6 @@ import { ElementWrapperProps } from "../../../../types";
 import { StyledTextArea } from "./TextArea.styles";
 import { useContextProps } from "@hooks/useContextProps";
 import { useRenderProps } from "@hooks";
-import { filterDOMProps } from "@react-aria/utils";
 import { TextAreaContext } from "./TextArea.context";
 
 export interface TextAreaProps
@@ -26,7 +25,5 @@ export const TextArea = forwardRef(function TextArea(
     style,
   });
 
-  return (
-    <StyledTextArea ref={ref} {...renderProps} {...filterDOMProps(rest)} />
-  );
+  return <StyledTextArea ref={ref} {...renderProps} {...rest} />;
 });
