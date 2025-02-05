@@ -1,7 +1,7 @@
 import { ToolConfiguration } from "@atomicjolt/lti-types";
 
 export function getDefaultToolConfiguration(
-  baseUrl: string,
+  host: string,
   clientName: string,
   initPath: string,
   jwksPath: string,
@@ -12,6 +12,7 @@ export function getDefaultToolConfiguration(
   tosUri: string,
   email: string,
 ): ToolConfiguration {
+  const baseUrl = `https://${host}`;
   const launch_uri = `${baseUrl}/${launchPath}`;
   return {
     application_type: "web",
@@ -29,7 +30,7 @@ export function getDefaultToolConfiguration(
     contacts: [email],
     scope: "",
     "https://purl.imsglobal.org/spec/lti-tool-configuration": {
-      domain: baseUrl,
+      domain: host,
       description: clientName,
       target_link_uri: launch_uri,
       custom_parameters: {
