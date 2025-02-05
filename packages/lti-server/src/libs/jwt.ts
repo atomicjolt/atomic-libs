@@ -19,20 +19,17 @@ export async function signJwt(payload: JWTPayload, secretKey: KeyLike, expiresIn
     header.kid = kid;
   }
 
-  const jwt = await new SignJWT(payload)
-    .setProtectedHeader(header)
-    .setIssuedAt()
-    .setExpirationTime(expiresIn);
-
-  let signed = '';
   try {
-    signed = await jwt.sign(secretKey);
+    const jwt = await new SignJWT(payload)
+      .setProtectedHeader(header)
+      .setIssuedAt()
+      .setExpirationTime(expiresIn)
+      .sign(secretKey);
+    return jwt;
   } catch (e) {
     console.error(e);
-    throw new Error(`Unable to sign JWT: ${e}`);
+    throw new Error(`Unable to sign JWT: ${e}.`);
   }
-
-  return signed;
 }
 
 export async function verifyJwt(jwt: string, secretKey: KeyLike, iss: string, aud: string): Promise<JWTPayload> {
