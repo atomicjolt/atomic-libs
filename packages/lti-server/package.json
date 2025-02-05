@@ -16,7 +16,8 @@
   "dependencies": {
     "@atomicjolt/lti-client": "@atomicjolt/lti-client",
     "i18next": "^23.2.8",
-    "i18next-browser-languagedetector": "^7.1.0"
+    "i18next-browser-languagedetector": "^7.1.0",
+    "jose": "^5.9.6"
   },
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
