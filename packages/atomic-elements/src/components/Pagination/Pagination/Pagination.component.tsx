@@ -6,13 +6,15 @@ import { IconButton } from "@components/Buttons/IconButton";
 import { ButtonVariants, ButtonProps } from "@components/Buttons/Button";
 import { PageProps, PageState } from "../Pagination.types";
 import { ButtonContext } from "@components/Buttons/Button/Button.context";
-import { PaginationStateContext } from "./Pagination.context";
+import {
+  PaginationStateContext,
+  PaginationContext,
+} from "./Pagination.context";
 import { Button } from "@components/Buttons/Button";
 import { IconButtonProps } from "../../Buttons/IconButton";
 import { CustomSelectProps } from "../../Dropdowns/CustomSelect";
 import { CustomSelect } from "@components/Dropdowns/CustomSelect";
 import { useContextProps } from "@hooks/useContextProps";
-import { PaginationContext } from ".";
 
 interface PaginationRenderProps {
   page: number;

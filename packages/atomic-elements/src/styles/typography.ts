@@ -16,8 +16,7 @@ export interface TypographyProps {
     | "capitalize"
     | "none"
     | "full-width"
-    | "full-size-kana"
-    | "math-auto";
+    | "full-size-kana";
 }
 
 export function typography(props: TypographyProps) {
