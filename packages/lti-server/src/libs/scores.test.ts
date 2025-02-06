@@ -1,5 +1,5 @@
 import { expect, it, describe, vi, afterEach } from 'vitest';
-import { Score } from '../../types';
+import { Score } from '../types';
 import { ActivityProgress, GradingProgress, sendScore } from './scores';
 
 describe('scores', () => {

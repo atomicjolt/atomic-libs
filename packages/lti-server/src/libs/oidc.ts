@@ -3,7 +3,7 @@ import type {
 } from '@atomicjolt/lti-client/types';
 
 import { OPEN_ID_COOKIE_PREFIX, ALLOWED_LAUNCH_TIME } from './constants';
-import { IdToken, OIDCState } from '../../types';
+import { IdToken, OIDCState } from '../types';
 import { getLtiStorageParams } from './platform_storage';
 
 export function buildInit(

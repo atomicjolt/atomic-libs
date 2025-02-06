@@ -14,7 +14,7 @@ import {
 } from '@atomicjolt/lti-types';
 import { generateKeySet } from '../libs/jwks';
 import { signJwt, ALGORITHM } from '../libs/jwt';
-import type { KeySet } from '../../types';
+import type { KeySet } from '../types';
 
 const clientId = '43460000000000572';
 

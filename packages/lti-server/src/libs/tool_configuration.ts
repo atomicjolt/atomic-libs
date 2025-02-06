@@ -46,12 +46,7 @@ export function getDefaultToolConfiguration(
         "https://purl.imsglobal.org/spec/lti/claim/context",
         "https://purl.imsglobal.org/spec/lti/claim/tool_platform",
       ],
-      messages: [{
-        type: "LtiDeepLinkingRequest",
-        target_link_uri: launch_uri,
-        label: clientName,
-        placements: ["ContentItemSelection"],
-      }],
+      messages: [],
     },
   };
 }

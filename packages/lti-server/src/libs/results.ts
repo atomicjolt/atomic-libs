@@ -1,4 +1,4 @@
-import { LineItemResult, ResultListParams } from "../../types";
+import { LineItemResult, ResultListParams } from "../types";
 
 // Show results for a given line item.
 // Parameters:

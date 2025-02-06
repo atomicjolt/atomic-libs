@@ -1,4 +1,4 @@
-import type { ClientAuthorizationRequest, ClientAuthorizationResponse } from '../../types';
+import type { ClientAuthorizationRequest, ClientAuthorizationResponse } from '../types';
 
 export class ClientCredentialsError extends Error { }
 

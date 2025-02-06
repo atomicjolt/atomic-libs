@@ -1,0 +1,62 @@
+# Source files
+src/
+
+# TypeScript config
+tsconfig.json
+
+# Tests
+__tests__/
+*.test.ts
+*.spec.ts
+jest.config.js
+
+# Development configs
+.eslintrc
+.eslintrc.js
+.prettierrc
+.prettierrc.js
+.editorconfig
+
+# CI/CD
+.github/
+.gitlab/
+.travis.yml
+.gitlab-ci.yml
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Git
+.git/
+.gitignore
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+.env.*
+
+# Documentation source files (if you build docs)
+docs/
+documentation/
+
+# Build tools configs
+webpack.config.js
+rollup.config.js
+babel.config.js
+
+# Misc
+.DS_Store
+coverage/
+.coverage/
+*.tgz
+.npmrc
