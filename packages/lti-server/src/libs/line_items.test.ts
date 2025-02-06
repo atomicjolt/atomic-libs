@@ -1,6 +1,6 @@
 import { describe, it, expect, afterEach, vi } from 'vitest';
 import { listLineItems, showLineItem, createLineItem, updateLineItem, deleteLineItem } from './line_items';
-import { NewLineItem, UpdateLineItem } from '../../types';
+import { NewLineItem, UpdateLineItem } from '../types';
 
 const accessToken = 'not a real token';
 

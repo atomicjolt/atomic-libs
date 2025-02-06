@@ -1,4 +1,4 @@
-import { LineItem, LineItemListParams, NewLineItem, UpdateLineItem } from "../../types";
+import { LineItem, LineItemListParams, NewLineItem, UpdateLineItem } from "../types";
 
 
 export async function listLineItems(apiToken: string, lineItemsUrl: string, params?: LineItemListParams): Promise<LineItem[]> {

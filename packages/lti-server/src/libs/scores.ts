@@ -1,4 +1,4 @@
-import { Score, ScoreResponse } from "../../types";
+import { Score, ScoreResponse } from "../types";
 
 export enum ActivityProgress {
   Initialized,

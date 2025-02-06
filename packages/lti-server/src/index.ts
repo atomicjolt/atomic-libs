@@ -1,3 +1,4 @@
+export * from './types';
 export * as LtiPlatform from './libs/platform_storage';
 export * as LtiValidation from './libs/lti_validation';
 export * as LtiOidc from './libs/oidc';

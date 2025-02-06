@@ -1,4 +1,4 @@
-import type { KeySet, JwtValidationResult, IdToken, KeySetMap } from '../../types';
+import type { KeySet, JwtValidationResult, IdToken, KeySetMap } from '../types';
 import {
   generateKeyPair,
   importSPKI,
