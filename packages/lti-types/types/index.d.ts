@@ -287,26 +287,37 @@ export type LtiMessage = {
 };
 export interface Context {
     id: string;
-    label: string;
-    title: string;
+    label?: string;
+    title?: string;
 }
 export declare enum MemberStatus {
-    Active = 0,
-    Inactive = 1,
-    Deleted = 2
+    Active = "Active",
+    Inactive = "Inactive",
+    Deleted = "Deleted"
 }
 export interface Member {
-    email?: string;
-    family_name?: string;
-    given_name?: string;
-    message?: any[];
+    user_id: string;
+    roles: string[];
+    status?: MemberStatus;
     name?: string;
+    email?: string;
     picture?: string;
-    roles?: any[];
+    given_name?: string;
+    family_name?: string;
+    middle_name?: string;
     lis_person_sourcedid?: string;
-    status: MemberStatus;
-    user_id?: string;
     lti11_legacy_user_id?: string;
+    message?: Array<{
+        [key: string]: any;
+        [MESSAGE_TYPE]?: string;
+        [BASIC_OUTCOME_CLAIM]?: {
+            lis_result_sourcedid: string;
+            lis_outcome_service_url: string;
+        };
+        [CUSTOM_CLAIM]?: {
+            [key: string]: string;
+        };
+    }>;
 }
 export interface MembershipContainer {
     id: string;
