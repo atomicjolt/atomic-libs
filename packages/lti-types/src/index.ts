@@ -55,7 +55,7 @@ export const COURSE_CONTEXT = "http://purl.imsglobal.org/vocab/lis/v2/course#Cou
 export const ACCOUNT_CONTEXT = "Account";
 
 // Configuration
-export const TOOL_CONFIGURATION = "https://purl.imsglobal.org/spec/lti-tool-configuration";
+export const LTI_TOOL_CONFIGURATION = "https://purl.imsglobal.org/spec/lti-tool-configuration";
 
 // Specfies all available scopes.
 export const ALL_SCOPES = [
@@ -66,6 +66,7 @@ export const ALL_SCOPES = [
   NAMES_AND_ROLES_SCOPE,
 ];
 
+// Canvas specific
 export const CANVAS_PUBLIC_JWKS_URL = "https://sso.canvaslms.com/api/lti/security/jwks";
 export const CANVAS_AUTH_TOKEN_URL = "https://canvas.instructure.com/login/oauth2/token";
 export const CANVAS_OIDC_URL = "https://sso.canvaslms.com/api/lti/authorize_redirect";
@@ -75,6 +76,10 @@ export const CANVAS_BETA_AUTH_TOKEN_URL = "https://sso.beta.canvaslms.com/login/
 export const CANVAS_BETA_OIDC_URL = "https://sso.beta.canvaslms.com/api/lti/authorize_redirect";
 
 export const CANVAS_SUBMISSION_TYPE = "https://canvas.instructure.com/lti/submission_type";
+
+export const CANVAS_PRIVACY_LEVEL = "https://canvas.instructure.com/lti/privacy_level";
+export const CANVAS_PLACEMENT_VISIBILITY = "https://canvas.instructure.com/lti/visibility";
+export const CANVAS_PLACEMENT_COURSE_NAVIGATION_ENABLED = "https://canvas.instructure.com/lti/course_navigation/default_enabled";
 
 interface IdTokenErrors {
   errors: {
@@ -365,7 +370,7 @@ export type ToolConfiguration = {
   token_endpoint_auth_method: string;
   contacts?: string[];
   scope: string;
-  "https://purl.imsglobal.org/spec/lti-tool-configuration": LtiToolConfiguration;
+  [LTI_TOOL_CONFIGURATION]: LtiToolConfiguration;
   client_uri?: string;
   tos_uri?: string;
   policy_uri?: string;
@@ -382,6 +387,7 @@ export type LtiToolConfiguration = {
   description?: string;
   messages: LtiMessage[];
   claims: string[];
+  [CANVAS_PRIVACY_LEVEL]?: string;
 }
 
 export type LtiMessage = {
@@ -392,6 +398,8 @@ export type LtiMessage = {
   custom_parameters?: { [key: string]: string };
   placements?: string[];
   roles?: string[];
+  [CANVAS_PLACEMENT_VISIBILITY]?: string;
+  [CANVAS_PLACEMENT_COURSE_NAVIGATION_ENABLED]?: boolean;
 }
 
 
