@@ -9,7 +9,7 @@ import {
   CANVAS_PLACEMENT_COURSE_NAVIGATION_ENABLED,
 } from "@atomicjolt/lti-types";
 
-interface ToolConfigurationParams {
+export interface ToolConfigurationParams {
   host: string;
   clientName: string;
   description: string;
@@ -33,7 +33,7 @@ interface ToolConfigurationParams {
   privacyLevel?: string;
 }
 
-function createMessage(
+export function createMessage(
   type: MessageTypes,
   targetLinkUri: string,
   label: string,
@@ -67,7 +67,7 @@ function createMessage(
   return message;
 }
 
-function getCustomParameters(productFamilyCode?: string): { [key: string]: string } {
+export function getCustomParameters(productFamilyCode?: string): { [key: string]: string } {
   const baseParams = {
     'context_id_history': '$Context.id.history',
     'resource_link_id_history': '$ResourceLink.id.history'

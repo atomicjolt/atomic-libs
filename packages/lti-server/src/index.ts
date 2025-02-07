@@ -2,22 +2,21 @@ export * from './types';
 export * as LtiPlatform from './libs/platform_storage';
 export * as LtiValidation from './libs/lti_validation';
 export * as LtiOidc from './libs/oidc';
+export * as LtiToolConfiguration from './libs/tool_configuration';
+export * as LtiJwt from './libs/jwt';
+export * as LtiJwks from './libs/jwks';
+export * as LtiScores from './libs/scores';
+export * as LtiResults from './libs/results';
+export * as LtiLineItems from './libs/line_items';
+export * as LtiNamesAndRoles from './libs/names_and_roles';
+export * as LtiPlaformStorage from './libs/platform_storage';
 
-export { validateIdTokenContents } from './libs/lti_validation';
-export { buildInit, validateNonce } from './libs/oidc';
-export { getLtiStorageParams } from './libs/platform_storage';
+export * as ClientCredentials from './libs/client_credentials';
+export * as LinkHeader from './libs/link_header';
 
 export {
   OPEN_ID_COOKIE_PREFIX,
   OPEN_ID_STORAGE_COOKIE,
   ALLOWED_LAUNCH_TIME,
 } from './libs/constants';
-export { ALGORITHM, signJwt, verifyJwt, getKid, getIss } from './libs/jwt';
-export { generateKeySet, keySetsToJwks, fetchRemoteJwks, verifyJwtUsingJwks } from './libs/jwks';
 export { TEST_ID_TOKEN, genJwt } from './tests/helper';
-export { buildToolConfiguration } from './libs/tool_configuration';
-export { parseLinkHeader } from './libs/link_header';
-export { requestServiceToken, ClientCredentialsError } from './libs/client_credentials';
-export { createScore, sendScore } from './libs/scores';
-export { listResults, showResult } from './libs/results';
-export { listLineItems, showLineItem, createLineItem, updateLineItem } from './libs/line_items';
