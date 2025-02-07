@@ -15,7 +15,7 @@ export {
 export { ALGORITHM, signJwt, verifyJwt, getKid, getIss } from './libs/jwt';
 export { generateKeySet, keySetsToJwks, fetchRemoteJwks, verifyJwtUsingJwks } from './libs/jwks';
 export { TEST_ID_TOKEN, genJwt } from './tests/helper';
-export { getDefaultToolConfiguration } from './libs/tool_configuration';
+export { buildToolConfiguration } from './libs/tool_configuration';
 export { parseLinkHeader } from './libs/link_header';
 export { requestServiceToken, ClientCredentialsError } from './libs/client_credentials';
 export { createScore, sendScore } from './libs/scores';
