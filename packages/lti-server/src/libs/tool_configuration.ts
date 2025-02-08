@@ -31,6 +31,7 @@ export interface ToolConfigurationParams {
   navVisibility?: string;
   navDefault?: string;
   privacyLevel?: string;
+  doDeepLinking?: boolean;
 }
 
 export function createMessage(
@@ -115,25 +116,28 @@ export function buildToolConfiguration(params: ToolConfigurationParams): ToolCon
     navDefault,
     courseNav,
     privacyLevel,
+    doDeepLinking,
   } = params;
   const baseUrl = `https://${host}`;
   const launch_uri = `${baseUrl}/${launchPath}`;
   const messages: LtiMessage[] = [];
 
-  // Add Deep Linking Message
-  const deepLinkingMessage: LtiMessage = {
-    type: MessageTypes.LtiDeepLinkingRequest,
-    target_link_uri: launch_uri,
-    label: clientName,
-    icon_uri: `${baseUrl}/${logoPath}`
-  };
+  if (doDeepLinking) {
+    // Add Deep Linking Message
+    const deepLinkingMessage: LtiMessage = {
+      type: MessageTypes.LtiDeepLinkingRequest,
+      target_link_uri: launch_uri,
+      label: clientName,
+      icon_uri: `${baseUrl}/${logoPath}`
+    };
 
-  if (productFamilyCode === "canvas") {
-    deepLinkingMessage.placements = ["editor_button"];
-  } else if (productFamilyCode === "desire2learn") {
-    deepLinkingMessage.placements = ["ContentArea", "RichTextEditor"];
+    if (productFamilyCode === "canvas") {
+      deepLinkingMessage.placements = ["editor_button"];
+    } else if (productFamilyCode === "desire2learn") {
+      deepLinkingMessage.placements = ["ContentArea", "RichTextEditor"];
+    }
+    messages.push(deepLinkingMessage);
   }
-  messages.push(deepLinkingMessage);
 
   // Add navigation messages
   if (globalNav) {
