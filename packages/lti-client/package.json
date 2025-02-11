@@ -1,6 +1,6 @@
 {
   "name": "@atomicjolt/lti-client",
-  "version": "2.6.2",
+  "version": "2.6.3",
   "description": "Client Javascript libraries to handle LTI.",
   "main": "dist/index.js",
   "typings": "types/index.d.ts",
@@ -16,7 +16,7 @@
   "author": "Atomic Jolt",
   "license": "MIT",
   "devDependencies": {
-    "@atomicjolt/lti-types": "^1.1.7",
+    "@atomicjolt/lti-types": "^1.2.2",
     "i18next": "^23.7.6",
     "i18next-browser-languagedetector": "^7.2.0"
   },
