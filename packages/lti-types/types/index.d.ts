@@ -40,6 +40,7 @@ export declare const MENTOR_ROLE_SCOPE = "a62c52c02ba262003f5e";
 export declare const COURSE_CONTEXT = "http://purl.imsglobal.org/vocab/lis/v2/course#CourseOffering";
 export declare const ACCOUNT_CONTEXT = "Account";
 export declare const LTI_TOOL_CONFIGURATION = "https://purl.imsglobal.org/spec/lti-tool-configuration";
+export declare const LTI_PLATFORM_CONFIGURATION = "https://purl.imsglobal.org/spec/lti-platform-configuration";
 export declare const ALL_SCOPES: string[];
 export declare const CANVAS_PUBLIC_JWKS_URL = "https://sso.canvaslms.com/api/lti/security/jwks";
 export declare const CANVAS_AUTH_TOKEN_URL = "https://canvas.instructure.com/login/oauth2/token";
@@ -228,7 +229,7 @@ export type PlatformConfiguration = {
     id_token_signing_alg_values_supported?: string[];
     claims_supported?: string[];
     authorization_server?: string;
-    "https://purl.imsglobal.org/spec/lti-platform-configuration"?: LtiPlatformConfiguration;
+    [LTI_PLATFORM_CONFIGURATION]?: LtiPlatformConfiguration;
 };
 export type LtiPlatformConfiguration = {
     product_family_code: string;

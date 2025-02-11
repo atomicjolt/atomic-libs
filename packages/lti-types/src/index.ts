@@ -56,6 +56,7 @@ export const ACCOUNT_CONTEXT = "Account";
 
 // Configuration
 export const LTI_TOOL_CONFIGURATION = "https://purl.imsglobal.org/spec/lti-tool-configuration";
+export const LTI_PLATFORM_CONFIGURATION = "https://purl.imsglobal.org/spec/lti-platform-configuration";
 
 // Specfies all available scopes.
 export const ALL_SCOPES = [
@@ -343,7 +344,7 @@ export type PlatformConfiguration = {
   id_token_signing_alg_values_supported?: string[];
   claims_supported?: string[];
   authorization_server?: string;
-  "https://purl.imsglobal.org/spec/lti-platform-configuration"?: LtiPlatformConfiguration;
+  [LTI_PLATFORM_CONFIGURATION]?: LtiPlatformConfiguration;
 };
 
 export type LtiPlatformConfiguration = {
