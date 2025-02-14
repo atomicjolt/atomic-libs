@@ -6,10 +6,9 @@ import { TextColorProps, textColor } from "@styles/colors";
 export const HeadingWrapper = styled.h1<
   TypographyProps & MarginProps & TextColorProps & DimensionsProps
 >`
-  margin: 0;
-  color: var(--text-clr);
   ${typography.defaults({ $size: "6" })}
-  ${margins}
-  ${textColor}
+  ${margins.defaults({ $m: "0" })}
+  ${textColor.defaults({ $color: "text-clr" })}
   ${dimensions}
 `;
+

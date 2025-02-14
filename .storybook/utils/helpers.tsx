@@ -717,6 +717,11 @@ export const TypographyArgTypes: ArgTypes = {
     ],
     description: "Controls the text transformation.",
   },
+  $clamp: {
+    control: "select",
+    options: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
+    description: "Clamp the text content after this number of lines",
+  },
 };
 
 export const ColorArgTypes: ArgTypes = {

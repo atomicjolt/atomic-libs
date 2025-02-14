@@ -65,3 +65,12 @@ export const Truncated: Story = {
     $truncate: true,
   },
 };
+
+export const Clamped: Story = {
+  args: {
+    ...Primary.args,
+    children: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium distinctio eius nesciunt eveniet sint ad dicta suscipit, quod ipsum facere laboriosam adipisci excepturi quia deserunt, aperiam maxime neque dignissimos atque!`,
+    $clamp: "2",
+    $maxWidth: "250px",
+  },
+};
