@@ -141,6 +141,15 @@ export const spacing = {
   "space-9": "64px",
 };
 
+export const shadows = {
+  "shadow-1": "inset 0 0 0 1px rgb(0 0 0 / 15%), inset 0 1.5px 2px 0 rgb(0 0 0 / 15%), inset 0 1.5px 2px 0 rgb(0 0 0 / 15%)",
+  "shadow-2": "0 1px 3px rgba(0 0 0 / 15%)",
+  "shadow-3": "0 3px 6px rgb(0 0 0 / 25%)",
+  "shadow-4": "0 6px 12px rgb(0 0 0 / 35%)",
+  "shadow-5": "0 10px 30px rgb(0 0 0 / 50%)",
+  "shadow-6": "0 12px 50px rgb(0 0 0 / 50%)"
+}
+
 export const sizes = {
   "size-sm-x": "100px",
   "size-md-x": "200px",
@@ -408,6 +417,7 @@ export const variables = {
   ...letterSpacing,
   ...lineHeight,
   ...colors,
+  ...shadows,
   ...sizes,
   ...spacing,
   ...input,
