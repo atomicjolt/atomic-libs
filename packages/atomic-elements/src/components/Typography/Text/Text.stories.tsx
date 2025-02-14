@@ -2,6 +2,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import { Text } from ".";
 import {
   ColorArgTypes,
+  DimensionsArgTypes,
   MarginArgTypes,
   RenderPropsArgTypes,
   TypographyArgTypes,
@@ -17,6 +18,7 @@ export default {
     ...RenderPropsArgTypes,
     ...TypographyArgTypes,
     ...ColorArgTypes,
+    ...DimensionsArgTypes,
     as: {
       control: "select",
       options: ["div", "span", "p", "label"],
