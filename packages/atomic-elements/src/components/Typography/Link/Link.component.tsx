@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { useLink, AriaLinkOptions } from "@react-aria/link";
-import { mergeProps } from "@react-aria/utils";
+import { filterDOMProps, mergeProps } from "@react-aria/utils";
 import { DomProps, RenderBaseProps } from "../../../types";
 import { TypographyProps } from "@styles/typography";
 import { MarginProps } from "@styles/layout";
@@ -45,7 +45,7 @@ export function Link(props: LinkProps) {
       ref={ref}
       as={as}
       {...mergeProps(linkProps, renderProps)}
-      {...rest}
+      {...filterDOMProps(rest)}
     >
       {renderProps.children}
     </StyledLink>
