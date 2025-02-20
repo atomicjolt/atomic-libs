@@ -21,7 +21,7 @@ interface Fields {
 
 const defaultValues: Fields = {
   name: "Sean",
-  description: "",
+  description: "Test Description",
   age: 15,
   ethnicity: {
     choice: "",
