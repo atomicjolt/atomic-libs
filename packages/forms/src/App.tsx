@@ -110,11 +110,11 @@ function App() {
           label="Ethnicity"
           size="large"
         >
-          <Form.Item key="asian">Asian</Form.Item>
-          <Form.Item key="black">Black or African American</Form.Item>
-          <Form.Item key="hispanic">Hispanic or Latino</Form.Item>
-          <Form.Item key="white">White</Form.Item>
-          <Form.Item key="other">Other</Form.Item>
+          <Form.Item id="asian">Asian</Form.Item>
+          <Form.Item id="black">Black or African American</Form.Item>
+          <Form.Item id="hispanic">Hispanic or Latino</Form.Item>
+          <Form.Item id="white">White</Form.Item>
+          <Form.Item id="other">Other</Form.Item>
         </Form.CustomSelect>
 
         <br />
@@ -137,9 +137,9 @@ function App() {
           size="large"
           defaultSelectedKey={"1"}
         >
-          <Form.Item key="1">One</Form.Item>
-          <Form.Item key="2">Two</Form.Item>
-          <Form.Item key="3">Three</Form.Item>
+          <Form.Item id="1">One</Form.Item>
+          <Form.Item id="2">Two</Form.Item>
+          <Form.Item id="3">Three</Form.Item>
         </Form.CustomSelect>
 
         <br />
@@ -150,9 +150,9 @@ function App() {
           size="large"
           allowsCustomValue
         >
-          <Form.Item key="1234 Main St">1234 Main St</Form.Item>
-          <Form.Item key="5678 Elm St">5678 Elm St</Form.Item>
-          <Form.Item key="91011 Oak St">91011 Oak St</Form.Item>
+          <Form.Item id="1234 Main St">1234 Main St</Form.Item>
+          <Form.Item id="5678 Elm St">5678 Elm St</Form.Item>
+          <Form.Item id="91011 Oak St">91011 Oak St</Form.Item>
         </Form.ComboBox>
 
         <br />
@@ -163,10 +163,10 @@ function App() {
           size="large"
           placeholder="Select all that apply"
         >
-          <Form.Item key="friend">Friend</Form.Item>
-          <Form.Item key="tv">TV</Form.Item>
-          <Form.Item key="radio">Radio</Form.Item>
-          <Form.Item key="other">Other</Form.Item>
+          <Form.Item id="friend">Friend</Form.Item>
+          <Form.Item id="tv">TV</Form.Item>
+          <Form.Item id="radio">Radio</Form.Item>
+          <Form.Item id="other">Other</Form.Item>
         </Form.MultiSelect>
 
         <br />
