@@ -6,12 +6,14 @@ import { DisplayProps, LayoutProps } from "@styles/layout";
 import { BackgroundColorProps } from "@styles/colors";
 import { ViewContext } from "./View.context";
 import { ViewWrapper } from "./View.styles";
+import { BorderProps } from "@styles/border";
 
 export interface ViewProps
   extends RenderBaseProps<never>,
     LayoutProps,
     DisplayProps,
     BackgroundColorProps,
+    BorderProps,
     ElementWrapper<HTMLDivElement> {
   as?: "div" | "span";
 }

@@ -2,6 +2,17 @@ import { DefaultTheme } from "styled-components";
 import { SuggestStrings } from "../types";
 import { Color } from "./variables";
 
+export function getColor(
+  color: SuggestStrings<Color> | undefined,
+  theme: DefaultTheme
+) {
+  if (theme?.variables && color && color in theme.variables) {
+    return theme.getVar(color);
+  }
+
+  return color;
+}
+
 export interface TextColorProps {
   $color?: SuggestStrings<Color>;
 }
@@ -9,14 +20,8 @@ export interface TextColorProps {
 export function textColor(props: TextColorProps & { theme: DefaultTheme }) {
   const { $color, theme } = props;
 
-  if (theme?.variables && $color && $color in theme.variables) {
-    return {
-      color: theme.getVar($color),
-    };
-  }
-
   return {
-    color: $color,
+    color: getColor($color, theme),
   };
 }
 
@@ -34,14 +39,8 @@ export function backgroundColor(
 ) {
   const { $bg, theme } = props;
 
-  if (theme?.variables && $bg && $bg in theme.variables) {
-    return {
-      background: theme.getVar($bg),
-    };
-  }
-
   return {
-    background: $bg,
+    background: getColor($bg, theme),
   };
 }
 

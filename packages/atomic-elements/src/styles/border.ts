@@ -1,33 +1,72 @@
-import { SuggestStrings } from '../types';
-import { Sizing } from './sizing';
-import { Color } from './variables';
+import { DefaultTheme } from "styled-components";
+import { SuggestStrings } from "../types";
+import { getColor } from "./colors";
+import { getSizing, Sizing } from "./sizing";
+import { Color } from "./variables";
 
+type BorderStyle =
+  | "solid"
+  | "dashed"
+  | "dotted"
+  | "double"
+  | "groove"
+  | "ridge"
+  | "inset"
+  | "outset";
 
 export interface BorderProps {
-  $b?: string;
-  $bt?: string;
-  $br?: string;
-  $bl?: string;
-  $bb?: string;
-  $bx?: string;
-  $by?: string;
-  $bc?: SuggestStrings<Color>;
-  $bw?: SuggestStrings<Sizing>;
-  $bs?: "solid" | "dashed" | "dotted" | "double" | "groove" | "ridge" | "inset" | "outset";
+  $border?: string;
+  $borderColor?: SuggestStrings<Color>;
+  $borderWidth?: SuggestStrings<Sizing>;
+  $borderStyle?: BorderStyle;
+
+  $borderX?: string;
+  $borderY?: string;
+  $borderTop?: string;
+  $borderRight?: string;
+  $borderLeft?: string;
+  $borderBottom?: string;
+
   $radius?: SuggestStrings<Sizing>;
+  $radiusTop?: SuggestStrings<Sizing>;
+  $radiusBottom?: SuggestStrings<Sizing>;
+  $radiusLeft?: SuggestStrings<Sizing>;
+  $radiusRight?: SuggestStrings<Sizing>;
 }
 
-export function border(props: BorderProps) {
-  const { $b, $bt, $br, $bl, $bb, $bx, $by, $bc, $bw, $radius } = props;
+export function border(props: BorderProps & { theme: DefaultTheme }) {
+  const {
+    $border,
+    $borderTop,
+    $borderRight,
+    $borderLeft,
+    $borderBottom,
+    $borderX,
+    $borderY,
+    $borderColor,
+    $borderWidth,
+    $borderStyle,
+    $radius,
+    $radiusBottom,
+    $radiusTop,
+    $radiusLeft,
+    $radiusRight,
+    theme,
+  } = props;
 
   return {
-    border: $b,
-    borderTop: $bt || $by,
-    borderRight: $br || $bx,
-    borderBottom: $bb || $by,
-    borderLeft: $bl || $bx,
-    borderColor: $bc,
-    borderWidth: $bw,
-    borderRadius: $radius,
-  }
+    border: $border,
+    borderTop: $borderTop || $borderY,
+    borderRight: $borderRight || $borderX,
+    borderBottom: $borderBottom || $borderY,
+    borderLeft: $borderLeft || $borderX,
+    borderColor: getColor($borderColor, theme),
+    borderWidth: getSizing($borderWidth),
+    borderStyle: $borderStyle,
+    borderRadius: getSizing($radius),
+    borderRadiusTopLeft: getSizing($radiusTop) || getSizing($radiusLeft),
+    borderRadiusTopRight: getSizing($radiusTop) || getSizing($radiusRight),
+    borderRadiusBottomRight: getSizing($radiusBottom) || getSizing($radiusRight),
+    borderRadiusBottomLeft: getSizing($radiusBottom) || getSizing($radiusLeft),
+  };
 }

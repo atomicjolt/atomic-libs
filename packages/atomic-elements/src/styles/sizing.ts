@@ -44,7 +44,7 @@ export const SizingSteps: Sizing[] = [
   "18",
   "19",
   "20",
-  "full"
+  "full",
 ];
 
 export function getSizing(val?: string | null) {

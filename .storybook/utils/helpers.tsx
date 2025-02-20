@@ -5,6 +5,7 @@ import { OverlayTriggerProps } from "react-stately";
 import { Item, View } from "../../packages/atomic-elements/src/components";
 import { SpacingSteps } from "../../packages/atomic-elements/src/styles/spacing";
 import { ScaleSteps } from "../../packages/atomic-elements/src/styles/scale";
+import { SizingSteps } from "@styles/sizing";
 
 export const FieldStateControls: ArgTypes = {
   isDisabled: {
@@ -774,5 +775,120 @@ export const BackgroundArgTypes: ArgTypes = {
     control: "color",
     description:
       "Control the CSS background. Can be either a color from the theme or a valid CSS background value.",
+  },
+};
+
+export const BorderArgTypes: ArgTypes = {
+  $border: {
+    control: "text",
+    description: "Border",
+    table: {
+      category: "Border",
+    },
+  },
+  $borderColor: {
+    control: "color",
+    description: "Border Color",
+    table: {
+      category: "Border",
+    },
+  },
+  $borderWidth: {
+    control: "select",
+    options: SizingSteps,
+    description: "Border Width",
+    table: {
+      category: "Border",
+    },
+  },
+  $borderStyle: {
+    control: "select",
+    options: ["solid", "dashed", "dotted", "double", "none"],
+    description: "Border Style",
+    table: {
+      category: "Border",
+    },
+  },
+  $borderX: {
+    control: "text",
+    description: "Border X",
+    table: {
+      category: "Border",
+    },
+  },
+  $borderY: {
+    control: "text",
+    description: "Border Y",
+    table: {
+      category: "Border",
+    },
+  },
+  $borderTop: {
+    control: "text",
+    description: "Border Top",
+    table: {
+      category: "Border",
+    },
+  },
+  $borderRight: {
+    control: "text",
+    description: "Border Right",
+    table: {
+      category: "Border",
+    },
+  },
+  $borderLeft: {
+    control: "text",
+    description: "Border Left",
+    table: {
+      category: "Border",
+    },
+  },
+  $borderBottom: {
+    control: "text",
+    description: "Border Bottom",
+    table: {
+      category: "Border",
+    },
+  },
+  $radius: {
+    control: "select",
+    options: SizingSteps,
+    description: "Border Radius",
+    table: {
+      category: "Border",
+    },
+  },
+  $radiusTop: {
+    control: "select",
+    options: SizingSteps,
+    description: "Border Radius Top",
+    table: {
+      category: "Border",
+    },
+  },
+  $radiusBottom: {
+    control: "select",
+    options: SizingSteps,
+    description: "Border Radius Bottom",
+    table: {
+      category: "Border",
+    },
+  },
+  $radiusLeft: {
+    control: "select",
+    options: SizingSteps,
+    description: "Border Radius Left",
+    table: {
+      category: "Border",
+    },
+  },
+  $radiusRight: {
+    control: "select",
+    options: SizingSteps,
+    description: "Border Radius Right",
+    table: {
+      category: "Border",
+    },
   },
 };
