@@ -1,11 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.tsx";
-import { SensibleDefaults } from "@atomicjolt/atomic-elements";
+import { ElementsProvider } from "@atomicjolt/atomic-elements";
+import App from "./App";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <SensibleDefaults />
-    <App />
+    <ElementsProvider applyDefaultStyles>
+      <App />
+    </ElementsProvider>
   </React.StrictMode>
 );
