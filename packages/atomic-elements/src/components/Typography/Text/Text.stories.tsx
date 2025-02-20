@@ -2,6 +2,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import { Text } from ".";
 import {
   ColorArgTypes,
+  DimensionsArgTypes,
   MarginArgTypes,
   RenderPropsArgTypes,
   TypographyArgTypes,
@@ -17,6 +18,7 @@ export default {
     ...RenderPropsArgTypes,
     ...TypographyArgTypes,
     ...ColorArgTypes,
+    ...DimensionsArgTypes,
     as: {
       control: "select",
       options: ["div", "span", "p", "label"],
@@ -61,5 +63,14 @@ export const Truncated: Story = {
   args: {
     ...Primary.args,
     $truncate: true,
+  },
+};
+
+export const Clamped: Story = {
+  args: {
+    ...Primary.args,
+    children: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium distinctio eius nesciunt eveniet sint ad dicta suscipit, quod ipsum facere laboriosam adipisci excepturi quia deserunt, aperiam maxime neque dignissimos atque!`,
+    $clamp: "2",
+    $maxWidth: "250px",
   },
 };

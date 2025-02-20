@@ -2,6 +2,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import { Heading } from ".";
 import {
   ColorArgTypes,
+  DimensionsArgTypes,
   MarginArgTypes,
   RenderPropsArgTypes,
   TypographyArgTypes,
@@ -15,6 +16,7 @@ export default {
     ...MarginArgTypes,
     ...TypographyArgTypes,
     ...ColorArgTypes,
+    ...DimensionsArgTypes,
     as: {
       control: "select",
       options: ["h1", "h2", "h3", "h4", "h5", "h6"],

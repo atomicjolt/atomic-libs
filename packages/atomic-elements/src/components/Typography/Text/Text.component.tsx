@@ -5,7 +5,7 @@ import { useRenderProps } from "@hooks/useRenderProps";
 import { TypographyProps } from "../../../styles/typography";
 import { TextContext } from "./Text.context";
 import { TextWrapper } from "./Text.styles";
-import { MarginProps } from "@styles/layout";
+import { DimensionsProps, MarginProps } from "@styles/layout";
 import { TextColorProps } from "@styles/colors";
 
 export interface TextProps
@@ -13,7 +13,8 @@ export interface TextProps
     ElementWrapper<HTMLSpanElement>,
     TypographyProps,
     MarginProps,
-    TextColorProps {
+    TextColorProps,
+    DimensionsProps {
   as?: "div" | "span" | "p" | "label";
 }
 

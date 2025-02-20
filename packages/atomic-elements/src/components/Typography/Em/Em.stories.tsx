@@ -21,7 +21,7 @@ type Story = StoryObj<typeof Em>;
 
 export const Primary: Story = {
   render: (args) => (
-    <Text>
+    <Text $size="3">
       The most important step a man can take; it's not the first one, is it?{" "}
       <Em {...args}>{args.children}</Em>
     </Text>

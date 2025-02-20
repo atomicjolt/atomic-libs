@@ -10,6 +10,8 @@ export interface TypographyProps {
   $wrap?: "nowrap" | "pretty" | "balanced";
   $truncate?: boolean;
   $decoration?: SuggestStrings<"none" | "underline">;
+  /** Clamp the text content after this number of lines */
+  $clamp?: SuggestStrings<"1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10">;
   $transform?:
     | "uppercase"
     | "lowercase"
@@ -20,7 +22,7 @@ export interface TypographyProps {
 }
 
 export function typography(props: TypographyProps) {
-  const { $weight, $align, $wrap, $truncate, $decoration, $transform } = props;
+  const { $weight, $align, $wrap, $truncate, $decoration, $transform, $clamp } = props;
 
   return {
     ...resolveSize(props),
@@ -32,6 +34,7 @@ export function typography(props: TypographyProps) {
     overflow: $truncate ? "hidden" : undefined,
     textDecoration: $decoration,
     textTransform: $transform,
+    ...clampLines($clamp),
   };
 }
 
@@ -67,4 +70,19 @@ function resolveSize(props: TypographyProps) {
   }
 
   return styles;
+}
+
+
+function clampLines(lines?: string) {
+  if (!lines) {
+    return {};
+  }
+
+  return {
+    display: "-webkit-box",
+    lineClamp: lines,
+    WebkitLineClamp: lines,
+    WebkitBoxOrient: "vertical",
+    overflow: "hidden",
+  } as const;
 }
