@@ -5,7 +5,7 @@ import { Banner } from "@components/Banners/Banner";
 import { LoadingStatus } from ".";
 
 const meta: Meta<typeof LoadingStatus> = {
-  title: "Loaders/LoadingStatus",
+  title: "Feedback/LoadingStatus",
   component: LoadingStatus,
   tags: ["!autodocs"],
   parameters: {

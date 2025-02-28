@@ -2,7 +2,7 @@ import { forwardRef } from "react";
 import { AriaButtonOptions } from "@react-aria/button";
 import { mergeProps, useObjectRef } from "@react-aria/utils";
 
-import { SpinnerLoader } from "../../Loaders/SpinnerLoader";
+import { SpinnerLoader } from "../../Feedback/SpinnerLoader";
 import {
   ExtendedSize,
   HasVariant,

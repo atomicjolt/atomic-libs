@@ -4,7 +4,7 @@ import { AriaLabelArgTypes } from "@sb/helpers";
 import { ThreeDotLoader } from ".";
 
 const meta: Meta<typeof ThreeDotLoader> = {
-  title: "Loaders/ThreeDotLoader",
+  title: "Feedback/ThreeDotLoader",
   component: ThreeDotLoader,
   parameters: {
     cssprops: getCssProps("Loader"),

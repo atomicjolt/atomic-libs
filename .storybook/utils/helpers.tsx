@@ -300,7 +300,7 @@ export const AriaLabelArgTypes: ArgTypes = {
   },
 };
 
-export const RenderPropsArgTypes: ArgTypes = {
+export const RenderStylePropsArgTypes: ArgTypes = {
   className: {
     control: "text",
     description: "Class name to apply to the component",
@@ -315,6 +315,10 @@ export const RenderPropsArgTypes: ArgTypes = {
       category: "Render Props",
     },
   },
+};
+
+export const RenderPropsArgTypes: ArgTypes = {
+  ...RenderStylePropsArgTypes,
   children: {
     control: false,
     description: "Children to render",

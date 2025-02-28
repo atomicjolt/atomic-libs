@@ -4,7 +4,7 @@ import { SpinnerLoader } from ".";
 import { AriaLabelArgTypes } from "@sb/helpers";
 
 const meta: Meta<typeof SpinnerLoader> = {
-  title: "Loaders/SpinnerLoader",
+  title: "Feedback/SpinnerLoader",
   component: SpinnerLoader,
   parameters: {
     layout: "centered",

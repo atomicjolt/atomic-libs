@@ -4,7 +4,7 @@ import { AriaLabelArgTypes, RenderPropsArgTypes } from "@sb/helpers";
 import { Spinner } from "@components/Animations/Spinner";
 
 export default {
-  title: "Loaders/Loader",
+  title: "Feedback/Loader",
   component: Loader,
   argTypes: {
     ...AriaLabelArgTypes,

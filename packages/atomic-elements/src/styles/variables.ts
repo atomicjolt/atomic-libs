@@ -401,6 +401,12 @@ export const list = {
   "list-divider-border-style": "{list-border-style}",
 };
 
+export const progressCircle = {
+  "progress-circle-bg-clr": "transparent",
+  "progress-circle-track-clr": "{neutral200}",
+  "progress-circle-indicator-clr": "{accent-clr}",
+};
+
 export const variables = {
   ...border,
   ...font,
@@ -435,6 +441,7 @@ export const variables = {
   ...link,
   ...animation,
   ...list,
+  ...progressCircle,
 } as const;
 
 export type Color = keyof typeof colors;

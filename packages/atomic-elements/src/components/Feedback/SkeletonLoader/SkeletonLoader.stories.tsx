@@ -4,7 +4,7 @@ import { SkeletonLoader } from ".";
 import { getCssProps } from "@sb/cssprops";
 
 export default {
-  title: "Loaders/SkeletonLoader",
+  title: "Feedback/SkeletonLoader",
   component: SkeletonLoader,
   parameters: {
     cssprops: getCssProps("SkeletonLoader"),
