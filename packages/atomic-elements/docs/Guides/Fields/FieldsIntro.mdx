@@ -1,0 +1,109 @@
+---
+sidebar_position: 1
+---
+
+import { Button, Group, IconButton, TextInput, ElementsProvider, TextField, Label, Message, Input, ErrorMessage, ComboInput } from "@atomicjolt/atomic-elements";
+import { Example } from "../../components/Example";
+
+# Fields Introduction
+
+<ElementsProvider />
+
+The "Fields" API is Atomic Elements composition API for building interactive forms. It is designed to be composable and flexible, giving you a lot of control over the look and feel of your inputs, while still providing the necessary accessibility features.
+
+For example, the `TextField` components handles the details of managing the input and accessibility, while you provide the semantic structure of the field.
+
+<Example>
+  <Example.Rendered>
+    <TextField size="large">
+      <Label>Name</Label>
+      <Message className="sb-unstyled">Enter your name</Message>
+      <Input />
+      <ErrorMessage>Invalid name</ErrorMessage>
+    </TextField>
+  </Example.Rendered>
+  <Example.Code>
+    ```jsx
+    import React, { useState } from "react";
+    import {
+      TextField,
+      Label,
+      Message,
+      ErrorMessage,
+      Input,
+    } from "@atomicjolt/atomic-elements";
+
+    function MyComponent() {
+      const [name, setName] = useState("John Doe");
+
+      return (
+        <TextField value={name} onChange={setName}>
+          <Label>Name</Label>
+          <Message>Enter your name</Message>
+          <Input />
+          <ErrorMessage>Invalid name</ErrorMessage>
+        </TextField>
+      );
+    }
+    ```
+  </Example.Code>
+</Example>
+
+## Group Fields & Buttons
+
+Because you are defining the markup for the field, you can customize the layout and appearance of the field to suit your needs.
+For example, you can use the `Group` component to create a field with a button and input:
+
+<Example>
+  <Example.Rendered>
+    <TextField size="large">
+      <Label>Name</Label>
+      <Message className="sb-unstyled">Enter your name</Message>
+      <Group isMerged>
+        <Input />
+        <Button variant="primary">Save</Button>
+      </Group>
+      <ErrorMessage>Invalid name</ErrorMessage>
+    </TextField>
+  </Example.Rendered>
+  <Example.Code>
+    ```jsx
+    <TextField size="large">
+      <Label>Name</Label>
+      <Message>Enter your name</Message>
+      <Group isMerged>
+        <Input />
+        <Button variant="border">Save</Button>
+      </Group>
+      <ErrorMessage>Invalid name</ErrorMessage>
+    </TextField>
+    ```
+  </Example.Code>
+</Example>
+
+## ComboInput
+
+The `ComboInput` component wraps multiple elements into a single visual input. This is useful for creating complex inputs, such as a date picker or a search input.
+
+<Example>
+  <Example.Rendered>
+    <TextField size="large">
+      <ComboInput padding="left">
+        <Input placeholder="Search" />
+        <IconButton icon="search" variant="ghost" />
+      </ComboInput>
+      <ErrorMessage>Invalid name</ErrorMessage>
+    </TextField>
+  </Example.Rendered>
+  <Example.Code>
+    ```jsx
+    <TextField size="large">
+      <ComboInput padding="left">
+        <Input placeholder="search" />
+        <IconButton icon="search" variant="ghost" />
+      </ComboInput>
+      <ErrorMessage>Invalid name</ErrorMessage>
+    </TextField>
+    ```
+  </Example.Code>
+</Example>

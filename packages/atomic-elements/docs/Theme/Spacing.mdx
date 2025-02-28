@@ -1,0 +1,82 @@
+import { Example } from "../components/Example";
+import { SpacingScaleTable } from "../components/SpacingScaleTable";
+import { View, Flex, Text } from "@atomicjolt/atomic-elements";
+
+# Spacing
+
+## Space Scale
+
+Spacing values are derived from a 10-step scale, which is used for props like `margin`, `padding`, and `gap`. The scale is based on powers of two, which allows for a consistent and predictable spacing system.
+
+<Example>
+  <Example.Rendered>
+    <Flex $gap="2" $mb="2" $align="end" $justify="center">
+      <Flex $direction="column" $gap="2" $align="center">
+        <View $width="50px" $height="var(--space-0)" $bg="accent-clr" />
+        <Text>0</Text>
+      </Flex>
+      <Flex $direction="column" $gap="2" $align="center">
+        <View $width="50px" $height="var(--space-1)" $bg="accent-clr" />
+        <Text>1</Text>
+      </Flex>
+      <Flex $direction="column" $gap="2" $align="center">
+        <View $width="50px" $height="var(--space-2)" $bg="accent-clr" />
+        <Text>2</Text>
+      </Flex>
+      <Flex $direction="column" $gap="2" $align="center">
+        <View $width="50px" $height="var(--space-3)" $bg="accent-clr" />
+        <Text>3</Text>
+      </Flex>
+      <Flex $direction="column" $gap="2" $align="center">
+        <View $width="50px" $height="var(--space-4)" $bg="accent-clr" />
+        <Text>4</Text>
+      </Flex>
+      <Flex $direction="column" $gap="2" $align="center">
+        <View $width="50px" $height="var(--space-5)" $bg="accent-clr" />
+        <Text>5</Text>
+      </Flex>
+      <Flex $direction="column" $gap="2" $align="center">
+        <View $width="50px" $height="var(--space-6)" $bg="accent-clr" />
+        <Text>6</Text>
+      </Flex>
+      <Flex $direction="column" $gap="2" $align="center">
+        <View $width="50px" $height="var(--space-7)" $bg="accent-clr" />
+        <Text>7</Text>
+      </Flex>
+      <Flex $direction="column" $gap="2" $align="center">
+        <View $width="50px" $height="var(--space-8)" $bg="accent-clr" />
+        <Text>8</Text>
+      </Flex>
+      <Flex $direction="column" $gap="2" $align="center">
+        <View $width="50px" $height="var(--space-9)" $bg="accent-clr" />
+        <Text>9</Text>
+      </Flex>
+    </Flex>
+  </Example.Rendered>
+</Example>
+
+<SpacingScaleTable />
+
+## Customizing
+
+Spacing is configured in the theme
+
+```tsx
+import { createTheme, defaultTheme } from "@atomicjolt/atomic-elements";
+
+const theme = createTheme({
+  variables: {
+    "space-0": "0",
+    "space-1": "0.25rem",
+    "space-2": "0.5rem",
+    "space-3": "1rem",
+    "space-4": "2rem",
+    "space-5": "4rem",
+    "space-6": "8rem",
+    "space-7": "16rem",
+    "space-8": "32rem",
+    "space-9": "64rem",
+  },
+  base: defaultTheme,
+});
+```

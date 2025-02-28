@@ -1,0 +1,56 @@
+import { Button, ElementsProvider } from "@atomicjolt/atomic-elements";
+import { Example } from "../components/Example";
+
+# Routing
+
+<ElementsProvider />
+
+Several components in Atomic Elements support being rendered as an anchor tag.
+This allows you to use the component as a link. When rendered as a link, each component supports the same props as an anchor tag such
+as `href`, `target`, and `rel`.
+
+## Example
+
+The `Button` component can be rendered as an anchor tag by setting the `href` props.
+
+<Example>
+  <Example.Rendered>
+    <Button href="https://atomicjolt.com" target="_blank">Atomic Jolt</Button>
+  </Example.Rendered>
+  <Example.Code>
+    ```jsx
+    <Button href="https://atomicjolt.com" target="_blank">
+      Atomic Jolt
+    </Button>
+    ```
+  </Example.Code>
+</Example>
+
+The `Button` component will render as an anchor tag with the `href` attribute set to `https://atomicjolt.com`.
+
+## Client Side Routing
+
+By default, links perform native browser navigation. However, if your application supports client-side routing, you can
+use the `RouterProvider` component to integrate with your routing library of choice.
+
+Note that links to external sites or links with any other value for target except `target="_self"` attribute will always perform native browser navigation.
+
+<Example>
+  <Example.Code>
+    ```jsx
+    import { RouterProvider } from "@atomicjolt/atomic-elements";
+    import { useNavigate, useHref } from "your-router";
+
+    function App() {
+      const navigate = useNavigate();
+
+      return (
+        <RouterProvider navigate={navigate} useHref={useHref}>
+          {/* ... */}
+        </RouterProvider>
+      );
+    }
+    ```
+  </Example.Code>
+</Example>
+

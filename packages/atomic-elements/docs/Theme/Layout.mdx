@@ -1,0 +1,106 @@
+import { Example } from '../components/Example';
+import { View, Flex, Grid, Group, Button, Input } from '@atomicjolt/atomic-elements';
+
+# Layout
+
+Atomic Elements provides a set of layout components to help you build your application.
+
+## Components
+
+### View
+
+View is the most basic layout component. It is a block-level element that can be used to create a container for other elements. The View component provides props for setting the width, height, padding, margins and background color of the element.
+
+<Example>
+  <Example.Rendered>
+    <View $width="100px" $height="100px" $bg="accent-clr" />
+  </Example.Rendered>
+  <Example.Code>
+    ```tsx
+    <View $width="100px" $height="100px" $bg="accent-clr" />
+    ```
+  </Example.Code>
+</Example>
+
+
+### Flex
+
+The `Flex` component is a flexible layout component that allows you to create a wide variety of layouts using a simple API. The `Flex` component uses the `display: flex` CSS property to create a flex container, and provides props for configuring the flex direction, alignment, and spacing.
+
+<Example>
+  <Example.Rendered>
+    <Flex $direction="row" $gap="3">
+      <View $width="100px" $height="100px" $bg="primary400" />
+      <View $width="100px" $height="100px" $bg="primary500" />
+      <View $width="100px" $height="100px" $bg="primary600" />
+    </Flex>
+  </Example.Rendered>
+  <Example.Code>
+    ```tsx
+    <Flex $direction="row" $gap="3">
+      <View $width="100px" $height="100px" $bg="primary400" />
+      <View $width="100px" $height="100px" $bg="primary500" />
+      <View $width="100px" $height="100px" $bg="primary600" />
+    </Flex>
+    ```
+  </Example.Code>
+</Example>
+
+
+### Grid
+
+The `Grid` component is a layout component that allows you to create grid layouts using a simple API. The `Grid` component uses the `display: grid` CSS property to create a grid container, and provides props for configuring the grid template columns, rows, and gaps.
+
+<Example>
+  <Example.Rendered>
+    <Grid $columns="3" $rows="3" $gap="3">
+      <View $height="100px" $bg="primary400" />
+      <View $height="100px" $bg="primary500" />
+      <View $height="100px" $bg="primary600" />
+      <View $height="100px" $bg="primary400" />
+      <View $height="100px" $bg="primary500" />
+      <View $height="100px" $bg="primary600" />
+      <View $height="100px" $bg="primary400" />
+      <View $height="100px" $bg="primary500" />
+      <View $height="100px" $bg="primary600" />
+    </Grid>
+  </Example.Rendered>
+  <Example.Code>
+    ```tsx
+    <Grid $columns="3" $rows="3" $gap="3">
+      <View $height="100px" $bg="primary400" />
+      <View $height="100px" $bg="primary500" />
+      <View $height="100px" $bg="primary600" />
+      <View $height="100px" $bg="primary400" />
+      <View $height="100px" $bg="primary500" />
+      <View $height="100px" $bg="primary600" />
+      <View $height="100px" $bg="primary400" />
+      <View $height="100px" $bg="primary500" />
+      <View $height="100px" $bg="primary600" />
+    </Grid>
+    ```
+  </Example.Code>
+</Example>
+
+### Group
+
+Group is a special component to visually and semantically group a set of elements together.
+
+<Example>
+  <Example.Rendered>
+      <Group isMerged>
+        <Input placeholder="Username" />
+        <Input placeholder="Password" />
+        <Button>Login</Button>
+      </Group>
+  </Example.Rendered>
+  <Example.Code>
+    ```tsx
+    <Group isMerged>
+      <Input placeholder="Username" />
+      <Input placeholder="Password" />
+      <Button>Login</Button>
+    </Group>
+    ```
+  </Example.Code>
+</Example>
