@@ -1,14 +1,17 @@
-import { StyledCardPanel, CardWrapper } from "./Card.styles";
-import { ElementWrapper, ExtendedSize, RenderBaseProps } from "../../../types";
-import { Flex, FlexProps } from "../../Layout/Flex";
-import { useRenderProps } from "@hooks";
+import { useRenderProps } from "@hooks/useRenderProps";
 import { Text, TextProps } from "@components/Typography/Text";
 import { ViewProps } from "@components/Layout/View";
+import { Grid, GridProps } from "@components/Layout/Grid";
+import { ElementWrapper, RenderBaseProps } from "../../../types";
+import { Flex, FlexProps } from "../../Layout/Flex";
+import { StyledCardPanel, CardWrapper, StyleProps } from "./Card.styles";
 
 export interface CardProps
   extends RenderBaseProps<never>,
-    ElementWrapper<HTMLDivElement> {}
+    ElementWrapper<HTMLDivElement>,
+    StyleProps {}
 
+/** Card component groups a set of related pieces of content and actions  */
 export function Card(props: CardProps) {
   const { children, className, style, ...rest } = props;
 
@@ -19,13 +22,14 @@ export function Card(props: CardProps) {
     style,
   });
 
-  return <CardWrapper {...renderProps} {...rest} />;
-}
-
-interface CardPanelProps
-  extends RenderBaseProps<never>,
-    ElementWrapper<HTMLDivElement> {
-  size?: ExtendedSize;
+  return (
+    <CardWrapper
+      $bg="var(--card-bg-clr)"
+      $p="var(--card-padding)"
+      {...renderProps}
+      {...rest}
+    />
+  );
 }
 
 function CardPanel(props: ViewProps) {
@@ -38,7 +42,15 @@ function CardPanel(props: ViewProps) {
     children,
   });
 
-  return <StyledCardPanel $flexGrow="1" {...renderProps} {...rest} />;
+  return (
+    <StyledCardPanel
+      $bg="var(--card-panel-bg-clr)"
+      $p="var(--card-panel-padding)"
+      $flexGrow="1"
+      {...renderProps}
+      {...rest}
+    />
+  );
 }
 
 function CardStack(props: FlexProps) {
@@ -57,13 +69,25 @@ function CardHeader(props: FlexProps) {
   return <Flex $gap="2" $mb="var(--card-padding)" $align="center" {...props} />;
 }
 
+function CardGrid(props: GridProps) {
+  return <Grid $gap="var(--card-padding)" {...props} />;
+}
+
+/** Card Header. Wraps Card.Title and optionally some actions. Handles padding */
 Card.Header = CardHeader;
 CardHeader.displayName = "Card.Header";
+/** Card Title */
 Card.Title = CardTitle;
 CardTitle.displayName = "Card.Title";
+/** Card Panel. Wraps some content within a card */
 Card.Panel = CardPanel;
 CardPanel.displayName = "Card.Panel";
+/** Card Columns. Wraps a set of Card.Panel components in a flex container */
 Card.Columns = CardColumns;
 CardColumns.displayName = "Card.Columns";
+/** Card Stack. Wraps a set of Card.Panel components in a flex container with column direction */
 Card.Stack = CardStack;
 CardStack.displayName = "Card.Stack";
+/** Card Grid. Wraps a set of Card.Panel components in a grid container */
+Card.Grid = CardGrid;
+CardGrid.displayName = "Card.Grid";
