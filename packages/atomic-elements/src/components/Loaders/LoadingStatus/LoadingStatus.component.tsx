@@ -6,13 +6,18 @@ import { LoaderProps } from "../Loader";
 
 export interface LoadingStatusProps<T> {
   readonly children?: React.ReactNode | ((data: T) => React.ReactNode);
-  /** The data to render when not in a loading state */
+
+  /**
+   * The data to be rendered by the component. When provided and `isLoading` is false,
+   * the component will render the `children`. If `data` is null, the `fallback` will
+   * be rendered instead.
+   */
   readonly data?: T | null;
 
   /** Fallback if data is null */
   readonly fallback?: React.ReactNode;
 
-  /** Loading status, when true, a loading animation is displayed  */
+  /** Loading status, when true, a loading state will be rendered */
   readonly isLoading?: boolean;
 
   /** Optional message to display beneath the loading animation */
@@ -27,8 +32,9 @@ export interface LoadingStatusProps<T> {
   /** Customize what is rendered when in a loading state */
   readonly renderLoading?: React.ReactNode | React.ComponentType<LoaderProps>;
 
-  /** An error. When present, an error banner will be displayed */
+  /** An error. When present, an error state will be rendered */
   readonly error?: React.ReactNode;
+
   /** Customize what is rendered when in an error state */
   readonly renderError?: React.ReactNode | React.ComponentType<ErrorStateProps>;
 }

@@ -38,21 +38,17 @@ export const DismissableBanner = forwardRef<
     iconVariant = "default",
     icon,
     onDismiss,
-    className,
     children,
-    style,
     ...rest
   } = props;
 
   const renderProps = useRenderProps({
     componentClassName: "aje-banner",
-    className,
-    style,
     children,
   });
 
   return (
-    <Banner ref={ref} {...renderProps} {...rest}>
+    <Banner ref={ref} variant={variant} {...rest}>
       {icon && <MaterialIcon icon={icon} variant={iconVariant} />}
       <Banner.Content>{renderProps.children}</Banner.Content>
       <Banner.IconButton
