@@ -2,9 +2,9 @@ import { filterDOMProps } from "@react-aria/utils";
 import { Flex } from "@components/Layout/Flex";
 import { useRenderProps } from "@hooks/useRenderProps";
 import { AriaLabelProps, RenderBaseProps, Size } from "../../../types";
-import { LoaderMessage, LoaderWrapper } from "../Loader.styles";
-import { LoaderPlacement } from "../Loading.types";
 import { Checkmark } from "@components/Animations/Checkmark";
+import { LoaderMessage, LoaderWrapper } from "./Loader.styles";
+import { LoaderPlacement } from "./Loader.types";
 
 export interface LoaderProps
   extends RenderBaseProps<{ isLoading: boolean }>,

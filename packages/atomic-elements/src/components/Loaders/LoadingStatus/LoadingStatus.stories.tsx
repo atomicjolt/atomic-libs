@@ -1,8 +1,8 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { getCssProps } from "@sb/cssprops";
 import { SpinnerLoader } from "../SpinnerLoader";
-import { Banner } from "@components/Banners/Banner";
 import { LoadingStatus } from ".";
+import { Text } from "@components/Typography/Text";
 
 const meta: Meta<typeof LoadingStatus> = {
   title: "Loaders/LoadingStatus",
@@ -59,13 +59,17 @@ export const CustomizeErrorState: Story = {
     loadingMessage: "",
     error: "An error occurred",
     children: "This is the content",
-    renderError: <div>Error!</div>,
+    renderError: (
+      <Text $size="4" $color="error-clr" $weight="bold">
+        Error!
+      </Text>
+    ),
   },
 };
 
 export const WithData: Story = {
   args: {
-    children: (data: any) => <Banner variant="info">{data}</Banner>,
+    children: (data: any) => <Text $size="4">{data}</Text>,
     data: "This is the data!",
   },
   parameters: {
@@ -73,7 +77,7 @@ export const WithData: Story = {
       source: {
         code: `
 <LoadingStatus data="This is the data!">
-  {(data) => <Banner variant="info">{data}</Banner>}
+  {(data) => <Text $size="4">{data}</Text>}
 </LoadingStatus>
 `,
       },
@@ -84,8 +88,12 @@ export const WithData: Story = {
 export const NoDataFallback: Story = {
   args: {
     data: null,
-    children: (data: any) => <Banner variant="info">{data}</Banner>,
-    fallback: <Banner variant="warning">No data available</Banner>,
+    children: (data: any) => <Text $size="4">{data}</Text>,
+    fallback: (
+      <Text $size="4" $color="error-clr">
+        No data available
+      </Text>
+    ),
   },
   parameters: {
     docs: {

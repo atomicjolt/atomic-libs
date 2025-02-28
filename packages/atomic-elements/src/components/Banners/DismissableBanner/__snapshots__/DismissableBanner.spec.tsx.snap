@@ -6,7 +6,7 @@ exports[`DismissableBanner > Snapshots > should match snapshot 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="sc-gtLWhw cBKsuS aje-banner aje-banner aje-banner--info"
+        class="sc-gtLWhw cBKsuS aje-banner aje-banner--info"
       >
         <div
           class="sc-egkSDF dksBmg"
@@ -29,7 +29,7 @@ exports[`DismissableBanner > Snapshots > should match snapshot 1`] = `
   </body>,
   "container": <div>
     <div
-      class="sc-gtLWhw cBKsuS aje-banner aje-banner aje-banner--info"
+      class="sc-gtLWhw cBKsuS aje-banner aje-banner--info"
     >
       <div
         class="sc-egkSDF dksBmg"
@@ -109,7 +109,7 @@ exports[`DismissableBanner > Snapshots > should match snapshot with icon 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="sc-gtLWhw cBKsuS aje-banner aje-banner aje-banner--info"
+        class="sc-gtLWhw cBKsuS aje-banner aje-banner--info"
       >
         <i
           aria-hidden="true"
@@ -138,7 +138,7 @@ exports[`DismissableBanner > Snapshots > should match snapshot with icon 1`] = `
   </body>,
   "container": <div>
     <div
-      class="sc-gtLWhw cBKsuS aje-banner aje-banner aje-banner--info"
+      class="sc-gtLWhw cBKsuS aje-banner aje-banner--info"
     >
       <i
         aria-hidden="true"
@@ -224,7 +224,7 @@ exports[`ErrorBanner > Snapshots > should match snapshot 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="sc-gtLWhw cBKsuS aje-banner aje-banner aje-banner--info"
+        class="sc-gtLWhw cBKsuS aje-banner aje-banner--error"
       >
         <i
           aria-hidden="true"
@@ -253,7 +253,7 @@ exports[`ErrorBanner > Snapshots > should match snapshot 1`] = `
   </body>,
   "container": <div>
     <div
-      class="sc-gtLWhw cBKsuS aje-banner aje-banner aje-banner--info"
+      class="sc-gtLWhw cBKsuS aje-banner aje-banner--error"
     >
       <i
         aria-hidden="true"
@@ -339,7 +339,7 @@ exports[`WarningBanner > Snapshots > should match snapshot 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="sc-gtLWhw cBKsuS aje-banner aje-banner aje-banner--info"
+        class="sc-gtLWhw cBKsuS aje-banner aje-banner--warning"
       >
         <i
           aria-hidden="true"
@@ -368,7 +368,7 @@ exports[`WarningBanner > Snapshots > should match snapshot 1`] = `
   </body>,
   "container": <div>
     <div
-      class="sc-gtLWhw cBKsuS aje-banner aje-banner aje-banner--info"
+      class="sc-gtLWhw cBKsuS aje-banner aje-banner--warning"
     >
       <i
         aria-hidden="true"
