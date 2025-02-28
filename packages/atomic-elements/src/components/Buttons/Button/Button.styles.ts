@@ -14,10 +14,7 @@ export const StyledButton = styled.button`
   justify-content: center;
   gap: var(--btn-icon-gap);
   text-decoration: none;
-  transition:
-    background 100ms ease,
-    color 100ms ease,
-    transform 100ms ease,
+  transition: background 100ms ease, color 100ms ease, transform 100ms ease,
     box-shadow 100ms ease;
 
   color: var(--btn-text-clr);
@@ -69,7 +66,7 @@ export const StyledButton = styled.button`
   }
 
   &.aje-btn--link {
-    --btn-text-clr: var(--primary700);
+    --btn-text-clr: var(--accent-clr);
     --btn-bg-clr: var(--neutral50);
     --btn-hover-text-clr: var(--text-clr);
     --btn-hover-bg-clr: var(--neutral100);

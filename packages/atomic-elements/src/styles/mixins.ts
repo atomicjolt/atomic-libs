@@ -1,6 +1,6 @@
-import { css } from "styled-components";
+import { css, Interpolation } from "styled-components";
 
-const Sizing = css`
+export const Sizing = css`
   &.is-small {
     --size-x: var(--size-sm-x);
     --size-y: var(--size-sm-y);
@@ -27,80 +27,86 @@ const Sizing = css`
   }
 `;
 
-const mixins = {
-  Bold: css`
-    font-family: var(--font-family);
-    font-weight: var(--font-weight-bold);
-  `,
-  Regular: css`
-    font-family: var(--font-family);
-    font-weight: var(--font-weight-regular);
-  `,
-  FieldStatus: css`
-    &[data-required] {
-      label::after {
-        content: " *";
-      }
-    }
+export const Bold = css`
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-bold);
+`;
 
-    &[data-invalid] {
-      --input-outline: 1px solid var(--error-clr);
-    }
+export const Regular = css`
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-regular);
+`;
 
-    &[data-disabled] {
-      opacity: 0.5;
+export const FieldStatus = css`
+  &[data-required] {
+    label::after {
+      content: " *";
     }
+  }
 
-    &[data-readonly] {
-      --input-border-clr: var(--neutral100);
-      --input-bg-clr: var(--neutral100);
-    }
-  `,
-  InputLike: css`
-    border-style: var(--input-border-style);
-    border-width: var(--input-border-width);
-    border-color: var(--input-border-clr);
-    border-radius: var(--input-border-radius);
-    min-height: var(--input-height);
-    padding: 0 var(--input-padding-horiz);
-    font-size: var(--input-font-size);
-    color: var(--input-text-clr);
-    background-color: var(--input-bg-clr);
-    text-align: left;
+  &[data-invalid] {
+    --input-outline: 1px solid var(--error-clr);
+  }
 
-    i {
-      color: var(--input-icon-clr);
-    }
+  &[data-disabled] {
+    opacity: 0.5;
+  }
 
-    &:focus,
-    &:focus-within {
-      --input-border-clr: var(--outline-clr-primary);
-      outline: var(--input-outline);
-    }
-  `,
-  Sizing,
-  SizingX: css`
-    ${Sizing}
-    width: var(--size-x);
-  `,
-  SizingY: css`
-    ${Sizing}
-    height: var(--size-y);
-  `,
-  FocusVisible: (oultineOffset: number = 0) => css`
-    &:focus-visible {
-      outline: none;
-    }
+  &[data-readonly] {
+    --input-border-clr: var(--neutral100);
+    --input-bg-clr: var(--neutral100);
+  }
+`;
 
-    &[data-focus-visible="true"] {
-      outline: var(--outline);
-      outline-offset: ${oultineOffset}px;
-    }
-  `,
-  ToggleInputLike: css`
+export const InputLike = css`
+  border-style: var(--input-border-style);
+  border-width: var(--input-border-width);
+  border-color: var(--input-border-clr);
+  border-radius: var(--input-border-radius);
+  min-height: var(--input-height);
+  padding: 0 var(--input-padding-horiz);
+  font-size: var(--input-font-size);
+  color: var(--input-text-clr);
+  background-color: var(--input-bg-clr);
+  text-align: left;
+
+  i {
+    color: var(--input-icon-clr);
+  }
+
+  &:focus,
+  &:focus-within {
+    --input-border-clr: var(--outline-clr-primary);
+    outline: var(--input-outline);
+  }
+`;
+
+export const SizingX = css`
+  ${Sizing}
+  width: var(--size-x);
+`;
+
+export const SizingY = css`
+  ${Sizing}
+  height: var(--size-y);
+`;
+
+export const FocusVisible = (oultineOffset: number = 0) => css`
+  &:focus-visible {
+    outline: none;
+  }
+
+  &[data-focus-visible="true"] {
+    outline: var(--outline);
+    outline-offset: ${oultineOffset}px;
+  }
+`;
+
+export const ToggleInputLike = (element: Interpolation<any>) => {
+  return css`
     display: block;
 
-    :is(input):focus-visible ~ .aje-checkbox__label:before {
+    :is(input):focus-visible ~ ${element}:before {
       outline: var(--outline);
       outline-offset: 2px;
     }
@@ -112,13 +118,27 @@ const mixins = {
     &[data-invalid] span::before {
       border-color: var(--error700);
     }
-  `,
-  Border: (prefix: string, { style = "solid" } = {}) => css`
-    border-width: var(--${prefix}-border-width);
-    border-color: var(--${prefix}-border-clr);
-    border-style: var(--${prefix}-border-style, ${style});
-    border-radius: var(--${prefix}-border-radius, 0);
-  `,
+  `;
+};
+
+export const Border = (prefix: string, { style = "solid" } = {}) => css`
+  border-width: var(--${prefix}-border-width);
+  border-color: var(--${prefix}-border-clr);
+  border-style: var(--${prefix}-border-style, ${style});
+  border-radius: var(--${prefix}-border-radius, 0);
+`;
+
+const mixins = {
+  Bold,
+  Regular,
+  FieldStatus,
+  InputLike,
+  Sizing,
+  SizingX,
+  SizingY,
+  FocusVisible,
+  ToggleInputLike,
+  Border,
 };
 
 export default mixins;

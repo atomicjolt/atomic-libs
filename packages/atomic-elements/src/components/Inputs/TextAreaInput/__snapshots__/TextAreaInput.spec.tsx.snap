@@ -1,20 +1,23 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`matches snapshot 1`] = `
+exports[`TextAreaInput > matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-ghWlax dMEeIv aje-input__text sc-ovuCP fTnTCf aje-input__textarea is-medium"
+    class="sc-ghWlax iRVmMf aje-input__text sc-ovuCP enhjhj aje-input__textarea is-medium"
     data-resize="both"
   >
     <label
-      class="sc-blHHSb hjDrEC"
+      class="sc-blHHSb cBLGYC"
       for="react-aria-:r0:"
       id="react-aria-:r1:"
     >
       label
     </label>
     <textarea
-      class="sc-ivxoEo cWLuDS"
+      aria-labelledby="react-aria-:r1:"
+      class="sc-ivxoEo lkCcFK"
+      data-resize="both"
+      id="react-aria-:r0:"
     />
   </div>
 </DocumentFragment>

@@ -200,8 +200,8 @@ export const SortableHeaders: Story = {
 export const SearchableColumns: Story = {
   render: (props) => {
     const [searchDescriptor, setSearchDescriptor] = useState<SearchDescriptor>({
-      column: null,
-      search: "",
+      column: "name",
+      search: "Chariz",
     });
 
     const pokemons: Record<string, string>[] = [

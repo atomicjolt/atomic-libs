@@ -1,15 +1,18 @@
-import React, { useState } from "react";
+import { forwardRef } from "react";
 import {
-  HasChildren,
-  HasClassName,
+  ElementWrapper,
   MaterialIconVariants,
   MaterialIcons,
+  RenderBaseProps,
 } from "../../../types";
+import { useRenderProps } from "@hooks/useRenderProps";
 import { MaterialIcon } from "../../Icons/MaterialIcon";
 import { Banner, BannerVariants } from "../Banner";
 
-interface SharedProps extends HasClassName, HasChildren {
-  /** When present, you control if the error is dismissed or not. When not present, the component will dismiss itself */
+interface SharedProps
+  extends RenderBaseProps<never>,
+    ElementWrapper<HTMLDivElement> {
+  /** Called when the user dismisses the banner */
   readonly onDismiss?: () => void;
 }
 
@@ -26,46 +29,64 @@ export interface DismissableBannerProps extends SharedProps {
  * For convenience, there are also `ErrorBanner` and `WarningBanner` components that set sensible defaults
  * for the `variant` and `icon` props.
  */
-export function DismissableBanner(props: DismissableBannerProps) {
+export const DismissableBanner = forwardRef<
+  HTMLDivElement,
+  DismissableBannerProps
+>((props, ref) => {
   const {
-    children,
-    variant,
+    variant = "info",
     iconVariant = "default",
     icon,
     onDismiss,
     className,
+    children,
+    style,
+    ...rest
   } = props;
 
-  const [visible, setVisible] = useState(true);
-
-  if (!visible) {
-    return null;
-  }
+  const renderProps = useRenderProps({
+    componentClassName: "aje-banner",
+    className,
+    style,
+    children,
+  });
 
   return (
-    <Banner className={className} variant={variant}>
+    <Banner ref={ref} {...renderProps} {...rest}>
       {icon && <MaterialIcon icon={icon} variant={iconVariant} />}
-      <Banner.Content>{children}</Banner.Content>
+      <Banner.Content>{renderProps.children}</Banner.Content>
       <Banner.IconButton
         icon="close"
         className="aje-banner__dismiss"
         aria-label={`dismiss ${variant}`}
         onPress={() => {
-          !onDismiss && setVisible(false);
-          onDismiss && onDismiss();
+          onDismiss?.();
         }}
       />
     </Banner>
   );
-}
+});
 
 export type BannerWrapperProps = SharedProps;
 
-/** Conveneince Wrapper around `DismissableBanner` */
-export function ErrorBanner(props: BannerWrapperProps) {
-  return <DismissableBanner variant="error" icon="error" {...props} />;
-}
+/** Convenience Wrapper around `DismissableBanner` */
+export const ErrorBanner = forwardRef<HTMLDivElement, BannerWrapperProps>(
+  (props, ref) => {
+    return (
+      <DismissableBanner variant="error" icon="error" ref={ref} {...props} />
+    );
+  }
+);
 
-export function WarningBanner(props: BannerWrapperProps) {
-  return <DismissableBanner variant="warning" icon="warning" {...props} />;
-}
+export const WarningBanner = forwardRef<HTMLDivElement, BannerWrapperProps>(
+  (props, ref) => {
+    return (
+      <DismissableBanner
+        variant="warning"
+        icon="warning"
+        ref={ref}
+        {...props}
+      />
+    );
+  }
+);

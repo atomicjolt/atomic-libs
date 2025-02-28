@@ -6,7 +6,7 @@ exports[`matches snapshot 1`] = `
     class="aje-input__select"
   >
     <label
-      class="sc-egkSDF eRgKMR"
+      class="sc-egkSDF lbEJIl"
       for="select-:r0:-select"
     >
       Label
@@ -16,7 +16,7 @@ exports[`matches snapshot 1`] = `
     >
       <select
         aria-describedby="select-:r0:-message"
-        class="sc-gtLWhw iFoOhS"
+        class="sc-gtLWhw bWuvbu"
         id="select-:r0:-select"
       >
         <option

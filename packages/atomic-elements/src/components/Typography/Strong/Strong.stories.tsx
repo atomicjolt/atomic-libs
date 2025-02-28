@@ -21,7 +21,7 @@ type Story = StoryObj<typeof Strong>;
 
 export const Primary: Story = {
   render: (args) => (
-    <Text>
+    <Text $size="3">
       The most important step a man can take; it's not the first one, is it?{" "}
       <Strong {...args}>{args.children}</Strong>
     </Text>

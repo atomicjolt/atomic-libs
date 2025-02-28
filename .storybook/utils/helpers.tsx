@@ -717,6 +717,11 @@ export const TypographyArgTypes: ArgTypes = {
     ],
     description: "Controls the text transformation.",
   },
+  $clamp: {
+    control: "select",
+    options: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
+    description: "Clamp the text content after this number of lines",
+  },
 };
 
 export const ColorArgTypes: ArgTypes = {
@@ -769,16 +774,10 @@ export const FlexArgTypes: ArgTypes = {
   },
 };
 
-export function DecorativeBox() {
-  return (
-    <View
-      style={{
-        height: "100%",
-        width: "100%",
-        backgroundColor: "rebeccapurple",
-        borderRadius: "4px",
-        border: "1px solid #3c3c3c",
-      }}
-    />
-  );
-}
+export const BackgroundArgTypes: ArgTypes = {
+  $bg: {
+    control: "color",
+    description:
+      "Control the CSS background. Can be either a color from the theme or a valid CSS background value.",
+  },
+};

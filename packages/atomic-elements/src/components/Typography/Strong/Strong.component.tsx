@@ -5,13 +5,13 @@ import { useRenderProps } from "@hooks/useRenderProps";
 import { StrongContext } from "./Strong.context";
 import { StrongWrapper } from "./Strong.styles";
 import { MarginProps } from "@styles/layout";
-import { ColorProps } from "@styles/colors";
+import { TextColorProps } from "@styles/colors";
 
 export interface StrongProps
   extends RenderBaseProps<never>,
     ElementWrapper<HTMLSpanElement>,
     MarginProps,
-    ColorProps {}
+    TextColorProps {}
 
 export const Strong = forwardRef<HTMLElement, StrongProps>(function Strong(
   props,

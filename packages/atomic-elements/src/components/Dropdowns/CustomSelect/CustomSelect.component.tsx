@@ -53,7 +53,7 @@ export const CustomSelect = forwardRef(function CustomSelect<T extends object>(
         message={message}
         error={error}
       >
-        <SelectField.Button>
+        <SelectField.Button variant={variant}>
           <SelectField.Value
             placeholder={variant === "floating" ? null : placeholder}
           />

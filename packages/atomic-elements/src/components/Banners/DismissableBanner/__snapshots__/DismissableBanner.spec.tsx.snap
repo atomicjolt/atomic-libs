@@ -1,0 +1,449 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`DismissableBanner > Snapshots > should match snapshot 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="sc-gtLWhw cBKsuS aje-banner aje-banner aje-banner--info"
+      >
+        <div
+          class="sc-egkSDF dksBmg"
+        />
+        <button
+          aria-label="dismiss info"
+          class="sc-keTIit kqdLLl aje-btn sc-dpBQxM ijJQdn aje-banner__dismiss aje-btn--banner is-medium"
+          data-icon-button="true"
+          type="button"
+        >
+          <i
+            aria-hidden="true"
+            class="sc-blHHSb GNRNu aje-icon material-icons is-medium"
+          >
+            close
+          </i>
+        </button>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="sc-gtLWhw cBKsuS aje-banner aje-banner aje-banner--info"
+    >
+      <div
+        class="sc-egkSDF dksBmg"
+      />
+      <button
+        aria-label="dismiss info"
+        class="sc-keTIit kqdLLl aje-btn sc-dpBQxM ijJQdn aje-banner__dismiss aje-btn--banner is-medium"
+        data-icon-button="true"
+        type="button"
+      >
+        <i
+          aria-hidden="true"
+          class="sc-blHHSb GNRNu aje-icon material-icons is-medium"
+        >
+          close
+        </i>
+      </button>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`DismissableBanner > Snapshots > should match snapshot with icon 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="sc-gtLWhw cBKsuS aje-banner aje-banner aje-banner--info"
+      >
+        <i
+          aria-hidden="true"
+          class="sc-blHHSb GNRNu aje-icon material-icons is-medium"
+        >
+          info
+        </i>
+        <div
+          class="sc-egkSDF dksBmg"
+        />
+        <button
+          aria-label="dismiss info"
+          class="sc-keTIit kqdLLl aje-btn sc-dpBQxM ijJQdn aje-banner__dismiss aje-btn--banner is-medium"
+          data-icon-button="true"
+          type="button"
+        >
+          <i
+            aria-hidden="true"
+            class="sc-blHHSb GNRNu aje-icon material-icons is-medium"
+          >
+            close
+          </i>
+        </button>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="sc-gtLWhw cBKsuS aje-banner aje-banner aje-banner--info"
+    >
+      <i
+        aria-hidden="true"
+        class="sc-blHHSb GNRNu aje-icon material-icons is-medium"
+      >
+        info
+      </i>
+      <div
+        class="sc-egkSDF dksBmg"
+      />
+      <button
+        aria-label="dismiss info"
+        class="sc-keTIit kqdLLl aje-btn sc-dpBQxM ijJQdn aje-banner__dismiss aje-btn--banner is-medium"
+        data-icon-button="true"
+        type="button"
+      >
+        <i
+          aria-hidden="true"
+          class="sc-blHHSb GNRNu aje-icon material-icons is-medium"
+        >
+          close
+        </i>
+      </button>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`ErrorBanner > Snapshots > should match snapshot 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="sc-gtLWhw cBKsuS aje-banner aje-banner aje-banner--info"
+      >
+        <i
+          aria-hidden="true"
+          class="sc-blHHSb GNRNu aje-icon material-icons is-medium"
+        >
+          error
+        </i>
+        <div
+          class="sc-egkSDF dksBmg"
+        />
+        <button
+          aria-label="dismiss error"
+          class="sc-keTIit kqdLLl aje-btn sc-dpBQxM ijJQdn aje-banner__dismiss aje-btn--banner is-medium"
+          data-icon-button="true"
+          type="button"
+        >
+          <i
+            aria-hidden="true"
+            class="sc-blHHSb GNRNu aje-icon material-icons is-medium"
+          >
+            close
+          </i>
+        </button>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="sc-gtLWhw cBKsuS aje-banner aje-banner aje-banner--info"
+    >
+      <i
+        aria-hidden="true"
+        class="sc-blHHSb GNRNu aje-icon material-icons is-medium"
+      >
+        error
+      </i>
+      <div
+        class="sc-egkSDF dksBmg"
+      />
+      <button
+        aria-label="dismiss error"
+        class="sc-keTIit kqdLLl aje-btn sc-dpBQxM ijJQdn aje-banner__dismiss aje-btn--banner is-medium"
+        data-icon-button="true"
+        type="button"
+      >
+        <i
+          aria-hidden="true"
+          class="sc-blHHSb GNRNu aje-icon material-icons is-medium"
+        >
+          close
+        </i>
+      </button>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`WarningBanner > Snapshots > should match snapshot 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="sc-gtLWhw cBKsuS aje-banner aje-banner aje-banner--info"
+      >
+        <i
+          aria-hidden="true"
+          class="sc-blHHSb GNRNu aje-icon material-icons is-medium"
+        >
+          warning
+        </i>
+        <div
+          class="sc-egkSDF dksBmg"
+        />
+        <button
+          aria-label="dismiss warning"
+          class="sc-keTIit kqdLLl aje-btn sc-dpBQxM ijJQdn aje-banner__dismiss aje-btn--banner is-medium"
+          data-icon-button="true"
+          type="button"
+        >
+          <i
+            aria-hidden="true"
+            class="sc-blHHSb GNRNu aje-icon material-icons is-medium"
+          >
+            close
+          </i>
+        </button>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="sc-gtLWhw cBKsuS aje-banner aje-banner aje-banner--info"
+    >
+      <i
+        aria-hidden="true"
+        class="sc-blHHSb GNRNu aje-icon material-icons is-medium"
+      >
+        warning
+      </i>
+      <div
+        class="sc-egkSDF dksBmg"
+      />
+      <button
+        aria-label="dismiss warning"
+        class="sc-keTIit kqdLLl aje-btn sc-dpBQxM ijJQdn aje-banner__dismiss aje-btn--banner is-medium"
+        data-icon-button="true"
+        type="button"
+      >
+        <i
+          aria-hidden="true"
+          class="sc-blHHSb GNRNu aje-icon material-icons is-medium"
+        >
+          close
+        </i>
+      </button>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

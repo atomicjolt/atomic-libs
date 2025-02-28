@@ -9,7 +9,7 @@ exports[`ListBox > matches snapshots > when closed 1`] = `
     tabindex="0"
   >
     <li
-      class="sc-gQaihK fpUkBX aje-listbox__item"
+      class="sc-gQaihK iuNbIv aje-listbox__item"
       data-key="1"
       id="react-aria-:r0:-option-1"
       role="option"
@@ -18,7 +18,7 @@ exports[`ListBox > matches snapshots > when closed 1`] = `
       Item 1
     </li>
     <li
-      class="sc-gQaihK fpUkBX aje-listbox__item"
+      class="sc-gQaihK iuNbIv aje-listbox__item"
       data-key="2"
       id="react-aria-:r0:-option-2"
       role="option"
@@ -27,7 +27,7 @@ exports[`ListBox > matches snapshots > when closed 1`] = `
       Item 2
     </li>
     <li
-      class="sc-gQaihK fpUkBX aje-listbox__item"
+      class="sc-gQaihK iuNbIv aje-listbox__item"
       data-key="3"
       id="react-aria-:r0:-option-3"
       role="option"

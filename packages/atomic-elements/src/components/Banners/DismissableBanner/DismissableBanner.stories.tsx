@@ -2,6 +2,8 @@ import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import { DismissableBanner, ErrorBanner, WarningBanner } from ".";
 import { getCssProps } from "@sb/cssprops";
+import { RenderPropsArgTypes } from "@sb/helpers";
+import { fn } from "@storybook/test";
 
 export default {
   title: "Banners/DismissableBanner",
@@ -10,6 +12,7 @@ export default {
     cssprops: getCssProps("Banner"),
   },
   argTypes: {
+    ...RenderPropsArgTypes,
     variant: {
       control: "select",
       options: ["info", "warning", "success", "error"],
@@ -28,6 +31,7 @@ export const Info: Story = {
     children: "Notification Settings Saved",
     variant: "info",
     icon: "info",
+    onDismiss: fn(),
   },
 };
 

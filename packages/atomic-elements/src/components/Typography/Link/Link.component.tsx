@@ -1,10 +1,10 @@
 import { useRef } from "react";
 import { useLink, AriaLinkOptions } from "@react-aria/link";
-import { mergeProps } from "@react-aria/utils";
+import { filterDOMProps, mergeProps } from "@react-aria/utils";
 import { DomProps, RenderBaseProps } from "../../../types";
 import { TypographyProps } from "@styles/typography";
 import { MarginProps } from "@styles/layout";
-import { ColorProps } from "@styles/colors";
+import { TextColorProps } from "@styles/colors";
 import { useRenderProps } from "@hooks/useRenderProps";
 import { StyledLink } from "./Link.styles";
 
@@ -13,7 +13,7 @@ export interface LinkProps
     RenderBaseProps<never>,
     TypographyProps,
     MarginProps,
-    ColorProps,
+    TextColorProps,
     DomProps {
   as?: "a" | "span";
 }
@@ -45,7 +45,7 @@ export function Link(props: LinkProps) {
       ref={ref}
       as={as}
       {...mergeProps(linkProps, renderProps)}
-      {...rest}
+      {...filterDOMProps(rest)}
     >
       {renderProps.children}
     </StyledLink>

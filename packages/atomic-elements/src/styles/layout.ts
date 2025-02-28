@@ -235,3 +235,5 @@ export function layout(props: LayoutProps) {
     ...gridItem(props),
   };
 }
+
+layout.defaults = makeDefault(layout);

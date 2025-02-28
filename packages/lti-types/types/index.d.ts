@@ -39,7 +39,8 @@ export declare const MENTOR_SCOPE = "http://purl.imsglobal.org/vocab/lis/v2/memb
 export declare const MENTOR_ROLE_SCOPE = "a62c52c02ba262003f5e";
 export declare const COURSE_CONTEXT = "http://purl.imsglobal.org/vocab/lis/v2/course#CourseOffering";
 export declare const ACCOUNT_CONTEXT = "Account";
-export declare const TOOL_CONFIGURATION = "https://purl.imsglobal.org/spec/lti-tool-configuration";
+export declare const LTI_TOOL_CONFIGURATION = "https://purl.imsglobal.org/spec/lti-tool-configuration";
+export declare const LTI_PLATFORM_CONFIGURATION = "https://purl.imsglobal.org/spec/lti-platform-configuration";
 export declare const ALL_SCOPES: string[];
 export declare const CANVAS_PUBLIC_JWKS_URL = "https://sso.canvaslms.com/api/lti/security/jwks";
 export declare const CANVAS_AUTH_TOKEN_URL = "https://canvas.instructure.com/login/oauth2/token";
@@ -48,6 +49,9 @@ export declare const CANVAS_BETA_PUBLIC_JWKS_URL = "https://sso.beta.canvaslms.c
 export declare const CANVAS_BETA_AUTH_TOKEN_URL = "https://sso.beta.canvaslms.com/login/oauth2/token";
 export declare const CANVAS_BETA_OIDC_URL = "https://sso.beta.canvaslms.com/api/lti/authorize_redirect";
 export declare const CANVAS_SUBMISSION_TYPE = "https://canvas.instructure.com/lti/submission_type";
+export declare const CANVAS_PRIVACY_LEVEL = "https://canvas.instructure.com/lti/privacy_level";
+export declare const CANVAS_PLACEMENT_VISIBILITY = "https://canvas.instructure.com/lti/visibility";
+export declare const CANVAS_PLACEMENT_COURSE_NAVIGATION_ENABLED = "https://canvas.instructure.com/lti/course_navigation/default_enabled";
 interface IdTokenErrors {
     errors: {
         errors?: {};
@@ -225,7 +229,7 @@ export type PlatformConfiguration = {
     id_token_signing_alg_values_supported?: string[];
     claims_supported?: string[];
     authorization_server?: string;
-    "https://purl.imsglobal.org/spec/lti-platform-configuration"?: LtiPlatformConfiguration;
+    [LTI_PLATFORM_CONFIGURATION]?: LtiPlatformConfiguration;
 };
 export type LtiPlatformConfiguration = {
     product_family_code: string;
@@ -249,7 +253,7 @@ export type ToolConfiguration = {
     token_endpoint_auth_method: string;
     contacts?: string[];
     scope: string;
-    "https://purl.imsglobal.org/spec/lti-tool-configuration": LtiToolConfiguration;
+    [LTI_TOOL_CONFIGURATION]: LtiToolConfiguration;
     client_uri?: string;
     tos_uri?: string;
     policy_uri?: string;
@@ -267,6 +271,7 @@ export type LtiToolConfiguration = {
     description?: string;
     messages: LtiMessage[];
     claims: string[];
+    [CANVAS_PRIVACY_LEVEL]?: string;
 };
 export type LtiMessage = {
     type: string;
@@ -278,29 +283,42 @@ export type LtiMessage = {
     };
     placements?: string[];
     roles?: string[];
+    [CANVAS_PLACEMENT_VISIBILITY]?: string;
+    [CANVAS_PLACEMENT_COURSE_NAVIGATION_ENABLED]?: boolean;
 };
 export interface Context {
     id: string;
-    label: string;
-    title: string;
+    label?: string;
+    title?: string;
 }
 export declare enum MemberStatus {
-    Active = 0,
-    Inactive = 1,
-    Deleted = 2
+    Active = "Active",
+    Inactive = "Inactive",
+    Deleted = "Deleted"
 }
 export interface Member {
-    email?: string;
-    family_name?: string;
-    given_name?: string;
-    message?: any[];
+    user_id: string;
+    roles: string[];
+    status?: MemberStatus;
     name?: string;
+    email?: string;
     picture?: string;
-    roles?: any[];
+    given_name?: string;
+    family_name?: string;
+    middle_name?: string;
     lis_person_sourcedid?: string;
-    status: MemberStatus;
-    user_id?: string;
     lti11_legacy_user_id?: string;
+    message?: Array<{
+        [key: string]: any;
+        [MESSAGE_TYPE]?: string;
+        [BASIC_OUTCOME_CLAIM]?: {
+            lis_result_sourcedid: string;
+            lis_outcome_service_url: string;
+        };
+        [CUSTOM_CLAIM]?: {
+            [key: string]: string;
+        };
+    }>;
 }
 export interface MembershipContainer {
     id: string;
