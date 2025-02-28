@@ -3,7 +3,7 @@
 exports[`LoadingStatus > matches error snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-kLhKbu gIopdm aje-banner aje-banner aje-banner--info"
+    class="sc-kLhKbu gIopdm aje-banner aje-banner--error"
   >
     <i
       aria-hidden="true"
@@ -36,7 +36,7 @@ exports[`LoadingStatus > matches error snapshot 1`] = `
 exports[`LoadingStatus > matches loading snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-gtLWhw bXaYmu aje-loader aje-loader--bouncing-dots is-medium"
+    class="sc-egkSDF doeFIt aje-loader aje-loader--bouncing-dots is-medium"
     data-placement="center"
   >
     <div
