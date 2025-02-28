@@ -7,12 +7,9 @@ export const DatePickerWrapper = styled.div`
   ${mixins.FieldStatus}
   ${mixins.SizingX}
 
-  --size-sm-x: 310px;
-  --size-md-x: 310px;
-  --size-lg-x: 445px;
-
-  display: flex;
-  flex-direction: column;
+  --size-sm-x: 265px;
+  --size-md-x: 265px;
+  --size-lg-x: 400px;
 `;
 
 export const DatePickerComboInput = styled(ComboInput)`

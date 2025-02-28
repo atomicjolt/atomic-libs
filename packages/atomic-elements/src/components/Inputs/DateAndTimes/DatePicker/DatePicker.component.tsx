@@ -4,6 +4,7 @@ import {
   AriaDatePickerProps,
   DateValue,
 } from "@react-aria/datepicker";
+import { filterDOMProps } from "@react-aria/utils";
 import { useDatePickerState } from "react-stately";
 import { AriaProps, FieldInputProps } from "../../../../types";
 import { DatePickerComboInput, DatePickerWrapper } from "./DatePicker.styles";
@@ -15,7 +16,7 @@ import { ErrorMessage, Label, Message } from "../../../Fields";
 import { OverlayTriggerStateContext } from "@components/Overlays/OverlayTrigger/context";
 import { useRenderProps } from "@hooks";
 import { Flex } from "@components/Layout/Flex";
-import { filterDOMProps } from "@react-aria/utils";
+import { fieldStatusSelectors } from "@hooks/useRenderProps";
 
 export interface DatePickerProps<T extends DateValue>
   extends AriaProps<AriaDatePickerProps<T>>,
@@ -49,6 +50,7 @@ export function DatePicker<T extends DateValue>(props: DatePickerProps<T>) {
   const renderProps = useRenderProps({
     componentClassName: "aje-date-picker",
     ...props,
+    selectors: fieldStatusSelectors(props),
   });
 
   return (
@@ -59,7 +61,7 @@ export function DatePicker<T extends DateValue>(props: DatePickerProps<T>) {
       <DatePickerComboInput
         {...groupProps}
         ref={ref}
-        className={"aje-input__date-segments"}
+        className="aje-input__date-segments"
         padding="both"
       >
         <DateInput {...fieldProps} size="full" isRequired={isRequired} />
