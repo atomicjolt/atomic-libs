@@ -1,7 +1,7 @@
 import React from "react";
 import { ThreeDotLoader } from "../ThreeDotLoader";
 import { ErrorBanner } from "../../Banners/DismissableBanner";
-import { ErrorStateProps, LoaderPlacement } from "../Loading.types";
+import { ErrorStateProps, LoaderPlacement } from "../Loader/Loader.types";
 import { LoaderProps } from "../Loader";
 
 export interface LoadingStatusProps<T> {
