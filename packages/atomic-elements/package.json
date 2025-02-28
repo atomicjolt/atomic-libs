@@ -39,6 +39,7 @@
     "@react-aria/menu": "^3.14.1",
     "@react-aria/numberfield": "^3.11.3",
     "@react-aria/overlays": "^3.22.1",
+    "@react-aria/progress": "^3.4.19",
     "@react-aria/radio": "^3.10.4",
     "@react-aria/searchfield": "^3.7.5",
     "@react-aria/select": "^3.14.5",

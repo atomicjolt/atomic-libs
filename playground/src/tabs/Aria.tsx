@@ -1,18 +1,33 @@
-import React from "react";
-import { View, Text, Flex } from "@atomicjolt/atomic-elements";
+import React, { useState } from "react";
+import { NumberInput, SpinnerLoader, View, ProgressCircle } from "../elements";
 
 export default function Aria() {
+  const [value, setValue] = useState(5);
+
   return (
-    <Flex $direction="column" $gap="3">
-      <Text $size="1">The quick brown fox jumps over the lazy dog.</Text>
-      <Text $size="2">The quick brown fox jumps over the lazy dog.</Text>
-      <Text $size="3">The quick brown fox jumps over the lazy dog.</Text>
-      <Text $size="4">The quick brown fox jumps over the lazy dog.</Text>
-      <Text $size="5">The quick brown fox jumps over the lazy dog.</Text>
-      <Text $size="6">The quick brown fox jumps over the lazy dog.</Text>
-      <Text $size="7">The quick brown fox jumps over the lazy dog.</Text>
-      <Text $size="8">The quick brown fox jumps over the lazy dog.</Text>
-      <Text $size="9">The quick brown fox jumps over the lazy dog.</Text>
-    </Flex>
+    <View>
+      <NumberInput value={value} onChange={setValue} maxValue={100} />
+      <SpinnerLoader placement="block" size="large" />
+
+      <ProgressCircle
+        aria-label="label"
+        value={value}
+        $size="100px"
+        $width="10"
+        // $activeColor="var(--loader-color)"
+        // isIndeterminate
+      />
+      <ProgressCircle
+        aria-label="label"
+        value={value}
+        $size="100px"
+        $width="5"
+        $linecap="round"
+        $trackColor="transparent"
+        isIndeterminate
+        // $activeColor="var(--loader-color)"
+        // isIndeterminate
+      />
+    </View>
   );
 }
