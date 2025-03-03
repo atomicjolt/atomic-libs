@@ -23,7 +23,7 @@ const animateStroke = keyframes`
   }
   100% {
     stroke-dasharray: 89, 200;
-    stroke-dashoffset: -100;
+    stroke-dashoffset: -98;
   }
 `;
 

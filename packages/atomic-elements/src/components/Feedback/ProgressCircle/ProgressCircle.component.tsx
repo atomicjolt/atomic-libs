@@ -31,10 +31,6 @@ export interface ProgressCircleProps
   $linecap?: "round" | "butt";
 }
 
-// TODO:
-// - Update the Spinner to use the new ProgressCircle component
-// - Figure out why it flickers at smaller sizes
-
 export const ProgressCircle = forwardRef<HTMLElement, ProgressCircleProps>(
   function ProgressCircle(props, ref) {
     [props, ref] = useContextProps(ProgressCircleContext, props, ref);

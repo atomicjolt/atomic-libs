@@ -3,21 +3,21 @@
 exports[`ChipGroupField > matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-ovuCP eiAkiR aje-chip-group"
+    class="sc-eOzmre kLRiHk aje-chip-group"
   >
     <div
       aria-atomic="false"
       aria-labelledby="react-aria-:r1:"
       aria-live="off"
       aria-relevant="additions"
-      class="sc-eOzmre foFCjW"
+      class="sc-eauhAA kSZKTt"
       id="react-aria-:r0:"
       role="grid"
       tabindex="0"
     >
       <div
         aria-label="Item 1"
-        class="sc-fFoeYl kvHja-d aje-chip"
+        class="sc-gQaihK eCsZxB aje-chip"
         data-key="react-aria-1"
         id="react-aria-:r0:-react-aria-1"
         role="row"
@@ -25,7 +25,7 @@ exports[`ChipGroupField > matches snapshot 1`] = `
       >
         <div
           aria-colindex="1"
-          class="sc-eauhAA hNmxTV"
+          class="sc-fFoeYl iyCUbr"
           role="gridcell"
         >
           Item 1
@@ -33,7 +33,7 @@ exports[`ChipGroupField > matches snapshot 1`] = `
       </div>
       <div
         aria-label="Item 2"
-        class="sc-fFoeYl kvHja-d aje-chip"
+        class="sc-gQaihK eCsZxB aje-chip"
         data-key="react-aria-2"
         id="react-aria-:r0:-react-aria-2"
         role="row"
@@ -41,7 +41,7 @@ exports[`ChipGroupField > matches snapshot 1`] = `
       >
         <div
           aria-colindex="1"
-          class="sc-eauhAA hNmxTV"
+          class="sc-fFoeYl iyCUbr"
           role="gridcell"
         >
           Item 2
@@ -49,7 +49,7 @@ exports[`ChipGroupField > matches snapshot 1`] = `
       </div>
       <div
         aria-label="Item 3"
-        class="sc-fFoeYl kvHja-d aje-chip"
+        class="sc-gQaihK eCsZxB aje-chip"
         data-key="react-aria-3"
         id="react-aria-:r0:-react-aria-3"
         role="row"
@@ -57,7 +57,7 @@ exports[`ChipGroupField > matches snapshot 1`] = `
       >
         <div
           aria-colindex="1"
-          class="sc-eauhAA hNmxTV"
+          class="sc-fFoeYl iyCUbr"
           role="gridcell"
         >
           Item 3

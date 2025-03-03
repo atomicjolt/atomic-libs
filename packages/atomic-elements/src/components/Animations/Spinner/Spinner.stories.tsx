@@ -1,26 +1,14 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { getCssProps } from "@sb/cssprops";
-import { AriaLabelArgTypes, RenderPropsArgTypes } from "@sb/helpers";
 import { Spinner } from ".";
+import ProgressCircleMeta from "@components/Feedback/ProgressCircle/ProgressCircle.stories";
 
 const meta: Meta<typeof Spinner> = {
   title: "Animations/Spinner",
   component: Spinner,
   parameters: {
     layout: "centered",
-    cssprops: getCssProps("Animations"),
   },
-  argTypes: {
-    ...AriaLabelArgTypes,
-    ...RenderPropsArgTypes,
-  },
-  decorators: [
-    (Story) => (
-      <div style={{ fontSize: "16px" }}>
-        <Story />
-      </div>
-    ),
-  ],
+  argTypes: ProgressCircleMeta.argTypes,
 };
 
 export default meta;

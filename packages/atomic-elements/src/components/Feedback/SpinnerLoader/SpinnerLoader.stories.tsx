@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { getCssProps } from "@sb/cssprops";
 import { SpinnerLoader } from ".";
-import { AriaLabelArgTypes } from "@sb/helpers";
+import { RenderStylePropsArgTypes } from "@sb/helpers";
 
 const meta: Meta<typeof SpinnerLoader> = {
   title: "Feedback/SpinnerLoader",
@@ -11,7 +11,7 @@ const meta: Meta<typeof SpinnerLoader> = {
     cssprops: getCssProps("Loader"),
   },
   argTypes: {
-    ...AriaLabelArgTypes,
+    ...RenderStylePropsArgTypes,
     message: {
       control: "text",
     },

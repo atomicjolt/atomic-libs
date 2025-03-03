@@ -79,6 +79,7 @@ export const Primary: Story = {
 export const SpinnerLoaderExample: Story = {
   args: {
     ...Primary.args,
-    children: <Spinner />,
+    orientation: "horizontal",
+    children: <Spinner $size="2em" />,
   },
 };
