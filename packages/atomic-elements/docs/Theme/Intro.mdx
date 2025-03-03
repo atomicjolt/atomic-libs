@@ -1,0 +1,47 @@
+# Theming
+
+Atomic Elements provides a flexible and powerful theming system that allows you to customize the look and feel of your application. This document will guide you through the basics of creating and using themes in Atomic Elements.
+
+## Creating a Theme
+
+To create a theme, you can use the `createTheme` function provided by the library. This function takes an object with your custom variables and returns a theme object.
+
+```typescript
+import { createTheme, defaultTheme } from "@atomicjolt/atomic-elements";
+
+const myTheme = createTheme({
+  variables: {
+    "accent-clr": "#3498db",
+    "accent-clr-alt": "#2ecc71",
+  },
+  base: defaultTheme,
+});
+```
+
+## Using the Theme
+
+Once you have created a theme, you can use the `ElementsProvider` component to apply it to your application. The `ElementsProvider` component accepts a `theme` prop where you can pass your custom theme.
+
+```tsx
+import { ElementsProvider } from "@components/ElementsProvider";
+import { myTheme } from "./path-to-your-theme";
+
+function App() {
+  return (
+    <ElementsProvider theme={myTheme}>
+      {/* Your application components */}
+    </ElementsProvider>
+  );
+}
+```
+
+## CSS Variables
+
+Each variable declared in the theme becomes accessible as a CSS variable. You can use these variables in your stylesheets to apply the theme to your components.
+
+```css
+.my-component {
+  background-color: var(--accent-clr);
+  color: var(--accent-clr-alt);
+}
+```
