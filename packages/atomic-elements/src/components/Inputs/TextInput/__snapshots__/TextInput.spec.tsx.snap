@@ -3,7 +3,7 @@
 exports[`matches snapshot > default variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-ghWlax iRVmMf aje-input__text sc-ovuCP dvJmOW aje-input--default is-medium"
+    class="sc-ghWlax iRVmMf aje-input__text sc-eOzmre YOdUD aje-input--default is-medium"
   >
     <label
       class="sc-blHHSb cBLGYC"
@@ -34,11 +34,11 @@ exports[`matches snapshot > default variant 1`] = `
 exports[`matches snapshot > floating variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-ghWlax iRVmMf aje-input__text sc-ovuCP dvJmOW aje-input--floating is-medium"
+    class="sc-ghWlax iRVmMf aje-input__text sc-eOzmre YOdUD aje-input--floating is-medium"
     data-float="true"
   >
     <div
-      class="sc-fFoeYl bnvtmo"
+      class="sc-gQaihK crAViC"
     >
       <input
         aria-describedby="react-aria-:r8:"

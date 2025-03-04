@@ -1,13 +1,12 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { getCssProps } from "@sb/cssprops";
-import { SpinnerLoader } from ".";
 import { AriaLabelArgTypes } from "@sb/helpers";
+import { ThreeDotLoader } from ".";
 
-const meta: Meta<typeof SpinnerLoader> = {
-  title: "Loaders/SpinnerLoader",
-  component: SpinnerLoader,
+const meta: Meta<typeof ThreeDotLoader> = {
+  title: "Feedback/ThreeDotLoader",
+  component: ThreeDotLoader,
   parameters: {
-    layout: "centered",
     cssprops: getCssProps("Loader"),
   },
   argTypes: {
@@ -20,12 +19,12 @@ const meta: Meta<typeof SpinnerLoader> = {
 
 export default meta;
 
-type Story = StoryObj<typeof SpinnerLoader>;
+type Story = StoryObj<typeof ThreeDotLoader>;
 
 export const Primary: Story = {
   args: {
     isLoading: true,
-    message: "Getting ducks in a row...",
-    orientation: "horizontal",
+    placement: "center",
+    message: "Spinning up the engines...",
   },
 };

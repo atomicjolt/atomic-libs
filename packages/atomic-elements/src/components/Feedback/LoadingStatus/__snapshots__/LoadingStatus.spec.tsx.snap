@@ -18,7 +18,7 @@ exports[`LoadingStatus > matches error snapshot 1`] = `
     </div>
     <button
       aria-label="dismiss error"
-      class="sc-jwIPbr aBTDX aje-btn sc-cHqXqK gkldit aje-banner__dismiss aje-btn--banner is-medium"
+      class="sc-cHqXqK beNRCP aje-btn sc-jtQUzJ cNmPOb aje-banner__dismiss aje-btn--banner is-medium"
       data-icon-button="true"
       type="button"
     >

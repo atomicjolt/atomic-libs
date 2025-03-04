@@ -3,13 +3,13 @@
 exports[`MultiSelectField > matches snapshots > when closed 1`] = `
 <DocumentFragment>
   <div
-    class="sc-geXuza hHPJKb aje-multiselect"
+    class="sc-hJRrWL VhpMe aje-multiselect"
   >
     <button
       aria-expanded="false"
       aria-haspopup="listbox"
       aria-labelledby="react-aria-:r7: react-aria-:r3:"
-      class="sc-ovuCP gUXsEw aje-btn sc-eUlrpB fpFA-DM aje-btn--dropdown is-medium"
+      class="sc-eOzmre QIvdV aje-btn sc-geXuza jnQWUQ aje-btn--dropdown is-medium"
       id="react-aria-:r2:"
       type="button"
     >
@@ -28,14 +28,14 @@ exports[`MultiSelectField > matches snapshots > when closed 1`] = `
 exports[`MultiSelectField > matches snapshots > when open 1`] = `
 <DocumentFragment>
   <div
-    class="sc-geXuza hHPJKb aje-multiselect"
+    class="sc-hJRrWL VhpMe aje-multiselect"
   >
     <button
       aria-controls="react-aria-:r9:"
       aria-expanded="true"
       aria-haspopup="listbox"
       aria-labelledby="react-aria-:rf: react-aria-:rb:"
-      class="sc-ovuCP gUXsEw aje-btn sc-eUlrpB fpFA-DM aje-btn--dropdown is-medium"
+      class="sc-eOzmre QIvdV aje-btn sc-geXuza jnQWUQ aje-btn--dropdown is-medium"
       data-pressed="true"
       id="react-aria-:ra:"
       type="button"

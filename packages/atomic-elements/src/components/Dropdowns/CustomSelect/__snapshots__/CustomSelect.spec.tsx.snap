@@ -3,7 +3,7 @@
 exports[`matches snapshots > matches default variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-eUlrpB hCFOcb aje-select sc-hbtGpV dOwOAz aje-select aje-select--default"
+    class="sc-geXuza hHPJKb aje-select sc-bMTdWJ bFXpNa aje-select aje-select--default"
   >
     <div
       aria-hidden="true"
@@ -45,12 +45,12 @@ exports[`matches snapshots > matches default variant 1`] = `
       aria-expanded="false"
       aria-haspopup="listbox"
       aria-labelledby="react-aria-:r7: react-aria-:r3:"
-      class="sc-ovuCP gUXsEw aje-btn sc-hJRrWL hJvkfR aje-btn--dropdown is-medium"
+      class="sc-eOzmre QIvdV aje-btn sc-fwzISk gsuoQe aje-btn--dropdown is-medium"
       id="react-aria-:r2:"
       type="button"
     >
       <span
-        class="sc-geXuza bnnRoH"
+        class="sc-hJRrWL eXmnCK"
         id="react-aria-:r7:"
       >
         Select an option
@@ -69,7 +69,7 @@ exports[`matches snapshots > matches default variant 1`] = `
 exports[`matches snapshots > matches floating variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-eUlrpB hCFOcb aje-select sc-hbtGpV dOwOAz aje-select aje-select--floating aje-select--floating"
+    class="sc-geXuza hHPJKb aje-select sc-bMTdWJ bFXpNa aje-select aje-select--floating aje-select--floating"
   >
     <div
       aria-hidden="true"
@@ -102,18 +102,18 @@ exports[`matches snapshots > matches floating variant 1`] = `
       </label>
     </div>
     <div
-      class="sc-fwzISk ABzRF"
+      class="sc-hbtGpV fgifvA"
     >
       <button
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-labelledby="react-aria-:rf: react-aria-:rb:"
-        class="sc-ovuCP gUXsEw aje-btn sc-hJRrWL hJvkfR aje-btn--floating is-medium"
+        class="sc-eOzmre QIvdV aje-btn sc-fwzISk gsuoQe aje-btn--floating is-medium"
         id="react-aria-:ra:"
         type="button"
       >
         <span
-          class="sc-geXuza bnnRoH"
+          class="sc-hJRrWL eXmnCK"
           id="react-aria-:rf:"
         />
         <i

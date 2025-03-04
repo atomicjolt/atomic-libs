@@ -5,7 +5,7 @@ import { LoadingStatus } from ".";
 import { Text } from "@components/Typography/Text";
 
 const meta: Meta<typeof LoadingStatus> = {
-  title: "Loaders/LoadingStatus",
+  title: "Feedback/LoadingStatus",
   component: LoadingStatus,
   tags: ["!autodocs"],
   parameters: {

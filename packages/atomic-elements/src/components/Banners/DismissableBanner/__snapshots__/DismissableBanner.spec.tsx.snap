@@ -13,7 +13,7 @@ exports[`DismissableBanner > Snapshots > should match snapshot 1`] = `
         />
         <button
           aria-label="dismiss info"
-          class="sc-keTIit kqdLLl aje-btn sc-dpBQxM ijJQdn aje-banner__dismiss aje-btn--banner is-medium"
+          class="sc-dpBQxM hEZhOt aje-btn sc-jwIPbr gcTceF aje-banner__dismiss aje-btn--banner is-medium"
           data-icon-button="true"
           type="button"
         >
@@ -36,7 +36,7 @@ exports[`DismissableBanner > Snapshots > should match snapshot 1`] = `
       />
       <button
         aria-label="dismiss info"
-        class="sc-keTIit kqdLLl aje-btn sc-dpBQxM ijJQdn aje-banner__dismiss aje-btn--banner is-medium"
+        class="sc-dpBQxM hEZhOt aje-btn sc-jwIPbr gcTceF aje-banner__dismiss aje-btn--banner is-medium"
         data-icon-button="true"
         type="button"
       >
@@ -122,7 +122,7 @@ exports[`DismissableBanner > Snapshots > should match snapshot with icon 1`] = `
         />
         <button
           aria-label="dismiss info"
-          class="sc-keTIit kqdLLl aje-btn sc-dpBQxM ijJQdn aje-banner__dismiss aje-btn--banner is-medium"
+          class="sc-dpBQxM hEZhOt aje-btn sc-jwIPbr gcTceF aje-banner__dismiss aje-btn--banner is-medium"
           data-icon-button="true"
           type="button"
         >
@@ -151,7 +151,7 @@ exports[`DismissableBanner > Snapshots > should match snapshot with icon 1`] = `
       />
       <button
         aria-label="dismiss info"
-        class="sc-keTIit kqdLLl aje-btn sc-dpBQxM ijJQdn aje-banner__dismiss aje-btn--banner is-medium"
+        class="sc-dpBQxM hEZhOt aje-btn sc-jwIPbr gcTceF aje-banner__dismiss aje-btn--banner is-medium"
         data-icon-button="true"
         type="button"
       >
@@ -237,7 +237,7 @@ exports[`ErrorBanner > Snapshots > should match snapshot 1`] = `
         />
         <button
           aria-label="dismiss error"
-          class="sc-keTIit kqdLLl aje-btn sc-dpBQxM ijJQdn aje-banner__dismiss aje-btn--banner is-medium"
+          class="sc-dpBQxM hEZhOt aje-btn sc-jwIPbr gcTceF aje-banner__dismiss aje-btn--banner is-medium"
           data-icon-button="true"
           type="button"
         >
@@ -266,7 +266,7 @@ exports[`ErrorBanner > Snapshots > should match snapshot 1`] = `
       />
       <button
         aria-label="dismiss error"
-        class="sc-keTIit kqdLLl aje-btn sc-dpBQxM ijJQdn aje-banner__dismiss aje-btn--banner is-medium"
+        class="sc-dpBQxM hEZhOt aje-btn sc-jwIPbr gcTceF aje-banner__dismiss aje-btn--banner is-medium"
         data-icon-button="true"
         type="button"
       >
@@ -352,7 +352,7 @@ exports[`WarningBanner > Snapshots > should match snapshot 1`] = `
         />
         <button
           aria-label="dismiss warning"
-          class="sc-keTIit kqdLLl aje-btn sc-dpBQxM ijJQdn aje-banner__dismiss aje-btn--banner is-medium"
+          class="sc-dpBQxM hEZhOt aje-btn sc-jwIPbr gcTceF aje-banner__dismiss aje-btn--banner is-medium"
           data-icon-button="true"
           type="button"
         >
@@ -381,7 +381,7 @@ exports[`WarningBanner > Snapshots > should match snapshot 1`] = `
       />
       <button
         aria-label="dismiss warning"
-        class="sc-keTIit kqdLLl aje-btn sc-dpBQxM ijJQdn aje-banner__dismiss aje-btn--banner is-medium"
+        class="sc-dpBQxM hEZhOt aje-btn sc-jwIPbr gcTceF aje-banner__dismiss aje-btn--banner is-medium"
         data-icon-button="true"
         type="button"
       >
