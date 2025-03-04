@@ -1,5 +1,20 @@
 # @atomicjolt/forms
 
+## 3.2.0
+
+### Patch Changes
+
+- 4a7a921: Fix TextAreaInput when controlled
+- Updated dependencies [eafb4a5]
+- Updated dependencies [f3c717b]
+- Updated dependencies [4a7a921]
+- Updated dependencies [a8d00be]
+- Updated dependencies [6137afa]
+- Updated dependencies [1e1d5f7]
+- Updated dependencies [124e09a]
+- Updated dependencies [b7c56cd]
+  - @atomicjolt/atomic-elements@3.3.0
+
 ## 2.1.0
 
 ### Patch Changes

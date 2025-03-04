@@ -1,5 +1,21 @@
 # @atomicjolt/atomic-elements
 
+## 3.3.0
+
+### Minor Changes
+
+- eafb4a5: Update Banner components to accept refs & render props
+- f3c717b: Expanded the flexibility of the Card components with style props
+- 6137afa: Implemented ProgressCircle component
+- 1e1d5f7: Added dimensions props and a new $clamp prop to typography components
+- 124e09a: added a $bg prop to the view component to set background colors
+
+### Patch Changes
+
+- 4a7a921: Fix TextAreaInput when controlled
+- a8d00be: fix: stop passing non-dom props to anchor tag in Link prop
+- b7c56cd: Fixed isReadonlyState on DatePicker
+
 ## 3.2.0
 
 ### Minor Changes
