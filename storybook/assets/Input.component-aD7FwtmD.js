@@ -1,0 +1,6 @@
+import{j as u}from"./jsx-runtime-CkxqCPlQ.js";import{r as p}from"./index-DJO9vBfz.js";import{d}from"./styled-components.browser.esm-BQf_XqKi.js";import{m as s}from"./mixins-B7X2BZyR.js";import{u as c}from"./index-CHPAqjqs.js";import{u as f}from"./useRenderProps-Bk8BH60l.js";import{I as y}from"./Input.context-Cu61juEz.js";const I=d.input`
+  ${s.Regular}
+  ${s.InputLike}
+  ${s.SizingX}
+`,a=p.forwardRef(function(e,t){[e,t]=c(y,e,t);const{className:r,size:i,style:l,...o}=e,m=f({componentClassName:r,size:i,style:l});return u.jsx(I,{ref:t,...m,...o,slot:o.slot||void 0})});try{a.displayName="Input",a.__docgenInfo={description:'A wrapped `<input type="text" />` element',displayName:"Input",props:{id:{defaultValue:null,description:"Unique id for the component",name:"id",required:!1,type:{name:"string"}},size:{defaultValue:null,description:"Size of the component",name:"size",required:!1,type:{name:"enum",value:[{value:'"small"'},{value:'"medium"'},{value:'"large"'},{value:'"auto"'},{value:'"full"'}]}},className:{defaultValue:null,description:`Add classes to the root element of the component.
+Refer to this for possible values: https://github.com/JedWatson/classnames#readme`,name:"className",required:!1,type:{name:"Argument | Argument[]"}}}}}catch{}export{a as I};

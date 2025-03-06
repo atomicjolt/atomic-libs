@@ -1,0 +1,5 @@
+import{V as p}from"./index-CwFJb3A2.js";import{R as i,L as m,B as s}from"./helpers-CB0EgwPk.js";import"./jsx-runtime-CkxqCPlQ.js";import"./index-DJO9vBfz.js";import"./index-CHPAqjqs.js";import"./useObjectRef-CA0MXmrf.js";import"./useLayoutEffect-Bj1hLagI.js";import"./SSRProvider-DAMUgb6s.js";import"./useRenderProps-Bk8BH60l.js";import"./index-i5X67GZP.js";import"./styled-components.browser.esm-BQf_XqKi.js";import"./layout-UyCWIQlE.js";import"./spacing-Bd-CIscW.js";import"./utils-2VFVy79V.js";import"./colors-x_YFGAop.js";import"./scale-CqCDTNu0.js";import"./Collection-CnHW8amz.js";import"./CollectionBuilder-Xbel4YvD.js";import"./index-DJdX7xnk.js";const H={title:"Layouts/View",component:p,parameters:{layout:"centered"},argTypes:{...i,...m,...s}},r={args:{children:"Hello, World!"}};var o,t,e;r.parameters={...r.parameters,docs:{...(o=r.parameters)==null?void 0:o.docs,source:{originalSource:`{
+  args: {
+    children: "Hello, World!"
+  }
+}`,...(e=(t=r.parameters)==null?void 0:t.docs)==null?void 0:e.source}}};const R=["Primary"];export{r as Primary,R as __namedExportsOrder,H as default};

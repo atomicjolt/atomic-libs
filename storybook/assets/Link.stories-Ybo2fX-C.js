@@ -1,0 +1,8 @@
+import{g as i}from"./cssprops-BO85xpNm.js";import{h as e,R as s,i as m,C as a}from"./helpers-CB0EgwPk.js";import{L as n}from"./Link.component-B7EZf5We.js";import"./jsx-runtime-CkxqCPlQ.js";import"./index-DJO9vBfz.js";import"./styled-components.browser.esm-BQf_XqKi.js";import"./spacing-Bd-CIscW.js";import"./scale-CqCDTNu0.js";import"./Collection-CnHW8amz.js";import"./CollectionBuilder-Xbel4YvD.js";import"./index-DJdX7xnk.js";import"./SSRProvider-DAMUgb6s.js";import"./useLayoutEffect-Bj1hLagI.js";import"./useLink-XD5ax7xG.js";import"./useObjectRef-CA0MXmrf.js";import"./filterDOMProps-CeZl_uWj.js";import"./usePress-DBLAzBwe.js";import"./focusSafely-BOUv7I-8.js";import"./useFocusable-DHL4UX94.js";import"./useFocus-DXSPV_um.js";import"./utils-CrQpPYo7.js";import"./useKeyboard-A8_doyNT.js";import"./useRenderProps-Bk8BH60l.js";import"./index-i5X67GZP.js";import"./mixins-B7X2BZyR.js";import"./typography-B_qJ0BtB.js";import"./layout-UyCWIQlE.js";import"./utils-2VFVy79V.js";import"./colors-x_YFGAop.js";const B={title:"Typography/Link",component:n,parameters:{layout:"centered",cssProps:i("Link")},argTypes:{...e,...s,...m,...a,as:{control:"select",options:["a","span"]},target:{control:"select",options:["_blank","_self","_parent","_top"]}}},r={args:{children:"Link",href:"https://atomicjolt.com",target:"_blank",$size:"4"}};var t,o,p;r.parameters={...r.parameters,docs:{...(t=r.parameters)==null?void 0:t.docs,source:{originalSource:`{
+  args: {
+    children: "Link",
+    href: "https://atomicjolt.com",
+    target: "_blank",
+    $size: "4"
+  }
+}`,...(p=(o=r.parameters)==null?void 0:o.docs)==null?void 0:p.source}}};const F=["Default"];export{r as Default,F as __namedExportsOrder,B as default};
