@@ -1,0 +1,1 @@
+import{r as t}from"./index-DJO9vBfz.js";function f(s,r,e=[]){const u=t.useId();return t.useMemo(()=>r.map(n=>`${s}-${u}-${n}`),e)}function c(s){const r=t.useRef(s).current,e=t.useRef(!1);return t.useEffect(()=>()=>{e.current=!1},[]),s!==r&&(e.current=!0),e.current}export{c as a,f as u};

@@ -1,0 +1,1 @@
+function t(s,c){const l=n=>{const{[c]:o,theme:r}=n;return r!=null&&r.variables&&o&&o in r.variables?{[s]:r.getVar(o)}:{[s]:o}};return l.defaults=n=>o=>l({...n,...o}),l}const a=t("color","$color"),e=t("background","$bg"),u=t("stroke","$stroke"),f=t("fill","$fill");export{e as b,f,u as s,a as t};

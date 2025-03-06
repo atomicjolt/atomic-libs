@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkatomic_packages=self.webpackChunkatomic_packages||[]).push([[9053],{7314:s=>{s.exports=JSON.parse('{"name":"docusaurus-plugin-content-docs","id":"hooks"}')}}]);
