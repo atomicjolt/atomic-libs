@@ -1,5 +1,4 @@
 import type { DeepLinkingClaim, IdToken, PlatformConfiguration } from '@atomicjolt/lti-types';
-import { KeyLike } from 'jose';
 import { ActivityProgress, GradingProgress } from './libs/scores';
 
 export type { IdToken } from '@atomicjolt/lti-types';
@@ -110,7 +109,7 @@ export interface KeySetMap {
 
 export interface PrivateKeyPair {
   kid: string;
-  privateKey: KeyLike;
+  privateKey: CryptoKey;
 }
 
 export interface jwkResult {
