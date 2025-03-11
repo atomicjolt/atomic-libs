@@ -15,7 +15,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "21.1.0"
+          node-version-file: ".tool-versions"
 
       - name: Install Node.js dependencies
         run: npm install
