@@ -2,7 +2,6 @@ import {
   SignJWT,
   jwtVerify,
   JWTPayload,
-  KeyLike,
   decodeJwt,
 } from 'jose';
 
@@ -13,18 +12,23 @@ type Header = {
   kid?: string;
 };
 
-export async function signJwt(payload: JWTPayload, secretKey: KeyLike, expiresIn: string = '10m', kid: string = ''): Promise<string> {
+// Sign using a private key
+export async function signJwt(
+  payload: JWTPayload,
+  privateKey: CryptoKey | Uint8Array,
+  expiresIn: string = '10m',
+  kid: string = ''
+): Promise<string> {
   const header: Header = { alg: ALGORITHM };
   if (kid) {
     header.kid = kid;
   }
-
   try {
     const jwt = await new SignJWT(payload)
       .setProtectedHeader(header)
       .setIssuedAt()
       .setExpirationTime(expiresIn)
-      .sign(secretKey);
+      .sign(privateKey);
     return jwt;
   } catch (e) {
     console.error(e);
@@ -32,12 +36,17 @@ export async function signJwt(payload: JWTPayload, secretKey: KeyLike, expiresIn
   }
 }
 
-export async function verifyJwt(jwt: string, secretKey: KeyLike, iss: string, aud: string): Promise<JWTPayload> {
-  const { payload } = await jwtVerify(jwt, secretKey, {
+// Verify using a public key
+export async function verifyJwt(
+  jwt: string,
+  publicKey: CryptoKey | Uint8Array,
+  iss: string,
+  aud: string
+): Promise<JWTPayload> {
+  const { payload } = await jwtVerify(jwt, publicKey, {
     issuer: iss,
     audience: aud,
   });
-
   return payload;
 }
 

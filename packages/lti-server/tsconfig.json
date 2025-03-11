@@ -12,6 +12,8 @@
     "preserveConstEnums": true,
     "moduleResolution": "node",
     "sourceMap": true,
+    "inlineSources": true,
+    "sourceRoot": "/",
     "types": ["node"],
     "resolveJsonModule": true,
     "allowJs": true,
