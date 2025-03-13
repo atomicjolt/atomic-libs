@@ -1,6 +1,14 @@
 # @atomicjolt/forms
 
-## 3.2.0
+## 2.2.1
+
+### Patch Changes
+
+- Update packages to support React 19
+- Updated dependencies
+  - @atomicjolt/atomic-elements@3.3.1
+
+## 2.2.0
 
 ### Patch Changes
 
