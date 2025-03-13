@@ -1,6 +1,6 @@
 {
   "name": "@atomicjolt/atomic-fuel",
-  "version": "7.0.1",
+  "version": "7.0.2",
   "description": "Atomic Jolt's front-end library code",
   "scripts": {
     "test": "jest --no-cache --config package.json",
@@ -70,8 +70,8 @@
     "prop-types": "^15.8.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-redux": "^9.2.0",
-    "redux": "^4.2.0",
+    "react-redux": "^8.0.0 || ^9.2.0",
+    "redux": "^4.2.0 || ^5.0.0",
     "redux-mock-store": "^1.5.4",
     "superagent": "^7.1.3"
   },
