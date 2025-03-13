@@ -60,6 +60,9 @@
     "vite-plugin-dts": "4.5.3",
     "vitest": "^3.0.8"
   },
+  "overrides": {
+    "react-json-view-lite": "2.4.1"
+  },
   "optionalDependencies": {
     "@rollup/rollup-linux-x64-gnu": "^4.26.0"
   }
