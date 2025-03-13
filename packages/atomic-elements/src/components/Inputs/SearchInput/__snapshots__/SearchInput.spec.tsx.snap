@@ -3,33 +3,36 @@
 exports[`matches snapshot > displays with search button 1`] = `
 <DocumentFragment>
   <div
-    class="sc-ovuCP kAwAEx aje-input__search"
+    class="sc-kXOizl iyullj aje-input__search"
   >
     <label
-      class="sc-keTIit dkccZz"
+      class="sc-jUkaYT iWzyBP"
       for="react-aria-:r5:"
       id="react-aria-:r6:"
     >
       search
     </label>
     <div
-      class="sc-jtQUzJ hxgGmj aje-combo-input"
+      class="sc-jZTQcj befwUX aje-combo-input"
     >
       <input
         aria-labelledby="react-aria-:r6:"
-        class="sc-cHqXqK ZWKS"
+        class="sc-cSaEAk cPazYe"
         id="react-aria-:r5:"
+        tabindex="0"
         type="search"
         value=""
       />
       <button
-        class="sc-khLCKb cxAeKe aje-btn sc-dstKZu ibLRha aje-btn--content is-medium"
+        class="sc-jBIHhB fEzavq aje-btn sc-cMqPwU gSYJMO aje-btn--content is-medium"
         data-icon-button="true"
+        tabindex="0"
         type="button"
       >
         <i
           aria-hidden="true"
-          class="sc-blHHSb GNRNu aje-icon material-icons is-medium"
+          class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
+          tabindex="0"
         >
           search
         </i>
@@ -42,33 +45,36 @@ exports[`matches snapshot > displays with search button 1`] = `
 exports[`matches snapshot > displays without button 1`] = `
 <DocumentFragment>
   <div
-    class="sc-ovuCP kAwAEx aje-input__search"
+    class="sc-kXOizl iyullj aje-input__search"
   >
     <label
-      class="sc-keTIit dkccZz"
+      class="sc-jUkaYT iWzyBP"
       for="react-aria-:r0:"
       id="react-aria-:r1:"
     >
       search
     </label>
     <div
-      class="sc-jtQUzJ hxgGmj aje-combo-input"
+      class="sc-jZTQcj befwUX aje-combo-input"
     >
       <input
         aria-labelledby="react-aria-:r1:"
-        class="sc-cHqXqK ZWKS"
+        class="sc-cSaEAk cPazYe"
         id="react-aria-:r0:"
+        tabindex="0"
         type="search"
         value=""
       />
       <button
-        class="sc-khLCKb cxAeKe aje-btn sc-dstKZu ibLRha aje-btn--content is-medium"
+        class="sc-jBIHhB fEzavq aje-btn sc-cMqPwU gSYJMO aje-btn--content is-medium"
         data-icon-button="true"
+        tabindex="0"
         type="button"
       >
         <i
           aria-hidden="true"
-          class="sc-blHHSb GNRNu aje-icon material-icons is-medium"
+          class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
+          tabindex="0"
         >
           search
         </i>

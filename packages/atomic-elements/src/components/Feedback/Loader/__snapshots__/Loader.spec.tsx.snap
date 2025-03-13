@@ -3,11 +3,11 @@
 exports[`Loader > snapshots > matches snapshot with children 1`] = `
 <DocumentFragment>
   <div
-    class="sc-egkSDF doeFIt aje-loader is-medium"
+    class="sc-dVBluf iYAHRU aje-loader is-medium"
     data-placement="center"
   >
     <div
-      class="sc-blHHSb bOYlKO aje-flex"
+      class="sc-FEMpB BJcTP aje-flex"
     >
       Loading...
     </div>
@@ -18,11 +18,11 @@ exports[`Loader > snapshots > matches snapshot with children 1`] = `
 exports[`Loader > snapshots > matches snapshot without children 1`] = `
 <DocumentFragment>
   <div
-    class="sc-egkSDF doeFIt aje-loader is-medium"
+    class="sc-dVBluf iYAHRU aje-loader is-medium"
     data-placement="center"
   >
     <div
-      class="sc-blHHSb bOYlKO aje-flex"
+      class="sc-FEMpB BJcTP aje-flex"
     />
   </div>
 </DocumentFragment>

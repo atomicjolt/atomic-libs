@@ -35,7 +35,7 @@ export interface PopoverProps
     RenderBaseProps<PopoverRenderProps>,
     HasVariant<"listbox" | "menu" | "datepicker"> {
   /** A ref to the element that triggers the popover to appear. Not necessary when used with trigger wrapper */
-  triggerRef?: React.RefObject<HTMLElement>;
+  triggerRef?: React.RefObject<HTMLElement | null>;
   id?: string;
 }
 
@@ -75,7 +75,7 @@ export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(
 
 interface PopoverInternalProps extends PopoverProps {
   popoverRef: React.ForwardedRef<HTMLDivElement>;
-  triggerRef: React.RefObject<HTMLElement>;
+  triggerRef: React.RefObject<HTMLElement | null>;
   state: OverlayTriggerState;
 }
 
@@ -125,7 +125,7 @@ const PopoverInternal = (props: PopoverInternalProps) => {
     ...props,
   });
 
-  const transformOrigin = invertPlacementAxis(placementAxis);
+  const transformOrigin = invertPlacementAxis(placementAxis ?? "bottom");
 
   return (
     <Overlay>

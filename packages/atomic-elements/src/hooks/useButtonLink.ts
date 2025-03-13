@@ -14,7 +14,7 @@ interface ButtonLinkOptions
  */
 export function useButtonLink(
   props: ButtonLinkOptions,
-  ref: React.RefObject<HTMLButtonElement | HTMLAnchorElement>
+  ref: React.RefObject<HTMLButtonElement | HTMLAnchorElement | null>
 ): ButtonAria<DOMAttributes<FocusableElement>> {
   const { buttonProps, isPressed: isPressedButton } = useButton(props, ref);
   const { linkProps, isPressed: isPressedLink } = useLink(props, ref);

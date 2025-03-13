@@ -6,13 +6,13 @@ exports[`Flex > Snapshots > should match snapshot 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="sc-blHHSb kOnCXY aje-flex"
+        class="sc-FEMpB fhZKOJ aje-flex"
       />
     </div>
   </body>,
   "container": <div>
     <div
-      class="sc-blHHSb kOnCXY aje-flex"
+      class="sc-FEMpB fhZKOJ aje-flex"
     />
   </div>,
   "debug": [Function],

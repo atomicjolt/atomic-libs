@@ -6,13 +6,13 @@ exports[`Grid > Snapshots > should match snapshot 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="sc-blHHSb jUZciP aje-grid"
+        class="sc-FEMpB MqnKS aje-grid"
       />
     </div>
   </body>,
   "container": <div>
     <div
-      class="sc-blHHSb jUZciP aje-grid"
+      class="sc-FEMpB MqnKS aje-grid"
     />
   </div>,
   "debug": [Function],

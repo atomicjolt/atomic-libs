@@ -2,11 +2,14 @@
 
 exports[`MultiSelect > matches default variant 1`] = `
 <DocumentFragment>
+  <template
+    data-react-aria-hidden="true"
+  />
   <div
-    class="sc-fwzISk fZLEJZ aje-multiselect sc-hbtGpV dpwpYq"
+    class="sc-flQbIK cjxgDK aje-multiselect sc-gQJZgv kkCKIE"
   >
     <label
-      class="sc-egkSDF lbEJIl"
+      class="sc-dVBluf eSKkgA"
       for="react-aria-:r2:"
       id="react-aria-:r3:"
     >
@@ -16,14 +19,16 @@ exports[`MultiSelect > matches default variant 1`] = `
       aria-expanded="false"
       aria-haspopup="listbox"
       aria-labelledby="react-aria-:r7: react-aria-:r3:"
-      class="sc-eOzmre QIvdV aje-btn sc-hJRrWL hJvkfR aje-btn--dropdown is-medium"
+      class="sc-eiwqOE kgIjdl aje-btn sc-hUAZgl ieElTj aje-btn--dropdown is-medium"
       id="react-aria-:r2:"
+      tabindex="0"
       type="button"
     >
       Select an option
       <i
         aria-hidden="true"
-        class="sc-khLCKb gRpvEI aje-icon material-icons is-medium"
+        class="sc-jBIHhB dShSRo aje-icon material-icons is-medium"
+        tabindex="0"
       >
         arrow_drop_down
       </i>
@@ -34,29 +39,34 @@ exports[`MultiSelect > matches default variant 1`] = `
 
 exports[`MultiSelect > matches floating variant 1`] = `
 <DocumentFragment>
+  <template
+    data-react-aria-hidden="true"
+  />
   <div
-    class="sc-fwzISk fZLEJZ aje-multiselect sc-hbtGpV dpwpYq aje-multiselect--floating"
+    class="sc-flQbIK cjxgDK aje-multiselect sc-gQJZgv kkCKIE aje-multiselect--floating"
   >
     <div
-      class="sc-geXuza bQterr"
+      class="sc-gpHbIA eEUGqc"
     >
       <button
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-labelledby="react-aria-:rf: react-aria-:rb:"
-        class="sc-eOzmre QIvdV aje-btn sc-hJRrWL hJvkfR aje-btn--dropdown is-medium"
+        class="sc-eiwqOE kgIjdl aje-btn sc-hUAZgl ieElTj aje-btn--dropdown is-medium"
         id="react-aria-:ra:"
+        tabindex="0"
         type="button"
       >
         <i
           aria-hidden="true"
-          class="sc-khLCKb gRpvEI aje-icon material-icons is-medium"
+          class="sc-jBIHhB dShSRo aje-icon material-icons is-medium"
+          tabindex="0"
         >
           arrow_drop_down
         </i>
       </button>
       <label
-        class="sc-egkSDF lbEJIl"
+        class="sc-dVBluf eSKkgA"
         for="react-aria-:ra:"
         id="react-aria-:rb:"
       >

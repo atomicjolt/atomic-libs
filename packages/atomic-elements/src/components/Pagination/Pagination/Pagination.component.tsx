@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext, useRef, type JSX } from "react";
 import { useControlledState } from "@react-stately/utils";
 import { AriaLabelProps, ExtendedSize, RenderBaseProps } from "../../../types";
 import { useRenderProps } from "@hooks/useRenderProps";

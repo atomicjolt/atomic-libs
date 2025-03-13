@@ -46,7 +46,7 @@ export function Modal(props: ModalProps) {
 interface ModalInternalProps extends BaseModalProps, AriaModalOverlayProps {
   state: OverlayTriggerState;
   children: ModalChildren;
-  triggerRef?: React.RefObject<HTMLElement>;
+  triggerRef?: React.RefObject<HTMLElement | null>;
 }
 
 function ModalInternal(props: ModalInternalProps) {

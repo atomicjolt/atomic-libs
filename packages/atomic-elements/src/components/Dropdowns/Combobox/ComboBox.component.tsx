@@ -27,7 +27,7 @@ export interface ComboBoxProps<T>
 }
 
 /** Combox combinds a text input field with a dropdown list of options for the user to select from */
-import React, { forwardRef } from "react";
+import React, { forwardRef, type JSX } from "react";
 
 export const ComboBox = forwardRef(function ComboBox<T extends object>(
   props: ComboBoxProps<T>,

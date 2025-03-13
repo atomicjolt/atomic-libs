@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { useFocusable } from "@react-aria/focus";
 
 export type ToolTipTargetProps = {
-  children: React.ReactElement;
+  children: React.ReactElement<any>;
 };
 
 export function ToolTipTarget(props: ToolTipTargetProps) {

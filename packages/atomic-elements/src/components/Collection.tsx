@@ -43,7 +43,7 @@ interface ItemContextValue {
     props: ElementItemProps<ItemRenderProps>,
     ref: React.ForwardedRef<HTMLElement>,
     item: Node<any>
-  ) => React.ReactElement;
+  ) => React.ReactElement<any>;
 }
 
 export const ItemContext = createContext<ItemContextValue | null>(null);
@@ -81,7 +81,7 @@ interface SectionContextValue {
     props: ElementSectionProps<any>,
     ref: React.ForwardedRef<HTMLElement>,
     section: Node<any>
-  ) => React.ReactElement;
+  ) => React.ReactElement<any>;
 }
 
 export const SectionContext = createContext<SectionContextValue | null>(null);

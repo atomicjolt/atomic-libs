@@ -63,7 +63,7 @@ export const selectData = new WeakMap<MultiSelectState<any>, SelectData>();
 export function useMultiSelect<T>(
   props: UseMultiSelectOptions<T>,
   state: MultiSelectState<T>,
-  ref: RefObject<FocusableElement>
+  ref: RefObject<FocusableElement | null>
 ): MultiSelect<T> {
   const {
     keyboardDelegate,

@@ -6,20 +6,22 @@ exports[`DismissableBanner > Snapshots > should match snapshot 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="sc-gtLWhw cBKsuS aje-banner aje-banner--info"
+        class="sc-gjcoXW eWJxKd aje-banner aje-banner--info"
       >
         <div
-          class="sc-egkSDF dksBmg"
+          class="sc-dVBluf cMgMAV"
         />
         <button
           aria-label="dismiss info"
-          class="sc-dpBQxM hEZhOt aje-btn sc-jwIPbr gcTceF aje-banner__dismiss aje-btn--banner is-medium"
+          class="sc-deSjom byalIv aje-btn sc-jHswkR WgpIQ aje-banner__dismiss aje-btn--banner is-medium"
           data-icon-button="true"
+          tabindex="0"
           type="button"
         >
           <i
             aria-hidden="true"
-            class="sc-blHHSb GNRNu aje-icon material-icons is-medium"
+            class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
+            tabindex="0"
           >
             close
           </i>
@@ -29,20 +31,22 @@ exports[`DismissableBanner > Snapshots > should match snapshot 1`] = `
   </body>,
   "container": <div>
     <div
-      class="sc-gtLWhw cBKsuS aje-banner aje-banner--info"
+      class="sc-gjcoXW eWJxKd aje-banner aje-banner--info"
     >
       <div
-        class="sc-egkSDF dksBmg"
+        class="sc-dVBluf cMgMAV"
       />
       <button
         aria-label="dismiss info"
-        class="sc-dpBQxM hEZhOt aje-btn sc-jwIPbr gcTceF aje-banner__dismiss aje-btn--banner is-medium"
+        class="sc-deSjom byalIv aje-btn sc-jHswkR WgpIQ aje-banner__dismiss aje-btn--banner is-medium"
         data-icon-button="true"
+        tabindex="0"
         type="button"
       >
         <i
           aria-hidden="true"
-          class="sc-blHHSb GNRNu aje-icon material-icons is-medium"
+          class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
+          tabindex="0"
         >
           close
         </i>
@@ -109,26 +113,29 @@ exports[`DismissableBanner > Snapshots > should match snapshot with icon 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="sc-gtLWhw cBKsuS aje-banner aje-banner--info"
+        class="sc-gjcoXW eWJxKd aje-banner aje-banner--info"
       >
         <i
           aria-hidden="true"
-          class="sc-blHHSb GNRNu aje-icon material-icons is-medium"
+          class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
+          tabindex="0"
         >
           info
         </i>
         <div
-          class="sc-egkSDF dksBmg"
+          class="sc-dVBluf cMgMAV"
         />
         <button
           aria-label="dismiss info"
-          class="sc-dpBQxM hEZhOt aje-btn sc-jwIPbr gcTceF aje-banner__dismiss aje-btn--banner is-medium"
+          class="sc-deSjom byalIv aje-btn sc-jHswkR WgpIQ aje-banner__dismiss aje-btn--banner is-medium"
           data-icon-button="true"
+          tabindex="0"
           type="button"
         >
           <i
             aria-hidden="true"
-            class="sc-blHHSb GNRNu aje-icon material-icons is-medium"
+            class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
+            tabindex="0"
           >
             close
           </i>
@@ -138,26 +145,29 @@ exports[`DismissableBanner > Snapshots > should match snapshot with icon 1`] = `
   </body>,
   "container": <div>
     <div
-      class="sc-gtLWhw cBKsuS aje-banner aje-banner--info"
+      class="sc-gjcoXW eWJxKd aje-banner aje-banner--info"
     >
       <i
         aria-hidden="true"
-        class="sc-blHHSb GNRNu aje-icon material-icons is-medium"
+        class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
+        tabindex="0"
       >
         info
       </i>
       <div
-        class="sc-egkSDF dksBmg"
+        class="sc-dVBluf cMgMAV"
       />
       <button
         aria-label="dismiss info"
-        class="sc-dpBQxM hEZhOt aje-btn sc-jwIPbr gcTceF aje-banner__dismiss aje-btn--banner is-medium"
+        class="sc-deSjom byalIv aje-btn sc-jHswkR WgpIQ aje-banner__dismiss aje-btn--banner is-medium"
         data-icon-button="true"
+        tabindex="0"
         type="button"
       >
         <i
           aria-hidden="true"
-          class="sc-blHHSb GNRNu aje-icon material-icons is-medium"
+          class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
+          tabindex="0"
         >
           close
         </i>
@@ -224,26 +234,29 @@ exports[`ErrorBanner > Snapshots > should match snapshot 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="sc-gtLWhw cBKsuS aje-banner aje-banner--error"
+        class="sc-gjcoXW eWJxKd aje-banner aje-banner--error"
       >
         <i
           aria-hidden="true"
-          class="sc-blHHSb GNRNu aje-icon material-icons is-medium"
+          class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
+          tabindex="0"
         >
           error
         </i>
         <div
-          class="sc-egkSDF dksBmg"
+          class="sc-dVBluf cMgMAV"
         />
         <button
           aria-label="dismiss error"
-          class="sc-dpBQxM hEZhOt aje-btn sc-jwIPbr gcTceF aje-banner__dismiss aje-btn--banner is-medium"
+          class="sc-deSjom byalIv aje-btn sc-jHswkR WgpIQ aje-banner__dismiss aje-btn--banner is-medium"
           data-icon-button="true"
+          tabindex="0"
           type="button"
         >
           <i
             aria-hidden="true"
-            class="sc-blHHSb GNRNu aje-icon material-icons is-medium"
+            class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
+            tabindex="0"
           >
             close
           </i>
@@ -253,26 +266,29 @@ exports[`ErrorBanner > Snapshots > should match snapshot 1`] = `
   </body>,
   "container": <div>
     <div
-      class="sc-gtLWhw cBKsuS aje-banner aje-banner--error"
+      class="sc-gjcoXW eWJxKd aje-banner aje-banner--error"
     >
       <i
         aria-hidden="true"
-        class="sc-blHHSb GNRNu aje-icon material-icons is-medium"
+        class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
+        tabindex="0"
       >
         error
       </i>
       <div
-        class="sc-egkSDF dksBmg"
+        class="sc-dVBluf cMgMAV"
       />
       <button
         aria-label="dismiss error"
-        class="sc-dpBQxM hEZhOt aje-btn sc-jwIPbr gcTceF aje-banner__dismiss aje-btn--banner is-medium"
+        class="sc-deSjom byalIv aje-btn sc-jHswkR WgpIQ aje-banner__dismiss aje-btn--banner is-medium"
         data-icon-button="true"
+        tabindex="0"
         type="button"
       >
         <i
           aria-hidden="true"
-          class="sc-blHHSb GNRNu aje-icon material-icons is-medium"
+          class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
+          tabindex="0"
         >
           close
         </i>
@@ -339,26 +355,29 @@ exports[`WarningBanner > Snapshots > should match snapshot 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="sc-gtLWhw cBKsuS aje-banner aje-banner--warning"
+        class="sc-gjcoXW eWJxKd aje-banner aje-banner--warning"
       >
         <i
           aria-hidden="true"
-          class="sc-blHHSb GNRNu aje-icon material-icons is-medium"
+          class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
+          tabindex="0"
         >
           warning
         </i>
         <div
-          class="sc-egkSDF dksBmg"
+          class="sc-dVBluf cMgMAV"
         />
         <button
           aria-label="dismiss warning"
-          class="sc-dpBQxM hEZhOt aje-btn sc-jwIPbr gcTceF aje-banner__dismiss aje-btn--banner is-medium"
+          class="sc-deSjom byalIv aje-btn sc-jHswkR WgpIQ aje-banner__dismiss aje-btn--banner is-medium"
           data-icon-button="true"
+          tabindex="0"
           type="button"
         >
           <i
             aria-hidden="true"
-            class="sc-blHHSb GNRNu aje-icon material-icons is-medium"
+            class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
+            tabindex="0"
           >
             close
           </i>
@@ -368,26 +387,29 @@ exports[`WarningBanner > Snapshots > should match snapshot 1`] = `
   </body>,
   "container": <div>
     <div
-      class="sc-gtLWhw cBKsuS aje-banner aje-banner--warning"
+      class="sc-gjcoXW eWJxKd aje-banner aje-banner--warning"
     >
       <i
         aria-hidden="true"
-        class="sc-blHHSb GNRNu aje-icon material-icons is-medium"
+        class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
+        tabindex="0"
       >
         warning
       </i>
       <div
-        class="sc-egkSDF dksBmg"
+        class="sc-dVBluf cMgMAV"
       />
       <button
         aria-label="dismiss warning"
-        class="sc-dpBQxM hEZhOt aje-btn sc-jwIPbr gcTceF aje-banner__dismiss aje-btn--banner is-medium"
+        class="sc-deSjom byalIv aje-btn sc-jHswkR WgpIQ aje-banner__dismiss aje-btn--banner is-medium"
         data-icon-button="true"
+        tabindex="0"
         type="button"
       >
         <i
           aria-hidden="true"
-          class="sc-blHHSb GNRNu aje-icon material-icons is-medium"
+          class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
+          tabindex="0"
         >
           close
         </i>

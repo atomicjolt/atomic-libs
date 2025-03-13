@@ -3,18 +3,20 @@
 exports[`Disclosure > Single Disclosure > matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-khLCKb aje-disclosure"
+    class="sc-jBIHhB aje-disclosure"
   >
     <button
       aria-controls="react-aria-:r2:"
       aria-expanded="false"
-      class="sc-ixGGxD cTPiNW aje-btn sc-dstKZu eyhmFJ aje-btn--disclosure-trigger is-auto"
+      class="sc-hRDKVd eAzjrS aje-btn sc-cMqPwU gQJQsB aje-btn--disclosure-trigger is-auto"
       id="react-aria-:r1:"
+      tabindex="0"
       type="button"
     >
       <i
         aria-hidden="true"
-        class="sc-dpBQxM fMmeuT aje-icon material-icons is-medium"
+        class="sc-deSjom eSWOt aje-icon material-icons is-medium"
+        tabindex="0"
       >
         expand_more
       </i>
@@ -23,7 +25,7 @@ exports[`Disclosure > Single Disclosure > matches snapshot 1`] = `
     <div
       aria-hidden="true"
       aria-labelledby="react-aria-:r1:"
-      class="sc-keTIit aje-disclosure-panel"
+      class="sc-jUkaYT aje-disclosure-panel"
       hidden="until-found"
       id="react-aria-:r2:"
       role="group"

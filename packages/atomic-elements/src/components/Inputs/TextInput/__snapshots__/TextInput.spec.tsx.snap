@@ -3,17 +3,17 @@
 exports[`matches snapshot > default variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-ghWlax iRVmMf aje-input__text sc-eOzmre YOdUD aje-input--default is-medium"
+    class="sc-gNZgCX bAVTuz aje-input__text sc-eiwqOE jsjjJD aje-input--default is-medium"
   >
     <label
-      class="sc-blHHSb cBLGYC"
+      class="sc-FEMpB encIGH"
       for="react-aria-:r0:"
       id="react-aria-:r1:"
     >
       Text Label
     </label>
     <p
-      class="sc-gtLWhw bqA-dde is-auto"
+      class="sc-gjcoXW dLoCuF is-auto"
       id="react-aria-:r3:"
     >
       message
@@ -21,9 +21,10 @@ exports[`matches snapshot > default variant 1`] = `
     <input
       aria-describedby="react-aria-:r3:"
       aria-labelledby="react-aria-:r1:"
-      class="sc-fAUdSK kLOCYc"
+      class="sc-fLDLck XprmO"
       id="react-aria-:r0:"
       placeholder="placeholder"
+      tabindex="0"
       type="text"
       value="content"
     />
@@ -34,24 +35,25 @@ exports[`matches snapshot > default variant 1`] = `
 exports[`matches snapshot > floating variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-ghWlax iRVmMf aje-input__text sc-eOzmre YOdUD aje-input--floating is-medium"
+    class="sc-gNZgCX bAVTuz aje-input__text sc-eiwqOE jsjjJD aje-input--floating is-medium"
     data-float="true"
   >
     <div
-      class="sc-gQaihK crAViC"
+      class="sc-gjXmFk eNqHck"
     >
       <input
         aria-describedby="react-aria-:r8:"
         aria-labelledby="react-aria-:r6:"
-        class="sc-fAUdSK kLOCYc"
+        class="sc-fLDLck XprmO"
         data-float="true"
         id="react-aria-:r5:"
         placeholder="placeholder"
+        tabindex="0"
         type="text"
         value="content"
       />
       <label
-        class="sc-blHHSb cBLGYC"
+        class="sc-FEMpB encIGH"
         for="react-aria-:r5:"
         id="react-aria-:r6:"
       >
@@ -59,7 +61,7 @@ exports[`matches snapshot > floating variant 1`] = `
       </label>
     </div>
     <p
-      class="sc-gtLWhw bqA-dde is-auto"
+      class="sc-gjcoXW dLoCuF is-auto"
       id="react-aria-:r8:"
     >
       message

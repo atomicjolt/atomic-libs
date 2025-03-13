@@ -80,7 +80,7 @@ const meta: Meta<ToolTipProps & ToolTipTriggerProps> = {
 export default meta;
 
 type Story = StoryObj<
-  ToolTipProps & ToolTipTriggerProps & { target: React.ReactElement }
+  ToolTipProps & ToolTipTriggerProps & { target: React.ReactElement<any> }
 >;
 
 export const Primary: Story = {

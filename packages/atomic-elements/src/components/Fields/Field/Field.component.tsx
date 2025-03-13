@@ -56,7 +56,7 @@ export function Field(props: FieldProps) {
   const label = React.Children.toArray(renderProps.children).find(
     (child) =>
       typeof child === "object" &&
-      (child as React.ReactElement)?.type === FieldLabel
+      (child as React.ReactElement<any>)?.type === FieldLabel
   );
 
   const { labelProps, descriptionProps, errorMessageProps, fieldProps } =

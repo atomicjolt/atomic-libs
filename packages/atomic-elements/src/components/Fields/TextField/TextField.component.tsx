@@ -54,6 +54,10 @@ export function TextField(props: TextFieldProps) {
   } = useTextField(
     {
       ...props,
+      // @ts-expect-error - @react-aria/textfield hasn't updated their types for React 19 yet
+      onFocus: (e) => props.onFocus?.(e),
+      // @ts-expect-error - @react-aria/textfield hasn't updated their types for React 19 yet
+      onBlur: (e) => props.onBlur?.(e),
       inputElementType: inputElementType || "input",
       label: true,
     },
