@@ -1,5 +1,5 @@
 import React from 'react';
-import type { LaunchSettings } from '@atomicjolt/lti-client/types';
+import type { LaunchSettings } from '@atomicjolt/lti-client';
 type LtiLaunchCheckProps = {
     children: React.ReactNode;
     stateValidation: LaunchSettings;

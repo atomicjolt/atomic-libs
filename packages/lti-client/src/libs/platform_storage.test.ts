@@ -1,6 +1,6 @@
 import { describe, expect, beforeEach, afterEach, it, vi } from "vitest";
 import { loadState, getTargetFrame } from "./platform_storage";
-import { LTIStorageParams } from "../../types";
+import { LTIStorageParams } from "../types";
 import { STATE_KEY_PREFIX } from "./constants";
 
 interface EventError {

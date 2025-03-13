@@ -1,6 +1,6 @@
 import type {
   LTIStorageParams,
-} from '@atomicjolt/lti-client/types';
+} from '@atomicjolt/lti-client';
 
 // Set to true to set the targetOrigin on postMessage calls.The LTI spec
 // requires this, but Canvas doesn't currently support it.
