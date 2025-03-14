@@ -524,7 +524,7 @@
   href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
   rel="stylesheet" />
 
-    <script type="module" crossorigin src="./assets/iframe-XBwgiehv.js"></script>
+    <script type="module" crossorigin src="./assets/iframe-BU03eCQI.js"></script>
   </head>
 
   <body>
@@ -650,5 +650,32 @@
 
     <div id="storybook-root"></div>
     <div id="storybook-docs"></div>
+    <script>
+      // eslint-disable-next-line no-underscore-dangle, @typescript-eslint/naming-convention
+      function __onViteAppLoadingError(event) {
+        const hostname = globalThis.location.hostname;
+        if (hostname !== 'localhost' && globalThis.CONFIG_TYPE === 'DEVELOPMENT') {
+          const message = `Failed to load the Storybook preview file 'vite-app.js':
+
+It looks like you're visiting the Storybook development server on another hostname than localhost: '${hostname}', but you haven't configured the necessary security features to support this.
+Please re-run your Storybook development server with the '--host ${hostname}' flag, or manually configure your Vite allowedHosts configuration with viteFinal.
+
+See:`;
+          const docs = [
+            'https://storybook.js.org/docs/api/cli-options#dev',
+            'https://storybook.js.org/docs/api/main-config/main-config-vite-final',
+            'https://vite.dev/config/server-options.html#server-allowedhosts',
+          ];
+          console.error(`${message}\n${docs.map((doc) => `- ${doc}`).join('\n')}`);
+
+          document.getElementById('storybook-root').innerHTML =
+            `<p style="color: red; max-width: 70ch">${message.replaceAll(
+              '\n',
+              '<br/>'
+            )}<ul>${docs.map((doc) => `<li><a href='${doc}' target='_blank'>${doc}</a></li>`).join('')}<ul></p>`;
+          return;
+        }
+      }
+    </script>
   </body>
 </html>

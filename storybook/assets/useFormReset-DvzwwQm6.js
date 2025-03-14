@@ -1,0 +1,1 @@
+import{d as l}from"./useObjectRef-BO7mrmvR.js";import{r as a}from"./index-DmM0KDA7.js";function f(r,i,d){let n=a.useRef(i),t=l(()=>{d&&d(n.current)});a.useEffect(()=>{var o;let e=r==null||(o=r.current)===null||o===void 0?void 0:o.form;return e==null||e.addEventListener("reset",t),()=>{e==null||e.removeEventListener("reset",t)}},[r,t])}export{f as $};
