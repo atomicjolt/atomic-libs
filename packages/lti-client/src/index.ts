@@ -8,4 +8,5 @@ export {
   isAssignmentAndGradesLaunch,
   clientId,
 } from "./libs/lti";
+export * from "./libs/post_message";
 export type * from "./types";
