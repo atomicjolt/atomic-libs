@@ -11,7 +11,7 @@ export interface ComboInputProps
    * When `ComboInput` is used within a `Field` component, this prop is automatically
    * provided
    */
-  inputRef?: React.RefObject<HTMLInputElement>;
+  inputRef?: React.RefObject<HTMLInputElement | null>;
 
   padding?: PaddingSide;
 }

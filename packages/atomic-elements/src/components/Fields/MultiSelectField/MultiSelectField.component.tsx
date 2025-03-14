@@ -56,7 +56,7 @@ export const MultiSelectField = forwardRef(function MultiSelectField<
 interface MultiSelectFieldInnerProps<T extends object>
   extends MultiSelectFieldProps<T> {
   collection: BaseCollection<T>;
-  selectRef: React.RefObject<HTMLButtonElement>;
+  selectRef: React.RefObject<HTMLButtonElement | null>;
 }
 
 /** MultiSelect is a dropdown that allows the user to select multiple options from a list */

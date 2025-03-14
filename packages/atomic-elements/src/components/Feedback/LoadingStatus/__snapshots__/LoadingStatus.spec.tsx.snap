@@ -3,28 +3,31 @@
 exports[`LoadingStatus > matches error snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-kLhKbu gIopdm aje-banner aje-banner--error"
+    class="sc-kfeOyU kQDcwU aje-banner aje-banner--error"
   >
     <i
       aria-hidden="true"
-      class="sc-ghWlax dLSOqI aje-icon material-icons is-medium"
+      class="sc-gNZgCX gypsPY aje-icon material-icons is-medium"
+      tabindex="0"
     >
       error
     </i>
     <div
-      class="sc-ixGGxD iMhwZx"
+      class="sc-hRDKVd eeBDAN"
     >
       An error occurred
     </div>
     <button
       aria-label="dismiss error"
-      class="sc-cHqXqK beNRCP aje-btn sc-jtQUzJ cNmPOb aje-banner__dismiss aje-btn--banner is-medium"
+      class="sc-cSaEAk gNvxBD aje-btn sc-jZTQcj hFQpPD aje-banner__dismiss aje-btn--banner is-medium"
       data-icon-button="true"
+      tabindex="0"
       type="button"
     >
       <i
         aria-hidden="true"
-        class="sc-ghWlax dLSOqI aje-icon material-icons is-medium"
+        class="sc-gNZgCX gypsPY aje-icon material-icons is-medium"
+        tabindex="0"
       >
         close
       </i>
@@ -36,23 +39,23 @@ exports[`LoadingStatus > matches error snapshot 1`] = `
 exports[`LoadingStatus > matches loading snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-egkSDF doeFIt aje-loader aje-loader--bouncing-dots is-medium"
+    class="sc-dVBluf iYAHRU aje-loader aje-loader--bouncing-dots is-medium"
     data-placement="center"
   >
     <div
-      class="sc-blHHSb bOYlKO aje-flex"
+      class="sc-FEMpB BJcTP aje-flex"
     >
       <div
-        class="sc-dntaoT jaCuLq aje-bouncing-dots is-medium"
+        class="sc-dycHyt jfVlHP aje-bouncing-dots is-medium"
       >
         <span
-          class="sc-ivxoEo hTkCX aje-bouncing-dots__dot"
+          class="sc-jbAkgO cvRUGp aje-bouncing-dots__dot"
         />
         <span
-          class="sc-ivxoEo hlxIiA aje-bouncing-dots__dot"
+          class="sc-jbAkgO kBvnAC aje-bouncing-dots__dot"
         />
         <span
-          class="sc-ivxoEo icHZsO aje-bouncing-dots__dot"
+          class="sc-jbAkgO krnwhI aje-bouncing-dots__dot"
         />
       </div>
     </div>

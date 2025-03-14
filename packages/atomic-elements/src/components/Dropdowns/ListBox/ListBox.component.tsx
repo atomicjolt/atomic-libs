@@ -1,4 +1,4 @@
-import React, { forwardRef, RefAttributes, useContext } from "react";
+import React, { forwardRef, RefAttributes, useContext, type JSX } from "react";
 import { useListState, Node, ListState, SectionProps } from "react-stately";
 import { useListBox, useListBoxSection, useOption } from "@react-aria/listbox";
 import { mergeProps } from "@react-aria/utils";
@@ -64,7 +64,7 @@ ListBox.displayName = "ListBox";
 
 interface ManagedListBoxProps<T extends object> extends ListBoxProps<T> {
   collection: BaseCollection<T>;
-  listBoxRef: React.RefObject<HTMLUListElement>;
+  listBoxRef: React.RefObject<HTMLUListElement | null>;
 }
 
 function ManagedListBox<T extends object>(props: ManagedListBoxProps<T>) {
@@ -75,7 +75,7 @@ function ManagedListBox<T extends object>(props: ManagedListBoxProps<T>) {
 export interface InternalListBoxProps<T>
   extends Omit<ListBoxProps<T>, "children"> {
   state: ListState<T>;
-  listBoxRef: React.RefObject<HTMLUListElement>;
+  listBoxRef: React.RefObject<HTMLUListElement | null>;
 }
 
 export function InternalListBox<T>(props: InternalListBoxProps<T>) {

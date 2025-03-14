@@ -18,8 +18,8 @@ interface TableColumnHeader extends TableColumnHeaderAria {
 export function useExtendedTableColumnHeader<T>(
   props: TableColumnHeaderProps<T>,
   state: TableState<T>,
-  ref: RefObject<FocusableElement>,
-  searchInputRef: RefObject<HTMLInputElement>
+  ref: RefObject<FocusableElement | null>,
+  searchInputRef: RefObject<HTMLInputElement | null>
 ): TableColumnHeader {
   const tableColumnHeader = useTableColumnHeader(props, state, ref);
 

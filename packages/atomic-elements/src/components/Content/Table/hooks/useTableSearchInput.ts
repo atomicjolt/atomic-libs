@@ -9,7 +9,7 @@ interface TableColumnHeaderProps<T> {
 export function useTableSearchInput<T>(
   props: TableColumnHeaderProps<T>,
   state: TableState<T>,
-  ref: React.RefObject<HTMLInputElement>,
+  ref: React.RefObject<HTMLInputElement | null>,
 ) {
   const { column, allowsSearching } = props;
 

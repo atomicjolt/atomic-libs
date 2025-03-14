@@ -1,9 +1,4 @@
-import React, {
-  DOMAttributes,
-  forwardRef,
-  RefAttributes,
-  useContext,
-} from "react";
+import React, { DOMAttributes, forwardRef, RefAttributes, useContext, type JSX } from "react";
 import { useTagGroup } from "@react-aria/tag";
 import { useListState } from "react-stately";
 import {
@@ -93,7 +88,7 @@ ChipGroupField.displayName = "ChipFieldGroup";
 interface ChipGroupFieldInnerProps<T extends object>
   extends ChipGroupFieldProps {
   collection: BaseCollection<T>;
-  chipGroupRef: React.RefObject<HTMLDivElement>;
+  chipGroupRef: React.RefObject<HTMLDivElement | null>;
 }
 
 function ChipGroupFieldInner<T extends object>(

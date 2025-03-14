@@ -1,7 +1,7 @@
-import { describe, expect, beforeEach, afterEach, it, vi } from 'vitest';
-import { loadState, getTargetFrame } from './platform_storage';
-import { LTIStorageParams } from '../types';
-import { STATE_KEY_PREFIX } from './constants';
+import { describe, expect, beforeEach, afterEach, it, vi } from "vitest";
+import { loadState, getTargetFrame } from "./platform_storage";
+import { LTIStorageParams } from "../types";
+import { STATE_KEY_PREFIX } from "./constants";
 
 interface EventError {
   code: string;
@@ -18,9 +18,10 @@ interface LtiPlatformStorageEvent {
   origin: string;
 }
 
-describe('loadState', () => {
-  const state = 'thestate';
-  const platformOIDCUrl = 'https://canvas.instructure.com/api/lti/authorize_redirect';
+describe("loadState", () => {
+  const state = "thestate";
+  const platformOIDCUrl =
+    "https://canvas.instructure.com/api/lti/authorize_redirect";
   const origin = new URL(platformOIDCUrl).origin;
   let event: LtiPlatformStorageEvent;
   let ltiStorageParams: LTIStorageParams;
@@ -35,14 +36,14 @@ describe('loadState', () => {
     `;
 
     ltiStorageParams = {
-      target: '_parent',
+      target: "_parent",
       originSupportBroken: true,
       platformOIDCUrl,
     };
 
     event = {
       data: {
-        subject: 'lti.get_data.response',
+        subject: "lti.get_data.response",
         message_id: state,
         value: state,
       },
@@ -55,42 +56,46 @@ describe('loadState', () => {
     document.cookie = `${STATE_KEY_PREFIX}${state}=;Max-Age=-1`;
   });
 
-  describe('validateLaunch', () => {
-    it('calls postMessage', async () => {
+  describe("validateLaunch", () => {
+    it("calls postMessage", async () => {
       // Spy on postMessage to ensure it is called.
-      const postMessageSpy = vi.spyOn(window, 'postMessage');
+      const postMessageSpy = vi.spyOn(window, "postMessage");
 
       // Spy on addEventListener mock the response that will be sent to receiveMessage
-      vi.spyOn(window, 'addEventListener').mockImplementation((eventName, func) => {
-        const receiveMessage = func as Function;
-        if (eventName === 'message') {
-          receiveMessage(event);
+      vi.spyOn(window, "addEventListener").mockImplementation(
+        (eventName, func) => {
+          const receiveMessage = func as Function;
+          if (eventName === "message") {
+            receiveMessage(event);
+          }
         }
-      });
+      );
 
       await expect(loadState(state, ltiStorageParams)).resolves.toBeTruthy();
       await new Promise(process.nextTick);
       expect(postMessageSpy).toHaveBeenCalled();
     });
 
-    it('returns false if postMessage times out', async () => {
+    it("returns false if postMessage times out", async () => {
       await expect(loadState(state, ltiStorageParams)).rejects;
     });
 
-    it('returns false if the state is invalid', async () => {
+    it("returns false if the state is invalid", async () => {
       // Spy on postMessage to ensure it is called.
-      const postMessageSpy = vi.spyOn(window, 'postMessage');
+      const postMessageSpy = vi.spyOn(window, "postMessage");
 
-      const value = 'badstate';
+      const value = "badstate";
 
       // Spy on addEventListener mock the response that will be sent to receiveMessage
-      vi.spyOn(window, 'addEventListener').mockImplementation((eventName, func) => {
-        const receiveMessage = func as Function;
-        if (eventName === 'message') {
-          event.data.value = value;
-          receiveMessage(event);
+      vi.spyOn(window, "addEventListener").mockImplementation(
+        (eventName, func) => {
+          const receiveMessage = func as Function;
+          if (eventName === "message") {
+            event.data.value = value;
+            receiveMessage(event);
+          }
         }
-      });
+      );
       await expect(loadState(state, ltiStorageParams)).resolves.toEqual(value);
       await new Promise(process.nextTick);
       expect(postMessageSpy).toHaveBeenCalled();

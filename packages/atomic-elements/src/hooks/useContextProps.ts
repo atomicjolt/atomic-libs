@@ -14,7 +14,7 @@ export function useContextProps<T extends object, R>(
   context: React.Context<ContextValue<T, R>>,
   props: T,
   ref: React.Ref<R>
-): [T, React.RefObject<R>] {
+): [T, React.RefObject<R | null>] {
   const ctx = useSlottedContext(context, (props as SlotProps).slot) || {};
   const { ref: contextRef, ...contextProps } = ctx as WithRef<T, R>;
 

@@ -3,7 +3,8 @@
 exports[`Button > matches snapshots > changes variant 1`] = `
 <DocumentFragment>
   <button
-    class="sc-ixGGxD cTPiNW aje-btn aje-btn--secondary is-auto"
+    class="sc-hRDKVd eAzjrS aje-btn aje-btn--secondary is-auto"
+    tabindex="0"
     type="button"
   >
     Click Me
@@ -14,16 +15,17 @@ exports[`Button > matches snapshots > changes variant 1`] = `
 exports[`Button > matches snapshots > loading completed state 1`] = `
 <DocumentFragment>
   <button
-    class="sc-ixGGxD cTPiNW aje-btn aje-btn--primary is-auto"
+    class="sc-hRDKVd eAzjrS aje-btn aje-btn--primary is-auto"
     data-loading="true"
+    tabindex="0"
     type="button"
   >
     <div
-      class="sc-egkSDF doeFIt aje-loader aje-loader--spinner is-medium"
+      class="sc-dVBluf iYAHRU aje-loader aje-loader--spinner is-medium"
       data-placement="absolute center"
     >
       <span
-        class="sc-gtLWhw jksmig aje-checkmark is-medium"
+        class="sc-gjcoXW dJwhQH aje-checkmark is-medium"
         data-testid="checkmark"
       />
     </div>
@@ -35,21 +37,22 @@ exports[`Button > matches snapshots > loading completed state 1`] = `
 exports[`Button > matches snapshots > loading state 1`] = `
 <DocumentFragment>
   <button
-    class="sc-ixGGxD cTPiNW aje-btn aje-btn--primary is-auto"
+    class="sc-hRDKVd eAzjrS aje-btn aje-btn--primary is-auto"
     data-loading="true"
+    tabindex="0"
     type="button"
   >
     <div
-      class="sc-egkSDF doeFIt aje-loader aje-loader--spinner is-medium"
+      class="sc-dVBluf iYAHRU aje-loader aje-loader--spinner is-medium"
       data-placement="absolute center"
     >
       <div
-        class="sc-blHHSb bOYlKO aje-flex"
+        class="sc-FEMpB BJcTP aje-flex"
       >
         <svg
           aria-valuemax="100"
           aria-valuemin="0"
-          class="sc-kLhKbu kleLvk aje-progresscircle aje-spinner"
+          class="sc-kfeOyU jmiEpZ aje-progresscircle aje-spinner"
           data-indeterminate="true"
           data-testid="spinner-svg"
           height="2em"
@@ -59,20 +62,20 @@ exports[`Button > matches snapshots > loading state 1`] = `
           width="2em"
         >
           <circle
-            class="sc-ghWlax gkZOmH"
+            class="sc-gNZgCX gybRWL"
             cx="22"
             cy="22"
             r="16"
           />
           <circle
-            class="sc-ivxoEo lppGUh"
+            class="sc-jbAkgO fEqhtL"
             cx="22"
             cy="22"
             r="16"
             stroke-width="6"
           />
           <circle
-            class="sc-dntaoT gRwUCg"
+            class="sc-dycHyt hudqfR"
             cx="22"
             cy="22"
             r="16"
@@ -92,7 +95,8 @@ exports[`Button > matches snapshots > loading state 1`] = `
 exports[`Button > matches snapshots > normal display 1`] = `
 <DocumentFragment>
   <button
-    class="sc-ixGGxD cTPiNW aje-btn aje-btn--primary is-auto"
+    class="sc-hRDKVd eAzjrS aje-btn aje-btn--primary is-auto"
+    tabindex="0"
     type="button"
   >
     Click Me

@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import { forwardRef, type JSX } from "react";
 import { ElementWrapper, RenderBaseProps } from "../../../types";
 import { useContextProps } from "@hooks/useContextProps";
 import { useRenderProps } from "@hooks/useRenderProps";

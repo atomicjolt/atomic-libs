@@ -1,8 +1,7 @@
-import { DeepLinkingClaim, IdToken } from '@atomicjolt/lti-types';
+import { DeepLinkingClaim, IdToken } from "@atomicjolt/lti-types";
 
 declare global {
-  interface Window {
-  }
+  interface Window {}
 }
 
 export interface LTIStorageParams {

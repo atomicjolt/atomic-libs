@@ -1,4 +1,4 @@
-import React, { forwardRef, useContext, useRef } from "react";
+import React, { forwardRef, useContext, useRef, type JSX } from "react";
 import {
   AriaTabPanelProps,
   useTab,
@@ -63,7 +63,7 @@ Tabs.displayName = "Tabs";
 
 interface TabsInnerProps<T> extends TabsProps<T> {
   collection: BaseCollection<T>;
-  tabsRef: React.RefObject<HTMLDivElement>;
+  tabsRef: React.RefObject<HTMLDivElement | null>;
 }
 
 export function TabsInner<T extends object>(props: TabsInnerProps<T>) {

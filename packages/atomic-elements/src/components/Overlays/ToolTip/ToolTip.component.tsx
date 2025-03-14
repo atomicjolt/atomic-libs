@@ -25,7 +25,7 @@ export interface ToolTipProps
    *
    * When used within a TooltipTrigger this is set automatically. It is only required when used standalone.
    */
-  triggerRef?: React.RefObject<Element>;
+  triggerRef?: React.RefObject<Element | null>;
 
   /* Placement of the tooltip relative to the target element */
   placement?: "right" | "left" | "top" | "bottom";

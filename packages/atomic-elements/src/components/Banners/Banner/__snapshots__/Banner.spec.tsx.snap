@@ -6,7 +6,8 @@ exports[`Banner > Banner.Button > should match snapshot 1`] = `
   "baseElement": <body>
     <div>
       <button
-        class="sc-dpBQxM hEZhOt aje-btn aje-btn--inverted is-auto"
+        class="sc-deSjom byalIv aje-btn aje-btn--inverted is-auto"
+        tabindex="0"
         type="button"
       >
         Button
@@ -15,7 +16,8 @@ exports[`Banner > Banner.Button > should match snapshot 1`] = `
   </body>,
   "container": <div>
     <button
-      class="sc-dpBQxM hEZhOt aje-btn aje-btn--inverted is-auto"
+      class="sc-deSjom byalIv aje-btn aje-btn--inverted is-auto"
+      tabindex="0"
       type="button"
     >
       Button
@@ -81,7 +83,7 @@ exports[`Banner > Banner.Content > should match snapshot 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="sc-gtLWhw eJbUH"
+        class="sc-gjcoXW OnqIU"
       >
         Content
       </div>
@@ -89,7 +91,7 @@ exports[`Banner > Banner.Content > should match snapshot 1`] = `
   </body>,
   "container": <div>
     <div
-      class="sc-gtLWhw eJbUH"
+      class="sc-gjcoXW OnqIU"
     >
       Content
     </div>
@@ -154,13 +156,15 @@ exports[`Banner > Banner.IconButton > should match snapshot 1`] = `
   "baseElement": <body>
     <div>
       <button
-        class="sc-dpBQxM hEZhOt aje-btn sc-jwIPbr gcTceF aje-btn--banner is-medium"
+        class="sc-deSjom byalIv aje-btn sc-jHswkR WgpIQ aje-btn--banner is-medium"
         data-icon-button="true"
+        tabindex="0"
         type="button"
       >
         <i
           aria-hidden="true"
-          class="sc-fAUdSK ffxsGH aje-icon material-icons is-medium"
+          class="sc-fLDLck hYHdiZ aje-icon material-icons is-medium"
+          tabindex="0"
         >
           more_vert
         </i>
@@ -169,13 +173,15 @@ exports[`Banner > Banner.IconButton > should match snapshot 1`] = `
   </body>,
   "container": <div>
     <button
-      class="sc-dpBQxM hEZhOt aje-btn sc-jwIPbr gcTceF aje-btn--banner is-medium"
+      class="sc-deSjom byalIv aje-btn sc-jHswkR WgpIQ aje-btn--banner is-medium"
       data-icon-button="true"
+      tabindex="0"
       type="button"
     >
       <i
         aria-hidden="true"
-        class="sc-fAUdSK ffxsGH aje-icon material-icons is-medium"
+        class="sc-fLDLck hYHdiZ aje-icon material-icons is-medium"
+        tabindex="0"
       >
         more_vert
       </i>
@@ -241,13 +247,13 @@ exports[`Banner > Snapshots > should match snapshot 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="sc-blHHSb hgXpyK aje-banner aje-banner--info"
+        class="sc-FEMpB eQljuX aje-banner aje-banner--info"
       />
     </div>
   </body>,
   "container": <div>
     <div
-      class="sc-blHHSb hgXpyK aje-banner aje-banner--info"
+      class="sc-FEMpB eQljuX aje-banner aje-banner--info"
     />
   </div>,
   "debug": [Function],
@@ -310,13 +316,13 @@ exports[`Banner > Snapshots > should match snapshot with variant 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="sc-blHHSb hgXpyK aje-banner aje-banner--success"
+        class="sc-FEMpB eQljuX aje-banner aje-banner--success"
       />
     </div>
   </body>,
   "container": <div>
     <div
-      class="sc-blHHSb hgXpyK aje-banner aje-banner--success"
+      class="sc-FEMpB eQljuX aje-banner aje-banner--success"
     />
   </div>,
   "debug": [Function],

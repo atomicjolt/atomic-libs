@@ -1,5 +1,11 @@
 # @atomicjolt/atomic-elements
 
+## 3.3.1
+
+### Patch Changes
+
+- Update packages to support React 19
+
 ## 3.3.0
 
 ### Minor Changes

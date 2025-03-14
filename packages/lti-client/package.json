@@ -3,7 +3,7 @@
   "version": "2.6.3",
   "description": "Client Javascript libraries to handle LTI.",
   "main": "dist/index.js",
-  "typings": "types/index.d.ts",
+  "typings": "dist/types/index.d.ts",
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "pretest": "npm run build",

@@ -3,11 +3,11 @@
 exports[`TextAreaInput > matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-ghWlax iRVmMf aje-input__text sc-eOzmre GxGlu aje-input__textarea is-medium"
+    class="sc-gNZgCX bAVTuz aje-input__text sc-eiwqOE buTlLi aje-input__textarea is-medium"
     data-resize="both"
   >
     <label
-      class="sc-blHHSb cBLGYC"
+      class="sc-FEMpB encIGH"
       for="react-aria-:r0:"
       id="react-aria-:r1:"
     >
@@ -15,9 +15,10 @@ exports[`TextAreaInput > matches snapshot 1`] = `
     </label>
     <textarea
       aria-labelledby="react-aria-:r1:"
-      class="sc-ivxoEo lkCcFK"
+      class="sc-jbAkgO gKBBMw"
       data-resize="both"
       id="react-aria-:r0:"
+      tabindex="0"
     />
   </div>
 </DocumentFragment>

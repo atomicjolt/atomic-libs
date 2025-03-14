@@ -6,13 +6,13 @@ exports[`Strong > Snapshots > should match snapshot 1`] = `
   "baseElement": <body>
     <div>
       <strong
-        class="sc-blHHSb cNGWlU aje-strong"
+        class="sc-FEMpB eGqSMx aje-strong"
       />
     </div>
   </body>,
   "container": <div>
     <strong
-      class="sc-blHHSb cNGWlU aje-strong"
+      class="sc-FEMpB eGqSMx aje-strong"
     />
   </div>,
   "debug": [Function],

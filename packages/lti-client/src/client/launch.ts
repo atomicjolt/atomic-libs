@@ -1,4 +1,4 @@
-import { LaunchSettings } from '../../types';
+import { LaunchSettings } from "../types";
 import { loadState } from "../libs/platform_storage";
 
 async function validateLaunch(settings: LaunchSettings): Promise<boolean> {

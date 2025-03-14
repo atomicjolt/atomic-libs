@@ -19,7 +19,8 @@ describe("ChipGroup", () => {
         <Chip>Item</Chip>
       </ChipGroup>
     );
-    expect(screen.getByText("My Chip Group")).not.toBeNull();
+
+    expect(screen.getByLabelText("My Chip Group")).not.toBeNull();
   });
 
   test("renders chips", () => {

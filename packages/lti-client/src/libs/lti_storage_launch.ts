@@ -1,4 +1,4 @@
-import { InitSettings } from '../../types';
+import { InitSettings } from "../types";
 import { hasStorageAccessAPI } from "./platform_storage";
 import { hasCookie } from "./cookies";
 import { storeState } from "./platform_storage";
@@ -6,7 +6,9 @@ import { showLaunchNewWindow } from "../html/launch_new_window";
 import { showCookieError } from "../html/cookie_error";
 
 export async function ltiStorageLaunch(settings: InitSettings) {
-  let submitToPlatform = () => { window.location.replace(settings.responseUrl) };
+  let submitToPlatform = () => {
+    window.location.replace(settings.responseUrl);
+  };
 
   if (hasCookie(settings)) {
     // We have cookies
@@ -33,11 +35,15 @@ export async function ltiStorageLaunch(settings: InitSettings) {
         if (!hasAccess) {
           showRequestStorageAccess = true;
         }
-      } catch(e) {
+      } catch (e) {
         console.log(e);
       }
     }
-    showLaunchNewWindow(settings, { showRequestStorageAccess, disableLaunch: false, showStorageAccessDenied: false });
+    showLaunchNewWindow(settings, {
+      showRequestStorageAccess,
+      disableLaunch: false,
+      showStorageAccessDenied: false,
+    });
   } else {
     showCookieError(settings);
   }

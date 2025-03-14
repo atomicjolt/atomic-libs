@@ -5,15 +5,19 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <template
+        data-react-aria-hidden="true"
+      />
       <table
         aria-describedby=""
         aria-label="table"
-        class="sc-hJRrWL fMcKQK aje-table"
+        class="sc-hUAZgl dfoSoM aje-table"
+        data-collection="react-aria-:re:"
         role="grid"
         tabindex="0"
       >
         <thead
-          class="sc-jhZTHU javOsY aje-table__header"
+          class="sc-iXqmyu elljUK aje-table__header"
           role="rowgroup"
         >
           <tr
@@ -21,37 +25,41 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
             role="row"
           >
             <th
-              class="sc-uYFMi icuawB aje-table__column"
+              aria-colindex="1"
+              class="sc-lertIE fzQcfw aje-table__column"
+              data-collection="react-aria-:re:"
               data-key="a"
               data-searchable="true"
               data-searching="true"
-              id="react-aria-:r4:-a"
+              id="react-aria-:rd:-a"
               role="columnheader"
               tabindex="-1"
             >
               <div
-                class="sc-epnzzT dFEYDI"
+                class="sc-dJkDXt iwDoBg"
               >
                 Column 1
                 <div
                   aria-expanded="true"
-                  class="sc-dntaoT fJCHjt aje-combo-input sc-iwXfZk cvUWSo"
+                  class="sc-dycHyt kIeuYg aje-combo-input sc-jdabBK gYmKCD"
                 >
                   <input
                     aria-label="Search a"
-                    class="sc-fAUdSK kLOCYc"
+                    class="sc-fLDLck XprmO"
                     role="search"
                     slot="search"
                     value="search"
                   />
                   <button
-                    class="sc-cEzcPc dIiAzj aje-btn sc-ovuCP liBoiK aje-btn--content is-small"
+                    class="sc-dkBYrC gQIXms aje-btn sc-kXOizl cZTTQ aje-btn--content is-small"
                     data-icon-button="true"
+                    tabindex="0"
                     type="button"
                   >
                     <i
                       aria-hidden="true"
-                      class="sc-kLhKbu gELXHy aje-icon material-icons is-small"
+                      class="sc-kfeOyU ceGEEk aje-icon material-icons is-small"
+                      tabindex="0"
                     >
                       close
                     </i>
@@ -60,14 +68,16 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
               </div>
             </th>
             <th
-              class="sc-uYFMi icuawB aje-table__column"
+              aria-colindex="2"
+              class="sc-lertIE fzQcfw aje-table__column"
+              data-collection="react-aria-:re:"
               data-key="b"
-              id="react-aria-:r4:-b"
+              id="react-aria-:rd:-b"
               role="columnheader"
               tabindex="-1"
             >
               <div
-                class="sc-epnzzT dFEYDI"
+                class="sc-dJkDXt iwDoBg"
               >
                 Column 2
               </div>
@@ -75,28 +85,32 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
           </tr>
         </thead>
         <tbody
-          class="sc-kZrBCu aje-table__body"
+          class="sc-lkbiLU aje-table__body"
           role="rowgroup"
         >
           <tr
-            aria-labelledby="react-aria-:r4:-react-aria-6-a"
-            class="sc-fwzISk dorCxf aje-table__row"
+            aria-labelledby="react-aria-:rd:-react-aria-6-a"
+            class="sc-flQbIK eSugfs aje-table__row"
+            data-collection="react-aria-:re:"
             data-key="react-aria-6"
             role="row"
             tabindex="-1"
           >
             <th
-              class="sc-diYFot cCKata aje-table__cell"
+              class="sc-cYoYeT jruNXQ aje-table__cell"
+              data-collection="react-aria-:re:"
               data-key="react-aria-4"
-              id="react-aria-:r4:-react-aria-6-a"
+              id="react-aria-:rd:-react-aria-6-a"
               role="rowheader"
               tabindex="-1"
             >
               Row 1, Cell 1
             </th>
             <td
-              class="sc-kEfuZE gnabOo aje-table__cell"
+              class="sc-ktvNQe pczWz aje-table__cell"
+              data-collection="react-aria-:re:"
               data-key="react-aria-5"
+              id="react-aria-:rl:"
               role="gridcell"
               tabindex="-1"
             >
@@ -104,24 +118,28 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
             </td>
           </tr>
           <tr
-            aria-labelledby="react-aria-:r4:-react-aria-9-a"
-            class="sc-fwzISk dorCxf aje-table__row"
+            aria-labelledby="react-aria-:rd:-react-aria-9-a"
+            class="sc-flQbIK eSugfs aje-table__row"
+            data-collection="react-aria-:re:"
             data-key="react-aria-9"
             role="row"
             tabindex="-1"
           >
             <th
-              class="sc-diYFot cCKata aje-table__cell"
+              class="sc-cYoYeT jruNXQ aje-table__cell"
+              data-collection="react-aria-:re:"
               data-key="react-aria-7"
-              id="react-aria-:r4:-react-aria-9-a"
+              id="react-aria-:rd:-react-aria-9-a"
               role="rowheader"
               tabindex="-1"
             >
               Row 2, Cell 1
             </th>
             <td
-              class="sc-kEfuZE gnabOo aje-table__cell"
+              class="sc-ktvNQe pczWz aje-table__cell"
+              data-collection="react-aria-:re:"
               data-key="react-aria-8"
+              id="react-aria-:rp:"
               role="gridcell"
               tabindex="-1"
             >
@@ -133,15 +151,19 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
     </div>
   </body>,
   "container": <div>
+    <template
+      data-react-aria-hidden="true"
+    />
     <table
       aria-describedby=""
       aria-label="table"
-      class="sc-hJRrWL fMcKQK aje-table"
+      class="sc-hUAZgl dfoSoM aje-table"
+      data-collection="react-aria-:re:"
       role="grid"
       tabindex="0"
     >
       <thead
-        class="sc-jhZTHU javOsY aje-table__header"
+        class="sc-iXqmyu elljUK aje-table__header"
         role="rowgroup"
       >
         <tr
@@ -149,37 +171,41 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
           role="row"
         >
           <th
-            class="sc-uYFMi icuawB aje-table__column"
+            aria-colindex="1"
+            class="sc-lertIE fzQcfw aje-table__column"
+            data-collection="react-aria-:re:"
             data-key="a"
             data-searchable="true"
             data-searching="true"
-            id="react-aria-:r4:-a"
+            id="react-aria-:rd:-a"
             role="columnheader"
             tabindex="-1"
           >
             <div
-              class="sc-epnzzT dFEYDI"
+              class="sc-dJkDXt iwDoBg"
             >
               Column 1
               <div
                 aria-expanded="true"
-                class="sc-dntaoT fJCHjt aje-combo-input sc-iwXfZk cvUWSo"
+                class="sc-dycHyt kIeuYg aje-combo-input sc-jdabBK gYmKCD"
               >
                 <input
                   aria-label="Search a"
-                  class="sc-fAUdSK kLOCYc"
+                  class="sc-fLDLck XprmO"
                   role="search"
                   slot="search"
                   value="search"
                 />
                 <button
-                  class="sc-cEzcPc dIiAzj aje-btn sc-ovuCP liBoiK aje-btn--content is-small"
+                  class="sc-dkBYrC gQIXms aje-btn sc-kXOizl cZTTQ aje-btn--content is-small"
                   data-icon-button="true"
+                  tabindex="0"
                   type="button"
                 >
                   <i
                     aria-hidden="true"
-                    class="sc-kLhKbu gELXHy aje-icon material-icons is-small"
+                    class="sc-kfeOyU ceGEEk aje-icon material-icons is-small"
+                    tabindex="0"
                   >
                     close
                   </i>
@@ -188,14 +214,16 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
             </div>
           </th>
           <th
-            class="sc-uYFMi icuawB aje-table__column"
+            aria-colindex="2"
+            class="sc-lertIE fzQcfw aje-table__column"
+            data-collection="react-aria-:re:"
             data-key="b"
-            id="react-aria-:r4:-b"
+            id="react-aria-:rd:-b"
             role="columnheader"
             tabindex="-1"
           >
             <div
-              class="sc-epnzzT dFEYDI"
+              class="sc-dJkDXt iwDoBg"
             >
               Column 2
             </div>
@@ -203,28 +231,32 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
         </tr>
       </thead>
       <tbody
-        class="sc-kZrBCu aje-table__body"
+        class="sc-lkbiLU aje-table__body"
         role="rowgroup"
       >
         <tr
-          aria-labelledby="react-aria-:r4:-react-aria-6-a"
-          class="sc-fwzISk dorCxf aje-table__row"
+          aria-labelledby="react-aria-:rd:-react-aria-6-a"
+          class="sc-flQbIK eSugfs aje-table__row"
+          data-collection="react-aria-:re:"
           data-key="react-aria-6"
           role="row"
           tabindex="-1"
         >
           <th
-            class="sc-diYFot cCKata aje-table__cell"
+            class="sc-cYoYeT jruNXQ aje-table__cell"
+            data-collection="react-aria-:re:"
             data-key="react-aria-4"
-            id="react-aria-:r4:-react-aria-6-a"
+            id="react-aria-:rd:-react-aria-6-a"
             role="rowheader"
             tabindex="-1"
           >
             Row 1, Cell 1
           </th>
           <td
-            class="sc-kEfuZE gnabOo aje-table__cell"
+            class="sc-ktvNQe pczWz aje-table__cell"
+            data-collection="react-aria-:re:"
             data-key="react-aria-5"
+            id="react-aria-:rl:"
             role="gridcell"
             tabindex="-1"
           >
@@ -232,24 +264,28 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
           </td>
         </tr>
         <tr
-          aria-labelledby="react-aria-:r4:-react-aria-9-a"
-          class="sc-fwzISk dorCxf aje-table__row"
+          aria-labelledby="react-aria-:rd:-react-aria-9-a"
+          class="sc-flQbIK eSugfs aje-table__row"
+          data-collection="react-aria-:re:"
           data-key="react-aria-9"
           role="row"
           tabindex="-1"
         >
           <th
-            class="sc-diYFot cCKata aje-table__cell"
+            class="sc-cYoYeT jruNXQ aje-table__cell"
+            data-collection="react-aria-:re:"
             data-key="react-aria-7"
-            id="react-aria-:r4:-react-aria-9-a"
+            id="react-aria-:rd:-react-aria-9-a"
             role="rowheader"
             tabindex="-1"
           >
             Row 2, Cell 1
           </th>
           <td
-            class="sc-kEfuZE gnabOo aje-table__cell"
+            class="sc-ktvNQe pczWz aje-table__cell"
+            data-collection="react-aria-:re:"
             data-key="react-aria-8"
+            id="react-aria-:rp:"
             role="gridcell"
             tabindex="-1"
           >
@@ -318,15 +354,19 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <template
+        data-react-aria-hidden="true"
+      />
       <table
         aria-describedby=""
         aria-label="table"
-        class="sc-hJRrWL fMcKQK aje-table"
+        class="sc-hUAZgl dfoSoM aje-table"
+        data-collection="react-aria-:r1:"
         role="grid"
         tabindex="0"
       >
         <thead
-          class="sc-jhZTHU javOsY aje-table__header"
+          class="sc-iXqmyu elljUK aje-table__header"
           role="rowgroup"
         >
           <tr
@@ -334,7 +374,9 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
             role="row"
           >
             <th
-              class="sc-uYFMi icuawB aje-table__column"
+              aria-colindex="1"
+              class="sc-lertIE fzQcfw aje-table__column"
+              data-collection="react-aria-:r1:"
               data-key="a"
               data-searchable="true"
               id="react-aria-:r0:-a"
@@ -342,42 +384,46 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
               tabindex="-1"
             >
               <div
-                class="sc-epnzzT dFEYDI"
+                class="sc-dJkDXt iwDoBg"
               >
                 Column 1
                 <div
                   aria-expanded="false"
-                  class="sc-dntaoT fJCHjt aje-combo-input sc-iwXfZk cvUWSo"
+                  class="sc-dycHyt kIeuYg aje-combo-input sc-jdabBK gYmKCD"
                 >
                   <input
                     aria-label="Search a"
-                    class="sc-fAUdSK kLOCYc"
+                    class="sc-fLDLck XprmO"
                     disabled=""
                     role="search"
                     slot="search"
                     value=""
                   />
                   <button
-                    class="sc-cEzcPc dIiAzj aje-btn sc-ovuCP liBoiK aje-btn--content is-small"
+                    class="sc-dkBYrC gQIXms aje-btn sc-kXOizl cZTTQ aje-btn--content is-small"
                     data-icon-button="true"
+                    tabindex="0"
                     type="button"
                   >
                     <i
                       aria-hidden="true"
-                      class="sc-kLhKbu gELXHy aje-icon material-icons is-small"
+                      class="sc-kfeOyU ceGEEk aje-icon material-icons is-small"
+                      tabindex="0"
                     >
                       close
                     </i>
                   </button>
                 </div>
                 <button
-                  class="sc-cEzcPc dIiAzj aje-btn sc-ovuCP liBoiK aje-btn--content is-small"
+                  class="sc-dkBYrC gQIXms aje-btn sc-kXOizl cZTTQ aje-btn--content is-small"
                   data-icon-button="true"
+                  tabindex="0"
                   type="button"
                 >
                   <i
                     aria-hidden="true"
-                    class="sc-kLhKbu gELXHy aje-icon material-icons is-small"
+                    class="sc-kfeOyU ceGEEk aje-icon material-icons is-small"
+                    tabindex="0"
                   >
                     search
                   </i>
@@ -385,14 +431,16 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
               </div>
             </th>
             <th
-              class="sc-uYFMi icuawB aje-table__column"
+              aria-colindex="2"
+              class="sc-lertIE fzQcfw aje-table__column"
+              data-collection="react-aria-:r1:"
               data-key="b"
               id="react-aria-:r0:-b"
               role="columnheader"
               tabindex="-1"
             >
               <div
-                class="sc-epnzzT dFEYDI"
+                class="sc-dJkDXt iwDoBg"
               >
                 Column 2
               </div>
@@ -400,18 +448,20 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
           </tr>
         </thead>
         <tbody
-          class="sc-kZrBCu aje-table__body"
+          class="sc-lkbiLU aje-table__body"
           role="rowgroup"
         >
           <tr
             aria-labelledby="react-aria-:r0:-react-aria-6-a"
-            class="sc-fwzISk dorCxf aje-table__row"
+            class="sc-flQbIK eSugfs aje-table__row"
+            data-collection="react-aria-:r1:"
             data-key="react-aria-6"
             role="row"
             tabindex="-1"
           >
             <th
-              class="sc-diYFot cCKata aje-table__cell"
+              class="sc-cYoYeT jruNXQ aje-table__cell"
+              data-collection="react-aria-:r1:"
               data-key="react-aria-4"
               id="react-aria-:r0:-react-aria-6-a"
               role="rowheader"
@@ -420,8 +470,10 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
               Row 1, Cell 1
             </th>
             <td
-              class="sc-kEfuZE gnabOo aje-table__cell"
+              class="sc-ktvNQe pczWz aje-table__cell"
+              data-collection="react-aria-:r1:"
               data-key="react-aria-5"
+              id="react-aria-:r8:"
               role="gridcell"
               tabindex="-1"
             >
@@ -430,13 +482,15 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
           </tr>
           <tr
             aria-labelledby="react-aria-:r0:-react-aria-9-a"
-            class="sc-fwzISk dorCxf aje-table__row"
+            class="sc-flQbIK eSugfs aje-table__row"
+            data-collection="react-aria-:r1:"
             data-key="react-aria-9"
             role="row"
             tabindex="-1"
           >
             <th
-              class="sc-diYFot cCKata aje-table__cell"
+              class="sc-cYoYeT jruNXQ aje-table__cell"
+              data-collection="react-aria-:r1:"
               data-key="react-aria-7"
               id="react-aria-:r0:-react-aria-9-a"
               role="rowheader"
@@ -445,8 +499,10 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
               Row 2, Cell 1
             </th>
             <td
-              class="sc-kEfuZE gnabOo aje-table__cell"
+              class="sc-ktvNQe pczWz aje-table__cell"
+              data-collection="react-aria-:r1:"
               data-key="react-aria-8"
+              id="react-aria-:rc:"
               role="gridcell"
               tabindex="-1"
             >
@@ -458,15 +514,19 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
     </div>
   </body>,
   "container": <div>
+    <template
+      data-react-aria-hidden="true"
+    />
     <table
       aria-describedby=""
       aria-label="table"
-      class="sc-hJRrWL fMcKQK aje-table"
+      class="sc-hUAZgl dfoSoM aje-table"
+      data-collection="react-aria-:r1:"
       role="grid"
       tabindex="0"
     >
       <thead
-        class="sc-jhZTHU javOsY aje-table__header"
+        class="sc-iXqmyu elljUK aje-table__header"
         role="rowgroup"
       >
         <tr
@@ -474,7 +534,9 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
           role="row"
         >
           <th
-            class="sc-uYFMi icuawB aje-table__column"
+            aria-colindex="1"
+            class="sc-lertIE fzQcfw aje-table__column"
+            data-collection="react-aria-:r1:"
             data-key="a"
             data-searchable="true"
             id="react-aria-:r0:-a"
@@ -482,42 +544,46 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
             tabindex="-1"
           >
             <div
-              class="sc-epnzzT dFEYDI"
+              class="sc-dJkDXt iwDoBg"
             >
               Column 1
               <div
                 aria-expanded="false"
-                class="sc-dntaoT fJCHjt aje-combo-input sc-iwXfZk cvUWSo"
+                class="sc-dycHyt kIeuYg aje-combo-input sc-jdabBK gYmKCD"
               >
                 <input
                   aria-label="Search a"
-                  class="sc-fAUdSK kLOCYc"
+                  class="sc-fLDLck XprmO"
                   disabled=""
                   role="search"
                   slot="search"
                   value=""
                 />
                 <button
-                  class="sc-cEzcPc dIiAzj aje-btn sc-ovuCP liBoiK aje-btn--content is-small"
+                  class="sc-dkBYrC gQIXms aje-btn sc-kXOizl cZTTQ aje-btn--content is-small"
                   data-icon-button="true"
+                  tabindex="0"
                   type="button"
                 >
                   <i
                     aria-hidden="true"
-                    class="sc-kLhKbu gELXHy aje-icon material-icons is-small"
+                    class="sc-kfeOyU ceGEEk aje-icon material-icons is-small"
+                    tabindex="0"
                   >
                     close
                   </i>
                 </button>
               </div>
               <button
-                class="sc-cEzcPc dIiAzj aje-btn sc-ovuCP liBoiK aje-btn--content is-small"
+                class="sc-dkBYrC gQIXms aje-btn sc-kXOizl cZTTQ aje-btn--content is-small"
                 data-icon-button="true"
+                tabindex="0"
                 type="button"
               >
                 <i
                   aria-hidden="true"
-                  class="sc-kLhKbu gELXHy aje-icon material-icons is-small"
+                  class="sc-kfeOyU ceGEEk aje-icon material-icons is-small"
+                  tabindex="0"
                 >
                   search
                 </i>
@@ -525,14 +591,16 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
             </div>
           </th>
           <th
-            class="sc-uYFMi icuawB aje-table__column"
+            aria-colindex="2"
+            class="sc-lertIE fzQcfw aje-table__column"
+            data-collection="react-aria-:r1:"
             data-key="b"
             id="react-aria-:r0:-b"
             role="columnheader"
             tabindex="-1"
           >
             <div
-              class="sc-epnzzT dFEYDI"
+              class="sc-dJkDXt iwDoBg"
             >
               Column 2
             </div>
@@ -540,18 +608,20 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
         </tr>
       </thead>
       <tbody
-        class="sc-kZrBCu aje-table__body"
+        class="sc-lkbiLU aje-table__body"
         role="rowgroup"
       >
         <tr
           aria-labelledby="react-aria-:r0:-react-aria-6-a"
-          class="sc-fwzISk dorCxf aje-table__row"
+          class="sc-flQbIK eSugfs aje-table__row"
+          data-collection="react-aria-:r1:"
           data-key="react-aria-6"
           role="row"
           tabindex="-1"
         >
           <th
-            class="sc-diYFot cCKata aje-table__cell"
+            class="sc-cYoYeT jruNXQ aje-table__cell"
+            data-collection="react-aria-:r1:"
             data-key="react-aria-4"
             id="react-aria-:r0:-react-aria-6-a"
             role="rowheader"
@@ -560,8 +630,10 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
             Row 1, Cell 1
           </th>
           <td
-            class="sc-kEfuZE gnabOo aje-table__cell"
+            class="sc-ktvNQe pczWz aje-table__cell"
+            data-collection="react-aria-:r1:"
             data-key="react-aria-5"
+            id="react-aria-:r8:"
             role="gridcell"
             tabindex="-1"
           >
@@ -570,13 +642,15 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
         </tr>
         <tr
           aria-labelledby="react-aria-:r0:-react-aria-9-a"
-          class="sc-fwzISk dorCxf aje-table__row"
+          class="sc-flQbIK eSugfs aje-table__row"
+          data-collection="react-aria-:r1:"
           data-key="react-aria-9"
           role="row"
           tabindex="-1"
         >
           <th
-            class="sc-diYFot cCKata aje-table__cell"
+            class="sc-cYoYeT jruNXQ aje-table__cell"
+            data-collection="react-aria-:r1:"
             data-key="react-aria-7"
             id="react-aria-:r0:-react-aria-9-a"
             role="rowheader"
@@ -585,8 +659,10 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
             Row 2, Cell 1
           </th>
           <td
-            class="sc-kEfuZE gnabOo aje-table__cell"
+            class="sc-ktvNQe pczWz aje-table__cell"
+            data-collection="react-aria-:r1:"
             data-key="react-aria-8"
+            id="react-aria-:rc:"
             role="gridcell"
             tabindex="-1"
           >
@@ -655,15 +731,19 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <template
+        data-react-aria-hidden="true"
+      />
       <table
         aria-describedby=""
         aria-label="table"
-        class="sc-hJRrWL fMcKQK aje-table"
+        class="sc-hUAZgl dfoSoM aje-table"
+        data-collection="react-aria-:rr:"
         role="grid"
         tabindex="0"
       >
         <thead
-          class="sc-jhZTHU javOsY aje-table__header"
+          class="sc-iXqmyu elljUK aje-table__header"
           role="rowgroup"
         >
           <tr
@@ -671,50 +751,56 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             role="row"
           >
             <th
-              class="sc-uYFMi icuawB aje-table__column"
+              aria-colindex="1"
+              class="sc-lertIE fzQcfw aje-table__column"
+              data-collection="react-aria-:rr:"
               data-key="a"
               data-searchable="true"
-              id="react-aria-:r8:-a"
+              id="react-aria-:rq:-a"
               role="columnheader"
               tabindex="-1"
             >
               <div
-                class="sc-epnzzT dFEYDI"
+                class="sc-dJkDXt iwDoBg"
               >
                 Column 1
                 <div
                   aria-expanded="false"
-                  class="sc-dntaoT fJCHjt aje-combo-input sc-iwXfZk cvUWSo"
+                  class="sc-dycHyt kIeuYg aje-combo-input sc-jdabBK gYmKCD"
                 >
                   <input
                     aria-label="Search a"
-                    class="sc-fAUdSK kLOCYc"
+                    class="sc-fLDLck XprmO"
                     disabled=""
                     role="search"
                     slot="search"
                     value=""
                   />
                   <button
-                    class="sc-cEzcPc dIiAzj aje-btn sc-ovuCP liBoiK aje-btn--content is-small"
+                    class="sc-dkBYrC gQIXms aje-btn sc-kXOizl cZTTQ aje-btn--content is-small"
                     data-icon-button="true"
+                    tabindex="0"
                     type="button"
                   >
                     <i
                       aria-hidden="true"
-                      class="sc-kLhKbu gELXHy aje-icon material-icons is-small"
+                      class="sc-kfeOyU ceGEEk aje-icon material-icons is-small"
+                      tabindex="0"
                     >
                       close
                     </i>
                   </button>
                 </div>
                 <button
-                  class="sc-cEzcPc dIiAzj aje-btn sc-ovuCP liBoiK aje-btn--content is-small"
+                  class="sc-dkBYrC gQIXms aje-btn sc-kXOizl cZTTQ aje-btn--content is-small"
                   data-icon-button="true"
+                  tabindex="0"
                   type="button"
                 >
                   <i
                     aria-hidden="true"
-                    class="sc-kLhKbu gELXHy aje-icon material-icons is-small"
+                    class="sc-kfeOyU ceGEEk aje-icon material-icons is-small"
+                    tabindex="0"
                   >
                     search
                   </i>
@@ -722,14 +808,16 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
               </div>
             </th>
             <th
-              class="sc-uYFMi icuawB aje-table__column"
+              aria-colindex="2"
+              class="sc-lertIE fzQcfw aje-table__column"
+              data-collection="react-aria-:rr:"
               data-key="b"
-              id="react-aria-:r8:-b"
+              id="react-aria-:rq:-b"
               role="columnheader"
               tabindex="-1"
             >
               <div
-                class="sc-epnzzT dFEYDI"
+                class="sc-dJkDXt iwDoBg"
               >
                 Column 2
               </div>
@@ -737,33 +825,33 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
           </tr>
         </thead>
         <tbody
-          class="sc-kZrBCu aje-table__body"
+          class="sc-lkbiLU aje-table__body"
           data-loading="true"
           role="rowgroup"
         >
           <tr
-            class="sc-fwzISk dorCxf"
+            class="sc-flQbIK eSugfs"
           >
             <td
-              class="sc-kEfuZE gnabOo"
+              class="sc-ktvNQe pczWz"
             >
               <svg
-                aria-labelledby=":ra:-aria"
-                class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+                aria-labelledby=":rv:-aria"
+                class="sc-dVupuq gwjsjL aje-skeleton-loader sc-dslWvo flvyTG"
                 role="img"
               >
                 <rect
-                  clip-path="url(#:ra:-diff)"
+                  clip-path="url(#:rv:-diff)"
                   height="100%"
                   role="presentation"
-                  style="fill: url(#:ra:-animated-diff);"
+                  style="fill: url(#:rv:-animated-diff);"
                   width="100%"
                   x="0"
                   y="0"
                 />
                 <defs>
                   <clippath
-                    id=":ra:-diff"
+                    id=":rv:-diff"
                   >
                     <rect
                       height="100%"
@@ -776,18 +864,18 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   </clippath>
                   <lineargradient
                     gradientTransform="translate(-2 0)"
-                    id=":ra:-animated-diff"
+                    id=":rv:-animated-diff"
                   >
                     <stop
-                      class="sc-eUlrpB dwUQHx"
+                      class="sc-fAomSb kogvQT"
                       offset="0%"
                     />
                     <stop
-                      class="sc-geXuza iflhsR"
+                      class="sc-gpHbIA jmTruK"
                       offset="50%"
                     />
                     <stop
-                      class="sc-eUlrpB dwUQHx"
+                      class="sc-fAomSb kogvQT"
                       offset="100%"
                     />
                     <animatetransform
@@ -802,25 +890,25 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
               </svg>
             </td>
             <td
-              class="sc-kEfuZE gnabOo"
+              class="sc-ktvNQe pczWz"
             >
               <svg
-                aria-labelledby=":rb:-aria"
-                class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+                aria-labelledby=":r10:-aria"
+                class="sc-dVupuq gwjsjL aje-skeleton-loader sc-dslWvo flvyTG"
                 role="img"
               >
                 <rect
-                  clip-path="url(#:rb:-diff)"
+                  clip-path="url(#:r10:-diff)"
                   height="100%"
                   role="presentation"
-                  style="fill: url(#:rb:-animated-diff);"
+                  style="fill: url(#:r10:-animated-diff);"
                   width="100%"
                   x="0"
                   y="0"
                 />
                 <defs>
                   <clippath
-                    id=":rb:-diff"
+                    id=":r10:-diff"
                   >
                     <rect
                       height="100%"
@@ -833,18 +921,18 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   </clippath>
                   <lineargradient
                     gradientTransform="translate(-2 0)"
-                    id=":rb:-animated-diff"
+                    id=":r10:-animated-diff"
                   >
                     <stop
-                      class="sc-eUlrpB dwUQHx"
+                      class="sc-fAomSb kogvQT"
                       offset="0%"
                     />
                     <stop
-                      class="sc-geXuza iflhsR"
+                      class="sc-gpHbIA jmTruK"
                       offset="50%"
                     />
                     <stop
-                      class="sc-eUlrpB dwUQHx"
+                      class="sc-fAomSb kogvQT"
                       offset="100%"
                     />
                     <animatetransform
@@ -860,28 +948,28 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </td>
           </tr>
           <tr
-            class="sc-fwzISk dorCxf"
+            class="sc-flQbIK eSugfs"
           >
             <td
-              class="sc-kEfuZE gnabOo"
+              class="sc-ktvNQe pczWz"
             >
               <svg
-                aria-labelledby=":rc:-aria"
-                class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+                aria-labelledby=":r11:-aria"
+                class="sc-dVupuq gwjsjL aje-skeleton-loader sc-dslWvo flvyTG"
                 role="img"
               >
                 <rect
-                  clip-path="url(#:rc:-diff)"
+                  clip-path="url(#:r11:-diff)"
                   height="100%"
                   role="presentation"
-                  style="fill: url(#:rc:-animated-diff);"
+                  style="fill: url(#:r11:-animated-diff);"
                   width="100%"
                   x="0"
                   y="0"
                 />
                 <defs>
                   <clippath
-                    id=":rc:-diff"
+                    id=":r11:-diff"
                   >
                     <rect
                       height="100%"
@@ -894,18 +982,18 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   </clippath>
                   <lineargradient
                     gradientTransform="translate(-2 0)"
-                    id=":rc:-animated-diff"
+                    id=":r11:-animated-diff"
                   >
                     <stop
-                      class="sc-eUlrpB dwUQHx"
+                      class="sc-fAomSb kogvQT"
                       offset="0%"
                     />
                     <stop
-                      class="sc-geXuza iflhsR"
+                      class="sc-gpHbIA jmTruK"
                       offset="50%"
                     />
                     <stop
-                      class="sc-eUlrpB dwUQHx"
+                      class="sc-fAomSb kogvQT"
                       offset="100%"
                     />
                     <animatetransform
@@ -920,25 +1008,25 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
               </svg>
             </td>
             <td
-              class="sc-kEfuZE gnabOo"
+              class="sc-ktvNQe pczWz"
             >
               <svg
-                aria-labelledby=":rd:-aria"
-                class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+                aria-labelledby=":r12:-aria"
+                class="sc-dVupuq gwjsjL aje-skeleton-loader sc-dslWvo flvyTG"
                 role="img"
               >
                 <rect
-                  clip-path="url(#:rd:-diff)"
+                  clip-path="url(#:r12:-diff)"
                   height="100%"
                   role="presentation"
-                  style="fill: url(#:rd:-animated-diff);"
+                  style="fill: url(#:r12:-animated-diff);"
                   width="100%"
                   x="0"
                   y="0"
                 />
                 <defs>
                   <clippath
-                    id=":rd:-diff"
+                    id=":r12:-diff"
                   >
                     <rect
                       height="100%"
@@ -951,18 +1039,18 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   </clippath>
                   <lineargradient
                     gradientTransform="translate(-2 0)"
-                    id=":rd:-animated-diff"
+                    id=":r12:-animated-diff"
                   >
                     <stop
-                      class="sc-eUlrpB dwUQHx"
+                      class="sc-fAomSb kogvQT"
                       offset="0%"
                     />
                     <stop
-                      class="sc-geXuza iflhsR"
+                      class="sc-gpHbIA jmTruK"
                       offset="50%"
                     />
                     <stop
-                      class="sc-eUlrpB dwUQHx"
+                      class="sc-fAomSb kogvQT"
                       offset="100%"
                     />
                     <animatetransform
@@ -978,28 +1066,28 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </td>
           </tr>
           <tr
-            class="sc-fwzISk dorCxf"
+            class="sc-flQbIK eSugfs"
           >
             <td
-              class="sc-kEfuZE gnabOo"
+              class="sc-ktvNQe pczWz"
             >
               <svg
-                aria-labelledby=":re:-aria"
-                class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+                aria-labelledby=":r13:-aria"
+                class="sc-dVupuq gwjsjL aje-skeleton-loader sc-dslWvo flvyTG"
                 role="img"
               >
                 <rect
-                  clip-path="url(#:re:-diff)"
+                  clip-path="url(#:r13:-diff)"
                   height="100%"
                   role="presentation"
-                  style="fill: url(#:re:-animated-diff);"
+                  style="fill: url(#:r13:-animated-diff);"
                   width="100%"
                   x="0"
                   y="0"
                 />
                 <defs>
                   <clippath
-                    id=":re:-diff"
+                    id=":r13:-diff"
                   >
                     <rect
                       height="100%"
@@ -1012,18 +1100,18 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   </clippath>
                   <lineargradient
                     gradientTransform="translate(-2 0)"
-                    id=":re:-animated-diff"
+                    id=":r13:-animated-diff"
                   >
                     <stop
-                      class="sc-eUlrpB dwUQHx"
+                      class="sc-fAomSb kogvQT"
                       offset="0%"
                     />
                     <stop
-                      class="sc-geXuza iflhsR"
+                      class="sc-gpHbIA jmTruK"
                       offset="50%"
                     />
                     <stop
-                      class="sc-eUlrpB dwUQHx"
+                      class="sc-fAomSb kogvQT"
                       offset="100%"
                     />
                     <animatetransform
@@ -1038,25 +1126,25 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
               </svg>
             </td>
             <td
-              class="sc-kEfuZE gnabOo"
+              class="sc-ktvNQe pczWz"
             >
               <svg
-                aria-labelledby=":rf:-aria"
-                class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+                aria-labelledby=":r14:-aria"
+                class="sc-dVupuq gwjsjL aje-skeleton-loader sc-dslWvo flvyTG"
                 role="img"
               >
                 <rect
-                  clip-path="url(#:rf:-diff)"
+                  clip-path="url(#:r14:-diff)"
                   height="100%"
                   role="presentation"
-                  style="fill: url(#:rf:-animated-diff);"
+                  style="fill: url(#:r14:-animated-diff);"
                   width="100%"
                   x="0"
                   y="0"
                 />
                 <defs>
                   <clippath
-                    id=":rf:-diff"
+                    id=":r14:-diff"
                   >
                     <rect
                       height="100%"
@@ -1069,18 +1157,18 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   </clippath>
                   <lineargradient
                     gradientTransform="translate(-2 0)"
-                    id=":rf:-animated-diff"
+                    id=":r14:-animated-diff"
                   >
                     <stop
-                      class="sc-eUlrpB dwUQHx"
+                      class="sc-fAomSb kogvQT"
                       offset="0%"
                     />
                     <stop
-                      class="sc-geXuza iflhsR"
+                      class="sc-gpHbIA jmTruK"
                       offset="50%"
                     />
                     <stop
-                      class="sc-eUlrpB dwUQHx"
+                      class="sc-fAomSb kogvQT"
                       offset="100%"
                     />
                     <animatetransform
@@ -1096,28 +1184,28 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </td>
           </tr>
           <tr
-            class="sc-fwzISk dorCxf"
+            class="sc-flQbIK eSugfs"
           >
             <td
-              class="sc-kEfuZE gnabOo"
+              class="sc-ktvNQe pczWz"
             >
               <svg
-                aria-labelledby=":rg:-aria"
-                class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+                aria-labelledby=":r15:-aria"
+                class="sc-dVupuq gwjsjL aje-skeleton-loader sc-dslWvo flvyTG"
                 role="img"
               >
                 <rect
-                  clip-path="url(#:rg:-diff)"
+                  clip-path="url(#:r15:-diff)"
                   height="100%"
                   role="presentation"
-                  style="fill: url(#:rg:-animated-diff);"
+                  style="fill: url(#:r15:-animated-diff);"
                   width="100%"
                   x="0"
                   y="0"
                 />
                 <defs>
                   <clippath
-                    id=":rg:-diff"
+                    id=":r15:-diff"
                   >
                     <rect
                       height="100%"
@@ -1130,18 +1218,18 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   </clippath>
                   <lineargradient
                     gradientTransform="translate(-2 0)"
-                    id=":rg:-animated-diff"
+                    id=":r15:-animated-diff"
                   >
                     <stop
-                      class="sc-eUlrpB dwUQHx"
+                      class="sc-fAomSb kogvQT"
                       offset="0%"
                     />
                     <stop
-                      class="sc-geXuza iflhsR"
+                      class="sc-gpHbIA jmTruK"
                       offset="50%"
                     />
                     <stop
-                      class="sc-eUlrpB dwUQHx"
+                      class="sc-fAomSb kogvQT"
                       offset="100%"
                     />
                     <animatetransform
@@ -1156,25 +1244,25 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
               </svg>
             </td>
             <td
-              class="sc-kEfuZE gnabOo"
+              class="sc-ktvNQe pczWz"
             >
               <svg
-                aria-labelledby=":rh:-aria"
-                class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+                aria-labelledby=":r16:-aria"
+                class="sc-dVupuq gwjsjL aje-skeleton-loader sc-dslWvo flvyTG"
                 role="img"
               >
                 <rect
-                  clip-path="url(#:rh:-diff)"
+                  clip-path="url(#:r16:-diff)"
                   height="100%"
                   role="presentation"
-                  style="fill: url(#:rh:-animated-diff);"
+                  style="fill: url(#:r16:-animated-diff);"
                   width="100%"
                   x="0"
                   y="0"
                 />
                 <defs>
                   <clippath
-                    id=":rh:-diff"
+                    id=":r16:-diff"
                   >
                     <rect
                       height="100%"
@@ -1187,18 +1275,18 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   </clippath>
                   <lineargradient
                     gradientTransform="translate(-2 0)"
-                    id=":rh:-animated-diff"
+                    id=":r16:-animated-diff"
                   >
                     <stop
-                      class="sc-eUlrpB dwUQHx"
+                      class="sc-fAomSb kogvQT"
                       offset="0%"
                     />
                     <stop
-                      class="sc-geXuza iflhsR"
+                      class="sc-gpHbIA jmTruK"
                       offset="50%"
                     />
                     <stop
-                      class="sc-eUlrpB dwUQHx"
+                      class="sc-fAomSb kogvQT"
                       offset="100%"
                     />
                     <animatetransform
@@ -1214,28 +1302,28 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </td>
           </tr>
           <tr
-            class="sc-fwzISk dorCxf"
+            class="sc-flQbIK eSugfs"
           >
             <td
-              class="sc-kEfuZE gnabOo"
+              class="sc-ktvNQe pczWz"
             >
               <svg
-                aria-labelledby=":ri:-aria"
-                class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+                aria-labelledby=":r17:-aria"
+                class="sc-dVupuq gwjsjL aje-skeleton-loader sc-dslWvo flvyTG"
                 role="img"
               >
                 <rect
-                  clip-path="url(#:ri:-diff)"
+                  clip-path="url(#:r17:-diff)"
                   height="100%"
                   role="presentation"
-                  style="fill: url(#:ri:-animated-diff);"
+                  style="fill: url(#:r17:-animated-diff);"
                   width="100%"
                   x="0"
                   y="0"
                 />
                 <defs>
                   <clippath
-                    id=":ri:-diff"
+                    id=":r17:-diff"
                   >
                     <rect
                       height="100%"
@@ -1248,18 +1336,18 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   </clippath>
                   <lineargradient
                     gradientTransform="translate(-2 0)"
-                    id=":ri:-animated-diff"
+                    id=":r17:-animated-diff"
                   >
                     <stop
-                      class="sc-eUlrpB dwUQHx"
+                      class="sc-fAomSb kogvQT"
                       offset="0%"
                     />
                     <stop
-                      class="sc-geXuza iflhsR"
+                      class="sc-gpHbIA jmTruK"
                       offset="50%"
                     />
                     <stop
-                      class="sc-eUlrpB dwUQHx"
+                      class="sc-fAomSb kogvQT"
                       offset="100%"
                     />
                     <animatetransform
@@ -1274,25 +1362,25 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
               </svg>
             </td>
             <td
-              class="sc-kEfuZE gnabOo"
+              class="sc-ktvNQe pczWz"
             >
               <svg
-                aria-labelledby=":rj:-aria"
-                class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+                aria-labelledby=":r18:-aria"
+                class="sc-dVupuq gwjsjL aje-skeleton-loader sc-dslWvo flvyTG"
                 role="img"
               >
                 <rect
-                  clip-path="url(#:rj:-diff)"
+                  clip-path="url(#:r18:-diff)"
                   height="100%"
                   role="presentation"
-                  style="fill: url(#:rj:-animated-diff);"
+                  style="fill: url(#:r18:-animated-diff);"
                   width="100%"
                   x="0"
                   y="0"
                 />
                 <defs>
                   <clippath
-                    id=":rj:-diff"
+                    id=":r18:-diff"
                   >
                     <rect
                       height="100%"
@@ -1305,18 +1393,18 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   </clippath>
                   <lineargradient
                     gradientTransform="translate(-2 0)"
-                    id=":rj:-animated-diff"
+                    id=":r18:-animated-diff"
                   >
                     <stop
-                      class="sc-eUlrpB dwUQHx"
+                      class="sc-fAomSb kogvQT"
                       offset="0%"
                     />
                     <stop
-                      class="sc-geXuza iflhsR"
+                      class="sc-gpHbIA jmTruK"
                       offset="50%"
                     />
                     <stop
-                      class="sc-eUlrpB dwUQHx"
+                      class="sc-fAomSb kogvQT"
                       offset="100%"
                     />
                     <animatetransform
@@ -1332,28 +1420,28 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </td>
           </tr>
           <tr
-            class="sc-fwzISk dorCxf"
+            class="sc-flQbIK eSugfs"
           >
             <td
-              class="sc-kEfuZE gnabOo"
+              class="sc-ktvNQe pczWz"
             >
               <svg
-                aria-labelledby=":rk:-aria"
-                class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+                aria-labelledby=":r19:-aria"
+                class="sc-dVupuq gwjsjL aje-skeleton-loader sc-dslWvo flvyTG"
                 role="img"
               >
                 <rect
-                  clip-path="url(#:rk:-diff)"
+                  clip-path="url(#:r19:-diff)"
                   height="100%"
                   role="presentation"
-                  style="fill: url(#:rk:-animated-diff);"
+                  style="fill: url(#:r19:-animated-diff);"
                   width="100%"
                   x="0"
                   y="0"
                 />
                 <defs>
                   <clippath
-                    id=":rk:-diff"
+                    id=":r19:-diff"
                   >
                     <rect
                       height="100%"
@@ -1366,18 +1454,18 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   </clippath>
                   <lineargradient
                     gradientTransform="translate(-2 0)"
-                    id=":rk:-animated-diff"
+                    id=":r19:-animated-diff"
                   >
                     <stop
-                      class="sc-eUlrpB dwUQHx"
+                      class="sc-fAomSb kogvQT"
                       offset="0%"
                     />
                     <stop
-                      class="sc-geXuza iflhsR"
+                      class="sc-gpHbIA jmTruK"
                       offset="50%"
                     />
                     <stop
-                      class="sc-eUlrpB dwUQHx"
+                      class="sc-fAomSb kogvQT"
                       offset="100%"
                     />
                     <animatetransform
@@ -1392,25 +1480,25 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
               </svg>
             </td>
             <td
-              class="sc-kEfuZE gnabOo"
+              class="sc-ktvNQe pczWz"
             >
               <svg
-                aria-labelledby=":rl:-aria"
-                class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+                aria-labelledby=":r1a:-aria"
+                class="sc-dVupuq gwjsjL aje-skeleton-loader sc-dslWvo flvyTG"
                 role="img"
               >
                 <rect
-                  clip-path="url(#:rl:-diff)"
+                  clip-path="url(#:r1a:-diff)"
                   height="100%"
                   role="presentation"
-                  style="fill: url(#:rl:-animated-diff);"
+                  style="fill: url(#:r1a:-animated-diff);"
                   width="100%"
                   x="0"
                   y="0"
                 />
                 <defs>
                   <clippath
-                    id=":rl:-diff"
+                    id=":r1a:-diff"
                   >
                     <rect
                       height="100%"
@@ -1423,18 +1511,18 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   </clippath>
                   <lineargradient
                     gradientTransform="translate(-2 0)"
-                    id=":rl:-animated-diff"
+                    id=":r1a:-animated-diff"
                   >
                     <stop
-                      class="sc-eUlrpB dwUQHx"
+                      class="sc-fAomSb kogvQT"
                       offset="0%"
                     />
                     <stop
-                      class="sc-geXuza iflhsR"
+                      class="sc-gpHbIA jmTruK"
                       offset="50%"
                     />
                     <stop
-                      class="sc-eUlrpB dwUQHx"
+                      class="sc-fAomSb kogvQT"
                       offset="100%"
                     />
                     <animatetransform
@@ -1450,28 +1538,28 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </td>
           </tr>
           <tr
-            class="sc-fwzISk dorCxf"
+            class="sc-flQbIK eSugfs"
           >
             <td
-              class="sc-kEfuZE gnabOo"
+              class="sc-ktvNQe pczWz"
             >
               <svg
-                aria-labelledby=":rm:-aria"
-                class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+                aria-labelledby=":r1b:-aria"
+                class="sc-dVupuq gwjsjL aje-skeleton-loader sc-dslWvo flvyTG"
                 role="img"
               >
                 <rect
-                  clip-path="url(#:rm:-diff)"
+                  clip-path="url(#:r1b:-diff)"
                   height="100%"
                   role="presentation"
-                  style="fill: url(#:rm:-animated-diff);"
+                  style="fill: url(#:r1b:-animated-diff);"
                   width="100%"
                   x="0"
                   y="0"
                 />
                 <defs>
                   <clippath
-                    id=":rm:-diff"
+                    id=":r1b:-diff"
                   >
                     <rect
                       height="100%"
@@ -1484,18 +1572,18 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   </clippath>
                   <lineargradient
                     gradientTransform="translate(-2 0)"
-                    id=":rm:-animated-diff"
+                    id=":r1b:-animated-diff"
                   >
                     <stop
-                      class="sc-eUlrpB dwUQHx"
+                      class="sc-fAomSb kogvQT"
                       offset="0%"
                     />
                     <stop
-                      class="sc-geXuza iflhsR"
+                      class="sc-gpHbIA jmTruK"
                       offset="50%"
                     />
                     <stop
-                      class="sc-eUlrpB dwUQHx"
+                      class="sc-fAomSb kogvQT"
                       offset="100%"
                     />
                     <animatetransform
@@ -1510,25 +1598,25 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
               </svg>
             </td>
             <td
-              class="sc-kEfuZE gnabOo"
+              class="sc-ktvNQe pczWz"
             >
               <svg
-                aria-labelledby=":rn:-aria"
-                class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+                aria-labelledby=":r1c:-aria"
+                class="sc-dVupuq gwjsjL aje-skeleton-loader sc-dslWvo flvyTG"
                 role="img"
               >
                 <rect
-                  clip-path="url(#:rn:-diff)"
+                  clip-path="url(#:r1c:-diff)"
                   height="100%"
                   role="presentation"
-                  style="fill: url(#:rn:-animated-diff);"
+                  style="fill: url(#:r1c:-animated-diff);"
                   width="100%"
                   x="0"
                   y="0"
                 />
                 <defs>
                   <clippath
-                    id=":rn:-diff"
+                    id=":r1c:-diff"
                   >
                     <rect
                       height="100%"
@@ -1541,18 +1629,18 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   </clippath>
                   <lineargradient
                     gradientTransform="translate(-2 0)"
-                    id=":rn:-animated-diff"
+                    id=":r1c:-animated-diff"
                   >
                     <stop
-                      class="sc-eUlrpB dwUQHx"
+                      class="sc-fAomSb kogvQT"
                       offset="0%"
                     />
                     <stop
-                      class="sc-geXuza iflhsR"
+                      class="sc-gpHbIA jmTruK"
                       offset="50%"
                     />
                     <stop
-                      class="sc-eUlrpB dwUQHx"
+                      class="sc-fAomSb kogvQT"
                       offset="100%"
                     />
                     <animatetransform
@@ -1568,28 +1656,28 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </td>
           </tr>
           <tr
-            class="sc-fwzISk dorCxf"
+            class="sc-flQbIK eSugfs"
           >
             <td
-              class="sc-kEfuZE gnabOo"
+              class="sc-ktvNQe pczWz"
             >
               <svg
-                aria-labelledby=":ro:-aria"
-                class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+                aria-labelledby=":r1d:-aria"
+                class="sc-dVupuq gwjsjL aje-skeleton-loader sc-dslWvo flvyTG"
                 role="img"
               >
                 <rect
-                  clip-path="url(#:ro:-diff)"
+                  clip-path="url(#:r1d:-diff)"
                   height="100%"
                   role="presentation"
-                  style="fill: url(#:ro:-animated-diff);"
+                  style="fill: url(#:r1d:-animated-diff);"
                   width="100%"
                   x="0"
                   y="0"
                 />
                 <defs>
                   <clippath
-                    id=":ro:-diff"
+                    id=":r1d:-diff"
                   >
                     <rect
                       height="100%"
@@ -1602,18 +1690,18 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   </clippath>
                   <lineargradient
                     gradientTransform="translate(-2 0)"
-                    id=":ro:-animated-diff"
+                    id=":r1d:-animated-diff"
                   >
                     <stop
-                      class="sc-eUlrpB dwUQHx"
+                      class="sc-fAomSb kogvQT"
                       offset="0%"
                     />
                     <stop
-                      class="sc-geXuza iflhsR"
+                      class="sc-gpHbIA jmTruK"
                       offset="50%"
                     />
                     <stop
-                      class="sc-eUlrpB dwUQHx"
+                      class="sc-fAomSb kogvQT"
                       offset="100%"
                     />
                     <animatetransform
@@ -1628,25 +1716,25 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
               </svg>
             </td>
             <td
-              class="sc-kEfuZE gnabOo"
+              class="sc-ktvNQe pczWz"
             >
               <svg
-                aria-labelledby=":rp:-aria"
-                class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+                aria-labelledby=":r1e:-aria"
+                class="sc-dVupuq gwjsjL aje-skeleton-loader sc-dslWvo flvyTG"
                 role="img"
               >
                 <rect
-                  clip-path="url(#:rp:-diff)"
+                  clip-path="url(#:r1e:-diff)"
                   height="100%"
                   role="presentation"
-                  style="fill: url(#:rp:-animated-diff);"
+                  style="fill: url(#:r1e:-animated-diff);"
                   width="100%"
                   x="0"
                   y="0"
                 />
                 <defs>
                   <clippath
-                    id=":rp:-diff"
+                    id=":r1e:-diff"
                   >
                     <rect
                       height="100%"
@@ -1659,18 +1747,18 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   </clippath>
                   <lineargradient
                     gradientTransform="translate(-2 0)"
-                    id=":rp:-animated-diff"
+                    id=":r1e:-animated-diff"
                   >
                     <stop
-                      class="sc-eUlrpB dwUQHx"
+                      class="sc-fAomSb kogvQT"
                       offset="0%"
                     />
                     <stop
-                      class="sc-geXuza iflhsR"
+                      class="sc-gpHbIA jmTruK"
                       offset="50%"
                     />
                     <stop
-                      class="sc-eUlrpB dwUQHx"
+                      class="sc-fAomSb kogvQT"
                       offset="100%"
                     />
                     <animatetransform
@@ -1686,28 +1774,28 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </td>
           </tr>
           <tr
-            class="sc-fwzISk dorCxf"
+            class="sc-flQbIK eSugfs"
           >
             <td
-              class="sc-kEfuZE gnabOo"
+              class="sc-ktvNQe pczWz"
             >
               <svg
-                aria-labelledby=":rq:-aria"
-                class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+                aria-labelledby=":r1f:-aria"
+                class="sc-dVupuq gwjsjL aje-skeleton-loader sc-dslWvo flvyTG"
                 role="img"
               >
                 <rect
-                  clip-path="url(#:rq:-diff)"
+                  clip-path="url(#:r1f:-diff)"
                   height="100%"
                   role="presentation"
-                  style="fill: url(#:rq:-animated-diff);"
+                  style="fill: url(#:r1f:-animated-diff);"
                   width="100%"
                   x="0"
                   y="0"
                 />
                 <defs>
                   <clippath
-                    id=":rq:-diff"
+                    id=":r1f:-diff"
                   >
                     <rect
                       height="100%"
@@ -1720,18 +1808,18 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   </clippath>
                   <lineargradient
                     gradientTransform="translate(-2 0)"
-                    id=":rq:-animated-diff"
+                    id=":r1f:-animated-diff"
                   >
                     <stop
-                      class="sc-eUlrpB dwUQHx"
+                      class="sc-fAomSb kogvQT"
                       offset="0%"
                     />
                     <stop
-                      class="sc-geXuza iflhsR"
+                      class="sc-gpHbIA jmTruK"
                       offset="50%"
                     />
                     <stop
-                      class="sc-eUlrpB dwUQHx"
+                      class="sc-fAomSb kogvQT"
                       offset="100%"
                     />
                     <animatetransform
@@ -1746,25 +1834,25 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
               </svg>
             </td>
             <td
-              class="sc-kEfuZE gnabOo"
+              class="sc-ktvNQe pczWz"
             >
               <svg
-                aria-labelledby=":rr:-aria"
-                class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+                aria-labelledby=":r1g:-aria"
+                class="sc-dVupuq gwjsjL aje-skeleton-loader sc-dslWvo flvyTG"
                 role="img"
               >
                 <rect
-                  clip-path="url(#:rr:-diff)"
+                  clip-path="url(#:r1g:-diff)"
                   height="100%"
                   role="presentation"
-                  style="fill: url(#:rr:-animated-diff);"
+                  style="fill: url(#:r1g:-animated-diff);"
                   width="100%"
                   x="0"
                   y="0"
                 />
                 <defs>
                   <clippath
-                    id=":rr:-diff"
+                    id=":r1g:-diff"
                   >
                     <rect
                       height="100%"
@@ -1777,18 +1865,18 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   </clippath>
                   <lineargradient
                     gradientTransform="translate(-2 0)"
-                    id=":rr:-animated-diff"
+                    id=":r1g:-animated-diff"
                   >
                     <stop
-                      class="sc-eUlrpB dwUQHx"
+                      class="sc-fAomSb kogvQT"
                       offset="0%"
                     />
                     <stop
-                      class="sc-geXuza iflhsR"
+                      class="sc-gpHbIA jmTruK"
                       offset="50%"
                     />
                     <stop
-                      class="sc-eUlrpB dwUQHx"
+                      class="sc-fAomSb kogvQT"
                       offset="100%"
                     />
                     <animatetransform
@@ -1804,28 +1892,28 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </td>
           </tr>
           <tr
-            class="sc-fwzISk dorCxf"
+            class="sc-flQbIK eSugfs"
           >
             <td
-              class="sc-kEfuZE gnabOo"
+              class="sc-ktvNQe pczWz"
             >
               <svg
-                aria-labelledby=":rs:-aria"
-                class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+                aria-labelledby=":r1h:-aria"
+                class="sc-dVupuq gwjsjL aje-skeleton-loader sc-dslWvo flvyTG"
                 role="img"
               >
                 <rect
-                  clip-path="url(#:rs:-diff)"
+                  clip-path="url(#:r1h:-diff)"
                   height="100%"
                   role="presentation"
-                  style="fill: url(#:rs:-animated-diff);"
+                  style="fill: url(#:r1h:-animated-diff);"
                   width="100%"
                   x="0"
                   y="0"
                 />
                 <defs>
                   <clippath
-                    id=":rs:-diff"
+                    id=":r1h:-diff"
                   >
                     <rect
                       height="100%"
@@ -1838,18 +1926,18 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   </clippath>
                   <lineargradient
                     gradientTransform="translate(-2 0)"
-                    id=":rs:-animated-diff"
+                    id=":r1h:-animated-diff"
                   >
                     <stop
-                      class="sc-eUlrpB dwUQHx"
+                      class="sc-fAomSb kogvQT"
                       offset="0%"
                     />
                     <stop
-                      class="sc-geXuza iflhsR"
+                      class="sc-gpHbIA jmTruK"
                       offset="50%"
                     />
                     <stop
-                      class="sc-eUlrpB dwUQHx"
+                      class="sc-fAomSb kogvQT"
                       offset="100%"
                     />
                     <animatetransform
@@ -1864,25 +1952,25 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
               </svg>
             </td>
             <td
-              class="sc-kEfuZE gnabOo"
+              class="sc-ktvNQe pczWz"
             >
               <svg
-                aria-labelledby=":rt:-aria"
-                class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+                aria-labelledby=":r1i:-aria"
+                class="sc-dVupuq gwjsjL aje-skeleton-loader sc-dslWvo flvyTG"
                 role="img"
               >
                 <rect
-                  clip-path="url(#:rt:-diff)"
+                  clip-path="url(#:r1i:-diff)"
                   height="100%"
                   role="presentation"
-                  style="fill: url(#:rt:-animated-diff);"
+                  style="fill: url(#:r1i:-animated-diff);"
                   width="100%"
                   x="0"
                   y="0"
                 />
                 <defs>
                   <clippath
-                    id=":rt:-diff"
+                    id=":r1i:-diff"
                   >
                     <rect
                       height="100%"
@@ -1895,18 +1983,18 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   </clippath>
                   <lineargradient
                     gradientTransform="translate(-2 0)"
-                    id=":rt:-animated-diff"
+                    id=":r1i:-animated-diff"
                   >
                     <stop
-                      class="sc-eUlrpB dwUQHx"
+                      class="sc-fAomSb kogvQT"
                       offset="0%"
                     />
                     <stop
-                      class="sc-geXuza iflhsR"
+                      class="sc-gpHbIA jmTruK"
                       offset="50%"
                     />
                     <stop
-                      class="sc-eUlrpB dwUQHx"
+                      class="sc-fAomSb kogvQT"
                       offset="100%"
                     />
                     <animatetransform
@@ -1926,15 +2014,19 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
     </div>
   </body>,
   "container": <div>
+    <template
+      data-react-aria-hidden="true"
+    />
     <table
       aria-describedby=""
       aria-label="table"
-      class="sc-hJRrWL fMcKQK aje-table"
+      class="sc-hUAZgl dfoSoM aje-table"
+      data-collection="react-aria-:rr:"
       role="grid"
       tabindex="0"
     >
       <thead
-        class="sc-jhZTHU javOsY aje-table__header"
+        class="sc-iXqmyu elljUK aje-table__header"
         role="rowgroup"
       >
         <tr
@@ -1942,50 +2034,56 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
           role="row"
         >
           <th
-            class="sc-uYFMi icuawB aje-table__column"
+            aria-colindex="1"
+            class="sc-lertIE fzQcfw aje-table__column"
+            data-collection="react-aria-:rr:"
             data-key="a"
             data-searchable="true"
-            id="react-aria-:r8:-a"
+            id="react-aria-:rq:-a"
             role="columnheader"
             tabindex="-1"
           >
             <div
-              class="sc-epnzzT dFEYDI"
+              class="sc-dJkDXt iwDoBg"
             >
               Column 1
               <div
                 aria-expanded="false"
-                class="sc-dntaoT fJCHjt aje-combo-input sc-iwXfZk cvUWSo"
+                class="sc-dycHyt kIeuYg aje-combo-input sc-jdabBK gYmKCD"
               >
                 <input
                   aria-label="Search a"
-                  class="sc-fAUdSK kLOCYc"
+                  class="sc-fLDLck XprmO"
                   disabled=""
                   role="search"
                   slot="search"
                   value=""
                 />
                 <button
-                  class="sc-cEzcPc dIiAzj aje-btn sc-ovuCP liBoiK aje-btn--content is-small"
+                  class="sc-dkBYrC gQIXms aje-btn sc-kXOizl cZTTQ aje-btn--content is-small"
                   data-icon-button="true"
+                  tabindex="0"
                   type="button"
                 >
                   <i
                     aria-hidden="true"
-                    class="sc-kLhKbu gELXHy aje-icon material-icons is-small"
+                    class="sc-kfeOyU ceGEEk aje-icon material-icons is-small"
+                    tabindex="0"
                   >
                     close
                   </i>
                 </button>
               </div>
               <button
-                class="sc-cEzcPc dIiAzj aje-btn sc-ovuCP liBoiK aje-btn--content is-small"
+                class="sc-dkBYrC gQIXms aje-btn sc-kXOizl cZTTQ aje-btn--content is-small"
                 data-icon-button="true"
+                tabindex="0"
                 type="button"
               >
                 <i
                   aria-hidden="true"
-                  class="sc-kLhKbu gELXHy aje-icon material-icons is-small"
+                  class="sc-kfeOyU ceGEEk aje-icon material-icons is-small"
+                  tabindex="0"
                 >
                   search
                 </i>
@@ -1993,14 +2091,16 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </div>
           </th>
           <th
-            class="sc-uYFMi icuawB aje-table__column"
+            aria-colindex="2"
+            class="sc-lertIE fzQcfw aje-table__column"
+            data-collection="react-aria-:rr:"
             data-key="b"
-            id="react-aria-:r8:-b"
+            id="react-aria-:rq:-b"
             role="columnheader"
             tabindex="-1"
           >
             <div
-              class="sc-epnzzT dFEYDI"
+              class="sc-dJkDXt iwDoBg"
             >
               Column 2
             </div>
@@ -2008,33 +2108,33 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
         </tr>
       </thead>
       <tbody
-        class="sc-kZrBCu aje-table__body"
+        class="sc-lkbiLU aje-table__body"
         data-loading="true"
         role="rowgroup"
       >
         <tr
-          class="sc-fwzISk dorCxf"
+          class="sc-flQbIK eSugfs"
         >
           <td
-            class="sc-kEfuZE gnabOo"
+            class="sc-ktvNQe pczWz"
           >
             <svg
-              aria-labelledby=":ra:-aria"
-              class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+              aria-labelledby=":rv:-aria"
+              class="sc-dVupuq gwjsjL aje-skeleton-loader sc-dslWvo flvyTG"
               role="img"
             >
               <rect
-                clip-path="url(#:ra:-diff)"
+                clip-path="url(#:rv:-diff)"
                 height="100%"
                 role="presentation"
-                style="fill: url(#:ra:-animated-diff);"
+                style="fill: url(#:rv:-animated-diff);"
                 width="100%"
                 x="0"
                 y="0"
               />
               <defs>
                 <clippath
-                  id=":ra:-diff"
+                  id=":rv:-diff"
                 >
                   <rect
                     height="100%"
@@ -2047,18 +2147,18 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                 </clippath>
                 <lineargradient
                   gradientTransform="translate(-2 0)"
-                  id=":ra:-animated-diff"
+                  id=":rv:-animated-diff"
                 >
                   <stop
-                    class="sc-eUlrpB dwUQHx"
+                    class="sc-fAomSb kogvQT"
                     offset="0%"
                   />
                   <stop
-                    class="sc-geXuza iflhsR"
+                    class="sc-gpHbIA jmTruK"
                     offset="50%"
                   />
                   <stop
-                    class="sc-eUlrpB dwUQHx"
+                    class="sc-fAomSb kogvQT"
                     offset="100%"
                   />
                   <animatetransform
@@ -2073,25 +2173,25 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </svg>
           </td>
           <td
-            class="sc-kEfuZE gnabOo"
+            class="sc-ktvNQe pczWz"
           >
             <svg
-              aria-labelledby=":rb:-aria"
-              class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+              aria-labelledby=":r10:-aria"
+              class="sc-dVupuq gwjsjL aje-skeleton-loader sc-dslWvo flvyTG"
               role="img"
             >
               <rect
-                clip-path="url(#:rb:-diff)"
+                clip-path="url(#:r10:-diff)"
                 height="100%"
                 role="presentation"
-                style="fill: url(#:rb:-animated-diff);"
+                style="fill: url(#:r10:-animated-diff);"
                 width="100%"
                 x="0"
                 y="0"
               />
               <defs>
                 <clippath
-                  id=":rb:-diff"
+                  id=":r10:-diff"
                 >
                   <rect
                     height="100%"
@@ -2104,18 +2204,18 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                 </clippath>
                 <lineargradient
                   gradientTransform="translate(-2 0)"
-                  id=":rb:-animated-diff"
+                  id=":r10:-animated-diff"
                 >
                   <stop
-                    class="sc-eUlrpB dwUQHx"
+                    class="sc-fAomSb kogvQT"
                     offset="0%"
                   />
                   <stop
-                    class="sc-geXuza iflhsR"
+                    class="sc-gpHbIA jmTruK"
                     offset="50%"
                   />
                   <stop
-                    class="sc-eUlrpB dwUQHx"
+                    class="sc-fAomSb kogvQT"
                     offset="100%"
                   />
                   <animatetransform
@@ -2131,28 +2231,28 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
           </td>
         </tr>
         <tr
-          class="sc-fwzISk dorCxf"
+          class="sc-flQbIK eSugfs"
         >
           <td
-            class="sc-kEfuZE gnabOo"
+            class="sc-ktvNQe pczWz"
           >
             <svg
-              aria-labelledby=":rc:-aria"
-              class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+              aria-labelledby=":r11:-aria"
+              class="sc-dVupuq gwjsjL aje-skeleton-loader sc-dslWvo flvyTG"
               role="img"
             >
               <rect
-                clip-path="url(#:rc:-diff)"
+                clip-path="url(#:r11:-diff)"
                 height="100%"
                 role="presentation"
-                style="fill: url(#:rc:-animated-diff);"
+                style="fill: url(#:r11:-animated-diff);"
                 width="100%"
                 x="0"
                 y="0"
               />
               <defs>
                 <clippath
-                  id=":rc:-diff"
+                  id=":r11:-diff"
                 >
                   <rect
                     height="100%"
@@ -2165,18 +2265,18 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                 </clippath>
                 <lineargradient
                   gradientTransform="translate(-2 0)"
-                  id=":rc:-animated-diff"
+                  id=":r11:-animated-diff"
                 >
                   <stop
-                    class="sc-eUlrpB dwUQHx"
+                    class="sc-fAomSb kogvQT"
                     offset="0%"
                   />
                   <stop
-                    class="sc-geXuza iflhsR"
+                    class="sc-gpHbIA jmTruK"
                     offset="50%"
                   />
                   <stop
-                    class="sc-eUlrpB dwUQHx"
+                    class="sc-fAomSb kogvQT"
                     offset="100%"
                   />
                   <animatetransform
@@ -2191,25 +2291,25 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </svg>
           </td>
           <td
-            class="sc-kEfuZE gnabOo"
+            class="sc-ktvNQe pczWz"
           >
             <svg
-              aria-labelledby=":rd:-aria"
-              class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+              aria-labelledby=":r12:-aria"
+              class="sc-dVupuq gwjsjL aje-skeleton-loader sc-dslWvo flvyTG"
               role="img"
             >
               <rect
-                clip-path="url(#:rd:-diff)"
+                clip-path="url(#:r12:-diff)"
                 height="100%"
                 role="presentation"
-                style="fill: url(#:rd:-animated-diff);"
+                style="fill: url(#:r12:-animated-diff);"
                 width="100%"
                 x="0"
                 y="0"
               />
               <defs>
                 <clippath
-                  id=":rd:-diff"
+                  id=":r12:-diff"
                 >
                   <rect
                     height="100%"
@@ -2222,18 +2322,18 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                 </clippath>
                 <lineargradient
                   gradientTransform="translate(-2 0)"
-                  id=":rd:-animated-diff"
+                  id=":r12:-animated-diff"
                 >
                   <stop
-                    class="sc-eUlrpB dwUQHx"
+                    class="sc-fAomSb kogvQT"
                     offset="0%"
                   />
                   <stop
-                    class="sc-geXuza iflhsR"
+                    class="sc-gpHbIA jmTruK"
                     offset="50%"
                   />
                   <stop
-                    class="sc-eUlrpB dwUQHx"
+                    class="sc-fAomSb kogvQT"
                     offset="100%"
                   />
                   <animatetransform
@@ -2249,28 +2349,28 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
           </td>
         </tr>
         <tr
-          class="sc-fwzISk dorCxf"
+          class="sc-flQbIK eSugfs"
         >
           <td
-            class="sc-kEfuZE gnabOo"
+            class="sc-ktvNQe pczWz"
           >
             <svg
-              aria-labelledby=":re:-aria"
-              class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+              aria-labelledby=":r13:-aria"
+              class="sc-dVupuq gwjsjL aje-skeleton-loader sc-dslWvo flvyTG"
               role="img"
             >
               <rect
-                clip-path="url(#:re:-diff)"
+                clip-path="url(#:r13:-diff)"
                 height="100%"
                 role="presentation"
-                style="fill: url(#:re:-animated-diff);"
+                style="fill: url(#:r13:-animated-diff);"
                 width="100%"
                 x="0"
                 y="0"
               />
               <defs>
                 <clippath
-                  id=":re:-diff"
+                  id=":r13:-diff"
                 >
                   <rect
                     height="100%"
@@ -2283,18 +2383,18 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                 </clippath>
                 <lineargradient
                   gradientTransform="translate(-2 0)"
-                  id=":re:-animated-diff"
+                  id=":r13:-animated-diff"
                 >
                   <stop
-                    class="sc-eUlrpB dwUQHx"
+                    class="sc-fAomSb kogvQT"
                     offset="0%"
                   />
                   <stop
-                    class="sc-geXuza iflhsR"
+                    class="sc-gpHbIA jmTruK"
                     offset="50%"
                   />
                   <stop
-                    class="sc-eUlrpB dwUQHx"
+                    class="sc-fAomSb kogvQT"
                     offset="100%"
                   />
                   <animatetransform
@@ -2309,25 +2409,25 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </svg>
           </td>
           <td
-            class="sc-kEfuZE gnabOo"
+            class="sc-ktvNQe pczWz"
           >
             <svg
-              aria-labelledby=":rf:-aria"
-              class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+              aria-labelledby=":r14:-aria"
+              class="sc-dVupuq gwjsjL aje-skeleton-loader sc-dslWvo flvyTG"
               role="img"
             >
               <rect
-                clip-path="url(#:rf:-diff)"
+                clip-path="url(#:r14:-diff)"
                 height="100%"
                 role="presentation"
-                style="fill: url(#:rf:-animated-diff);"
+                style="fill: url(#:r14:-animated-diff);"
                 width="100%"
                 x="0"
                 y="0"
               />
               <defs>
                 <clippath
-                  id=":rf:-diff"
+                  id=":r14:-diff"
                 >
                   <rect
                     height="100%"
@@ -2340,18 +2440,18 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                 </clippath>
                 <lineargradient
                   gradientTransform="translate(-2 0)"
-                  id=":rf:-animated-diff"
+                  id=":r14:-animated-diff"
                 >
                   <stop
-                    class="sc-eUlrpB dwUQHx"
+                    class="sc-fAomSb kogvQT"
                     offset="0%"
                   />
                   <stop
-                    class="sc-geXuza iflhsR"
+                    class="sc-gpHbIA jmTruK"
                     offset="50%"
                   />
                   <stop
-                    class="sc-eUlrpB dwUQHx"
+                    class="sc-fAomSb kogvQT"
                     offset="100%"
                   />
                   <animatetransform
@@ -2367,28 +2467,28 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
           </td>
         </tr>
         <tr
-          class="sc-fwzISk dorCxf"
+          class="sc-flQbIK eSugfs"
         >
           <td
-            class="sc-kEfuZE gnabOo"
+            class="sc-ktvNQe pczWz"
           >
             <svg
-              aria-labelledby=":rg:-aria"
-              class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+              aria-labelledby=":r15:-aria"
+              class="sc-dVupuq gwjsjL aje-skeleton-loader sc-dslWvo flvyTG"
               role="img"
             >
               <rect
-                clip-path="url(#:rg:-diff)"
+                clip-path="url(#:r15:-diff)"
                 height="100%"
                 role="presentation"
-                style="fill: url(#:rg:-animated-diff);"
+                style="fill: url(#:r15:-animated-diff);"
                 width="100%"
                 x="0"
                 y="0"
               />
               <defs>
                 <clippath
-                  id=":rg:-diff"
+                  id=":r15:-diff"
                 >
                   <rect
                     height="100%"
@@ -2401,18 +2501,18 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                 </clippath>
                 <lineargradient
                   gradientTransform="translate(-2 0)"
-                  id=":rg:-animated-diff"
+                  id=":r15:-animated-diff"
                 >
                   <stop
-                    class="sc-eUlrpB dwUQHx"
+                    class="sc-fAomSb kogvQT"
                     offset="0%"
                   />
                   <stop
-                    class="sc-geXuza iflhsR"
+                    class="sc-gpHbIA jmTruK"
                     offset="50%"
                   />
                   <stop
-                    class="sc-eUlrpB dwUQHx"
+                    class="sc-fAomSb kogvQT"
                     offset="100%"
                   />
                   <animatetransform
@@ -2427,25 +2527,25 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </svg>
           </td>
           <td
-            class="sc-kEfuZE gnabOo"
+            class="sc-ktvNQe pczWz"
           >
             <svg
-              aria-labelledby=":rh:-aria"
-              class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+              aria-labelledby=":r16:-aria"
+              class="sc-dVupuq gwjsjL aje-skeleton-loader sc-dslWvo flvyTG"
               role="img"
             >
               <rect
-                clip-path="url(#:rh:-diff)"
+                clip-path="url(#:r16:-diff)"
                 height="100%"
                 role="presentation"
-                style="fill: url(#:rh:-animated-diff);"
+                style="fill: url(#:r16:-animated-diff);"
                 width="100%"
                 x="0"
                 y="0"
               />
               <defs>
                 <clippath
-                  id=":rh:-diff"
+                  id=":r16:-diff"
                 >
                   <rect
                     height="100%"
@@ -2458,18 +2558,18 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                 </clippath>
                 <lineargradient
                   gradientTransform="translate(-2 0)"
-                  id=":rh:-animated-diff"
+                  id=":r16:-animated-diff"
                 >
                   <stop
-                    class="sc-eUlrpB dwUQHx"
+                    class="sc-fAomSb kogvQT"
                     offset="0%"
                   />
                   <stop
-                    class="sc-geXuza iflhsR"
+                    class="sc-gpHbIA jmTruK"
                     offset="50%"
                   />
                   <stop
-                    class="sc-eUlrpB dwUQHx"
+                    class="sc-fAomSb kogvQT"
                     offset="100%"
                   />
                   <animatetransform
@@ -2485,28 +2585,28 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
           </td>
         </tr>
         <tr
-          class="sc-fwzISk dorCxf"
+          class="sc-flQbIK eSugfs"
         >
           <td
-            class="sc-kEfuZE gnabOo"
+            class="sc-ktvNQe pczWz"
           >
             <svg
-              aria-labelledby=":ri:-aria"
-              class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+              aria-labelledby=":r17:-aria"
+              class="sc-dVupuq gwjsjL aje-skeleton-loader sc-dslWvo flvyTG"
               role="img"
             >
               <rect
-                clip-path="url(#:ri:-diff)"
+                clip-path="url(#:r17:-diff)"
                 height="100%"
                 role="presentation"
-                style="fill: url(#:ri:-animated-diff);"
+                style="fill: url(#:r17:-animated-diff);"
                 width="100%"
                 x="0"
                 y="0"
               />
               <defs>
                 <clippath
-                  id=":ri:-diff"
+                  id=":r17:-diff"
                 >
                   <rect
                     height="100%"
@@ -2519,18 +2619,18 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                 </clippath>
                 <lineargradient
                   gradientTransform="translate(-2 0)"
-                  id=":ri:-animated-diff"
+                  id=":r17:-animated-diff"
                 >
                   <stop
-                    class="sc-eUlrpB dwUQHx"
+                    class="sc-fAomSb kogvQT"
                     offset="0%"
                   />
                   <stop
-                    class="sc-geXuza iflhsR"
+                    class="sc-gpHbIA jmTruK"
                     offset="50%"
                   />
                   <stop
-                    class="sc-eUlrpB dwUQHx"
+                    class="sc-fAomSb kogvQT"
                     offset="100%"
                   />
                   <animatetransform
@@ -2545,25 +2645,25 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </svg>
           </td>
           <td
-            class="sc-kEfuZE gnabOo"
+            class="sc-ktvNQe pczWz"
           >
             <svg
-              aria-labelledby=":rj:-aria"
-              class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+              aria-labelledby=":r18:-aria"
+              class="sc-dVupuq gwjsjL aje-skeleton-loader sc-dslWvo flvyTG"
               role="img"
             >
               <rect
-                clip-path="url(#:rj:-diff)"
+                clip-path="url(#:r18:-diff)"
                 height="100%"
                 role="presentation"
-                style="fill: url(#:rj:-animated-diff);"
+                style="fill: url(#:r18:-animated-diff);"
                 width="100%"
                 x="0"
                 y="0"
               />
               <defs>
                 <clippath
-                  id=":rj:-diff"
+                  id=":r18:-diff"
                 >
                   <rect
                     height="100%"
@@ -2576,18 +2676,18 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                 </clippath>
                 <lineargradient
                   gradientTransform="translate(-2 0)"
-                  id=":rj:-animated-diff"
+                  id=":r18:-animated-diff"
                 >
                   <stop
-                    class="sc-eUlrpB dwUQHx"
+                    class="sc-fAomSb kogvQT"
                     offset="0%"
                   />
                   <stop
-                    class="sc-geXuza iflhsR"
+                    class="sc-gpHbIA jmTruK"
                     offset="50%"
                   />
                   <stop
-                    class="sc-eUlrpB dwUQHx"
+                    class="sc-fAomSb kogvQT"
                     offset="100%"
                   />
                   <animatetransform
@@ -2603,28 +2703,28 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
           </td>
         </tr>
         <tr
-          class="sc-fwzISk dorCxf"
+          class="sc-flQbIK eSugfs"
         >
           <td
-            class="sc-kEfuZE gnabOo"
+            class="sc-ktvNQe pczWz"
           >
             <svg
-              aria-labelledby=":rk:-aria"
-              class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+              aria-labelledby=":r19:-aria"
+              class="sc-dVupuq gwjsjL aje-skeleton-loader sc-dslWvo flvyTG"
               role="img"
             >
               <rect
-                clip-path="url(#:rk:-diff)"
+                clip-path="url(#:r19:-diff)"
                 height="100%"
                 role="presentation"
-                style="fill: url(#:rk:-animated-diff);"
+                style="fill: url(#:r19:-animated-diff);"
                 width="100%"
                 x="0"
                 y="0"
               />
               <defs>
                 <clippath
-                  id=":rk:-diff"
+                  id=":r19:-diff"
                 >
                   <rect
                     height="100%"
@@ -2637,18 +2737,18 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                 </clippath>
                 <lineargradient
                   gradientTransform="translate(-2 0)"
-                  id=":rk:-animated-diff"
+                  id=":r19:-animated-diff"
                 >
                   <stop
-                    class="sc-eUlrpB dwUQHx"
+                    class="sc-fAomSb kogvQT"
                     offset="0%"
                   />
                   <stop
-                    class="sc-geXuza iflhsR"
+                    class="sc-gpHbIA jmTruK"
                     offset="50%"
                   />
                   <stop
-                    class="sc-eUlrpB dwUQHx"
+                    class="sc-fAomSb kogvQT"
                     offset="100%"
                   />
                   <animatetransform
@@ -2663,25 +2763,25 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </svg>
           </td>
           <td
-            class="sc-kEfuZE gnabOo"
+            class="sc-ktvNQe pczWz"
           >
             <svg
-              aria-labelledby=":rl:-aria"
-              class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+              aria-labelledby=":r1a:-aria"
+              class="sc-dVupuq gwjsjL aje-skeleton-loader sc-dslWvo flvyTG"
               role="img"
             >
               <rect
-                clip-path="url(#:rl:-diff)"
+                clip-path="url(#:r1a:-diff)"
                 height="100%"
                 role="presentation"
-                style="fill: url(#:rl:-animated-diff);"
+                style="fill: url(#:r1a:-animated-diff);"
                 width="100%"
                 x="0"
                 y="0"
               />
               <defs>
                 <clippath
-                  id=":rl:-diff"
+                  id=":r1a:-diff"
                 >
                   <rect
                     height="100%"
@@ -2694,18 +2794,18 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                 </clippath>
                 <lineargradient
                   gradientTransform="translate(-2 0)"
-                  id=":rl:-animated-diff"
+                  id=":r1a:-animated-diff"
                 >
                   <stop
-                    class="sc-eUlrpB dwUQHx"
+                    class="sc-fAomSb kogvQT"
                     offset="0%"
                   />
                   <stop
-                    class="sc-geXuza iflhsR"
+                    class="sc-gpHbIA jmTruK"
                     offset="50%"
                   />
                   <stop
-                    class="sc-eUlrpB dwUQHx"
+                    class="sc-fAomSb kogvQT"
                     offset="100%"
                   />
                   <animatetransform
@@ -2721,28 +2821,28 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
           </td>
         </tr>
         <tr
-          class="sc-fwzISk dorCxf"
+          class="sc-flQbIK eSugfs"
         >
           <td
-            class="sc-kEfuZE gnabOo"
+            class="sc-ktvNQe pczWz"
           >
             <svg
-              aria-labelledby=":rm:-aria"
-              class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+              aria-labelledby=":r1b:-aria"
+              class="sc-dVupuq gwjsjL aje-skeleton-loader sc-dslWvo flvyTG"
               role="img"
             >
               <rect
-                clip-path="url(#:rm:-diff)"
+                clip-path="url(#:r1b:-diff)"
                 height="100%"
                 role="presentation"
-                style="fill: url(#:rm:-animated-diff);"
+                style="fill: url(#:r1b:-animated-diff);"
                 width="100%"
                 x="0"
                 y="0"
               />
               <defs>
                 <clippath
-                  id=":rm:-diff"
+                  id=":r1b:-diff"
                 >
                   <rect
                     height="100%"
@@ -2755,18 +2855,18 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                 </clippath>
                 <lineargradient
                   gradientTransform="translate(-2 0)"
-                  id=":rm:-animated-diff"
+                  id=":r1b:-animated-diff"
                 >
                   <stop
-                    class="sc-eUlrpB dwUQHx"
+                    class="sc-fAomSb kogvQT"
                     offset="0%"
                   />
                   <stop
-                    class="sc-geXuza iflhsR"
+                    class="sc-gpHbIA jmTruK"
                     offset="50%"
                   />
                   <stop
-                    class="sc-eUlrpB dwUQHx"
+                    class="sc-fAomSb kogvQT"
                     offset="100%"
                   />
                   <animatetransform
@@ -2781,25 +2881,25 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </svg>
           </td>
           <td
-            class="sc-kEfuZE gnabOo"
+            class="sc-ktvNQe pczWz"
           >
             <svg
-              aria-labelledby=":rn:-aria"
-              class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+              aria-labelledby=":r1c:-aria"
+              class="sc-dVupuq gwjsjL aje-skeleton-loader sc-dslWvo flvyTG"
               role="img"
             >
               <rect
-                clip-path="url(#:rn:-diff)"
+                clip-path="url(#:r1c:-diff)"
                 height="100%"
                 role="presentation"
-                style="fill: url(#:rn:-animated-diff);"
+                style="fill: url(#:r1c:-animated-diff);"
                 width="100%"
                 x="0"
                 y="0"
               />
               <defs>
                 <clippath
-                  id=":rn:-diff"
+                  id=":r1c:-diff"
                 >
                   <rect
                     height="100%"
@@ -2812,18 +2912,18 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                 </clippath>
                 <lineargradient
                   gradientTransform="translate(-2 0)"
-                  id=":rn:-animated-diff"
+                  id=":r1c:-animated-diff"
                 >
                   <stop
-                    class="sc-eUlrpB dwUQHx"
+                    class="sc-fAomSb kogvQT"
                     offset="0%"
                   />
                   <stop
-                    class="sc-geXuza iflhsR"
+                    class="sc-gpHbIA jmTruK"
                     offset="50%"
                   />
                   <stop
-                    class="sc-eUlrpB dwUQHx"
+                    class="sc-fAomSb kogvQT"
                     offset="100%"
                   />
                   <animatetransform
@@ -2839,28 +2939,28 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
           </td>
         </tr>
         <tr
-          class="sc-fwzISk dorCxf"
+          class="sc-flQbIK eSugfs"
         >
           <td
-            class="sc-kEfuZE gnabOo"
+            class="sc-ktvNQe pczWz"
           >
             <svg
-              aria-labelledby=":ro:-aria"
-              class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+              aria-labelledby=":r1d:-aria"
+              class="sc-dVupuq gwjsjL aje-skeleton-loader sc-dslWvo flvyTG"
               role="img"
             >
               <rect
-                clip-path="url(#:ro:-diff)"
+                clip-path="url(#:r1d:-diff)"
                 height="100%"
                 role="presentation"
-                style="fill: url(#:ro:-animated-diff);"
+                style="fill: url(#:r1d:-animated-diff);"
                 width="100%"
                 x="0"
                 y="0"
               />
               <defs>
                 <clippath
-                  id=":ro:-diff"
+                  id=":r1d:-diff"
                 >
                   <rect
                     height="100%"
@@ -2873,18 +2973,18 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                 </clippath>
                 <lineargradient
                   gradientTransform="translate(-2 0)"
-                  id=":ro:-animated-diff"
+                  id=":r1d:-animated-diff"
                 >
                   <stop
-                    class="sc-eUlrpB dwUQHx"
+                    class="sc-fAomSb kogvQT"
                     offset="0%"
                   />
                   <stop
-                    class="sc-geXuza iflhsR"
+                    class="sc-gpHbIA jmTruK"
                     offset="50%"
                   />
                   <stop
-                    class="sc-eUlrpB dwUQHx"
+                    class="sc-fAomSb kogvQT"
                     offset="100%"
                   />
                   <animatetransform
@@ -2899,25 +2999,25 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </svg>
           </td>
           <td
-            class="sc-kEfuZE gnabOo"
+            class="sc-ktvNQe pczWz"
           >
             <svg
-              aria-labelledby=":rp:-aria"
-              class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+              aria-labelledby=":r1e:-aria"
+              class="sc-dVupuq gwjsjL aje-skeleton-loader sc-dslWvo flvyTG"
               role="img"
             >
               <rect
-                clip-path="url(#:rp:-diff)"
+                clip-path="url(#:r1e:-diff)"
                 height="100%"
                 role="presentation"
-                style="fill: url(#:rp:-animated-diff);"
+                style="fill: url(#:r1e:-animated-diff);"
                 width="100%"
                 x="0"
                 y="0"
               />
               <defs>
                 <clippath
-                  id=":rp:-diff"
+                  id=":r1e:-diff"
                 >
                   <rect
                     height="100%"
@@ -2930,18 +3030,18 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                 </clippath>
                 <lineargradient
                   gradientTransform="translate(-2 0)"
-                  id=":rp:-animated-diff"
+                  id=":r1e:-animated-diff"
                 >
                   <stop
-                    class="sc-eUlrpB dwUQHx"
+                    class="sc-fAomSb kogvQT"
                     offset="0%"
                   />
                   <stop
-                    class="sc-geXuza iflhsR"
+                    class="sc-gpHbIA jmTruK"
                     offset="50%"
                   />
                   <stop
-                    class="sc-eUlrpB dwUQHx"
+                    class="sc-fAomSb kogvQT"
                     offset="100%"
                   />
                   <animatetransform
@@ -2957,28 +3057,28 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
           </td>
         </tr>
         <tr
-          class="sc-fwzISk dorCxf"
+          class="sc-flQbIK eSugfs"
         >
           <td
-            class="sc-kEfuZE gnabOo"
+            class="sc-ktvNQe pczWz"
           >
             <svg
-              aria-labelledby=":rq:-aria"
-              class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+              aria-labelledby=":r1f:-aria"
+              class="sc-dVupuq gwjsjL aje-skeleton-loader sc-dslWvo flvyTG"
               role="img"
             >
               <rect
-                clip-path="url(#:rq:-diff)"
+                clip-path="url(#:r1f:-diff)"
                 height="100%"
                 role="presentation"
-                style="fill: url(#:rq:-animated-diff);"
+                style="fill: url(#:r1f:-animated-diff);"
                 width="100%"
                 x="0"
                 y="0"
               />
               <defs>
                 <clippath
-                  id=":rq:-diff"
+                  id=":r1f:-diff"
                 >
                   <rect
                     height="100%"
@@ -2991,18 +3091,18 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                 </clippath>
                 <lineargradient
                   gradientTransform="translate(-2 0)"
-                  id=":rq:-animated-diff"
+                  id=":r1f:-animated-diff"
                 >
                   <stop
-                    class="sc-eUlrpB dwUQHx"
+                    class="sc-fAomSb kogvQT"
                     offset="0%"
                   />
                   <stop
-                    class="sc-geXuza iflhsR"
+                    class="sc-gpHbIA jmTruK"
                     offset="50%"
                   />
                   <stop
-                    class="sc-eUlrpB dwUQHx"
+                    class="sc-fAomSb kogvQT"
                     offset="100%"
                   />
                   <animatetransform
@@ -3017,25 +3117,25 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </svg>
           </td>
           <td
-            class="sc-kEfuZE gnabOo"
+            class="sc-ktvNQe pczWz"
           >
             <svg
-              aria-labelledby=":rr:-aria"
-              class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+              aria-labelledby=":r1g:-aria"
+              class="sc-dVupuq gwjsjL aje-skeleton-loader sc-dslWvo flvyTG"
               role="img"
             >
               <rect
-                clip-path="url(#:rr:-diff)"
+                clip-path="url(#:r1g:-diff)"
                 height="100%"
                 role="presentation"
-                style="fill: url(#:rr:-animated-diff);"
+                style="fill: url(#:r1g:-animated-diff);"
                 width="100%"
                 x="0"
                 y="0"
               />
               <defs>
                 <clippath
-                  id=":rr:-diff"
+                  id=":r1g:-diff"
                 >
                   <rect
                     height="100%"
@@ -3048,18 +3148,18 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                 </clippath>
                 <lineargradient
                   gradientTransform="translate(-2 0)"
-                  id=":rr:-animated-diff"
+                  id=":r1g:-animated-diff"
                 >
                   <stop
-                    class="sc-eUlrpB dwUQHx"
+                    class="sc-fAomSb kogvQT"
                     offset="0%"
                   />
                   <stop
-                    class="sc-geXuza iflhsR"
+                    class="sc-gpHbIA jmTruK"
                     offset="50%"
                   />
                   <stop
-                    class="sc-eUlrpB dwUQHx"
+                    class="sc-fAomSb kogvQT"
                     offset="100%"
                   />
                   <animatetransform
@@ -3075,28 +3175,28 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
           </td>
         </tr>
         <tr
-          class="sc-fwzISk dorCxf"
+          class="sc-flQbIK eSugfs"
         >
           <td
-            class="sc-kEfuZE gnabOo"
+            class="sc-ktvNQe pczWz"
           >
             <svg
-              aria-labelledby=":rs:-aria"
-              class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+              aria-labelledby=":r1h:-aria"
+              class="sc-dVupuq gwjsjL aje-skeleton-loader sc-dslWvo flvyTG"
               role="img"
             >
               <rect
-                clip-path="url(#:rs:-diff)"
+                clip-path="url(#:r1h:-diff)"
                 height="100%"
                 role="presentation"
-                style="fill: url(#:rs:-animated-diff);"
+                style="fill: url(#:r1h:-animated-diff);"
                 width="100%"
                 x="0"
                 y="0"
               />
               <defs>
                 <clippath
-                  id=":rs:-diff"
+                  id=":r1h:-diff"
                 >
                   <rect
                     height="100%"
@@ -3109,18 +3209,18 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                 </clippath>
                 <lineargradient
                   gradientTransform="translate(-2 0)"
-                  id=":rs:-animated-diff"
+                  id=":r1h:-animated-diff"
                 >
                   <stop
-                    class="sc-eUlrpB dwUQHx"
+                    class="sc-fAomSb kogvQT"
                     offset="0%"
                   />
                   <stop
-                    class="sc-geXuza iflhsR"
+                    class="sc-gpHbIA jmTruK"
                     offset="50%"
                   />
                   <stop
-                    class="sc-eUlrpB dwUQHx"
+                    class="sc-fAomSb kogvQT"
                     offset="100%"
                   />
                   <animatetransform
@@ -3135,25 +3235,25 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </svg>
           </td>
           <td
-            class="sc-kEfuZE gnabOo"
+            class="sc-ktvNQe pczWz"
           >
             <svg
-              aria-labelledby=":rt:-aria"
-              class="sc-dprtRQ kQhxrz aje-skeleton-loader sc-dhCplO cSaAaR"
+              aria-labelledby=":r1i:-aria"
+              class="sc-dVupuq gwjsjL aje-skeleton-loader sc-dslWvo flvyTG"
               role="img"
             >
               <rect
-                clip-path="url(#:rt:-diff)"
+                clip-path="url(#:r1i:-diff)"
                 height="100%"
                 role="presentation"
-                style="fill: url(#:rt:-animated-diff);"
+                style="fill: url(#:r1i:-animated-diff);"
                 width="100%"
                 x="0"
                 y="0"
               />
               <defs>
                 <clippath
-                  id=":rt:-diff"
+                  id=":r1i:-diff"
                 >
                   <rect
                     height="100%"
@@ -3166,18 +3266,18 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                 </clippath>
                 <lineargradient
                   gradientTransform="translate(-2 0)"
-                  id=":rt:-animated-diff"
+                  id=":r1i:-animated-diff"
                 >
                   <stop
-                    class="sc-eUlrpB dwUQHx"
+                    class="sc-fAomSb kogvQT"
                     offset="0%"
                   />
                   <stop
-                    class="sc-geXuza iflhsR"
+                    class="sc-gpHbIA jmTruK"
                     offset="50%"
                   />
                   <stop
-                    class="sc-eUlrpB dwUQHx"
+                    class="sc-fAomSb kogvQT"
                     offset="100%"
                   />
                   <animatetransform

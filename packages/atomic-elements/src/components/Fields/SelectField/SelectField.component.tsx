@@ -1,4 +1,4 @@
-import React, { forwardRef, RefAttributes, useContext } from "react";
+import React, { forwardRef, RefAttributes, useContext, type JSX } from "react";
 import { useSelectState } from "react-stately";
 import { HiddenSelect, useSelect } from "@react-aria/select";
 import { filterDOMProps } from "@react-aria/utils";

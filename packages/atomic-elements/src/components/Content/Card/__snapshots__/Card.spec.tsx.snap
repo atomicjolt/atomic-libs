@@ -6,22 +6,22 @@ exports[`Card > Snapshots > should match snapshot 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="sc-dntaoT euJTDJ aje-card"
+        class="sc-dycHyt iTDMls aje-card"
       >
         <div
-          class="sc-egkSDF cflanW aje-flex"
+          class="sc-dVBluf fHEynH aje-flex"
         >
           <span
-            class="sc-blHHSb hteDVU aje-text"
+            class="sc-FEMpB hwXfHl aje-text"
           >
             Card Title
           </span>
         </div>
         <div
-          class="sc-fAUdSK bkmDWv aje-card-panel"
+          class="sc-fLDLck jJsqfJ aje-card-panel"
         >
           <span
-            class="sc-blHHSb jaHRix aje-text"
+            class="sc-FEMpB fmYUAA aje-text"
           >
             Here is some content within a panel
           </span>
@@ -31,22 +31,22 @@ exports[`Card > Snapshots > should match snapshot 1`] = `
   </body>,
   "container": <div>
     <div
-      class="sc-dntaoT euJTDJ aje-card"
+      class="sc-dycHyt iTDMls aje-card"
     >
       <div
-        class="sc-egkSDF cflanW aje-flex"
+        class="sc-dVBluf fHEynH aje-flex"
       >
         <span
-          class="sc-blHHSb hteDVU aje-text"
+          class="sc-FEMpB hwXfHl aje-text"
         >
           Card Title
         </span>
       </div>
       <div
-        class="sc-fAUdSK bkmDWv aje-card-panel"
+        class="sc-fLDLck jJsqfJ aje-card-panel"
       >
         <span
-          class="sc-blHHSb jaHRix aje-text"
+          class="sc-FEMpB fmYUAA aje-text"
         >
           Here is some content within a panel
         </span>
