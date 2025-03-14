@@ -9,7 +9,8 @@
     "packages/lti-types",
     "packages/lti-client",
     "packages/lti-server",
-    "packages/lti-components"
+    "packages/lti-components",
+    "packages/canvas-client"
   ],
   "scripts": {
     "prepare": "npm run storybook:cssprops",
@@ -26,7 +27,8 @@
     "docs:build": "npm run docusaurus:build && npm run storybook:build",
     "docs:serve": "npm run docusaurus:serve",
     "docs:publish": "gh-pages -d docs/build -f",
-    "scaffold:component": "simple-scaffold -k component -c scaffold.config.js"
+    "scaffold:component": "simple-scaffold -k component -c scaffold.config.js",
+    "scaffold:package": "simple-scaffold -k package -c scaffold.config.js"
   },
   "dependencies": {
     "@changesets/cli": "^2.27.10",

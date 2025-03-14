@@ -1,0 +1,1 @@
+# @atomicjolt/{{snakeCase name}}

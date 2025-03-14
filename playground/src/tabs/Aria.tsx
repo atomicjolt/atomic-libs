@@ -1,18 +1,18 @@
 import React from "react";
-import { View, Text, Flex } from "@atomicjolt/atomic-elements";
+import { View, Text, Flex, Button } from "@atomicjolt/atomic-elements";
+import { CanvasAuthenticationForm } from "@atomicjolt/canvas-client";
 
 export default function Aria() {
   return (
-    <Flex $direction="column" $gap="3">
-      <Text $size="1">The quick brown fox jumps over the lazy dog.</Text>
-      <Text $size="2">The quick brown fox jumps over the lazy dog.</Text>
-      <Text $size="3">The quick brown fox jumps over the lazy dog.</Text>
-      <Text $size="4">The quick brown fox jumps over the lazy dog.</Text>
-      <Text $size="5">The quick brown fox jumps over the lazy dog.</Text>
-      <Text $size="6">The quick brown fox jumps over the lazy dog.</Text>
-      <Text $size="7">The quick brown fox jumps over the lazy dog.</Text>
-      <Text $size="8">The quick brown fox jumps over the lazy dog.</Text>
-      <Text $size="9">The quick brown fox jumps over the lazy dog.</Text>
-    </Flex>
+    <CanvasAuthenticationForm
+      action="https://example.com"
+      settings={{
+        oauth_state: "12345",
+        array: [1, 2, 3],
+        object: { key: "value" },
+      }}
+    >
+      <Button type="submit">Authorize</Button>
+    </CanvasAuthenticationForm>
   );
 }
