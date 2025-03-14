@@ -1,1 +1,1 @@
-# @atomicjolt/canvas_client
+# @atomicjolt/canvas-client

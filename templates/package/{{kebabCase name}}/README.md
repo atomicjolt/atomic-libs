@@ -1,1 +1,1 @@
-# @atomicjolt/{{snakeCase name}}
+# @atomicjolt/{{kebabCase name}}
