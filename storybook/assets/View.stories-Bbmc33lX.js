@@ -1,0 +1,5 @@
+import{V as p}from"./index-DHvmYUXb.js";import{B as i,L as m,R as s}from"./helpers-CVUqcLcb.js";import"./jsx-runtime-D_zvdyIk.js";import"./index-DmM0KDA7.js";import"./index-9MQGFWEg.js";import"./useObjectRef-BMBYa31u.js";import"./SSRProvider-nIDwi1ZO.js";import"./useRenderProps-BzxgHqRb.js";import"./index-CrEZfznw.js";import"./styled-components.browser.esm-B0S50oBn.js";import"./layout-C5ppTKTq.js";import"./spacing-Bd-CIscW.js";import"./utils-DqmNl-Il.js";import"./colors-x_YFGAop.js";import"./scale-CqCDTNu0.js";import"./Collection-Blx8idkz.js";import"./CollectionBuilder-C8aBQCuV.js";import"./index-CnHy7ftH.js";import"./index-nLeaPAJ8.js";import"./useFocusable-DDF3Tgcq.js";const R={title:"Layouts/View",component:p,parameters:{layout:"centered"},argTypes:{...s,...m,...i}},r={args:{children:"Hello, World!"}};var o,t,e;r.parameters={...r.parameters,docs:{...(o=r.parameters)==null?void 0:o.docs,source:{originalSource:`{
+  args: {
+    children: "Hello, World!"
+  }
+}`,...(e=(t=r.parameters)==null?void 0:t.docs)==null?void 0:e.source}}};const W=["Primary"];export{r as Primary,W as __namedExportsOrder,R as default};

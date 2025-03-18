@@ -1,0 +1,16 @@
+import{j as t}from"./jsx-runtime-D_zvdyIk.js";import{useMDXComponents as n}from"./index-CePRvBtH.js";import{M as p,T as s,S as a,D as m,P as c,C as d,a as e,b as h}from"./index-BHKChBSE.js";import{L as l,W as x,N as j}from"./LoadingStatus.stories-Dq5repVa.js";import"./index-DmM0KDA7.js";import"./iframe-CLBKkNI-.js";import"./index-CnHy7ftH.js";import"./index-nLeaPAJ8.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";import"./cssprops-BO85xpNm.js";import"./ThreeDotLoader.component-WZ66-s3A.js";import"./Loader.component-BVJk9SjC.js";import"./filterDOMProps-CeZl_uWj.js";import"./useRenderProps-BzxgHqRb.js";import"./index-CrEZfznw.js";import"./styled-components.browser.esm-B0S50oBn.js";import"./mixins-CgZ-Dp8B.js";import"./Flex.component-CLGTqHVr.js";import"./index-9MQGFWEg.js";import"./useObjectRef-BMBYa31u.js";import"./SSRProvider-nIDwi1ZO.js";import"./layout-C5ppTKTq.js";import"./spacing-Bd-CIscW.js";import"./utils-DqmNl-Il.js";import"./Checkmark.component-CdBGiybJ.js";import"./BouncingDots.component-Bw7P0JkC.js";import"./DismissableBanner.component-DSoSwWNC.js";import"./index-DGavfVYP.js";import"./Icons.styles-D2L4nNgu.js";import"./useFocusable-DDF3Tgcq.js";import"./Banner.component-jkXNRFGK.js";import"./IconButton.component-D_uitLdX.js";import"./Button.component-Bc8mRpye.js";import"./useFocusRing-CMFCJy1v.js";import"./useFocusWithin-ypR2cHkl.js";import"./usePress-BejIIMCm.js";import"./useButton-EuBryRSZ.js";import"./useLink-ytEWay4y.js";import"./SpinnerLoader.component-CKnzGd3o.js";import"./Spinner.component-Dtx1YsdI.js";import"./ProgressCircle.component-DRcKSkPB.js";import"./useLabel-C1USB2dP.js";import"./useLabels-DqNC8NnF.js";import"./useNumberFormatter-CH8tnwcW.js";import"./context-BF7eBGFA.js";import"./NumberFormatter-DNR9MAW-.js";import"./colors-x_YFGAop.js";import"./Text.component-k2WoJ1iK.js";import"./typography-B_qJ0BtB.js";import"./scale-CqCDTNu0.js";function i(r){const o={code:"code",h3:"h3",p:"p",...n(),...r.components};return t.jsxs(t.Fragment,{children:[t.jsx(p,{of:l}),`
+`,t.jsx(s,{}),`
+`,t.jsx(a,{}),`
+`,t.jsx(m,{}),`
+`,t.jsx(c,{}),`
+`,t.jsx(d,{}),`
+`,t.jsxs(o.h3,{id:"purpose-of-the-data-prop",children:["Purpose of the ",t.jsx(o.code,{children:"data"})," prop"]}),`
+`,t.jsxs(o.p,{children:[`To ensure that children components render only after the necessary data has been loaded, especially
+when fetching data asynchronously, use the `,t.jsx(o.code,{children:"data"}),` prop. This prop checks for the existence of the data
+before rendering the children. Additionally, when using the `,t.jsx(o.code,{children:"data"})," prop, you must pass ",t.jsx(o.code,{children:"children"}),` as a
+function, which receives the `,t.jsx(o.code,{children:"data"}),` prop as its argument. This approach guarantees that the children
+have access to the required data upon rendering.`]}),`
+`,t.jsx(e,{of:x}),`
+`,t.jsxs(o.p,{children:["If ",t.jsx(o.code,{children:"data"})," is ",t.jsx(o.code,{children:"null"})," then the ",t.jsx(o.code,{children:"fallback"})," prop will be rendered instead of the children."]}),`
+`,t.jsx(e,{of:j}),`
+`,t.jsx(h,{})]})}function lt(r={}){const{wrapper:o}={...n(),...r.components};return o?t.jsx(o,{...r,children:t.jsx(i,{...r})}):i(r)}export{lt as default};

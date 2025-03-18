@@ -1,0 +1,11 @@
+import{j as r}from"./jsx-runtime-D_zvdyIk.js";import{u as m}from"./useForwardedRef-CeqQ-Fh5.js";import{$ as y}from"./PressResponder-XOPwQlQI.js";import{R as g}from"./index-DmM0KDA7.js";const n=g.forwardRef(function(t,c){const{children:s,allowsMultiple:u,acceptedFileTypes:a=[],captureMode:d,accept:p,name:f}=t,l=m(c);return r.jsxs(r.Fragment,{children:[r.jsx(y,{onPress:()=>{var i,e;(i=l.current)!=null&&i.value&&(l.current.value=""),(e=l.current)==null||e.click()},children:s}),r.jsx("input",{name:f,type:"file",ref:l,style:{display:"none"},accept:a.length>0?a.join(","):void 0,multiple:u,capture:d,onChange:i=>{var e;return(e=t.onSelect)==null?void 0:e.call(t,i.target.files)},webkitdirectory:p==="directory"?"true":void 0})]})});try{n.displayName="FileTrigger",n.__docgenInfo={description:`FileTrigger component. Provides the ability to trigger file selection
+for any child pressable component`,displayName:"FileTrigger",props:{accept:{defaultValue:null,description:`Configure if the input should accept files or directories
+
+[MDN Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/webkitdirectory)`,name:"accept",required:!1,type:{name:"enum",value:[{value:'"files"'},{value:'"directories"'}]}},allowsMultiple:{defaultValue:null,description:`Whether or not the input allows multiple files to be selected
+
+[MDN Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/multiple)`,name:"allowsMultiple",required:!1,type:{name:"boolean"}},acceptedFileTypes:{defaultValue:null,description:`Array of accepted file types
+
+[MDN Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept)`,name:"acceptedFileTypes",required:!1,type:{name:"string[]"}},captureMode:{defaultValue:null,description:`Specifies that a new file should be captured from the device camera
+Typically only works on mobile devices
+
+[MDN Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/capture)`,name:"captureMode",required:!1,type:{name:"enum",value:[{value:'"user"'},{value:'"environment"'}]}},onSelect:{defaultValue:null,description:"Callback function that is called when a file is selected",name:"onSelect",required:!1,type:{name:"(files: FileList) => void"}},name:{defaultValue:null,description:"Name of the Field",name:"name",required:!1,type:{name:"string"}}}}}catch{}export{n as F};
