@@ -26,7 +26,7 @@ import {
   Roles
 } from '@atomicjolt/lti-types';
 
-export class LtiTokenWrapper {
+export class IdTokenWrapper {
   private token: IdToken;
 
   constructor(idToken: IdToken) {
