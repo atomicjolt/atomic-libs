@@ -36,43 +36,43 @@ export class LtiTokenWrapper {
   /**
    * Get the deployment ID from the token
    */
-  public deploymentId(): string {
+  get deploymentId(): string {
     return this.token[DEPLOYMENT_ID];
   }
 
   /**
    * Get the issuer from the token
    */
-  public iss(): string {
+  get iss(): string {
     return this.token.iss;
   }
 
   /**
    * Get the LTI version from the token
    */
-  public version(): string {
+  get version(): string {
     return this.token[LTI_VERSION];
   }
 
   /**
    * Get the client ID (audience) from the token
    */
-  public clientId(): string {
+  get clientId(): string {
     return this.token.aud;
   }
 
   /**
    * Get the context data from the token
    */
-  public contextData(): ContextClaim {
+  get contextData(): ContextClaim {
     return this.token[CONTEXT_CLAIM] || {} as ContextClaim;
   }
 
   /**
    * Determine the launch context type (COURSE, ACCOUNT, or UNKNOWN)
    */
-  public launchContext(): 'COURSE' | 'ACCOUNT' | 'UNKNOWN' {
-    const contexts = this.contextData().type || [];
+  get launchContext(): 'COURSE' | 'ACCOUNT' | 'UNKNOWN' {
+    const contexts = this.contextData.type || [];
 
     if (contexts.includes(COURSE_CONTEXT)) {
       return 'COURSE';
@@ -86,134 +86,134 @@ export class LtiTokenWrapper {
   /**
    * Get the context ID from the token
    */
-  public contextId(): string {
-    return this.contextData().id || '';
+  get contextId(): string {
+    return this.contextData.id || '';
   }
 
   /**
    * Get the context label from the token
    */
-  public contextLabel(): string | undefined {
-    return this.contextData().label;
+  get contextLabel(): string | undefined {
+    return this.contextData.label;
   }
 
   /**
    * Get the context title from the token
    */
-  public contextTitle(): string | undefined {
-    return this.contextData().title;
+  get contextTitle(): string | undefined {
+    return this.contextData.title;
   }
 
   /**
    * Get the resource link data from the token
    */
-  public resourceLinkData(): ResourceLinkClaim {
+  get resourceLinkData(): ResourceLinkClaim {
     return this.token[RESOURCE_LINK_CLAIM] || {} as ResourceLinkClaim;
   }
 
   /**
    * Get the resource link ID from the token
    */
-  public resourceLinkId(): string {
-    return this.resourceLinkData().id || '';
+  get resourceLinkId(): string {
+    return this.resourceLinkData.id || '';
   }
 
   /**
    * Get the resource link title from the token
    */
-  public resourceLinkTitle(): string | undefined {
-    return this.resourceLinkData().title;
+  get resourceLinkTitle(): string | undefined {
+    return this.resourceLinkData.title;
   }
 
   /**
    * Get the resource link description from the token
    */
-  public resourceLinkDescription(): string | null | undefined {
-    return this.resourceLinkData().description;
+  get resourceLinkDescription(): string | null | undefined {
+    return this.resourceLinkData.description;
   }
 
   /**
    * Get the LIS data from the token
    */
-  public lisData(): LISClaim {
+  get lisData(): LISClaim {
     return this.token[LIS_CLAIM] || {} as LISClaim;
   }
 
   /**
    * Get the tool platform data from the token
    */
-  public toolPlatformData(): ToolPlatformClaim {
+  get toolPlatformData(): ToolPlatformClaim {
     return this.token[TOOL_PLATFORM_CLAIM] || {} as ToolPlatformClaim;
   }
 
   /**
    * Get the product family code from the token
    */
-  public productFamilyCode(): string | undefined {
-    return this.toolPlatformData().product_family_code;
+  get productFamilyCode(): string | undefined {
+    return this.toolPlatformData.product_family_code;
   }
 
   /**
    * Get the tool consumer instance GUID from the token
    */
-  public toolConsumerInstanceGuid(): string {
-    return this.toolPlatformData().guid || '';
+  get toolConsumerInstanceGuid(): string {
+    return this.toolPlatformData.guid || '';
   }
 
   /**
    * Get the tool consumer instance name from the token
    */
-  public toolConsumerInstanceName(): string | undefined {
-    return this.toolPlatformData().name;
+  get toolConsumerInstanceName(): string | undefined {
+    return this.toolPlatformData.name;
   }
 
   /**
    * Get the tool consumer instance description from the token
    */
-  public toolConsumerInstanceDescription(): string | undefined {
-    return this.toolPlatformData().description;
+  get toolConsumerInstanceDescription(): string | undefined {
+    return this.toolPlatformData.description;
   }
 
   /**
    * Get the tool consumer instance URL from the token
    */
-  public toolConsumerInstanceUrl(): string | undefined {
-    return this.toolPlatformData().url;
+  get toolConsumerInstanceUrl(): string | undefined {
+    return this.toolPlatformData.url;
   }
 
   /**
    * Get the launch presentation data from the token
    */
-  public launchPresentationData(): LaunchPresentationClaim {
+  get launchPresentationData(): LaunchPresentationClaim {
     return this.token[LAUNCH_PRESENTATION] || {} as LaunchPresentationClaim;
   }
 
   /**
    * Get the launch locale from the token
    */
-  public launchLocale(): string {
-    return this.launchPresentationData().locale || '';
+  get launchLocale(): string {
+    return this.launchPresentationData.locale || '';
   }
 
   /**
    * Get the return URL from the token
    */
-  public returnUrl(): string | undefined {
-    return this.launchPresentationData().return_url;
+  get returnUrl(): string | undefined {
+    return this.launchPresentationData.return_url;
   }
 
   /**
    * Get the document target from the token
    */
-  public documentTarget(): string | undefined {
-    return this.launchPresentationData().document_target;
+  get documentTarget(): string | undefined {
+    return this.launchPresentationData.document_target;
   }
 
   /**
    * Get the dimensions from the token
    */
-  public dimensions(): { height?: number, width?: number } {
-    const data = this.launchPresentationData();
+  get dimensions(): { height?: number, width?: number } {
+    const data = this.launchPresentationData;
     return {
       height: data.height,
       width: data.width
@@ -223,36 +223,36 @@ export class LtiTokenWrapper {
   /**
    * Get the AGS (Assignment and Grade Services) data from the token
    */
-  public agsData(): AGSClaim {
+  get agsData(): AGSClaim {
     return this.token[AGS_CLAIM] || {} as AGSClaim;
   }
 
   /**
    * Check if the token has AGS capabilities
    */
-  public hasAgsCapability(): boolean {
+  get hasAgsCapability(): boolean {
     return !!this.token[AGS_CLAIM];
   }
 
   /**
    * Get the AGS line items URL from the token
    */
-  public lineItemsUrl(): string | undefined {
-    return this.agsData().lineitems;
+  get lineItemsUrl(): string | undefined {
+    return this.agsData.lineitems;
   }
 
   /**
    * Get the AGS line item URL from the token
    */
-  public lineItemUrl(): string | undefined {
-    return this.agsData().lineitem;
+  get lineItemUrl(): string | undefined {
+    return this.agsData.lineitem;
   }
 
   /**
    * Get the AGS scopes from the token
    */
-  public agsScopes(): string[] {
-    return this.agsData().scope || [];
+  get agsScopes(): string[] {
+    return this.agsData.scope || [];
   }
 
   /**
@@ -262,35 +262,35 @@ export class LtiTokenWrapper {
    * its deep linking response. The platform may use this to maintain state between the
    * initial launch and the return deep linking content selection.
    */
-  public deepLinkingDataClaim(): string | undefined {
+  get deepLinkingData(): string | undefined {
     return this.token[DEEP_LINKING_DATA_CLAIM] as string | undefined;
   }
 
   /**
    * Get the deep linking settings from the token
    */
-  public deepLinkingClaim(): DeepLinkingClaim | undefined {
+  get deepLinkingClaim(): DeepLinkingClaim | undefined {
     return this.token[DEEP_LINKING_CLAIM];
   }
 
   /**
    * Get the message type from the token
    */
-  public messageType(): MessageTypes {
+  get messageType(): MessageTypes {
     return this.token[MESSAGE_TYPE];
   }
 
   /**
    * Check if this is a deep linking launch
    */
-  public isDeepLink(): boolean {
-    return this.messageType() === MessageTypes.LtiDeepLinkingRequest;
+  get isDeepLink(): boolean {
+    return this.messageType === MessageTypes.LtiDeepLinkingRequest;
   }
 
   /**
    * Get the custom data from the token, filtering out Canvas variables that start with $Canvas
    */
-  public customData(): Record<string, any> {
+  get customData(): Record<string, any> {
     const customClaim = this.token[CUSTOM_CLAIM] as Record<string, any> || {};
 
     // Filter out Canvas variables that start with $Canvas
@@ -302,56 +302,49 @@ export class LtiTokenWrapper {
   /**
    * Get all raw custom data from the token without filtering
    */
-  public allCustomData(): Record<string, any> {
+  get allCustomData(): Record<string, any> {
     return this.token[CUSTOM_CLAIM] as Record<string, any> || {};
-  }
-
-  /**
-   * Get a specific custom parameter from the token
-   */
-  public getCustomParameter(key: string): any {
-    return this.allCustomData()[key];
   }
 
   /**
    * Get the Canvas course ID from the token
    */
-  public canvasCourseId(): string | undefined {
+  get canvasCourseId(): string | undefined {
     return this.getCustomParameter('canvas_course_id');
   }
 
   /**
    * Get the Canvas section IDs from the token
    */
-  public canvasSectionIds(): string | undefined {
+  get canvasSectionIds(): string | undefined {
     return this.getCustomParameter('canvas_section_ids');
   }
 
   /**
    * Get the Canvas account ID from the token
    */
-  public canvasAccountId(): string | undefined {
+  get canvasAccountId(): string | undefined {
     return this.getCustomParameter('canvas_account_id');
   }
 
   /**
    * Get the Canvas course name from the token
    */
-  public canvasCourseName(): string | undefined {
+  get canvasCourseName(): string | undefined {
     return this.getCustomParameter('canvas_course_name');
   }
 
   /**
    * Get the Canvas assignment ID from the token
    */
-  public canvasAssignmentId(): string | undefined {
+  get canvasAssignmentId(): string | undefined {
     return this.getCustomParameter('canvas_assignment_id');
   }
 
   /**
    * Get user information from the token
    */
-  public userInfo(): {
+  get userInfo(): {
     sub: string;
     email?: string;
     name?: string;
@@ -376,7 +369,7 @@ export class LtiTokenWrapper {
   /**
    * Get the roles from the token
    */
-  public roles(): Array<Roles> {
+  get roles(): Array<Roles> {
     return this.token[ROLES_CLAIM] || [];
   }
 
@@ -384,13 +377,20 @@ export class LtiTokenWrapper {
    * Check if the user has a specific role
    */
   public hasRole(role: Roles): boolean {
-    return this.roles().includes(role);
+    return this.roles.includes(role);
+  }
+
+  /**
+   * Check if the user has any of the specified roles
+   */
+  public hasAnyRole(roles: Roles[]): boolean {
+    return roles.some(role => this.hasRole(role));
   }
 
   /**
    * Check if the user is an instructor
    */
-  public isInstructor(): boolean {
+  get isInstructor(): boolean {
     return this.hasRole(Roles.InstructorContextRole) ||
       this.hasRole(Roles.InstructorInstitutionRole);
   }
@@ -398,7 +398,7 @@ export class LtiTokenWrapper {
   /**
    * Check if the user is a student
    */
-  public isStudent(): boolean {
+  get isStudent(): boolean {
     return this.hasRole(Roles.LearnerContextRole) ||
       this.hasRole(Roles.StudentInstitutionRole);
   }
@@ -406,7 +406,14 @@ export class LtiTokenWrapper {
   /**
    * Get the raw token
    */
-  public getRawToken(): IdToken {
+  get rawToken(): IdToken {
     return this.token;
+  }
+
+  /**
+   * Get a specific custom parameter from the token
+   */
+  public getCustomParameter(key: string): any {
+    return this.allCustomData[key];
   }
 }
