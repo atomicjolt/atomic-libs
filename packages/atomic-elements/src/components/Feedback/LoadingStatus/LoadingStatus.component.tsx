@@ -49,7 +49,9 @@ const ErrorDefault = (props: ErrorStateProps) => {
  * - When `error` is present, an error banner is displayed.
  * - Otherwise, the `children` are rendered
  */
-export function LoadingStatus<T>(props: LoadingStatusProps<T>) {
+export function LoadingStatus<T>(
+  props: LoadingStatusProps<T>
+): React.ReactNode | null {
   const {
     isLoading = false,
     renderLoading: Loading = ThreeDotLoader,
