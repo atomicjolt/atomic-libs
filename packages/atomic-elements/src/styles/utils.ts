@@ -23,3 +23,9 @@ export function makeDefault<T, R>(func: (props: T) => R) {
     return func({ ...defaults, ...props });
   };
 }
+
+export function filterStyleProps(props: object) {
+  return Object.fromEntries(
+    Object.entries(props).filter(([key]) => key.startsWith("$"))
+  );
+}

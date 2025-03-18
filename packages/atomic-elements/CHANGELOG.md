@@ -1,5 +1,12 @@
 # @atomicjolt/atomic-elements
 
+## 3.3.2
+
+### Patch Changes
+
+- 65a29c5: fix: Link component not passing $style props
+- 78ed035: fix: generalized return type of LoadingStatus
+
 ## 3.3.1
 
 ### Patch Changes
