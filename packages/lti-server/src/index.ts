@@ -12,5 +12,6 @@ export * from './libs/line_items';
 export * from './libs/names_and_roles';
 export * from './libs/client_credentials';
 export * from './libs/link_header';
+export * from './libs/id_token_wrapper';
 
 export * from './tests/helper';
