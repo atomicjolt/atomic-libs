@@ -1,7 +1,7 @@
 {
   "name": "@atomicjolt/lti-types",
-  "version": "1.2.2",
-  "description": "LTI Typescript definiations.",
+  "version": "1.2.3",
+  "description": "LTI Typescript definitions.",
   "main": "dist/index.js",
   "typings": "dist/types/index.d.ts",
   "scripts": {

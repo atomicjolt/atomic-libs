@@ -1,18 +1,16 @@
 import styled from "styled-components";
-import mixins from "@styles/mixins";
 import { typography, TypographyProps } from "@styles/typography";
 import { MarginProps, margins } from "@styles/layout";
 import { TextColorProps, textColor } from "@styles/colors";
 
-export const StyledLink = styled.a<
-  TypographyProps & MarginProps & TextColorProps
->`
-  ${mixins.Regular}
-  background-color: var(--link-bg-clr);
+export type StyleProps = TypographyProps & MarginProps & TextColorProps;
 
+export const StyledLink = styled.a<StyleProps>`
   ${typography.defaults({ $decoration: "var(--link-text-decoration)" })}
   ${margins}
   ${textColor.defaults({ $color: "var(--link-text-clr)" })}
+
+  background-color: var(--link-bg-clr);
 
   &:hover {
     color: var(--link-hover-text-clr);

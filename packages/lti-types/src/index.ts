@@ -307,6 +307,7 @@ export type IdToken = {
   [CONTEXT_CLAIM]?: ContextClaim;
   [TOOL_PLATFORM_CLAIM]?: ToolPlatformClaim;
   [DEEP_LINKING_CLAIM]?: DeepLinkingClaim;
+  [DEEP_LINKING_DATA_CLAIM]?: string;
   [LAUNCH_PRESENTATION]?: LaunchPresentationClaim;
   [NAMES_AND_ROLES_CLAIM]?: NamesAndRolesClaim;
   [AGS_CLAIM]?: AGSClaim;
