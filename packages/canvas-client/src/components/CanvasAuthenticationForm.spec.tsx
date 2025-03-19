@@ -23,7 +23,13 @@ describe("CanvasAuthenticationForm", () => {
         data-testid="canvas-auth-form"
       />
     );
-    expect(screen.getByTestId("canvas-auth-form")).toHaveFormValues(settings);
+    const form = screen.getByTestId("canvas-auth-form");
+    Object.entries(settings).forEach(([key, value]) => {
+      const input = form.querySelector(`input[name="${key}"]`);
+      expect(input).toBeInTheDocument();
+      expect(input).toHaveAttribute("type", "hidden");
+      expect(input).toHaveValue(value);
+    });
   });
 
   it("auto submits the form when autoSubmit is true", () => {
