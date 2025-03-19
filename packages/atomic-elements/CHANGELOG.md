@@ -1,5 +1,11 @@
 # @atomicjolt/atomic-elements
 
+## 3.3.3
+
+### Patch Changes
+
+- 73a1289: Add aria-label to button's spinner when they are in a loading state
+
 ## 3.3.2
 
 ### Patch Changes
