@@ -34,6 +34,13 @@ export class IdTokenWrapper {
   }
 
   /**
+   * Get the user id from the token
+   */
+  get userId(): string {
+    return this.token.sub;
+  }
+
+  /**
    * Get the deployment ID from the token
    */
   get deploymentId(): string {
@@ -81,6 +88,15 @@ export class IdTokenWrapper {
     } else {
       return 'UNKNOWN';
     }
+  }
+
+  /**
+   * Get the LMS user ID.
+   * For Canvas, this is the canvas_user_id from custom claims.
+   * For other LTI platforms, this is the sub (user ID) from the token.
+   */
+  get lmsUserId(): string {
+    return this.getCustomParameter('canvas_user_id') || this.userId;
   }
 
   /**
