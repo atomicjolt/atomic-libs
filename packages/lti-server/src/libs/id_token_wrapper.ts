@@ -120,6 +120,14 @@ export class IdTokenWrapper {
     return this.contextData.title;
   }
 
+
+  /**
+   * Get the context type from the token
+   */
+  get contextType(): Array<string> | undefined {
+    return this.contextData.type;
+  }
+
   /**
    * Get the resource link data from the token
    */
@@ -158,43 +166,43 @@ export class IdTokenWrapper {
   /**
    * Get the tool platform data from the token
    */
-  get toolPlatformData(): ToolPlatformClaim {
+  get platformData(): ToolPlatformClaim {
     return this.token[TOOL_PLATFORM_CLAIM] || {} as ToolPlatformClaim;
   }
 
   /**
    * Get the product family code from the token
    */
-  get productFamilyCode(): string | undefined {
-    return this.toolPlatformData.product_family_code;
+  get platformProductFamilyCode(): string | undefined {
+    return this.platformData.product_family_code;
   }
 
   /**
    * Get the tool consumer instance GUID from the token
    */
-  get toolConsumerInstanceGuid(): string {
-    return this.toolPlatformData.guid || '';
+  get platformInstanceGuid(): string {
+    return this.platformData.guid || '';
   }
 
   /**
    * Get the tool consumer instance name from the token
    */
-  get toolConsumerInstanceName(): string | undefined {
-    return this.toolPlatformData.name;
+  get platformInstanceName(): string | undefined {
+    return this.platformData.name;
   }
 
   /**
    * Get the tool consumer instance description from the token
    */
-  get toolConsumerInstanceDescription(): string | undefined {
-    return this.toolPlatformData.description;
+  get platformInstanceDescription(): string | undefined {
+    return this.platformData.description;
   }
 
   /**
    * Get the tool consumer instance URL from the token
    */
-  get toolConsumerInstanceUrl(): string | undefined {
-    return this.toolPlatformData.url;
+  get platformInstanceUrl(): string | undefined {
+    return this.platformData.url;
   }
 
   /**
