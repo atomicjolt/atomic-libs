@@ -57,7 +57,7 @@
     "classnames": "^2.3.1",
     "react-stately": "^3.34.0",
     "react-transition-group": "^4.4.5",
-    "styled-components": "^6.1.15",
+    "styled-components": "6.1.15",
     "tslib": "^2.4.0"
   },
   "peerDependencies": {
