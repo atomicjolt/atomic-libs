@@ -1,0 +1,5 @@
+import{R as e}from"./helpers-DIZg5bA6.js";import{g as s}from"./cssprops-BO85xpNm.js";import{C as i}from"./Checkmark.component-CRE6wLUH.js";import"./jsx-runtime-D_zvdyIk.js";import"./styled-components.browser.esm-S-CusIP4.js";import"./index-DmM0KDA7.js";import"./spacing-Bd-CIscW.js";import"./scale-CqCDTNu0.js";import"./Collection-cZH6f0Bi.js";import"./CollectionBuilder-DglRgqo3.js";import"./index-D_Kw7eWP.js";import"./index-nLeaPAJ8.js";import"./useFocusable-B7cTVP20.js";import"./useObjectRef-BO7mrmvR.js";import"./SSRProvider-nIDwi1ZO.js";import"./useRenderProps-BzxgHqRb.js";import"./index-CrEZfznw.js";import"./mixins-BOHXBJW9.js";const R={title:"Animations/Checkmark",component:i,parameters:{layout:"centered",cssprops:s("Animations")},argTypes:{...e}},r={args:{size:"medium"}};var o,m,t;r.parameters={...r.parameters,docs:{...(o=r.parameters)==null?void 0:o.docs,source:{originalSource:`{
+  args: {
+    size: "medium"
+  }
+}`,...(t=(m=r.parameters)==null?void 0:m.docs)==null?void 0:t.source}}};const T=["Primary"];export{r as Primary,T as __namedExportsOrder,R as default};
