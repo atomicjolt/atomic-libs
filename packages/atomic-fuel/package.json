@@ -10,8 +10,6 @@
     "build": "tsc -p tsconfig.build.json",
     "nuke": "rm -rf node_modules",
     "clean": "rm -rf libs/*",
-    "lint": "eslint src",
-    "lint_fix": "eslint src --fix",
     "prepublishOnly": "npm run build"
   },
   "repository": {
@@ -55,12 +53,6 @@
     "@types/react-dom": "^19.0.0",
     "babel-jest": "^29.7.0",
     "classnames": "^2.3.1",
-    "eslint": "^8.16.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jsx-a11y": "^6.5.1",
-    "eslint-plugin-react": "^7.30.0",
-    "eslint-plugin-react-hooks": "^4.5.0",
     "graphql": "^16.6.0",
     "jest": "^28.1.0",
     "jest-environment-jsdom": "^28.1.0",
