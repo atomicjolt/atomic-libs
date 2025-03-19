@@ -1,4 +1,4 @@
-import { PostMessageClient } from "./client";
+import { PostMessageClient, PostMessageClientWrapper } from "./client";
 import { PostMessageError } from "./error";
 import {
   PostMessageGetDataRequest,
@@ -10,19 +10,13 @@ import {
  * Class representing the LTI Platform Storage specification
  * https://www.imsglobal.org/spec/lti-pm-s/v0p1
  */
-export class PlatformStorage {
-  #client: PostMessageClient;
-
-  constructor(client?: PostMessageClient) {
-    this.#client = client ?? new PostMessageClient();
-  }
-
+export class PlatformStorage extends PostMessageClientWrapper {
   /**
    * Checks if the platform supports platform storage
    * @returns A promise that resolves to a boolean indicating if the platform supports the required capabilities.
    */
   async isSupported(): Promise<boolean> {
-    const capabilities = await this.#client.getCapabilities();
+    const capabilities = await this.client.getCapabilities();
     const dataCaps = capabilities.filter(
       (cap) => cap.subject === "lti.put_data" || cap.subject === "lti.get_data"
     );
@@ -37,12 +31,12 @@ export class PlatformStorage {
    */
   async get(key: string): Promise<string | null> {
     try {
-      const response = await this.#client.send<
+      const response = await this.client.send<
         PostMessageGetDataRequest,
         PostMessageGetDataResponse
       >({
         subject: "lti.get_data",
-        message_id: this.#client.messageId("lti.get_data", key),
+        message_id: this.client.messageId("lti.get_data", key),
         key,
       });
 
@@ -65,9 +59,9 @@ export class PlatformStorage {
    * @returns A promise that resolves when the value has been set.
    */
   async set(key: string, value: any): Promise<void> {
-    await this.#client.send<PostMessagePutDataRequest>({
+    await this.client.send<PostMessagePutDataRequest>({
       subject: "lti.put_data",
-      message_id: this.#client.messageId("lti.put_data", key),
+      message_id: this.client.messageId("lti.put_data", key),
       key,
       value,
     });
@@ -79,9 +73,9 @@ export class PlatformStorage {
    * @returns A promise that resolves when the value has been removed.
    */
   async remove(key: string): Promise<void> {
-    await this.#client.send<PostMessagePutDataRequest>({
+    await this.client.send<PostMessagePutDataRequest>({
       subject: "lti.put_data",
-      message_id: this.#client.messageId("lti.put_data", key),
+      message_id: this.client.messageId("lti.put_data", key),
       key,
       value: null,
     });

@@ -2,9 +2,6 @@ import { PostMessageError, PostMessageErrorType } from "./error";
 import {
   PostMessageCapabilitiesResponse,
   PostMessageCapability,
-  PostMessageGetDataRequest,
-  PostMessageGetDataResponse,
-  PostMessagePutDataRequest,
   PostMessageRequest,
   PostMessageResponse,
 } from "./types";
@@ -142,4 +139,15 @@ export class PostMessageClient {
       return parent.frames[target as any] || parent;
     }
   }
+}
+
+export abstract class PostMessageClientWrapper {
+  protected client: PostMessageClient;
+  static MessageTypes: string[] | null = null;
+
+  constructor(client?: PostMessageClient) {
+    this.client = client ?? new PostMessageClient();
+  }
+
+  abstract isSupported(): Promise<boolean>;
 }

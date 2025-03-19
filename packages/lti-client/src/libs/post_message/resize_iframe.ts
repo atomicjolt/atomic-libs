@@ -1,19 +1,13 @@
-import { PostMessageClient } from "./client";
+import { PostMessageClientWrapper } from "./client";
 
-export class ResizeIframe {
-  #client: PostMessageClient;
-
-  constructor(client?: PostMessageClient) {
-    this.#client = client ?? new PostMessageClient();
-  }
-
+export class ResizeIframe extends PostMessageClientWrapper {
   async isSupported(): Promise<boolean> {
-    const capabilities = await this.#client.getCapabilities();
+    const capabilities = await this.client.getCapabilities();
     return capabilities.some((cap) => cap.subject === "lti.frameResize");
   }
 
   async resize(height: number): Promise<void> {
-    await this.#client.send({
+    await this.client.send({
       subject: "lti.frameResize",
       height,
     });
