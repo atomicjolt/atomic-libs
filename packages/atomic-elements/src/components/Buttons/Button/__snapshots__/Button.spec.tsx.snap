@@ -50,6 +50,7 @@ exports[`Button > matches snapshots > loading state 1`] = `
         class="sc-FEMpB BJcTP aje-flex"
       >
         <svg
+          aria-label="loading"
           aria-valuemax="100"
           aria-valuemin="0"
           class="sc-kfeOyU jmiEpZ aje-progresscircle aje-spinner"
