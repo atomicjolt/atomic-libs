@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import settings, { getInitialSettings } from './settings';
 
 describe('settings reducer', () => {

@@ -3,8 +3,8 @@
   "version": "7.0.4",
   "description": "Atomic Jolt's front-end library code",
   "scripts": {
-    "test": "jest --no-cache --config package.json",
-    "test:debug": "node --inspect node_modules/.bin/jest --runInBand --watch --config package.json",
+    "test": "vitest run",
+    "test:update": "vitest run -u",
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch",
     "build": "tsc -p tsconfig.build.json",
@@ -14,25 +14,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/atomicjolt/atomic-fuel.git"
+    "url": "https://github.com/atomicjolt/atomic-libs.git"
   },
   "keywords": [
     "react",
     "reactjs",
     "redux"
   ],
-  "jest": {
-    "moduleNameMapper": {
-      "^.+\\.(css|less)$": "<rootDir>/src/css-stub.js"
-    },
-    "testEnvironment": "jsdom"
-  },
   "author": "atomicjolt (http://github.com/atomicjolt)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/atomicjolt/atomic-fuel/issues"
+    "url": "https://github.com/atomicjolt/atomic-libs/issues"
   },
-  "homepage": "https://github.com/atomicjolt/atomic-fuel",
+  "homepage": "https://github.com/atomicjolt/atomic-libs/tree/master/packages/atomic-fuel#readme",
   "main": "libs/index.js",
   "peerDependencies": {
     "lodash": "^4.17.21",
@@ -43,19 +37,11 @@
     "superagent": ">= 7.0.0 < 11.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.25.2",
-    "@babel/preset-env": "^7.25.4",
-    "@babel/preset-react": "^7.24.7",
-    "@babel/preset-typescript": "^7.24.7",
-    "@types/jest": "^27.5.1",
     "@types/jsdom": "^21.1.7",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
-    "babel-jest": "^29.7.0",
     "classnames": "^2.3.1",
     "graphql": "^16.6.0",
-    "jest": "^28.1.0",
-    "jest-environment-jsdom": "^28.1.0",
     "lodash": "^4.17.15",
     "nock": "^13.2.4",
     "npm-run-all": "^4.1.5",
