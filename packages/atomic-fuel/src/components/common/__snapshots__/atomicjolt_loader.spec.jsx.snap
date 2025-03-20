@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Loader renders the core loader 1`] = `
+exports[`Loader > renders the core loader 1`] = `
 <div>
   <div
     class="aj-loader"
@@ -37,7 +37,7 @@ exports[`Loader renders the core loader 1`] = `
 </div>
 `;
 
-exports[`Loader renders the default loader 1`] = `
+exports[`Loader > renders the default loader 1`] = `
 <div>
   <div
     class="aj-loader"

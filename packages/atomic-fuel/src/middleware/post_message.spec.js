@@ -1,6 +1,4 @@
-/**
- * @jest-environment jsdom
- */
+import { describe, it, expect, vi, beforeEach } from 'vitest';
 import postMessage, { HandlerSingleton } from './post_message';
 import Helper from '../specs_support/helper';
 
@@ -34,7 +32,7 @@ describe('postMessage middleware', () => {
     const nextHandler = () => {};
     const actionHandler = middleware(nextHandler);
 
-    const spy = jest.spyOn(HandlerSingleton, 'prepareInstance');
+    const spy = vi.spyOn(HandlerSingleton, 'prepareInstance');
     actionHandler(action);
 
     expect(spy).toHaveBeenCalledTimes(1);
@@ -50,27 +48,27 @@ describe('postMessage middleware', () => {
     const nextHandler = () => {};
     const actionHandler = middleware(nextHandler);
     HandlerSingleton.prepareInstance(() => {});
-    const spy = jest.spyOn(HandlerSingleton.communicator, 'comm');
+    const spy = vi.spyOn(HandlerSingleton.communicator, 'comm');
     actionHandler(action);
     expect(spy).toHaveBeenCalledTimes(1);
   });
 
   it('HandlerSingleton.handleComm calls the dispatch', () => {
-    const spy = jest.fn();
+    const spy = vi.fn();
     HandlerSingleton.prepareInstance(spy);
     HandlerSingleton.instance.handleComm({ data: '{}' });
     expect(spy).toHaveBeenCalled();
   });
 
   it('HandlerSingleton.handleComm handles invalid json calls the dispatch', () => {
-    const spy = jest.fn();
+    const spy = vi.fn();
     HandlerSingleton.prepareInstance(spy);
     HandlerSingleton.instance.handleComm({ data: 'The server responded with something invalid' });
     expect(spy).toHaveBeenCalled();
   });
 
   it('HandlerSingleton.handleComm calls the dispatch when data is an object', () => {
-    const spy = jest.fn();
+    const spy = vi.fn();
     HandlerSingleton.prepareInstance(spy);
     HandlerSingleton.instance.handleComm({ data: {} });
     expect(spy).toHaveBeenCalled();

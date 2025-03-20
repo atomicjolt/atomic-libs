@@ -1,7 +1,17 @@
 # @atomicjolt/forms
 
-## 2.2.2
+## 2.2.3
+
 ### Patch Changes
+
+- 64974e4: Include original TS files in NPM package for sourcemaps
+- Updated dependencies [73a1289]
+  - @atomicjolt/atomic-elements@3.3.3
+
+## 2.2.2
+
+### Patch Changes
+
 - Updated dependencies
   - @atomicjolt/atomic-elements@3.3.2
 
