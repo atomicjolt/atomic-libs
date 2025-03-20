@@ -99,6 +99,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           <SpinnerLoader
             isLoading={!loadingComplete}
             placement="absolute center"
+            aria-label="loading"
           />
         )}
         {renderProps.children}

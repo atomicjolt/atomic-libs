@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import configureStore from './configure_store';
 
 describe('configure store', () => {

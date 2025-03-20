@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`GqlStatus renders error 1`] = `
+exports[`GqlStatus > renders error 1`] = `
 <div>
   <div
     class="error-banner"
@@ -22,7 +22,7 @@ exports[`GqlStatus renders error 1`] = `
 </div>
 `;
 
-exports[`GqlStatus renders loading 1`] = `
+exports[`GqlStatus > renders loading 1`] = `
 <div>
   <div
     class="aj-loader"
