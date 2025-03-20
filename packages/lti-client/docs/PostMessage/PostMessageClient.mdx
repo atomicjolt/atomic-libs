@@ -1,0 +1,108 @@
+---
+sidebar_position: 1
+---
+
+# PostMessageClient
+
+The PostMessage Client helps you communicate with LTI platforms using the browser's postMessage API. This guide will show you how to set up and use the client effectively.
+
+## Getting Started
+
+First, create a new PostMessage client:
+
+```typescript
+const client = new PostMessageClient({
+  // The platform's origin - can use "*" during development
+  origin: "https://platform.example.com",
+  // How long to wait for responses (in ms)
+  timeout: 5000,
+});
+```
+
+## Sending Messages
+
+The most common operation is sending messages to the platform. Here's how:
+
+```typescript
+try {
+  const response = await client.send({
+    subject: "lti.example",
+    message_id: client.messageId("lti.example"),
+    // Add any other data for the request
+    resource_id: "12345",
+  });
+
+  // Handle the response
+  console.log(response);
+} catch (error) {
+  if (error.type === "timeout") {
+    // Handle timeout
+    console.error("Platform did not respond in time");
+  } else {
+    // Handle other errors
+    console.error("Platform returned an error:", error.message);
+  }
+}
+```
+
+## Working with Capabilities
+
+Before sending messages, you might want to check what the platform supports:
+
+```typescript
+// Get all capabilities
+const capabilities = await client.getCapabilities();
+console.log(
+  "Platform supports:",
+  capabilities.map((c) => c.subject)
+);
+
+// Check for specific capability
+const putData = await client.getCapability("lti.put_data");
+if (putData) {
+  // Platform supports deep linking
+  console.log("Platform Storage configuration:", putData);
+}
+```
+
+## Advanced Usage
+
+### Custom Target Frames
+
+In most cases, the `PostMessageClient` can identify which frame to send messages to.
+However, you can specify a custom target frame if needed:
+
+```typescript
+const client = new PostMessageClient({
+  targetFrame: window.parent, // or window reference
+  origin: "https://platform.example.com",
+});
+```
+
+### Message IDs
+
+Messages that are part of the official LTI spec requires a unique message ID for each request. You can generate one easily:
+
+```typescript
+const messageId = client.messageId("subject", "grade", "user123");
+// Results in something like: "subject-grade-user123-a1b2c3"
+```
+
+### Timeouts
+
+Adjust timeout per request:
+
+```typescript
+// Longer timeout for this specific request
+const response = await client.send(payload, {
+  timeout: 10000, // 10 seconds
+});
+```
+
+## Best Practices
+
+1. Always use appropriate timeouts for your use case
+2. Check platform capabilities before sending messages
+3. Implement proper error handling
+4. Use specific origins in production (avoid "\*")
+5. Generate unique message IDs for each request
