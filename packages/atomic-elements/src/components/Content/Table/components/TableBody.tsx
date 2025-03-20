@@ -9,6 +9,7 @@ import { LoadingTableRows } from "./Loading";
 import { EmptyTable } from "./EmptyTable";
 import { TableStateContext } from "../Table.context";
 import { useCollectionRenderer } from "@hooks/useCollectionRenderer";
+import { useLoading } from "@components/Feedback/Loading";
 
 export interface TableBodyProps<T> extends LoadingProps {
   renderEmpty?: (() => React.ReactNode) | React.ReactNode;
@@ -26,7 +27,9 @@ export const TableBody = createBranchComponent(
     body: Node<T>
   ) {
     const state = useContext(TableStateContext)!;
-    const { isLoading, loadingRows = 10 } = props;
+    const { loadingRows = 10 } = props;
+
+    const { isLoading } = useLoading(props.isLoading);
 
     const renderProps = useRenderProps({
       componentClassName: "aje-table__body",

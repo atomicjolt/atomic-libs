@@ -5,7 +5,7 @@ import { useVariantClass } from "../../../hooks/variants";
 import { AriaProps, FieldInputProps, HasVariant } from "../../../types";
 import { StyledTextField } from "../Inputs.styles";
 import { FieldInput } from "../../Fields";
-import FloatingFieldInputWrapper from "../../Internal/FloatingFieldInputWrapper";
+import { FloatingFieldInputWrapper } from "../../Internal/FloatingFieldInputWrapper";
 
 type Variants = "default" | "floating";
 

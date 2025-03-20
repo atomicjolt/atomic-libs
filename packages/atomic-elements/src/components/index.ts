@@ -51,6 +51,7 @@ export { ThreeDotLoader } from "./Feedback/ThreeDotLoader";
 export { SkeletonLoader } from "./Feedback/SkeletonLoader";
 export { LoadingStatus } from "./Feedback/LoadingStatus";
 export { ProgressCircle } from "./Feedback/ProgressCircle";
+export { Loading, type LoadingProps } from "./Feedback/Loading";
 
 export { MaterialIcon } from "./Icons/MaterialIcon";
 export { MaterialSymbol } from "./Icons/MaterialSymbol";

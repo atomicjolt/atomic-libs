@@ -6,11 +6,19 @@ import { useContextProps } from "@hooks/useContextProps";
 import { useRenderProps } from "@hooks";
 import { InputContext } from "./Input.context";
 import { SlotProps } from "@hooks/useSlottedContext";
+import { useLoading } from "@components/Feedback/Loading";
+import { SkeletonLoader } from "@components/Feedback/SkeletonLoader";
 
 const StyledInput = styled.input`
   ${mixins.Regular}
   ${mixins.InputLike}
   ${mixins.SizingX}
+`;
+
+const LoadingWrapper = styled.div`
+  border-radius: var(--input-border-radius);
+  height: var(--input-height);
+  overflow: hidden;
 `;
 
 export interface InputProps
@@ -35,12 +43,27 @@ export const Input = forwardRef(function Input(
     style,
   });
 
+  const { isLoading } = useLoading();
+
   return (
-    <StyledInput
-      ref={ref}
-      {...renderProps}
-      {...rest}
-      slot={rest.slot || undefined}
-    />
+    <>
+      {isLoading && (
+        <LoadingWrapper>
+          <SkeletonLoader height="100%" width="100%">
+            <rect x="0" y="0" width="100%" height="100%" />
+          </SkeletonLoader>
+        </LoadingWrapper>
+      )}
+      <StyledInput
+        ref={ref}
+        {...renderProps}
+        {...rest}
+        slot={rest.slot || undefined}
+        style={{
+          display: isLoading ? "none" : "initial",
+          ...renderProps.style,
+        }}
+      />
+    </>
   );
 });

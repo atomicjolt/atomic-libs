@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import { forwardRef, useMemo } from "react";
 import { AriaButtonOptions } from "@react-aria/button";
 import { mergeProps, useObjectRef } from "@react-aria/utils";
 
@@ -17,6 +17,7 @@ import { useContextProps } from "@hooks/useContextProps";
 import { StyledButton } from "./Button.styles";
 import { ButtonContext } from "./Button.context";
 import { SlotProps } from "@hooks/useSlottedContext";
+import { useLoading } from "@components/Feedback/Loading";
 
 export type ButtonVariants = SuggestStrings<
   | "primary"
@@ -58,7 +59,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     const ref = useObjectRef(forwardedRef);
 
     const {
-      isLoading = false,
       loadingLabel,
       loadingComplete = false,
       as = props.href ? "a" : "button",
@@ -66,10 +66,25 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       size = "auto",
     } = props;
 
+    const { isLoading: ctxIsLoading, buttonBehavior } = useLoading();
+
+    const [isLoading, isDisabled] = useMemo(() => {
+      const derivedIsLoading =
+        props.isLoading ?? (ctxIsLoading && buttonBehavior === "loading");
+      const derivedIsDisabled =
+        props.isDisabled ?? (ctxIsLoading && buttonBehavior === "disabled");
+
+      return [
+        props.isLoading !== undefined ? props.isLoading : derivedIsLoading,
+        props.isDisabled !== undefined ? props.isDisabled : derivedIsDisabled,
+      ];
+    }, [ctxIsLoading, buttonBehavior, props.isLoading, props.isDisabled]);
+
     const { buttonProps, isPressed } = useButtonLink(
       {
         ...props,
         elementType: as,
+        isDisabled,
         "aria-label": isLoading ? loadingLabel : props["aria-label"],
       },
       ref
