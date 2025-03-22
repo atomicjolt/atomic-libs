@@ -360,6 +360,11 @@ export type MessageSupported = {
   placements?: string[];
 };
 
+export type RegistrationConfiguration = {
+  platformToolConfiguration: ToolConfiguration,
+  platformConfiguration: PlatformConfiguration,
+}
+
 export type ToolConfiguration = {
   application_type: string;
   grant_types: string[];
