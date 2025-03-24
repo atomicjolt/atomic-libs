@@ -9,7 +9,13 @@ export function SpinnerLoader(props: SpinnerLoaderProps) {
 
   return (
     <Loader {...props} className={["aje-loader--spinner", className]}>
-      <Spinner $size="2em" />
+      <Spinner
+        $size="2em"
+        aria-label={props["aria-label"]}
+        aria-describedby={props["aria-describedby"]}
+        aria-details={props["aria-details"]}
+        aria-labelledby={props["aria-labelledby"]}
+      />
     </Loader>
   );
 }

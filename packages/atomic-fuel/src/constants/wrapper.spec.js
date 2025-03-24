@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import wrapper from './wrapper';
 
 describe('wrapper', () => {
