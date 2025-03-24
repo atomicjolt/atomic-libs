@@ -34,6 +34,13 @@ export class IdTokenWrapper {
   }
 
   /**
+   * Get the user id from the token
+   */
+  get userId(): string {
+    return this.token.sub;
+  }
+
+  /**
    * Get the deployment ID from the token
    */
   get deploymentId(): string {
@@ -84,6 +91,15 @@ export class IdTokenWrapper {
   }
 
   /**
+   * Get the LMS user ID.
+   * For Canvas, this is the canvas_user_id from custom claims.
+   * For other LTI platforms, this is the sub (user ID) from the token.
+   */
+  get lmsUserId(): string {
+    return this.getCustomParameter('canvas_user_id') || this.userId;
+  }
+
+  /**
    * Get the context ID from the token
    */
   get contextId(): string {
@@ -102,6 +118,14 @@ export class IdTokenWrapper {
    */
   get contextTitle(): string | undefined {
     return this.contextData.title;
+  }
+
+
+  /**
+   * Get the context type from the token
+   */
+  get contextType(): Array<string> | undefined {
+    return this.contextData.type;
   }
 
   /**
@@ -142,43 +166,43 @@ export class IdTokenWrapper {
   /**
    * Get the tool platform data from the token
    */
-  get toolPlatformData(): ToolPlatformClaim {
+  get platformData(): ToolPlatformClaim {
     return this.token[TOOL_PLATFORM_CLAIM] || {} as ToolPlatformClaim;
   }
 
   /**
    * Get the product family code from the token
    */
-  get productFamilyCode(): string | undefined {
-    return this.toolPlatformData.product_family_code;
+  get platformProductFamilyCode(): string | undefined {
+    return this.platformData.product_family_code;
   }
 
   /**
    * Get the tool consumer instance GUID from the token
    */
-  get toolConsumerInstanceGuid(): string {
-    return this.toolPlatformData.guid || '';
+  get platformInstanceGuid(): string {
+    return this.platformData.guid || '';
   }
 
   /**
    * Get the tool consumer instance name from the token
    */
-  get toolConsumerInstanceName(): string | undefined {
-    return this.toolPlatformData.name;
+  get platformInstanceName(): string | undefined {
+    return this.platformData.name;
   }
 
   /**
    * Get the tool consumer instance description from the token
    */
-  get toolConsumerInstanceDescription(): string | undefined {
-    return this.toolPlatformData.description;
+  get platformInstanceDescription(): string | undefined {
+    return this.platformData.description;
   }
 
   /**
    * Get the tool consumer instance URL from the token
    */
-  get toolConsumerInstanceUrl(): string | undefined {
-    return this.toolPlatformData.url;
+  get platformInstanceUrl(): string | undefined {
+    return this.platformData.url;
   }
 
   /**
