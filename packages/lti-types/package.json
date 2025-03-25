@@ -1,6 +1,6 @@
 {
   "name": "@atomicjolt/lti-types",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "LTI Typescript definitions.",
   "main": "dist/index.js",
   "typings": "dist/types/index.d.ts",
@@ -16,7 +16,7 @@
   "license": "MIT",
   "files": [
     "dist",
-    "types",
+    "src",
     "README.md"
   ]
 }
