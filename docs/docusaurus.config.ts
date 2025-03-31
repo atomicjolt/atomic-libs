@@ -61,6 +61,15 @@ const config: Config = {
         sidebarPath: require.resolve("./sidebars.ts"),
       },
     ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "canvas-client",
+        path: "../packages/canvas-client/docs",
+        routeBasePath: "canvas-client",
+        sidebarPath: require.resolve("./sidebars.ts"),
+      },
+    ],
   ],
   themeConfig: {
     navbar: {
@@ -101,6 +110,11 @@ const config: Config = {
               label: "@atomicjolt/lti-client",
               to: "lti-client/",
               activeBasePath: "lti-client",
+            },
+            {
+              label: "@atomicjolt/canvas-client",
+              to: "canvas-client/",
+              activeBasePath: "canvas-client",
             },
           ],
         },
