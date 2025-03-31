@@ -7,8 +7,21 @@ export interface WatchForResizeOptions {
   observeImages?: boolean;
 }
 
+/** A global store of the current height of the page */
 let currentHeight = 0;
 
+/**
+ * Watches for resize events and triggers a callback when a resize is detected.
+ * This function observes changes in the DOM and optionally monitors image loading
+ * to ensure the height is recalculated when images are loaded or DOM mutations occur.
+ *
+ * @param options - Configuration options for the resize watcher.
+ * @param options.getHeight - A function that returns the current height of the element being observed.
+ * @param options.observeImages - A boolean indicating whether to observe image loading events. Defaults to `true`.
+ * @param options.onResize - A callback function that is invoked whenever a resize is detected. Receives the new height as an argument.
+ *
+ * @returns A cleanup function that stops observing resize events and disconnects all listeners.
+ */
 export function watchForResize(options: WatchForResizeOptions) {
   const { getHeight, observeImages = true, onResize } = options;
 
