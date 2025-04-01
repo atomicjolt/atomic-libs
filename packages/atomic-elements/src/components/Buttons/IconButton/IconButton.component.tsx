@@ -1,5 +1,5 @@
 import { forwardRef } from "react";
-import { HasIcon } from "../../../types";
+import { CanHaveIcon, MaterialIcons } from "../../../types";
 import { MaterialIcon } from "../../Icons/MaterialIcon";
 import { StyledIconButton } from "./IconButton.styles";
 import { ButtonProps } from "../Button";
@@ -9,7 +9,9 @@ import classNames from "classnames";
 
 export interface IconButtonProps
   extends Omit<ButtonProps, "children">,
-    HasIcon {}
+    CanHaveIcon {
+  children?: React.ReactNode;
+}
 
 /** A button designed for displaying a single icon. The button has no text content,
  * so you should provide an aria-label for accessiblity
@@ -31,6 +33,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
       variant = "border",
       as,
       className,
+      children,
       ...rest
     } = props;
 
@@ -45,7 +48,17 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
         data-icon-button
         className={classNames("aje-icon-btn", className)}
       >
-        <MaterialIcon icon={icon} variant={iconVariant} size={size} />
+        {children ? (
+          children
+        ) : typeof icon === "string" ? (
+          <MaterialIcon
+            icon={icon as MaterialIcons}
+            variant={iconVariant}
+            size={size}
+          />
+        ) : (
+          icon
+        )}
       </StyledIconButton>
     );
   }

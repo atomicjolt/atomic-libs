@@ -1,9 +1,10 @@
+import React from "react";
 import { ExtendedSize } from "./common";
 import { RenderBaseProps } from "./render";
 
 export interface HasIcon {
   /** Material Icon to render */
-  icon: MaterialIcons;
+  icon: MaterialIcons | React.ReactNode;
   /** The MaterialIcons icon set to use */
   iconVariant?: MaterialIconVariants;
 }
