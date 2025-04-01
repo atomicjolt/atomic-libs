@@ -13,7 +13,7 @@ exports[`DismissableBanner > Snapshots > should match snapshot 1`] = `
         />
         <button
           aria-label="dismiss info"
-          class="sc-deSjom byalIv aje-btn sc-jHswkR WgpIQ aje-banner__dismiss aje-btn--banner is-medium"
+          class="sc-deSjom byalIv aje-btn sc-jHswkR WgpIQ aje-icon-btn aje-banner__dismiss aje-btn--banner is-medium"
           data-icon-button="true"
           tabindex="0"
           type="button"
@@ -38,7 +38,7 @@ exports[`DismissableBanner > Snapshots > should match snapshot 1`] = `
       />
       <button
         aria-label="dismiss info"
-        class="sc-deSjom byalIv aje-btn sc-jHswkR WgpIQ aje-banner__dismiss aje-btn--banner is-medium"
+        class="sc-deSjom byalIv aje-btn sc-jHswkR WgpIQ aje-icon-btn aje-banner__dismiss aje-btn--banner is-medium"
         data-icon-button="true"
         tabindex="0"
         type="button"
@@ -127,7 +127,7 @@ exports[`DismissableBanner > Snapshots > should match snapshot with icon 1`] = `
         />
         <button
           aria-label="dismiss info"
-          class="sc-deSjom byalIv aje-btn sc-jHswkR WgpIQ aje-banner__dismiss aje-btn--banner is-medium"
+          class="sc-deSjom byalIv aje-btn sc-jHswkR WgpIQ aje-icon-btn aje-banner__dismiss aje-btn--banner is-medium"
           data-icon-button="true"
           tabindex="0"
           type="button"
@@ -159,7 +159,7 @@ exports[`DismissableBanner > Snapshots > should match snapshot with icon 1`] = `
       />
       <button
         aria-label="dismiss info"
-        class="sc-deSjom byalIv aje-btn sc-jHswkR WgpIQ aje-banner__dismiss aje-btn--banner is-medium"
+        class="sc-deSjom byalIv aje-btn sc-jHswkR WgpIQ aje-icon-btn aje-banner__dismiss aje-btn--banner is-medium"
         data-icon-button="true"
         tabindex="0"
         type="button"
@@ -248,7 +248,7 @@ exports[`ErrorBanner > Snapshots > should match snapshot 1`] = `
         />
         <button
           aria-label="dismiss error"
-          class="sc-deSjom byalIv aje-btn sc-jHswkR WgpIQ aje-banner__dismiss aje-btn--banner is-medium"
+          class="sc-deSjom byalIv aje-btn sc-jHswkR WgpIQ aje-icon-btn aje-banner__dismiss aje-btn--banner is-medium"
           data-icon-button="true"
           tabindex="0"
           type="button"
@@ -280,7 +280,7 @@ exports[`ErrorBanner > Snapshots > should match snapshot 1`] = `
       />
       <button
         aria-label="dismiss error"
-        class="sc-deSjom byalIv aje-btn sc-jHswkR WgpIQ aje-banner__dismiss aje-btn--banner is-medium"
+        class="sc-deSjom byalIv aje-btn sc-jHswkR WgpIQ aje-icon-btn aje-banner__dismiss aje-btn--banner is-medium"
         data-icon-button="true"
         tabindex="0"
         type="button"
@@ -369,7 +369,7 @@ exports[`WarningBanner > Snapshots > should match snapshot 1`] = `
         />
         <button
           aria-label="dismiss warning"
-          class="sc-deSjom byalIv aje-btn sc-jHswkR WgpIQ aje-banner__dismiss aje-btn--banner is-medium"
+          class="sc-deSjom byalIv aje-btn sc-jHswkR WgpIQ aje-icon-btn aje-banner__dismiss aje-btn--banner is-medium"
           data-icon-button="true"
           tabindex="0"
           type="button"
@@ -401,7 +401,7 @@ exports[`WarningBanner > Snapshots > should match snapshot 1`] = `
       />
       <button
         aria-label="dismiss warning"
-        class="sc-deSjom byalIv aje-btn sc-jHswkR WgpIQ aje-banner__dismiss aje-btn--banner is-medium"
+        class="sc-deSjom byalIv aje-btn sc-jHswkR WgpIQ aje-icon-btn aje-banner__dismiss aje-btn--banner is-medium"
         data-icon-button="true"
         tabindex="0"
         type="button"
