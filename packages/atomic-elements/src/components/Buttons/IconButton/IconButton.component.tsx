@@ -5,6 +5,7 @@ import { StyledIconButton } from "./IconButton.styles";
 import { ButtonProps } from "../Button";
 import { useContextProps } from "@hooks/useContextProps";
 import { ButtonContext } from "../Button/Button.context";
+import classNames from "classnames";
 
 export interface IconButtonProps
   extends Omit<ButtonProps, "children">,
@@ -29,6 +30,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
       size = "medium",
       variant = "border",
       as,
+      className,
       ...rest
     } = props;
 
@@ -41,6 +43,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
         ref={forwardedRef}
         forwardedAs={as}
         data-icon-button
+        className={classNames("aje-icon-btn", className)}
       >
         <MaterialIcon icon={icon} variant={iconVariant} size={size} />
       </StyledIconButton>
