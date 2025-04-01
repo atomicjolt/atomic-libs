@@ -1,3 +1,4 @@
+import { dirname, join } from "path";
 import { StorybookConfig } from "@storybook/react-vite";
 
 const config: StorybookConfig = {
@@ -7,17 +8,16 @@ const config: StorybookConfig = {
   ],
 
   addons: [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-docs",
-    "@ljcl/storybook-addon-cssprops",
-    // "@storybook/addon-mdx-gfm"
+    getAbsolutePath("@storybook/addon-links"),
+    getAbsolutePath("@storybook/addon-essentials"),
+    getAbsolutePath("@storybook/addon-docs"),
+    getAbsolutePath("@ljcl/storybook-addon-cssprops"),
   ],
 
   staticDirs: ["../public"],
 
   framework: {
-    name: "@storybook/react-vite",
+    name: getAbsolutePath("@storybook/react-vite"),
     options: {},
   },
   core: {
@@ -40,7 +40,12 @@ const config: StorybookConfig = {
 
   docs: {
     defaultName: "Overview",
+    autodocs: true,
   },
 };
 
 export default config;
+
+function getAbsolutePath(value: string): any {
+  return dirname(require.resolve(join(value, "package.json")));
+}
