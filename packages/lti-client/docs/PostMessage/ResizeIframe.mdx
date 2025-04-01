@@ -1,0 +1,63 @@
+# Resizing LTI Frames
+
+The ResizeIframe utility helps you dynamically adjust the height of your LTI tool within the platform's iframe.
+
+## Getting Started
+
+Create a new resize handler:
+
+```typescript
+const client = new PostMessageClient({
+  origin: "https://platform.example.com",
+});
+const resizer = new ResizeIframe(client);
+```
+
+## Basic Usage
+
+Before using the resize functionality, check if the platform supports it:
+
+```typescript
+const supported = await resizer.isSupported();
+if (supported) {
+  // Resize to specific height (in pixels)
+  await resizer.resize(500);
+}
+```
+
+## Practical Examples
+
+### Auto-resize on Content Change
+
+```typescript
+function setupAutoResize() {
+  const observer = new ResizeObserver(async (entries) => {
+    const height = entries[0].contentRect.height;
+    await resizer.resize(height);
+  });
+
+  observer.observe(document.body);
+}
+```
+
+### Resize After Loading Content
+
+```typescript
+async function loadAndResize() {
+  // Load your content
+  await loadContent();
+
+  // Get the current document height
+  const height = document.documentElement.scrollHeight;
+
+  // Resize the frame
+  await resizer.resize(height);
+}
+```
+
+## Supported Platforms
+
+The following platforms support the ResizeIframe functionality:
+
+- Canvas
+- Brigthspace

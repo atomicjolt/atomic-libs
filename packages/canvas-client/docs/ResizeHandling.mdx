@@ -1,0 +1,71 @@
+---
+sidebar_position: 3
+---
+
+# Resize Handling
+
+## Component API
+
+A React component that automatically handles resizing an iframe embedded in Canvas content.
+
+```tsx
+import { ResizeIframe } from "@atomicjolt/canvas-client";
+
+function App() {
+  return (
+    <ResizeIframe>
+      <div>Your content here</div>
+    </ResizeIframe>
+  );
+}
+```
+
+#### Props
+
+- `getHeight?: () => number` - Optional function to calculate the content height
+- `onResize?: (height: number) => void` - Optional callback when resize occurs
+- `observeImages?: boolean` - Whether to watch for image loads
+- `children?: React.ReactNode` - Content to render
+
+## Hook API
+
+A React hook that manages iframe resizing logic.
+
+```tsx
+import { useResizeHandler } from "@atomicjolt/canvas-client";
+
+function Component() {
+  useResizeHandler({
+    getHeight: () => document.body.scrollHeight,
+    onResize: (height) => console.log("New height:", height),
+    observeImages: true,
+  });
+
+  return <div>Content</div>;
+}
+```
+
+## Core API
+
+A utility function that watches for DOM changes and triggers resize events.
+
+```tsx
+import { watchForResize } from "@atomicjolt/canvas-client";
+
+const cleanup = watchForResize({
+  getHeight: () => document.body.scrollHeight,
+  onResize: (height) => console.log("Height changed:", height),
+  observeImages: true,
+});
+
+// Call cleanup when done
+cleanup();
+```
+
+#### Options
+
+The `watchForResize` function accepts an options object with the following properties:
+
+- `getHeight: () => number` - Function that returns the current height
+- `onResize: (height: number) => void` - Callback function when height changes
+- `observeImages?: boolean` - Whether to watch for image loads (default: true)

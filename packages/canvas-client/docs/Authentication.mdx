@@ -1,0 +1,57 @@
+---
+sidebar_position: 2
+---
+
+# Canvas Authentication
+
+## CanvasAuthenticationForm
+
+A component for handling Canvas LMS authentication.
+
+```tsx
+import { CanvasAuthenticationForm } from "@atomicjolt/canvas-client";
+
+function App() {
+  return (
+    <CanvasAuthenticationForm
+      action="/oauth/callback"
+      settings={{ client_id: "12345" }}
+      autoSubmit
+    />
+  );
+}
+```
+
+### Props
+
+The `CanvasAuthenticationForm` component accepts the following props:
+
+- `action: string` - URL to submit the form to
+- `settings?: Record<string, any>` - Additional settings to include as hidden input fields
+- `autoSubmit?: boolean` - Whether to auto-submit the form on render (default: false)
+- `children?: ReactNode` - Children elements to include in the form
+
+The component also accepts all standard HTML form attributes.
+
+### Custom Prompt
+
+If you'd like to provide a custom prompt before the user is redirected to the authentication page, you need to handle submission yourself
+
+```tsx
+import { CanvasAuthenticationForm } from "@atomicjolt/canvas-client";
+
+function App() {
+  return (
+    <div>
+      <h1>Custom Authentication</h1>
+      <p>
+        Please click the button below to authenticate this app to work with
+        Canvas
+      </p>
+      <CanvasAuthenticationForm action="/oauth/callback">
+        <button type="submit">Authenticate</button>
+      </CanvasAuthenticationForm>
+    </div>
+  );
+}
+```

@@ -1,0 +1,69 @@
+# Platform Storage
+
+A utility for interacting with the [Platform Storage as specififed by the LTI spec](https://www.imsglobal.org/spec/lti-pm-s/v0p1)
+
+## Getting Started
+
+Create a new storage handler:
+
+```typescript
+const client = new PostMessageClient({
+  origin: "https://platform.example.com",
+});
+const storage = new PlatformStorage(client);
+```
+
+## Basic Operations
+
+First, check if the platform supports storage:
+
+```typescript
+const supported = await storage.isSupported();
+if (!supported) {
+  console.warn("Platform storage not available");
+  return;
+}
+```
+
+### Storing Data
+
+```typescript
+await storage.set("user-preference", "dark-mode");
+```
+
+### Retrieving Data
+
+```typescript
+// Get a value (returns null if not found)
+const preference = await storage.get("user-preference");
+
+// Handle missing data
+const settings = await storage.get("user-settings");
+if (settings === null) {
+  console.log("No settings found");
+} else {
+  const parsed = JSON.parse(settings);
+  console.log("User settings:", parsed);
+}
+```
+
+### Removing Data
+
+```typescript
+// Remove a stored value
+await storage.remove("user-preference");
+```
+
+## Error Handling
+
+```typescript
+try {
+  await storage.set("my-key", "my-value");
+} catch (error) {
+  if (error.response?.error?.code === "storage_full") {
+    console.error("Storage quota exceeded");
+  } else {
+    console.error("Storage operation failed:", error);
+  }
+}
+```
