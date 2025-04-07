@@ -32,6 +32,7 @@ export const MaterialSymbol = React.forwardRef<
     variant = "outlined",
     size = "medium",
     isDisabled = false,
+    isFocusable = false,
     style,
     weight,
     grade,
@@ -61,24 +62,24 @@ export const MaterialSymbol = React.forwardRef<
     opticalSize,
   });
 
-  // We use the focusable hook so that the icon supports tooltips
-  // the icon itself isn't actually focusable
+  const componentProps = [filterDOMProps(rest), renderProps];
+
   const { focusableProps } = useFocusable({}, ref);
 
-  const componentProps = mergeProps(
-    filterDOMProps(rest),
-    renderProps,
-    focusableProps
-  );
+  if (isFocusable) {
+    componentProps.push(focusableProps);
+  }
+
+  const mergedProps = mergeProps(...componentProps);
 
   return (
     <StyledIcon
       ref={ref}
       aria-hidden
-      {...componentProps}
+      {...mergedProps}
       style={{
         fontVariationSettings: fontVariationSettings || undefined,
-        ...componentProps.style,
+        ...mergedProps.style,
       }}
     >
       {symbol}

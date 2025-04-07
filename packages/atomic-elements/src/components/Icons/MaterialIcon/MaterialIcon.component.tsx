@@ -31,6 +31,7 @@ export const MaterialIcon = React.forwardRef<HTMLElement, MaterialIconProps>(
       size = "medium",
       disabled = false,
       isDisabled = disabled,
+      isFocusable = false,
       style,
       ...rest
     } = props;
@@ -50,18 +51,18 @@ export const MaterialIcon = React.forwardRef<HTMLElement, MaterialIconProps>(
       },
     });
 
-    // We use the focusable hook so that the icon supports tooltips
-    // when the icon itself isn't actually focusable
+    const componentProps = [filterDOMProps(rest), renderProps];
+
     const { focusableProps } = useFocusable({}, ref);
 
-    const componentProps = mergeProps(
-      filterDOMProps(rest),
-      renderProps,
-      focusableProps
-    );
+    if (isFocusable) {
+      componentProps.push(focusableProps);
+    }
+
+    const mergedProps = mergeProps(...componentProps);
 
     return (
-      <StyledIcon ref={ref} aria-hidden {...componentProps}>
+      <StyledIcon ref={ref} aria-hidden {...mergedProps}>
         {icon}
       </StyledIcon>
     );
