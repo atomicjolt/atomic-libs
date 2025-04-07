@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "build": "tsc -p ./tsconfig.build.json",
-    "test": "echo 'TODO: Add tests'",
+    "test": "vitest run",
     "prepublishOnly": "npm run build"
   },
   "peerDependencies": {},
