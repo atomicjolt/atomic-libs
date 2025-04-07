@@ -8,7 +8,6 @@ exports[`LoadingStatus > matches error snapshot 1`] = `
     <i
       aria-hidden="true"
       class="sc-gNZgCX gypsPY aje-icon material-icons is-medium"
-      tabindex="0"
     >
       error
     </i>
@@ -27,7 +26,6 @@ exports[`LoadingStatus > matches error snapshot 1`] = `
       <i
         aria-hidden="true"
         class="sc-gNZgCX gypsPY aje-icon material-icons is-medium"
-        tabindex="0"
       >
         close
       </i>

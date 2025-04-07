@@ -54,7 +54,6 @@ exports[`SelectField > matches snapshots > when closed 1`] = `
       <i
         aria-hidden="true"
         class="sc-jBIHhB dShSRo aje-icon material-icons is-medium"
-        tabindex="0"
       >
         arrow_drop_down
       </i>
@@ -119,7 +118,6 @@ exports[`SelectField > matches snapshots > when open 1`] = `
       <i
         aria-hidden="true"
         class="sc-jBIHhB dShSRo aje-icon material-icons is-medium"
-        tabindex="0"
       >
         arrow_drop_down
       </i>
