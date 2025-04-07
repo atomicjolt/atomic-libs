@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkatomic_packages=self.webpackChunkatomic_packages||[]).push([[792],{978:a=>{a.exports=JSON.parse('{"name":"docusaurus-plugin-content-docs","id":"canvas-client"}')}}]);
