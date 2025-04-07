@@ -25,6 +25,7 @@ export type MaterialIconVariants =
   | "two-tone";
 
 export type MaterialIcons =
+  | "help_outline"
   | "push_pin"
   | "clear"
   | "search"
