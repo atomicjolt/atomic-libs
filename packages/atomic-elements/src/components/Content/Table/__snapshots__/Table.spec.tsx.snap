@@ -59,7 +59,6 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
                     <i
                       aria-hidden="true"
                       class="sc-kfeOyU ceGEEk aje-icon material-icons is-small"
-                      tabindex="0"
                     >
                       close
                     </i>
@@ -205,7 +204,6 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
                   <i
                     aria-hidden="true"
                     class="sc-kfeOyU ceGEEk aje-icon material-icons is-small"
-                    tabindex="0"
                   >
                     close
                   </i>
@@ -408,7 +406,6 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
                     <i
                       aria-hidden="true"
                       class="sc-kfeOyU ceGEEk aje-icon material-icons is-small"
-                      tabindex="0"
                     >
                       close
                     </i>
@@ -423,7 +420,6 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
                   <i
                     aria-hidden="true"
                     class="sc-kfeOyU ceGEEk aje-icon material-icons is-small"
-                    tabindex="0"
                   >
                     search
                   </i>
@@ -568,7 +564,6 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
                   <i
                     aria-hidden="true"
                     class="sc-kfeOyU ceGEEk aje-icon material-icons is-small"
-                    tabindex="0"
                   >
                     close
                   </i>
@@ -583,7 +578,6 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
                 <i
                   aria-hidden="true"
                   class="sc-kfeOyU ceGEEk aje-icon material-icons is-small"
-                  tabindex="0"
                 >
                   search
                 </i>
@@ -785,7 +779,6 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                     <i
                       aria-hidden="true"
                       class="sc-kfeOyU ceGEEk aje-icon material-icons is-small"
-                      tabindex="0"
                     >
                       close
                     </i>
@@ -800,7 +793,6 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   <i
                     aria-hidden="true"
                     class="sc-kfeOyU ceGEEk aje-icon material-icons is-small"
-                    tabindex="0"
                   >
                     search
                   </i>
@@ -2068,7 +2060,6 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   <i
                     aria-hidden="true"
                     class="sc-kfeOyU ceGEEk aje-icon material-icons is-small"
-                    tabindex="0"
                   >
                     close
                   </i>
@@ -2083,7 +2074,6 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                 <i
                   aria-hidden="true"
                   class="sc-kfeOyU ceGEEk aje-icon material-icons is-small"
-                  tabindex="0"
                 >
                   search
                 </i>
