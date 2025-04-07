@@ -52,6 +52,24 @@ const config: Config = {
         sidebarPath: require.resolve("./sidebars.ts"),
       },
     ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "lti-client",
+        path: "../packages/lti-client/docs",
+        routeBasePath: "lti-client",
+        sidebarPath: require.resolve("./sidebars.ts"),
+      },
+    ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "canvas-client",
+        path: "../packages/canvas-client/docs",
+        routeBasePath: "canvas-client",
+        sidebarPath: require.resolve("./sidebars.ts"),
+      },
+    ],
   ],
   themeConfig: {
     navbar: {
@@ -62,22 +80,43 @@ const config: Config = {
       },
       items: [
         {
-          to: "elements/",
-          activeBasePath: "elements",
-          label: "Elements",
+          type: "dropdown",
+          label: "Atomic Packages",
           position: "left",
+          items: [
+            {
+              to: "elements/",
+              activeBasePath: "elements",
+              label: "@atomicjolt/atomic-elements",
+            },
+            {
+              to: "forms/",
+              activeBasePath: "forms",
+              label: "@atomicjolt/forms",
+            },
+            {
+              to: "hooks/",
+              activeBasePath: "hooks",
+              label: "@atomicjolt/hooks",
+            },
+          ],
         },
         {
-          to: "forms/",
-          activeBasePath: "forms",
-          label: "Forms",
+          type: "dropdown",
+          label: "LTI Packages",
           position: "left",
-        },
-        {
-          to: "hooks/",
-          activeBasePath: "hooks",
-          label: "Hooks",
-          position: "left",
+          items: [
+            {
+              label: "@atomicjolt/lti-client",
+              to: "lti-client/",
+              activeBasePath: "lti-client",
+            },
+            {
+              label: "@atomicjolt/canvas-client",
+              to: "canvas-client/",
+              activeBasePath: "canvas-client",
+            },
+          ],
         },
         {
           type: "html",

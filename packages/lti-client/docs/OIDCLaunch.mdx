@@ -1,0 +1,58 @@
+---
+sidebar_position: 3
+---
+
+# LTI Launch with Platform Storage
+
+This package implements support for the [LTI 1.3 OIDC launch flow using client-side storage for state management](https://www.imsglobal.org/spec/lti-cs-oidc/v0p1)
+
+## On Initialization
+
+During the initialization phase, you can call the `initOIDCLaunch` function to set up the necessary parameters for the OIDC launch:
+
+```typescript
+import { initOIDCLaunch } from "@atomicjolt/lti-client";
+
+const initSettings = {
+  state: "unique-state-string",
+  responseUrl: "https://your-app.com/launch",
+  ltiStorageParams: {
+    platformOIDCUrl: "https://platform.com/auth",
+  },
+  relaunchInitUrl: "https://your-app.com/init",
+  openIdCookiePrefix: "lti-launch",
+};
+
+await initOIDCLaunch(initSettings);
+```
+
+This function will
+
+- Check if it needs to write to platform storage
+- Writing the state to platform storage if it is supported
+- Sending the user agent back to the platform for next steps in the OIDC flow
+
+## On Launch
+
+Once the LTI launch is completed, you can verify the state and handle the launch using the `ltiLaunch` function:
+
+```typescript
+import { ltiLaunch } from "@atomicjolt/lti-client";
+
+const handleLaunch = async () => {
+  const verified = await ltiLaunch({
+    state: "your-state",
+    ltiStorageParams: {
+      platformOIDCUrl: "https://platform.com/auth",
+    },
+  });
+
+  if (verified) {
+    // Let the user access the application
+    console.log("Launch verified and processed.");
+  } else {
+    // Show the user an error message
+    console.error("Launch verification failed.");
+  }
+};
+```
