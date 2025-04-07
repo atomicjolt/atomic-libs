@@ -10,7 +10,8 @@
     "packages/lti-client",
     "packages/lti-server",
     "packages/lti-components",
-    "packages/canvas-client"
+    "packages/canvas-client",
+    "packages/canvas-api-client"
   ],
   "scripts": {
     "prepare": "npm run storybook:cssprops",
