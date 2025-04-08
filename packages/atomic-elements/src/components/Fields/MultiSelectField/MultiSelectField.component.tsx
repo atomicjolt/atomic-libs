@@ -1,4 +1,4 @@
-import { forwardRef, RefAttributes, useRef } from "react";
+import { forwardRef, useRef } from "react";
 import { PressResponder } from "@react-aria/interactions";
 
 import { ListBoxContext, ListStateContext } from "../../Dropdowns/ListBox";
@@ -8,8 +8,7 @@ import { useContextProps } from "@hooks/useContextProps";
 import { BaseCollection, CollectionBuilder } from "@react-aria/collections";
 import { Provider } from "@components/Internal/Provider";
 import { PopoverContext } from "@components/Overlays/Popover/Popover.context";
-import { ButtonProps, ButtonContext } from "@components/Buttons/Button";
-import { DropdownButton } from "@components/Internal/DropdownButton";
+import { ButtonContext } from "@components/Buttons/Button";
 import {
   FieldErrorContext,
   FieldLabelContext,
@@ -25,16 +24,7 @@ import { useMultiSelectState } from "./useMultiSelectState";
 import { MultiSelectFieldProps } from "./MutliSelectField.types";
 import { useMultiSelect } from "./useMultiSelect";
 
-export interface MultiSelectFieldComponent
-  extends React.ForwardRefExoticComponent<
-    MultiSelectFieldProps<any> & RefAttributes<HTMLButtonElement>
-  > {
-  /** Wrapper around `Button` that configures default visual styling
-   * for the button that opens the dropdown for a `SelectField` */
-  Button: typeof DropdownButton;
-}
-
-/** Building blocks for building custom & accessible select components */
+/** Building blocks for building custom & accessible multi-select components */
 export const MultiSelectField = forwardRef(function MultiSelectField<
   T extends object
 >(props: MultiSelectFieldProps<T>, ref: React.Ref<HTMLButtonElement>) {
@@ -51,7 +41,7 @@ export const MultiSelectField = forwardRef(function MultiSelectField<
       )}
     </CollectionBuilder>
   );
-}) as MultiSelectFieldComponent;
+});
 
 interface MultiSelectFieldInnerProps<T extends object>
   extends MultiSelectFieldProps<T> {
@@ -128,12 +118,3 @@ export function MultiSelectFieldInner<T extends object>(
     </MultiSelectFieldWrapper>
   );
 }
-
-MultiSelectField.Button = DropdownButton;
-
-const MultiSelectFieldButton = (props: ButtonProps) => (
-  <DropdownButton {...props} />
-);
-
-MultiSelectFieldButton.displayName = "MultiSelectField.Button";
-MultiSelectField.Button = MultiSelectFieldButton;

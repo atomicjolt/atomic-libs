@@ -6,7 +6,7 @@ exports[`matches snapshots > matches default variant 1`] = `
     data-react-aria-hidden="true"
   />
   <div
-    class="sc-hUAZgl itcLkM aje-select sc-bCjwNj eMDhDm aje-select aje-select--default"
+    class="sc-gpHbIA bhSUCw aje-select sc-gQJZgv fvvEjB aje-select aje-select--default"
   >
     <div
       aria-hidden="true"
@@ -43,13 +43,13 @@ exports[`matches snapshots > matches default variant 1`] = `
       aria-expanded="false"
       aria-haspopup="listbox"
       aria-labelledby="react-aria-:r7: react-aria-:r3:"
-      class="sc-eiwqOE kgIjdl aje-btn sc-gpHbIA hQGFNP aje-btn--dropdown is-medium"
+      class="sc-eiwqOE JUNDn aje-btn aje-btn--dropdown is-medium"
       id="react-aria-:r2:"
       tabindex="0"
       type="button"
     >
       <span
-        class="sc-flQbIK bcBqQy"
+        class="sc-hUAZgl copoPc"
         id="react-aria-:r7:"
       >
         Select an option
@@ -57,6 +57,7 @@ exports[`matches snapshots > matches default variant 1`] = `
       <i
         aria-hidden="true"
         class="sc-jBIHhB dShSRo aje-icon material-icons is-medium"
+        style="margin-left: auto;"
       >
         arrow_drop_down
       </i>
@@ -71,7 +72,7 @@ exports[`matches snapshots > matches floating variant 1`] = `
     data-react-aria-hidden="true"
   />
   <div
-    class="sc-hUAZgl itcLkM aje-select sc-bCjwNj eMDhDm aje-select aje-select--floating aje-select--floating"
+    class="sc-gpHbIA bhSUCw aje-select sc-gQJZgv fvvEjB aje-select aje-select--floating aje-select--floating"
   >
     <div
       aria-hidden="true"
@@ -99,24 +100,25 @@ exports[`matches snapshots > matches floating variant 1`] = `
       </label>
     </div>
     <div
-      class="sc-gQJZgv fOvDEy"
+      class="sc-flQbIK llRNxW"
     >
       <button
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-labelledby="react-aria-:rf: react-aria-:rb:"
-        class="sc-eiwqOE kgIjdl aje-btn sc-gpHbIA hQGFNP aje-btn--floating is-medium"
+        class="sc-eiwqOE JUNDn aje-btn aje-btn--dropdown is-medium"
         id="react-aria-:ra:"
         tabindex="0"
         type="button"
       >
         <span
-          class="sc-flQbIK bcBqQy"
+          class="sc-hUAZgl copoPc"
           id="react-aria-:rf:"
         />
         <i
           aria-hidden="true"
           class="sc-jBIHhB dShSRo aje-icon material-icons is-medium"
+          style="margin-left: auto;"
         >
           arrow_drop_down
         </i>
