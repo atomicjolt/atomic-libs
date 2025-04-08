@@ -8,7 +8,7 @@ import { useContextProps } from "@hooks/useContextProps";
 import { BaseCollection, CollectionBuilder } from "@react-aria/collections";
 import { Provider } from "@components/Internal/Provider";
 import { PopoverContext } from "@components/Overlays/Popover/Popover.context";
-import { ButtonContext } from "@components/Buttons/Button/Button.context";
+import { ButtonProps, ButtonContext } from "@components/Buttons/Button";
 import { DropdownButton } from "@components/Internal/DropdownButton";
 import {
   FieldErrorContext,
@@ -130,3 +130,10 @@ export function MultiSelectFieldInner<T extends object>(
 }
 
 MultiSelectField.Button = DropdownButton;
+
+const MultiSelectFieldButton = (props: ButtonProps) => (
+  <DropdownButton {...props} />
+);
+
+MultiSelectFieldButton.displayName = "MultiSelectField.Button";
+MultiSelectField.Button = MultiSelectFieldButton;
