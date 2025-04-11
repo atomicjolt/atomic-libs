@@ -19,7 +19,8 @@ import {
   FieldMessageContext,
 } from "@components/Fields";
 import { PopoverContext } from "@components/Overlays/Popover/Popover.context";
-import { ButtonContext } from "@components/Buttons/Button/Button.context";
+import { DropdownButton } from "@components/Internal/DropdownButton";
+import { ButtonProps, ButtonContext } from "@components/Buttons/Button";
 
 import { ButtonText, SelectFieldWrapper } from "./SelectField.styles";
 import {
@@ -32,7 +33,6 @@ import {
   SelectFieldValueContext,
   SelectStateContext,
 } from "./SelectField.context";
-import { DropdownButton } from "@components/Internal/DropdownButton";
 
 type ForwardedSelectField = {
   <T>(
@@ -154,5 +154,9 @@ function SelectFieldValue(props: SelectValueProps) {
   );
 }
 
+SelectFieldValue.displayName = "SelectField.Value";
 SelectField.Value = SelectFieldValue;
-SelectField.Button = DropdownButton;
+
+const SelectFieldButton = (props: ButtonProps) => <DropdownButton {...props} />;
+SelectFieldButton.displayName = "SelectField.Button";
+SelectField.Button = SelectFieldButton;

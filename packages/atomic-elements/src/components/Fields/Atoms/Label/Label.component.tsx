@@ -23,7 +23,7 @@ export interface LabelProps
   $paddingBottom?: string;
 }
 
-/** A wrapper around an `<label />`  component with styles. */
+/** A label for a field */
 export const Label = React.forwardRef(function Label(
   props: LabelProps,
   ref: React.Ref<HTMLLabelElement>

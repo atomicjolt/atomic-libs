@@ -20,7 +20,7 @@ export interface ErrorMessageProps
   isInvalid?: boolean;
 }
 
-/** A wrapper around an `<p />`  styled as a field error message */
+/** An error message for a field */
 export const ErrorMessage = React.forwardRef(function ErrorMessage(
   props: ErrorMessageProps,
   ref: React.Ref<HTMLParagraphElement>

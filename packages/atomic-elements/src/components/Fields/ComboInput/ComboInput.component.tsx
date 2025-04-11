@@ -1,15 +1,15 @@
 import React from "react";
+import { useContextProps } from "@hooks/useContextProps";
+import { useRenderProps } from "@hooks/useRenderProps";
+import { ComboInputContext } from "./ComboInput.context";
 import { ComboInputProps } from "./ComboInput.types";
 import { StyledComboInput } from "./ComboInput.styles";
-import { useContextProps } from "@hooks/useContextProps";
-import { ComboInputContext } from "./ComboInput.context";
-import { useRenderProps } from "@hooks";
 
 /**
- * ComboInput is a wrapper component that allows you present a input-like component
- * that can be clicked to focus the actual input element. It is useful for creating
- * custom input components that are not actually input elements & inputs that include
- * other elements like icons or buttons.
+ * ComboInput is a wrapper component designed to provide an input-like interface
+ * that focuses the actual input element when clicked. It is ideal for building
+ * custom input components that are not standard input elements, or inputs that
+ * incorporate additional elements such as icons or buttons.
  */
 export const ComboInput = React.forwardRef(function ComboInput(
   props: ComboInputProps,
@@ -17,11 +17,14 @@ export const ComboInput = React.forwardRef(function ComboInput(
 ) {
   [props, ref] = useContextProps(ComboInputContext, props, ref);
 
-  const { className, padding, children, inputRef, ...rest } = props;
+  const { className, style, padding, children, inputRef, ...rest } = props;
 
   const renderProps = useRenderProps({
     componentClassName: "aje-combo-input",
-    ...props,
+    className,
+    style,
+    children,
+    ...rest,
   });
 
   return (

@@ -1,8 +1,9 @@
-import { useContext, useRef } from "react";
+import { useRef } from "react";
 import { AriaNumberFieldProps, useNumberField } from "@react-aria/numberfield";
 import { useLocale } from "@react-aria/i18n";
 import { useNumberFieldState } from "react-stately";
-import { useRenderProps } from "@hooks";
+import { useRenderProps } from "@hooks/useRenderProps";
+import { ButtonContext } from "@components/Buttons/Button/Button.context";
 import { FieldProps } from "../Field";
 import { AriaProps } from "../../../types";
 import { StyledField } from "../Field.styles";
@@ -12,7 +13,6 @@ import {
   FieldInputContext,
   FieldLabelContext,
   FieldMessageContext,
-  NumberFieldButtonContext,
 } from "../contexts";
 import { IconButton, IconButtonProps } from "../../Buttons/IconButton";
 import { ComboInputContext } from "../ComboInput";
@@ -74,8 +74,13 @@ export function NumberField(props: NumberFieldProps) {
           [FieldMessageContext.Provider, descriptionProps],
           [FieldErrorContext.Provider, { ...errorMessageProps, isInvalid }],
           [
-            NumberFieldButtonContext.Provider,
-            { incrementButtonProps, decrementButtonProps },
+            ButtonContext.Provider,
+            {
+              slots: {
+                increment: incrementButtonProps,
+                decrement: decrementButtonProps,
+              },
+            },
           ],
           [ComboInputContext.Provider, { inputRef }],
           [
@@ -97,15 +102,11 @@ export function NumberField(props: NumberFieldProps) {
 }
 
 function NumberFieldIncrementButton(props: IconButtonProps) {
-  const { incrementButtonProps } = useContext(NumberFieldButtonContext);
-
-  return <IconButton {...props} {...incrementButtonProps} />;
+  return <IconButton slot="increment" {...props} />;
 }
 
 function NumberFieldDecrementButton(props: IconButtonProps) {
-  const { decrementButtonProps } = useContext(NumberFieldButtonContext);
-
-  return <IconButton {...props} {...decrementButtonProps} />;
+  return <IconButton slot="decrement" {...props} />;
 }
 
 NumberField.IncrementButton = NumberFieldIncrementButton;

@@ -20,7 +20,7 @@ export interface InputProps
     >,
     SlotProps {}
 
-/** A wrapped `<input type="text" />` element */
+/** The input element for a field. */
 export const Input = forwardRef(function Input(
   props: InputProps,
   ref: React.Ref<HTMLInputElement>

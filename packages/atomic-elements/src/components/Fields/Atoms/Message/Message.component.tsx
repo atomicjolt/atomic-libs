@@ -19,7 +19,7 @@ export interface MessageProps
   as?: React.ElementType;
 }
 
-/** A wrapper around an `<p />`  styled as a field message **/
+/** A message associated with a field. Should be used to describe the purpose of the field */
 export const Message = React.forwardRef(function Message(
   props: MessageProps,
   ref: React.Ref<HTMLParagraphElement>

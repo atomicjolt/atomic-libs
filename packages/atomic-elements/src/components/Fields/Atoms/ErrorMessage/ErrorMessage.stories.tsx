@@ -14,5 +14,6 @@ type Story = StoryObj<typeof ErrorMessage>;
 export const Primary: Story = {
   args: {
     children: "Error Message",
+    isInvalid: true,
   },
 };
