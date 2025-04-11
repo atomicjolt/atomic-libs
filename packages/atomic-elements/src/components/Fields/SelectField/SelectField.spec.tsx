@@ -4,15 +4,16 @@ import { Popover } from "@components/Overlays/Popover";
 import { ListBox } from "@components/Dropdowns/ListBox";
 import { Item } from "@components/Collection";
 import { SelectField } from ".";
+import { Button } from "@components/Buttons/Button";
 
 describe("SelectField", () => {
   describe("matches snapshots", () => {
     test("when closed", () => {
       const result = render(
         <SelectField>
-          <SelectField.Button>
+          <Button variant="dropdown">
             <SelectField.Value />
-          </SelectField.Button>
+          </Button>
           <Popover>
             <ListBox>
               <Item>Item 1</Item>
@@ -28,9 +29,9 @@ describe("SelectField", () => {
     test("when open", () => {
       const result = render(
         <SelectField isOpen>
-          <SelectField.Button>
+          <Button variant="dropdown">
             <SelectField.Value />
-          </SelectField.Button>
+          </Button>
           <Popover>
             <ListBox>
               <Item>Item 1</Item>

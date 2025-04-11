@@ -3,10 +3,10 @@ import { AriaProps, DropdownProps, FieldInputProps } from "../../../types";
 import { Popover } from "../../Overlays/Popover";
 import { ListBox } from "../ListBox";
 import { FloatingFieldInputWrapper } from "@components/Internal/FloatingFieldInputWrapper";
-import {
-  MultiSelectField,
-  MultiSelectStateContext,
-} from "@components/Fields/MultiSelectField";
+import { Button } from "@components/Buttons/Button";
+import { MaterialIcon } from "@components/Icons/MaterialIcon";
+import { useRenderProps } from "@hooks/useRenderProps";
+import { MultiSelectStateContext } from "@components/Fields/MultiSelectField";
 import { StyledMultiSelectField } from "./MultiSelect.styles";
 import { AriaMultiSelectProps } from "../../Fields/MultiSelectField";
 
@@ -17,6 +17,11 @@ export interface MultiSelectProps<T extends object>
   variant?: "default" | "floating";
   selectionPlaceholder?: string;
 }
+
+const buttonVariantMap: Record<string, string> = {
+  default: "dropdown",
+  floating: "dropdown",
+};
 
 /** MultiSelect is a dropdown that allows the user to select multiple options from a list */
 export function MultiSelect<T extends object>(props: MultiSelectProps<T>) {
@@ -33,21 +38,32 @@ export function MultiSelect<T extends object>(props: MultiSelectProps<T>) {
     dropdownPlacement = "bottom start",
   } = props;
 
+  const renderProps = useRenderProps({
+    componentClassName: "aje-multiselect",
+    variant,
+    selectors: {
+      "data-float": variant === "floating",
+    },
+  });
+
+  const buttonVariant = buttonVariantMap[variant] ?? "dropdown";
+
   return (
-    <StyledMultiSelectField {...props} ref={ref}>
+    <StyledMultiSelectField {...props} {...renderProps} ref={ref}>
       <FloatingFieldInputWrapper
         label={label}
         message={message}
         error={error}
         floating={variant === "floating"}
       >
-        <MultiSelectField.Button>
+        <Button variant={buttonVariant}>
           <MultiSelectText
             selectionPlaceholder={selectionPlaceholder}
             placeholder={placeholder}
             variant={variant}
           />
-        </MultiSelectField.Button>
+          <MaterialIcon icon="arrow_drop_down" style={{ marginLeft: "auto" }} />
+        </Button>
       </FloatingFieldInputWrapper>
       <Popover maxHeight={maxHeight} placement={dropdownPlacement}>
         <ListBox items={props.items}>{props.children!}</ListBox>

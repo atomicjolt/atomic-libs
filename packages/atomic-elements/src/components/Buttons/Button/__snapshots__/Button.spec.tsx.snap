@@ -3,7 +3,7 @@
 exports[`Button > matches snapshots > changes variant 1`] = `
 <DocumentFragment>
   <button
-    class="sc-hRDKVd eAzjrS aje-btn aje-btn--secondary is-auto"
+    class="sc-hRDKVd jVlgCw aje-btn aje-btn--secondary is-auto"
     tabindex="0"
     type="button"
   >
@@ -15,7 +15,7 @@ exports[`Button > matches snapshots > changes variant 1`] = `
 exports[`Button > matches snapshots > loading completed state 1`] = `
 <DocumentFragment>
   <button
-    class="sc-hRDKVd eAzjrS aje-btn aje-btn--primary is-auto"
+    class="sc-hRDKVd jVlgCw aje-btn aje-btn--primary is-auto"
     data-loading="true"
     tabindex="0"
     type="button"
@@ -37,7 +37,7 @@ exports[`Button > matches snapshots > loading completed state 1`] = `
 exports[`Button > matches snapshots > loading state 1`] = `
 <DocumentFragment>
   <button
-    class="sc-hRDKVd eAzjrS aje-btn aje-btn--primary is-auto"
+    class="sc-hRDKVd jVlgCw aje-btn aje-btn--primary is-auto"
     data-loading="true"
     tabindex="0"
     type="button"
@@ -96,7 +96,7 @@ exports[`Button > matches snapshots > loading state 1`] = `
 exports[`Button > matches snapshots > normal display 1`] = `
 <DocumentFragment>
   <button
-    class="sc-hRDKVd eAzjrS aje-btn aje-btn--primary is-auto"
+    class="sc-hRDKVd jVlgCw aje-btn aje-btn--primary is-auto"
     tabindex="0"
     type="button"
   >
