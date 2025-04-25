@@ -33,6 +33,8 @@ import {
 import { ComboInputContext } from "../ComboInput";
 import { ComboBoxFieldWrapper } from "./ComboBoxField.styles";
 
+/** Provides an implementation for an accessible ComboBox
+ * with an associated label, message, and error */
 export const ComboBoxField = forwardRef(function ComboBoxField<
   T extends object
 >(props: ComboBoxFieldProps<T>, ref: React.Ref<HTMLInputElement>) {
