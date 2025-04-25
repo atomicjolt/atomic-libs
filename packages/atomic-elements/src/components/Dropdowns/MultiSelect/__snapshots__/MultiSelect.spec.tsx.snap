@@ -6,7 +6,7 @@ exports[`MultiSelect > matches default variant 1`] = `
     data-react-aria-hidden="true"
   />
   <div
-    class="sc-flQbIK cjxgDK aje-multiselect sc-gQJZgv kkCKIE"
+    class="sc-hUAZgl itcLkM aje-multiselect sc-flQbIK gKNZcY aje-multiselect aje-multiselect--default"
   >
     <label
       class="sc-dVBluf eSKkgA"
@@ -19,7 +19,7 @@ exports[`MultiSelect > matches default variant 1`] = `
       aria-expanded="false"
       aria-haspopup="listbox"
       aria-labelledby="react-aria-:r7: react-aria-:r3:"
-      class="sc-eiwqOE kgIjdl aje-btn sc-hUAZgl ieElTj aje-btn--dropdown is-medium"
+      class="sc-eiwqOE JUNDn aje-btn aje-btn--dropdown is-medium"
       id="react-aria-:r2:"
       tabindex="0"
       type="button"
@@ -28,6 +28,7 @@ exports[`MultiSelect > matches default variant 1`] = `
       <i
         aria-hidden="true"
         class="sc-jBIHhB dShSRo aje-icon material-icons is-medium"
+        style="margin-left: auto;"
       >
         arrow_drop_down
       </i>
@@ -42,7 +43,7 @@ exports[`MultiSelect > matches floating variant 1`] = `
     data-react-aria-hidden="true"
   />
   <div
-    class="sc-flQbIK cjxgDK aje-multiselect sc-gQJZgv kkCKIE aje-multiselect--floating"
+    class="sc-hUAZgl itcLkM aje-multiselect sc-flQbIK gKNZcY aje-multiselect aje-multiselect--floating aje-multiselect--floating"
   >
     <div
       class="sc-gpHbIA eEUGqc"
@@ -51,7 +52,8 @@ exports[`MultiSelect > matches floating variant 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-labelledby="react-aria-:rf: react-aria-:rb:"
-        class="sc-eiwqOE kgIjdl aje-btn sc-hUAZgl ieElTj aje-btn--dropdown is-medium"
+        class="sc-eiwqOE JUNDn aje-btn aje-btn--dropdown is-medium"
+        data-float="true"
         id="react-aria-:ra:"
         tabindex="0"
         type="button"
@@ -59,6 +61,7 @@ exports[`MultiSelect > matches floating variant 1`] = `
         <i
           aria-hidden="true"
           class="sc-jBIHhB dShSRo aje-icon material-icons is-medium"
+          style="margin-left: auto;"
         >
           arrow_drop_down
         </i>
