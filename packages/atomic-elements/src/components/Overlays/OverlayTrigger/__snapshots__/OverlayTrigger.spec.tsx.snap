@@ -4,7 +4,7 @@ exports[`OverlayTrigger > Matches the closed snapshot 1`] = `
 <DocumentFragment>
   <button
     aria-expanded="false"
-    class="sc-hRDKVd eAzjrS aje-btn aje-btn--primary is-auto"
+    class="sc-hRDKVd jVlgCw aje-btn aje-btn--primary is-auto"
     tabindex="0"
     type="button"
   >
@@ -18,7 +18,7 @@ exports[`OverlayTrigger > Matches the open snapshot 1`] = `
   <button
     aria-controls="react-aria-:r1:"
     aria-expanded="true"
-    class="sc-hRDKVd eAzjrS aje-btn aje-btn--primary is-auto"
+    class="sc-hRDKVd jVlgCw aje-btn aje-btn--primary is-auto"
     data-pressed="true"
     tabindex="0"
     type="button"
