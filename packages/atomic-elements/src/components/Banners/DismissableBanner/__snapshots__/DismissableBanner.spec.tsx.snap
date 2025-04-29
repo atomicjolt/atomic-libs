@@ -11,6 +11,83 @@ exports[`DismissableBanner > Snapshots > should match snapshot 1`] = `
         <div
           class="sc-dVBluf cMgMAV"
         />
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="sc-gjcoXW eWJxKd aje-banner aje-banner--info"
+    >
+      <div
+        class="sc-dVBluf cMgMAV"
+      />
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`DismissableBanner > Snapshots > should match snapshot with dismiss button 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="sc-gjcoXW eWJxKd aje-banner aje-banner--info"
+      >
+        <div
+          class="sc-dVBluf cMgMAV"
+        />
         <button
           aria-label="dismiss info"
           class="sc-deSjom jVRdGl aje-btn sc-jHswkR WgpIQ aje-icon-btn aje-banner__dismiss aje-btn--banner is-medium"
@@ -122,20 +199,6 @@ exports[`DismissableBanner > Snapshots > should match snapshot with icon 1`] = `
         <div
           class="sc-dVBluf cMgMAV"
         />
-        <button
-          aria-label="dismiss info"
-          class="sc-deSjom jVRdGl aje-btn sc-jHswkR WgpIQ aje-icon-btn aje-banner__dismiss aje-btn--banner is-medium"
-          data-icon-button="true"
-          tabindex="0"
-          type="button"
-        >
-          <i
-            aria-hidden="true"
-            class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
-          >
-            close
-          </i>
-        </button>
       </div>
     </div>
   </body>,
@@ -152,20 +215,6 @@ exports[`DismissableBanner > Snapshots > should match snapshot with icon 1`] = `
       <div
         class="sc-dVBluf cMgMAV"
       />
-      <button
-        aria-label="dismiss info"
-        class="sc-deSjom jVRdGl aje-btn sc-jHswkR WgpIQ aje-icon-btn aje-banner__dismiss aje-btn--banner is-medium"
-        data-icon-button="true"
-        tabindex="0"
-        type="button"
-      >
-        <i
-          aria-hidden="true"
-          class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
-        >
-          close
-        </i>
-      </button>
     </div>
   </div>,
   "debug": [Function],
@@ -239,20 +288,6 @@ exports[`ErrorBanner > Snapshots > should match snapshot 1`] = `
         <div
           class="sc-dVBluf cMgMAV"
         />
-        <button
-          aria-label="dismiss error"
-          class="sc-deSjom jVRdGl aje-btn sc-jHswkR WgpIQ aje-icon-btn aje-banner__dismiss aje-btn--banner is-medium"
-          data-icon-button="true"
-          tabindex="0"
-          type="button"
-        >
-          <i
-            aria-hidden="true"
-            class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
-          >
-            close
-          </i>
-        </button>
       </div>
     </div>
   </body>,
@@ -269,20 +304,6 @@ exports[`ErrorBanner > Snapshots > should match snapshot 1`] = `
       <div
         class="sc-dVBluf cMgMAV"
       />
-      <button
-        aria-label="dismiss error"
-        class="sc-deSjom jVRdGl aje-btn sc-jHswkR WgpIQ aje-icon-btn aje-banner__dismiss aje-btn--banner is-medium"
-        data-icon-button="true"
-        tabindex="0"
-        type="button"
-      >
-        <i
-          aria-hidden="true"
-          class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
-        >
-          close
-        </i>
-      </button>
     </div>
   </div>,
   "debug": [Function],
@@ -356,20 +377,6 @@ exports[`WarningBanner > Snapshots > should match snapshot 1`] = `
         <div
           class="sc-dVBluf cMgMAV"
         />
-        <button
-          aria-label="dismiss warning"
-          class="sc-deSjom jVRdGl aje-btn sc-jHswkR WgpIQ aje-icon-btn aje-banner__dismiss aje-btn--banner is-medium"
-          data-icon-button="true"
-          tabindex="0"
-          type="button"
-        >
-          <i
-            aria-hidden="true"
-            class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
-          >
-            close
-          </i>
-        </button>
       </div>
     </div>
   </body>,
@@ -386,20 +393,6 @@ exports[`WarningBanner > Snapshots > should match snapshot 1`] = `
       <div
         class="sc-dVBluf cMgMAV"
       />
-      <button
-        aria-label="dismiss warning"
-        class="sc-deSjom jVRdGl aje-btn sc-jHswkR WgpIQ aje-icon-btn aje-banner__dismiss aje-btn--banner is-medium"
-        data-icon-button="true"
-        tabindex="0"
-        type="button"
-      >
-        <i
-          aria-hidden="true"
-          class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
-        >
-          close
-        </i>
-      </button>
     </div>
   </div>,
   "debug": [Function],
