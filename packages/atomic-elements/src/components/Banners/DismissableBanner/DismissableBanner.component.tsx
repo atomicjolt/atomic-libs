@@ -12,7 +12,8 @@ import { Banner, BannerVariants } from "../Banner";
 interface SharedProps
   extends RenderBaseProps<never>,
     ElementWrapper<HTMLDivElement> {
-  /** Called when the user dismisses the banner */
+  /** Callback for when the user clicks the "dismiss" button.
+   * When it's not present the button will not be rendered */
   readonly onDismiss?: () => void;
 }
 
@@ -24,10 +25,9 @@ export interface DismissableBannerProps extends SharedProps {
   readonly iconVariant?: MaterialIconVariants;
 }
 
-/** A Banner that the user can dismiss by clicking the "x" on the right.
- *
- * For convenience, there are also `ErrorBanner` and `WarningBanner` components that set sensible defaults
- * for the `variant` and `icon` props.
+/**
+ * A dismissable banner component that displays information with options
+ * for variant styling, icons, and optional dismissal functionality.
  */
 export const DismissableBanner = forwardRef<
   HTMLDivElement,
@@ -51,14 +51,14 @@ export const DismissableBanner = forwardRef<
     <Banner ref={ref} variant={variant} {...rest}>
       {icon && <MaterialIcon icon={icon} variant={iconVariant} />}
       <Banner.Content>{renderProps.children}</Banner.Content>
-      <Banner.IconButton
-        icon="close"
-        className="aje-banner__dismiss"
-        aria-label={`dismiss ${variant}`}
-        onPress={() => {
-          onDismiss?.();
-        }}
-      />
+      {onDismiss && (
+        <Banner.IconButton
+          icon="close"
+          className="aje-banner__dismiss"
+          aria-label={`dismiss ${variant}`}
+          onPress={onDismiss}
+        />
+      )}
     </Banner>
   );
 });
