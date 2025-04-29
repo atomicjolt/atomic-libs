@@ -16,20 +16,6 @@ exports[`LoadingStatus > matches error snapshot 1`] = `
     >
       An error occurred
     </div>
-    <button
-      aria-label="dismiss error"
-      class="sc-cSaEAk kchiMN aje-btn sc-jZTQcj hFQpPD aje-icon-btn aje-banner__dismiss aje-btn--banner is-medium"
-      data-icon-button="true"
-      tabindex="0"
-      type="button"
-    >
-      <i
-        aria-hidden="true"
-        class="sc-gNZgCX gypsPY aje-icon material-icons is-medium"
-      >
-        close
-      </i>
-    </button>
   </div>
 </DocumentFragment>
 `;

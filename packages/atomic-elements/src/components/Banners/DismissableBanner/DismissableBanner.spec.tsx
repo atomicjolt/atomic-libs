@@ -17,6 +17,11 @@ describe("DismissableBanner", () => {
       const res = render(<DismissableBanner icon="info" />);
       expect(res).toMatchSnapshot();
     });
+
+    it("should match snapshot with dismiss button", () => {
+      const res = render(<DismissableBanner onDismiss={() => {}} />);
+      expect(res).toMatchSnapshot();
+    });
   });
 
   describe("Functionality", () => {
