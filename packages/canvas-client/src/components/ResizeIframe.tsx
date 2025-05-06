@@ -34,7 +34,7 @@ export function ResizeIframe(props: ResizeIframeProps) {
   const { observeImages, children } = props;
   const ref = useRef<HTMLDivElement>(null);
 
-  const onResize = props.onResize ?? resizer.resize;
+  const onResize = props.onResize ?? resizer.resize.bind(resizer);
   const handleResize = useCallback(
     (height: number) => {
       if (ref.current) {
