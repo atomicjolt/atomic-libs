@@ -1,5 +1,16 @@
 # @atomicjolt/atomic-elements
 
+## 3.4.0
+
+### Minor Changes
+
+- 7b7b134: DismissableBanner only renders it's dismiss button when "onDismiss" is passed as an attribute
+
+### Patch Changes
+
+- adfd9dd: Removed internal DropdownButton component in favor of directly using Button
+- 57f6553: Misc improvements to the Field API. All previous usage should still work
+
 ## 3.3.3
 
 ### Patch Changes
