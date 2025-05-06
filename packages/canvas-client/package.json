@@ -1,6 +1,6 @@
 {
   "name": "@atomicjolt/canvas-client",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.js",
@@ -14,12 +14,12 @@
     "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
-    "@atomicjolt/lti-client": "^2.6.4",
+    "@atomicjolt/lti-client": "^2.7.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
   "devDependencies": {
-    "@atomicjolt/lti-client": "^2.6.4",
+    "@atomicjolt/lti-client": "^2.7.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
