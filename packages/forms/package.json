@@ -31,9 +31,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.47.0",
-    "vite-plugin-dts": "^4.5.3"
-  },
-  "dependencies": {
+    "vite-plugin-dts": "^4.5.3",
     "vitest": "3.0.8"
   }
 }

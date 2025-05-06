@@ -11,17 +11,18 @@
   "scripts": {
     "build": "tsc -p ./tsconfig.build.json",
     "test": "vitest run",
+    "test:update": "vitest run -u",
     "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
     "@atomicjolt/lti-client": "^2.7.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react": "^18 || ^19",
+    "react-dom": "^18 || ^19"
   },
   "devDependencies": {
     "@atomicjolt/lti-client": "^2.7.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "dependencies": {}
 }
