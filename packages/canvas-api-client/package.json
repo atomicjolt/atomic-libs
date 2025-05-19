@@ -1,12 +1,13 @@
 {
   "name": "@atomicjolt/canvas-api-client",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/types/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "scripts": {
     "build": "tsc -p ./tsconfig.build.json",
