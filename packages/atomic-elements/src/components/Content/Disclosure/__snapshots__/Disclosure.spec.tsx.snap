@@ -8,7 +8,7 @@ exports[`Disclosure > Single Disclosure > matches snapshot 1`] = `
     <button
       aria-controls="react-aria-:r2:"
       aria-expanded="false"
-      class="sc-hRDKVd eAzjrS aje-btn sc-cMqPwU gQJQsB aje-btn--disclosure-trigger is-auto"
+      class="sc-hRDKVd jVlgCw aje-btn sc-cMqPwU gQJQsB aje-btn--disclosure-trigger is-auto"
       id="react-aria-:r1:"
       tabindex="0"
       type="button"
@@ -16,7 +16,6 @@ exports[`Disclosure > Single Disclosure > matches snapshot 1`] = `
       <i
         aria-hidden="true"
         class="sc-deSjom eSWOt aje-icon material-icons is-medium"
-        tabindex="0"
       >
         expand_more
       </i>

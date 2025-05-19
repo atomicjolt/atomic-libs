@@ -67,17 +67,6 @@ export const InputControls: ArgTypes = {
   },
 };
 
-export const VariantArgType: ArgTypes = {
-  variant: {
-    control: "select",
-    description:
-      "Visual variant of the component. Defines what preset styles to use for the component.",
-    table: {
-      category: "Presentation",
-    },
-  },
-};
-
 export const TextInputControls: ArgTypes = {
   ...InputControls,
   autoFocus: {

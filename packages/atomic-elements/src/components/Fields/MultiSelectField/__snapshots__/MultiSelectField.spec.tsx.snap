@@ -6,25 +6,18 @@ exports[`MultiSelectField > matches snapshots > when closed 1`] = `
     data-react-aria-hidden="true"
   />
   <div
-    class="sc-hUAZgl itcLkM aje-multiselect"
+    class="sc-gpHbIA bhSUCw aje-multiselect"
   >
     <button
       aria-expanded="false"
       aria-haspopup="listbox"
       aria-labelledby="react-aria-:r7: react-aria-:r3:"
-      class="sc-eiwqOE kgIjdl aje-btn sc-gpHbIA hQGFNP aje-btn--dropdown is-medium"
+      class="sc-eiwqOE JUNDn aje-btn aje-btn--dropdown is-medium"
       id="react-aria-:r2:"
       tabindex="0"
       type="button"
     >
       Open up
-      <i
-        aria-hidden="true"
-        class="sc-jBIHhB dShSRo aje-icon material-icons is-medium"
-        tabindex="0"
-      >
-        arrow_drop_down
-      </i>
     </button>
   </div>
 </DocumentFragment>
@@ -36,27 +29,20 @@ exports[`MultiSelectField > matches snapshots > when open 1`] = `
     data-react-aria-hidden="true"
   />
   <div
-    class="sc-hUAZgl itcLkM aje-multiselect"
+    class="sc-gpHbIA bhSUCw aje-multiselect"
   >
     <button
       aria-controls="react-aria-:r9:"
       aria-expanded="true"
       aria-haspopup="listbox"
       aria-labelledby="react-aria-:rf: react-aria-:rb:"
-      class="sc-eiwqOE kgIjdl aje-btn sc-gpHbIA hQGFNP aje-btn--dropdown is-medium"
+      class="sc-eiwqOE JUNDn aje-btn aje-btn--dropdown is-medium"
       data-pressed="true"
       id="react-aria-:ra:"
       tabindex="0"
       type="button"
     >
       Open up
-      <i
-        aria-hidden="true"
-        class="sc-jBIHhB dShSRo aje-icon material-icons is-medium"
-        tabindex="0"
-      >
-        arrow_drop_down
-      </i>
     </button>
   </div>
 </DocumentFragment>

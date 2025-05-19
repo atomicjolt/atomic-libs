@@ -18,7 +18,7 @@ const meta: Meta<ToolTipProps & ToolTipTriggerProps> = {
   tags: ["!autodocs"],
   parameters: {
     layout: "centered",
-    cssprops: getCssProps("ToolTip"),
+    cssprops: getCssProps("Tooltip"),
   },
   argTypes: {
     // @ts-ignore
@@ -153,6 +153,8 @@ export const IconWithTooltip: Story = {
   ...Primary,
   args: {
     ...Primary.args,
-    target: <MaterialIcon icon="info" size="large" variant="outlined" />,
+    target: (
+      <MaterialIcon icon="info" size="large" variant="outlined" isFocusable />
+    ),
   },
 };

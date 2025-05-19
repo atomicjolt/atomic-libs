@@ -6,6 +6,8 @@ import { Input } from "../Atoms/Input";
 import { NumberField } from "../NumberField";
 import { FieldInput } from "../Field/FieldInput";
 import { Group } from "@components/Layout/Group";
+import { Text } from "@components/Typography/Text";
+import { RenderPropsArgTypes } from "@sb/helpers";
 
 export default {
   title: "Fields/ComboInput",
@@ -14,9 +16,10 @@ export default {
     layout: "centered",
   },
   argTypes: {
+    ...RenderPropsArgTypes,
     padding: {
-      control: "multi-select",
-      options: ["left", "right"],
+      control: "select",
+      options: ["left", "right", "both"],
     },
   },
 } as Meta<typeof ComboInput>;
@@ -29,6 +32,7 @@ export const Primary: Story = {
       <MaterialIcon icon="search" key="icon" />,
       <Input placeholder="Search" key="actual-input" />,
     ],
+    padding: "both",
   },
 };
 
@@ -38,7 +42,9 @@ export const NumberInputWithSearch: Story = {
     padding: "left",
     children: [
       <Input key="input" />,
-      <span key="total">/10</span>,
+      <Text key="text" $size="3">
+        /10
+      </Text>,
       <IconButton icon="search" variant="ghost" key="icon" />,
     ],
   },
@@ -49,17 +55,9 @@ export const NumberFieldWithButtons: Story = {
     <NumberField>
       <ComboInput {...args}>
         <FieldInput />
-        <Group gap={0}>
-          <NumberField.DecrementButton
-            icon="remove"
-            variant="ghost"
-            size="small"
-          />
-          <NumberField.IncrementButton
-            icon="add"
-            variant="ghost"
-            size="small"
-          />
+        <Group>
+          <IconButton slot="decrement" icon="remove" variant="ghost" />
+          <IconButton slot="increment" icon="add" variant="ghost" />
         </Group>
       </ComboInput>
     </NumberField>

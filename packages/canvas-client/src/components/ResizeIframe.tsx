@@ -1,4 +1,4 @@
-import { useCallback, useRef } from "react";
+import { useCallback, useMemo, useRef } from "react";
 import { useResizeHandler } from "../hooks/useResizeHandler";
 import { ResizeIframe as ResizeIframeClient } from "@atomicjolt/lti-client";
 
@@ -6,7 +6,7 @@ const resizer = new ResizeIframeClient();
 
 export interface ResizeIframeProps {
   /** A function to retrieve the height of the content. If not provided, the height is calcualted as the full height of the children  */
-  getHeight?: () => number;
+  getHeight?: (height: number) => number;
   /** A callback function to be called when the iframe is resized. If not provided it will send a postMessage to the parent frame to request a resize */
   onResize?: (height: number) => void;
   /** Whether to observe images loading */
@@ -34,7 +34,7 @@ export function ResizeIframe(props: ResizeIframeProps) {
   const { observeImages, children } = props;
   const ref = useRef<HTMLDivElement>(null);
 
-  const onResize = props.onResize ?? resizer.resize;
+  const onResize = props.onResize ?? resizer.resize.bind(resizer);
   const handleResize = useCallback(
     (height: number) => {
       if (ref.current) {
@@ -51,7 +51,12 @@ export function ResizeIframe(props: ResizeIframeProps) {
     return 0;
   }, [ref]);
 
-  const getHeight = props.getHeight ?? defaultGetHeight;
+  const getHeight = useMemo(() => {
+    if (props.getHeight) {
+      return () => props.getHeight!(defaultGetHeight());
+    }
+    return defaultGetHeight;
+  }, [props.getHeight]);
 
   useResizeHandler({
     onResize: handleResize,

@@ -1,7 +1,8 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { NumberInput } from ".";
-import { TextInputControls, VariantArgType } from "@sb/helpers";
+import { TextInputControls } from "@sb/helpers";
 import { getCssProps } from "@sb/cssprops";
+import { fn } from "@storybook/test";
 
 const meta: Meta<typeof NumberInput> = {
   title: "Inputs/User Input/NumberInput",
@@ -12,8 +13,10 @@ const meta: Meta<typeof NumberInput> = {
   },
   argTypes: {
     ...TextInputControls,
-    ...VariantArgType,
-    onChange: { action: "onChange", table: { category: "Events" } },
+    variant: {
+      options: ["default", "floating"],
+      description: "Variant of the input",
+    },
     formatOptions: {
       control: "object",
       description: "Options for formatting the number",
@@ -42,6 +45,7 @@ type Story = StoryObj<typeof NumberInput>;
 
 export const Primary: Story = {
   args: {
+    onChange: fn(),
     size: "medium",
     label: "Number input",
   },

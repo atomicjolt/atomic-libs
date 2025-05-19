@@ -1,0 +1,12 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`MaterialSymbol > renders correctly 1`] = `
+<div>
+  <i
+    aria-hidden="true"
+    class="sc-FEMpB jyuubH aje-icon material-symbols-outlined is-medium"
+  >
+    home
+  </i>
+</div>
+`;

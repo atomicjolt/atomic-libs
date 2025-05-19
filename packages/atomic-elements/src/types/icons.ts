@@ -15,6 +15,7 @@ export interface IconComponentBase<T extends object>
     RenderBaseProps<T> {
   size?: ExtendedSize;
   isDisabled?: boolean;
+  isFocusable?: boolean;
 }
 
 export type MaterialIconVariants =
@@ -25,6 +26,7 @@ export type MaterialIconVariants =
   | "two-tone";
 
 export type MaterialIcons =
+  | "help_outline"
   | "push_pin"
   | "clear"
   | "search"

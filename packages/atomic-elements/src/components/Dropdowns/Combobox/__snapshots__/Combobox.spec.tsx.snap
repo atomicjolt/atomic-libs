@@ -44,7 +44,7 @@ exports[`matches snapshots > matches default variant 1`] = `
         aria-haspopup="listbox"
         aria-label="Show suggestions"
         aria-labelledby="react-aria-:r0: react-aria-:r4:"
-        class="sc-jBIHhB fEzavq aje-btn sc-cMqPwU gSYJMO aje-btn--content is-auto"
+        class="sc-jBIHhB bONWuY aje-btn sc-cMqPwU gSYJMO aje-icon-btn aje-btn--content is-auto"
         data-icon-button="true"
         id="react-aria-:r0:"
         tabindex="-1"
@@ -53,7 +53,6 @@ exports[`matches snapshots > matches default variant 1`] = `
         <i
           aria-hidden="true"
           class="sc-FEMpB jyuubH aje-icon material-icons is-auto"
-          tabindex="0"
         >
           search
         </i>
@@ -97,7 +96,7 @@ exports[`matches snapshots > matches floating variant 1`] = `
           aria-haspopup="listbox"
           aria-label="Show suggestions"
           aria-labelledby="react-aria-:ra: react-aria-:re:"
-          class="sc-jBIHhB fEzavq aje-btn sc-cMqPwU gSYJMO aje-btn--content is-auto"
+          class="sc-jBIHhB bONWuY aje-btn sc-cMqPwU gSYJMO aje-icon-btn aje-btn--content is-auto"
           data-icon-button="true"
           id="react-aria-:ra:"
           tabindex="-1"
@@ -106,7 +105,6 @@ exports[`matches snapshots > matches floating variant 1`] = `
           <i
             aria-hidden="true"
             class="sc-FEMpB jyuubH aje-icon material-icons is-auto"
-            tabindex="0"
           >
             search
           </i>
