@@ -1,6 +1,6 @@
 {
   "name": "@atomicjolt/canvas-api-client",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.js",
@@ -15,14 +15,10 @@
     "prepublishOnly": "npm run build",
     "generate": "openapi-ts"
   },
-  "peerDependencies": {
-    "axios": "^1.0.0"
-  },
   "devDependencies": {
-    "@hey-api/client-fetch": "^0.10.0",
     "@hey-api/openapi-ts": "^0.66.3"
   },
   "dependencies": {
-    "axios": "^1.0.0"
+    "@hey-api/client-fetch": "^0.10.0"
   }
 }
