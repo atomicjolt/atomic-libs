@@ -1,0 +1,24 @@
+{
+  "name": "@atomicjolt/canvas-api-client",
+  "version": "0.0.2",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/types/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsc -p ./tsconfig.build.json",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build",
+    "generate": "openapi-ts"
+  },
+  "devDependencies": {
+    "@hey-api/openapi-ts": "^0.66.3"
+  },
+  "dependencies": {
+    "@hey-api/client-fetch": "^0.10.0"
+  }
+}
