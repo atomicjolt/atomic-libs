@@ -1,0 +1,52 @@
+import { forwardRef, useRef } from "react";
+import { ElementWrapper, RenderBaseProps } from "../../../../types";
+import { useContextProps } from "@hooks/useContextProps";
+import { useRenderProps } from "@hooks/useRenderProps";
+import { ScrollAreaContext, ScrollStateContext } from "../ScrollArea.context";
+import { ScrollAreaWrapper } from "../ScrollArea.styles";
+import { useScrollState } from "../hooks/useScrollState";
+
+export interface ScrollAreaRootProps
+  extends RenderBaseProps<never>,
+    ElementWrapper<HTMLDivElement> {
+  scrollbars?: "horizontal" | "vertical" | "both";
+  hideScrollbars?: boolean;
+}
+
+export const ScrollAreaRoot = forwardRef<HTMLDivElement, ScrollAreaRootProps>(
+  function ScrollAreaRoot(props, ref) {
+    [props, ref] = useContextProps(ScrollAreaContext, props, ref);
+
+    const {
+      className,
+      style,
+      children,
+      scrollbars = "both",
+      hideScrollbars,
+      ...rest
+    } = props;
+
+    const viewportRef = useRef<HTMLDivElement>(null);
+
+    const renderProps = useRenderProps({
+      componentClassName: "aje-scrollarea",
+      style,
+      className,
+      children,
+    });
+
+    const state = useScrollState();
+
+    console.log(viewportRef.current);
+
+    return (
+      <ScrollStateContext.Provider value={{ state, viewportRef }}>
+        <ScrollAreaWrapper ref={ref} {...renderProps} {...rest}>
+          {renderProps.children}
+        </ScrollAreaWrapper>
+      </ScrollStateContext.Provider>
+    );
+  }
+);
+
+ScrollAreaRoot.displayName = "ScrollArea.Root";
