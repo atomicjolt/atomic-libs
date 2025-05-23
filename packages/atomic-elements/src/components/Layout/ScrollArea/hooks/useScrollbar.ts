@@ -18,9 +18,11 @@ export function useScrollBar(props: UseScrollBarProps, state: ScrollState) {
     }
   }, []);
 
-  // Calculate thumb size and position based on orientation
   const isHorizontal = orientation === "horizontal";
 
+  // The width of the thumb is relative to the width of the scroll area
+  // smaller scroll area -> larger thumb size
+  // larger scroll area -> smaller thumb size
   const thumbSizePercent = isHorizontal
     ? state.clientWidth > 0
       ? Math.max((state.clientWidth / state.scrollWidth) * 100, 10)
@@ -35,6 +37,7 @@ export function useScrollBar(props: UseScrollBarProps, state: ScrollState) {
 
   const currentScroll = isHorizontal ? state.scrollLeft : state.scrollTop;
 
+  // The thumb can't move if maxScroll is 0 since that means the content is not scrollable
   const thumbPositionPercent =
     maxScroll > 0 ? (currentScroll / maxScroll) * (100 - thumbSizePercent) : 0;
 
@@ -42,17 +45,15 @@ export function useScrollBar(props: UseScrollBarProps, state: ScrollState) {
     onMove: (e) => {
       const delta = isHorizontal ? e.deltaX : e.deltaY;
       if (scrollAreaRef.current && trackRef.current) {
-        const trackSize = isHorizontal
-          ? trackRef.current.offsetWidth
-          : trackRef.current.offsetHeight;
-        const scrollSize = isHorizontal
-          ? state.scrollWidth
-          : state.scrollHeight;
-        const scaledDelta = (delta / trackSize) * scrollSize;
-
         if (isHorizontal) {
+          const trackSize = trackRef.current.offsetWidth;
+          const scrollSize = state.scrollWidth;
+          const scaledDelta = (delta / trackSize) * scrollSize;
           scrollAreaRef.current.scrollLeft += scaledDelta;
         } else {
+          const trackSize = trackRef.current.offsetHeight;
+          const scrollSize = state.scrollHeight;
+          const scaledDelta = (delta / trackSize) * scrollSize;
           scrollAreaRef.current.scrollTop += scaledDelta;
         }
 
