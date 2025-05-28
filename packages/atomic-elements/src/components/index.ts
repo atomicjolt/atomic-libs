@@ -60,7 +60,12 @@ export { Group } from "./Layout/Group";
 export { Flex } from "./Layout/Flex";
 export { FlexItem } from "./Layout/FlexItem";
 export { Grid } from "./Layout/Grid";
-export { ScrollArea, type ScrollAreaProps } from "./Layout/ScrollArea";
+export {
+  ScrollArea,
+  type ScrollAreaProps,
+  type ScrollViewportProps,
+  type ScrollbarProps,
+} from "./Layout/ScrollArea";
 
 export { Text, type TextProps } from "./Typography/Text";
 export { Heading, type HeadingProps } from "./Typography/Heading";

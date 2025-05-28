@@ -3,7 +3,7 @@ import { ScrollAreaContent } from "../ScrollArea.styles";
 import { ScrollStateContext } from "../ScrollArea.context";
 import { useScrollArea } from "../hooks/useScrollArea";
 
-interface ScrollViewportProps {
+export interface ScrollViewportProps {
   children: React.ReactNode;
 }
 

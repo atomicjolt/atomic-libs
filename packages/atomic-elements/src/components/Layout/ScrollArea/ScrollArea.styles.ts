@@ -6,16 +6,6 @@ interface Props {
   $orientation?: "horizontal" | "vertical";
 }
 
-const hideScrollbars = css`
-  /* Firefox */
-  scrollbar-width: none;
-
-  /* WebKit browsers */
-  &::-webkit-scrollbar {
-    display: none;
-  }
-`;
-
 export const ScrollAreaWrapper = styled.div<Props>`
   --scrollbar-thumb: var(--neutral300);
   --scrollbar-track: var(--neutral100);
@@ -25,17 +15,15 @@ export const ScrollAreaContent = styled.div<Props>`
   overflow: scroll;
   width: 100%;
   height: 100%;
+  overflow: auto;
 
-  overflow-x: ${(props) =>
-    props.$scollbars === "horizontal" || props.$scollbars === "both"
-      ? "auto"
-      : "hidden"};
-  overflow-y: ${(props) =>
-    props.$scollbars === "vertical" || props.$scollbars === "both"
-      ? "auto"
-      : "hidden"};
+  /* Firefox */
+  scrollbar-width: none;
 
-  ${(props) => props.$hideScrollbars && hideScrollbars};
+  /* WebKit browsers */
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   /* Firefox */
   scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
@@ -83,5 +71,15 @@ export const ScrollAreaScrollbarThumb = styled.div<Props>`
   position: absolute;
 
   ${(props) =>
-    props.$orientation === "vertical" ? "width: 8px;" : "height: 8px;"}
+    props.$orientation === "vertical"
+      ? css`
+          width: 8px;
+          left: 50%;
+          transform: translateX(-50%);
+        `
+      : css`
+          height: 8px;
+          top: 50%;
+          transform: translateY(-50%);
+        `}
 `;

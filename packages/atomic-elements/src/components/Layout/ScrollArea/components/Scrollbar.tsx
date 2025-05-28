@@ -6,7 +6,7 @@ import {
 import { useScrollBar } from "../hooks/useScrollbar";
 import { ScrollStateContext } from "../ScrollArea.context";
 
-interface ScrollbarProps {
+export interface ScrollbarProps {
   orientation: "horizontal" | "vertical";
 }
 
@@ -17,7 +17,7 @@ export function Scrollbar(props: ScrollbarProps) {
   const thumbRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
 
-  const { thumbProps } = useScrollBar(
+  const { thumbProps, trackProps } = useScrollBar(
     {
       scrollAreaRef: viewportRef,
       trackRef: trackRef,
@@ -27,7 +27,11 @@ export function Scrollbar(props: ScrollbarProps) {
   );
 
   return (
-    <ScrollAreaScrollbarTrack ref={trackRef} $orientation={orientation}>
+    <ScrollAreaScrollbarTrack
+      ref={trackRef}
+      $orientation={orientation}
+      {...trackProps}
+    >
       <ScrollAreaScrollbarThumb
         ref={thumbRef}
         $orientation={orientation}

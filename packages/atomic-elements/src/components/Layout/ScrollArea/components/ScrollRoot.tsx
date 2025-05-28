@@ -37,8 +37,6 @@ export const ScrollAreaRoot = forwardRef<HTMLDivElement, ScrollAreaRootProps>(
 
     const state = useScrollState();
 
-    console.log(viewportRef.current);
-
     return (
       <ScrollStateContext.Provider value={{ state, viewportRef }}>
         <ScrollAreaWrapper ref={ref} {...renderProps} {...rest}>
