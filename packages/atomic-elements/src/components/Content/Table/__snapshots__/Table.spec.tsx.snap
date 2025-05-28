@@ -11,7 +11,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
       <table
         aria-describedby=""
         aria-label="table"
-        class="sc-hUAZgl dfoSoM aje-table"
+        class="sc-hUAZgl jvwFqK aje-table"
         data-collection="react-aria-:re:"
         role="grid"
         tabindex="0"
@@ -26,17 +26,18 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
           >
             <th
               aria-colindex="1"
-              class="sc-lertIE fzQcfw aje-table__column"
+              class="sc-lertIE ljXApe aje-table__column"
               data-collection="react-aria-:re:"
               data-key="a"
               data-searchable="true"
               data-searching="true"
+              data-sort-visibility="selected"
               id="react-aria-:rd:-a"
               role="columnheader"
               tabindex="-1"
             >
               <div
-                class="sc-dJkDXt iwDoBg"
+                class="sc-dJkDXt hLTkTv"
               >
                 Column 1
                 <div
@@ -68,15 +69,16 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
             </th>
             <th
               aria-colindex="2"
-              class="sc-lertIE fzQcfw aje-table__column"
+              class="sc-lertIE ljXApe aje-table__column"
               data-collection="react-aria-:re:"
               data-key="b"
+              data-sort-visibility="selected"
               id="react-aria-:rd:-b"
               role="columnheader"
               tabindex="-1"
             >
               <div
-                class="sc-dJkDXt iwDoBg"
+                class="sc-dJkDXt hLTkTv"
               >
                 Column 2
               </div>
@@ -101,6 +103,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
               data-key="react-aria-4"
               id="react-aria-:rd:-react-aria-6-a"
               role="rowheader"
+              style="text-align: left;"
               tabindex="-1"
             >
               Row 1, Cell 1
@@ -111,6 +114,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
               data-key="react-aria-5"
               id="react-aria-:rl:"
               role="gridcell"
+              style="text-align: left;"
               tabindex="-1"
             >
               Row 1, Cell 2
@@ -130,6 +134,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
               data-key="react-aria-7"
               id="react-aria-:rd:-react-aria-9-a"
               role="rowheader"
+              style="text-align: left;"
               tabindex="-1"
             >
               Row 2, Cell 1
@@ -140,6 +145,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
               data-key="react-aria-8"
               id="react-aria-:rp:"
               role="gridcell"
+              style="text-align: left;"
               tabindex="-1"
             >
               Row 2, Cell 2
@@ -156,7 +162,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
     <table
       aria-describedby=""
       aria-label="table"
-      class="sc-hUAZgl dfoSoM aje-table"
+      class="sc-hUAZgl jvwFqK aje-table"
       data-collection="react-aria-:re:"
       role="grid"
       tabindex="0"
@@ -171,17 +177,18 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
         >
           <th
             aria-colindex="1"
-            class="sc-lertIE fzQcfw aje-table__column"
+            class="sc-lertIE ljXApe aje-table__column"
             data-collection="react-aria-:re:"
             data-key="a"
             data-searchable="true"
             data-searching="true"
+            data-sort-visibility="selected"
             id="react-aria-:rd:-a"
             role="columnheader"
             tabindex="-1"
           >
             <div
-              class="sc-dJkDXt iwDoBg"
+              class="sc-dJkDXt hLTkTv"
             >
               Column 1
               <div
@@ -213,15 +220,16 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
           </th>
           <th
             aria-colindex="2"
-            class="sc-lertIE fzQcfw aje-table__column"
+            class="sc-lertIE ljXApe aje-table__column"
             data-collection="react-aria-:re:"
             data-key="b"
+            data-sort-visibility="selected"
             id="react-aria-:rd:-b"
             role="columnheader"
             tabindex="-1"
           >
             <div
-              class="sc-dJkDXt iwDoBg"
+              class="sc-dJkDXt hLTkTv"
             >
               Column 2
             </div>
@@ -246,6 +254,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
             data-key="react-aria-4"
             id="react-aria-:rd:-react-aria-6-a"
             role="rowheader"
+            style="text-align: left;"
             tabindex="-1"
           >
             Row 1, Cell 1
@@ -256,6 +265,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
             data-key="react-aria-5"
             id="react-aria-:rl:"
             role="gridcell"
+            style="text-align: left;"
             tabindex="-1"
           >
             Row 1, Cell 2
@@ -275,6 +285,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
             data-key="react-aria-7"
             id="react-aria-:rd:-react-aria-9-a"
             role="rowheader"
+            style="text-align: left;"
             tabindex="-1"
           >
             Row 2, Cell 1
@@ -285,6 +296,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
             data-key="react-aria-8"
             id="react-aria-:rp:"
             role="gridcell"
+            style="text-align: left;"
             tabindex="-1"
           >
             Row 2, Cell 2
@@ -358,7 +370,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
       <table
         aria-describedby=""
         aria-label="table"
-        class="sc-hUAZgl dfoSoM aje-table"
+        class="sc-hUAZgl jvwFqK aje-table"
         data-collection="react-aria-:r1:"
         role="grid"
         tabindex="0"
@@ -373,16 +385,17 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
           >
             <th
               aria-colindex="1"
-              class="sc-lertIE fzQcfw aje-table__column"
+              class="sc-lertIE ljXApe aje-table__column"
               data-collection="react-aria-:r1:"
               data-key="a"
               data-searchable="true"
+              data-sort-visibility="selected"
               id="react-aria-:r0:-a"
               role="columnheader"
               tabindex="-1"
             >
               <div
-                class="sc-dJkDXt iwDoBg"
+                class="sc-dJkDXt hLTkTv"
               >
                 Column 1
                 <div
@@ -428,15 +441,16 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
             </th>
             <th
               aria-colindex="2"
-              class="sc-lertIE fzQcfw aje-table__column"
+              class="sc-lertIE ljXApe aje-table__column"
               data-collection="react-aria-:r1:"
               data-key="b"
+              data-sort-visibility="selected"
               id="react-aria-:r0:-b"
               role="columnheader"
               tabindex="-1"
             >
               <div
-                class="sc-dJkDXt iwDoBg"
+                class="sc-dJkDXt hLTkTv"
               >
                 Column 2
               </div>
@@ -461,6 +475,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
               data-key="react-aria-4"
               id="react-aria-:r0:-react-aria-6-a"
               role="rowheader"
+              style="text-align: left;"
               tabindex="-1"
             >
               Row 1, Cell 1
@@ -471,6 +486,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
               data-key="react-aria-5"
               id="react-aria-:r8:"
               role="gridcell"
+              style="text-align: left;"
               tabindex="-1"
             >
               Row 1, Cell 2
@@ -490,6 +506,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
               data-key="react-aria-7"
               id="react-aria-:r0:-react-aria-9-a"
               role="rowheader"
+              style="text-align: left;"
               tabindex="-1"
             >
               Row 2, Cell 1
@@ -500,6 +517,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
               data-key="react-aria-8"
               id="react-aria-:rc:"
               role="gridcell"
+              style="text-align: left;"
               tabindex="-1"
             >
               Row 2, Cell 2
@@ -516,7 +534,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
     <table
       aria-describedby=""
       aria-label="table"
-      class="sc-hUAZgl dfoSoM aje-table"
+      class="sc-hUAZgl jvwFqK aje-table"
       data-collection="react-aria-:r1:"
       role="grid"
       tabindex="0"
@@ -531,16 +549,17 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
         >
           <th
             aria-colindex="1"
-            class="sc-lertIE fzQcfw aje-table__column"
+            class="sc-lertIE ljXApe aje-table__column"
             data-collection="react-aria-:r1:"
             data-key="a"
             data-searchable="true"
+            data-sort-visibility="selected"
             id="react-aria-:r0:-a"
             role="columnheader"
             tabindex="-1"
           >
             <div
-              class="sc-dJkDXt iwDoBg"
+              class="sc-dJkDXt hLTkTv"
             >
               Column 1
               <div
@@ -586,15 +605,16 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
           </th>
           <th
             aria-colindex="2"
-            class="sc-lertIE fzQcfw aje-table__column"
+            class="sc-lertIE ljXApe aje-table__column"
             data-collection="react-aria-:r1:"
             data-key="b"
+            data-sort-visibility="selected"
             id="react-aria-:r0:-b"
             role="columnheader"
             tabindex="-1"
           >
             <div
-              class="sc-dJkDXt iwDoBg"
+              class="sc-dJkDXt hLTkTv"
             >
               Column 2
             </div>
@@ -619,6 +639,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
             data-key="react-aria-4"
             id="react-aria-:r0:-react-aria-6-a"
             role="rowheader"
+            style="text-align: left;"
             tabindex="-1"
           >
             Row 1, Cell 1
@@ -629,6 +650,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
             data-key="react-aria-5"
             id="react-aria-:r8:"
             role="gridcell"
+            style="text-align: left;"
             tabindex="-1"
           >
             Row 1, Cell 2
@@ -648,6 +670,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
             data-key="react-aria-7"
             id="react-aria-:r0:-react-aria-9-a"
             role="rowheader"
+            style="text-align: left;"
             tabindex="-1"
           >
             Row 2, Cell 1
@@ -658,6 +681,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
             data-key="react-aria-8"
             id="react-aria-:rc:"
             role="gridcell"
+            style="text-align: left;"
             tabindex="-1"
           >
             Row 2, Cell 2
@@ -731,7 +755,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
       <table
         aria-describedby=""
         aria-label="table"
-        class="sc-hUAZgl dfoSoM aje-table"
+        class="sc-hUAZgl jvwFqK aje-table"
         data-collection="react-aria-:rr:"
         role="grid"
         tabindex="0"
@@ -746,16 +770,17 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
           >
             <th
               aria-colindex="1"
-              class="sc-lertIE fzQcfw aje-table__column"
+              class="sc-lertIE ljXApe aje-table__column"
               data-collection="react-aria-:rr:"
               data-key="a"
               data-searchable="true"
+              data-sort-visibility="selected"
               id="react-aria-:rq:-a"
               role="columnheader"
               tabindex="-1"
             >
               <div
-                class="sc-dJkDXt iwDoBg"
+                class="sc-dJkDXt hLTkTv"
               >
                 Column 1
                 <div
@@ -801,15 +826,16 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </th>
             <th
               aria-colindex="2"
-              class="sc-lertIE fzQcfw aje-table__column"
+              class="sc-lertIE ljXApe aje-table__column"
               data-collection="react-aria-:rr:"
               data-key="b"
+              data-sort-visibility="selected"
               id="react-aria-:rq:-b"
               role="columnheader"
               tabindex="-1"
             >
               <div
-                class="sc-dJkDXt iwDoBg"
+                class="sc-dJkDXt hLTkTv"
               >
                 Column 2
               </div>
@@ -2012,7 +2038,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
     <table
       aria-describedby=""
       aria-label="table"
-      class="sc-hUAZgl dfoSoM aje-table"
+      class="sc-hUAZgl jvwFqK aje-table"
       data-collection="react-aria-:rr:"
       role="grid"
       tabindex="0"
@@ -2027,16 +2053,17 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
         >
           <th
             aria-colindex="1"
-            class="sc-lertIE fzQcfw aje-table__column"
+            class="sc-lertIE ljXApe aje-table__column"
             data-collection="react-aria-:rr:"
             data-key="a"
             data-searchable="true"
+            data-sort-visibility="selected"
             id="react-aria-:rq:-a"
             role="columnheader"
             tabindex="-1"
           >
             <div
-              class="sc-dJkDXt iwDoBg"
+              class="sc-dJkDXt hLTkTv"
             >
               Column 1
               <div
@@ -2082,15 +2109,16 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
           </th>
           <th
             aria-colindex="2"
-            class="sc-lertIE fzQcfw aje-table__column"
+            class="sc-lertIE ljXApe aje-table__column"
             data-collection="react-aria-:rr:"
             data-key="b"
+            data-sort-visibility="selected"
             id="react-aria-:rq:-b"
             role="columnheader"
             tabindex="-1"
           >
             <div
-              class="sc-dJkDXt iwDoBg"
+              class="sc-dJkDXt hLTkTv"
             >
               Column 2
             </div>
