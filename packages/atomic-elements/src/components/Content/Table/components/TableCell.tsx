@@ -28,6 +28,8 @@ export interface TableCellProps extends RenderBaseProps<never>, DomProps {
   onAction?: () => void;
   /** Controls whether the text in the cell is selectable. When isStatic is false users will not be able to select text inside of the cell */
   isStatic?: boolean;
+  /** Justification of the cell content. Inherits from the column is not specified */
+  $justify?: "left" | "right" | "center";
 }
 
 export const TableCell = createLeafComponent("cell", function TableCell<
@@ -56,6 +58,8 @@ export const TableCell = createLeafComponent("cell", function TableCell<
   const isRowHeaderCell = state.collection.rowHeaderColumnKeys.has(
     cell?.column?.key!
   );
+
+  const justify = props.$justify ?? cell.column?.props?.$justify ?? "start";
 
   const isFirstRowHeaderCell =
     state.collection.rowHeaderColumnKeys.keys().next().value ===
@@ -112,23 +116,7 @@ export const TableCell = createLeafComponent("cell", function TableCell<
   const Element = isRowHeaderCell ? RowHeader : StyledCell;
 
   return (
-    <Element {...cellProps} ref={ref}>
-      {/* <Flex alignItems="center" gap={"var(--table-padding-horz)"}>
-        {showExpandButton && (
-          <IconButton
-            icon={isExpanded ? "expand_more" : "chevron_right"}
-            variant="content"
-            onPress={() =>
-              (state as TreeGridState<T>).toggleKey(cell.parentKey!)
-            }
-            aria-label="Expand row"
-            className="aje-table__expand-button"
-          />
-        )}
-        <CellContent className="aje-table__cell__content">
-          {renderProps.children}
-        </CellContent>
-      </Flex> */}
+    <Element ref={ref} {...cellProps} style={{ textAlign: justify }}>
       {renderProps.children}
     </Element>
   );

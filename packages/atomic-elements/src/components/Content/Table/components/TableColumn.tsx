@@ -19,6 +19,8 @@ import { Provider } from "@components/Internal/Provider";
 import { DEFAULT_SLOT } from "@hooks/useSlottedContext";
 import { ButtonContext } from "@components/Buttons/Button/Button.context";
 import { IconButton } from "@components/Buttons/IconButton";
+import { TypographyProps } from "@styles/typography";
+import { filterStyleProps } from "@styles/utils";
 
 interface TableColumnRenderProps {
   allowsSorting: boolean;
@@ -146,7 +148,7 @@ export const TableColumn = createLeafComponent("column", function TableColumn<
 });
 
 export function TableColumnWrapper<T extends object>(
-  props: TableColumnProps<T>
+  props: TableColumnProps<T> & TypographyProps
 ) {
   return (
     <TableColumn {...props}>
@@ -168,7 +170,7 @@ export function TableColumnWrapper<T extends object>(
             : props.children;
 
         return (
-          <ColumnContent>
+          <ColumnContent {...filterStyleProps(props)}>
             {children}
             {allowsSorting && isSorting && <MaterialIcon icon={arrowIcon} />}
             {allowsSorting && !isSorting && (

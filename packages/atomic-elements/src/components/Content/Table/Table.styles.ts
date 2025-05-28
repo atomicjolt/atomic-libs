@@ -2,6 +2,8 @@ import styled, { css } from "styled-components";
 import mixins from "@styles/mixins";
 import { ComboInput, Input } from "@components/Fields";
 import { SkeletonLoader } from "../../Feedback/SkeletonLoader";
+import { typography, TypographyProps } from "@styles/typography";
+import { flex, FlexStyleProps } from "@styles/flex";
 
 const ShowVerticalDividerMixin = css`
   &[data-divider] {
@@ -78,12 +80,12 @@ export const StyledThead = styled.thead`
   }
 `;
 
-export const ColumnContent = styled.div`
+export const ColumnContent = styled.div<TypographyProps & FlexStyleProps>`
   width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 4px;
   position: relative;
+
+  ${typography}
+  ${flex.defaults({ $display: "flex", $align: "center", $gap: "4px" })}
 `;
 
 export const StyledTh = styled.th`
