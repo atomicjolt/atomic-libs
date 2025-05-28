@@ -12,15 +12,13 @@ import { MaterialIcon } from "@components/Icons/MaterialIcon";
 import { ColumnContent, SearchComboInput, StyledTh } from "../Table.styles";
 import { useExtendedTableColumnHeader } from "../hooks/useExtendedTableColumnHeader";
 import { TableStateContext } from "../Table.context";
-import { RenderBaseProps } from "../../../../types";
+import { MaterialIcons, RenderBaseProps } from "../../../../types";
 import { Input, InputContext } from "@components/Fields/Atoms/Input";
 import { useTableSearchInput } from "../hooks/useTableSearchInput";
 import { Provider } from "@components/Internal/Provider";
 import { DEFAULT_SLOT } from "@hooks/useSlottedContext";
 import { ButtonContext } from "@components/Buttons/Button/Button.context";
 import { IconButton } from "@components/Buttons/IconButton";
-import { TypographyProps } from "@styles/typography";
-import { filterStyleProps } from "@styles/utils";
 
 interface TableColumnRenderProps {
   allowsSorting: boolean;
@@ -147,18 +145,41 @@ export const TableColumn = createLeafComponent("column", function TableColumn<
   );
 });
 
+interface TableColumnIcons {
+  sortAscending: MaterialIcons;
+  sortDescending: MaterialIcons;
+  sortNeutral: MaterialIcons;
+  searchOpen: MaterialIcons;
+  searchClose: MaterialIcons;
+}
+
 interface TableColumnWrapperProps<T extends object>
   extends TableColumnProps<T> {
   align?: "left" | "right" | "center";
+  icons?: Partial<TableColumnIcons>;
+  sortVisibility?: "always" | "selected";
 }
+
+const defaultIcons: TableColumnIcons = {
+  sortAscending: "arrow_drop_down",
+  sortDescending: "arrow_drop_up",
+  sortNeutral: "swap_vert",
+  searchOpen: "search",
+  searchClose: "close",
+};
 
 export function TableColumnWrapper<T extends object>(
   props: TableColumnWrapperProps<T>
 ) {
-  const { align } = props;
+  const { align, sortVisibility = "selected" } = props;
+
+  const icons = {
+    ...defaultIcons,
+    ...props.icons,
+  };
 
   return (
-    <TableColumn {...props}>
+    <TableColumn {...props} data-sort-visibility={sortVisibility}>
       {(renderProps) => {
         const {
           allowsSearching,
@@ -169,7 +190,9 @@ export function TableColumnWrapper<T extends object>(
         } = renderProps;
 
         const arrowIcon =
-          sortDirection === "ascending" ? "arrow_drop_down" : "arrow_drop_up";
+          sortDirection === "ascending"
+            ? icons.sortAscending
+            : icons.sortDescending;
 
         const children =
           typeof props.children === "function"
@@ -181,14 +204,14 @@ export function TableColumnWrapper<T extends object>(
             {children}
             {allowsSorting && isSorting && <MaterialIcon icon={arrowIcon} />}
             {allowsSorting && !isSorting && (
-              <MaterialIcon icon="swap_vert" className="swap-icon" />
+              <MaterialIcon icon={icons.sortNeutral} className="swap-icon" />
             )}
             {allowsSearching && (
               <>
                 <SearchComboInput aria-expanded={isSearching} padding="both">
                   <Input slot="search" />
                   <IconButton
-                    icon="close"
+                    icon={icons.searchClose}
                     variant="content"
                     size="small"
                     slot="search-close"
@@ -197,7 +220,7 @@ export function TableColumnWrapper<T extends object>(
 
                 {!isSearching && (
                   <IconButton
-                    icon="search"
+                    icon={icons.searchOpen}
                     variant="content"
                     size="small"
                     slot="search-open"

@@ -40,6 +40,30 @@ export const StyledTable = styled.table`
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   }
+
+  &[data-striped="even"] {
+    tbody {
+      tr:nth-child(odd) {
+        --table-bg-clr: var(--table-bg-clr-striped-primary);
+      }
+
+      tr:nth-child(even) {
+        --table-bg-clr: var(--table-bg-clr-striped-secondary);
+      }
+    }
+  }
+
+  &[data-striped="odd"] {
+    tbody {
+      tr:nth-child(odd) {
+        --table-bg-clr: var(--table-bg-clr-striped-secondary);
+      }
+
+      tr:nth-child(even) {
+        --table-bg-clr: var(--table-bg-clr-striped-primary);
+      }
+    }
+  }
 `;
 
 export const StyledRow = styled.tr`
@@ -81,13 +105,10 @@ export const StyledThead = styled.thead`
   }
 `;
 
-export const ColumnContent = styled.div<
-  Omit<TypographyProps, "align"> & FlexStyleProps
->`
+export const ColumnContent = styled.div<FlexStyleProps>`
   width: 100%;
   position: relative;
 
-  ${typography}
   ${flex.defaults({ $display: "flex", $align: "center", $gap: "4px" })}
 `;
 
@@ -104,8 +125,16 @@ export const StyledTh = styled.th`
   ${ShowVerticalDividerMixin}
 
   &[data-sortable] {
-    .swap-icon {
-      visibility: hidden;
+    &[data-sort-visibility="selected"] {
+      .swap-icon {
+        visibility: hidden;
+      }
+    }
+
+    &[data-sort-visibility="always"] {
+      .swap-icon {
+        visibility: visible;
+      }
     }
 
     &:hover {

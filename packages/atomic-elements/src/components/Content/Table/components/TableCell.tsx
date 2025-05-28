@@ -4,10 +4,7 @@ import { useTableCell } from "@react-aria/table";
 import { GridNode } from "@react-types/grid";
 import { useFocusRing } from "@hooks/useFocusRing";
 import { useRenderProps } from "@hooks/useRenderProps";
-import { IconButton } from "@components/Buttons/IconButton";
-import { Flex } from "@components/Layout/Flex";
-import { CellContent, RowHeader, StyledCell } from "../Table.styles";
-import { TreeGridState } from "../Table.types";
+import { RowHeader, StyledCell } from "../Table.styles";
 import { createLeafComponent } from "@react-aria/collections";
 import { TableStateContext } from "../Table.context";
 import { DomProps, RenderBaseProps } from "../../../../types";
@@ -59,7 +56,6 @@ export const TableCell = createLeafComponent("cell", function TableCell<
     cell?.column?.key!
   );
 
-  console.log(cell.column.props.align);
   const align = props.align ?? cell.column?.props?.align ?? "left";
 
   const isFirstRowHeaderCell =

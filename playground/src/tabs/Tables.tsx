@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Key, PaginationDescriptor, Table, Text } from "../elements";
+import { Button, SortDescriptor, Table } from "../elements";
 
 export default function Tables() {
   return (
@@ -11,13 +11,35 @@ export default function Tables() {
 }
 
 function RegularTable() {
+  const [sortDescriptor, setSortDescriptor] = useState<SortDescriptor>({
+    column: "foo",
+    direction: "ascending",
+  });
+
   return (
-    <Table aria-label="Table">
+    <Table
+      aria-label="Table"
+      striped="even"
+      sortDescriptor={sortDescriptor}
+      onSortChange={setSortDescriptor}
+    >
       <Table.Header>
-        <Table.Column id="foo" showDivider>
+        <Table.Column
+          id="foo"
+          showDivider
+          allowsSorting
+          sortVisibility="always"
+          allowsSearching
+        >
           Foo
         </Table.Column>
-        <Table.Column id="bar" align="right">
+        <Table.Column
+          id="bar"
+          align="right"
+          showDivider
+          allowsSorting
+          sortVisibility="always"
+        >
           Bar
         </Table.Column>
         <Table.Column id="baz" align="right">
@@ -34,6 +56,56 @@ function RegularTable() {
           <Table.Cell>Lvl 1 Foo 2</Table.Cell>
           <Table.Cell>Lvl 1 Bar 2</Table.Cell>
           <Table.Cell>Lvl 1 Baz 2</Table.Cell>
+        </Table.Row>
+        <Table.Row id="row 3">
+          <Table.Cell>Lvl 1 Foo 3</Table.Cell>
+          <Table.Cell>Lvl 1 Bar 3</Table.Cell>
+          <Table.Cell>Lvl 1 Baz 3</Table.Cell>
+        </Table.Row>
+        <Table.Row id="row 4">
+          <Table.Cell>Lvl 1 Foo 4</Table.Cell>
+          <Table.Cell>Lvl 1 Bar 4</Table.Cell>
+          <Table.Cell>Lvl 1 Baz 4</Table.Cell>
+        </Table.Row>
+        <Table.Row id="row 5">
+          <Table.Cell>Lvl 1 Foo 5</Table.Cell>
+          <Table.Cell>Lvl 1 Bar 5</Table.Cell>
+          <Table.Cell>Lvl 1 Baz 5</Table.Cell>
+        </Table.Row>
+        <Table.Row id="row 6">
+          <Table.Cell>Lvl 1 Foo 6</Table.Cell>
+          <Table.Cell>Lvl 1 Bar 6</Table.Cell>
+          <Table.Cell>Lvl 1 Baz 6</Table.Cell>
+        </Table.Row>
+        <Table.Row id="row 7">
+          <Table.Cell>Lvl 1 Foo 7</Table.Cell>
+          <Table.Cell>Lvl 1 Bar 7</Table.Cell>
+          <Table.Cell>Lvl 1 Baz 7</Table.Cell>
+        </Table.Row>
+        <Table.Row id="row 8">
+          <Table.Cell>Lvl 1 Foo 8</Table.Cell>
+          <Table.Cell>Lvl 1 Bar 8</Table.Cell>
+          <Table.Cell>Lvl 1 Baz 8</Table.Cell>
+        </Table.Row>
+        <Table.Row id="row 9">
+          <Table.Cell>Lvl 1 Foo 9</Table.Cell>
+          <Table.Cell>Lvl 1 Bar 9</Table.Cell>
+          <Table.Cell>Lvl 1 Baz 9</Table.Cell>
+        </Table.Row>
+        <Table.Row id="row 10">
+          <Table.Cell>Lvl 1 Foo 10</Table.Cell>
+          <Table.Cell>Lvl 1 Bar 10</Table.Cell>
+          <Table.Cell>Lvl 1 Baz 10</Table.Cell>
+        </Table.Row>
+        <Table.Row id="row 11">
+          <Table.Cell>Lvl 1 Foo 11</Table.Cell>
+          <Table.Cell>Lvl 1 Bar 11</Table.Cell>
+          <Table.Cell>Lvl 1 Baz 11</Table.Cell>
+        </Table.Row>
+        <Table.Row id="row 12">
+          <Table.Cell>Lvl 1 Foo 12</Table.Cell>
+          <Table.Cell>Lvl 1 Bar 12</Table.Cell>
+          <Table.Cell>Lvl 1 Baz 12</Table.Cell>
         </Table.Row>
       </Table.Body>
     </Table>

@@ -55,6 +55,11 @@ const meta: Meta<typeof Table> = {
         category: "Events",
       },
     },
+    striped: {
+      description: "Whether the table should have striped rows",
+      control: "select",
+      options: ["even", "odd"],
+    },
   },
 };
 
@@ -537,5 +542,49 @@ export const StickyRowHeader: Story = {
     style: {
       width: "1000px",
     },
+  },
+};
+
+export const WithStripedRows: Story = {
+  ...Primary,
+  args: {
+    ...Primary.args,
+    striped: "odd",
+  },
+};
+
+export const WithRightAlignedColumns: Story = {
+  ...Primary,
+  args: {
+    ...Primary.args,
+    children: [
+      <Table.Header key="header">
+        <Table.Column isRowHeader>Name</Table.Column>
+        <Table.Column align="right">Type</Table.Column>
+        <Table.Column align="right">Level</Table.Column>
+      </Table.Header>,
+      <Table.Body key="body">
+        <Table.Row>
+          <Table.Cell>Charizard</Table.Cell>
+          <Table.Cell>Fire, Flying</Table.Cell>
+          <Table.Cell>67</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>Blastoise</Table.Cell>
+          <Table.Cell>Water</Table.Cell>
+          <Table.Cell>56</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>Venusaur</Table.Cell>
+          <Table.Cell>Grass, Poison</Table.Cell>
+          <Table.Cell>83</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>Pikachu</Table.Cell>
+          <Table.Cell>Electric</Table.Cell>
+          <Table.Cell>100</Table.Cell>
+        </Table.Row>
+      </Table.Body>,
+    ],
   },
 };

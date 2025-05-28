@@ -85,6 +85,11 @@ export interface TableProps<T>
   /** Table makes use of <Table.Bottom> to attach
    * additional content to the bottom of the table */
   hasBottom?: boolean;
+
+  /** Whether the table rows have alternating background colors
+   * @selector [data-striped]
+   */
+  striped?: "even" | "odd";
 }
 
 export interface TableStateExtensions {
@@ -107,7 +112,6 @@ export interface TreeGridState<T>
 export interface TableInternalProps<T extends object> extends TableProps<T> {
   collection: TableCollection<T>;
 }
-
 
 export interface TableOptions {
   /** Whether the table allows expandable rows.

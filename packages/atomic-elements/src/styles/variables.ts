@@ -270,6 +270,8 @@ export const table = {
   "table-sort-icon-hover-clr": "{neutral400}",
   "table-nesting-offset": "{table-padding-horz}",
   "table-cell-height": "48px",
+  "table-bg-clr-striped-primary": "{table-bg-clr}",
+  "table-bg-clr-striped-secondary": "{neutral100}",
 };
 
 export const tab = {
