@@ -14,13 +14,13 @@ function RegularTable() {
   return (
     <Table aria-label="Table">
       <Table.Header>
-        <Table.Column id="foo" showDivider $transform="uppercase">
-          Foo afinea ianfeian ainfe inaf ienaifn eianfe aifne ain aina
+        <Table.Column id="foo" showDivider>
+          Foo
         </Table.Column>
-        <Table.Column id="bar" $justify="right">
+        <Table.Column id="bar" align="right">
           Bar
         </Table.Column>
-        <Table.Column id="baz" $justify="right">
+        <Table.Column id="baz" align="right">
           Baz
         </Table.Column>
       </Table.Header>

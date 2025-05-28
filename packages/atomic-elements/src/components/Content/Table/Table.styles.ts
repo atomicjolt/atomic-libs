@@ -21,6 +21,7 @@ export const StyledTable = styled.table`
   border: solid var(--table-border-clr);
   border-width: var(--table-border-width);
   border-radius: var(--table-border-radius);
+  overflow: hidden;
 
   &[data-sticky] {
     border-left-width: 0px;
@@ -80,7 +81,9 @@ export const StyledThead = styled.thead`
   }
 `;
 
-export const ColumnContent = styled.div<TypographyProps & FlexStyleProps>`
+export const ColumnContent = styled.div<
+  Omit<TypographyProps, "align"> & FlexStyleProps
+>`
   width: 100%;
   position: relative;
 

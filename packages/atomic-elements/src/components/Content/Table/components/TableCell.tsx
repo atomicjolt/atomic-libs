@@ -28,8 +28,8 @@ export interface TableCellProps extends RenderBaseProps<never>, DomProps {
   onAction?: () => void;
   /** Controls whether the text in the cell is selectable. When isStatic is false users will not be able to select text inside of the cell */
   isStatic?: boolean;
-  /** Justification of the cell content. Inherits from the column is not specified */
-  $justify?: "left" | "right" | "center";
+  /** Alignment of the cell content. Inherits from the column is not specified */
+  align?: "left" | "right" | "center";
 }
 
 export const TableCell = createLeafComponent("cell", function TableCell<
@@ -59,7 +59,8 @@ export const TableCell = createLeafComponent("cell", function TableCell<
     cell?.column?.key!
   );
 
-  const justify = props.$justify ?? cell.column?.props?.$justify ?? "start";
+  console.log(cell.column.props.align);
+  const align = props.align ?? cell.column?.props?.align ?? "left";
 
   const isFirstRowHeaderCell =
     state.collection.rowHeaderColumnKeys.keys().next().value ===
@@ -116,7 +117,7 @@ export const TableCell = createLeafComponent("cell", function TableCell<
   const Element = isRowHeaderCell ? RowHeader : StyledCell;
 
   return (
-    <Element ref={ref} {...cellProps} style={{ textAlign: justify }}>
+    <Element ref={ref} {...cellProps} style={{ textAlign: align }}>
       {renderProps.children}
     </Element>
   );

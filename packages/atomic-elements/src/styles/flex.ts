@@ -12,7 +12,9 @@ export interface FlexStyleProps {
     | "center"
     | "space-between"
     | "space-around"
-    | "space-evenly";
+    | "space-evenly"
+    | "left"
+    | "right";
   $wrap?: "nowrap" | "wrap" | "wrap-reverse";
   $gap?: SuggestStrings<Spacing>;
   $gapX?: SuggestStrings<Spacing>;

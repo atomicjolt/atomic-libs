@@ -147,9 +147,16 @@ export const TableColumn = createLeafComponent("column", function TableColumn<
   );
 });
 
+interface TableColumnWrapperProps<T extends object>
+  extends TableColumnProps<T> {
+  align?: "left" | "right" | "center";
+}
+
 export function TableColumnWrapper<T extends object>(
-  props: TableColumnProps<T> & TypographyProps
+  props: TableColumnWrapperProps<T>
 ) {
+  const { align } = props;
+
   return (
     <TableColumn {...props}>
       {(renderProps) => {
@@ -170,7 +177,7 @@ export function TableColumnWrapper<T extends object>(
             : props.children;
 
         return (
-          <ColumnContent {...filterStyleProps(props)}>
+          <ColumnContent $justify={align}>
             {children}
             {allowsSorting && isSorting && <MaterialIcon icon={arrowIcon} />}
             {allowsSorting && !isSorting && (
