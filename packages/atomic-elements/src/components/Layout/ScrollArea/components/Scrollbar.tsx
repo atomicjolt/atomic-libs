@@ -20,26 +20,38 @@ export interface ScrollbarProps
     ElementWrapper<HTMLDivElement> {
   orientation: "horizontal" | "vertical";
   size?: SuggestStrings<"viewport" | "auto">;
+  show?: "always" | "auto";
+  reserveSpace?: boolean;
 }
 
 export const Scrollbar = forwardRef<HTMLDivElement, ScrollbarProps>(
   function Scrollbar(props, ref) {
-    const { orientation, size = "viewport" } = props;
+    const {
+      orientation,
+      size = "viewport",
+      show = "auto",
+      reserveSpace = false,
+    } = props;
 
     const { viewportRef, state } = useContext(ScrollStateContext)!;
     const thumbRef = useRef<HTMLDivElement>(null);
     const trackRef = useRef<HTMLDivElement>(null);
 
-    const { thumbProps, trackProps, advanceButtonProps, retreatButtonProps } =
-      useScrollBar(
-        {
-          viewportRef: viewportRef,
-          trackRef: trackRef,
-          orientation,
-          size,
-        },
-        state
-      );
+    const {
+      isScrollable,
+      thumbProps,
+      trackProps,
+      advanceButtonProps,
+      retreatButtonProps,
+    } = useScrollBar(
+      {
+        viewportRef: viewportRef,
+        trackRef: trackRef,
+        orientation,
+        size,
+      },
+      state
+    );
 
     const isHorizontal = orientation === "horizontal";
     let containerStyles = {};
@@ -58,6 +70,13 @@ export const Scrollbar = forwardRef<HTMLDivElement, ScrollbarProps>(
       size: undefined,
     });
 
+    if (!isScrollable && show === "auto" && !reserveSpace) {
+      return null;
+    }
+
+    const visibilityStyle =
+      !isScrollable && reserveSpace ? { visibility: "hidden" as const } : {};
+
     return (
       <Flex
         ref={ref}
@@ -69,6 +88,7 @@ export const Scrollbar = forwardRef<HTMLDivElement, ScrollbarProps>(
         {...renderProps}
         style={{
           ...containerStyles,
+          ...visibilityStyle,
           ...renderProps.style,
         }}
       >

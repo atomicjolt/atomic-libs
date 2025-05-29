@@ -20,9 +20,6 @@ export const ScrollAreaWrapper = styled.div`
 `;
 
 export const ScrollAreaContent = styled.div`
-  overflow: scroll;
-  width: 100%;
-  height: 100%;
   overflow: auto;
 
   /* Firefox */

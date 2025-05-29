@@ -40,6 +40,8 @@ export function useScrollBar(props: UseScrollBarProps, state: ScrollState) {
     ? state.scrollWidth - state.clientWidth
     : state.scrollHeight - state.clientHeight;
 
+  const isScrollable = maxScroll > 0;
+
   const currentScroll = isHorizontal ? state.scrollLeft : state.scrollTop;
 
   // The thumb can't move if maxScroll is 0 since that means the content is not scrollable
@@ -224,5 +226,6 @@ export function useScrollBar(props: UseScrollBarProps, state: ScrollState) {
     },
     advanceButtonProps,
     retreatButtonProps,
+    isScrollable,
   } as const;
 }
