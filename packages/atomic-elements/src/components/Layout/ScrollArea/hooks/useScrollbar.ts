@@ -1,6 +1,7 @@
-import { useCallback, useRef } from "react";
+import { useCallback, useRef, useState } from "react";
 import { ScrollState } from "./useScrollState";
 import { useMove } from "@react-aria/interactions";
+import { useScrollBarButton } from "./useScrollButton";
 
 interface UseScrollBarProps {
   orientation: "horizontal" | "vertical";
@@ -10,6 +11,8 @@ interface UseScrollBarProps {
 
 export function useScrollBar(props: UseScrollBarProps, state: ScrollState) {
   const { scrollAreaRef, trackRef, orientation } = props;
+
+  const [isActive, setIsActive] = useState(false);
 
   const updateScrollState = useCallback(() => {
     if (scrollAreaRef.current) {
@@ -50,11 +53,14 @@ export function useScrollBar(props: UseScrollBarProps, state: ScrollState) {
       scrollIntervalRef.current = null;
     }
     targetPositionRef.current = null;
+    setIsActive(false);
   }, []);
 
   const handleTrackMouseDown = useCallback(
     (e: React.MouseEvent) => {
       if (!scrollAreaRef.current || !trackRef.current) return;
+
+      setIsActive(true);
 
       // Clear any existing interval first
       if (scrollIntervalRef.current) {
@@ -141,6 +147,9 @@ export function useScrollBar(props: UseScrollBarProps, state: ScrollState) {
   }, [stopScrolling]);
 
   const { moveProps } = useMove({
+    onMoveStart: () => {
+      setIsActive(true);
+    },
     onMove: (e) => {
       const delta = isHorizontal ? e.deltaX : e.deltaY;
       if (scrollAreaRef.current && trackRef.current) {
@@ -159,9 +168,12 @@ export function useScrollBar(props: UseScrollBarProps, state: ScrollState) {
         updateScrollState();
       }
     },
+    onMoveEnd: () => {
+      setIsActive(false);
+    },
   });
 
-  const style = isHorizontal
+  const thumbStyles = isHorizontal
     ? {
         width: `${thumbSizePercent}%`,
         left: `${thumbPositionPercent}%`,
@@ -171,6 +183,28 @@ export function useScrollBar(props: UseScrollBarProps, state: ScrollState) {
         top: `${thumbPositionPercent}%`,
       };
 
+  const trackStyles = isHorizontal
+    ? { width: `${state.clientWidth}px` }
+    : { height: `${state.clientHeight}px` };
+
+  const { buttonProps: retreatButtonProps } = useScrollBarButton(
+    {
+      orientation,
+      direction: "retreat",
+      scrollAreaRef,
+    },
+    state
+  );
+
+  const { buttonProps: advanceButtonProps } = useScrollBarButton(
+    {
+      orientation,
+      direction: "advance",
+      scrollAreaRef,
+    },
+    state
+  );
+
   return {
     thumbProps: {
       role: "scrollbar",
@@ -179,14 +213,19 @@ export function useScrollBar(props: UseScrollBarProps, state: ScrollState) {
       "aria-valuemin": 0,
       "aria-valuemax": maxScroll,
       "aria-orientation": orientation,
-      style,
+      "aria-busy": isActive,
+      "data-active": isActive,
+      style: thumbStyles,
       ...moveProps,
     },
     trackProps: {
       onMouseDown: handleTrackMouseDown,
       onMouseUp: handleTrackMouseUp,
-      // onTouchStart: handleTrackMouseDown,
-      // onTouchEnd: handleTrackMouseUp,
+      "data-orientation": orientation,
+      "data-active": isActive,
+      // style: trackStyles,
     },
+    advanceButtonProps,
+    retreatButtonProps,
   } as const;
 }

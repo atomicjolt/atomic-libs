@@ -23,6 +23,7 @@ export function ScrollViewport(props: ScrollViewportProps) {
     <ScrollAreaContent
       className="aje-scollarea__viewport"
       ref={viewportRef}
+      style={props.style}
       {...scrollAreaProps}
     >
       {children}

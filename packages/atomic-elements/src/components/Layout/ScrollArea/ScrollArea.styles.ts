@@ -1,17 +1,25 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
-interface Props {
-  $scollbars?: "horizontal" | "vertical" | "both";
-  $hideScrollbars?: boolean;
-  $orientation?: "horizontal" | "vertical";
-}
+export const ScrollAreaWrapper = styled.div`
+  --scrollarea-track-clr: var(--neutral200);
+  --scrollarea-thumb-clr: var(--neutral300);
+  --scrollarea-thumb-clr-hover: var(--neutral400);
+  --scrollarea-btn-clr: var(--neutral500);
 
-export const ScrollAreaWrapper = styled.div<Props>`
-  --scrollbar-thumb: var(--neutral300);
-  --scrollbar-track: var(--neutral100);
+  button.aje-btn--scrollbar {
+    --size-md-x: 24px;
+    --size-md-y: 24px;
+    --btn-icon-size: 3rem;
+    --btn-pressed-transform: none;
+    --btn-text-clr: var(--scrollarea-btn-clr);
+    --btn-bg-clr: transparent;
+    --btn-hover-text-clr: var(--scrollarea-btn-clr);
+    --btn-hover-bg-clr: var(--scrollarea-track-clr);
+    --btn-border: transparent;
+  }
 `;
 
-export const ScrollAreaContent = styled.div<Props>`
+export const ScrollAreaContent = styled.div`
   overflow: scroll;
   width: 100%;
   height: 100%;
@@ -24,62 +32,103 @@ export const ScrollAreaContent = styled.div<Props>`
   &::-webkit-scrollbar {
     display: none;
   }
-
-  /* Firefox */
-  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
-
-  /* WebKit browsers */
-  &::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: var(--scrollbar-track);
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: var(--scrollbar-thumb);
-    border-radius: 4px;
-  }
-
-  &::-webkit-scrollbar-thumb:hover {
-    background: var(--neutral500);
-  }
 `;
 
-export const ScrollAreaScrollbarTrack = styled.div<Props>`
-  background: var(--scrollbar-track);
-  border-radius: 4px;
+export const ScrollAreaScrollbarTrack = styled.div`
   position: relative;
+  flex: 1;
 
-  ${(props) =>
-    props.$orientation === "vertical"
-      ? css`
-          width: 15px;
-          height: 100%;
-        `
-      : css`
-          width: 100%;
-          height: 15px;
-        `}
+  &::before {
+    content: "";
+    position: absolute;
+    border-radius: 2px;
+    background-color: var(--scrollarea-track-clr);
+  }
+
+  &[data-orientation="horizontal"] {
+    height: 20px;
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+    &::before {
+      top: 50%;
+      translate: 0 -50%;
+      height: 4px;
+      width: 100%;
+    }
+  }
+
+  &[data-orientation="vertical"] {
+    width: 20px;
+    flex: 1;
+    min-height: 0;
+    margin-left: 1rem;
+    margin-right: 1rem;
+
+    &::before {
+      left: 50%;
+      translate: -50% 0;
+      width: 4px;
+      height: 100%;
+    }
+  }
 `;
 
-export const ScrollAreaScrollbarThumb = styled.div<Props>`
-  background: var(--scrollbar-thumb);
-  border-radius: 4px;
+export const ScrollAreaScrollbarThumb = styled.div`
   position: absolute;
+  outline: none;
 
-  ${(props) =>
-    props.$orientation === "vertical"
-      ? css`
-          width: 8px;
-          left: 50%;
-          transform: translateX(-50%);
-        `
-      : css`
-          height: 8px;
-          top: 50%;
-          transform: translateY(-50%);
-        `}
+  &::before {
+    content: "";
+    position: absolute;
+    background: var(--scrollarea-thumb-clr);
+    border-radius: 99999px;
+    inset: 8px;
+    transition: inset 0.2s ease;
+    cursor: pointer;
+  }
+
+  &:hover::before,
+  &[data-active="true"]::before {
+    background: var(--scrollarea-thumb-clr-hover);
+  }
+
+  &:focus-visible {
+    outline: var(--outline);
+    outline-offset: 1px;
+    border-radius: 99999px;
+  }
+
+  &[aria-orientation="horizontal"] {
+    height: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    &::before {
+      inset: 2px 0px;
+    }
+
+    &:hover::before,
+    &:focus-visible::before,
+    &[data-active="true"]::before {
+      inset: 0px 0px;
+    }
+  }
+
+  &[aria-orientation="vertical"] {
+    width: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    &::before {
+      inset: 0px 2px;
+    }
+
+    &:hover::before,
+    &:focus-visible::before,
+    &[data-active="true"]::before {
+      inset: 0px 0px;
+    }
+  }
 `;
