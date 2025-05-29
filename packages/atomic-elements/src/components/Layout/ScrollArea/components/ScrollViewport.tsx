@@ -1,32 +1,45 @@
-import { useContext } from "react";
+import { useContext, forwardRef } from "react";
+import { filterDOMProps, mergeRefs } from "@react-aria/utils";
+import { ElementWrapper, RenderBaseProps } from "../../../../types";
+import { useRenderProps } from "@hooks/useRenderProps";
 import { ScrollAreaContent } from "../ScrollArea.styles";
 import { ScrollStateContext } from "../ScrollArea.context";
 import { useScrollArea } from "../hooks/useScrollArea";
 
-export interface ScrollViewportProps {
-  children: React.ReactNode;
-}
+export interface ScrollViewportProps
+  extends RenderBaseProps<never>,
+    ElementWrapper<HTMLDivElement> {}
 
-export function ScrollViewport(props: ScrollViewportProps) {
-  const { children } = props;
-  const { viewportRef, state } = useContext(ScrollStateContext)!;
+export const ScrollViewport = forwardRef<HTMLDivElement, ScrollViewportProps>(
+  function ScrollViewport(props, forwardedRef) {
+    const { viewportRef, state } = useContext(ScrollStateContext)!;
 
-  const { scrollAreaProps } = useScrollArea(
-    {
-      scrollAreaRef: viewportRef,
-      children: children,
-    },
-    state
-  );
+    const ref = mergeRefs(viewportRef, forwardedRef);
 
-  return (
-    <ScrollAreaContent
-      className="aje-scollarea__viewport"
-      ref={viewportRef}
-      style={props.style}
-      {...scrollAreaProps}
-    >
-      {children}
-    </ScrollAreaContent>
-  );
-}
+    const renderProps = useRenderProps({
+      componentClassName: "aje-scrollarea__viewport",
+      ...props,
+    });
+
+    const { scrollAreaProps } = useScrollArea(
+      {
+        viewportRef,
+        children: renderProps.children,
+      },
+      state
+    );
+
+    return (
+      <ScrollAreaContent
+        ref={ref}
+        {...filterDOMProps(props)}
+        {...renderProps}
+        {...scrollAreaProps}
+      >
+        {renderProps.children}
+      </ScrollAreaContent>
+    );
+  }
+);
+
+ScrollViewport.displayName = "ScrollArea.Viewport";

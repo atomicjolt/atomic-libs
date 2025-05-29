@@ -13,6 +13,9 @@ export interface ScrollAreaRootProps
   hideScrollbars?: boolean;
 }
 
+/**
+ * Component for creating a scrollable area with custom scrollbars.
+ */
 export const ScrollAreaRoot = forwardRef<HTMLDivElement, ScrollAreaRootProps>(
   function ScrollAreaRoot(props, ref) {
     [props, ref] = useContextProps(ScrollAreaContext, props, ref);

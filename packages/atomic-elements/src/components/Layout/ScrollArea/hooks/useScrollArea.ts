@@ -1,18 +1,17 @@
-import { useMove } from "@react-aria/interactions";
 import { useCallback, useLayoutEffect, useMemo, useState } from "react";
 import { ScrollState } from "./useScrollState";
 
 interface UseScrollAreaProps {
-  scrollAreaRef: React.RefObject<HTMLElement | null>;
+  viewportRef: React.RefObject<HTMLElement | null>;
   children: React.ReactNode;
 }
 
 export function useScrollArea(props: UseScrollAreaProps, state: ScrollState) {
-  const { scrollAreaRef, children } = props;
+  const { viewportRef, children } = props;
 
   const updateScrollState = useCallback(() => {
-    if (scrollAreaRef.current) {
-      const element = scrollAreaRef.current;
+    if (viewportRef.current) {
+      const element = viewportRef.current;
       state.setFromElement(element);
     }
   }, []);
@@ -20,7 +19,7 @@ export function useScrollArea(props: UseScrollAreaProps, state: ScrollState) {
   useLayoutEffect(() => {
     updateScrollState();
 
-    const element = scrollAreaRef.current;
+    const element = viewportRef.current;
     if (!element) return;
 
     const resizeObserver = new ResizeObserver(() => {

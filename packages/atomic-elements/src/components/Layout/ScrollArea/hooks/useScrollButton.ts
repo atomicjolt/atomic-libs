@@ -4,19 +4,30 @@ import { ScrollState } from "./useScrollState";
 interface UseScrollBarButtonProps {
   orientation: "horizontal" | "vertical";
   direction: "advance" | "retreat";
-  scrollAreaRef: React.RefObject<HTMLElement | null>;
+  viewportRef: React.RefObject<HTMLElement | null>;
+  /** Base pixels to scroll per step @default 20 */
+  baseScrollAmount?: number;
+  /** Maximum speed multiplier for acceleration @default 5 */
+  maxSpeedMultiplier?: number;
+  /** Milliseconds before starting acceleration @default 150 */
+  accelerationDelay?: number;
+  /** How much to increase speed per acceleration step @default 0.5 */
+  accelerationRate?: number;
 }
-
-const baseScrollAmount = 20; // Base pixels to scroll per step
-const maxSpeedMultiplier = 5; // Maximum speed multiplier
-const accelerationDelay = 150; // ms before starting acceleration
-const accelerationRate = 0.5; // How much to increase speed per acceleration step
 
 export function useScrollBarButton(
   props: UseScrollBarButtonProps,
   state: ScrollState
 ) {
-  const { orientation, direction, scrollAreaRef } = props;
+  const {
+    orientation,
+    direction,
+    viewportRef,
+    baseScrollAmount = 20,
+    maxSpeedMultiplier = 5,
+    accelerationDelay = 150,
+    accelerationRate = 0.5,
+  } = props;
 
   const scrollIntervalRef = useRef<NodeJS.Timeout | null>(null);
   const speedMultiplierRef = useRef<number>(1);
@@ -38,27 +49,27 @@ export function useScrollBarButton(
   }, []);
 
   const updateScrollState = useCallback(() => {
-    if (scrollAreaRef.current) {
-      const element = scrollAreaRef.current;
+    if (viewportRef.current) {
+      const element = viewportRef.current;
       state.setFromElement(element);
     }
-  }, [scrollAreaRef, state]);
+  }, [viewportRef, state]);
 
   const startScrolling = useCallback(() => {
-    if (!scrollAreaRef.current) return;
+    if (!viewportRef.current) return;
 
     stopScrolling(); // Clear any existing intervals
 
     const scroll = () => {
-      if (!scrollAreaRef.current) return;
+      if (!viewportRef.current) return;
 
       const scrollAmount = baseScrollAmount * speedMultiplierRef.current;
       const scrollDelta = isAdvance ? scrollAmount : -scrollAmount;
 
       if (isHorizontal) {
-        scrollAreaRef.current.scrollLeft += scrollDelta;
+        viewportRef.current.scrollLeft += scrollDelta;
       } else {
-        scrollAreaRef.current.scrollTop += scrollDelta;
+        viewportRef.current.scrollTop += scrollDelta;
       }
 
       updateScrollState();
@@ -79,11 +90,15 @@ export function useScrollBarButton(
       }, 100); // Increase speed every 100ms
     }, accelerationDelay);
   }, [
-    scrollAreaRef,
+    viewportRef,
     isHorizontal,
     isAdvance,
     updateScrollState,
     stopScrolling,
+    baseScrollAmount,
+    maxSpeedMultiplier,
+    accelerationDelay,
+    accelerationRate,
   ]);
 
   const handlePressStart = useCallback(() => {
@@ -96,19 +111,25 @@ export function useScrollBarButton(
 
   const handlePress = useCallback(() => {
     // Single click behavior - just scroll once
-    if (!scrollAreaRef.current) return;
+    if (!viewportRef.current) return;
 
-    const scrollAmount = 20;
+    const scrollAmount = baseScrollAmount;
     const scrollDelta = isAdvance ? scrollAmount : -scrollAmount;
 
     if (isHorizontal) {
-      scrollAreaRef.current.scrollLeft += scrollDelta;
+      viewportRef.current.scrollLeft += scrollDelta;
     } else {
-      scrollAreaRef.current.scrollTop += scrollDelta;
+      viewportRef.current.scrollTop += scrollDelta;
     }
 
     updateScrollState();
-  }, [scrollAreaRef, isHorizontal, isAdvance, updateScrollState]);
+  }, [
+    viewportRef,
+    isHorizontal,
+    isAdvance,
+    updateScrollState,
+    baseScrollAmount,
+  ]);
 
   return {
     buttonProps: {

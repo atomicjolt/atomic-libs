@@ -2,28 +2,30 @@ import { useCallback, useRef, useState } from "react";
 import { ScrollState } from "./useScrollState";
 import { useMove } from "@react-aria/interactions";
 import { useScrollBarButton } from "./useScrollButton";
+import { SuggestStrings } from "../../../../types";
 
 interface UseScrollBarProps {
   orientation: "horizontal" | "vertical";
-  scrollAreaRef: React.RefObject<HTMLElement | null>;
+  viewportRef: React.RefObject<HTMLElement | null>;
   trackRef: React.RefObject<HTMLElement | null>;
+  size?: SuggestStrings<"viewport">;
 }
 
 export function useScrollBar(props: UseScrollBarProps, state: ScrollState) {
-  const { scrollAreaRef, trackRef, orientation } = props;
+  const { viewportRef, trackRef, orientation, size } = props;
 
   const [isActive, setIsActive] = useState(false);
 
   const updateScrollState = useCallback(() => {
-    if (scrollAreaRef.current) {
-      const element = scrollAreaRef.current;
+    if (viewportRef.current) {
+      const element = viewportRef.current;
       state.setFromElement(element);
     }
   }, []);
 
   const isHorizontal = orientation === "horizontal";
 
-  // The width of the thumb is relative to the width of the scroll area
+  // The width of the thumb is relative to the width of the viewport
   // smaller scroll area -> larger thumb size
   // larger scroll area -> smaller thumb size
   const thumbSizePercent = isHorizontal
@@ -58,7 +60,7 @@ export function useScrollBar(props: UseScrollBarProps, state: ScrollState) {
 
   const handleTrackMouseDown = useCallback(
     (e: React.MouseEvent) => {
-      if (!scrollAreaRef.current || !trackRef.current) return;
+      if (!viewportRef.current || !trackRef.current) return;
 
       setIsActive(true);
 
@@ -97,13 +99,13 @@ export function useScrollBar(props: UseScrollBarProps, state: ScrollState) {
 
       // Start continuous scrolling
       const scrollStep = () => {
-        if (!scrollAreaRef.current || targetPositionRef.current === null) {
+        if (!viewportRef.current || targetPositionRef.current === null) {
           return;
         }
 
         const current = isHorizontal
-          ? scrollAreaRef.current.scrollLeft
-          : scrollAreaRef.current.scrollTop;
+          ? viewportRef.current.scrollLeft
+          : viewportRef.current.scrollTop;
         const target = targetPositionRef.current;
         const distance = target - current;
 
@@ -121,9 +123,9 @@ export function useScrollBar(props: UseScrollBarProps, state: ScrollState) {
         const step = distance * 0.15;
 
         if (isHorizontal) {
-          scrollAreaRef.current.scrollLeft += step;
+          viewportRef.current.scrollLeft += step;
         } else {
-          scrollAreaRef.current.scrollTop += step;
+          viewportRef.current.scrollTop += step;
         }
 
         updateScrollState();
@@ -136,7 +138,7 @@ export function useScrollBar(props: UseScrollBarProps, state: ScrollState) {
       isHorizontal,
       thumbSizePercent,
       maxScroll,
-      scrollAreaRef,
+      viewportRef,
       trackRef,
       updateScrollState,
     ]
@@ -152,17 +154,17 @@ export function useScrollBar(props: UseScrollBarProps, state: ScrollState) {
     },
     onMove: (e) => {
       const delta = isHorizontal ? e.deltaX : e.deltaY;
-      if (scrollAreaRef.current && trackRef.current) {
+      if (viewportRef.current && trackRef.current) {
         if (isHorizontal) {
           const trackSize = trackRef.current.offsetWidth;
           const scrollSize = state.scrollWidth;
           const scaledDelta = (delta / trackSize) * scrollSize;
-          scrollAreaRef.current.scrollLeft += scaledDelta;
+          viewportRef.current.scrollLeft += scaledDelta;
         } else {
           const trackSize = trackRef.current.offsetHeight;
           const scrollSize = state.scrollHeight;
           const scaledDelta = (delta / trackSize) * scrollSize;
-          scrollAreaRef.current.scrollTop += scaledDelta;
+          viewportRef.current.scrollTop += scaledDelta;
         }
 
         updateScrollState();
@@ -183,15 +185,11 @@ export function useScrollBar(props: UseScrollBarProps, state: ScrollState) {
         top: `${thumbPositionPercent}%`,
       };
 
-  const trackStyles = isHorizontal
-    ? { width: `${state.clientWidth}px` }
-    : { height: `${state.clientHeight}px` };
-
   const { buttonProps: retreatButtonProps } = useScrollBarButton(
     {
       orientation,
       direction: "retreat",
-      scrollAreaRef,
+      viewportRef: viewportRef,
     },
     state
   );
@@ -200,7 +198,7 @@ export function useScrollBar(props: UseScrollBarProps, state: ScrollState) {
     {
       orientation,
       direction: "advance",
-      scrollAreaRef,
+      viewportRef: viewportRef,
     },
     state
   );
@@ -223,7 +221,6 @@ export function useScrollBar(props: UseScrollBarProps, state: ScrollState) {
       onMouseUp: handleTrackMouseUp,
       "data-orientation": orientation,
       "data-active": isActive,
-      // style: trackStyles,
     },
     advanceButtonProps,
     retreatButtonProps,
