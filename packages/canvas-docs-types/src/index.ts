@@ -1,3 +1,6 @@
+export const CANVAS_API_DOCS_BASE_URL = 'https://canvas.instructure.com/doc/api';
+export const CANVAS_API_DIRECTORY_PATH = '/api-docs.json';
+
 /**
  * Individual Canvas API endpoint information
  */
