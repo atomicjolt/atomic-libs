@@ -1,11 +1,6 @@
 import styled from "styled-components";
 
 export const ScrollAreaWrapper = styled.div`
-  --scrollarea-track-clr: var(--neutral200);
-  --scrollarea-thumb-clr: var(--neutral300);
-  --scrollarea-thumb-clr-hover: var(--neutral400);
-  --scrollarea-btn-clr: var(--neutral500);
-
   button.aje-btn--scrollbar {
     --size-md-x: 24px;
     --size-md-y: 24px;
@@ -45,8 +40,6 @@ export const ScrollAreaScrollbarTrack = styled.div`
   &[data-orientation="horizontal"] {
     height: 20px;
     width: 100%;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
 
     &::before {
       top: 50%;
@@ -60,8 +53,6 @@ export const ScrollAreaScrollbarTrack = styled.div`
     width: 20px;
     flex: 1;
     min-height: 0;
-    margin-left: 1rem;
-    margin-right: 1rem;
 
     &::before {
       left: 50%;

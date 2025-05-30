@@ -1,10 +1,14 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { ScrollArea } from ".";
 import { Flex } from "../Flex";
+import { getCssProps } from "@sb/cssprops";
 
 export default {
   title: "Layouts/ScrollArea",
   component: ScrollArea.Root,
+  parameters: {
+    cssprops: getCssProps("ScrollArea"),
+  },
 } as Meta<typeof ScrollArea.Root>;
 
 type Story = StoryObj<typeof ScrollArea.Root>;
@@ -12,7 +16,13 @@ type Story = StoryObj<typeof ScrollArea.Root>;
 export const Vertical: Story = {
   args: {
     children: [
-      <Flex $direction="row" $width="100%" $height="100%" key="vertical">
+      <Flex
+        $direction="row"
+        $width="100%"
+        $height="100%"
+        $gap="1"
+        key="vertical"
+      >
         <ScrollArea.Viewport style={{ height: 900 }}>
           <PrettyGradient height="4000px" width="1000px" />
         </ScrollArea.Viewport>
@@ -26,7 +36,13 @@ export const Vertical: Story = {
 export const Horizontal: Story = {
   args: {
     children: [
-      <Flex $direction="column" $width="100%" $height="100%" key="horizontal">
+      <Flex
+        $direction="column"
+        $width="100%"
+        $height="100%"
+        $gap="1"
+        key="horizontal"
+      >
         <ScrollArea.Viewport style={{ width: 900, height: 300 }}>
           <PrettyGradient width="4000px" height="100%" />
         </ScrollArea.Viewport>
@@ -44,6 +60,7 @@ export const HorizontalAbove: Story = {
         $direction="column"
         $width="100%"
         $height="100%"
+        $gap="1"
         key="horizontal-above"
       >
         <ScrollArea.Bar orientation="horizontal" />
