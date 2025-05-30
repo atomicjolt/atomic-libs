@@ -1,9 +1,9 @@
 export {
   ScrollAreaRoot as Root,
   type ScrollAreaRootProps as ScrollAreaProps,
-} from "./components/ScrollRoot";
+} from "./components/ScrollAreaRoot";
 export {
-  ScrollViewport as Viewport,
+  ScrollAreaViewport as Viewport,
   type ScrollViewportProps,
-} from "./components/ScrollViewport";
+} from "./components/ScrollAreaViewPort";
 export { Scrollbar as Bar, type ScrollbarProps } from "./components/Scrollbar";
