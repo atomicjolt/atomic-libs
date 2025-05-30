@@ -12,9 +12,9 @@ type Story = StoryObj<typeof ScrollArea.Root>;
 export const Vertical: Story = {
   args: {
     children: [
-      <Flex $direction="row" $width="100%" $height="100%">
+      <Flex $direction="row" $width="100%" $height="100%" key="vertical">
         <ScrollArea.Viewport style={{ height: 900 }}>
-          <PrettyGradient height={4000} width="100%" />
+          <PrettyGradient height="4000px" width="1000px" />
         </ScrollArea.Viewport>
 
         <ScrollArea.Bar orientation="vertical" size="viewport" />
@@ -26,9 +26,9 @@ export const Vertical: Story = {
 export const Horizontal: Story = {
   args: {
     children: [
-      <Flex $direction="column" $width="100%" $height="100%">
+      <Flex $direction="column" $width="100%" $height="100%" key="horizontal">
         <ScrollArea.Viewport style={{ width: 900, height: 300 }}>
-          <PrettyGradient width={4000} height="100%" />
+          <PrettyGradient width="4000px" height="100%" />
         </ScrollArea.Viewport>
 
         <ScrollArea.Bar orientation="horizontal" size="viewport" />
@@ -40,10 +40,15 @@ export const Horizontal: Story = {
 export const HorizontalAbove: Story = {
   args: {
     children: [
-      <Flex $direction="column" $width="100%" $height="100%">
+      <Flex
+        $direction="column"
+        $width="100%"
+        $height="100%"
+        key="horizontal-above"
+      >
         <ScrollArea.Bar orientation="horizontal" />
         <ScrollArea.Viewport style={{ width: 900, height: 300 }}>
-          <PrettyGradient width={4000} height="100%" />
+          <PrettyGradient width="4000px" height="100%" />
         </ScrollArea.Viewport>
       </Flex>,
     ],
