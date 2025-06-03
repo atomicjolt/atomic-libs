@@ -110,6 +110,7 @@ export enum AcceptTypes {
 export enum MessageTypes {
   LtiResourceLinkRequest = 'LtiResourceLinkRequest',
   LtiDeepLinkingRequest = 'LtiDeepLinkingRequest',
+  LtiDeepLinkingResponse = "LtiDeepLinkingResponse",
 }
 
 // Below are all the roles specified in the LTI 1.3 spec. (https://www.imsglobal.org/spec/lti/v1p3#role-vocabularies-0)
