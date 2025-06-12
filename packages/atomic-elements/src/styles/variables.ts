@@ -407,6 +407,13 @@ export const progressCircle = {
   "progress-circle-indicator-clr": "{accent-clr}",
 };
 
+export const scrollArea = {
+  "scrollarea-track-clr": "{neutral200}",
+  "scrollarea-thumb-clr": "{neutral300}",
+  "scrollarea-thumb-clr-hover": "{neutral400}",
+  "scrollarea-btn-clr": "{neutral500}",
+};
+
 export const variables = {
   ...border,
   ...font,
@@ -442,6 +449,7 @@ export const variables = {
   ...animation,
   ...list,
   ...progressCircle,
+  ...scrollArea,
 } as const;
 
 export type Color = keyof typeof colors;
