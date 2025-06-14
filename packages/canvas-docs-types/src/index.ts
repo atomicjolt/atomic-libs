@@ -53,6 +53,7 @@ export interface ApiEndpoint {
  * An operation within an API endpoint
  */
 export interface Operation {
+  path: string;
   method: 'GET' | 'POST' | 'PUT' | 'DELETE';
   summary: string;
   notes: string;
