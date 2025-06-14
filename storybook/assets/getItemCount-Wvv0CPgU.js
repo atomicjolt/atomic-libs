@@ -1,0 +1,1 @@
+import{$ as n}from"./useSelectableItem-D3m3t1p1.js";const c=new WeakMap;function s(e){let a=c.get(e);if(a!=null)return a;let t=0,f=$=>{for(let r of $)r.type==="section"?f(n(r,e)):t++};return f(e),c.set(e,t),t}export{s as $};
