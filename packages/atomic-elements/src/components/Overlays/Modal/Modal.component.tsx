@@ -3,8 +3,8 @@ import { AriaModalOverlayProps, useModalOverlay } from "@react-aria/overlays";
 import { OverlayTriggerState, useOverlayTriggerState } from "react-stately";
 
 import { useContextProps } from "@hooks/useContextProps";
-import { OverlayTriggerStateContext } from "../OverlayTrigger/context";
 import { useRenderProps } from "@hooks/useRenderProps";
+import { OverlayTriggerStateContext } from "../OverlayTrigger/context";
 
 import { BaseModalProps, ModalChildren } from "./Modal.types";
 import { ModalContext } from "./Modal.context";
@@ -14,6 +14,7 @@ import { ModalHeader } from "./components/ModalHeader";
 import { ModalTitle } from "./components/ModalTitle";
 import { ModalBody } from "./components/ModalBody";
 import { ModalFooter } from "./components/ModalFooter";
+import { useManageModalScroll } from "./hooks/useManageModalScroll";
 
 export interface ModalProps extends BaseModalProps {
   children?: ModalChildren;
@@ -58,10 +59,24 @@ function ModalInternal(props: ModalInternalProps) {
     isCentered,
     isOpen,
     triggerRef,
+    ensureVisible,
     ...rest
   } = props;
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement | null>(null);
   const { modalProps, underlayProps } = useModalOverlay(props, state, ref);
+
+  useManageModalScroll(
+    {
+      ensureVisible,
+      modalRef: ref,
+      scrollOptions: {
+        behavior: "instant",
+        block: "end",
+        inline: "nearest",
+      },
+    },
+    state
+  );
 
   const renderProps = useRenderProps({
     componentClassName: "aje-modal",
@@ -75,7 +90,7 @@ function ModalInternal(props: ModalInternalProps) {
       <ModalWrapper
         onClick={(e: React.MouseEvent<HTMLDivElement>) => e.stopPropagation()}
         ref={ref}
-        $isCentered={isCentered}
+        data-placement={isCentered ? "center" : "top"}
         {...rest}
         {...modalProps}
         {...renderProps}

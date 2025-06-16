@@ -1,13 +1,16 @@
-import { layout, LayoutProps } from '@styles/layout';
+import { layout, LayoutProps } from "@styles/layout";
 import styled from "styled-components";
 
-export const ModalWrapper = styled.div<LayoutProps & { $isCentered?: boolean }>`
-  ${({ $isCentered }) => !$isCentered && "margin-top: 58px;" }
-  ${layout.defaults({ $width: "100%", $maxWidth: "800px", $p: "5" })};
-
+export const ModalWrapper = styled.div<LayoutProps>`
   border-radius: calc(var(--radius) * 2);
   background-color: var(--neutral50);
   box-shadow: 0 10px 40px hsla(0, 0%, 0%, 0.25);
+
+  &[data-placement="top"] {
+    margin-top: 58px;
+  }
+
+  ${layout.defaults({ $width: "100%", $maxWidth: "800px", $p: "5" })};
 `;
 
 export const ModalBackground = styled.div`

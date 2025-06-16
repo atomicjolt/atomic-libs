@@ -27,7 +27,7 @@ export {
 export { OverlayTrigger } from "./Overlays/OverlayTrigger";
 export { Pressable } from "./Overlays/OverlayTrigger/Pressable";
 export { ToolTipTrigger, ToolTip, ToolTipTarget } from "./Overlays/ToolTip";
-export { Modal } from "./Overlays/Modal";
+export { Modal, ModalContext } from "./Overlays/Modal";
 export { ConfirmationModal } from "./Overlays/ConfirmationModal";
 export { ErrorModal } from "./Overlays/ErrorModal";
 export { Popover } from "./Overlays/Popover";
