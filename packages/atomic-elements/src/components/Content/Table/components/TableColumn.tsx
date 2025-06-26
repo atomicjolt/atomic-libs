@@ -155,8 +155,14 @@ interface TableColumnIcons {
 
 interface TableColumnWrapperProps<T extends object>
   extends TableColumnProps<T> {
+  /** The alignment of the column content */
   align?: "left" | "right" | "center";
+  /** Icon set used for sorting and searching */
   icons?: Partial<TableColumnIcons>;
+  /** Determines the visibility of the column's sort controls
+   * - "always" shows sort controls regardless of sorting state
+   * - "selected" shows sort controls only when the column is currently sorted
+   */
   sortVisibility?: "always" | "selected";
 }
 
