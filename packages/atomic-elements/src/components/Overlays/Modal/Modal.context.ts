@@ -1,4 +1,4 @@
 import { ModalProps } from ".";
-import { createComponentContext } from '@utils/index';
+import { createComponentContext } from "@utils/index";
 
 export const ModalContext = createComponentContext<ModalProps>();
