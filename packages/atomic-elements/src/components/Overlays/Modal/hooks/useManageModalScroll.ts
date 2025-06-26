@@ -31,10 +31,15 @@ export function useManageModalScroll(
       modalRef.current?.scrollIntoView(scrollOptions);
     }
 
+    // Restore previous focus, which will move the page back to where it was.
+    // 99% of the time this will be the element that triggered the modal.
     return () => {
-      // Restore previous focus, which will move the page back to where it was.
-      // 99% of the time this will be the element that was focused before the modal opened.
-      previousFocus.current?.focus();
+      // If the previous focused element is still connected to the DOM, focus it.
+      // This does mean that if the element no longer exists in the DOM,
+      // we won't be able to restore the user's position, but I think this is ok.
+      if (previousFocus.current?.isConnected) {
+        previousFocus.current.focus();
+      }
       previousFocus.current = null;
     };
   }, [state.isOpen, ensureVisible]);
