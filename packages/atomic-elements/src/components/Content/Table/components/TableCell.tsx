@@ -56,7 +56,7 @@ export const TableCell = createLeafComponent("cell", function TableCell<
     cell?.column?.key!
   );
 
-  const align = props.align ?? cell.column?.props?.align ?? "left";
+  const align = props.align ?? cell.column?.props?.align ?? undefined;
 
   const isFirstRowHeaderCell =
     state.collection.rowHeaderColumnKeys.keys().next().value ===
@@ -113,7 +113,7 @@ export const TableCell = createLeafComponent("cell", function TableCell<
   const Element = isRowHeaderCell ? RowHeader : StyledCell;
 
   return (
-    <Element ref={ref} {...cellProps} style={{ textAlign: align }}>
+    <Element ref={ref} {...cellProps} style={{ textAlign: align, ...style }}>
       {renderProps.children}
     </Element>
   );

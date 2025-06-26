@@ -6,7 +6,7 @@ import { SearchDescriptor } from "../../../types";
 import { getCssProps } from "@sb/cssprops";
 import { Flex } from "../../Layout/Flex";
 import { Button } from "@components/Buttons/Button";
-import { MaterialIcon, Pagination } from "@components/index";
+import { MaterialIcon, Pagination, Text } from "@components/index";
 import { RenderPropsArgTypes } from "@sb/helpers";
 
 const meta: Meta<typeof Table> = {
@@ -112,45 +112,6 @@ export const MultipleSelection: Story = {
   },
 };
 
-// export const NestedColumns: Story = {
-//   args: {
-//     variant: "full-borders",
-//     children: [
-//       <Table.Header key="header">
-//         <Table.Column key="name" showDivider>
-//           Name
-//         </Table.Column>
-//         <Table.Column title="Details">
-//           <Table.Column key="type">Type</Table.Column>
-//           <Table.Column key="level">Level</Table.Column>
-//         </Table.Column>
-//       </Table.Header>,
-//       <Table.Body key="body">
-//         <Table.Row key="1">
-//           <Table.Cell>Charizard</Table.Cell>
-//           <Table.Cell>Fire, Flying</Table.Cell>
-//           <Table.Cell>67</Table.Cell>
-//         </Table.Row>
-//         <Table.Row key="2">
-//           <Table.Cell>Blastoise</Table.Cell>
-//           <Table.Cell>Water</Table.Cell>
-//           <Table.Cell>56</Table.Cell>
-//         </Table.Row>
-//         <Table.Row key="3">
-//           <Table.Cell>Venusaur</Table.Cell>
-//           <Table.Cell>Grass, Poison</Table.Cell>
-//           <Table.Cell>83</Table.Cell>
-//         </Table.Row>
-//         <Table.Row key="4">
-//           <Table.Cell>Pikachu</Table.Cell>
-//           <Table.Cell>Electric</Table.Cell>
-//           <Table.Cell>100</Table.Cell>
-//         </Table.Row>
-//       </Table.Body>,
-//     ],
-//   },
-// };
-
 export const SingleSelection: Story = {
   args: {
     ...Primary.args,
@@ -241,152 +202,38 @@ export const SearchableColumns: Story = {
     });
 
     return (
-      <div
-        style={{
-          padding: "16px",
-        }}
+      <Table
+        searchDescriptor={searchDescriptor}
+        onSearchChange={setSearchDescriptor}
+        {...props}
       >
-        <Table
-          searchDescriptor={searchDescriptor}
-          onSearchChange={setSearchDescriptor}
-          {...props}
-        >
-          <Table.Header>
-            <Table.Column id="name" allowsSearching isRowHeader>
-              Name
-            </Table.Column>
-            <Table.Column id="type" allowsSearching width={200}>
-              Type
-            </Table.Column>
-            <Table.Column id="level" width={100}>
-              Level
-            </Table.Column>
-          </Table.Header>
-          <Table.Body items={filteredPokemon}>
-            {(pokemon) => (
-              <Table.Row id={pokemon.name}>
-                <Table.Cell>{pokemon.name}</Table.Cell>
-                <Table.Cell>{pokemon.type}</Table.Cell>
-                <Table.Cell>{pokemon.level}</Table.Cell>
-              </Table.Row>
-            )}
-          </Table.Body>
-        </Table>
-      </div>
+        <Table.Header>
+          <Table.Column id="name" allowsSearching isRowHeader>
+            Name
+          </Table.Column>
+          <Table.Column id="type" allowsSearching width={200}>
+            Type
+          </Table.Column>
+          <Table.Column id="level" width={100}>
+            Level
+          </Table.Column>
+        </Table.Header>
+        <Table.Body items={filteredPokemon}>
+          {(pokemon) => (
+            <Table.Row id={pokemon.name}>
+              <Table.Cell>{pokemon.name}</Table.Cell>
+              <Table.Cell>{pokemon.type}</Table.Cell>
+              <Table.Cell>{pokemon.level}</Table.Cell>
+            </Table.Row>
+          )}
+        </Table.Body>
+      </Table>
     );
   },
   args: {
     "aria-label": "Table with searching",
   },
 };
-
-// export const WithNestedRows: Story = {
-//   render: (args) => {
-//     return (
-//       <Table {...args}>
-//         <Table.Header>
-//           <Table.Column key="name">Name</Table.Column>
-//           <Table.Column key="specialMove">Special Move</Table.Column>
-//           <Table.Column key="level">Level</Table.Column>
-//         </Table.Header>
-//         <Table.Body>
-//           <Table.Row key="Fire, Flying">
-//             <Table.Cell>Fire, Flying </Table.Cell>
-//             <Table.Cell />
-//             <Table.Cell />
-//             <Table.Row>
-//               <Table.Cell>Charizard</Table.Cell>
-//               <Table.Cell>Flamethrower</Table.Cell>
-//               <Table.Cell>67</Table.Cell>
-//             </Table.Row>
-
-//             <Table.Row>
-//               <Table.Cell>Moltres</Table.Cell>
-//               <Table.Cell>Fire Spin</Table.Cell>
-//               <Table.Cell>60</Table.Cell>
-//             </Table.Row>
-//           </Table.Row>
-//           <Table.Row key="Water">
-//             <Table.Cell>Water</Table.Cell>
-//             <Table.Cell />
-//             <Table.Cell />
-
-//             <Table.Row>
-//               <Table.Cell>Blastoise</Table.Cell>
-//               <Table.Cell>Hydro Pump</Table.Cell>
-//               <Table.Cell>56</Table.Cell>
-//             </Table.Row>
-
-//             <Table.Row>
-//               <Table.Cell>Vaporeon</Table.Cell>
-//               <Table.Cell>Aqua Tail</Table.Cell>
-//               <Table.Cell>65</Table.Cell>
-//             </Table.Row>
-//           </Table.Row>
-//           <Table.Row key="Grass, Poison">
-//             <Table.Cell>Grass, Poison</Table.Cell>
-//             <Table.Cell />
-//             <Table.Cell />
-
-//             <Table.Row>
-//               <Table.Cell>Venusaur</Table.Cell>
-//               <Table.Cell>Solar Beam</Table.Cell>
-//               <Table.Cell>83</Table.Cell>
-//             </Table.Row>
-
-//             <Table.Row>
-//               <Table.Cell>Victreebel</Table.Cell>
-//               <Table.Cell>Leaf Blade</Table.Cell>
-//               <Table.Cell>70</Table.Cell>
-//             </Table.Row>
-//           </Table.Row>
-
-//           <Table.Row key="Electric">
-//             <Table.Cell>Electric</Table.Cell>
-//             <Table.Cell />
-//             <Table.Cell />
-
-//             <Table.Row>
-//               <Table.Cell>Pikachu</Table.Cell>
-//               <Table.Cell>Thunderbolt</Table.Cell>
-//               <Table.Cell>100</Table.Cell>
-//             </Table.Row>
-
-//             <Table.Row>
-//               <Table.Cell>Raichu</Table.Cell>
-//               <Table.Cell>Thunder Punch</Table.Cell>
-//               <Table.Cell>90</Table.Cell>
-//             </Table.Row>
-//           </Table.Row>
-//         </Table.Body>
-//       </Table>
-//     );
-//   },
-//   argTypes: {
-//     defaultExpandedKeys: {
-//       description: "The default expanded keys",
-//       control: false,
-//     },
-//     expandedKeys: {
-//       description: "The expanded keys",
-//       control: "multi-select",
-//       options: ["Fire, Flying", "Water", "Grass, Poison", "Electric"],
-//     },
-//     onExpandedChange: {
-//       action: "expandedChange",
-//       description: "Fires when the expanded keys change",
-//       table: {
-//         category: "Events",
-//       },
-//     },
-//   },
-//   args: {
-//     "aria-label": "Table with nested rows",
-//     allowsExpandableRows: true,
-//     defaultExpandedKeys: ["Fire, Flying", "Water"],
-//     onExpandedChange: fn(),
-//   },
-// };
 
 export const LoadingState: Story = {
   args: {
@@ -562,6 +409,48 @@ export const WithRightAlignedColumns: Story = {
         <Table.Column isRowHeader>Name</Table.Column>
         <Table.Column align="right">Type</Table.Column>
         <Table.Column align="right">Level</Table.Column>
+      </Table.Header>,
+      <Table.Body key="body">
+        <Table.Row>
+          <Table.Cell>Charizard</Table.Cell>
+          <Table.Cell>Fire, Flying</Table.Cell>
+          <Table.Cell>67</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>Blastoise</Table.Cell>
+          <Table.Cell>Water</Table.Cell>
+          <Table.Cell>56</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>Venusaur</Table.Cell>
+          <Table.Cell>Grass, Poison</Table.Cell>
+          <Table.Cell>83</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>Pikachu</Table.Cell>
+          <Table.Cell>Electric</Table.Cell>
+          <Table.Cell>100</Table.Cell>
+        </Table.Row>
+      </Table.Body>,
+    ],
+  },
+};
+
+export const UpperCaseColumnHeaders: Story = {
+  ...Primary,
+  args: {
+    ...Primary.args,
+    children: [
+      <Table.Header key="header">
+        <Table.Column isRowHeader>
+          <Text $transform="uppercase">Name</Text>
+        </Table.Column>
+        <Table.Column>
+          <Text $transform="uppercase">Type</Text>
+        </Table.Column>
+        <Table.Column>
+          <Text $transform="uppercase">Level</Text>
+        </Table.Column>
       </Table.Header>,
       <Table.Body key="body">
         <Table.Row>

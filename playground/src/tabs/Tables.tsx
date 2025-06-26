@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, SortDescriptor, Table } from "../elements";
+import { Button, SortDescriptor, Table, Text } from "../elements";
 
 export default function Tables() {
   return (

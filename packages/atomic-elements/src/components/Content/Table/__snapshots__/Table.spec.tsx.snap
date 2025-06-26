@@ -103,7 +103,6 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
               data-key="react-aria-4"
               id="react-aria-:rd:-react-aria-6-a"
               role="rowheader"
-              style="text-align: left;"
               tabindex="-1"
             >
               Row 1, Cell 1
@@ -114,7 +113,6 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
               data-key="react-aria-5"
               id="react-aria-:rl:"
               role="gridcell"
-              style="text-align: left;"
               tabindex="-1"
             >
               Row 1, Cell 2
@@ -134,7 +132,6 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
               data-key="react-aria-7"
               id="react-aria-:rd:-react-aria-9-a"
               role="rowheader"
-              style="text-align: left;"
               tabindex="-1"
             >
               Row 2, Cell 1
@@ -145,7 +142,6 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
               data-key="react-aria-8"
               id="react-aria-:rp:"
               role="gridcell"
-              style="text-align: left;"
               tabindex="-1"
             >
               Row 2, Cell 2
@@ -254,7 +250,6 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
             data-key="react-aria-4"
             id="react-aria-:rd:-react-aria-6-a"
             role="rowheader"
-            style="text-align: left;"
             tabindex="-1"
           >
             Row 1, Cell 1
@@ -265,7 +260,6 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
             data-key="react-aria-5"
             id="react-aria-:rl:"
             role="gridcell"
-            style="text-align: left;"
             tabindex="-1"
           >
             Row 1, Cell 2
@@ -285,7 +279,6 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
             data-key="react-aria-7"
             id="react-aria-:rd:-react-aria-9-a"
             role="rowheader"
-            style="text-align: left;"
             tabindex="-1"
           >
             Row 2, Cell 1
@@ -296,7 +289,6 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
             data-key="react-aria-8"
             id="react-aria-:rp:"
             role="gridcell"
-            style="text-align: left;"
             tabindex="-1"
           >
             Row 2, Cell 2
@@ -475,7 +467,6 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
               data-key="react-aria-4"
               id="react-aria-:r0:-react-aria-6-a"
               role="rowheader"
-              style="text-align: left;"
               tabindex="-1"
             >
               Row 1, Cell 1
@@ -486,7 +477,6 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
               data-key="react-aria-5"
               id="react-aria-:r8:"
               role="gridcell"
-              style="text-align: left;"
               tabindex="-1"
             >
               Row 1, Cell 2
@@ -506,7 +496,6 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
               data-key="react-aria-7"
               id="react-aria-:r0:-react-aria-9-a"
               role="rowheader"
-              style="text-align: left;"
               tabindex="-1"
             >
               Row 2, Cell 1
@@ -517,7 +506,6 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
               data-key="react-aria-8"
               id="react-aria-:rc:"
               role="gridcell"
-              style="text-align: left;"
               tabindex="-1"
             >
               Row 2, Cell 2
@@ -639,7 +627,6 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
             data-key="react-aria-4"
             id="react-aria-:r0:-react-aria-6-a"
             role="rowheader"
-            style="text-align: left;"
             tabindex="-1"
           >
             Row 1, Cell 1
@@ -650,7 +637,6 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
             data-key="react-aria-5"
             id="react-aria-:r8:"
             role="gridcell"
-            style="text-align: left;"
             tabindex="-1"
           >
             Row 1, Cell 2
@@ -670,7 +656,6 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
             data-key="react-aria-7"
             id="react-aria-:r0:-react-aria-9-a"
             role="rowheader"
-            style="text-align: left;"
             tabindex="-1"
           >
             Row 2, Cell 1
@@ -681,7 +666,6 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
             data-key="react-aria-8"
             id="react-aria-:rc:"
             role="gridcell"
-            style="text-align: left;"
             tabindex="-1"
           >
             Row 2, Cell 2
