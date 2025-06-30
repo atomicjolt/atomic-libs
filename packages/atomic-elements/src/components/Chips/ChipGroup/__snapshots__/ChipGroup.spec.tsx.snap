@@ -27,7 +27,7 @@ exports[`ChipGroup > matches snapshot 1`] = `
     >
       <div
         aria-label="Item"
-        class="sc-gjXmFk fDQQhF aje-chip"
+        class="sc-gjXmFk eErvzQ aje-chip"
         data-collection="react-aria-:r5:"
         data-key="react-aria-1"
         id="react-aria-:r0:-react-aria-1"
