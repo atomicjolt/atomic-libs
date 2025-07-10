@@ -2,7 +2,10 @@ import { useLocalizedStringFormatter } from "@react-aria/i18n";
 import localizedStrings, { TranslationKeys } from "../i18n";
 
 type Variables = Record<string, string | number | boolean> | undefined;
-type TranslationFunction = (string: TranslationKeys, variables?: Variables) => string;
+type TranslationFunction = (
+  string: TranslationKeys,
+  variables?: Variables
+) => string;
 
 export function useTranslations(): TranslationFunction {
   const formatter = useLocalizedStringFormatter(

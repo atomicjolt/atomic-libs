@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   CheckBox,
   CustomSelect,
@@ -8,8 +8,9 @@ import {
   NumberInput,
   Radio,
   RadioGroup,
+  SearchInput,
   SkeletonLoader,
-} from "@atomicjolt/atomic-elements";
+} from "../elements";
 import { I18nProvider } from "@react-aria/i18n";
 
 export default function Localization() {
@@ -27,13 +28,15 @@ export default function Localization() {
   return (
     <div>
       <I18nProvider locale={locale as string}>
+        <SearchInput />
         <CustomSelect
           label="Locale"
           selectedKey={locale}
           onSelectionChange={onLocaleChange}
         >
-          <Item key="en">English</Item>
-          <Item key="ar">Arabic</Item>
+          <Item id="en">English</Item>
+          <Item id="fr">French</Item>
+          <Item id="ar">Arabic</Item>
         </CustomSelect>
         <hr />
         <CheckBox>Checkbox</CheckBox>
@@ -42,7 +45,7 @@ export default function Localization() {
           <Radio value="2">Radio 2</Radio>
           <Radio value="3">This Radio is longer</Radio>
         </RadioGroup>
-        <DatePicker label="Select Date" />
+        <DatePicker label="Select Date" size="medium" />
         <NumberInput label="Test Label" />
         <hr />
         <SkeletonLoader>
