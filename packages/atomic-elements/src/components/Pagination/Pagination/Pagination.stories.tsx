@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import { Pagination } from ".";
 import { fn } from "@storybook/test";
 import { AriaLabelArgTypes } from "@sb/helpers";
-import { Flex } from "@components/Layout/Flex/Flex";
+import { Flex } from "@components/Layout/Flex";
 import { Item } from "@components/Collection";
 
 export default {
@@ -12,7 +12,6 @@ export default {
     layout: "centered",
   },
   argTypes: {
-    ...AriaLabelArgTypes,
     children: {
       control: false,
     },
@@ -51,7 +50,7 @@ export const Primary: Story = {
     defaultPage: 2,
     totalPages: 10,
     children: (
-      <Flex alignItems="center" gap={8}>
+      <Flex $align="center" $gap="1">
         <Pagination.FirstPage />
         <Pagination.PrevPage />
         <Pagination.CurrentPage />
@@ -66,7 +65,7 @@ export const WithPageNumbers: Story = {
   args: {
     ...Primary.args,
     children: (
-      <Flex alignItems="center" gap={8}>
+      <Flex $align="center" $gap="1">
         <Pagination.FirstPage />
         <Pagination.PrevPage />
         <Pagination.PageList>
@@ -90,18 +89,19 @@ export const WithPageSize: Story = {
   args: {
     ...Primary.args,
     onPageSizeChange: fn(),
+    defaultPageSize: 10,
     children: (
-      <Flex alignItems="center" gap={8}>
+      <Flex $align="center" $gap="1">
         <Pagination.FirstPage />
         <Pagination.PrevPage />
         <Pagination.CurrentPage />
         <Pagination.NextPage />
         <Pagination.LastPage />
         <Pagination.PageSize>
-          <Item key={10}>10 entries</Item>
-          <Item key={25}>25 entries</Item>
-          <Item key={50}>50 entries</Item>
-          <Item key={100}>100 entries</Item>
+          <Item id={10}>10 entries</Item>
+          <Item id={25}>25 entries</Item>
+          <Item id={50}>50 entries</Item>
+          <Item id={100}>100 entries</Item>
         </Pagination.PageSize>
       </Flex>
     ),

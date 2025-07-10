@@ -13,6 +13,7 @@ import {
 import { useRenderProps } from "@hooks";
 import { filterDOMProps } from "@react-aria/utils";
 import { ComboInputContext } from "../ComboInput";
+import { TextAreaContext } from "../Atoms/TextArea";
 
 export interface TextFieldProps
   extends FieldProps,
@@ -53,6 +54,10 @@ export function TextField(props: TextFieldProps) {
   } = useTextField(
     {
       ...props,
+      // @ts-expect-error - @react-aria/textfield hasn't updated their types for React 19 yet
+      onFocus: (e) => props.onFocus?.(e),
+      // @ts-expect-error - @react-aria/textfield hasn't updated their types for React 19 yet
+      onBlur: (e) => props.onBlur?.(e),
       inputElementType: inputElementType || "input",
       label: true,
     },
@@ -71,6 +76,14 @@ export function TextField(props: TextFieldProps) {
     },
   });
 
+  const inputCtx = {
+    ...inputProps,
+    disabled: isDisabled,
+    readOnly: isReadOnly,
+    name,
+    ref: inputOrTextAreaRef,
+  };
+
   return (
     <StyledField {...renderProps} {...filterDOMProps(props)}>
       <Provider
@@ -79,16 +92,8 @@ export function TextField(props: TextFieldProps) {
           [FieldMessageContext.Provider, descriptionProps],
           [FieldErrorContext.Provider, { ...errorMessageProps, isInvalid }],
           [ComboInputContext.Provider, { inputRef }],
-          [
-            FieldInputContext.Provider,
-            {
-              ...inputProps,
-              disabled: isDisabled,
-              readOnly: isReadOnly,
-              name,
-              ref: inputOrTextAreaRef,
-            },
-          ],
+          [FieldInputContext.Provider, inputCtx],
+          [TextAreaContext.Provider, inputCtx],
         ]}
       >
         {renderProps.children}

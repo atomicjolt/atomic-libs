@@ -1,0 +1,20 @@
+# `useUnmount`
+
+Run `callback` when the component is being unmounted.
+
+### Parameters
+
+- `callback` (function): The function to run after the initial render.
+
+### Example
+
+```jsx
+import { useUnmount } from '@atomicjolt/hooks';
+
+function MyComponent() {
+  useUnmount(() => {
+    console.log('Unmounting!');
+  });
+
+  return <div>My Component</div>;
+}

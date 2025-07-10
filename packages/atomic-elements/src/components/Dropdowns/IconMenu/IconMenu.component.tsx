@@ -5,8 +5,8 @@ import { BaseProps, CanHaveIcon, LoadingProps } from "../../../types";
 import { Popover } from "../../Overlays/Popover";
 import { MenuTrigger } from "../Menu/MenuTrigger";
 import { Menu, MenuSectionProps } from "../Menu";
-import { IconButton } from "../../Buttons/IconButton";
-import { ButtonVariants } from "../../Buttons/Buttons.types";
+import { IconButton } from "@components/Buttons/IconButton";
+import { ButtonVariants } from "@components/Buttons/Button";
 import { ItemProps } from "@components/Collection";
 import { CollectionChildren } from "@react-types/shared";
 
@@ -23,32 +23,59 @@ export type IconMenuProps<T extends object> = AriaMenuProps<T> &
 
 export function IconMenu<T extends {}>(props: IconMenuProps<T>) {
   const {
-    icon = "more_vert",
-    className,
-    iconVariant,
-    buttonVariant,
+    trigger,
+    isOpen,
+    defaultOpen,
+    onOpenChange,
+    selectedKeys,
+    defaultSelectedKeys,
+    onSelectionChange,
+    disabledKeys,
+    onAction,
+    onClose,
+    autoFocus,
+    disallowEmptySelection,
+    "aria-describedby": ariaDescribedby,
+    "aria-label": ariaLabel,
+    "aria-describedby": ariaDescribedBy,
+    "aria-labelledby": ariaLabelledby,
+    items,
+    id,
+    selectionMode,
+    shouldFocusWrap,
+    children,
     menuPlacement = "bottom right",
-    isDisabled,
-    isLoading,
-    loadingComplete,
-    loadingLabel,
-    ...rest
+    icon = "more_vert",
+    ...buttonProps
   } = props;
 
   return (
-    <MenuTrigger {...rest}>
-      <IconButton
-        icon={icon}
-        iconVariant={iconVariant}
-        variant={buttonVariant}
-        className={className}
-        isDisabled={isDisabled}
-        isLoading={isLoading}
-        loadingComplete={loadingComplete}
-        loadingLabel={loadingLabel}
-      />
+    <MenuTrigger
+      trigger={trigger}
+      isOpen={isOpen}
+      defaultOpen={defaultOpen}
+      onOpenChange={onOpenChange}
+    >
+      <IconButton {...buttonProps} icon={icon} aria-label={ariaLabel} id={id} />
       <Popover placement={menuPlacement}>
-        <Menu {...rest}>{props.children}</Menu>
+        <Menu
+          defaultSelectedKeys={defaultSelectedKeys}
+          selectedKeys={selectedKeys}
+          disabledKeys={disabledKeys}
+          selectionMode={selectionMode}
+          onSelectionChange={onSelectionChange}
+          onClose={onClose}
+          onAction={onAction}
+          items={items}
+          autoFocus={autoFocus}
+          disallowEmptySelection={disallowEmptySelection}
+          aria-describedby={ariaDescribedby}
+          aria-label={ariaLabel}
+          aria-labelledby={ariaLabelledby}
+          shouldFocusWrap={shouldFocusWrap}
+        >
+          {props.children}
+        </Menu>
       </Popover>
     </MenuTrigger>
   );

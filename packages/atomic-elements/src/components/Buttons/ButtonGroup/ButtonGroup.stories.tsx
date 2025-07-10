@@ -4,6 +4,12 @@ import { Button } from "../Button";
 import { IconButton } from "../IconButton";
 import { Item } from "../../Collection";
 import { IconMenu } from "../../Dropdowns/IconMenu";
+import {
+  FlexArgTypes,
+  FlexItemArgTypes,
+  LayoutArgTypes,
+  RenderPropsArgTypes,
+} from "@sb/helpers";
 
 const meta: Meta<typeof ButtonGroup> = {
   title: "Buttons/ButtonGroup",
@@ -12,6 +18,9 @@ const meta: Meta<typeof ButtonGroup> = {
     layout: "centered",
   },
   argTypes: {
+    ...RenderPropsArgTypes,
+    ...LayoutArgTypes,
+    ...FlexArgTypes,
     isDisabled: {
       control: "boolean",
       description:
@@ -47,10 +56,10 @@ export const Primary: Story = {
     </ButtonGroup>
   ),
   args: {
-    gap: 8,
+    $gap: "5",
+    $direction: "row",
     isMerged: false,
     isDisabled: false,
-    direction: "row",
   },
 };
 

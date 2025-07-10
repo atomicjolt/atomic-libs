@@ -3,7 +3,6 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
 
-
 // This vite config is used for the storybook preview
 
 export default defineConfig({
@@ -31,11 +30,5 @@ export default defineConfig({
       "@utils": path.resolve(__dirname, "packages/atomic-elements/src/utils"),
       "@sb": path.resolve(__dirname, ".storybook/utils"),
     },
-  },
-  // @ts-ignore - the reference is not working for some reason
-  // so the type is not being picked up
-  test: {
-    environment: "jsdom",
-    setupFiles: ["./vitest.setup.ts"],
   },
 });

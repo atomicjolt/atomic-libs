@@ -1,5 +1,4 @@
 import { useContext, useRef } from "react";
-import classNames from "classnames";
 import {
   Overlay,
   useOverlayPosition,
@@ -9,14 +8,8 @@ import {
 import { useTooltip } from "@react-aria/tooltip";
 import { OverlayTriggerProps } from "react-stately";
 import { Transition } from "react-transition-group";
-
 import { ToolTipArrow, ToolTipOverlay } from "./ToolTip.styles";
-import {
-  HasChildren,
-  HasClassName,
-  PresentationProps,
-  RenderBaseProps,
-} from "../../../types";
+import { RenderBaseProps } from "../../../types";
 import { TooltipContext, TooltipStateContext } from "./ToolTip.context";
 import { useContextProps } from "../../../hooks/useContextProps";
 import { mergeProps } from "@react-aria/utils";
@@ -32,7 +25,7 @@ export interface ToolTipProps
    *
    * When used within a TooltipTrigger this is set automatically. It is only required when used standalone.
    */
-  triggerRef?: React.RefObject<Element>;
+  triggerRef?: React.RefObject<Element | null>;
 
   /* Placement of the tooltip relative to the target element */
   placement?: "right" | "left" | "top" | "bottom";
@@ -43,13 +36,11 @@ export interface ToolTipProps
 
 /** A ToolTip component displays a popup with additional information when a user hovers over or focuses on an element. */
 export function ToolTip(props: ToolTipProps) {
-  const {
-    triggerRef,
-    transitionDuration = 300,
-    ...rest
-  } = useContextProps(TooltipContext, props);
+  let ref = useRef(null);
+  [props, ref] = useContextProps(TooltipContext, props, ref);
+  const { triggerRef, transitionDuration = 300, ...rest } = props;
+
   const state = useContext(TooltipStateContext);
-  const ref = useRef(null);
 
   const { tooltipProps } = useTooltip({ ...rest }, state);
 

@@ -1,0 +1,77 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <template
+    data-react-aria-hidden="true"
+  />
+  <div
+    class="sc-gNZgCX btRDZW aje-tabs aje-tabs--default"
+  >
+    <div
+      aria-orientation="horizontal"
+      class="sc-FEMpB eeXFOn"
+      data-collection="react-aria-:r0:"
+      id="react-aria-:r1:"
+      role="tablist"
+    >
+      <div
+        class="sc-gjcoXW hCeGzK"
+      >
+        <div
+          aria-controls="react-aria-:r1:-tabpanel-tab1"
+          aria-selected="true"
+          class="sc-dycHyt Mjpxg aje-tabs__tab"
+          data-collection="react-aria-:r0:"
+          data-key="tab1"
+          data-selected="true"
+          id="react-aria-:r1:-tab-tab1"
+          role="tab"
+          tabindex="0"
+        >
+          <h1>
+            Tab One
+          </h1>
+        </div>
+        <div
+          aria-selected="false"
+          class="sc-dycHyt Mjpxg aje-tabs__tab"
+          data-collection="react-aria-:r0:"
+          data-key="tab2"
+          id="react-aria-:r1:-tab-tab2"
+          role="tab"
+          tabindex="-1"
+        >
+          <h1>
+            Tab Two
+          </h1>
+        </div>
+        <div
+          aria-selected="false"
+          class="sc-dycHyt Mjpxg aje-tabs__tab"
+          data-collection="react-aria-:r0:"
+          data-key="tab3"
+          id="react-aria-:r1:-tab-tab3"
+          role="tab"
+          tabindex="-1"
+        >
+          <h1>
+            Tab Three
+          </h1>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-labelledby="react-aria-:r1:-tab-tab1"
+      class="sc-jbAkgO hgPxtI"
+      id="react-aria-:r1:-tabpanel-tab1"
+      role="tabpanel"
+      tabindex="0"
+    >
+      <h1>
+        Tab One Content
+      </h1>
+    </div>
+  </div>
+</DocumentFragment>
+`;

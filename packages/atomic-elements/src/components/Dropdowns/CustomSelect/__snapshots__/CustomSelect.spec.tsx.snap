@@ -2,8 +2,11 @@
 
 exports[`matches snapshots > matches default variant 1`] = `
 <DocumentFragment>
+  <template
+    data-react-aria-hidden="true"
+  />
   <div
-    class="sc-eUlrpB ecftEH aje-select sc-bMTdWJ fErLam aje-select aje-select--default"
+    class="sc-gpHbIA bhSUCw aje-select sc-gQJZgv fvvEjB aje-select aje-select--default"
   >
     <div
       aria-hidden="true"
@@ -12,11 +15,6 @@ exports[`matches snapshots > matches default variant 1`] = `
       data-testid="hidden-select-container"
       style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
     >
-      <input
-        style="font-size: 16px;"
-        tabindex="-1"
-        type="text"
-      />
       <label>
         <select
           tabindex="-1"
@@ -36,7 +34,7 @@ exports[`matches snapshots > matches default variant 1`] = `
       </label>
     </div>
     <label
-      class="sc-egkSDF eRgKMR"
+      class="sc-dVBluf eSKkgA"
       id="react-aria-:r3:"
     >
       Custom dropdown label
@@ -45,19 +43,21 @@ exports[`matches snapshots > matches default variant 1`] = `
       aria-expanded="false"
       aria-haspopup="listbox"
       aria-labelledby="react-aria-:r7: react-aria-:r3:"
-      class="sc-ovuCP sc-hJRrWL jDlmat ikrVwe aje-btn sc-fwzISk gsuoQe aje-btn--dropdown is-medium"
+      class="sc-eiwqOE JUNDn aje-btn aje-btn--dropdown is-medium"
       id="react-aria-:r2:"
+      tabindex="0"
       type="button"
     >
       <span
-        class="sc-geXuza bnnRoH"
+        class="sc-hUAZgl copoPc"
         id="react-aria-:r7:"
       >
         Select an option
       </span>
       <i
         aria-hidden="true"
-        class="sc-cEzcPc csQlNh aje-icon material-icons is-medium"
+        class="sc-jBIHhB dShSRo aje-icon material-icons is-medium"
+        style="margin-left: auto;"
       >
         arrow_drop_down
       </i>
@@ -68,8 +68,11 @@ exports[`matches snapshots > matches default variant 1`] = `
 
 exports[`matches snapshots > matches floating variant 1`] = `
 <DocumentFragment>
+  <template
+    data-react-aria-hidden="true"
+  />
   <div
-    class="sc-eUlrpB ecftEH aje-select sc-bMTdWJ fErLam aje-select aje-select--floating aje-select--floating"
+    class="sc-gpHbIA bhSUCw aje-select sc-gQJZgv fvvEjB aje-select aje-select--floating aje-select--floating"
   >
     <div
       aria-hidden="true"
@@ -78,11 +81,6 @@ exports[`matches snapshots > matches floating variant 1`] = `
       data-testid="hidden-select-container"
       style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
     >
-      <input
-        style="font-size: 16px;"
-        tabindex="-1"
-        type="text"
-      />
       <label>
         <select
           tabindex="-1"
@@ -102,29 +100,31 @@ exports[`matches snapshots > matches floating variant 1`] = `
       </label>
     </div>
     <div
-      class="sc-hbtGpV fgifvA"
+      class="sc-flQbIK llRNxW"
     >
       <button
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-labelledby="react-aria-:rf: react-aria-:rb:"
-        class="sc-ovuCP sc-hJRrWL jDlmat ikrVwe aje-btn sc-fwzISk gsuoQe aje-btn--dropdown is-medium"
+        class="sc-eiwqOE JUNDn aje-btn aje-btn--dropdown is-medium"
         id="react-aria-:ra:"
+        tabindex="0"
         type="button"
       >
         <span
-          class="sc-geXuza bnnRoH"
+          class="sc-hUAZgl copoPc"
           id="react-aria-:rf:"
         />
         <i
           aria-hidden="true"
-          class="sc-cEzcPc csQlNh aje-icon material-icons is-medium"
+          class="sc-jBIHhB dShSRo aje-icon material-icons is-medium"
+          style="margin-left: auto;"
         >
           arrow_drop_down
         </i>
       </button>
       <label
-        class="sc-egkSDF eRgKMR"
+        class="sc-dVBluf eSKkgA"
         id="react-aria-:rb:"
       >
         Custom dropdown label

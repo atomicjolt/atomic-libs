@@ -1,0 +1,76 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ChipGroupField > matches snapshot 1`] = `
+<DocumentFragment>
+  <template
+    data-react-aria-hidden="true"
+  />
+  <div
+    class="sc-eiwqOE kTkbYA aje-chip-group"
+  >
+    <div
+      aria-atomic="false"
+      aria-labelledby="react-aria-:r1:"
+      aria-live="off"
+      aria-relevant="additions"
+      class="sc-dPKAra EVgkD"
+      data-collection="react-aria-:r5:"
+      id="react-aria-:r0:"
+      role="grid"
+      tabindex="0"
+    >
+      <div
+        aria-label="Item 1"
+        class="sc-gjXmFk fDQQhF aje-chip"
+        data-collection="react-aria-:r5:"
+        data-key="react-aria-1"
+        id="react-aria-:r0:-react-aria-1"
+        role="row"
+        tabindex="0"
+      >
+        <div
+          aria-colindex="1"
+          class="sc-fuExOL iXcEFL"
+          role="gridcell"
+        >
+          Item 1
+        </div>
+      </div>
+      <div
+        aria-label="Item 2"
+        class="sc-gjXmFk fDQQhF aje-chip"
+        data-collection="react-aria-:r5:"
+        data-key="react-aria-2"
+        id="react-aria-:r0:-react-aria-2"
+        role="row"
+        tabindex="0"
+      >
+        <div
+          aria-colindex="1"
+          class="sc-fuExOL iXcEFL"
+          role="gridcell"
+        >
+          Item 2
+        </div>
+      </div>
+      <div
+        aria-label="Item 3"
+        class="sc-gjXmFk fDQQhF aje-chip"
+        data-collection="react-aria-:r5:"
+        data-key="react-aria-3"
+        id="react-aria-:r0:-react-aria-3"
+        role="row"
+        tabindex="0"
+      >
+        <div
+          aria-colindex="1"
+          class="sc-fuExOL iXcEFL"
+          role="gridcell"
+        >
+          Item 3
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

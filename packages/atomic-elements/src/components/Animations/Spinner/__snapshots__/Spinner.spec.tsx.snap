@@ -2,23 +2,41 @@
 
 exports[`Spinner > matches snapshot 1`] = `
 <DocumentFragment>
-  <div
-    class="sc-blHHSb fRAHhl aje-spinner is-medium"
+  <svg
+    aria-valuemax="100"
+    aria-valuemin="0"
+    class="sc-fLDLck iBnMzL aje-progresscircle aje-spinner"
+    data-indeterminate="true"
+    data-testid="spinner-svg"
+    height="40px"
+    id="react-aria-:r0:"
+    role="progressbar"
+    viewBox="0 0 44 44"
+    width="40px"
   >
-    <svg
-      class="sc-gtLWhw bwWHaf"
-      data-testid="spinner-svg"
-      viewBox="25 25 50 50"
-    >
-      <circle
-        class="sc-egkSDF iiKejx"
-        cx="50"
-        cy="50"
-        fill="none"
-        r="20"
-        stroke-width="0.5em"
-      />
-    </svg>
-  </div>
+    <circle
+      class="sc-dVBluf fwCXlP"
+      cx="22"
+      cy="22"
+      r="16"
+    />
+    <circle
+      class="sc-gjcoXW eNEMmL"
+      cx="22"
+      cy="22"
+      r="16"
+      stroke-width="6"
+    />
+    <circle
+      class="sc-FEMpB cpSVbK"
+      cx="22"
+      cy="22"
+      r="16"
+      stroke-dasharray="0 100"
+      stroke-dashoffset="25"
+      stroke-linecap="round"
+      stroke-width="6"
+    />
+  </svg>
 </DocumentFragment>
 `;

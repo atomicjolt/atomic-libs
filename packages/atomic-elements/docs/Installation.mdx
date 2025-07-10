@@ -17,59 +17,64 @@ $ yarn add @atomicjolt/atomic-elements
 At the root of your application, you should include the following components:
 
 ```tsx
-import { CssVariables } from "@atomicjolt/atomic-elements";
+import { ElementsProvider } from "@atomicjolt/atomic-elements";
 
 const App = () => (
-  <>
-    <CssVariables />
+  <ElementsProvider>
     <YourApp />
-  </>
+  </ElementsProvider>
 );
 ```
 
-### CSS Variables
+### ElementsProvider
 
-The `<CssVariables />` component will set the CSS variables used by the Atomic Elements. It is recommended that you use this component at the root of your application.
-If you don't include this component none of the components will look correct (unless you provide defaults for everything yourself).
+The `ElementsProvider` component is a context provider that makes the theme available to all components in the tree.
+It also provides a way to override the default theme.
+
 
 ### Fonts
 
-Atomic Elements makes use of the following Fonts
+Atomic Elements makes use of the following Fonts by default:
 
 - [Lato](https://fonts.google.com/specimen/Lato?query=lato) (Text Font)
 - [Material Icons](https://fonts.google.com/icons) (For the [`MaterialIcon`](/docs/atoms-materialicon--overview) component & any other components that make use of an icon)
 - [Material Symbols](https://fonts.google.com/icons) (Only needed if you want to use the [`MaterialSybmol`](/docs/atoms-materialsymbol--overview) component)
 
-For convenience, Atomic Elements provides a `<LoadFonts />` component that will load the fonts for you. You can use this component at the root of your application.
 
-```tsx
-import { LoadFonts } from "@atomicjolt/atomic-elements";
 
-const App = () => (
-  <>
-    <LoadFonts />
-    <YourApp />
-  </>
-);
-```
+#### Loading Fonts
 
-**This is not recommended for production, but it is useful when starting a new project**
+You can load the fonts from anywhere, but here is an example of how you might load them from Google Fonts.
 
-### CSS Global Defaults
+```html
+<!-- Lato is the default text font, you should only need these variants.
+You could load a different text-font if you wanted -->
+<link
+  href="https://fonts.googleapis.com/css2?family=Lato:wght@200;400;700&display=swap"
+  rel="stylesheet"
+/>
 
-Atomic Elements also provides a `<CssGlobalDefaults />` component will set some global CSS defaults.
+<!-- Material Icons -->
+<link
+  href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet"
+/>
 
-### Sensible Defaults
-
-The `<SensibleDefaults />` component bundles the three above component into a single component.
-
-```tsx
-import { SensibleDefaults } from "@atomicjolt/atomic-elements";
-
-const App = () => (
-  <>
-    <SensibleDefaults />
-    <YourApp />
-  </>
-);
+<!-- The default is filled, you only need any of these if you actually intend to use them -->
+<link
+  href="https://fonts.googleapis.com/icon?family=Material+Icons%7CMaterial+Icons+Outlined"
+  rel="stylesheet"
+/>
+<link
+  href="https://fonts.googleapis.com/icon?family=Material+Icons%7CMaterial+Icons+Round"
+  rel="stylesheet"
+/>
+<link
+  href="https://fonts.googleapis.com/icon?family=Material+Icons%7CMaterial+Icons+Sharp"
+  rel="stylesheet"
+/>
+<link
+  href="https://fonts.googleapis.com/icon?family=Material+Icons%7CMaterial+Icons+Two+Tone"
+  rel="stylesheet"
+/>
 ```

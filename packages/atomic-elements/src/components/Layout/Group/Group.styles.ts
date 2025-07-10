@@ -1,26 +1,22 @@
 import styled from "styled-components";
+import { layout, LayoutProps } from "@styles/layout";
+import { flex, FlexStyleProps } from "@styles/flex";
 
-interface GroupWrapperProps {
-  gap?: number;
-}
+export const GroupWrapper = styled.div<LayoutProps & FlexStyleProps>`
+  ${flex}
+  ${layout}
 
-export const GroupWrapper = styled.div<GroupWrapperProps>`
-  display: flex;
-  gap: ${({ gap }) => (gap === undefined ? 8 : gap)}px;
-
-  &.is-merged {
+  &[data-merged] {
     gap: 0;
 
     // Stops button from moving when you click on them
-    & > *.is-active {
+    & > [data-pressed="true"] {
       transform: none;
     }
   }
 
-  &.is-column {
-    flex-direction: column;
-
-    &.is-merged > {
+  &[data-direction="column"] {
+    &[data-merged] > {
       :first-child,
       :first-child input {
         border-bottom-left-radius: 0;
@@ -42,10 +38,31 @@ export const GroupWrapper = styled.div<GroupWrapperProps>`
     }
   }
 
-  &.is-row {
-    flex-direction: row;
+  &[data-direction="column-reverse"] {
+    &[data-merged] > {
+      :first-child,
+      :first-child input {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-top: 0;
+      }
 
-    &.is-merged > {
+      :not(:first-child):not(:last-child),
+      :not(:first-child):not(:last-child) input {
+        border-top: 0;
+        border-radius: 0;
+      }
+
+      :last-child,
+      :last-child input {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+  }
+
+  &[data-direction="row"] {
+    &[data-merged] > {
       :first-child,
       :first-child input {
         border-top-right-radius: 0;
@@ -63,6 +80,29 @@ export const GroupWrapper = styled.div<GroupWrapperProps>`
       :last-child input {
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
+      }
+    }
+  }
+
+  &[data-direction="row-reverse"] {
+    &[data-merged] > {
+      :first-child,
+      :first-child input {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-left: 0;
+      }
+
+      :not(:first-child):not(:last-child),
+      :not(:first-child):not(:last-child) input {
+        border-left: 0;
+        border-radius: 0;
+      }
+
+      :last-child,
+      :last-child input {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
       }
     }
   }

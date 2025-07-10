@@ -4,7 +4,7 @@ import { CustomSelect } from ".";
 import { Item, Section } from "../../Collection";
 import { getCssProps } from "@sb/cssprops";
 import { MaterialIcon } from "@components/Icons/MaterialIcon";
-import { Flex } from "@components/Layout/Flex/Flex";
+import { Flex } from "@components/Layout/Flex";
 
 const meta: Meta<typeof CustomSelect> = {
   title: "Dropdowns/Selection/CustomSelect",

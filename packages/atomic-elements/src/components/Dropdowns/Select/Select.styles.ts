@@ -24,9 +24,8 @@ export const StyledSelect = styled.select`
   --input-width-md: 240px;
   --input-width-lg: 360px;
 
-  border: 1px solid var(--input-border-clr);
+  ${mixins.Border("input")}
   background-color: var(--neutral50);
-  border-radius: 5px;
   min-height: 40px;
   width: 100%;
   padding: 10px 40px 10px 12px;

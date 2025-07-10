@@ -2,24 +2,22 @@
 
 exports[`MultiSelectField > matches snapshots > when closed 1`] = `
 <DocumentFragment>
+  <template
+    data-react-aria-hidden="true"
+  />
   <div
-    class="sc-hJRrWL eQYRpW aje-multiselect"
+    class="sc-gpHbIA bhSUCw aje-multiselect"
   >
     <button
       aria-expanded="false"
       aria-haspopup="listbox"
       aria-labelledby="react-aria-:r7: react-aria-:r3:"
-      class="sc-ovuCP sc-eUlrpB jDlmat bboez aje-btn sc-geXuza jnQWUQ aje-btn--dropdown is-medium"
+      class="sc-eiwqOE JUNDn aje-btn aje-btn--dropdown is-medium"
       id="react-aria-:r2:"
+      tabindex="0"
       type="button"
     >
       Open up
-      <i
-        aria-hidden="true"
-        class="sc-cEzcPc csQlNh aje-icon material-icons is-medium"
-      >
-        arrow_drop_down
-      </i>
     </button>
   </div>
 </DocumentFragment>
@@ -27,26 +25,24 @@ exports[`MultiSelectField > matches snapshots > when closed 1`] = `
 
 exports[`MultiSelectField > matches snapshots > when open 1`] = `
 <DocumentFragment>
+  <template
+    data-react-aria-hidden="true"
+  />
   <div
-    class="sc-hJRrWL eQYRpW aje-multiselect"
+    class="sc-gpHbIA bhSUCw aje-multiselect"
   >
     <button
       aria-controls="react-aria-:r9:"
       aria-expanded="true"
       aria-haspopup="listbox"
       aria-labelledby="react-aria-:rf: react-aria-:rb:"
-      class="sc-ovuCP sc-eUlrpB jDlmat bboez aje-btn sc-geXuza jnQWUQ aje-btn--dropdown is-medium"
+      class="sc-eiwqOE JUNDn aje-btn aje-btn--dropdown is-medium"
       data-pressed="true"
       id="react-aria-:ra:"
+      tabindex="0"
       type="button"
     >
       Open up
-      <i
-        aria-hidden="true"
-        class="sc-cEzcPc csQlNh aje-icon material-icons is-medium"
-      >
-        arrow_drop_down
-      </i>
     </button>
   </div>
 </DocumentFragment>

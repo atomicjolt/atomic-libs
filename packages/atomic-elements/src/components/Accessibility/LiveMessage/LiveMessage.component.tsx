@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useAnnouncer } from "../LiveAnnouncer";
-import { useContextPropsV2 } from "@hooks/useContextProps";
+import { useContextProps } from "@hooks/useContextProps";
 import { LiveMessageContext } from "./LiveMessage.context";
 
 export interface LiveMessageProps {
@@ -19,7 +19,7 @@ export interface LiveMessageProps {
  */
 export function LiveMessage(props: LiveMessageProps) {
   let ref = useRef<HTMLDivElement>(null);
-  [props, ref] = useContextPropsV2(LiveMessageContext, props, ref);
+  [props, ref] = useContextProps(LiveMessageContext, props, ref);
 
   const { message, polite = true, assertive = false, timeout } = props;
   const { announceAssertive, announcePolite } = useAnnouncer();

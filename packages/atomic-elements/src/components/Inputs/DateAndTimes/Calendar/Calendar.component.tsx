@@ -1,43 +1,37 @@
 import { useRef } from "react";
-import classNames from "classnames";
 import {
   useCalendar,
-  AriaCalendarGridProps,
   AriaCalendarProps,
   DateValue,
-  useCalendarGrid,
-  useCalendarCell,
 } from "@react-aria/calendar";
 import { useLocale } from "@react-aria/i18n";
-import {
-  getWeeksInMonth,
-  CalendarDate,
-  createCalendar,
-  today,
-  getLocalTimeZone,
-} from "@internationalized/date";
-import { CalendarState, useCalendarState } from "react-stately";
+import { createCalendar } from "@internationalized/date";
+import { useCalendarState } from "react-stately";
 
-import { IconButton } from "../../../Buttons/IconButton";
-import { Button } from "../../../Buttons/Button";
-import { AriaProps, BaseProps, Size } from "../../../../types";
+import { AriaProps, ExtendedSize, RenderBaseProps } from "../../../../types";
+import { useRenderProps } from "@hooks";
+import { Provider } from "@components/Internal/Provider";
+import { ButtonContext } from "@components/Buttons/Button/Button.context";
+import { DEFAULT_SLOT } from "@hooks/useSlottedContext";
+import { useContextProps } from "@hooks/useContextProps";
+import { ErrorMessageContext } from "@components/Fields/Atoms/ErrorMessage";
+
+import { CalendarTitle } from "./components/CalendarTitle";
+import { CalendarGrid } from "./components/CalendarGrid";
+import { CalendarCell } from "./components/CalendarCell";
+import { CalendarWrapper } from "./Calendar.styles";
 import {
-  CalendarContent,
-  StyledCalendarCell,
-  CalendarFooter,
-  CalendarHeader,
-  CalendarWrapper,
-  CalendarCellButton,
-  CalendarWeekDay,
-  CalendarHeaderButtons,
-  CalendarHeaderTitle,
-} from "./Calendar.styles";
-import { useTranslations } from "@hooks/useTranslations";
+  CalendarContext,
+  CalendarStateContext,
+  CalendarTitleContext,
+} from "./Calendar.context";
 
 export interface CalendarProps<T extends DateValue>
   extends AriaProps<AriaCalendarProps<T>>,
-    BaseProps {
-  size?: Size;
+    RenderBaseProps<never> {
+  size?: ExtendedSize;
+  isDisabled?: boolean;
+  isInvalid?: boolean;
 }
 
 /**
@@ -51,9 +45,20 @@ export interface CalendarProps<T extends DateValue>
  * import { parseDate } from "@internationalized/date";
  *
  * const [date, setDate] = useState(parseDate("2021-01-01"));
- * <Calendar value={date} onChange={setDate} />
+ *
+ * <Calendar value={date} onChange={setDate}>
+ *   <Calendar.Title />
+ *   <Calendar.Grid>
+ *     {(date) => <Calendar.Cell date={date} />}
+ *   </Calendar.Grid>
+ * </Calendar>
  */
 export function Calendar<T extends DateValue>(props: CalendarProps<T>) {
+  let ref = useRef(null);
+  // TS is getting confused because react-aria uses some conditional types that
+  // it doesn't understand how to resolve when using useContextProps
+  [props, ref] = useContextProps(CalendarContext as any, props, ref);
+
   const { size = "medium" } = props;
   const { locale } = useLocale();
   const state = useCalendarState({
@@ -62,132 +67,55 @@ export function Calendar<T extends DateValue>(props: CalendarProps<T>) {
     createCalendar,
   });
 
-  const { calendarProps, prevButtonProps, nextButtonProps, title } =
-    useCalendar(props, state);
+  const {
+    calendarProps,
+    prevButtonProps,
+    nextButtonProps,
+    title,
+    errorMessageProps,
+  } = useCalendar(props, state);
 
-  const t = useTranslations();
-
-  const className = classNames("aje-calendar", `is-${size}`);
+  const renderProps = useRenderProps({
+    componentClassName: "aje-calendar",
+    ...props,
+    size,
+    selectors: {
+      "data-disabled": props.isDisabled,
+      "data-invalid": props.isInvalid,
+    },
+  });
 
   return (
-    <CalendarWrapper {...calendarProps} className={className}>
-      <CalendarHeader className="aje-calendar__header">
-        <CalendarHeaderTitle>{title}</CalendarHeaderTitle>
-        <CalendarHeaderButtons>
-          <IconButton
-            {...prevButtonProps}
-            icon="chevron_left"
-            variant="content"
-          />
-          <IconButton
-            {...nextButtonProps}
-            icon="chevron_right"
-            variant="content"
-          />
-        </CalendarHeaderButtons>
-      </CalendarHeader>
-      <CalendarGrid state={state} />
-      <CalendarFooter className="aje-calendar__footer">
-        {/* TODO: useCalendar doesn't appear to have the ability to set the value
-        to null, check if there's a way to do this? */}
-        {/* <Button
-          variant="calendar-footer"
-          onPress={() => {
-            state.setValue(null);
-          }}
-        >
-          Clear
-        </Button> */}
-        <Button
-          variant="calendar-footer"
-          onPress={() => {
-            const date = today(getLocalTimeZone());
-            state.setValue(date);
-            state.setFocusedDate(date);
-          }}
-        >
-          {t("today")}
-        </Button>
-      </CalendarFooter>
+    <CalendarWrapper {...calendarProps} {...renderProps} ref={ref}>
+      <Provider
+        values={[
+          [CalendarStateContext.Provider, state],
+          [CalendarTitleContext.Provider, { title }],
+          [
+            ButtonContext.Provider,
+            {
+              slots: {
+                [DEFAULT_SLOT]: {},
+                "previous-month": prevButtonProps,
+                "next-month": nextButtonProps,
+              },
+            },
+          ],
+          [
+            ErrorMessageContext.Provider,
+            { isInvalid: props.isInvalid, ...errorMessageProps },
+          ],
+        ]}
+      >
+        {renderProps.children}
+      </Provider>
     </CalendarWrapper>
   );
 }
 
-interface CalendarGridProps extends AriaCalendarGridProps {
-  state: CalendarState;
-}
-
-function CalendarGrid(props: CalendarGridProps) {
-  const { state, ...rest } = props;
-  const { locale } = useLocale();
-  const { gridProps, headerProps, weekDays } = useCalendarGrid(rest, state);
-
-  // Get the number of weeks in the month so we can render the proper number of rows.
-  const weeksInMonth = getWeeksInMonth(state.visibleRange.start, locale);
-
-  return (
-    <CalendarContent {...gridProps} className="aje-calendar__content">
-      <thead {...headerProps}>
-        <tr>
-          {weekDays.map((day, index) => (
-            <CalendarWeekDay key={index}>{day}</CalendarWeekDay>
-          ))}
-        </tr>
-      </thead>
-      <tbody>
-        {[...new Array(weeksInMonth).keys()].map((weekIndex) => (
-          <tr key={weekIndex}>
-            {state
-              .getDatesInWeek(weekIndex)
-              .map((date, i) =>
-                date ? (
-                  <CalendarCell key={i} state={state} date={date} />
-                ) : (
-                  <td key={i} />
-                )
-              )}
-          </tr>
-        ))}
-      </tbody>
-    </CalendarContent>
-  );
-}
-
-interface CalendarCellProps {
-  state: CalendarState;
-  date: CalendarDate;
-}
-
-function CalendarCell(props: CalendarCellProps) {
-  const { state, date } = props;
-  const ref = useRef(null);
-  const {
-    cellProps,
-    buttonProps,
-    isSelected,
-    isOutsideVisibleRange,
-    isDisabled,
-    isUnavailable,
-    formattedDate,
-  } = useCalendarCell({ date }, state, ref);
-
-  const cellClassName = classNames("aje-calendar__cell", {
-    "is-selected": isSelected,
-    "is-disabled": isDisabled,
-    "is-unavailable": isUnavailable,
-  });
-
-  return (
-    <StyledCalendarCell {...cellProps} className={cellClassName}>
-      <CalendarCellButton
-        {...buttonProps}
-        ref={ref}
-        hidden={isOutsideVisibleRange}
-      >
-        {formattedDate}
-      </CalendarCellButton>
-    </StyledCalendarCell>
-  );
-}
-
-export default Calendar;
+/** The current Month & Year formatted & localized */
+Calendar.Title = CalendarTitle;
+/** The grid of days in the calendar */
+Calendar.Grid = CalendarGrid;
+/** A cell in the calendar grid */
+Calendar.Cell = CalendarCell;

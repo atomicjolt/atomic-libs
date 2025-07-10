@@ -1,19 +1,20 @@
-import { StyledTarget } from "styled-components/dist/types";
 import { BaseProps } from "./common";
 
-/** Type for props that are used to provide
- * information to the consumer of a field */
-export interface HelpTextProps {
-  /** A visible label for the field. Labels are always Sentence case.
-   * If you do not provide a label, you should provide an aria-label or aria-labelledby attribute.
-   */
-  readonly label?: React.ReactNode;
-
+export interface HelpMessageProps {
   /** For additional information (ex. date format mm/dd/yy) */
   readonly message?: React.ReactNode;
 
   /** Error message for the field */
   readonly error?: React.ReactNode;
+}
+
+/** Type for props that are used to provide
+ * information to the consumer of a field */
+export interface HelpTextProps extends HelpMessageProps {
+  /** A visible label for the field. Labels are always Sentence case.
+   * If you do not provide a label, you should provide an aria-label or aria-labelledby attribute.
+   */
+  readonly label?: React.ReactNode;
 }
 
 /** Props that indicate that status that a field is in */

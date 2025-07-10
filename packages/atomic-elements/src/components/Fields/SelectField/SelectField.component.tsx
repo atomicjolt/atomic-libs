@@ -1,4 +1,4 @@
-import React, { forwardRef, RefAttributes, useContext } from "react";
+import React, { forwardRef, RefAttributes, useContext, type JSX } from "react";
 import { useSelectState } from "react-stately";
 import { HiddenSelect, useSelect } from "@react-aria/select";
 import { filterDOMProps } from "@react-aria/utils";
@@ -11,15 +11,15 @@ import {
 } from "@components/Dropdowns/ListBox";
 import { OverlayTriggerStateContext } from "../../Overlays/OverlayTrigger/context";
 import { useRenderProps } from "@hooks/useRenderProps";
-import { useContextPropsV2 } from "@hooks/useContextProps";
+import { useContextProps } from "@hooks/useContextProps";
 import { Provider } from "@components/Internal/Provider";
 import {
   FieldErrorContext,
   FieldLabelContext,
   FieldMessageContext,
 } from "@components/Fields";
-import { PopoverContext } from "@components/Overlays/Popover/context";
-import { ButtonContext } from "@components/Buttons/Button/Button.context";
+import { PopoverContext } from "@components/Overlays/Popover/Popover.context";
+import { ButtonContext } from "@components/Buttons/Button";
 
 import { ButtonText, SelectFieldWrapper } from "./SelectField.styles";
 import {
@@ -32,7 +32,6 @@ import {
   SelectFieldValueContext,
   SelectStateContext,
 } from "./SelectField.context";
-import { DropdownButton } from "@components/Internal/DropdownButton";
 
 type ForwardedSelectField = {
   <T>(
@@ -41,9 +40,6 @@ type ForwardedSelectField = {
   displayName: string;
   /** Renders the selected value of a SelectField */
   Value: typeof SelectFieldValue;
-  /** Wrapper around `Button` that configures default visual styling
-   * for the button that opens the dropdown for a `SelectField` */
-  Button: typeof DropdownButton;
 };
 
 /** Building blocks for building custom & accessible select components */
@@ -51,7 +47,7 @@ export const SelectField = forwardRef(function SelectField<T extends object>(
   props: SelectFieldProps<T>,
   ref: React.Ref<HTMLButtonElement>
 ) {
-  [props, ref] = useContextPropsV2(SelectFieldContext, props, ref);
+  [props, ref] = useContextProps(SelectFieldContext, props, ref);
 
   return (
     <CollectionBuilder content={props.children}>
@@ -139,7 +135,7 @@ export function SelectFieldInner<T extends object>(
   );
 }
 
-function SelectFieldValue(props: SelectValueProps) {
+export function SelectFieldValue(props: SelectValueProps) {
   const { placeholder } = props;
 
   const valueProps = useContext(SelectFieldValueContext);
@@ -154,5 +150,5 @@ function SelectFieldValue(props: SelectValueProps) {
   );
 }
 
+SelectFieldValue.displayName = "SelectField.Value";
 SelectField.Value = SelectFieldValue;
-SelectField.Button = DropdownButton;

@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import { useOverlayTrigger } from "@react-aria/overlays";
 import { PressResponder } from "@react-aria/interactions";
 import {
@@ -6,7 +6,7 @@ import {
   useOverlayTriggerState,
 } from "react-stately";
 
-import { PopoverContext } from "../Popover/context";
+import { PopoverContext } from "../Popover/Popover.context";
 import { Provider } from "../../Internal/Provider";
 import { HasChildren } from "../../../types";
 import { OverlayTriggerStateContext } from "./context";
@@ -24,6 +24,7 @@ export interface OverlayTriggerProps
  * */
 export function OverlayTrigger(props: OverlayTriggerProps) {
   const state = useOverlayTriggerState(props);
+  const parentModalContext = useContext(ModalContext);
   const ref = useRef<HTMLElement>(null);
   const { type = "dialog" } = props;
   const { overlayProps, triggerProps } = useOverlayTrigger(
@@ -44,6 +45,7 @@ export function OverlayTrigger(props: OverlayTriggerProps) {
           ModalContext.Provider,
           {
             triggerRef: ref,
+            ...parentModalContext,
             ...overlayProps,
           },
         ],

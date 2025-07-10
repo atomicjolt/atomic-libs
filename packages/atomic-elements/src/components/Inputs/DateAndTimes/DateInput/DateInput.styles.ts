@@ -1,8 +1,7 @@
 import styled from "styled-components";
 import mixins from "../../../../styles/mixins";
-import { FieldWrapper } from "../../../Internal/FieldWrapper";
 
-export const DateInputWrapper = styled(FieldWrapper)`
+export const DateInputWrapper = styled.div`
   ${mixins.Regular}
   ${mixins.FieldStatus}
   ${mixins.SizingX}

@@ -1,16 +1,6 @@
-import React, { useImperativeHandle } from "react";
+import { useObjectRef } from "@react-aria/utils";
 
 /** Forawrds an inner ref object to an external ref */
-export function useForwardedRef<T>(
-  ref: React.ForwardedRef<T>,
-  defaultValue: T | null = null
-): React.RefObject<T> {
-  const actualRef = React.useRef<T>(defaultValue);
-  useImperativeHandle(ref, () => {
-    return actualRef.current!;
-  });
-
-  return actualRef;
-}
+export const useForwardedRef = useObjectRef;
 
 export default useForwardedRef;

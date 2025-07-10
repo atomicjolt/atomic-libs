@@ -1,0 +1,45 @@
+.navbar-storybook-link svg,
+.navbar-github-link svg {
+  height: 35px;
+  width: 35px;
+}
+
+.navbar-storybook-link svg path {
+  fill: #fff;
+  transition: fill 0.3s ease;
+}
+
+.navbar-storybook-link:hover svg path {
+  fill: #ff4785 !important;
+}
+
+.navbar-github-link svg path {
+  fill: #fff;
+  transition: fill 0.3s ease;
+}
+
+.navbar-github-link:hover svg path {
+  fill: #4078c0 !important;
+}
+
+.example {
+  border-radius: 5px;
+  margin: 20px 0;
+  border: 2px solid #646363;
+}
+
+.example__rendered {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: rgb(247, 247, 247);
+  padding: 20px;
+  border-bottom: 2px solid #646363;
+  overflow-x: auto;
+}
+
+.example__code * {
+  border-radius: 0;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  margin-bottom: 0 !important;
+}

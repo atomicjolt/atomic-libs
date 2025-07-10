@@ -3,11 +3,11 @@ import { AriaNumberFieldProps } from "@react-aria/numberfield";
 import classNames from "classnames";
 
 import { AriaProps, FieldInputProps, HasVariant } from "../../../types";
-import { useVariantClass } from "../../../hooks/variants";
-import { FieldInput, NumberField, ComboInput } from "../../Fields";
+import { FieldInput, ComboInput } from "../../Fields";
 import { Group } from "../../Layout/Group";
-import FloatingFieldInputWrapper from "../../Internal/FloatingFieldInputWrapper";
+import { FloatingFieldInputWrapper } from "../../Internal/FloatingFieldInputWrapper";
 import { StyledNumberField } from "../Inputs.styles";
+import { IconButton } from "@components/Buttons/IconButton";
 
 export interface NumberInputProps
   extends AriaProps<AriaNumberFieldProps>,
@@ -27,12 +27,12 @@ export const NumberInput = React.forwardRef(
       ...rest
     } = props;
 
-    const variantClass = useVariantClass("aje-input", variant);
-
     return (
       <StyledNumberField
         size={size}
-        className={classNames(variantClass, className)}
+        className={classNames(className, {
+          [`aje-input--${variant}`]: variant,
+        })}
         data-float={
           (props.value !== undefined &&
             props.value !== null &&
@@ -47,15 +47,17 @@ export const NumberInput = React.forwardRef(
           message={message}
           error={error}
         >
-          <ComboInput>
+          <ComboInput padding="both">
             <FieldInput />
-            <Group direction="column" isMerged>
-              <NumberField.IncrementButton
+            <Group $direction="column" isMerged>
+              <IconButton
+                slot="increment"
                 icon="arrow_drop_up"
                 variant="content"
                 size="small"
               />
-              <NumberField.DecrementButton
+              <IconButton
+                slot="decrement"
                 icon="arrow_drop_down"
                 variant="content"
                 size="small"

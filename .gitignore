@@ -16,5 +16,7 @@ docs/build
 dist
 node_modules
 packages/atomic-fuel/libs
+.vscode
 
 
+*.map

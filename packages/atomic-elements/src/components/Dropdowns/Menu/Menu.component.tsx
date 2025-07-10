@@ -1,4 +1,4 @@
-import React, { forwardRef, RefAttributes, useContext } from "react";
+import React, { forwardRef, RefAttributes, useContext, type JSX } from "react";
 import classNames from "classnames";
 import { useTreeState } from "react-stately";
 import { Node, SectionProps } from "@react-types/shared";
@@ -18,13 +18,13 @@ import {
 } from "@react-aria/collections";
 
 import { RenderBaseProps, RenderStyleProps } from "../../../types";
-import { Divider } from "@components/Layout/Divider";
+import { Divider } from "@components/Content/Divider";
 import { useForwardedRef } from "@hooks/useForwardedRef";
 import { Provider } from "@components/Internal/Provider";
 import { useCollectionRenderer } from "@hooks/useCollectionRenderer";
 import { useRenderProps } from "@hooks";
 import { useFocusRing } from "@hooks/useFocusRing";
-import { useContextPropsV2 } from "@hooks/useContextProps";
+import { useContextProps } from "@hooks/useContextProps";
 import { ItemContext, ItemProps, SectionContext } from "@components/Collection";
 
 import { MenuContext, MenuStateContext } from "./Menu.context";
@@ -58,7 +58,7 @@ export const Menu = forwardRef(function Menu<T extends object>(
   props: MenuProps<T>,
   ref: React.Ref<HTMLUListElement>
 ) {
-  [props, ref] = useContextPropsV2(MenuContext, props, ref);
+  [props, ref] = useContextProps(MenuContext, props, ref);
 
   return (
     <CollectionBuilder content={<Collection {...props} />}>

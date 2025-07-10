@@ -1,15 +1,17 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`matches snapshot 1`] = `
+exports[`IconButton > matches snapshot 1`] = `
 <DocumentFragment>
   <button
     aria-label="More Button"
-    class="sc-ixGGxD sc-khLCKb jaxoaH hXPODb aje-btn aje-btn--icon aje-btn--border is-medium"
+    class="sc-jBIHhB bONWuY aje-btn sc-cMqPwU gSYJMO aje-icon-btn aje-btn--border is-medium"
+    data-icon-button="true"
+    tabindex="0"
     type="button"
   >
     <i
       aria-hidden="true"
-      class="sc-kLhKbu gELXHy aje-icon material-icons is-medium"
+      class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
     >
       more_vert
     </i>

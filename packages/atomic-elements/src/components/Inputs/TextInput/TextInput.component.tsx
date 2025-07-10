@@ -1,11 +1,10 @@
 import React from "react";
 import { AriaTextFieldProps } from "@react-aria/textfield";
 import classNames from "classnames";
-import { useVariantClass } from "../../../hooks/variants";
 import { AriaProps, FieldInputProps, HasVariant } from "../../../types";
 import { StyledTextField } from "../Inputs.styles";
 import { FieldInput } from "../../Fields";
-import FloatingFieldInputWrapper from "../../Internal/FloatingFieldInputWrapper";
+import { FloatingFieldInputWrapper } from "../../Internal/FloatingFieldInputWrapper";
 
 type Variants = "default" | "floating";
 
@@ -30,13 +29,13 @@ export const TextInput = React.forwardRef(function TextInput(
     ...rest
   } = props;
 
-  const variantClassName = useVariantClass("aje-input", variant);
-
   return (
     <StyledTextField
       type={type}
       size={size}
-      className={classNames(variantClassName, className)}
+      className={classNames(className, {
+        [`aje-input--${variant}`]: variant,
+      })}
       data-float={(Boolean(props.value) && variant === "floating") || undefined}
       {...rest}
     >

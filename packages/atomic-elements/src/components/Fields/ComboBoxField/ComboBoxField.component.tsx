@@ -1,5 +1,5 @@
 import React, { forwardRef, useRef } from "react";
-import { useContextPropsV2 } from "@hooks/useContextProps";
+import { useContextProps } from "@hooks/useContextProps";
 import { PressResponder } from "@react-aria/interactions";
 import { CollectionBuilder } from "@react-aria/collections";
 import { useComboBoxState } from "react-stately";
@@ -9,7 +9,7 @@ import { Provider } from "@components/Internal/Provider";
 import { useFilter } from "@react-aria/i18n";
 
 import { OverlayTriggerStateContext } from "@components/Overlays/OverlayTrigger/context";
-import { PopoverContext } from "@components/Overlays/Popover/context";
+import { PopoverContext } from "@components/Overlays/Popover/Popover.context";
 import {
   ListBoxContext,
   ListStateContext,
@@ -33,10 +33,12 @@ import {
 import { ComboInputContext } from "../ComboInput";
 import { ComboBoxFieldWrapper } from "./ComboBoxField.styles";
 
+/** Provides an implementation for an accessible ComboBox
+ * with an associated label, message, and error */
 export const ComboBoxField = forwardRef(function ComboBoxField<
-  T extends object,
+  T extends object
 >(props: ComboBoxFieldProps<T>, ref: React.Ref<HTMLInputElement>) {
-  [props, ref] = useContextPropsV2(ComboBoxFieldContext, props, ref);
+  [props, ref] = useContextProps(ComboBoxFieldContext, props, ref);
 
   return (
     <CollectionBuilder content={props.children}>

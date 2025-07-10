@@ -23,5 +23,5 @@ export interface ComboBoxFieldProps<T>
 
 export interface ComboBoxFieldInnerProps<T> extends ComboBoxFieldProps<T> {
   collection: BaseCollection<T>;
-  comboBoxRef: React.RefObject<HTMLInputElement>;
+  comboBoxRef: React.RefObject<HTMLInputElement | null>;
 }

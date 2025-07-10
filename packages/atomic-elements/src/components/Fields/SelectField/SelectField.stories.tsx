@@ -12,8 +12,9 @@ import { ListBox } from "@components/Dropdowns/ListBox";
 import { FieldErrorMessage } from "../Field/FieldError";
 import { FieldMessage } from "../Field/FieldMessage";
 import { Button } from "@components/Buttons/Button";
-import { SelectField as SelectField } from ".";
 import { Item, Section } from "@components/Collection";
+import { MaterialIcon } from "@components/Icons/MaterialIcon";
+import { SelectField as SelectField } from ".";
 
 export default {
   title: "Fields/SelectField",
@@ -76,9 +77,10 @@ export const Primary: Story = {
     children: [
       <FieldLabel key="label">Select an item</FieldLabel>,
       <FieldMessage key="message">Choose an item from the list</FieldMessage>,
-      <SelectField.Button key="button">
+      <Button key="button" variant="dropdown">
         <SelectField.Value placeholder="Select an option" />
-      </SelectField.Button>,
+        <MaterialIcon icon="arrow_drop_down" style={{ marginLeft: "auto" }} />
+      </Button>,
       <Popover key="popover">
         <ListBox>
           <Item id="1">Item 1</Item>
@@ -95,9 +97,13 @@ export const WithSections: Story = {
   args: {
     ...Primary.args,
     children: [
-      <SelectField.Button key="button">
+      <FieldLabel key="label">Select an item</FieldLabel>,
+
+      <FieldMessage key="message">Choose an item from the list</FieldMessage>,
+      <Button key="button" variant="dropdown">
         <SelectField.Value placeholder="Select an option" />
-      </SelectField.Button>,
+        <MaterialIcon icon="arrow_drop_down" style={{ marginLeft: "auto" }} />
+      </Button>,
       <Popover key="popover">
         <ListBox>
           <Section title="Section 1">
@@ -109,24 +115,6 @@ export const WithSections: Story = {
             <Item id="3">Item 3</Item>
             <Item id="4">Item 4</Item>
           </Section>
-        </ListBox>
-      </Popover>,
-    ],
-  },
-};
-
-export const WithCustomTrigger: Story = {
-  args: {
-    ...Primary.args,
-    children: [
-      <Button key="button">
-        <SelectField.Value placeholder="Select an option" />
-      </Button>,
-      <Popover key="popover">
-        <ListBox>
-          <Item id="1">Item 1</Item>
-          <Item id="2">Item 2</Item>
-          <Item id="3">Item 3</Item>
         </ListBox>
       </Popover>,
     ],

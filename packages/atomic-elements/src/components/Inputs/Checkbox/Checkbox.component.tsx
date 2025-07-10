@@ -1,65 +1,102 @@
 import React from "react";
-import cn from "classnames";
 import { useToggleState } from "react-stately";
 import { AriaCheckboxProps, useCheckbox } from "@react-aria/checkbox";
 import { useLocale } from "@react-aria/i18n";
-import { useForwardedRef } from "../../../hooks/useForwardedRef";
-import { AriaProps, FieldInputProps } from "../../../types";
-import { ChooseInput, ChooseLabel } from "../Inputs.styles";
-import { CheckboxWrapper } from "./Checkbox.styles";
+import {
+  AriaProps,
+  FieldStatusProps,
+  HelpTextProps,
+  RenderBaseProps,
+} from "../../../types";
+import { HiddenInput } from "../Inputs.styles";
+import { CheckBoxLabel, CheckboxWrapper } from "./Checkbox.styles";
 import { ErrorMessage, Message } from "../../Fields";
+import { useContextProps } from "@hooks/useContextProps";
+import { CheckBoxContext } from "./Checkbox.context";
+import { SlotProps } from "@hooks/useSlottedContext";
+import { useRenderProps } from "@hooks";
+import { RequiredMarker } from "@components/Internal/RequiredMarker";
+
+interface CheckBoxRenderProps {
+  isSelected: boolean;
+  isIndeterminate: boolean;
+  isInvalid: boolean;
+  isDisabled: boolean;
+  isReadOnly: boolean;
+  isRequired: boolean;
+}
 
 export interface CheckBoxProps
-  extends AriaProps<AriaCheckboxProps>,
-    Omit<FieldInputProps, "label"> {}
+  extends Omit<AriaProps<AriaCheckboxProps>, "children">,
+    Omit<HelpTextProps, "label">,
+    FieldStatusProps,
+    RenderBaseProps<CheckBoxRenderProps>,
+    SlotProps {
+  name?: string;
+}
 
 /** Checkbox Component. Accepts a `ref` */
 export const CheckBox = React.forwardRef<HTMLInputElement, CheckBoxProps>(
   (props, ref) => {
+    [props, ref] = useContextProps(CheckBoxContext, props, ref);
+
     const {
-      children,
       error = "error",
       message,
-      className,
-      isRequired,
-      isInvalid,
-      isDisabled,
-      isReadOnly,
-      size = "medium",
+      isRequired = false,
+      isInvalid = false,
       isIndeterminate = false,
+      isReadOnly = false,
+      isDisabled = false,
+      name,
     } = props;
-    const internalRef = useForwardedRef(ref);
+
     const state = useToggleState(props);
     const { direction } = useLocale();
-    const { inputProps, labelProps } = useCheckbox(props, state, internalRef);
+    const { inputProps, labelProps } = useCheckbox(
+      { ...props, children: true },
+      state,
+      ref
+    );
 
-    console.log(props);
+    const renderProps = useRenderProps({
+      componentClassName: "aje-checkbox",
+      values: {
+        isSelected: state.isSelected,
+        isIndeterminate,
+        isInvalid,
+        isDisabled,
+        isReadOnly,
+        isRequired,
+      },
+      selectors: {
+        "data-selected": state.isSelected,
+        "data-indeterminate": isIndeterminate,
+        "data-invalid": isInvalid,
+        "data-disabled": isDisabled,
+        "data-readonly": isReadOnly,
+        "data-required": isRequired,
+      },
+      ...props,
+    });
+
+    const ariaChecked = isIndeterminate ? "mixed" : undefined;
 
     return (
-      <CheckboxWrapper
-        className={cn("aje-checkbox", className)}
-        size={size}
-        isDisabled={isDisabled}
-        isInvalid={isInvalid}
-        isReadOnly={isReadOnly}
-        isRequired={isRequired}
-        $rtl={direction === "rtl"}
-        {...labelProps}
-      >
-        <ChooseInput
+      <CheckboxWrapper $rtl={direction === "rtl"} {...renderProps}>
+        <HiddenInput
           {...inputProps}
-          ref={internalRef}
-          data-indeterminate={isIndeterminate || null}
+          ref={ref}
+          aria-checked={ariaChecked}
+          name={name}
         />
-        <ChooseLabel className="aje-checkbox__label" $rtl={direction === "rtl"}>
-          {children}
-          {isRequired && <span aria-hidden="true"> *</span>}
+        <CheckBoxLabel {...labelProps} $rtl={direction === "rtl"}>
+          {renderProps.children}
+          {isRequired && <RequiredMarker />}
           {message && <Message>{message}</Message>}
           {isInvalid && <ErrorMessage isInvalid>{error}</ErrorMessage>}
-        </ChooseLabel>
+        </CheckBoxLabel>
       </CheckboxWrapper>
     );
   }
 );
-
-export default CheckBox;

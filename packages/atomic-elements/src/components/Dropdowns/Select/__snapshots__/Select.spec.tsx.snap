@@ -3,20 +3,20 @@
 exports[`matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="aje-input__select is-medium"
+    class="aje-input__select"
   >
     <label
-      class="sc-egkSDF eRgKMR"
+      class="sc-dVBluf eSKkgA"
       for="select-:r0:-select"
     >
       Label
     </label>
     <div
-      class="sc-blHHSb ioSARh aje-input__select"
+      class="sc-FEMpB cGqbuM"
     >
       <select
         aria-describedby="select-:r0:-message"
-        class="sc-gtLWhw cqqsDw"
+        class="sc-gjcoXW dGavUF"
         id="select-:r0:-select"
       >
         <option

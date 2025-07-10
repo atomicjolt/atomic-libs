@@ -1,0 +1,142 @@
+---
+sidebar_position: 4
+---
+
+# Migrating
+
+## Migrating from v2 to v3
+
+### App Setup Changes
+
+In v3, the `ElementsProvider` component is now required to be included at the root of your application. This is necessary to provide the theme to all components in the tree.
+
+```tsx
+// import { CssVariables } from "@atomicjolt/atomic-elements"; // Remove this import
+import { ElementsProvider } from "@atomicjolt/atomic-elements";
+
+const App = () => (
+  <ElementsProvider>
+    {/* <CssVariables /> Remove this component */}
+    <YourApp />
+  </ElementsProvider>
+);
+```
+
+
+
+If you were using `CssGlobalDefaults` before, you can add the `applyGlobalStyles` prop to `ElementsProvider` to apply the global styles.
+
+
+### Collection Components
+
+Collection Components have migrated to a new API internally. Most things will continue to work,
+but all collection item `key` props will need to be replaced with `id` props.
+
+```tsx
+// Before
+<CustomSelect selectedKey="value1">
+    <Item key="value1">Value 1</Item>
+    <Item key="value2">Value 2</Item>
+</CustomSelect>
+
+// After
+// note that selectedKey is the same
+<CustomSelect selectedKey="value1">
+    <Item id="value1">Value 1</Item>
+    <Item id="value2">Value 2</Item>
+</CustomSelect>
+```
+
+### Flex Component
+
+The Flex component has recieved an updated set of props to match the other new Layout components.
+
+```tsx
+// Before
+<Flex
+    gap={20}
+    alignItems="center"
+    justifyContent="space-between"
+>
+    <Button>Button 1</Button>
+    <Button>Button 2</Button>
+</Flex>
+
+// After
+<Flex
+    $gap="20px"
+    $align="center"
+    $justfiy="space-between"
+>
+    <Button>Button 1</Button>
+    <Button>Button 2</Button>
+</Flex>
+```
+
+Reference  [Storybook](https://atomicjolt.github.io/atomic-libs/storybook/?path=/docs/layouts-flex--overview) for the full set of props
+
+### Calendar Component
+
+The Calendar component now exposes a composition API for more flexibility.
+
+```tsx
+<Calendar>
+    <Flex
+        $gap={20}
+        $align="center"
+        $justfiy="space-between"
+      >
+        <IconButton slot="previous-month" icon="chevron_left" variant="ghost" />
+        <Calendar.Title />
+        <IconButton slot="next-month" icon="chevron_right" variant="ghost" />
+    </Flex>
+    <Calendar.Grid>
+    {(date) => <Calendar.Cell date={date} />}
+    </Calendar.Grid>
+</Calendar>
+```
+
+### Table
+
+Table No longer supports the `paginationDescriptor` prop. If you want to add pagination to the bottom of a table, you can use the
+`Table.Bottom` and `Pagination` components.
+
+```tsx
+<Table hasBottom>
+    <Table.Header>
+        <Table.Column> Name </Table.Column>
+        <Table.Column> Age </Table.Column>
+    </Table.Header>
+    <Table.Body>
+        <Table.Row>
+            <Table.Cell> John Doe </Table.Cell>
+            <Table.Cell> 25 </Table.Cell>
+        </Table.Row>
+    </Table.Body>
+</Table>
+<Table.Bottom>
+    <Pagination>
+        <Flex
+            alignItems="center"
+            gap={8}
+        >
+            <Pagination.FirstPage />
+            <Pagination.PrevPage />
+            <Pagination.CurrentPage />
+            <Pagination.NextPage />
+            <Pagination.LastPage />
+        </Flex>
+    </Pagination>
+</Table.Body>
+```
+
+
+### Removed
+
+| Component | Replacement |
+| --- | --- |
+| `CssVariables` | Wrap your app in the `ElementsProvider` component |
+| `CssGlobalDefaults` | add the `applyGlobalStyles` prop to `ElementsProvider` |
+| `LoadFonts` | Load the fonts directly |
+| `SensibleDefaults` | No longer needed |
+| `PageSizeSelect` | Use `Pagination.PageSize` |

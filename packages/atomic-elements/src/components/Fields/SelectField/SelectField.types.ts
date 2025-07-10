@@ -12,7 +12,7 @@ export interface SelectFieldProps<T>
 export interface SelectFieldInnerProps<T extends object>
   extends SelectFieldProps<T> {
   collection: BaseCollection<T>;
-  selectRef: React.RefObject<HTMLButtonElement>;
+  selectRef: React.RefObject<HTMLButtonElement | null>;
 }
 
 export interface SelectValueProps {

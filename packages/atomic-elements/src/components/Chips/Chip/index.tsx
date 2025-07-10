@@ -1,2 +1,2 @@
-export { Chip, ChipInternal } from "./Chip.component";
-export type { ChipProps } from "./Chip.component";
+export { Chip, ChipLeaf } from "./Chip.component";
+export type { ChipProps } from "./Chip.types";

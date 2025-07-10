@@ -1,0 +1,14 @@
+# `useRenderCount`
+
+Returns the number of times the component has been rendered.
+
+### Example
+
+```jsx
+import { useRenderCount } from '@atomicjolt/hooks';
+
+function MyComponent() {
+  const renderCount = useRenderCount();
+  return <div>Rendered {renderCount} times</div>;
+}
+```

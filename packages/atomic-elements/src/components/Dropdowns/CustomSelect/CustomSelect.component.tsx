@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import { forwardRef, type JSX } from "react";
 import { SelectProps } from "react-stately";
 import {
   AriaProps,
@@ -13,6 +13,8 @@ import { ListBox } from "../ListBox";
 import { SelectField } from "@components/Fields/SelectField";
 import { FloatingFieldInputWrapper } from "@components/Internal/FloatingFieldInputWrapper";
 import { StyledSelectField } from "./CustomSelect.styles";
+import { Button } from "@components/Buttons/Button";
+import { MaterialIcon } from "@components/Icons/MaterialIcon";
 
 export type CustomSelectVariants = "default" | "floating" | "ghost";
 
@@ -21,6 +23,11 @@ export interface CustomSelectProps<T extends object>
     FieldInputProps,
     HasVariant<CustomSelectVariants>,
     DropdownProps {}
+
+const buttonVariantMap: Record<string, string> = {
+  default: "dropdown",
+  ghost: "dropdown-ghost",
+};
 
 /** A custom version of the builtin `select` component to
  * allow for consistent styling & an extended feature set */
@@ -49,6 +56,8 @@ export const CustomSelect = forwardRef(function CustomSelect<T extends object>(
     },
   });
 
+  const buttonVariant = buttonVariantMap[variant] ?? "dropdown";
+
   return (
     <StyledSelectField {...props} {...renderProps} ref={ref}>
       <FloatingFieldInputWrapper
@@ -57,11 +66,12 @@ export const CustomSelect = forwardRef(function CustomSelect<T extends object>(
         message={message}
         error={error}
       >
-        <SelectField.Button>
+        <Button variant={buttonVariant}>
           <SelectField.Value
             placeholder={variant === "floating" ? null : placeholder}
           />
-        </SelectField.Button>
+          <MaterialIcon icon="arrow_drop_down" style={{ marginLeft: "auto" }} />
+        </Button>
       </FloatingFieldInputWrapper>
 
       <Popover maxHeight={maxHeight} placement={dropdownPlacement}>

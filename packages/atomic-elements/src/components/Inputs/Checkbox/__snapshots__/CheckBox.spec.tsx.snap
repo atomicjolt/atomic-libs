@@ -1,0 +1,18 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CheckBox > Snapshots > should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-hORkcV kCvEOs aje-checkbox"
+  >
+    <input
+      class="sc-fuExOL gCzqgp"
+      tabindex="0"
+      type="checkbox"
+    />
+    <span
+      class="sc-gjXmFk dVVlKg"
+    />
+  </div>
+</DocumentFragment>
+`;

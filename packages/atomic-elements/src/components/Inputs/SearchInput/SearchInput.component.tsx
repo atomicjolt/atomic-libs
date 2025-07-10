@@ -66,11 +66,11 @@ export const SearchInput = React.forwardRef(function SearchInput(
     <StyledField {...renderProps}>
       {label && <Label {...labelProps}>{label}</Label>}
       {message && <Message {...descriptionProps}>{message}</Message>}
-      <ComboInput padding={"left"}>
+      <ComboInput padding="both">
         <Input {...inputProps} size={undefined} />
         <IconButton
           icon="search"
-          variant="ghost"
+          variant="content"
           onPress={() => onSubmit && onSubmit(searchState.value)}
           aria-label={t("search")}
         />

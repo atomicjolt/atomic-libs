@@ -1,79 +1,52 @@
 import { forwardRef } from "react";
-import { mergeProps } from "@react-aria/utils";
 import { HasIcon } from "../../../types";
-import { SpinnerLoader } from "../../Loaders/SpinnerLoader";
 import { MaterialIcon } from "../../Icons/MaterialIcon";
 import { StyledIconButton } from "./IconButton.styles";
-import { useForwardedRef } from "../../../hooks/useForwardedRef";
-import { useRenderProps } from "@hooks/useRenderProps";
 import { ButtonProps } from "../Button";
-import { useFocusRing } from "../../../hooks/useFocusRing";
-import { useButtonLink } from "@hooks/useButtonLink";
-import { useContextPropsV2 } from "@hooks/useContextProps";
+import { useContextProps } from "@hooks/useContextProps";
 import { ButtonContext } from "../Button/Button.context";
+import classNames from "classnames";
 
-export type IconButtonProps = Omit<ButtonProps, "children"> & HasIcon;
+export interface IconButtonProps
+  extends Omit<ButtonProps, "children">,
+    HasIcon {}
 
-/** Similar to the Button component, but is intended to display just an icon instead of text.
- * Because of this, you should provide an `aria-label` for accessiblity */
+/** A button designed for displaying a single icon. The button has no text content,
+ * so you should provide an aria-label for accessiblity
+ *
+ * @example <IconButton icon="add" aria-label="Add" onPress={() => alert("Hello, world!")} />
+ * */
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
-  (props, ref) => {
-    [props, ref] = useContextPropsV2(ButtonContext, props as any, ref);
+  function IconButton(props, forwardedRef) {
+    [props, forwardedRef] = useContextProps(
+      ButtonContext as any,
+      props,
+      forwardedRef
+    );
 
     const {
       icon,
-      isLoading,
-      loadingComplete,
-      loadingLabel,
-      variant = "border",
-      iconVariant = "default",
-      className,
+      iconVariant,
       size = "medium",
-      as = props.href ? "a" : "button",
+      variant = "border",
+      as,
+      className,
+      ...rest
     } = props;
 
-    const innerRef = useForwardedRef<HTMLButtonElement>(ref);
-    const { buttonProps, isPressed } = useButtonLink(
-      {
-        ...props,
-        elementType: as,
-        "aria-label": isLoading ? loadingLabel : props["aria-label"],
-      },
-      innerRef
-    );
-
-    const { focusProps } = useFocusRing();
-
-    const renderProps = useRenderProps({
-      componentClassName: "aje-btn",
-      className: ["aje-btn--icon", className],
-      size,
-      variant,
-      selectors: {
-        "data-loading": isLoading,
-        "data-pressed": isPressed,
-      },
-    });
-
     return (
+      // @ts-expect-error - forwardedAs isn't being typed correctly
       <StyledIconButton
-        type="button"
-        as={as}
-        ref={innerRef}
-        {...mergeProps(buttonProps, focusProps, renderProps)}
+        {...rest}
+        size={size}
+        variant={variant}
+        ref={forwardedRef}
+        forwardedAs={as}
+        data-icon-button
+        className={classNames("aje-icon-btn", className)}
       >
-        {isLoading && (
-          <SpinnerLoader
-            isLoading={!loadingComplete}
-            placement="absolute center"
-          />
-        )}
         <MaterialIcon icon={icon} variant={iconVariant} size={size} />
       </StyledIconButton>
     );
   }
 );
-
-IconButton.displayName = "IconButton";
-
-export default IconButton;

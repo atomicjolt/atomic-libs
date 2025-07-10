@@ -12,6 +12,4 @@ export type AriaProps<P> = Omit<
   | "pattern"
 >;
 
-export type Key = string | number;
-
-export type { SortDescriptor } from "react-stately";
+export type { Key } from "@react-types/shared";

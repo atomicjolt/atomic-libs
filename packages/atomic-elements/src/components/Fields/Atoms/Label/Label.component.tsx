@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import mixins from "../../../../styles/mixins";
 import { ElementWrapperProps } from "../../../../types";
-import { useContextPropsV2 } from "@hooks/useContextProps";
+import { useContextProps } from "@hooks/useContextProps";
 import { LabelContext } from "./Label.context";
 import { useRenderProps } from "@hooks";
 
@@ -23,12 +23,12 @@ export interface LabelProps
   $paddingBottom?: string;
 }
 
-/** A wrapper around an `<label />`  component with styles. */
+/** A label for a field */
 export const Label = React.forwardRef(function Label(
   props: LabelProps,
   ref: React.Ref<HTMLLabelElement>
 ) {
-  [props, ref] = useContextPropsV2(LabelContext, props, ref);
+  [props, ref] = useContextProps(LabelContext, props, ref);
 
   const { className, size, as = "label", ...rest } = props;
 

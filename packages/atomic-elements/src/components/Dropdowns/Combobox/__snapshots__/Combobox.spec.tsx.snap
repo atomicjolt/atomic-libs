@@ -2,36 +2,40 @@
 
 exports[`matches snapshots > matches default variant 1`] = `
 <DocumentFragment>
+  <template
+    data-react-aria-hidden="true"
+  />
   <div
-    class="sc-geXuza fHtZYP aje-combobox sc-hJRrWL ewhKwE is-medium"
+    class="sc-hUAZgl itcLkM aje-combobox sc-flQbIK egMzxw is-medium"
   >
     <label
-      class="sc-dpBQxM cdrQXv"
-      for="react-aria-:r2:"
-      id="react-aria-:r3:"
+      class="sc-jHswkR dFmjfU"
+      for="react-aria-:r3:"
+      id="react-aria-:r4:"
     >
       Text Label
     </label>
     <p
-      class="sc-jwIPbr gYGSDV is-auto"
-      id="react-aria-:r5:"
+      class="sc-cSaEAk bZqgLB is-auto"
+      id="react-aria-:r6:"
     >
       message
     </p>
     <div
-      class="sc-cEzcPc jcKbmV aje-combo-input padding-left padding-right"
+      class="sc-kXOizl cQNTLc aje-combo-input"
     >
       <input
         aria-autocomplete="list"
-        aria-describedby="react-aria-:r5:"
+        aria-describedby="react-aria-:r6:"
         aria-expanded="false"
-        aria-labelledby="react-aria-:r3:"
+        aria-labelledby="react-aria-:r4:"
         autocomplete="off"
         autocorrect="off"
-        class="sc-jtQUzJ xwtGQ is-full"
-        id="react-aria-:r2:"
+        class="sc-dkBYrC buFMAF is-full"
+        id="react-aria-:r3:"
         role="combobox"
         spellcheck="false"
+        tabindex="0"
         type="text"
         value=""
       />
@@ -39,15 +43,16 @@ exports[`matches snapshots > matches default variant 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-label="Show suggestions"
-        aria-labelledby="react-aria-:r0: react-aria-:r3:"
-        class="sc-ixGGxD sc-khLCKb jaxoaH hXPODb aje-btn aje-btn--icon aje-btn--content is-auto"
+        aria-labelledby="react-aria-:r0: react-aria-:r4:"
+        class="sc-jBIHhB bONWuY aje-btn sc-cMqPwU gSYJMO aje-icon-btn aje-btn--content is-auto"
+        data-icon-button="true"
         id="react-aria-:r0:"
         tabindex="-1"
         type="button"
       >
         <i
           aria-hidden="true"
-          class="sc-kLhKbu gELXHy aje-icon material-icons is-auto"
+          class="sc-FEMpB jyuubH aje-icon material-icons is-auto"
         >
           search
         </i>
@@ -59,26 +64,30 @@ exports[`matches snapshots > matches default variant 1`] = `
 
 exports[`matches snapshots > matches floating variant 1`] = `
 <DocumentFragment>
+  <template
+    data-react-aria-hidden="true"
+  />
   <div
-    class="sc-geXuza fHtZYP aje-combobox sc-hJRrWL ewhKwE aje-combobox--floating is-medium"
+    class="sc-hUAZgl itcLkM aje-combobox sc-flQbIK egMzxw aje-combobox--floating is-medium"
   >
     <div
-      class="sc-eUlrpB imBDzj"
+      class="sc-gpHbIA eEUGqc"
     >
       <div
-        class="sc-cEzcPc jcKbmV aje-combo-input padding-left padding-right"
+        class="sc-kXOizl cQNTLc aje-combo-input"
       >
         <input
           aria-autocomplete="list"
-          aria-describedby="react-aria-:re:"
+          aria-describedby="react-aria-:rg:"
           aria-expanded="false"
-          aria-labelledby="react-aria-:rc:"
+          aria-labelledby="react-aria-:re:"
           autocomplete="off"
           autocorrect="off"
-          class="sc-jtQUzJ xwtGQ is-full"
-          id="react-aria-:rb:"
+          class="sc-dkBYrC buFMAF is-full"
+          id="react-aria-:rd:"
           role="combobox"
           spellcheck="false"
+          tabindex="0"
           type="text"
           value=""
         />
@@ -86,31 +95,32 @@ exports[`matches snapshots > matches floating variant 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-label="Show suggestions"
-          aria-labelledby="react-aria-:r9: react-aria-:rc:"
-          class="sc-ixGGxD sc-khLCKb jaxoaH hXPODb aje-btn aje-btn--icon aje-btn--content is-auto"
-          id="react-aria-:r9:"
+          aria-labelledby="react-aria-:ra: react-aria-:re:"
+          class="sc-jBIHhB bONWuY aje-btn sc-cMqPwU gSYJMO aje-icon-btn aje-btn--content is-auto"
+          data-icon-button="true"
+          id="react-aria-:ra:"
           tabindex="-1"
           type="button"
         >
           <i
             aria-hidden="true"
-            class="sc-kLhKbu gELXHy aje-icon material-icons is-auto"
+            class="sc-FEMpB jyuubH aje-icon material-icons is-auto"
           >
             search
           </i>
         </button>
       </div>
       <label
-        class="sc-dpBQxM cdrQXv"
-        for="react-aria-:rb:"
-        id="react-aria-:rc:"
+        class="sc-jHswkR dFmjfU"
+        for="react-aria-:rd:"
+        id="react-aria-:re:"
       >
         Text Label
       </label>
     </div>
     <p
-      class="sc-jwIPbr gYGSDV is-auto"
-      id="react-aria-:re:"
+      class="sc-cSaEAk bZqgLB is-auto"
+      id="react-aria-:rg:"
     >
       message
     </p>

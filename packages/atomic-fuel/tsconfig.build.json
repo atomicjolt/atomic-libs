@@ -1,4 +1,5 @@
 {
+  "extends": "../../tsconfig.json",
   "include": ["src/**/*"],
   "exclude": [
     "src/**/*.stories.ts",
@@ -11,23 +12,9 @@
     "src/**/*.spec.jsx"
   ],
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "strict": true,
-    "outDir": "libs",
-    "module": "commonjs",
-    "target": "es5",
-    "declaration": true,
     "lib": ["es6", "dom"],
-    "sourceMap": true,
     "allowJs": true,
-    "jsx": "react",
-    "moduleResolution": "node",
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "isolatedModules": true
+    "outDir": "./libs",
+    "declaration": true
   }
 }

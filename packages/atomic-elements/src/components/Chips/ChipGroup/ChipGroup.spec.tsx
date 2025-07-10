@@ -19,18 +19,19 @@ describe("ChipGroup", () => {
         <Chip>Item</Chip>
       </ChipGroup>
     );
-    expect(screen.getByText("My Chip Group")).not.toBeNull();
+
+    expect(screen.getByLabelText("My Chip Group")).not.toBeNull();
   });
 
   test("renders chips", () => {
     const chips = [
-      { key: "1", rendered: "Chip 1" },
-      { key: "2", rendered: "Chip 2" },
-      { key: "3", rendered: "Chip 3" },
+      { id: "1", rendered: "Chip 1" },
+      { id: "2", rendered: "Chip 2" },
+      { id: "3", rendered: "Chip 3" },
     ];
     render(
       <ChipGroup items={chips} label="Label">
-        {({ key, rendered }) => <Chip key={key}>{rendered}</Chip>}
+        {({ rendered }) => <Chip>{rendered}</Chip>}
       </ChipGroup>
     );
     chips.forEach((chip) => {

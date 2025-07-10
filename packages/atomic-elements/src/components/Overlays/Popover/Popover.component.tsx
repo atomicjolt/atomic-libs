@@ -10,6 +10,8 @@ import {
   OverlayTriggerState,
   useOverlayTriggerState,
 } from "react-stately";
+import { useIsHidden } from "@react-aria/collections";
+
 import { mergeProps } from "@react-aria/utils";
 
 import { RenderBaseProps, HasVariant } from "../../../types";
@@ -18,10 +20,9 @@ import { useContextProps } from "@hooks/useContextProps";
 import { useResizeObserver } from "@hooks/useResizeObserver";
 import { useForwardedRef } from "@hooks/useForwardedRef";
 import { PopoverUnderlay, PopoverContent } from "./Popover.styles";
-import { PopoverContext } from "./context";
+import { PopoverContext } from "./Popover.context";
 import { OverlayTriggerStateContext } from "../OverlayTrigger/context";
 import { invertPlacementAxis } from "@utils/placement";
-import { useIsHidden } from "@react-aria/collections";
 
 export interface PopoverRenderProps {
   /** Width in pixels of the triggering element that opened this popover  */
@@ -34,15 +35,16 @@ export interface PopoverProps
     RenderBaseProps<PopoverRenderProps>,
     HasVariant<"listbox" | "menu" | "datepicker"> {
   /** A ref to the element that triggers the popover to appear. Not necessary when used with trigger wrapper */
-  triggerRef?: React.RefObject<HTMLElement>;
+  triggerRef?: React.RefObject<HTMLElement | null>;
   id?: string;
 }
 
 /** A popover is an overlay element positioned relative to a target. */
 export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(
   (props: PopoverProps, ref) => {
-    const contextProps = useContextProps(PopoverContext, props);
-    const { triggerRef, ...rest } = contextProps;
+    [props, ref] = useContextProps(PopoverContext, props, ref);
+
+    const { triggerRef, ...rest } = props;
 
     const contextState = useContext(OverlayTriggerStateContext);
     const localState = useOverlayTriggerState(props);
@@ -73,7 +75,7 @@ export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(
 
 interface PopoverInternalProps extends PopoverProps {
   popoverRef: React.ForwardedRef<HTMLDivElement>;
-  triggerRef: React.RefObject<HTMLElement>;
+  triggerRef: React.RefObject<HTMLElement | null>;
   state: OverlayTriggerState;
 }
 
@@ -123,7 +125,7 @@ const PopoverInternal = (props: PopoverInternalProps) => {
     ...props,
   });
 
-  const transformOrigin = invertPlacementAxis(placementAxis);
+  const transformOrigin = invertPlacementAxis(placementAxis ?? "bottom");
 
   return (
     <Overlay>

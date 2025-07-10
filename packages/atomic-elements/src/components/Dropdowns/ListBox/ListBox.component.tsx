@@ -1,4 +1,4 @@
-import React, { forwardRef, RefAttributes, useContext } from "react";
+import React, { forwardRef, RefAttributes, useContext, type JSX } from "react";
 import { useListState, Node, ListState, SectionProps } from "react-stately";
 import { useListBox, useListBoxSection, useOption } from "@react-aria/listbox";
 import { mergeProps } from "@react-aria/utils";
@@ -14,10 +14,10 @@ import { useFocusRing } from "@hooks/useFocusRing";
 import { useForwardedRef } from "@hooks/useForwardedRef";
 import { useCollectionRenderer } from "@hooks/useCollectionRenderer";
 import { Label } from "@components/Fields";
-import { Divider } from "@components/Layout/Divider";
+import { Divider } from "@components/Content/Divider";
 import { Provider } from "@components/Internal/Provider";
 import { ItemContext, ItemProps, SectionContext } from "@components/Collection";
-import { useContextPropsV2 } from "@hooks/useContextProps";
+import { useContextProps } from "@hooks/useContextProps";
 
 import { List, ListItem, SectionTitle, SubList } from "./ListBox.styles";
 import { ListBoxProps } from "./ListBox.types";
@@ -35,7 +35,7 @@ export const ListBox = forwardRef(function ListBox<T extends object>(
   ref: React.Ref<HTMLUListElement>
 ) {
   const state = useContext(ListStateContext);
-  [props, ref] = useContextPropsV2(ListBoxContext, props, ref);
+  [props, ref] = useContextProps(ListBoxContext, props, ref);
 
   // When used within a SelectField or similar component,
   // the state will be provided by the parent component
@@ -64,7 +64,7 @@ ListBox.displayName = "ListBox";
 
 interface ManagedListBoxProps<T extends object> extends ListBoxProps<T> {
   collection: BaseCollection<T>;
-  listBoxRef: React.RefObject<HTMLUListElement>;
+  listBoxRef: React.RefObject<HTMLUListElement | null>;
 }
 
 function ManagedListBox<T extends object>(props: ManagedListBoxProps<T>) {
@@ -75,7 +75,7 @@ function ManagedListBox<T extends object>(props: ManagedListBoxProps<T>) {
 export interface InternalListBoxProps<T>
   extends Omit<ListBoxProps<T>, "children"> {
   state: ListState<T>;
-  listBoxRef: React.RefObject<HTMLUListElement>;
+  listBoxRef: React.RefObject<HTMLUListElement | null>;
 }
 
 export function InternalListBox<T>(props: InternalListBoxProps<T>) {

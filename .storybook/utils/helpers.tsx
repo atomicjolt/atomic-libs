@@ -1,8 +1,10 @@
 import { ArgTypes } from "@storybook/react";
 import { createGlobalStyle } from "styled-components";
 import { PressEvents } from "@react-aria/interactions";
-import { Item } from "@atomicjolt/atomic-elements";
 import { OverlayTriggerProps } from "react-stately";
+import { Item, View } from "../../packages/atomic-elements/src/components";
+import { SpacingSteps } from "../../packages/atomic-elements/src/styles/spacing";
+import { ScaleSteps } from "../../packages/atomic-elements/src/styles/scale";
 
 export const FieldStateControls: ArgTypes = {
   isDisabled: {
@@ -61,17 +63,6 @@ export const InputControls: ArgTypes = {
     control: "text",
     table: {
       category: "Common",
-    },
-  },
-};
-
-export const VariantArgType: ArgTypes = {
-  variant: {
-    control: "select",
-    description:
-      "Visual variant of the component. Defines what preset styles to use for the component.",
-    table: {
-      category: "Presentation",
     },
   },
 };
@@ -298,7 +289,7 @@ export const AriaLabelArgTypes: ArgTypes = {
   },
 };
 
-export const RenderPropsArgTypes: ArgTypes = {
+export const RenderStylePropsArgTypes: ArgTypes = {
   className: {
     control: "text",
     description: "Class name to apply to the component",
@@ -313,6 +304,10 @@ export const RenderPropsArgTypes: ArgTypes = {
       category: "Render Props",
     },
   },
+};
+
+export const RenderPropsArgTypes: ArgTypes = {
+  ...RenderStylePropsArgTypes,
   children: {
     control: false,
     description: "Children to render",
@@ -330,3 +325,452 @@ export const PurpleButtonStyles = createGlobalStyle`
   --btn-hover-text-clr: white;
 }
 `;
+
+export const PaddingArgTypes: ArgTypes = {
+  $p: {
+    control: "select",
+    options: SpacingSteps,
+    description: "Padding",
+    table: {
+      category: "Padding",
+    },
+  },
+  $pt: {
+    control: "select",
+    options: SpacingSteps,
+    description: "Padding Top",
+    table: {
+      category: "Padding",
+    },
+  },
+  $pr: {
+    control: "select",
+    options: SpacingSteps,
+    description: "Padding Right",
+    table: {
+      category: "Padding",
+    },
+  },
+  $pb: {
+    control: "select",
+    options: SpacingSteps,
+    description: "Padding Bottom",
+    table: {
+      category: "Padding",
+    },
+  },
+  $pl: {
+    control: "select",
+    options: SpacingSteps,
+    description: "Padding Left",
+    table: {
+      category: "Padding",
+    },
+  },
+  $px: {
+    control: "select",
+    options: SpacingSteps,
+    description: "Padding Horizontal",
+    table: {
+      category: "Padding",
+    },
+  },
+  $py: {
+    control: "select",
+    options: SpacingSteps,
+    description: "Padding Vertical",
+    table: {
+      category: "Padding",
+    },
+  },
+};
+
+export const MarginArgTypes: ArgTypes = {
+  $m: {
+    control: "select",
+    options: SpacingSteps,
+    description: "Margin",
+    table: {
+      category: "Margin",
+    },
+  },
+  $mt: {
+    control: "select",
+    options: SpacingSteps,
+    description: "Margin Top",
+    table: {
+      category: "Margin",
+    },
+  },
+  $mr: {
+    control: "select",
+    options: SpacingSteps,
+    description: "Margin Right",
+    table: {
+      category: "Margin",
+    },
+  },
+  $mb: {
+    control: "select",
+    options: SpacingSteps,
+    description: "Margin Bottom",
+    table: {
+      category: "Margin",
+    },
+  },
+  $ml: {
+    control: "select",
+    options: SpacingSteps,
+    description: "Margin Left",
+    table: {
+      category: "Margin",
+    },
+  },
+  $mx: {
+    control: "select",
+    options: SpacingSteps,
+    description: "Margin Horizontal",
+    table: {
+      category: "Margin",
+    },
+  },
+  $my: {
+    control: "select",
+    options: SpacingSteps,
+    description: "Margin Vertical",
+    table: {
+      category: "Margin",
+    },
+  },
+};
+
+export const SpacingArgTypes: ArgTypes = {
+  ...PaddingArgTypes,
+  ...MarginArgTypes,
+};
+
+export const WidthArgTypes: ArgTypes = {
+  $width: {
+    control: "text",
+    description: "Width",
+    table: {
+      category: "Dimensions",
+    },
+  },
+  $minWidth: {
+    control: "text",
+    description: "Minimum Width",
+    table: {
+      category: "Dimensions",
+    },
+  },
+  $maxWidth: {
+    control: "text",
+    description: "Maximum Width",
+    table: {
+      category: "Dimensions",
+    },
+  },
+};
+
+export const HeightArgTypes: ArgTypes = {
+  $height: {
+    control: "text",
+    description: "Height",
+    table: {
+      category: "Dimensions",
+    },
+  },
+  $minHeight: {
+    control: "text",
+    description: "Minimum Height",
+    table: {
+      category: "Dimensions",
+    },
+  },
+  $maxHeight: {
+    control: "text",
+    description: "Maximum Height",
+    table: {
+      category: "Dimensions",
+    },
+  },
+};
+
+export const DimensionsArgTypes: ArgTypes = {
+  ...WidthArgTypes,
+  ...HeightArgTypes,
+};
+
+export const PositionArgTypes: ArgTypes = {
+  $position: {
+    control: "select",
+    options: ["static", "relative", "absolute", "fixed", "sticky"],
+    description: "Position",
+    table: {
+      category: "Position",
+    },
+  },
+  $top: {
+    control: "text",
+    description: "Top",
+    table: {
+      category: "Position",
+    },
+  },
+  $right: {
+    control: "text",
+    description: "Right",
+    table: {
+      category: "Position",
+    },
+  },
+  $bottom: {
+    control: "text",
+    description: "Bottom",
+    table: {
+      category: "Position",
+    },
+  },
+  $left: {
+    control: "text",
+    description: "Left",
+    table: {
+      category: "Position",
+    },
+  },
+};
+
+export const OverflowArgTypes: ArgTypes = {
+  $overflow: {
+    control: "select",
+    options: ["visible", "hidden", "scroll", "auto"],
+    description: "Overflow",
+    table: {
+      category: "Overflow",
+    },
+  },
+  $overflowX: {
+    control: "select",
+    options: ["visible", "hidden", "scroll", "auto"],
+    description: "Overflow X",
+    table: {
+      category: "Overflow",
+    },
+  },
+  $overflowY: {
+    control: "select",
+    options: ["visible", "hidden", "scroll", "auto"],
+    description: "Overflow Y",
+    table: {
+      category: "Overflow",
+    },
+  },
+};
+
+export const FlexItemArgTypes: ArgTypes = {
+  $flexGrow: {
+    control: "text",
+    description: "Flex Grow",
+    table: {
+      category: "Flex Item",
+    },
+  },
+  $flexShrink: {
+    control: "text",
+    description: "Flex Shrink",
+    table: {
+      category: "Flex Item",
+    },
+  },
+  $flexBasis: {
+    control: "text",
+    description: "Flex Basis",
+    table: {
+      category: "Flex Item",
+    },
+  },
+  $flexAlgin: {
+    control: "select",
+    options: ["auto", "start", "end", "center", "baseline", "stretch"],
+    description: "Align Self",
+    table: {
+      category: "Flex Item",
+    },
+  },
+};
+
+export const GridItemArgTypes: ArgTypes = {
+  $gridRow: {
+    control: "text",
+    description: "Grid Row",
+    table: {
+      category: "Grid",
+    },
+  },
+  $gridRowStart: {
+    control: "text",
+    description: "Grid Row Start",
+    table: {
+      category: "Grid",
+    },
+  },
+  $gridRowEnd: {
+    control: "text",
+    description: "Grid Row End",
+    table: {
+      category: "Grid",
+    },
+  },
+  $gridColumn: {
+    control: "text",
+    description: "Grid Column",
+    table: {
+      category: "Grid",
+    },
+  },
+  $gridColumnStart: {
+    control: "text",
+    description: "Grid Column Start",
+    table: {
+      category: "Grid",
+    },
+  },
+  $gridColumnEnd: {
+    control: "text",
+    description: "Grid Column End",
+    table: {
+      category: "Grid",
+    },
+  },
+};
+
+export const LayoutArgTypes: ArgTypes = {
+  ...SpacingArgTypes,
+  ...DimensionsArgTypes,
+  ...PositionArgTypes,
+  ...OverflowArgTypes,
+  ...FlexItemArgTypes,
+  ...GridItemArgTypes,
+};
+
+export const TypographyArgTypes: ArgTypes = {
+  $size: {
+    control: "select",
+    options: ScaleSteps,
+    description:
+      "Controls the size of the text. Can either be a scale step or a valid CSS value.",
+  },
+  $align: {
+    control: "select",
+    options: ["left", "center", "right", "justify"],
+  },
+  $letterSpacing: {
+    control: "select",
+    options: ScaleSteps,
+    description:
+      "Controls the space between characters. Can either be a scale step or a valid CSS value. When not set, the value is set by the $size prop.",
+  },
+  $lineHeight: {
+    control: "select",
+    options: ScaleSteps,
+    description:
+      "Controls the space between lines. Can either be a scale step or a valid CSS value. When not set, the value is set by the $size prop.",
+  },
+  $weight: {
+    control: "select",
+    options: ["light", "regular", "medium", "bold"],
+    description: "Controls the weight of the text.",
+  },
+  $truncate: {
+    control: "boolean",
+    description:
+      "Truncates the text with an ellipsis when it overflows its container ",
+  },
+  $wrap: {
+    control: "select",
+    options: ["nowrap", "pretty", "balanced"],
+    description: "Controls the wrapping of the text.",
+  },
+  $decoration: {
+    control: "select",
+    options: ["none", "underline"],
+    description: "Controls the text decoration.",
+  },
+  $transform: {
+    control: "select",
+    options: [
+      "uppercase",
+      "lowercase",
+      "capitalize",
+      "none",
+      "full-width",
+      "full-size-kana",
+      "math-auto",
+    ],
+    description: "Controls the text transformation.",
+  },
+  $clamp: {
+    control: "select",
+    options: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
+    description: "Clamp the text content after this number of lines",
+  },
+};
+
+export const ColorArgTypes: ArgTypes = {
+  $color: {
+    control: "color",
+    description:
+      "Text Color. Can be either a color from the theme or a valid CSS color value.",
+  },
+};
+
+export const FlexArgTypes: ArgTypes = {
+  $display: {
+    control: "select",
+    options: ["flex", "inline-flex", "none"],
+  },
+  $direction: {
+    control: "select",
+    options: ["row", "column", "row-reverse", "column-reverse"],
+  },
+  $wrap: {
+    control: "select",
+    options: ["nowrap", "wrap", "wrap-reverse"],
+  },
+  $justify: {
+    control: "select",
+    options: [
+      "start",
+      "end",
+      "center",
+      "space-between",
+      "space-around",
+      "space-evenly",
+    ],
+  },
+  $align: {
+    control: "select",
+    options: ["stretch", "start", "end", "center", "baseline"],
+  },
+  $gap: {
+    control: "select",
+    options: SpacingSteps,
+  },
+  $gapX: {
+    control: "select",
+    options: SpacingSteps,
+  },
+  $gapY: {
+    control: "select",
+    options: SpacingSteps,
+  },
+};
+
+export const BackgroundArgTypes: ArgTypes = {
+  $bg: {
+    control: "color",
+    description:
+      "Control the CSS background. Can be either a color from the theme or a valid CSS background value.",
+  },
+};

@@ -7,6 +7,7 @@ import { FieldInput } from "../Field/FieldInput";
 import { FieldErrorMessage } from "../Field/FieldError";
 import { Group } from "../../Layout/Group";
 import { FieldStateControls } from "@sb/helpers";
+import { IconButton } from "@components/Buttons/IconButton";
 
 // For some reason, without this line NumberField has the
 // incorrect display name in the storybook docs
@@ -64,9 +65,9 @@ export const Primary: Story = {
       <FieldLabel key="label">Label</FieldLabel>,
       <FieldMessage key="message">Message</FieldMessage>,
       <Group isMerged key="group">
-        <NumberField.DecrementButton icon="remove" />
+        <IconButton slot="decrement" icon="remove" />
         <FieldInput key="input" />
-        <NumberField.IncrementButton icon="add" />
+        <IconButton slot="increment" icon="add" />
       </Group>,
       <FieldErrorMessage key="error">Error Message</FieldErrorMessage>,
     ],

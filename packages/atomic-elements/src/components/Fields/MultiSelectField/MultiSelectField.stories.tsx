@@ -8,6 +8,8 @@ import { Popover } from "@components/Overlays/Popover";
 import { ListBox } from "@components/Dropdowns/ListBox";
 import { FieldErrorMessage } from "../Field/FieldError";
 import { Item } from "@components/Collection";
+import { Button } from "@components/Buttons/Button";
+import { MaterialIcon } from "@components/Icons/MaterialIcon";
 
 export default {
   title: "Fields/MultiSelectField",
@@ -66,9 +68,10 @@ export const Default: Story = {
     children: [
       <FieldLabel key="label">Select an item</FieldLabel>,
       <FieldMessage key="message">Choose an item from the list</FieldMessage>,
-      <MultiSelectField.Button key="button">
+      <Button key="button" variant="dropdown">
         Select Items
-      </MultiSelectField.Button>,
+        <MaterialIcon icon="arrow_drop_down" style={{ marginLeft: "auto" }} />
+      </Button>,
       <Popover key="popover">
         <ListBox>
           <Item id="1">Item 1</Item>

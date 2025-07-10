@@ -1,13 +1,13 @@
 import i18next from "i18next";
-import { InitSettings } from '../../types';
+import { InitSettings } from "../types";
 import { privacyHtml } from "./privacy";
-import { MAIN_CONTENT_ID } from '../libs/constants';
+import { MAIN_CONTENT_ID } from "../libs/constants";
 
 export function showCookieError(settings: InitSettings) {
   const container = document.getElementById(MAIN_CONTENT_ID);
 
   if (!container) {
-    throw i18next.t('Could not find main-content element');
+    throw i18next.t("Could not find main-content element");
   }
 
   container.innerHTML = `

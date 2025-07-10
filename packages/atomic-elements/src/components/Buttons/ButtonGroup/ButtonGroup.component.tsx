@@ -1,60 +1,64 @@
-import React from "react";
-import { HasVariant } from "../../../types";
-import { ButtonVariants } from "../Buttons.types";
 import { Group, GroupProps } from "../../Layout/Group";
+import { ButtonContext } from "../Button/Button.context";
+import { ButtonProps } from "../Button/Button.component";
+import { HasIcon } from "../../../types";
 
-export interface SharedProps extends HasVariant<ButtonVariants> {
-  isDisabled?: boolean;
-}
-
-export interface ButtonGroupChildProps extends SharedProps {
-  buttonVariant?: ButtonVariants;
-}
-
-export type ButtonGroupChild = React.ReactElement<ButtonGroupChildProps>;
+type MinimalGroupProps = Omit<
+  GroupProps,
+  | "onBlur"
+  | "onFocus"
+  | "onMouseEnter"
+  | "onMouseLeave"
+  | "onKeyDown"
+  | "onKeyUp"
+>;
+type MinimalButtonProps = Omit<
+  ButtonProps,
+  "as" | "children" | "className" | "slot" | "style"
+>;
 
 export interface ButtonGroupProps
-  extends SharedProps,
-    Omit<GroupProps, "children"> {
-  children: ButtonGroupChild | ButtonGroupChild[];
-}
-
-/** Wrapper around the  [Group Component](/docs/layouts-group--overview)
- * Used to group several buttons / icon buttons / icon menus together into a visual & logical group.
+  extends MinimalButtonProps,
+    MinimalGroupProps,
+    HasIcon {}
+/** Group a set of buttoons together & provide a common context to all buttons in the group
  *
- * In addition to the normal behavior of the Group component, this component also passes down several
- * of it's props to it's children as defaults.
+ * @example
+ * <ButtonGroup variant="border" isDisabled>
+ *   <Button>Button 1</Button>
+ *   <Button>Button 2</Button>
+ * </ButtonGroup>
  */
 export function ButtonGroup(props: ButtonGroupProps) {
-  const {
-    children,
-    isMerged,
-    className,
-    id,
-    size,
-    gap,
-    direction = "row",
-    ...overrides
-  } = props;
-
-  const mergedPropsChildren = React.Children.map(children, (child) => {
-    return React.cloneElement(child, {
-      ...overrides,
-      buttonVariant: props.variant,
-      ...child.props,
-    });
-  });
+  const { children, isMerged, className, id, ...rest } = props;
+  const { buttonProps, groupProps } = partitionProps(rest);
 
   return (
-    <Group
-      isMerged={isMerged}
-      className={className}
-      id={id}
-      size={size}
-      gap={gap}
-      direction={direction}
-    >
-      {mergedPropsChildren}
-    </Group>
+    <ButtonContext.Provider value={buttonProps}>
+      <Group isMerged={isMerged} className={className} id={id} {...groupProps}>
+        {children}
+      </Group>
+    </ButtonContext.Provider>
   );
+}
+
+function partitionProps(props: Record<string, any>) {
+  const buttonProps: Record<string, any> = {};
+  const groupProps: Record<string, any> = {};
+
+  for (const key in props) {
+    if (!key) continue;
+    if (!(typeof key === "string")) continue;
+
+    if (key.startsWith("$")) {
+      groupProps[key] = props[key];
+    } else {
+      buttonProps[key] = props[key];
+    }
+  }
+
+  return {
+    buttonProps: buttonProps as MinimalButtonProps,
+    groupProps: groupProps as MinimalGroupProps,
+  };
 }

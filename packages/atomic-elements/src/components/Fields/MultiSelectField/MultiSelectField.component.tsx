@@ -1,15 +1,14 @@
-import { forwardRef, RefAttributes, useRef } from "react";
+import { forwardRef, useRef } from "react";
 import { PressResponder } from "@react-aria/interactions";
 
 import { ListBoxContext, ListStateContext } from "../../Dropdowns/ListBox";
 import { OverlayTriggerStateContext } from "@components/Overlays/OverlayTrigger/context";
 import { useRenderProps } from "@hooks/useRenderProps";
-import { useContextPropsV2 } from "@hooks/useContextProps";
+import { useContextProps } from "@hooks/useContextProps";
 import { BaseCollection, CollectionBuilder } from "@react-aria/collections";
 import { Provider } from "@components/Internal/Provider";
-import { PopoverContext } from "@components/Overlays/Popover/context";
-import { ButtonContext } from "@components/Buttons/Button/Button.context";
-import { DropdownButton } from "@components/Internal/DropdownButton";
+import { PopoverContext } from "@components/Overlays/Popover/Popover.context";
+import { ButtonContext } from "@components/Buttons/Button";
 import {
   FieldErrorContext,
   FieldLabelContext,
@@ -25,20 +24,11 @@ import { useMultiSelectState } from "./useMultiSelectState";
 import { MultiSelectFieldProps } from "./MutliSelectField.types";
 import { useMultiSelect } from "./useMultiSelect";
 
-export interface MultiSelectFieldComponent
-  extends React.ForwardRefExoticComponent<
-    MultiSelectFieldProps<any> & RefAttributes<HTMLButtonElement>
-  > {
-  /** Wrapper around `Button` that configures default visual styling
-   * for the button that opens the dropdown for a `SelectField` */
-  Button: typeof DropdownButton;
-}
-
-/** Building blocks for building custom & accessible select components */
+/** Building blocks for building custom & accessible multi-select components */
 export const MultiSelectField = forwardRef(function MultiSelectField<
   T extends object
 >(props: MultiSelectFieldProps<T>, ref: React.Ref<HTMLButtonElement>) {
-  [props, ref] = useContextPropsV2(MultiSelectFieldContext, props, ref);
+  [props, ref] = useContextProps(MultiSelectFieldContext, props, ref);
 
   return (
     <CollectionBuilder content={props.children}>
@@ -51,12 +41,12 @@ export const MultiSelectField = forwardRef(function MultiSelectField<
       )}
     </CollectionBuilder>
   );
-}) as MultiSelectFieldComponent;
+});
 
 interface MultiSelectFieldInnerProps<T extends object>
   extends MultiSelectFieldProps<T> {
   collection: BaseCollection<T>;
-  selectRef: React.RefObject<HTMLButtonElement>;
+  selectRef: React.RefObject<HTMLButtonElement | null>;
 }
 
 /** MultiSelect is a dropdown that allows the user to select multiple options from a list */
@@ -128,5 +118,3 @@ export function MultiSelectFieldInner<T extends object>(
     </MultiSelectFieldWrapper>
   );
 }
-
-MultiSelectField.Button = DropdownButton;

@@ -1,37 +1,70 @@
 import styled from "styled-components";
-import { ChooseInputWrapper } from "../Inputs.styles";
-import { FieldWrapper } from "../../Internal/FieldWrapper";
 import { DirectionProps } from "../../../types";
+import mixins from "@styles/mixins";
+import { direction } from "@styles/utils";
 
-export const RadioWrapper = styled(ChooseInputWrapper)<DirectionProps>`
-  input[type="radio"] + .aje-checkbox__label:before {
-    border-radius: 50%;
+export const RadioLabel = styled.span<DirectionProps>`
+  ${mixins.Regular}
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  line-height: 1.5;
+
+  font-size: var(--radio-label-font-size);
+  color: var(--radio-text-clr);
+  min-height: var(--radio-label-height);
+
+  ${direction({
+    ltr: "padding-left: calc(var(--radio-size) + var(--radio-label-spacing));",
+    rtl: "padding-right: calc(var(--radio-size) + var(--radio-label-spacing));",
+  })}
+
+  /* :before contains the box in the "radio" */
+  &:before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    width: var(--radio-size);
+    height: var(--radio-size);
+    box-sizing: border-box;
+    background-color: var(--radio-bg-clr);
+    ${mixins.Border("radio")}
+    ${direction({ ltr: "left: 2px", rtl: "right: 2px" })}
   }
 
-  input[type="radio"]:checked ~ .aje-checkbox__label {
+  /* :after contains the checkmark in the "radio" */
+  &:after {
+    content: "";
+    position: absolute;
+    display: none;
+    top: 7px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    ${direction({ ltr: "left: 7px", rtl: "right: 7px" })};
+  }
+`;
+
+export const RadioWrapper = styled.div<DirectionProps>`
+  ${mixins.ToggleInputLike(RadioLabel)}
+
+  &[data-selected] .aje-checkbox__label {
     &:before {
-      border-color: var(--choose-checked);
+      border-color: var(--radio-checked);
     }
     &:after {
       display: block;
-      top: 7px;
-      ${({ $rtl }) => ($rtl ? "right: 7px;" : "left: 7px;")}
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background-color: var(--choose-checked);
+      background-color: var(--radio-checked);
     }
   }
 
-  //Disabled states
-  input[type="radio"]:disabled ~ .aje-checkbox__label:after,
-  input[type="radio"]:disabled ~ .aje-checkbox__label {
+  &[data-disabled] ${RadioLabel}:after, &[data-disabled] ${RadioLabel} {
     cursor: auto;
     opacity: 0.5;
   }
 `;
 
-export const RadioGroupWrapper = styled(FieldWrapper)`
+export const RadioGroupWrapper = styled.fieldset`
   padding: 0;
   border: none;
 

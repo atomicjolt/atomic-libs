@@ -1,7 +1,8 @@
 import mixins from "@styles/mixins";
 import styled from "styled-components";
+import { PaddingSide } from "./ComboInput.types";
 
-export const StyledComboInput = styled.div`
+export const StyledComboInput = styled.div<{ $paddingSide?: PaddingSide }>`
   ${mixins.Regular}
   ${mixins.InputLike}
   padding: 0px;
@@ -10,13 +11,18 @@ export const StyledComboInput = styled.div`
   gap: var(--input-gap);
   cursor: text;
 
-  &.padding-left {
-    padding-left: var(--input-padding-horiz);
-  }
-
-  &.padding-right {
-    padding-right: var(--input-padding-horiz);
-  }
+  ${({ $paddingSide }) => {
+    if ($paddingSide === "left") {
+      return "padding-left: var(--input-padding-horiz);";
+    } else if ($paddingSide === "right") {
+      return "padding-right: var(--input-padding-horiz);";
+    } else if ($paddingSide === "both") {
+      return `
+        padding-left: var(--input-padding-horiz);
+        padding-right: var(--input-padding-horiz);
+      `;
+    }
+  }}
 
   input {
     border: none;

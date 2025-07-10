@@ -1,0 +1,36 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Disclosure > Single Disclosure > matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-jBIHhB aje-disclosure"
+  >
+    <button
+      aria-controls="react-aria-:r2:"
+      aria-expanded="false"
+      class="sc-hRDKVd jVlgCw aje-btn sc-cMqPwU gQJQsB aje-btn--disclosure-trigger is-auto"
+      id="react-aria-:r1:"
+      tabindex="0"
+      type="button"
+    >
+      <i
+        aria-hidden="true"
+        class="sc-deSjom eSWOt aje-icon material-icons is-medium"
+      >
+        expand_more
+      </i>
+      Toggle
+    </button>
+    <div
+      aria-hidden="true"
+      aria-labelledby="react-aria-:r1:"
+      class="sc-jUkaYT aje-disclosure-panel"
+      hidden="until-found"
+      id="react-aria-:r2:"
+      role="group"
+    >
+      Content
+    </div>
+  </div>
+</DocumentFragment>
+`;

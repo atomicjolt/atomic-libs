@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import mixins from "../../../../styles/mixins";
 import { ElementWrapperProps } from "../../../../types";
-import { useContextPropsV2 } from "@hooks/useContextProps";
+import { useContextProps } from "@hooks/useContextProps";
 import { useRenderProps } from "@hooks";
 import { MessageContext } from "./Message.context";
 
@@ -19,12 +19,12 @@ export interface MessageProps
   as?: React.ElementType;
 }
 
-/** A wrapper around an `<p />`  styled as a field message **/
+/** A message associated with a field. Should be used to describe the purpose of the field */
 export const Message = React.forwardRef(function Message(
   props: MessageProps,
   ref: React.Ref<HTMLParagraphElement>
 ) {
-  [props, ref] = useContextPropsV2(MessageContext, props, ref);
+  [props, ref] = useContextProps(MessageContext, props, ref);
   const { as, className, size = "auto", ...rest } = props;
 
   const renderProps = useRenderProps({

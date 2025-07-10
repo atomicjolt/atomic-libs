@@ -15,6 +15,7 @@ import {
 import { useForwardedRef } from "../../../hooks/useForwardedRef";
 import { useFirstStateChange } from "../../../hooks/util";
 import { useFocusRing } from "../../../hooks/useFocusRing";
+import { fieldStatusSelectors, useRenderProps } from "@hooks/useRenderProps";
 
 export interface ToggleSwitchProps
   extends AriaProps<AriaSwitchProps>,
@@ -34,22 +35,25 @@ export const ToggleSwitch = React.forwardRef<
 >((props, ref) => {
   const state = useToggleState(props);
   const internalRef = useForwardedRef(ref);
-  const { inputProps, labelProps, isDisabled, isReadOnly, isSelected } =
-    useSwitch(props, state, internalRef);
+  const { inputProps, labelProps, isSelected } = useSwitch(
+    props,
+    state,
+    internalRef
+  );
   const { focusProps, isFocusVisible } = useFocusRing();
 
   const changed = useFirstStateChange(state.isSelected);
 
-  const { children, className, childrenPosition = "left", isInvalid } = props;
+  const { childrenPosition = "left" } = props;
+
+  const renderProps = useRenderProps({
+    componentClassName: "aje-toggle-switch",
+    ...props,
+    selectors: fieldStatusSelectors(props),
+  });
 
   return (
-    <ToggleSwitchWrapper
-      forwardedAs="label"
-      className={cn("aje-toggle-switch", className)}
-      isDisabled={isDisabled}
-      isInvalid={isInvalid}
-      isReadOnly={isReadOnly}
-    >
+    <ToggleSwitchWrapper {...renderProps}>
       <ToggleSwitchLabel
         {...labelProps}
         className={cn("aje-toggle-switch__label", {
@@ -62,13 +66,13 @@ export const ToggleSwitch = React.forwardRef<
           <input {...inputProps} {...focusProps} ref={internalRef} />
         </VisuallyHidden>
 
-        {childrenPosition === "left" && children}
+        {childrenPosition === "left" && renderProps.children}
 
         <ToggleSwitchContainer data-focus-visible={isFocusVisible}>
           <ToggleSwitchIcon />
         </ToggleSwitchContainer>
 
-        {childrenPosition === "right" && children}
+        {childrenPosition === "right" && renderProps.children}
       </ToggleSwitchLabel>
     </ToggleSwitchWrapper>
   );

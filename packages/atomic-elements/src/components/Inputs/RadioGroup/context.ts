@@ -1,8 +1,6 @@
 import React from "react";
 import { RadioGroupState } from "react-stately";
 
-const RadioContext = React.createContext<RadioGroupState>(
-  {} as RadioGroupState
+export const RadioGroupContext = React.createContext<RadioGroupState | null>(
+  null
 );
-
-export default RadioContext;

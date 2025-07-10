@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import mixins from "../../../../styles/mixins";
 import { ElementWrapperProps } from "../../../../types";
-import { useContextPropsV2 } from "@hooks/useContextProps";
+import { useContextProps } from "@hooks/useContextProps";
 import { useRenderProps } from "@hooks";
 import { ErrorMessageContext } from "./ErrorMessage.context";
 
@@ -20,12 +20,12 @@ export interface ErrorMessageProps
   isInvalid?: boolean;
 }
 
-/** A wrapper around an `<p />`  styled as a field error message */
+/** An error message for a field */
 export const ErrorMessage = React.forwardRef(function ErrorMessage(
   props: ErrorMessageProps,
   ref: React.Ref<HTMLParagraphElement>
 ) {
-  [props, ref] = useContextPropsV2(ErrorMessageContext, props, ref);
+  [props, ref] = useContextProps(ErrorMessageContext, props, ref);
   const { className, size = "medium", as = "p", isInvalid, ...rest } = props;
 
   const renderProps = useRenderProps({

@@ -1,0 +1,28 @@
+{
+  "name": "@atomicjolt/canvas-docs-types",
+  "version": "1.1.1",
+  "description": "Typescript definitions for the Canvas API docs.",
+  "main": "dist/index.js",
+  "typings": "dist/types/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "pretest": "npm run build",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "Canvas",
+    "LMS",
+    "Typescript",
+    "Types",
+    "API",
+    "Documentation",
+    "Atomic Jolt"
+  ],
+  "author": "Atomic Jolt",
+  "license": "MIT",
+  "files": [
+    "dist",
+    "src",
+    "README.md"
+  ]
+}

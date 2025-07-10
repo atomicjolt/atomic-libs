@@ -14,3 +14,8 @@ export interface RenderStyleProps<T extends object> {
 export interface RenderBaseProps<T extends object> extends RenderStyleProps<T> {
   children?: RenderChildren<T>;
 }
+
+export type ElementWrapper<T extends HTMLElement> = Omit<
+  React.HTMLAttributes<T>,
+  "children" | "className" | "style"
+>;

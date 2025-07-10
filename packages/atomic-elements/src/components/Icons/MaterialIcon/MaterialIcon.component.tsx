@@ -1,27 +1,20 @@
 import React from "react";
 import {
-  ExtendedSize,
+  IconComponentBase,
   MaterialIcons,
   MaterialIconVariants,
-  RenderBaseProps,
 } from "../../../types";
 import { useRenderProps } from "../../../hooks";
 import { StyledIcon } from "../Icons.styles";
-import { filterDOMProps, mergeProps } from "@react-aria/utils";
+import { filterDOMProps, mergeProps, useObjectRef } from "@react-aria/utils";
 import { useFocusable } from "@react-aria/focus";
-import useForwardedRef from "@hooks/useForwardedRef";
 
-export interface MaterialIconProps
-  extends Omit<React.ComponentProps<"i">, "className" | "style" | "children">,
-    RenderBaseProps<never> {
+export interface MaterialIconProps extends IconComponentBase<never> {
   icon: MaterialIcons;
   /** The type of material icon to
    * render. Note that the font for that
    * style needs to be in scope for it to render properly */
   variant?: MaterialIconVariants;
-  size?: ExtendedSize;
-
-  isDisabled?: boolean;
 
   /** @deprecated - use isDisabled */
   disabled?: boolean;
@@ -30,7 +23,7 @@ export interface MaterialIconProps
 /** Small Utility component for rendering out
  * material-icons with some sensible defaults */
 export const MaterialIcon = React.forwardRef<HTMLElement, MaterialIconProps>(
-  function MaterialProps(props, ref) {
+  function MaterialProps(props, forwardedRef) {
     const {
       icon,
       className,
@@ -38,11 +31,12 @@ export const MaterialIcon = React.forwardRef<HTMLElement, MaterialIconProps>(
       size = "medium",
       disabled = false,
       isDisabled = disabled,
+      isFocusable = false,
       style,
       ...rest
     } = props;
 
-    const internalRef = useForwardedRef(ref);
+    const ref = useObjectRef(forwardedRef);
 
     const materialIconClass =
       variant === "default" ? "material-icons" : `material-icons-${variant}`;
@@ -57,18 +51,18 @@ export const MaterialIcon = React.forwardRef<HTMLElement, MaterialIconProps>(
       },
     });
 
-    // We use the focusable hook so that the icon supports tooltips
-    // when the icon itself isn't actually focusable
-    const { focusableProps } = useFocusable({}, internalRef);
+    const componentProps = [filterDOMProps(rest), renderProps];
 
-    const componentProps = mergeProps(
-      filterDOMProps(rest),
-      renderProps,
-      focusableProps
-    );
+    const { focusableProps } = useFocusable({}, ref);
+
+    if (isFocusable) {
+      componentProps.push(focusableProps);
+    }
+
+    const mergedProps = mergeProps(...componentProps);
 
     return (
-      <StyledIcon ref={internalRef} aria-hidden {...componentProps}>
+      <StyledIcon ref={ref} aria-hidden {...mergedProps}>
         {icon}
       </StyledIcon>
     );

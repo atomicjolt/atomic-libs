@@ -7,7 +7,7 @@ const meta: Meta<typeof TextAreaInput> = {
   title: "Inputs/User Input/TextAreaInput",
   component: TextAreaInput,
   parameters: {
-    cssprops: getCssProps("Input", "TextArea"),
+    cssprops: getCssProps("Input", "Textarea"),
   },
   argTypes: {
     ...TextInputControls,
