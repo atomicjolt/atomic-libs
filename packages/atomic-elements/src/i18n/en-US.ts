@@ -5,4 +5,5 @@ export default {
   "search": "search",
   "today": "Today",
   "select.placeholder": "Select an option",
+  "back": "Back",
 }
