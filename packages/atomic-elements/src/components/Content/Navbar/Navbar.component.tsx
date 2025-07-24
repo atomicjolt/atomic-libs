@@ -3,6 +3,8 @@ import classNames from "classnames";
 import { RenderBaseProps } from "../../../types";
 import { useContextProps } from "@hooks/useContextProps";
 import { useRenderProps } from "@hooks/useRenderProps";
+import { LayoutProps } from "@styles/layout";
+import { FlexStyleProps } from "@styles/flex";
 import { IconButton, IconButtonProps } from "@components/Buttons/IconButton";
 import { useTranslations } from "@hooks/useTranslations";
 import { Flex, FlexProps } from "@components/Layout/Flex";
@@ -10,7 +12,10 @@ import { Heading, HeadingProps } from "@components/Typography/Heading";
 import { NavbarContext } from "./Navbar.context";
 import { NavbarWrapper } from "./Navbar.styles";
 
-export interface NavbarProps extends RenderBaseProps<never> {}
+export interface NavbarProps
+  extends RenderBaseProps<never>,
+    LayoutProps,
+    FlexStyleProps {}
 
 const NavbarRoot = forwardRef<HTMLDivElement, NavbarProps>(function Navbar(
   props,
@@ -18,20 +23,30 @@ const NavbarRoot = forwardRef<HTMLDivElement, NavbarProps>(function Navbar(
 ) {
   [props, ref] = useContextProps(NavbarContext, props, ref);
 
+  const { className, style, children, ...rest } = props;
+
   const renderProps = useRenderProps({
     componentClassName: "aje-navbar",
-    ...props,
+    className,
+    style,
+    children,
   });
 
   return (
-    <NavbarWrapper ref={ref} {...renderProps}>
-      <Flex $gap="1">{renderProps.children}</Flex>
+    <NavbarWrapper ref={ref} $gap="1" {...renderProps} {...rest}>
+      {renderProps.children}
     </NavbarWrapper>
   );
 });
 
-NavbarRoot.displayName = "Navbar.Root";
-export { NavbarRoot as Root };
+NavbarRoot.displayName = "Navbar";
+
+export const Navbar = NavbarRoot as typeof NavbarRoot & {
+  BackButton: typeof NavbarBackButton;
+  Section: typeof NavbarSection;
+  Title: typeof NavbarTitle;
+  Subtitle: typeof NavbarSubtitle;
+};
 
 interface NavbarBackButtonProps extends Omit<IconButtonProps, "icon"> {
   icon?: IconButtonProps["icon"];
@@ -60,7 +75,7 @@ const NavbarBackButton = forwardRef<HTMLButtonElement, NavbarBackButtonProps>(
 );
 
 NavbarBackButton.displayName = "Navbar.BackButton";
-export { NavbarBackButton as BackButton };
+Navbar.BackButton = NavbarBackButton;
 
 interface NavbarSectionProps extends FlexProps {
   side?: "left" | "right" | "center";
@@ -90,7 +105,7 @@ const NavbarSection = forwardRef<HTMLDivElement, NavbarSectionProps>(
 );
 
 NavbarSection.displayName = "Navbar.Section";
-export { NavbarSection as Section };
+Navbar.Section = NavbarSection;
 
 interface NavbarTitleProps extends HeadingProps {}
 
@@ -111,7 +126,7 @@ const NavbarTitle = forwardRef<HTMLHeadingElement, NavbarTitleProps>(
 );
 
 NavbarTitle.displayName = "Navbar.Title";
-export { NavbarTitle as Title };
+Navbar.Title = NavbarTitle;
 
 interface NavbarSubtitleProps extends HeadingProps {}
 
@@ -141,4 +156,4 @@ const NavbarSubtitle = forwardRef<HTMLHeadingElement, NavbarSubtitleProps>(
 );
 
 NavbarSubtitle.displayName = "Navbar.Subtitle";
-export { NavbarSubtitle as Subtitle };
+Navbar.Subtitle = NavbarSubtitle;

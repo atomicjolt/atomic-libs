@@ -2,18 +2,19 @@ import { Meta, StoryObj } from "@storybook/react";
 import { Button } from "@components/Buttons/Button";
 import { IconButton } from "@components/Buttons/IconButton";
 import { Flex } from "@components/Layout/Flex";
-import { RenderPropsArgTypes } from "@sb/helpers";
+import { LayoutArgTypes, RenderPropsArgTypes } from "@sb/helpers";
 import { Navbar } from ".";
 
 export default {
   title: "Content/Navbar",
-  component: Navbar.Root,
+  component: Navbar,
   argTypes: {
     ...RenderPropsArgTypes,
+    ...LayoutArgTypes,
   },
-} as Meta<typeof Navbar.Root>;
+} as Meta<typeof Navbar>;
 
-type Story = StoryObj<typeof Navbar.Root>;
+type Story = StoryObj<typeof Navbar>;
 
 export const Primary: Story = {
   args: {
