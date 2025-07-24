@@ -6,7 +6,7 @@ import { LayoutArgTypes, RenderPropsArgTypes } from "@sb/helpers";
 import { Navbar } from ".";
 
 export default {
-  title: "Content/Navbar",
+  title: "Layouts/Navbar",
   component: Navbar,
   argTypes: {
     ...RenderPropsArgTypes,
