@@ -11,7 +11,7 @@ import { MaterialIcon } from "@components/Icons/MaterialIcon";
 
 import { ColumnContent, SearchComboInput, StyledTh } from "../Table.styles";
 import { useExtendedTableColumnHeader } from "../hooks/useExtendedTableColumnHeader";
-import { TableStateContext } from "../Table.context";
+import { TableOptionsContext, TableStateContext } from "../Table.context";
 import { MaterialIcons, RenderBaseProps } from "../../../../types";
 import { Input, InputContext } from "@components/Fields/Atoms/Input";
 import { useTableSearchInput } from "../hooks/useTableSearchInput";
@@ -145,44 +145,18 @@ export const TableColumn = createLeafComponent("column", function TableColumn<
   );
 });
 
-interface TableColumnIcons {
-  sortAscending: MaterialIcons;
-  sortDescending: MaterialIcons;
-  sortNeutral: MaterialIcons;
-  searchOpen: MaterialIcons;
-  searchClose: MaterialIcons;
-}
-
 interface TableColumnWrapperProps<T extends object>
   extends TableColumnProps<T> {
   /** The alignment of the column content */
   align?: "left" | "right" | "center";
-  /** Icon set used for sorting and searching */
-  icons?: Partial<TableColumnIcons>;
-  /** Determines the visibility of the column's sort controls
-   * - "always" shows sort controls regardless of sorting state
-   * - "selected" shows sort controls only when the column is currently sorted
-   */
-  sortVisibility?: "always" | "selected";
 }
-
-const defaultIcons: TableColumnIcons = {
-  sortAscending: "arrow_drop_down",
-  sortDescending: "arrow_drop_up",
-  sortNeutral: "swap_vert",
-  searchOpen: "search",
-  searchClose: "close",
-};
 
 export function TableColumnWrapper<T extends object>(
   props: TableColumnWrapperProps<T>
 ) {
-  const { align, sortVisibility = "selected" } = props;
+  const { align } = props;
 
-  const icons = {
-    ...defaultIcons,
-    ...props.icons,
-  };
+  const { icons, sortVisibility } = useContext(TableOptionsContext)!;
 
   return (
     <TableColumn {...props} data-sort-visibility={sortVisibility}>

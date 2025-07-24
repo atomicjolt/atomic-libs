@@ -60,6 +60,10 @@ const meta: Meta<typeof Table> = {
       control: "select",
       options: ["even", "odd"],
     },
+    sortVisibility: {
+      control: "select",
+      options: ["always", "selected"],
+    },
   },
 };
 
@@ -232,6 +236,58 @@ export const SearchableColumns: Story = {
   },
   args: {
     "aria-label": "Table with searching",
+  },
+};
+
+export const CustomizeIcons: Story = {
+  args: {
+    sortDescriptor: {
+      column: "name",
+      direction: "descending",
+    },
+    sortVisibility: "always",
+    icons: {
+      searchClose: "close",
+      searchOpen: "search",
+      sortAscending: "arrow_upward",
+      sortDescending: "arrow_downward",
+      sortNeutral: "sort",
+    },
+    children: [
+      <Table.Header key="header">
+        <Table.Column id="name" isRowHeader allowsSorting>
+          Name
+        </Table.Column>
+        <Table.Column id="type" allowsSorting>
+          Type
+        </Table.Column>
+        <Table.Column id="level" allowsSorting>
+          Level
+        </Table.Column>
+      </Table.Header>,
+      <Table.Body key="body">
+        <Table.Row>
+          <Table.Cell>Charizard</Table.Cell>
+          <Table.Cell>Fire, Flying</Table.Cell>
+          <Table.Cell>67</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>Blastoise</Table.Cell>
+          <Table.Cell>Water</Table.Cell>
+          <Table.Cell>56</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>Venusaur</Table.Cell>
+          <Table.Cell>Grass, Poison</Table.Cell>
+          <Table.Cell>83</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>Pikachu</Table.Cell>
+          <Table.Cell>Electric</Table.Cell>
+          <Table.Cell>100</Table.Cell>
+        </Table.Row>
+      </Table.Body>,
+    ],
   },
 };
 
