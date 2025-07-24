@@ -6,13 +6,13 @@ import { ScrollAreaContent } from "../ScrollArea.styles";
 import { ScrollStateContext } from "../ScrollArea.context";
 import { useScrollArea } from "../hooks/useScrollArea";
 
-export interface ScrollViewportProps
+export interface ScrollAreaViewportProps
   extends RenderBaseProps<never>,
     ElementWrapper<HTMLDivElement> {}
 
 export const ScrollAreaViewport = forwardRef<
   HTMLDivElement,
-  ScrollViewportProps
+  ScrollAreaViewportProps
 >(function ScrollViewport(props, forwardedRef) {
   const { viewportRef, state } = useContext(ScrollStateContext)!;
 

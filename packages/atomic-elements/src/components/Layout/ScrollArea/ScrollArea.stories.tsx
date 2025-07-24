@@ -2,16 +2,20 @@ import { Meta, StoryObj } from "@storybook/react";
 import { ScrollArea } from ".";
 import { Flex } from "../Flex";
 import { getCssProps } from "@sb/cssprops";
+import { RenderPropsArgTypes } from "@sb/helpers";
 
 export default {
   title: "Layouts/ScrollArea",
-  component: ScrollArea.Root,
+  component: ScrollArea,
   parameters: {
     cssprops: getCssProps("ScrollArea"),
   },
-} as Meta<typeof ScrollArea.Root>;
+  argTypes: {
+    ...RenderPropsArgTypes,
+  },
+} as Meta<typeof ScrollArea>;
 
-type Story = StoryObj<typeof ScrollArea.Root>;
+type Story = StoryObj<typeof ScrollArea>;
 
 export const Vertical: Story = {
   args: {

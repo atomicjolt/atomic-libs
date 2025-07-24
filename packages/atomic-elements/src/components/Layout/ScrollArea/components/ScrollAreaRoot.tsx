@@ -8,10 +8,7 @@ import { useScrollState } from "../hooks/useScrollState";
 
 export interface ScrollAreaRootProps
   extends RenderBaseProps<never>,
-    ElementWrapper<HTMLDivElement> {
-  scrollbars?: "horizontal" | "vertical" | "both";
-  hideScrollbars?: boolean;
-}
+    ElementWrapper<HTMLDivElement> {}
 
 /**
  * Component for creating a scrollable area with custom scrollbars.
@@ -20,14 +17,7 @@ export const ScrollAreaRoot = forwardRef<HTMLDivElement, ScrollAreaRootProps>(
   function ScrollAreaRoot(props, ref) {
     [props, ref] = useContextProps(ScrollAreaContext, props, ref);
 
-    const {
-      className,
-      style,
-      children,
-      scrollbars = "both",
-      hideScrollbars,
-      ...rest
-    } = props;
+    const { className, style, children, ...rest } = props;
 
     const viewportRef = useRef<HTMLDivElement>(null);
 
@@ -50,4 +40,4 @@ export const ScrollAreaRoot = forwardRef<HTMLDivElement, ScrollAreaRootProps>(
   }
 );
 
-ScrollAreaRoot.displayName = "ScrollArea.Root";
+ScrollAreaRoot.displayName = "ScrollArea";

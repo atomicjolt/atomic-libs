@@ -1,7 +1,7 @@
-export * as ScrollArea from "./ScrollArea.component";
+export { ScrollArea } from "./ScrollArea.component";
 export type {
   ScrollAreaProps,
-  ScrollViewportProps,
+  ScrollAreaViewportProps,
   ScrollbarProps,
 } from "./ScrollArea.component";
 export { ScrollAreaContext } from "./ScrollArea.context";

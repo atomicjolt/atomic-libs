@@ -63,7 +63,7 @@ export { Grid } from "./Layout/Grid";
 export {
   ScrollArea,
   type ScrollAreaProps,
-  type ScrollViewportProps,
+  type ScrollAreaViewportProps,
   type ScrollbarProps,
 } from "./Layout/ScrollArea";
 
