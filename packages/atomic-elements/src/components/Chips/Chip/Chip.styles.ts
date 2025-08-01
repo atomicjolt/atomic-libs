@@ -37,6 +37,8 @@ export const ChipWrapper = styled.div`
   color: var(--chip-text-clr);
   border-radius: var(--chip-radius);
   border: var(--chip-border);
+  text-decoration: none;
+  cursor: default;
 
   &.aje-chip--success {
     --chip-bg-clr: var(--success100);
@@ -63,7 +65,8 @@ export const ChipWrapper = styled.div`
   }
 
   &[role="button"]:hover,
-  &[aria-selected]:hover {
+  &[aria-selected]:hover,
+  &:is(a):hover {
     cursor: pointer;
     --chip-bg-clr: var(--chip-hover-bg-clr);
   }

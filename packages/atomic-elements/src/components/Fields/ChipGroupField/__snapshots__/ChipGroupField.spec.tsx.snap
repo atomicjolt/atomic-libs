@@ -21,7 +21,7 @@ exports[`ChipGroupField > matches snapshot 1`] = `
     >
       <div
         aria-label="Item 1"
-        class="sc-gjXmFk fDQQhF aje-chip"
+        class="sc-gjXmFk eErvzQ aje-chip"
         data-collection="react-aria-:r5:"
         data-key="react-aria-1"
         id="react-aria-:r0:-react-aria-1"
@@ -38,7 +38,7 @@ exports[`ChipGroupField > matches snapshot 1`] = `
       </div>
       <div
         aria-label="Item 2"
-        class="sc-gjXmFk fDQQhF aje-chip"
+        class="sc-gjXmFk eErvzQ aje-chip"
         data-collection="react-aria-:r5:"
         data-key="react-aria-2"
         id="react-aria-:r0:-react-aria-2"
@@ -55,7 +55,7 @@ exports[`ChipGroupField > matches snapshot 1`] = `
       </div>
       <div
         aria-label="Item 3"
-        class="sc-gjXmFk fDQQhF aje-chip"
+        class="sc-gjXmFk eErvzQ aje-chip"
         data-collection="react-aria-:r5:"
         data-key="react-aria-3"
         id="react-aria-:r0:-react-aria-3"
