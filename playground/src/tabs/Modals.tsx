@@ -38,28 +38,25 @@ export default function Modals() {
         <OverlayTrigger>
           <Button>Internally Controlled Modal</Button>
           <Modal>
-            {(close) => {
-              console.log("Rendering internally controlled modal");
-              return (
-                <>
-                  <Modal.Header>
-                    <Modal.Title>Modal Title</Modal.Title>
-                    <IconButton icon="close" onPress={close} variant="ghost" />
-                  </Modal.Header>
-                  <Modal.Body>
-                    <Text $size="3">
-                      This modal's state is controlled internally by
-                      OverlayTrigger
-                    </Text>
-                  </Modal.Body>
-                  <Modal.Footer>
-                    <Button onPress={close} variant="secondary">
-                      Close
-                    </Button>
-                  </Modal.Footer>
-                </>
-              );
-            }}
+            {(close) => (
+              <>
+                <Modal.Header>
+                  <Modal.Title>Modal Title</Modal.Title>
+                  <IconButton icon="close" onPress={close} variant="ghost" />
+                </Modal.Header>
+                <Modal.Body>
+                  <Text $size="3">
+                    This modal's state is controlled internally by
+                    OverlayTrigger
+                  </Text>
+                </Modal.Body>
+                <Modal.Footer>
+                  <Button onPress={close} variant="secondary">
+                    Close
+                  </Button>
+                </Modal.Footer>
+              </>
+            )}
           </Modal>
         </OverlayTrigger>
       </div>
