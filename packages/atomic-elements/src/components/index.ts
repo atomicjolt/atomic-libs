@@ -60,6 +60,7 @@ export { Group } from "./Layout/Group";
 export { Flex } from "./Layout/Flex";
 export { FlexItem } from "./Layout/FlexItem";
 export { Grid } from "./Layout/Grid";
+export { Navbar, type NavbarProps } from "./Layout/Navbar";
 export {
   ScrollArea,
   type ScrollAreaProps,
