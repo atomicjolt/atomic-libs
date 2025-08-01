@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { Collection, CollectionBuilder } from "@react-aria/collections";
-import { TableOptions, TableProps } from "./Table.types";
+import { TableColumnIcons, TableOptions, TableProps } from "./Table.types";
 import { TableRowWrapper } from "./components/TableRow";
 import { TableCell } from "./components/TableCell";
 import { TableHeaderWrapper } from "./components/TableHeader";
@@ -12,6 +12,14 @@ import { TableCollection } from "./TableCollection";
 import { TableOptionsContext } from "./Table.context";
 import { SimpleTable } from "./components/SimpleTable";
 import { TreeGridTable } from "./components/TreeGridTable";
+
+const defaultIcons: TableColumnIcons = {
+  sortAscending: "arrow_drop_down",
+  sortDescending: "arrow_drop_up",
+  sortNeutral: "swap_vert",
+  searchOpen: "search",
+  searchClose: "close",
+};
 
 /** Table component
  *
@@ -54,12 +62,16 @@ export function Table<T extends object>(props: TableProps<T>) {
       isSticky: props.isSticky,
       selectionBehavior: props.selectionBehavior,
       selectionMode: props.selectionMode,
+      icons: { ...defaultIcons, ...props.icons },
+      sortVisibility: props.sortVisibility ?? "selected",
     }),
     [
       props.hasBottom,
       props.isSticky,
       props.selectionBehavior,
       props.selectionMode,
+      props.icons,
+      props.sortVisibility,
     ]
   );
 
