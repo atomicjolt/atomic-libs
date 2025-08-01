@@ -8,6 +8,7 @@ import {
 import { useRenderProps } from "@hooks/useRenderProps";
 import { MaterialIcon } from "../../Icons/MaterialIcon";
 import { Banner, BannerVariants } from "../Banner";
+import { useTranslations } from "@hooks/useTranslations";
 
 interface SharedProps
   extends RenderBaseProps<never>,
@@ -42,6 +43,8 @@ export const DismissableBanner = forwardRef<
     ...rest
   } = props;
 
+  const t = useTranslations();
+
   const renderProps = useRenderProps({
     componentClassName: "aje-banner",
     children,
@@ -55,7 +58,7 @@ export const DismissableBanner = forwardRef<
         <Banner.IconButton
           icon="close"
           className="aje-banner__dismiss"
-          aria-label={`dismiss ${variant}`}
+          aria-label={t("dismiss")}
           onPress={onDismiss}
         />
       )}

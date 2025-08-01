@@ -30,7 +30,7 @@ describe("DismissableBanner", () => {
       const { getByLabelText } = render(
         <DismissableBanner onDismiss={onDismiss} />
       );
-      fireEvent.click(getByLabelText("dismiss info"));
+      fireEvent.click(getByLabelText("dismiss"));
       expect(onDismiss).toHaveBeenCalledTimes(1);
     });
   });
@@ -48,7 +48,7 @@ describe("ErrorBanner", () => {
     it("should call onDismiss when dismiss button is clicked", () => {
       const onDismiss = vi.fn();
       const { getByLabelText } = render(<ErrorBanner onDismiss={onDismiss} />);
-      fireEvent.click(getByLabelText("dismiss error"));
+      fireEvent.click(getByLabelText("dismiss"));
       expect(onDismiss).toHaveBeenCalledTimes(1);
     });
   });
@@ -68,7 +68,7 @@ describe("WarningBanner", () => {
       const { getByLabelText } = render(
         <WarningBanner onDismiss={onDismiss} />
       );
-      fireEvent.click(getByLabelText("dismiss warning"));
+      fireEvent.click(getByLabelText("dismiss"));
       expect(onDismiss).toHaveBeenCalledTimes(1);
     });
   });

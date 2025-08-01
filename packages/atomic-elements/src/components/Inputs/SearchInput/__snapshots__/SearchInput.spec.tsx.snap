@@ -24,6 +24,7 @@ exports[`matches snapshot > displays with search button 1`] = `
         value=""
       />
       <button
+        aria-label="search"
         class="sc-jBIHhB hmWfwD aje-btn sc-cMqPwU gSYJMO aje-icon-btn aje-btn--content is-medium"
         data-icon-button="true"
         tabindex="0"
@@ -65,6 +66,7 @@ exports[`matches snapshot > displays without button 1`] = `
         value=""
       />
       <button
+        aria-label="search"
         class="sc-jBIHhB hmWfwD aje-btn sc-cMqPwU gSYJMO aje-icon-btn aje-btn--content is-medium"
         data-icon-button="true"
         tabindex="0"
