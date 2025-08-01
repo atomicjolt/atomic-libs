@@ -270,6 +270,8 @@ export const table = {
   "table-sort-icon-hover-clr": "{neutral400}",
   "table-nesting-offset": "{table-padding-horz}",
   "table-cell-height": "48px",
+  "table-bg-clr-striped-primary": "{table-bg-clr}",
+  "table-bg-clr-striped-secondary": "{neutral100}",
 };
 
 export const tab = {
@@ -407,6 +409,13 @@ export const progressCircle = {
   "progress-circle-indicator-clr": "{accent-clr}",
 };
 
+export const scrollArea = {
+  "scrollarea-track-clr": "{neutral200}",
+  "scrollarea-thumb-clr": "{neutral300}",
+  "scrollarea-thumb-clr-hover": "{neutral400}",
+  "scrollarea-btn-clr": "{neutral500}",
+};
+
 export const variables = {
   ...border,
   ...font,
@@ -442,6 +451,7 @@ export const variables = {
   ...animation,
   ...list,
   ...progressCircle,
+  ...scrollArea,
 } as const;
 
 export type Color = keyof typeof colors;

@@ -90,7 +90,7 @@ exports[`DismissableBanner > Snapshots > should match snapshot with dismiss butt
         />
         <button
           aria-label="dismiss"
-          class="sc-deSjom jVRdGl aje-btn sc-jHswkR WgpIQ aje-icon-btn aje-banner__dismiss aje-btn--banner is-medium"
+          class="sc-deSjom gVDyxq aje-btn sc-jHswkR WgpIQ aje-icon-btn aje-banner__dismiss aje-btn--banner is-medium"
           data-icon-button="true"
           tabindex="0"
           type="button"
@@ -114,7 +114,7 @@ exports[`DismissableBanner > Snapshots > should match snapshot with dismiss butt
       />
       <button
         aria-label="dismiss"
-        class="sc-deSjom jVRdGl aje-btn sc-jHswkR WgpIQ aje-icon-btn aje-banner__dismiss aje-btn--banner is-medium"
+        class="sc-deSjom gVDyxq aje-btn sc-jHswkR WgpIQ aje-icon-btn aje-banner__dismiss aje-btn--banner is-medium"
         data-icon-button="true"
         tabindex="0"
         type="button"

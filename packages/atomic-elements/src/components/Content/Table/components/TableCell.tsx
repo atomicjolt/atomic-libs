@@ -4,7 +4,6 @@ import { useTableCell } from "@react-aria/table";
 import { GridNode } from "@react-types/grid";
 import { useFocusRing } from "@hooks/useFocusRing";
 import { useRenderProps } from "@hooks/useRenderProps";
-import { useTranslations } from "@hooks/useTranslations";
 import { RowHeader, StyledCell } from "../Table.styles";
 import { createLeafComponent } from "@react-aria/collections";
 import { TableStateContext } from "../Table.context";
@@ -26,6 +25,8 @@ export interface TableCellProps extends RenderBaseProps<never>, DomProps {
   onAction?: () => void;
   /** Controls whether the text in the cell is selectable. When isStatic is false users will not be able to select text inside of the cell */
   isStatic?: boolean;
+  /** Alignment of the cell content. Inherits from the column if not specified */
+  align?: "left" | "right" | "center";
 }
 
 export const TableCell = createLeafComponent("cell", function TableCell<
@@ -54,6 +55,8 @@ export const TableCell = createLeafComponent("cell", function TableCell<
   const isRowHeaderCell = state.collection.rowHeaderColumnKeys.has(
     cell?.column?.key!
   );
+
+  const align = props.align ?? cell.column?.props?.align ?? undefined;
 
   const isFirstRowHeaderCell =
     state.collection.rowHeaderColumnKeys.keys().next().value ===
@@ -110,23 +113,7 @@ export const TableCell = createLeafComponent("cell", function TableCell<
   const Element = isRowHeaderCell ? RowHeader : StyledCell;
 
   return (
-    <Element {...cellProps} ref={ref}>
-      {/* <Flex alignItems="center" gap={"var(--table-padding-horz)"}>
-        {showExpandButton && (
-          <IconButton
-            icon={isExpanded ? "expand_more" : "chevron_right"}
-            variant="content"
-            onPress={() =>
-              (state as TreeGridState<T>).toggleKey(cell.parentKey!)
-            }
-            aria-label={isExpanded ? t("table.collapse") : t("table.expand")}
-            className="aje-table__expand-button"
-          />
-        )}
-        <CellContent className="aje-table__cell__content">
-          {renderProps.children}
-        </CellContent>
-      </Flex> */}
+    <Element ref={ref} {...cellProps} style={{ textAlign: align, ...style }}>
       {renderProps.children}
     </Element>
   );

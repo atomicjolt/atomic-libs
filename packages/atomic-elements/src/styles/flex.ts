@@ -1,5 +1,6 @@
 import { SuggestStrings } from "../types";
 import { getSpacing, Spacing } from "./spacing";
+import { makeDefault } from "./utils";
 
 export interface FlexStyleProps {
   $display?: "flex" | "inline-flex" | "none";
@@ -11,7 +12,9 @@ export interface FlexStyleProps {
     | "center"
     | "space-between"
     | "space-around"
-    | "space-evenly";
+    | "space-evenly"
+    | "left"
+    | "right";
   $wrap?: "nowrap" | "wrap" | "wrap-reverse";
   $gap?: SuggestStrings<Spacing>;
   $gapX?: SuggestStrings<Spacing>;
@@ -41,6 +44,8 @@ export function flex(props: FlexStyleProps) {
     rowGap: getSpacing($gapY),
   };
 }
+
+flex.defaults = makeDefault(flex);
 
 // For increased browser compatibility
 export const flexAlignMap: Record<string, string | undefined> = {

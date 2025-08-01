@@ -151,7 +151,7 @@ export const StyledButton = styled.button`
 
   & > i {
     color: inherit;
-    font-size: var(--btn-icon-size);
+    font-size: var(--btn-icon-size) !important;
     margin-left: calc(var(--btn-padding-horiz) / -2.5);
   }
 `;

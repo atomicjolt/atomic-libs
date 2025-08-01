@@ -13,6 +13,7 @@ import {
 import {
   ExtendedSize,
   Key,
+  MaterialIcons,
   RenderBaseProps,
   SearchDescriptor,
   SuggestStrings,
@@ -85,6 +86,20 @@ export interface TableProps<T>
   /** Table makes use of <Table.Bottom> to attach
    * additional content to the bottom of the table */
   hasBottom?: boolean;
+
+  /** Whether the table rows have alternating background colors
+   * @selector [data-striped]
+   */
+  striped?: "even" | "odd";
+
+  /** Icon set used for sorting and searching */
+  icons?: Partial<TableColumnIcons>;
+
+  /** Determines the visibility of the column's sort controls
+   * - "always" shows sort controls regardless of sorting state
+   * - "selected" shows sort controls only when the column is currently sorted
+   */
+  sortVisibility?: "always" | "selected";
 }
 
 export interface TableStateExtensions {
@@ -108,6 +123,13 @@ export interface TableInternalProps<T extends object> extends TableProps<T> {
   collection: TableCollection<T>;
 }
 
+export interface TableColumnIcons {
+  sortAscending: MaterialIcons;
+  sortDescending: MaterialIcons;
+  sortNeutral: MaterialIcons;
+  searchOpen: MaterialIcons;
+  searchClose: MaterialIcons;
+}
 
 export interface TableOptions {
   /** Whether the table allows expandable rows.
@@ -126,4 +148,13 @@ export interface TableOptions {
 
   /** Whether to show a bottom to the table */
   hasBottom?: boolean;
+
+  /** Icon set used for sorting and searching */
+  icons: TableColumnIcons;
+
+  /** Determines the visibility of the column's sort controls
+   * - "always" shows sort controls regardless of sorting state
+   * - "selected" shows sort controls only when the column is currently sorted
+   */
+  sortVisibility: "always" | "selected";
 }

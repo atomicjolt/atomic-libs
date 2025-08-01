@@ -38,4 +38,25 @@ describe("ChipGroup", () => {
       expect(screen.getByText(chip.rendered)).not.toBeNull();
     });
   });
+
+  test("renders chips with href", () => {
+    const chips = [
+      { key: "1", rendered: "Chip 1", href: "/chip1" },
+      { key: "2", rendered: "Chip 2", href: "/chip2" },
+    ];
+    render(
+      <ChipGroup items={chips} label="Label">
+        {({ key, rendered, href }) => (
+          <Chip key={key} href={href}>
+            {rendered}
+          </Chip>
+        )}
+      </ChipGroup>
+    );
+
+    chips.forEach((chip) => {
+      const link = screen.getByRole("row", { name: chip.rendered });
+      expect(link).toHaveAttribute("href", chip.href);
+    });
+  });
 });
