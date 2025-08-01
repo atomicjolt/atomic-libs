@@ -1,0 +1,1 @@
+import{$ as t}from"./useLocalizedStringFormatter-BmC8c4z2.js";const s={"table.expand":"expand row","table.collapse":"collapse row",dismiss:"dismiss",search:"search",today:"Today","select.placeholder":"Select an option"},r={"en-US":s};function l(){const a=t(r,"@atomicjolt/atomic-elements");return(o,e)=>a.format(o,e)}export{l as u};
