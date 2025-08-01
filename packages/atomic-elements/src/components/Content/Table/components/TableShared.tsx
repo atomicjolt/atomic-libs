@@ -19,6 +19,7 @@ export function TableShared<T extends object>(props: TableSharedProps<T>) {
     isSticky,
     style,
     hasBottom = false,
+    striped,
   } = props;
 
   const ref = useRef(null);
@@ -59,7 +60,13 @@ export function TableShared<T extends object>(props: TableSharedProps<T>) {
 
   return (
     <>
-      <StyledTable {...gridProps} {...renderProps} ref={ref} id={props.id}>
+      <StyledTable
+        {...gridProps}
+        {...renderProps}
+        data-striped={striped}
+        ref={ref}
+        id={props.id}
+      >
         <CollectionRenderer collection={state.collection} />
       </StyledTable>
     </>

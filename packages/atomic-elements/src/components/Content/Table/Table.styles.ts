@@ -2,6 +2,8 @@ import styled, { css } from "styled-components";
 import mixins from "@styles/mixins";
 import { ComboInput, Input } from "@components/Fields";
 import { SkeletonLoader } from "../../Feedback/SkeletonLoader";
+import { typography, TypographyProps } from "@styles/typography";
+import { flex, FlexStyleProps } from "@styles/flex";
 
 const ShowVerticalDividerMixin = css`
   &[data-divider] {
@@ -19,6 +21,7 @@ export const StyledTable = styled.table`
   border: solid var(--table-border-clr);
   border-width: var(--table-border-width);
   border-radius: var(--table-border-radius);
+  overflow: hidden;
 
   &[data-sticky] {
     border-left-width: 0px;
@@ -36,6 +39,30 @@ export const StyledTable = styled.table`
   &[data-has-bottom] {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
+  }
+
+  &[data-striped="even"] {
+    tbody {
+      tr:nth-child(odd) {
+        --table-bg-clr: var(--table-bg-clr-striped-primary);
+      }
+
+      tr:nth-child(even) {
+        --table-bg-clr: var(--table-bg-clr-striped-secondary);
+      }
+    }
+  }
+
+  &[data-striped="odd"] {
+    tbody {
+      tr:nth-child(odd) {
+        --table-bg-clr: var(--table-bg-clr-striped-secondary);
+      }
+
+      tr:nth-child(even) {
+        --table-bg-clr: var(--table-bg-clr-striped-primary);
+      }
+    }
   }
 `;
 
@@ -78,12 +105,11 @@ export const StyledThead = styled.thead`
   }
 `;
 
-export const ColumnContent = styled.div`
+export const ColumnContent = styled.div<FlexStyleProps>`
   width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 4px;
   position: relative;
+
+  ${flex.defaults({ $display: "flex", $align: "center", $gap: "4px" })}
 `;
 
 export const StyledTh = styled.th`
@@ -99,8 +125,16 @@ export const StyledTh = styled.th`
   ${ShowVerticalDividerMixin}
 
   &[data-sortable] {
-    .swap-icon {
-      visibility: hidden;
+    &[data-sort-visibility="selected"] {
+      .swap-icon {
+        visibility: hidden;
+      }
+    }
+
+    &[data-sort-visibility="always"] {
+      .swap-icon {
+        visibility: visible;
+      }
     }
 
     &:hover {

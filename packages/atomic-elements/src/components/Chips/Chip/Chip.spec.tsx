@@ -14,4 +14,10 @@ describe("Chip", () => {
     fireEvent.click(screen.getByRole("button"));
     expect(onRemove).toHaveBeenCalledOnce();
   });
+
+  test("Can be rendered as a link", () => {
+    render(<Chip href="/test">Item</Chip>);
+    const link = screen.getByRole("link");
+    expect(link).toHaveAttribute("href", "/test");
+  });
 });

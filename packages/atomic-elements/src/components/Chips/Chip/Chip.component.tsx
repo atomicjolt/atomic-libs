@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { filterDOMProps, mergeProps, useObjectRef } from "@react-aria/utils";
 import { useTag } from "@react-aria/tag";
 import { createLeafComponent } from "@react-aria/collections";
+import { useLink } from "@react-aria/link";
 
 import { IconButton } from "@components/Buttons/IconButton";
 import { useConditionalPress } from "@hooks/useConditionalPress";
@@ -62,11 +63,21 @@ function ChipGroupChip<T>(props: ChipGroupChipProps<T>) {
     ...props,
   });
 
+  const { linkProps } = useLink(props, ref as any);
+
+  const mergedProps = mergeProps(
+    rowProps,
+    focusProps,
+    props.href ? linkProps : {}
+  );
+
   return (
     <ChipWrapper
       ref={ref}
-      {...mergeProps(rowProps, focusProps)}
+      as={props.href ? "a" : "div"}
+      {...mergedProps}
       {...renderProps}
+      {...filterDOMProps(props as any)}
     >
       <ChipContent {...gridCellProps}>
         {renderProps.children}
@@ -99,6 +110,8 @@ export const ChipInternal = React.forwardRef(function ChipInternal<T>(
 
   const { pressProps } = useConditionalPress(rest);
 
+  const { linkProps } = useLink(props, ref as any);
+
   const renderProps = useRenderProps({
     componentClassName: "aje-chip",
     values: {
@@ -109,10 +122,19 @@ export const ChipInternal = React.forwardRef(function ChipInternal<T>(
     ...props,
   });
 
+  const mergedProps = mergeProps(
+    {
+      "aria-disabled": isDisabled || undefined,
+    },
+    pressProps,
+    props.href ? linkProps : {}
+  );
+
   return (
     <ChipWrapper
+      as={props.href ? "a" : "div"}
       ref={ref}
-      {...mergeProps({ "aria-disabled": isDisabled || undefined }, pressProps)}
+      {...mergedProps}
       {...renderProps}
       {...filterDOMProps(props as any)}
     >
