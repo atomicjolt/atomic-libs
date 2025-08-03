@@ -118,8 +118,8 @@ export function buildToolConfiguration(params: ToolConfigurationParams): ToolCon
     privacyLevel,
     doDeepLinking,
   } = params;
-  const baseUrl = `https://${host}`;
-  const launch_uri = `${baseUrl}/${launchPath}`;
+  const baseUrl = `https://${host.replace(/\/$/, '')}`;
+  const launch_uri = `${baseUrl}/${launchPath.replace(/^\//, '')}`;
   const messages: LtiMessage[] = [];
 
   if (doDeepLinking) {
