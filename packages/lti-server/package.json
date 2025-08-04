@@ -1,6 +1,6 @@
 {
   "name": "@atomicjolt/lti-server",
-  "version": "3.3.0",
+  "version": "3.3.1",
   "description": "Server side Javascript libraries to handle LTI",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
