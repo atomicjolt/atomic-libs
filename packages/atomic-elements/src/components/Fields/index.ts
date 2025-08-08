@@ -14,6 +14,7 @@ export { TextArea } from "./Atoms/TextArea";
 export { Field } from "./Field";
 export { TextField } from "./TextField";
 export { NumberField } from "./NumberField";
+export { SearchField } from "./SearchField";
 
 export * from "./contexts";
 
@@ -33,3 +34,4 @@ export type { TextAreaProps } from "./Atoms/TextArea";
 export type { FieldProps } from "./Field";
 export type { TextFieldProps } from "./TextField";
 export type { NumberFieldProps } from "./NumberField";
+export type { SearchFieldProps } from "./SearchField";
