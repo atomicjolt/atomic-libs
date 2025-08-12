@@ -38,7 +38,7 @@ export const SearchInput = React.forwardRef(function SearchInput(
           aria-label={t("search")}
         />
       </ComboInput>
-      {<ErrorMessage>{error}</ErrorMessage>}
+      <ErrorMessage>{error}</ErrorMessage>
     </SearchField>
   );
 });
