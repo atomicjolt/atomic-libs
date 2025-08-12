@@ -1,36 +1,18 @@
-import React, { useRef } from "react";
-import {
-  View,
-  Text,
-  Flex,
-  SearchInput,
-  Button,
-  SearchField,
-  Input,
-  Label,
-  Message,
-  ErrorMessage,
-  ComboInput,
-  IconButton,
-} from "../elements";
+import React from "react";
+import { View, Text, Flex } from "@atomicjolt/atomic-elements";
 
 export default function Aria() {
-  const ref = useRef<HTMLInputElement>(null);
-  console.log(ref);
-
   return (
-    <>
-      <SearchField ref={ref} onSubmit={console.log}>
-        <Label>Search</Label>
-        <Message>Message</Message>
-        <ComboInput>
-          <Input />
-          <IconButton slot="submit" variant="inverted" icon="text_decrease">
-            Search
-          </IconButton>
-        </ComboInput>
-      </SearchField>
-      <SearchInput onSubmit={console.log} />
-    </>
+    <Flex $direction="column" $gap="3">
+      <Text $size="1">The quick brown fox jumps over the lazy dog.</Text>
+      <Text $size="2">The quick brown fox jumps over the lazy dog.</Text>
+      <Text $size="3">The quick brown fox jumps over the lazy dog.</Text>
+      <Text $size="4">The quick brown fox jumps over the lazy dog.</Text>
+      <Text $size="5">The quick brown fox jumps over the lazy dog.</Text>
+      <Text $size="6">The quick brown fox jumps over the lazy dog.</Text>
+      <Text $size="7">The quick brown fox jumps over the lazy dog.</Text>
+      <Text $size="8">The quick brown fox jumps over the lazy dog.</Text>
+      <Text $size="9">The quick brown fox jumps over the lazy dog.</Text>
+    </Flex>
   );
 }
