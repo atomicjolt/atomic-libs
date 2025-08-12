@@ -1,5 +1,21 @@
 # @atomicjolt/atomic-elements
 
+## 3.5.0
+
+### Minor Changes
+
+- 4b0a981: Implement <SearchField /> as a composition API. SearchInput reimplemented using this composition API. Refactored Button components to be better behaved with contexts
+- f982b55: Implemented Custom ScrollArea component
+- e5120b1: add ensureVisible prop to Modal component
+- 59527a6: Add some additional customization props to tables for aligning column content & striped tables
+- 169a812: Implement Navbar building block components
+
+### Patch Changes
+
+- cc4f689: Implement initial support for localizing some internal labels / screen reader utils
+- a877896: Standalone Chips and ChipGroup Chips now proplerly support being turned into links
+  by setting the `href` prop.
+
 ## 3.4.0
 
 ### Minor Changes

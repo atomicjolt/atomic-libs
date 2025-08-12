@@ -1,5 +1,12 @@
 # @atomicjolt/forms
 
+## 3.5.0
+
+### Patch Changes
+
+- Updated dependencies [a877896]
+  - @atomicjolt/atomic-elements@3.5.0
+
 ## 3.4.0
 
 Updated versioning to be in sync with atomic-elements, this doesn't actually have any breaking changes.
