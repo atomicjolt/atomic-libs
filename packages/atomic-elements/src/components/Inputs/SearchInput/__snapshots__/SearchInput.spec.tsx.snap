@@ -3,21 +3,21 @@
 exports[`matches snapshot > displays with search button 1`] = `
 <DocumentFragment>
   <div
-    class="sc-kXOizl iyullj aje-input__search"
+    class="sc-gNZgCX bAVTuz aje-field__search is-medium"
   >
     <label
-      class="sc-jUkaYT iWzyBP"
+      class="sc-FEMpB encIGH"
       for="react-aria-:r5:"
       id="react-aria-:r6:"
     >
       search
     </label>
     <div
-      class="sc-jZTQcj befwUX aje-combo-input"
+      class="sc-dycHyt kIeuYg aje-combo-input"
     >
       <input
         aria-labelledby="react-aria-:r6:"
-        class="sc-cSaEAk cPazYe"
+        class="sc-fLDLck XprmO"
         id="react-aria-:r5:"
         tabindex="0"
         type="search"
@@ -25,14 +25,14 @@ exports[`matches snapshot > displays with search button 1`] = `
       />
       <button
         aria-label="search"
-        class="sc-jBIHhB hmWfwD aje-btn sc-cMqPwU gSYJMO aje-icon-btn aje-btn--content is-medium"
+        class="sc-hRDKVd sc-jBIHhB kwslFf hAzCSo aje-btn aje-icon-btn aje-btn--content is-medium"
         data-icon-button="true"
         tabindex="0"
         type="button"
       >
         <i
           aria-hidden="true"
-          class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
+          class="sc-kfeOyU ceGEEk aje-icon material-icons is-medium"
         >
           search
         </i>
@@ -45,21 +45,21 @@ exports[`matches snapshot > displays with search button 1`] = `
 exports[`matches snapshot > displays without button 1`] = `
 <DocumentFragment>
   <div
-    class="sc-kXOizl iyullj aje-input__search"
+    class="sc-gNZgCX bAVTuz aje-field__search is-medium"
   >
     <label
-      class="sc-jUkaYT iWzyBP"
+      class="sc-FEMpB encIGH"
       for="react-aria-:r0:"
       id="react-aria-:r1:"
     >
       search
     </label>
     <div
-      class="sc-jZTQcj befwUX aje-combo-input"
+      class="sc-dycHyt kIeuYg aje-combo-input"
     >
       <input
         aria-labelledby="react-aria-:r1:"
-        class="sc-cSaEAk cPazYe"
+        class="sc-fLDLck XprmO"
         id="react-aria-:r0:"
         tabindex="0"
         type="search"
@@ -67,14 +67,14 @@ exports[`matches snapshot > displays without button 1`] = `
       />
       <button
         aria-label="search"
-        class="sc-jBIHhB hmWfwD aje-btn sc-cMqPwU gSYJMO aje-icon-btn aje-btn--content is-medium"
+        class="sc-hRDKVd sc-jBIHhB kwslFf hAzCSo aje-btn aje-icon-btn aje-btn--content is-medium"
         data-icon-button="true"
         tabindex="0"
         type="button"
       >
         <i
           aria-hidden="true"
-          class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
+          class="sc-kfeOyU ceGEEk aje-icon material-icons is-medium"
         >
           search
         </i>

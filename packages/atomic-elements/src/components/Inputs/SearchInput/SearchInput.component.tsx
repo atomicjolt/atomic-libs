@@ -1,6 +1,6 @@
 import React from "react";
 import { AriaSearchFieldProps } from "@react-aria/searchfield";
-import { AriaProps, FieldInputProps, HasVariant } from "../../../types";
+import { AriaProps, FieldInputProps } from "../../../types";
 import {
   Input,
   Label,
@@ -10,35 +10,33 @@ import {
   ComboInput,
 } from "../../Fields";
 import { IconButton } from "../../Buttons/IconButton";
-
-type Variants = "default";
+import { useTranslations } from "@hooks/useTranslations";
 
 export interface SearchInputProps
   extends AriaProps<AriaSearchFieldProps>,
-    FieldInputProps,
-    HasVariant<Variants> {}
+    FieldInputProps {}
 
 /** SearchInput component. */
 export const SearchInput = React.forwardRef(function SearchInput(
   props: SearchInputProps,
   ref: React.Ref<HTMLInputElement>
 ) {
-  const {
-    size = "medium",
-    variant = "default",
-    label,
-    message,
-    error,
-    ...rest
-  } = props;
+  const { size = "medium", label, message, error, ...rest } = props;
+
+  const t = useTranslations();
 
   return (
-    <SearchField ref={ref} {...rest}>
+    <SearchField {...rest} size={size}>
       {label && <Label>{label}</Label>}
       {message && <Message>{message}</Message>}
       <ComboInput padding="both">
-        <Input size={undefined} />
-        <IconButton slot="submit" icon="search" variant="content" />
+        <Input ref={ref} size={undefined} />
+        <IconButton
+          slot="submit"
+          icon="search"
+          variant="content"
+          aria-label={t("search")}
+        />
       </ComboInput>
       {<ErrorMessage>{error}</ErrorMessage>}
     </SearchField>

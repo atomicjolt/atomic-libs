@@ -404,7 +404,7 @@ exports[`ScrollArea > Snapshots > should match snapshot with scrollbar props 1`]
         >
           <button
             aria-label="Scroll retreat vertically"
-            class="sc-jHswkR iYqpaP aje-btn sc-cSaEAk dffilN aje-icon-btn aje-btn--scrollbar is-medium"
+            class="sc-gNZgCX sc-kfeOyU cHjvIr huOvKw aje-btn aje-icon-btn aje-btn--scrollbar is-medium"
             data-icon-button="true"
             tabindex="0"
             type="button"
@@ -436,7 +436,7 @@ exports[`ScrollArea > Snapshots > should match snapshot with scrollbar props 1`]
           </div>
           <button
             aria-label="Scroll advance vertically"
-            class="sc-jHswkR iYqpaP aje-btn sc-cSaEAk dffilN aje-icon-btn aje-btn--scrollbar is-medium"
+            class="sc-gNZgCX sc-kfeOyU cHjvIr huOvKw aje-btn aje-icon-btn aje-btn--scrollbar is-medium"
             data-icon-button="true"
             tabindex="0"
             type="button"
@@ -474,7 +474,7 @@ exports[`ScrollArea > Snapshots > should match snapshot with scrollbar props 1`]
       >
         <button
           aria-label="Scroll retreat vertically"
-          class="sc-jHswkR iYqpaP aje-btn sc-cSaEAk dffilN aje-icon-btn aje-btn--scrollbar is-medium"
+          class="sc-gNZgCX sc-kfeOyU cHjvIr huOvKw aje-btn aje-icon-btn aje-btn--scrollbar is-medium"
           data-icon-button="true"
           tabindex="0"
           type="button"
@@ -506,7 +506,7 @@ exports[`ScrollArea > Snapshots > should match snapshot with scrollbar props 1`]
         </div>
         <button
           aria-label="Scroll advance vertically"
-          class="sc-jHswkR iYqpaP aje-btn sc-cSaEAk dffilN aje-icon-btn aje-btn--scrollbar is-medium"
+          class="sc-gNZgCX sc-kfeOyU cHjvIr huOvKw aje-btn aje-icon-btn aje-btn--scrollbar is-medium"
           data-icon-button="true"
           tabindex="0"
           type="button"

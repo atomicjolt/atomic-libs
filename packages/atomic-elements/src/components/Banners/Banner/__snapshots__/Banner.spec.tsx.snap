@@ -6,7 +6,7 @@ exports[`Banner > Banner.Button > should match snapshot 1`] = `
   "baseElement": <body>
     <div>
       <button
-        class="sc-deSjom gVDyxq aje-btn aje-btn--inverted is-auto"
+        class="sc-dycHyt bcORcL aje-btn aje-btn--inverted is-auto"
         tabindex="0"
         type="button"
       >
@@ -16,7 +16,7 @@ exports[`Banner > Banner.Button > should match snapshot 1`] = `
   </body>,
   "container": <div>
     <button
-      class="sc-deSjom gVDyxq aje-btn aje-btn--inverted is-auto"
+      class="sc-dycHyt bcORcL aje-btn aje-btn--inverted is-auto"
       tabindex="0"
       type="button"
     >
@@ -156,7 +156,7 @@ exports[`Banner > Banner.IconButton > should match snapshot 1`] = `
   "baseElement": <body>
     <div>
       <button
-        class="sc-deSjom gVDyxq aje-btn sc-jHswkR WgpIQ aje-icon-btn aje-btn--banner is-medium"
+        class="sc-dycHyt sc-jbAkgO bcORcL duCePJ aje-btn aje-icon-btn aje-btn--banner is-medium"
         data-icon-button="true"
         tabindex="0"
         type="button"
@@ -172,7 +172,7 @@ exports[`Banner > Banner.IconButton > should match snapshot 1`] = `
   </body>,
   "container": <div>
     <button
-      class="sc-deSjom gVDyxq aje-btn sc-jHswkR WgpIQ aje-icon-btn aje-btn--banner is-medium"
+      class="sc-dycHyt sc-jbAkgO bcORcL duCePJ aje-btn aje-icon-btn aje-btn--banner is-medium"
       data-icon-button="true"
       tabindex="0"
       type="button"

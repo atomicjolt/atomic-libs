@@ -2,10 +2,10 @@ import { forwardRef } from "react";
 import { HasIcon } from "../../../types";
 import { MaterialIcon } from "../../Icons/MaterialIcon";
 import { StyledIconButton } from "./IconButton.styles";
-import { ButtonProps } from "../Button";
 import { useContextProps } from "@hooks/useContextProps";
 import { ButtonContext } from "../Button/Button.context";
 import classNames from "classnames";
+import { BaseButton, ButtonProps } from "@components/Internal/BaseButton";
 
 export interface IconButtonProps
   extends Omit<ButtonProps, "children">,
@@ -17,36 +17,30 @@ export interface IconButtonProps
  * @example <IconButton icon="add" aria-label="Add" onPress={() => alert("Hello, world!")} />
  * */
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
-  function IconButton(props, forwardedRef) {
-    [props, forwardedRef] = useContextProps(
-      ButtonContext as any,
-      props,
-      forwardedRef
-    );
+  function IconButton(props, ref) {
+    [props, ref] = useContextProps(ButtonContext as any, props, ref);
 
     const {
       icon,
       iconVariant,
       size = "medium",
       variant = "border",
-      as,
       className,
       ...rest
     } = props;
 
     return (
-      // @ts-expect-error - forwardedAs isn't being typed correctly
-      <StyledIconButton
+      <BaseButton
         {...rest}
+        Component={StyledIconButton}
         size={size}
         variant={variant}
-        ref={forwardedRef}
-        forwardedAs={as}
+        ref={ref}
         data-icon-button
         className={classNames("aje-icon-btn", className)}
       >
         <MaterialIcon icon={icon} variant={iconVariant} size={size} />
-      </StyledIconButton>
+      </BaseButton>
     );
   }
 );
