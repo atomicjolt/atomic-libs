@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { Button } from '../Button';
+import { StyledButton } from "../Button/Button.styles";
 
-export const StyledIconButton = styled(Button)`
+export const StyledIconButton = styled(StyledButton)`
   --size-sm-x: 30px;
   --size-sm-y: 30px;
   --size-md-x: 40px;

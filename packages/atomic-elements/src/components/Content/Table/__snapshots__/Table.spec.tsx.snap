@@ -52,7 +52,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
                     value="search"
                   />
                   <button
-                    class="sc-dkBYrC gCrqjp aje-btn sc-kXOizl cZTTQ aje-icon-btn aje-btn--content is-small"
+                    class="sc-hRDKVd sc-jBIHhB kwslFf hAzCSo aje-btn aje-icon-btn aje-btn--content is-small"
                     data-icon-button="true"
                     tabindex="0"
                     type="button"
@@ -199,7 +199,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
                   value="search"
                 />
                 <button
-                  class="sc-dkBYrC gCrqjp aje-btn sc-kXOizl cZTTQ aje-icon-btn aje-btn--content is-small"
+                  class="sc-hRDKVd sc-jBIHhB kwslFf hAzCSo aje-btn aje-icon-btn aje-btn--content is-small"
                   data-icon-button="true"
                   tabindex="0"
                   type="button"
@@ -403,7 +403,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
                     value=""
                   />
                   <button
-                    class="sc-dkBYrC gCrqjp aje-btn sc-kXOizl cZTTQ aje-icon-btn aje-btn--content is-small"
+                    class="sc-hRDKVd sc-jBIHhB kwslFf hAzCSo aje-btn aje-icon-btn aje-btn--content is-small"
                     data-icon-button="true"
                     tabindex="0"
                     type="button"
@@ -417,7 +417,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
                   </button>
                 </div>
                 <button
-                  class="sc-dkBYrC gCrqjp aje-btn sc-kXOizl cZTTQ aje-icon-btn aje-btn--content is-small"
+                  class="sc-hRDKVd sc-jBIHhB kwslFf hAzCSo aje-btn aje-icon-btn aje-btn--content is-small"
                   data-icon-button="true"
                   tabindex="0"
                   type="button"
@@ -563,7 +563,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
                   value=""
                 />
                 <button
-                  class="sc-dkBYrC gCrqjp aje-btn sc-kXOizl cZTTQ aje-icon-btn aje-btn--content is-small"
+                  class="sc-hRDKVd sc-jBIHhB kwslFf hAzCSo aje-btn aje-icon-btn aje-btn--content is-small"
                   data-icon-button="true"
                   tabindex="0"
                   type="button"
@@ -577,7 +577,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
                 </button>
               </div>
               <button
-                class="sc-dkBYrC gCrqjp aje-btn sc-kXOizl cZTTQ aje-icon-btn aje-btn--content is-small"
+                class="sc-hRDKVd sc-jBIHhB kwslFf hAzCSo aje-btn aje-icon-btn aje-btn--content is-small"
                 data-icon-button="true"
                 tabindex="0"
                 type="button"
@@ -780,7 +780,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                     value=""
                   />
                   <button
-                    class="sc-dkBYrC gCrqjp aje-btn sc-kXOizl cZTTQ aje-icon-btn aje-btn--content is-small"
+                    class="sc-hRDKVd sc-jBIHhB kwslFf hAzCSo aje-btn aje-icon-btn aje-btn--content is-small"
                     data-icon-button="true"
                     tabindex="0"
                     type="button"
@@ -794,7 +794,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   </button>
                 </div>
                 <button
-                  class="sc-dkBYrC gCrqjp aje-btn sc-kXOizl cZTTQ aje-icon-btn aje-btn--content is-small"
+                  class="sc-hRDKVd sc-jBIHhB kwslFf hAzCSo aje-btn aje-icon-btn aje-btn--content is-small"
                   data-icon-button="true"
                   tabindex="0"
                   type="button"
@@ -2063,7 +2063,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   value=""
                 />
                 <button
-                  class="sc-dkBYrC gCrqjp aje-btn sc-kXOizl cZTTQ aje-icon-btn aje-btn--content is-small"
+                  class="sc-hRDKVd sc-jBIHhB kwslFf hAzCSo aje-btn aje-icon-btn aje-btn--content is-small"
                   data-icon-button="true"
                   tabindex="0"
                   type="button"
@@ -2077,7 +2077,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                 </button>
               </div>
               <button
-                class="sc-dkBYrC gCrqjp aje-btn sc-kXOizl cZTTQ aje-icon-btn aje-btn--content is-small"
+                class="sc-hRDKVd sc-jBIHhB kwslFf hAzCSo aje-btn aje-icon-btn aje-btn--content is-small"
                 data-icon-button="true"
                 tabindex="0"
                 type="button"

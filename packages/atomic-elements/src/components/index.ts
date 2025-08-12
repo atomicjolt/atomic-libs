@@ -103,6 +103,7 @@ export {
   FieldTextArea,
   TextArea,
   ComboInput,
+  SearchField,
 } from "./Fields";
 
 export { SelectField } from "./Fields/SelectField";
@@ -188,6 +189,7 @@ export type {
   TextFieldProps,
   NumberFieldProps,
   ComboInputProps,
+  SearchFieldProps,
 } from "./Fields";
 export type { SelectFieldProps } from "./Fields/SelectField";
 export type { ComboBoxFieldProps } from "./Fields/ComboBoxField";
