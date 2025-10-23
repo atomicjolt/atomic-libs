@@ -1,5 +1,11 @@
 # @atomicjolt/atomic-elements
 
+## 3.5.1
+
+### Patch Changes
+
+- Fix icon type for ButtonGroup and improve documentation in Storybook of IconMenu and IconButton
+
 ## 3.5.0
 
 ### Minor Changes
