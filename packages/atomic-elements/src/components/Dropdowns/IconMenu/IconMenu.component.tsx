@@ -81,6 +81,8 @@ export function IconMenu<T extends {}>(props: IconMenuProps<T>) {
   );
 }
 
+IconMenu.displayName = "IconMenu";
+
 const IconMenuItem = (props: ItemProps) => <Menu.Item {...props} />;
 IconMenuItem.displayName = "IconMenu.Item";
 /**

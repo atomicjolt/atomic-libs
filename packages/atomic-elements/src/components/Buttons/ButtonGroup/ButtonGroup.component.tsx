@@ -1,7 +1,7 @@
 import { Group, GroupProps } from "../../Layout/Group";
 import { ButtonContext } from "../Button/Button.context";
-import { ButtonProps } from "../Button/Button.component";
-import { HasIcon } from "../../../types";
+import { CanHaveIcon } from "../../../types";
+import { ButtonProps } from "@components/Internal/BaseButton";
 
 type MinimalGroupProps = Omit<
   GroupProps,
@@ -20,7 +20,8 @@ type MinimalButtonProps = Omit<
 export interface ButtonGroupProps
   extends MinimalButtonProps,
     MinimalGroupProps,
-    HasIcon {}
+    CanHaveIcon {}
+
 /** Group a set of buttoons together & provide a common context to all buttons in the group
  *
  * @example
