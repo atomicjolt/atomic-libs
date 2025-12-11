@@ -1,0 +1,6 @@
+import{j as u}from"./jsx-runtime-D_zvdyIk.js";import{r as p}from"./index-BCtMShv3.js";import{d}from"./styled-components.browser.esm-Y4FpNNpy.js";import{m as o}from"./mixins-XviowZ_6.js";import{u as c}from"./index-C_lK3xe_.js";import{u as f}from"./useRenderProps-CP918x9p.js";import{I}from"./Input.context-kYvBQ720.js";const g=d.input`
+  ${o.Regular}
+  ${o.InputLike}
+  ${o.SizingX}
+`,a=p.forwardRef(function(e,t){[e,t]=c(I,e,t);const{className:r,size:i,style:l,...s}=e,m=f({componentClassName:r,size:i,style:l});return u.jsx(g,{ref:t,...m,...s,slot:s.slot||void 0})});try{a.displayName="Input",a.__docgenInfo={description:"The input element for a field.",displayName:"Input",props:{className:{defaultValue:null,description:`Add classes to the root element of the component.
+Refer to this for possible values: https://github.com/JedWatson/classnames#readme`,name:"className",required:!1,type:{name:"Argument | Argument[]"}},id:{defaultValue:null,description:"Unique id for the component",name:"id",required:!1,type:{name:"string"}},size:{defaultValue:null,description:"Size of the component",name:"size",required:!1,type:{name:"enum",value:[{value:'"small"'},{value:'"medium"'},{value:'"large"'},{value:'"auto"'},{value:'"full"'}]}}}}}catch{}export{a as I};
