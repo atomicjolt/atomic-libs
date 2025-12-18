@@ -2,9 +2,13 @@ import { Component, ErrorInfo, ReactNode } from "react";
 
 export interface ErrorBoundaryProps {
   children: ReactNode;
+  /** Fallback UI to display when an error is caught. Can be a ReactNode or a function that receives the error and a reset function. */
   fallback: ReactNode | ((error: Error, reset: () => void) => ReactNode);
+  /** Callback invoked when an error is caught. */
   onError?: (error: Error, errorInfo: ErrorInfo) => void;
+  /** Callback invoked when the error boundary is reset. */
   onReset?: () => void;
+  /** An array of values that, when changed, will reset the error boundary. */
   resetKeys?: Array<any>;
 }
 

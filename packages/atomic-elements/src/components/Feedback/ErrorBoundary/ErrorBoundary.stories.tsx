@@ -1,5 +1,5 @@
+import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import React, { useState } from "react";
 import { ErrorBoundary } from "./ErrorBoundary.component";
 import { Button } from "../../Buttons/Button";
 import { Banner } from "../../Banners/Banner";
@@ -10,6 +10,24 @@ const meta: Meta<typeof ErrorBoundary> = {
   component: ErrorBoundary,
   parameters: {
     layout: "centered",
+  },
+  argTypes: {
+    fallback: {
+      control: "text",
+      description: `The fallback UI to display when an error is caught. This can be a React node or a function that receives the error and a reset function as arguments.`,
+    },
+    resetKeys: {
+      control: false,
+      description: `An array of values that, when changed, will reset the error boundary's state.`,
+    },
+    onError: {
+      action: "error captured",
+      description: `Callback function that is called when an error is caught. It receives the error and additional info as arguments.`,
+    },
+    onReset: {
+      action: "reset triggered",
+      description: `Callback function that is called when the error boundary is reset.`,
+    },
   },
 };
 
