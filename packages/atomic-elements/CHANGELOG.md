@@ -1,5 +1,11 @@
 # @atomicjolt/atomic-elements
 
+## 3.6.0
+
+### Minor Changes
+
+- Add ErrorBoundary helper component
+
 ## 3.5.1
 
 ### Patch Changes

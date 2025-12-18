@@ -1,6 +1,6 @@
 {
   "name": "@atomicjolt/forms",
-  "version": "3.5.0",
+  "version": "4.0.0",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.js",
@@ -17,13 +17,13 @@
     "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
-    "@atomicjolt/atomic-elements": "^3.5.0",
+    "@atomicjolt/atomic-elements": "^3.6.0",
     "react": "^18 || ^19",
     "react-dom": "^18 || ^19",
     "react-hook-form": "^7.47.0"
   },
   "devDependencies": {
-    "@atomicjolt/atomic-elements": "^3.5.0",
+    "@atomicjolt/atomic-elements": "^3.6.0",
     "@types/node": "^20.8.4",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
