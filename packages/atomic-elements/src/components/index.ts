@@ -51,6 +51,7 @@ export { ThreeDotLoader } from "./Feedback/ThreeDotLoader";
 export { SkeletonLoader } from "./Feedback/SkeletonLoader";
 export { LoadingStatus } from "./Feedback/LoadingStatus";
 export { ProgressCircle } from "./Feedback/ProgressCircle";
+export { ErrorBoundary } from "./Feedback/ErrorBoundary";
 
 export { MaterialIcon } from "./Icons/MaterialIcon";
 export { MaterialSymbol } from "./Icons/MaterialSymbol";
@@ -162,6 +163,7 @@ export type { ThreeDotLoaderProps } from "./Feedback/ThreeDotLoader";
 export type { SkeletonLoaderProps } from "./Feedback/SkeletonLoader";
 export type { LoadingStatusProps } from "./Feedback/LoadingStatus";
 export type { ProgressCircleProps } from "./Feedback/ProgressCircle";
+export type { ErrorBoundaryProps } from "./Feedback/ErrorBoundary";
 export type { ModalProps } from "./Overlays/Modal";
 export type { ConfirmationModalProps } from "./Overlays/ConfirmationModal";
 export type { ErrorModalProps } from "./Overlays/ErrorModal";
