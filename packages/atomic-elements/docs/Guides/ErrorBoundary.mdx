@@ -1,0 +1,159 @@
+---
+title: ErrorBoundary
+---
+
+import { ErrorBoundary } from "@atomicjolt/atomic-elements";
+
+# ErrorBoundary
+
+The `ErrorBoundary` component provides a way to catch JavaScript errors in your component tree and display fallback UI instead of crashing the entire application.
+
+## Basic Usage
+
+### Static Fallback
+
+The simplest usage is with a static fallback UI:
+
+```tsx
+import { ErrorBoundary } from "@atomicjolt/atomic-elements";
+
+function App() {
+  return (
+    <ErrorBoundary fallback={<div>Something went wrong!</div>}>
+      <MyComponent />
+    </ErrorBoundary>
+  );
+}
+```
+
+### Function Fallback
+
+For more dynamic error handling, use a function fallback:
+
+```tsx
+function App() {
+  return (
+    <ErrorBoundary
+      fallback={(error, reset) => (
+        <div>
+          <h2>Oops! Something went wrong</h2>
+          <p>Error: {error.message}</p>
+          <button onClick={reset}>Try again</button>
+        </div>
+      )}
+    >
+      <MyComponent />
+    </ErrorBoundary>
+  );
+}
+```
+
+## Reset Keys
+
+The `resetKeys` prop allows the ErrorBoundary to automatically reset when certain values change. This is useful for resetting the error state when the conditions that caused the error are no longer present.
+
+When any value in the `resetKeys` array changes (using strict equality `!==` comparison), the ErrorBoundary will:
+
+1. Clear the error state
+2. Call the `onReset` callback (if provided)
+3. Re-render the children components
+
+```tsx
+function UserDashboard() {
+  const { currentUser } = useAuth();
+  const [retryCount, setRetryCount] = useState(0);
+
+  return (
+    <ErrorBoundary
+      // Reset when user changes or when retryCount increments
+      resetKeys={[currentUser?.id, retryCount]}
+      fallback={(error, reset) => (
+        <ErrorBanner>
+          <p>Failed to load dashboard: {error.message}</p>
+          <Button onPress={() => setRetryCount((prev) => prev + 1)}>
+            Try Again
+          </Button>
+        </ErrorBanner>
+      )}
+      onReset={() => {
+        console.log("Dashboard error boundary reset");
+      }}
+    >
+      <Dashboard user={currentUser} />
+    </ErrorBoundary>
+  );
+}
+```
+
+## Manual Reset
+
+You can also trigger a reset manually using the `reset` function provided to function fallbacks:
+
+```tsx
+function AppWithManualReset() {
+  const [shouldThrow, setShouldThrow] = useState(true);
+
+  return (
+    <ErrorBoundary
+      fallback={(error, reset) => (
+        <div>
+          <h2>Component Error</h2>
+          <p>{error.message}</p>
+          <button
+            onClick={() =>
+              // Manually reset the error boundary  state
+              reset();
+            }}
+          >
+            Fix and Retry
+          </button>
+        </div>
+      )}
+    >
+      <BuggyComponent />
+    </ErrorBoundary>
+  );
+}
+```
+
+## Error Monitoring
+
+Use the `onError` callback to report errors to monitoring services:
+
+```tsx
+function MonitoredApp() {
+  return (
+    <ErrorBoundary
+      onError={(error, errorInfo) => {
+        // Report to your error monitoring service
+        errorReporting.captureException(error, {
+          extra: errorInfo,
+          tags: { component: "App" },
+        });
+      }}
+      fallback={(error, reset) => (
+        <ErrorBanner>
+          <h3>Something went wrong</h3>
+          <p>We've been notified and are working on a fix.</p>
+          <Button onPress={reset}>Try Again</Button>
+        </ErrorBanner>
+      )}
+    >
+      <App />
+    </ErrorBoundary>
+  );
+}
+```
+
+## Best Practices
+
+- **Use resetKeys** - Include any state that could affect whether the error occurs
+- **Provide meaningful fallbacks** - Show what went wrong and how to recover
+- **Report errors** - Use the `onError` callback to send errors to monitoring services
+- **Test your error boundaries** - Throw errors in development to verify your fallbacks work
+
+## Limitations
+
+- Error boundaries only catch errors in child components, not in the error boundary itself
+- Error boundaries don't catch errors in event handlers - use try/catch for those
+- Error boundaries don't catch errors in async code - handle Promise rejections separately
