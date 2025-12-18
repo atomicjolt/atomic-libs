@@ -2,7 +2,7 @@ import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { ErrorBoundary } from "./ErrorBoundary.component";
 import { Button } from "../../Buttons/Button";
-import { Banner } from "../../Banners/Banner";
+import { ErrorBanner } from "@components/Banners/DismissableBanner";
 import { Text } from "@components/Typography/Text";
 
 const meta: Meta<typeof ErrorBoundary> = {
@@ -76,11 +76,9 @@ export const WithStaticFallback: Story = {
         <ErrorBoundary
           resetKeys={[shouldThrow]}
           fallback={
-            <Banner variant="error">
-              <Banner.Content>
-                Oops! Something went wrong. Please try refreshing the page.
-              </Banner.Content>
-            </Banner>
+            <ErrorBanner>
+              Oops! Something went wrong. Please try refreshing the page.
+            </ErrorBanner>
           }
         >
           <BuggyComponent shouldThrow={shouldThrow} />
@@ -105,22 +103,20 @@ export const WithFunctionFallback: Story = {
 
         <ErrorBoundary
           fallback={(error, reset) => (
-            <Banner variant="error">
-              <Banner.Content>
-                <strong>Error:</strong> {error.message}
-                <br />
-                <Button
-                  onPress={() => {
-                    setShouldThrow(false);
-                    reset();
-                  }}
-                  variant="inverted"
-                  style={{ marginTop: "8px" }}
-                >
-                  Try Again
-                </Button>
-              </Banner.Content>
-            </Banner>
+            <ErrorBanner>
+              <strong>Error:</strong> {error.message}
+              <br />
+              <Button
+                onPress={() => {
+                  setShouldThrow(false);
+                  reset();
+                }}
+                variant="inverted"
+                style={{ marginTop: "8px" }}
+              >
+                Try Again
+              </Button>
+            </ErrorBanner>
           )}
           resetKeys={[shouldThrow]}
           onError={(error, errorInfo) => {
@@ -166,12 +162,10 @@ export const WithResetKeys: Story = {
 
         <ErrorBoundary
           fallback={
-            <Banner variant="error">
-              <Banner.Content>
-                Component crashed! Change the reset key or user ID above to
-                recover.
-              </Banner.Content>
-            </Banner>
+            <ErrorBanner>
+              Component crashed! Change the reset key or user ID above to
+              recover.
+            </ErrorBanner>
           }
           resetKeys={[resetKey, userId]}
           onReset={() => {
@@ -210,11 +204,7 @@ export const NestedErrorBoundaries: Story = {
         <ErrorBoundary
           resetKeys={[outerError]}
           fallback={
-            <Banner variant="error">
-              <Banner.Content>
-                Outer error boundary caught an error!
-              </Banner.Content>
-            </Banner>
+            <ErrorBanner>Outer error boundary caught an error!</ErrorBanner>
           }
         >
           <div
@@ -225,11 +215,7 @@ export const NestedErrorBoundaries: Story = {
 
             <ErrorBoundary
               fallback={
-                <Banner variant="warning">
-                  <Banner.Content>
-                    Inner error boundary caught an error!
-                  </Banner.Content>
-                </Banner>
+                <ErrorBanner>Inner error boundary caught an error!</ErrorBanner>
               }
               resetKeys={[innerError]}
             >
