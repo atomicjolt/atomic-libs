@@ -1,6 +1,6 @@
 # @atomicjolt/forms
 
-## 4.0.0
+## 3.6.0
 
 ### Patch Changes
 
