@@ -1,4 +1,3 @@
-import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import { now, getLocalTimeZone } from "@internationalized/date";
 import { DateField } from ".";

@@ -1,9 +1,7 @@
 import { AriaDateFieldProps, DateValue } from "@react-aria/datepicker";
-import { Granularity } from "@react-types/datepicker";
 
 import { AriaProps, FieldInputProps } from "../../../../types";
-import { DateField } from "../../../Fields/DateField";
-import { Label, Message, ErrorMessage } from "../../../Fields";
+import { Label, Message, ErrorMessage, DateField } from "../../../Fields";
 import { useRenderProps, fieldStatusSelectors } from "@hooks/useRenderProps";
 
 export interface DateInputProps<T extends DateValue>
@@ -30,7 +28,6 @@ export function DateInput<T extends DateValue>(props: DateInputProps<T>) {
         // so we allow it grow larger than the default width constraints.
         width: "unset",
         minWidth: "var(--size-x)",
-        // ...sizes[dateFieldProps.granularity || "day"],
         ...renderProps.style,
       }}
     >
