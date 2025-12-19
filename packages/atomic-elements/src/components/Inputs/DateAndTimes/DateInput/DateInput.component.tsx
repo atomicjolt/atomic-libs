@@ -26,7 +26,11 @@ export function DateInput<T extends DateValue>(props: DateInputProps<T>) {
       {...renderProps}
       {...dateFieldProps}
       style={{
-        ...sizes[dateFieldProps.granularity || "day"],
+        // The props of DateInput can affect the width due to number of segments shown
+        // so we allow it grow larger than the default width constraints.
+        width: "unset",
+        minWidth: "var(--size-x)",
+        // ...sizes[dateFieldProps.granularity || "day"],
         ...renderProps.style,
       }}
     >
@@ -39,26 +43,3 @@ export function DateInput<T extends DateValue>(props: DateInputProps<T>) {
     </DateField>
   );
 }
-
-const sizes: Record<Granularity, Record<string, string>> = {
-  day: {
-    "--size-sm-x": "125px",
-    "--size-md-x": "200px",
-    "--size-lg-x": "300px",
-  },
-  hour: {
-    "--size-sm-x": "185px",
-    "--size-md-x": "200px",
-    "--size-lg-x": "300px",
-  },
-  minute: {
-    "--size-sm-x": "215px",
-    "--size-md-x": "230px",
-    "--size-lg-x": "300px",
-  },
-  second: {
-    "--size-sm-x": "240px",
-    "--size-md-x": "240px",
-    "--size-lg-x": "300px",
-  },
-};

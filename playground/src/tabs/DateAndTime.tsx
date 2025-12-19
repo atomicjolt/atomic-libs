@@ -53,7 +53,7 @@ export function DateAndTime(props: DateAndTimeProps) {
         <Calendar.Grid>{(date) => <Calendar.Cell date={date} />}</Calendar.Grid>
       </Calendar> */}
 
-      <Flex $direction="column" $gap="1">
+      <Flex $direction="column" $gap="1" $align="flex-start">
         <DateInput
           value={selectedDate}
           onChange={setSelectedDate}
