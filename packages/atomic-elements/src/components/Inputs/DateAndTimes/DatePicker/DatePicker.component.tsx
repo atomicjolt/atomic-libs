@@ -6,28 +6,33 @@ import {
 } from "@react-aria/datepicker";
 import { filterDOMProps } from "@react-aria/utils";
 import { useDatePickerState } from "react-stately";
-import { AriaProps, FieldInputProps } from "../../../../types";
-import { DatePickerComboInput, DatePickerWrapper } from "./DatePicker.styles";
-import { DateInput } from "../DateInput";
+import { useRenderProps } from "@hooks";
+import { fieldStatusSelectors } from "@hooks/useRenderProps";
+import { AriaProps, FieldInputProps, Size } from "../../../../types";
 import { IconButton } from "../../../Buttons/IconButton";
 import { Popover } from "../../../Overlays/Popover";
 import { Calendar } from "../Calendar";
-import { ErrorMessage, Label, Message } from "../../../Fields";
+import {
+  DateField,
+  ErrorMessage,
+  Label,
+  Message,
+  ComboInput,
+} from "../../../Fields";
 import { OverlayTriggerStateContext } from "@components/Overlays/OverlayTrigger/context";
-import { useRenderProps } from "@hooks";
 import { Flex } from "@components/Layout/Flex";
-import { fieldStatusSelectors } from "@hooks/useRenderProps";
 
 export interface DatePickerProps<T extends DateValue>
   extends AriaProps<AriaDatePickerProps<T>>,
-    FieldInputProps {}
+    FieldInputProps {
+  calendarSize?: Size;
+}
 
 /** DatePicker is a combination of a `<DateInput/>` component and a dropdown `<Calendar />` component. */
 export function DatePicker<T extends DateValue>(props: DatePickerProps<T>) {
   const state = useDatePickerState(props);
   const ref = useRef(null);
   const {
-    groupProps,
     labelProps,
     fieldProps,
     buttonProps,
@@ -38,14 +43,12 @@ export function DatePicker<T extends DateValue>(props: DatePickerProps<T>) {
 
   const {
     size = "medium",
+    calendarSize = "small",
     error,
-    isRequired,
     isInvalid,
     label,
     message,
   } = props;
-
-  const calendarSize = ["auto", "full"].includes(size) ? "medium" : size;
 
   const renderProps = useRenderProps({
     componentClassName: "aje-date-picker",
@@ -54,27 +57,45 @@ export function DatePicker<T extends DateValue>(props: DatePickerProps<T>) {
   });
 
   return (
-    <DatePickerWrapper {...filterDOMProps(props)} {...renderProps}>
-      {label && <Label {...labelProps}>{label}</Label>}
-      {message && <Message {...descriptionProps}>{message}</Message>}
-
-      <DateInput {...fieldProps} size="full" isRequired={isRequired} />
-
-      {/* <DatePickerComboInput
-        {...groupProps}
-        ref={ref}
-        className="aje-input__date-segments"
-        padding="both"
-      >
-        <IconButton icon="today" variant="content" {...buttonProps} />
-      </DatePickerComboInput>
-
-      <ErrorMessage {...errorMessageProps} isInvalid={isInvalid}>
-        {error}
-      </ErrorMessage> */}
-
+    <>
+      <div {...filterDOMProps(props)} {...renderProps}>
+        <DateField
+          {...fieldProps}
+          size={size}
+          style={{
+            // The props of DateInput can affect the width due to number of segments shown
+            // so we allow it grow larger than the default width constraints.
+            width: "unset",
+            minWidth: "var(--size-x)",
+            ...renderProps.style,
+          }}
+        >
+          <Label {...labelProps}>{label}</Label>
+          {message && <Message {...descriptionProps}>{message}</Message>}
+          <ComboInput padding="both">
+            <DateField.Segments>
+              {(_, index) => <DateField.Segment key={index} index={index} />}
+            </DateField.Segments>
+            <IconButton
+              icon="today"
+              variant="content"
+              style={{ marginLeft: "auto" }}
+              ref={ref}
+              {...buttonProps}
+            />
+          </ComboInput>
+          <ErrorMessage {...errorMessageProps} isInvalid={isInvalid}>
+            {error}
+          </ErrorMessage>
+        </DateField>
+      </div>
       <OverlayTriggerStateContext.Provider value={state}>
-        <Popover triggerRef={ref} placement="bottom start" variant="datepicker">
+        <Popover
+          triggerRef={ref}
+          placement="bottom end"
+          variant="datepicker"
+          offset={15}
+        >
           <Calendar {...calendarProps} size={calendarSize}>
             <Flex $justify="space-between" $align="center">
               <IconButton
@@ -95,6 +116,6 @@ export function DatePicker<T extends DateValue>(props: DatePickerProps<T>) {
           </Calendar>
         </Popover>
       </OverlayTriggerStateContext.Provider>
-    </DatePickerWrapper>
+    </>
   );
 }

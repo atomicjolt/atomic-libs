@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { DateSegment as ReactStatelyDateSegment } from "react-stately";
 import { DateFieldContext } from "./DateField.component";
 import { ComboInput } from "../ComboInput";
+import { StyledDateSegments } from "./DateField.styles";
 
 export interface DateFieldSegmentsProps {
   children: (
@@ -21,17 +22,8 @@ export function DateFieldSegments(props: DateFieldSegmentsProps) {
   const { segments, fieldProps } = context;
 
   return (
-    <ComboInput
-      className="aje-input__date-segments"
-      padding="both"
-      {...fieldProps}
-      style={{
-        // @ts-expect-error CSS variable
-        "--input-gap": "0px",
-        ...fieldProps.style,
-      }}
-    >
+    <StyledDateSegments className="aje-input__date-segments" {...fieldProps}>
       {segments.map((segment, index) => children(segment, index))}
-    </ComboInput>
+    </StyledDateSegments>
   );
 }

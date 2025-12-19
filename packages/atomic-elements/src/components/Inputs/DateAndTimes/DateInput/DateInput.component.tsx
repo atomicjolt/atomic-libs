@@ -1,7 +1,13 @@
 import { AriaDateFieldProps, DateValue } from "@react-aria/datepicker";
 
 import { AriaProps, FieldInputProps } from "../../../../types";
-import { Label, Message, ErrorMessage, DateField } from "../../../Fields";
+import {
+  Label,
+  Message,
+  ErrorMessage,
+  DateField,
+  ComboInput,
+} from "../../../Fields";
 import { useRenderProps, fieldStatusSelectors } from "@hooks/useRenderProps";
 
 export interface DateInputProps<T extends DateValue>
@@ -33,9 +39,11 @@ export function DateInput<T extends DateValue>(props: DateInputProps<T>) {
     >
       {label && <Label>{label}</Label>}
       {message && <Message>{message}</Message>}
-      <DateField.Segments>
-        {(_, index) => <DateField.Segment key={index} index={index} />}
-      </DateField.Segments>
+      <ComboInput padding="both">
+        <DateField.Segments>
+          {(_, index) => <DateField.Segment key={index} index={index} />}
+        </DateField.Segments>
+      </ComboInput>
       <ErrorMessage>{error}</ErrorMessage>
     </DateField>
   );

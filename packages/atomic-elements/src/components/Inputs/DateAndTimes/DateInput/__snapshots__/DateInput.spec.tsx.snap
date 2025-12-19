@@ -19,127 +19,131 @@ exports[`DateInput > matches snapshots > 24 hour cycle 1`] = `
       Select a date
     </p>
     <div
-      aria-describedby="react-aria-:r77:"
-      aria-labelledby="react-aria-:r75:"
-      class="sc-dycHyt kIeuYg aje-combo-input aje-input__date-segments"
-      id="react-aria-:r74:"
-      role="group"
-      style="--input-gap: 0px; unicode-bidi: isolate;"
+      class="sc-dycHyt kIeuYg aje-combo-input"
     >
       <div
         aria-describedby="react-aria-:r77:"
-        aria-label="month, "
-        aria-labelledby="react-aria-:r79: react-aria-:r75:"
-        aria-valuemax="12"
-        aria-valuemin="1"
-        aria-valuenow="12"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r79:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
+        aria-labelledby="react-aria-:r75:"
+        class="sc-eiwqOE ikpPXx aje-input__date-segments"
+        id="react-aria-:r74:"
+        role="group"
+        style="unicode-bidi: isolate;"
       >
-        mm
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        /
-      </div>
-      <div
-        aria-label="day, "
-        aria-labelledby="react-aria-:r7d: react-aria-:r75:"
-        aria-valuemax="31"
-        aria-valuemin="1"
-        aria-valuenow="19"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r7d:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        dd
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        /
-      </div>
-      <div
-        aria-label="year, "
-        aria-labelledby="react-aria-:r7h: react-aria-:r75:"
-        aria-valuemax="9999"
-        aria-valuemin="1"
-        aria-valuenow="2025"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r7h:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        yyyy
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        , 
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        ⁦
-      </div>
-      <div
-        aria-label="hour, "
-        aria-labelledby="react-aria-:r7n: react-aria-:r75:"
-        aria-valuemax="23"
-        aria-valuemin="0"
-        aria-valuenow="0"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r7n:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        ––
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        ⁩
+        <div
+          aria-describedby="react-aria-:r77:"
+          aria-label="month, "
+          aria-labelledby="react-aria-:r79: react-aria-:r75:"
+          aria-valuemax="12"
+          aria-valuemin="1"
+          aria-valuenow="12"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r79:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          mm
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          /
+        </div>
+        <div
+          aria-label="day, "
+          aria-labelledby="react-aria-:r7d: react-aria-:r75:"
+          aria-valuemax="31"
+          aria-valuemin="1"
+          aria-valuenow="19"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r7d:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          dd
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          /
+        </div>
+        <div
+          aria-label="year, "
+          aria-labelledby="react-aria-:r7h: react-aria-:r75:"
+          aria-valuemax="9999"
+          aria-valuemin="1"
+          aria-valuenow="2025"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r7h:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          yyyy
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          , 
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          ⁦
+        </div>
+        <div
+          aria-label="hour, "
+          aria-labelledby="react-aria-:r7n: react-aria-:r75:"
+          aria-valuemax="23"
+          aria-valuemin="0"
+          aria-valuenow="0"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r7n:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          ––
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          ⁩
+        </div>
       </div>
     </div>
   </div>
@@ -165,88 +169,92 @@ exports[`DateInput > matches snapshots > day granularity 1`] = `
       Select a date
     </p>
     <div
-      aria-describedby="react-aria-:r1g:"
-      aria-labelledby="react-aria-:r1e:"
-      class="sc-dycHyt kIeuYg aje-combo-input aje-input__date-segments"
-      id="react-aria-:r1d:"
-      role="group"
-      style="--input-gap: 0px; unicode-bidi: isolate;"
+      class="sc-dycHyt kIeuYg aje-combo-input"
     >
       <div
         aria-describedby="react-aria-:r1g:"
-        aria-label="month, "
-        aria-labelledby="react-aria-:r1i: react-aria-:r1e:"
-        aria-valuemax="12"
-        aria-valuemin="1"
-        aria-valuenow="12"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r1i:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
+        aria-labelledby="react-aria-:r1e:"
+        class="sc-eiwqOE ikpPXx aje-input__date-segments"
+        id="react-aria-:r1d:"
+        role="group"
+        style="unicode-bidi: isolate;"
       >
-        mm
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        /
-      </div>
-      <div
-        aria-label="day, "
-        aria-labelledby="react-aria-:r1m: react-aria-:r1e:"
-        aria-valuemax="31"
-        aria-valuemin="1"
-        aria-valuenow="19"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r1m:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        dd
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        /
-      </div>
-      <div
-        aria-label="year, "
-        aria-labelledby="react-aria-:r1q: react-aria-:r1e:"
-        aria-valuemax="9999"
-        aria-valuemin="1"
-        aria-valuenow="2025"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r1q:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        yyyy
+        <div
+          aria-describedby="react-aria-:r1g:"
+          aria-label="month, "
+          aria-labelledby="react-aria-:r1i: react-aria-:r1e:"
+          aria-valuemax="12"
+          aria-valuemin="1"
+          aria-valuenow="12"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r1i:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          mm
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          /
+        </div>
+        <div
+          aria-label="day, "
+          aria-labelledby="react-aria-:r1m: react-aria-:r1e:"
+          aria-valuemax="31"
+          aria-valuemin="1"
+          aria-valuenow="19"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r1m:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          dd
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          /
+        </div>
+        <div
+          aria-label="year, "
+          aria-labelledby="react-aria-:r1q: react-aria-:r1e:"
+          aria-valuemax="9999"
+          aria-valuemin="1"
+          aria-valuenow="2025"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r1q:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          yyyy
+        </div>
       </div>
     </div>
   </div>
@@ -272,88 +280,92 @@ exports[`DateInput > matches snapshots > default variant 1`] = `
       Select a date
     </p>
     <div
-      aria-describedby="react-aria-:r3:"
-      aria-labelledby="react-aria-:r1:"
-      class="sc-dycHyt kIeuYg aje-combo-input aje-input__date-segments"
-      id="react-aria-:r0:"
-      role="group"
-      style="--input-gap: 0px; unicode-bidi: isolate;"
+      class="sc-dycHyt kIeuYg aje-combo-input"
     >
       <div
         aria-describedby="react-aria-:r3:"
-        aria-label="month, "
-        aria-labelledby="react-aria-:r5: react-aria-:r1:"
-        aria-valuemax="12"
-        aria-valuemin="1"
-        aria-valuenow="12"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r5:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
+        aria-labelledby="react-aria-:r1:"
+        class="sc-eiwqOE ikpPXx aje-input__date-segments"
+        id="react-aria-:r0:"
+        role="group"
+        style="unicode-bidi: isolate;"
       >
-        mm
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        /
-      </div>
-      <div
-        aria-label="day, "
-        aria-labelledby="react-aria-:r9: react-aria-:r1:"
-        aria-valuemax="31"
-        aria-valuemin="1"
-        aria-valuenow="19"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r9:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        dd
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        /
-      </div>
-      <div
-        aria-label="year, "
-        aria-labelledby="react-aria-:rd: react-aria-:r1:"
-        aria-valuemax="9999"
-        aria-valuemin="1"
-        aria-valuenow="2025"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:rd:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        yyyy
+        <div
+          aria-describedby="react-aria-:r3:"
+          aria-label="month, "
+          aria-labelledby="react-aria-:r5: react-aria-:r1:"
+          aria-valuemax="12"
+          aria-valuemin="1"
+          aria-valuenow="12"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r5:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          mm
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          /
+        </div>
+        <div
+          aria-label="day, "
+          aria-labelledby="react-aria-:r9: react-aria-:r1:"
+          aria-valuemax="31"
+          aria-valuemin="1"
+          aria-valuenow="19"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r9:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          dd
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          /
+        </div>
+        <div
+          aria-label="year, "
+          aria-labelledby="react-aria-:rd: react-aria-:r1:"
+          aria-valuemax="9999"
+          aria-valuemin="1"
+          aria-valuenow="2025"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:rd:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          yyyy
+        </div>
       </div>
     </div>
   </div>
@@ -380,78 +392,82 @@ exports[`DateInput > matches snapshots > disabled state 1`] = `
       Select a date
     </p>
     <div
-      aria-describedby="react-aria-:r4s:"
-      aria-disabled="true"
-      aria-labelledby="react-aria-:r4q:"
-      class="sc-dycHyt kIeuYg aje-combo-input aje-input__date-segments"
-      data-disabled="true"
-      id="react-aria-:r4p:"
-      role="group"
-      style="--input-gap: 0px; unicode-bidi: isolate;"
+      class="sc-dycHyt kIeuYg aje-combo-input"
     >
       <div
         aria-describedby="react-aria-:r4s:"
         aria-disabled="true"
-        aria-label="month, "
-        aria-labelledby="react-aria-:r4u: react-aria-:r4q:"
-        aria-valuemax="12"
-        aria-valuemin="1"
-        aria-valuenow="12"
-        aria-valuetext="Empty"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="false"
-        data-placeholder="true"
-        id="react-aria-:r4u:"
-        role="spinbutton"
-        style="caret-color: transparent;"
+        aria-labelledby="react-aria-:r4q:"
+        class="sc-eiwqOE ikpPXx aje-input__date-segments"
+        data-disabled="true"
+        id="react-aria-:r4p:"
+        role="group"
+        style="unicode-bidi: isolate;"
       >
-        mm
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        /
-      </div>
-      <div
-        aria-disabled="true"
-        aria-label="day, "
-        aria-labelledby="react-aria-:r52: react-aria-:r4q:"
-        aria-valuemax="31"
-        aria-valuemin="1"
-        aria-valuenow="19"
-        aria-valuetext="Empty"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="false"
-        data-placeholder="true"
-        id="react-aria-:r52:"
-        role="spinbutton"
-        style="caret-color: transparent;"
-      >
-        dd
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        /
-      </div>
-      <div
-        aria-disabled="true"
-        aria-label="year, "
-        aria-labelledby="react-aria-:r56: react-aria-:r4q:"
-        aria-valuemax="9999"
-        aria-valuemin="1"
-        aria-valuenow="2025"
-        aria-valuetext="Empty"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="false"
-        data-placeholder="true"
-        id="react-aria-:r56:"
-        role="spinbutton"
-        style="caret-color: transparent;"
-      >
-        yyyy
+        <div
+          aria-describedby="react-aria-:r4s:"
+          aria-disabled="true"
+          aria-label="month, "
+          aria-labelledby="react-aria-:r4u: react-aria-:r4q:"
+          aria-valuemax="12"
+          aria-valuemin="1"
+          aria-valuenow="12"
+          aria-valuetext="Empty"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="false"
+          data-placeholder="true"
+          id="react-aria-:r4u:"
+          role="spinbutton"
+          style="caret-color: transparent;"
+        >
+          mm
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          /
+        </div>
+        <div
+          aria-disabled="true"
+          aria-label="day, "
+          aria-labelledby="react-aria-:r52: react-aria-:r4q:"
+          aria-valuemax="31"
+          aria-valuemin="1"
+          aria-valuenow="19"
+          aria-valuetext="Empty"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="false"
+          data-placeholder="true"
+          id="react-aria-:r52:"
+          role="spinbutton"
+          style="caret-color: transparent;"
+        >
+          dd
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          /
+        </div>
+        <div
+          aria-disabled="true"
+          aria-label="year, "
+          aria-labelledby="react-aria-:r56: react-aria-:r4q:"
+          aria-valuemax="9999"
+          aria-valuemin="1"
+          aria-valuenow="2025"
+          aria-valuetext="Empty"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="false"
+          data-placeholder="true"
+          id="react-aria-:r56:"
+          role="spinbutton"
+          style="caret-color: transparent;"
+        >
+          yyyy
+        </div>
       </div>
     </div>
   </div>
@@ -477,153 +493,157 @@ exports[`DateInput > matches snapshots > hour granularity 1`] = `
       Select a date
     </p>
     <div
-      aria-describedby="react-aria-:r1v:"
-      aria-labelledby="react-aria-:r1t:"
-      class="sc-dycHyt kIeuYg aje-combo-input aje-input__date-segments"
-      id="react-aria-:r1s:"
-      role="group"
-      style="--input-gap: 0px; unicode-bidi: isolate;"
+      class="sc-dycHyt kIeuYg aje-combo-input"
     >
       <div
         aria-describedby="react-aria-:r1v:"
-        aria-label="month, "
-        aria-labelledby="react-aria-:r21: react-aria-:r1t:"
-        aria-valuemax="12"
-        aria-valuemin="1"
-        aria-valuenow="12"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r21:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
+        aria-labelledby="react-aria-:r1t:"
+        class="sc-eiwqOE ikpPXx aje-input__date-segments"
+        id="react-aria-:r1s:"
+        role="group"
+        style="unicode-bidi: isolate;"
       >
-        mm
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        /
-      </div>
-      <div
-        aria-label="day, "
-        aria-labelledby="react-aria-:r25: react-aria-:r1t:"
-        aria-valuemax="31"
-        aria-valuemin="1"
-        aria-valuenow="19"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r25:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        dd
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        /
-      </div>
-      <div
-        aria-label="year, "
-        aria-labelledby="react-aria-:r29: react-aria-:r1t:"
-        aria-valuemax="9999"
-        aria-valuemin="1"
-        aria-valuenow="2025"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r29:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        yyyy
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        , 
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        ⁦
-      </div>
-      <div
-        aria-label="hour, "
-        aria-labelledby="react-aria-:r2f: react-aria-:r1t:"
-        aria-valuemax="11"
-        aria-valuemin="0"
-        aria-valuenow="0"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r2f:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        ––
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        ⁩
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-         
-      </div>
-      <div
-        aria-label="AM/PM, "
-        aria-labelledby="react-aria-:r2l: react-aria-:r1t:"
-        aria-valuemax="12"
-        aria-valuemin="0"
-        aria-valuenow="0"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r2l:"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        AM
+        <div
+          aria-describedby="react-aria-:r1v:"
+          aria-label="month, "
+          aria-labelledby="react-aria-:r21: react-aria-:r1t:"
+          aria-valuemax="12"
+          aria-valuemin="1"
+          aria-valuenow="12"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r21:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          mm
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          /
+        </div>
+        <div
+          aria-label="day, "
+          aria-labelledby="react-aria-:r25: react-aria-:r1t:"
+          aria-valuemax="31"
+          aria-valuemin="1"
+          aria-valuenow="19"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r25:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          dd
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          /
+        </div>
+        <div
+          aria-label="year, "
+          aria-labelledby="react-aria-:r29: react-aria-:r1t:"
+          aria-valuemax="9999"
+          aria-valuemin="1"
+          aria-valuenow="2025"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r29:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          yyyy
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          , 
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          ⁦
+        </div>
+        <div
+          aria-label="hour, "
+          aria-labelledby="react-aria-:r2f: react-aria-:r1t:"
+          aria-valuemax="11"
+          aria-valuemin="0"
+          aria-valuenow="0"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r2f:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          ––
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          ⁩
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+           
+        </div>
+        <div
+          aria-label="AM/PM, "
+          aria-labelledby="react-aria-:r2l: react-aria-:r1t:"
+          aria-valuemax="12"
+          aria-valuemin="0"
+          aria-valuenow="0"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r2l:"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          AM
+        </div>
       </div>
     </div>
   </div>
@@ -650,94 +670,98 @@ exports[`DateInput > matches snapshots > invalid state 1`] = `
       Select a date
     </p>
     <div
-      aria-describedby="react-aria-:r69: react-aria-:r6a:"
-      aria-labelledby="react-aria-:r67:"
-      class="sc-dycHyt kIeuYg aje-combo-input aje-input__date-segments"
-      data-invalid="true"
-      id="react-aria-:r66:"
-      role="group"
-      style="--input-gap: 0px; unicode-bidi: isolate;"
+      class="sc-dycHyt kIeuYg aje-combo-input"
     >
       <div
         aria-describedby="react-aria-:r69: react-aria-:r6a:"
-        aria-invalid="true"
-        aria-label="month, "
-        aria-labelledby="react-aria-:r6b: react-aria-:r67:"
-        aria-valuemax="12"
-        aria-valuemin="1"
-        aria-valuenow="12"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r6b:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
+        aria-labelledby="react-aria-:r67:"
+        class="sc-eiwqOE ikpPXx aje-input__date-segments"
+        data-invalid="true"
+        id="react-aria-:r66:"
+        role="group"
+        style="unicode-bidi: isolate;"
       >
-        mm
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        /
-      </div>
-      <div
-        aria-describedby="react-aria-:r69: react-aria-:r6a:"
-        aria-invalid="true"
-        aria-label="day, "
-        aria-labelledby="react-aria-:r6f: react-aria-:r67:"
-        aria-valuemax="31"
-        aria-valuemin="1"
-        aria-valuenow="19"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r6f:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        dd
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        /
-      </div>
-      <div
-        aria-describedby="react-aria-:r69: react-aria-:r6a:"
-        aria-invalid="true"
-        aria-label="year, "
-        aria-labelledby="react-aria-:r6j: react-aria-:r67:"
-        aria-valuemax="9999"
-        aria-valuemin="1"
-        aria-valuenow="2025"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r6j:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        yyyy
+        <div
+          aria-describedby="react-aria-:r69: react-aria-:r6a:"
+          aria-invalid="true"
+          aria-label="month, "
+          aria-labelledby="react-aria-:r6b: react-aria-:r67:"
+          aria-valuemax="12"
+          aria-valuemin="1"
+          aria-valuenow="12"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r6b:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          mm
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          /
+        </div>
+        <div
+          aria-describedby="react-aria-:r69: react-aria-:r6a:"
+          aria-invalid="true"
+          aria-label="day, "
+          aria-labelledby="react-aria-:r6f: react-aria-:r67:"
+          aria-valuemax="31"
+          aria-valuemin="1"
+          aria-valuenow="19"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r6f:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          dd
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          /
+        </div>
+        <div
+          aria-describedby="react-aria-:r69: react-aria-:r6a:"
+          aria-invalid="true"
+          aria-label="year, "
+          aria-labelledby="react-aria-:r6j: react-aria-:r67:"
+          aria-valuemax="9999"
+          aria-valuemin="1"
+          aria-valuenow="2025"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r6j:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          yyyy
+        </div>
       </div>
     </div>
     <p
@@ -769,88 +793,92 @@ exports[`DateInput > matches snapshots > large size 1`] = `
       Select a date
     </p>
     <div
-      aria-describedby="react-aria-:r8s:"
-      aria-labelledby="react-aria-:r8q:"
-      class="sc-dycHyt kIeuYg aje-combo-input aje-input__date-segments"
-      id="react-aria-:r8p:"
-      role="group"
-      style="--input-gap: 0px; unicode-bidi: isolate;"
+      class="sc-dycHyt kIeuYg aje-combo-input"
     >
       <div
         aria-describedby="react-aria-:r8s:"
-        aria-label="month, "
-        aria-labelledby="react-aria-:r8u: react-aria-:r8q:"
-        aria-valuemax="12"
-        aria-valuemin="1"
-        aria-valuenow="12"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r8u:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
+        aria-labelledby="react-aria-:r8q:"
+        class="sc-eiwqOE ikpPXx aje-input__date-segments"
+        id="react-aria-:r8p:"
+        role="group"
+        style="unicode-bidi: isolate;"
       >
-        mm
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        /
-      </div>
-      <div
-        aria-label="day, "
-        aria-labelledby="react-aria-:r92: react-aria-:r8q:"
-        aria-valuemax="31"
-        aria-valuemin="1"
-        aria-valuenow="19"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r92:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        dd
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        /
-      </div>
-      <div
-        aria-label="year, "
-        aria-labelledby="react-aria-:r96: react-aria-:r8q:"
-        aria-valuemax="9999"
-        aria-valuemin="1"
-        aria-valuenow="2025"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r96:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        yyyy
+        <div
+          aria-describedby="react-aria-:r8s:"
+          aria-label="month, "
+          aria-labelledby="react-aria-:r8u: react-aria-:r8q:"
+          aria-valuemax="12"
+          aria-valuemin="1"
+          aria-valuenow="12"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r8u:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          mm
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          /
+        </div>
+        <div
+          aria-label="day, "
+          aria-labelledby="react-aria-:r92: react-aria-:r8q:"
+          aria-valuemax="31"
+          aria-valuemin="1"
+          aria-valuenow="19"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r92:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          dd
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          /
+        </div>
+        <div
+          aria-label="year, "
+          aria-labelledby="react-aria-:r96: react-aria-:r8q:"
+          aria-valuemax="9999"
+          aria-valuemin="1"
+          aria-valuenow="2025"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r96:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          yyyy
+        </div>
       </div>
     </div>
   </div>
@@ -876,88 +904,92 @@ exports[`DateInput > matches snapshots > medium size 1`] = `
       Select a date
     </p>
     <div
-      aria-describedby="react-aria-:r8d:"
-      aria-labelledby="react-aria-:r8b:"
-      class="sc-dycHyt kIeuYg aje-combo-input aje-input__date-segments"
-      id="react-aria-:r8a:"
-      role="group"
-      style="--input-gap: 0px; unicode-bidi: isolate;"
+      class="sc-dycHyt kIeuYg aje-combo-input"
     >
       <div
         aria-describedby="react-aria-:r8d:"
-        aria-label="month, "
-        aria-labelledby="react-aria-:r8f: react-aria-:r8b:"
-        aria-valuemax="12"
-        aria-valuemin="1"
-        aria-valuenow="12"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r8f:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
+        aria-labelledby="react-aria-:r8b:"
+        class="sc-eiwqOE ikpPXx aje-input__date-segments"
+        id="react-aria-:r8a:"
+        role="group"
+        style="unicode-bidi: isolate;"
       >
-        mm
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        /
-      </div>
-      <div
-        aria-label="day, "
-        aria-labelledby="react-aria-:r8j: react-aria-:r8b:"
-        aria-valuemax="31"
-        aria-valuemin="1"
-        aria-valuenow="19"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r8j:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        dd
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        /
-      </div>
-      <div
-        aria-label="year, "
-        aria-labelledby="react-aria-:r8n: react-aria-:r8b:"
-        aria-valuemax="9999"
-        aria-valuemin="1"
-        aria-valuenow="2025"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r8n:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        yyyy
+        <div
+          aria-describedby="react-aria-:r8d:"
+          aria-label="month, "
+          aria-labelledby="react-aria-:r8f: react-aria-:r8b:"
+          aria-valuemax="12"
+          aria-valuemin="1"
+          aria-valuenow="12"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r8f:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          mm
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          /
+        </div>
+        <div
+          aria-label="day, "
+          aria-labelledby="react-aria-:r8j: react-aria-:r8b:"
+          aria-valuemax="31"
+          aria-valuemin="1"
+          aria-valuenow="19"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r8j:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          dd
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          /
+        </div>
+        <div
+          aria-label="year, "
+          aria-labelledby="react-aria-:r8n: react-aria-:r8b:"
+          aria-valuemax="9999"
+          aria-valuemin="1"
+          aria-valuenow="2025"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r8n:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          yyyy
+        </div>
       </div>
     </div>
   </div>
@@ -971,86 +1003,90 @@ exports[`DateInput > matches snapshots > minimal props 1`] = `
     style="min-width: var(--size-x);"
   >
     <div
-      aria-labelledby="react-aria-:rb5:"
-      class="sc-dycHyt kIeuYg aje-combo-input aje-input__date-segments"
-      id="react-aria-:rb4:"
-      role="group"
-      style="--input-gap: 0px; unicode-bidi: isolate;"
+      class="sc-dycHyt kIeuYg aje-combo-input"
     >
       <div
-        aria-label="month, "
-        aria-labelledby="react-aria-:rb9: react-aria-:rb5:"
-        aria-valuemax="12"
-        aria-valuemin="1"
-        aria-valuenow="12"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:rb9:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
+        aria-labelledby="react-aria-:rb5:"
+        class="sc-eiwqOE ikpPXx aje-input__date-segments"
+        id="react-aria-:rb4:"
+        role="group"
+        style="unicode-bidi: isolate;"
       >
-        mm
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        /
-      </div>
-      <div
-        aria-label="day, "
-        aria-labelledby="react-aria-:rbd: react-aria-:rb5:"
-        aria-valuemax="31"
-        aria-valuemin="1"
-        aria-valuenow="19"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:rbd:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        dd
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        /
-      </div>
-      <div
-        aria-label="year, "
-        aria-labelledby="react-aria-:rbh: react-aria-:rb5:"
-        aria-valuemax="9999"
-        aria-valuemin="1"
-        aria-valuenow="2025"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:rbh:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        yyyy
+        <div
+          aria-label="month, "
+          aria-labelledby="react-aria-:rb9: react-aria-:rb5:"
+          aria-valuemax="12"
+          aria-valuemin="1"
+          aria-valuenow="12"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:rb9:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          mm
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          /
+        </div>
+        <div
+          aria-label="day, "
+          aria-labelledby="react-aria-:rbd: react-aria-:rb5:"
+          aria-valuemax="31"
+          aria-valuemin="1"
+          aria-valuenow="19"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:rbd:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          dd
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          /
+        </div>
+        <div
+          aria-label="year, "
+          aria-labelledby="react-aria-:rbh: react-aria-:rb5:"
+          aria-valuemax="9999"
+          aria-valuemin="1"
+          aria-valuenow="2025"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:rbh:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          yyyy
+        </div>
       </div>
     </div>
   </div>
@@ -1076,180 +1112,184 @@ exports[`DateInput > matches snapshots > minute granularity 1`] = `
       Select a date
     </p>
     <div
-      aria-describedby="react-aria-:r2q:"
-      aria-labelledby="react-aria-:r2o:"
-      class="sc-dycHyt kIeuYg aje-combo-input aje-input__date-segments"
-      id="react-aria-:r2n:"
-      role="group"
-      style="--input-gap: 0px; unicode-bidi: isolate;"
+      class="sc-dycHyt kIeuYg aje-combo-input"
     >
       <div
         aria-describedby="react-aria-:r2q:"
-        aria-label="month, "
-        aria-labelledby="react-aria-:r2s: react-aria-:r2o:"
-        aria-valuemax="12"
-        aria-valuemin="1"
-        aria-valuenow="12"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r2s:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
+        aria-labelledby="react-aria-:r2o:"
+        class="sc-eiwqOE ikpPXx aje-input__date-segments"
+        id="react-aria-:r2n:"
+        role="group"
+        style="unicode-bidi: isolate;"
       >
-        mm
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        /
-      </div>
-      <div
-        aria-label="day, "
-        aria-labelledby="react-aria-:r30: react-aria-:r2o:"
-        aria-valuemax="31"
-        aria-valuemin="1"
-        aria-valuenow="19"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r30:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        dd
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        /
-      </div>
-      <div
-        aria-label="year, "
-        aria-labelledby="react-aria-:r34: react-aria-:r2o:"
-        aria-valuemax="9999"
-        aria-valuemin="1"
-        aria-valuenow="2025"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r34:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        yyyy
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        , 
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        ⁦
-      </div>
-      <div
-        aria-label="hour, "
-        aria-labelledby="react-aria-:r3a: react-aria-:r2o:"
-        aria-valuemax="11"
-        aria-valuemin="0"
-        aria-valuenow="0"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r3a:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        ––
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        :
-      </div>
-      <div
-        aria-label="minute, "
-        aria-labelledby="react-aria-:r3e: react-aria-:r2o:"
-        aria-valuemax="59"
-        aria-valuemin="0"
-        aria-valuenow="0"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r3e:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        ––
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        ⁩
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-         
-      </div>
-      <div
-        aria-label="AM/PM, "
-        aria-labelledby="react-aria-:r3k: react-aria-:r2o:"
-        aria-valuemax="12"
-        aria-valuemin="0"
-        aria-valuenow="0"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r3k:"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        AM
+        <div
+          aria-describedby="react-aria-:r2q:"
+          aria-label="month, "
+          aria-labelledby="react-aria-:r2s: react-aria-:r2o:"
+          aria-valuemax="12"
+          aria-valuemin="1"
+          aria-valuenow="12"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r2s:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          mm
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          /
+        </div>
+        <div
+          aria-label="day, "
+          aria-labelledby="react-aria-:r30: react-aria-:r2o:"
+          aria-valuemax="31"
+          aria-valuemin="1"
+          aria-valuenow="19"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r30:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          dd
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          /
+        </div>
+        <div
+          aria-label="year, "
+          aria-labelledby="react-aria-:r34: react-aria-:r2o:"
+          aria-valuemax="9999"
+          aria-valuemin="1"
+          aria-valuenow="2025"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r34:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          yyyy
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          , 
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          ⁦
+        </div>
+        <div
+          aria-label="hour, "
+          aria-labelledby="react-aria-:r3a: react-aria-:r2o:"
+          aria-valuemax="11"
+          aria-valuemin="0"
+          aria-valuenow="0"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r3a:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          ––
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          :
+        </div>
+        <div
+          aria-label="minute, "
+          aria-labelledby="react-aria-:r3e: react-aria-:r2o:"
+          aria-valuemax="59"
+          aria-valuemin="0"
+          aria-valuenow="0"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r3e:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          ––
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          ⁩
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+           
+        </div>
+        <div
+          aria-label="AM/PM, "
+          aria-labelledby="react-aria-:r3k: react-aria-:r2o:"
+          aria-valuemax="12"
+          aria-valuemin="0"
+          aria-valuenow="0"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r3k:"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          AM
+        </div>
       </div>
     </div>
   </div>
@@ -1276,80 +1316,84 @@ exports[`DateInput > matches snapshots > readonly state 1`] = `
       Select a date
     </p>
     <div
-      aria-describedby="react-aria-:r5q:"
-      aria-labelledby="react-aria-:r5o:"
-      class="sc-dycHyt kIeuYg aje-combo-input aje-input__date-segments"
-      data-readonly="true"
-      id="react-aria-:r5n:"
-      role="group"
-      style="--input-gap: 0px; unicode-bidi: isolate;"
+      class="sc-dycHyt kIeuYg aje-combo-input"
     >
       <div
         aria-describedby="react-aria-:r5q:"
-        aria-label="month, "
-        aria-labelledby="react-aria-:r5s: react-aria-:r5o:"
-        aria-readonly="true"
-        aria-valuemax="12"
-        aria-valuemin="1"
-        aria-valuenow="12"
-        aria-valuetext="Empty"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="false"
-        data-placeholder="true"
-        id="react-aria-:r5s:"
-        role="spinbutton"
-        style="caret-color: transparent;"
-        tabindex="0"
+        aria-labelledby="react-aria-:r5o:"
+        class="sc-eiwqOE ikpPXx aje-input__date-segments"
+        data-readonly="true"
+        id="react-aria-:r5n:"
+        role="group"
+        style="unicode-bidi: isolate;"
       >
-        mm
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        /
-      </div>
-      <div
-        aria-label="day, "
-        aria-labelledby="react-aria-:r60: react-aria-:r5o:"
-        aria-readonly="true"
-        aria-valuemax="31"
-        aria-valuemin="1"
-        aria-valuenow="19"
-        aria-valuetext="Empty"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="false"
-        data-placeholder="true"
-        id="react-aria-:r60:"
-        role="spinbutton"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        dd
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        /
-      </div>
-      <div
-        aria-label="year, "
-        aria-labelledby="react-aria-:r64: react-aria-:r5o:"
-        aria-readonly="true"
-        aria-valuemax="9999"
-        aria-valuemin="1"
-        aria-valuenow="2025"
-        aria-valuetext="Empty"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="false"
-        data-placeholder="true"
-        id="react-aria-:r64:"
-        role="spinbutton"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        yyyy
+        <div
+          aria-describedby="react-aria-:r5q:"
+          aria-label="month, "
+          aria-labelledby="react-aria-:r5s: react-aria-:r5o:"
+          aria-readonly="true"
+          aria-valuemax="12"
+          aria-valuemin="1"
+          aria-valuenow="12"
+          aria-valuetext="Empty"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="false"
+          data-placeholder="true"
+          id="react-aria-:r5s:"
+          role="spinbutton"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          mm
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          /
+        </div>
+        <div
+          aria-label="day, "
+          aria-labelledby="react-aria-:r60: react-aria-:r5o:"
+          aria-readonly="true"
+          aria-valuemax="31"
+          aria-valuemin="1"
+          aria-valuenow="19"
+          aria-valuetext="Empty"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="false"
+          data-placeholder="true"
+          id="react-aria-:r60:"
+          role="spinbutton"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          dd
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          /
+        </div>
+        <div
+          aria-label="year, "
+          aria-labelledby="react-aria-:r64: react-aria-:r5o:"
+          aria-readonly="true"
+          aria-valuemax="9999"
+          aria-valuemin="1"
+          aria-valuenow="2025"
+          aria-valuetext="Empty"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="false"
+          data-placeholder="true"
+          id="react-aria-:r64:"
+          role="spinbutton"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          yyyy
+        </div>
       </div>
     </div>
   </div>
@@ -1376,92 +1420,96 @@ exports[`DateInput > matches snapshots > required state 1`] = `
       Select a date
     </p>
     <div
-      aria-describedby="react-aria-:r5b:"
-      aria-labelledby="react-aria-:r59:"
-      class="sc-dycHyt kIeuYg aje-combo-input aje-input__date-segments"
-      data-required="true"
-      id="react-aria-:r58:"
-      role="group"
-      style="--input-gap: 0px; unicode-bidi: isolate;"
+      class="sc-dycHyt kIeuYg aje-combo-input"
     >
       <div
         aria-describedby="react-aria-:r5b:"
-        aria-label="month, "
-        aria-labelledby="react-aria-:r5d: react-aria-:r59:"
-        aria-required="true"
-        aria-valuemax="12"
-        aria-valuemin="1"
-        aria-valuenow="12"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r5d:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
+        aria-labelledby="react-aria-:r59:"
+        class="sc-eiwqOE ikpPXx aje-input__date-segments"
+        data-required="true"
+        id="react-aria-:r58:"
+        role="group"
+        style="unicode-bidi: isolate;"
       >
-        mm
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        /
-      </div>
-      <div
-        aria-label="day, "
-        aria-labelledby="react-aria-:r5h: react-aria-:r59:"
-        aria-required="true"
-        aria-valuemax="31"
-        aria-valuemin="1"
-        aria-valuenow="19"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r5h:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        dd
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        /
-      </div>
-      <div
-        aria-label="year, "
-        aria-labelledby="react-aria-:r5l: react-aria-:r59:"
-        aria-required="true"
-        aria-valuemax="9999"
-        aria-valuemin="1"
-        aria-valuenow="2025"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r5l:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        yyyy
+        <div
+          aria-describedby="react-aria-:r5b:"
+          aria-label="month, "
+          aria-labelledby="react-aria-:r5d: react-aria-:r59:"
+          aria-required="true"
+          aria-valuemax="12"
+          aria-valuemin="1"
+          aria-valuenow="12"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r5d:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          mm
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          /
+        </div>
+        <div
+          aria-label="day, "
+          aria-labelledby="react-aria-:r5h: react-aria-:r59:"
+          aria-required="true"
+          aria-valuemax="31"
+          aria-valuemin="1"
+          aria-valuenow="19"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r5h:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          dd
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          /
+        </div>
+        <div
+          aria-label="year, "
+          aria-labelledby="react-aria-:r5l: react-aria-:r59:"
+          aria-required="true"
+          aria-valuemax="9999"
+          aria-valuemin="1"
+          aria-valuenow="2025"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r5l:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          yyyy
+        </div>
       </div>
     </div>
   </div>
@@ -1487,207 +1535,211 @@ exports[`DateInput > matches snapshots > second granularity 1`] = `
       Select a date
     </p>
     <div
-      aria-describedby="react-aria-:r3p:"
-      aria-labelledby="react-aria-:r3n:"
-      class="sc-dycHyt kIeuYg aje-combo-input aje-input__date-segments"
-      id="react-aria-:r3m:"
-      role="group"
-      style="--input-gap: 0px; unicode-bidi: isolate;"
+      class="sc-dycHyt kIeuYg aje-combo-input"
     >
       <div
         aria-describedby="react-aria-:r3p:"
-        aria-label="month, "
-        aria-labelledby="react-aria-:r3r: react-aria-:r3n:"
-        aria-valuemax="12"
-        aria-valuemin="1"
-        aria-valuenow="12"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r3r:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
+        aria-labelledby="react-aria-:r3n:"
+        class="sc-eiwqOE ikpPXx aje-input__date-segments"
+        id="react-aria-:r3m:"
+        role="group"
+        style="unicode-bidi: isolate;"
       >
-        mm
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        /
-      </div>
-      <div
-        aria-label="day, "
-        aria-labelledby="react-aria-:r3v: react-aria-:r3n:"
-        aria-valuemax="31"
-        aria-valuemin="1"
-        aria-valuenow="19"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r3v:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        dd
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        /
-      </div>
-      <div
-        aria-label="year, "
-        aria-labelledby="react-aria-:r43: react-aria-:r3n:"
-        aria-valuemax="9999"
-        aria-valuemin="1"
-        aria-valuenow="2025"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r43:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        yyyy
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        , 
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        ⁦
-      </div>
-      <div
-        aria-label="hour, "
-        aria-labelledby="react-aria-:r49: react-aria-:r3n:"
-        aria-valuemax="11"
-        aria-valuemin="0"
-        aria-valuenow="0"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r49:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        ––
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        :
-      </div>
-      <div
-        aria-label="minute, "
-        aria-labelledby="react-aria-:r4d: react-aria-:r3n:"
-        aria-valuemax="59"
-        aria-valuemin="0"
-        aria-valuenow="0"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r4d:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        ––
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        :
-      </div>
-      <div
-        aria-label="second, "
-        aria-labelledby="react-aria-:r4h: react-aria-:r3n:"
-        aria-valuemax="59"
-        aria-valuemin="0"
-        aria-valuenow="0"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r4h:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        ––
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        ⁩
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-         
-      </div>
-      <div
-        aria-label="AM/PM, "
-        aria-labelledby="react-aria-:r4n: react-aria-:r3n:"
-        aria-valuemax="12"
-        aria-valuemin="0"
-        aria-valuenow="0"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r4n:"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        AM
+        <div
+          aria-describedby="react-aria-:r3p:"
+          aria-label="month, "
+          aria-labelledby="react-aria-:r3r: react-aria-:r3n:"
+          aria-valuemax="12"
+          aria-valuemin="1"
+          aria-valuenow="12"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r3r:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          mm
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          /
+        </div>
+        <div
+          aria-label="day, "
+          aria-labelledby="react-aria-:r3v: react-aria-:r3n:"
+          aria-valuemax="31"
+          aria-valuemin="1"
+          aria-valuenow="19"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r3v:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          dd
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          /
+        </div>
+        <div
+          aria-label="year, "
+          aria-labelledby="react-aria-:r43: react-aria-:r3n:"
+          aria-valuemax="9999"
+          aria-valuemin="1"
+          aria-valuenow="2025"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r43:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          yyyy
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          , 
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          ⁦
+        </div>
+        <div
+          aria-label="hour, "
+          aria-labelledby="react-aria-:r49: react-aria-:r3n:"
+          aria-valuemax="11"
+          aria-valuemin="0"
+          aria-valuenow="0"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r49:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          ––
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          :
+        </div>
+        <div
+          aria-label="minute, "
+          aria-labelledby="react-aria-:r4d: react-aria-:r3n:"
+          aria-valuemax="59"
+          aria-valuemin="0"
+          aria-valuenow="0"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r4d:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          ––
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          :
+        </div>
+        <div
+          aria-label="second, "
+          aria-labelledby="react-aria-:r4h: react-aria-:r3n:"
+          aria-valuemax="59"
+          aria-valuemin="0"
+          aria-valuenow="0"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r4h:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          ––
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          ⁩
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+           
+        </div>
+        <div
+          aria-label="AM/PM, "
+          aria-labelledby="react-aria-:r4n: react-aria-:r3n:"
+          aria-valuemax="12"
+          aria-valuemin="0"
+          aria-valuenow="0"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r4n:"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          AM
+        </div>
       </div>
     </div>
   </div>
@@ -1713,88 +1765,92 @@ exports[`DateInput > matches snapshots > small size 1`] = `
       Select a date
     </p>
     <div
-      aria-describedby="react-aria-:r7u:"
-      aria-labelledby="react-aria-:r7s:"
-      class="sc-dycHyt kIeuYg aje-combo-input aje-input__date-segments"
-      id="react-aria-:r7r:"
-      role="group"
-      style="--input-gap: 0px; unicode-bidi: isolate;"
+      class="sc-dycHyt kIeuYg aje-combo-input"
     >
       <div
         aria-describedby="react-aria-:r7u:"
-        aria-label="month, "
-        aria-labelledby="react-aria-:r80: react-aria-:r7s:"
-        aria-valuemax="12"
-        aria-valuemin="1"
-        aria-valuenow="12"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r80:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
+        aria-labelledby="react-aria-:r7s:"
+        class="sc-eiwqOE ikpPXx aje-input__date-segments"
+        id="react-aria-:r7r:"
+        role="group"
+        style="unicode-bidi: isolate;"
       >
-        mm
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        /
-      </div>
-      <div
-        aria-label="day, "
-        aria-labelledby="react-aria-:r84: react-aria-:r7s:"
-        aria-valuemax="31"
-        aria-valuemin="1"
-        aria-valuenow="19"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r84:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        dd
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        /
-      </div>
-      <div
-        aria-label="year, "
-        aria-labelledby="react-aria-:r88: react-aria-:r7s:"
-        aria-valuemax="9999"
-        aria-valuemin="1"
-        aria-valuenow="2025"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r88:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        yyyy
+        <div
+          aria-describedby="react-aria-:r7u:"
+          aria-label="month, "
+          aria-labelledby="react-aria-:r80: react-aria-:r7s:"
+          aria-valuemax="12"
+          aria-valuemin="1"
+          aria-valuenow="12"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r80:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          mm
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          /
+        </div>
+        <div
+          aria-label="day, "
+          aria-labelledby="react-aria-:r84: react-aria-:r7s:"
+          aria-valuemax="31"
+          aria-valuemin="1"
+          aria-valuenow="19"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r84:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          dd
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          /
+        </div>
+        <div
+          aria-label="year, "
+          aria-labelledby="react-aria-:r88: react-aria-:r7s:"
+          aria-valuemax="9999"
+          aria-valuemin="1"
+          aria-valuenow="2025"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r88:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          yyyy
+        </div>
       </div>
     </div>
   </div>
@@ -1820,85 +1876,89 @@ exports[`DateInput > matches snapshots > with default value 1`] = `
       Select a date
     </p>
     <div
-      aria-describedby="react-aria-description-1 react-aria-:r11:"
-      aria-labelledby="react-aria-:rv:"
-      class="sc-dycHyt kIeuYg aje-combo-input aje-input__date-segments"
-      id="react-aria-:ru:"
-      role="group"
-      style="--input-gap: 0px; unicode-bidi: isolate;"
+      class="sc-dycHyt kIeuYg aje-combo-input"
     >
       <div
         aria-describedby="react-aria-description-1 react-aria-:r11:"
-        aria-label="month, "
-        aria-labelledby="react-aria-:r13: react-aria-:rv:"
-        aria-valuemax="12"
-        aria-valuemin="1"
-        aria-valuenow="12"
-        aria-valuetext="12 – December"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment"
-        contenteditable="true"
-        enterkeyhint="next"
-        id="react-aria-:r13:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
+        aria-labelledby="react-aria-:rv:"
+        class="sc-eiwqOE ikpPXx aje-input__date-segments"
+        id="react-aria-:ru:"
+        role="group"
+        style="unicode-bidi: isolate;"
       >
-        12
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        /
-      </div>
-      <div
-        aria-label="day, "
-        aria-labelledby="react-aria-:r17: react-aria-:rv:"
-        aria-valuemax="31"
-        aria-valuemin="1"
-        aria-valuenow="25"
-        aria-valuetext="25"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment"
-        contenteditable="true"
-        enterkeyhint="next"
-        id="react-aria-:r17:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        25
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        /
-      </div>
-      <div
-        aria-label="year, "
-        aria-labelledby="react-aria-:r1b: react-aria-:rv:"
-        aria-valuemax="9999"
-        aria-valuemin="1"
-        aria-valuenow="2023"
-        aria-valuetext="2023"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment"
-        contenteditable="true"
-        enterkeyhint="next"
-        id="react-aria-:r1b:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        2023
+        <div
+          aria-describedby="react-aria-description-1 react-aria-:r11:"
+          aria-label="month, "
+          aria-labelledby="react-aria-:r13: react-aria-:rv:"
+          aria-valuemax="12"
+          aria-valuemin="1"
+          aria-valuenow="12"
+          aria-valuetext="12 – December"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment"
+          contenteditable="true"
+          enterkeyhint="next"
+          id="react-aria-:r13:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          12
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          /
+        </div>
+        <div
+          aria-label="day, "
+          aria-labelledby="react-aria-:r17: react-aria-:rv:"
+          aria-valuemax="31"
+          aria-valuemin="1"
+          aria-valuenow="25"
+          aria-valuetext="25"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment"
+          contenteditable="true"
+          enterkeyhint="next"
+          id="react-aria-:r17:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          25
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          /
+        </div>
+        <div
+          aria-label="year, "
+          aria-labelledby="react-aria-:r1b: react-aria-:rv:"
+          aria-valuemax="9999"
+          aria-valuemin="1"
+          aria-valuenow="2023"
+          aria-valuetext="2023"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment"
+          contenteditable="true"
+          enterkeyhint="next"
+          id="react-aria-:r1b:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          2023
+        </div>
       </div>
     </div>
   </div>
@@ -1924,88 +1984,92 @@ exports[`DateInput > matches snapshots > with leading zeros 1`] = `
       Select a date
     </p>
     <div
-      aria-describedby="react-aria-:r6o:"
-      aria-labelledby="react-aria-:r6m:"
-      class="sc-dycHyt kIeuYg aje-combo-input aje-input__date-segments"
-      id="react-aria-:r6l:"
-      role="group"
-      style="--input-gap: 0px; unicode-bidi: isolate;"
+      class="sc-dycHyt kIeuYg aje-combo-input"
     >
       <div
         aria-describedby="react-aria-:r6o:"
-        aria-label="month, "
-        aria-labelledby="react-aria-:r6q: react-aria-:r6m:"
-        aria-valuemax="12"
-        aria-valuemin="1"
-        aria-valuenow="12"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r6q:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
+        aria-labelledby="react-aria-:r6m:"
+        class="sc-eiwqOE ikpPXx aje-input__date-segments"
+        id="react-aria-:r6l:"
+        role="group"
+        style="unicode-bidi: isolate;"
       >
-        mm
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        /
-      </div>
-      <div
-        aria-label="day, "
-        aria-labelledby="react-aria-:r6u: react-aria-:r6m:"
-        aria-valuemax="31"
-        aria-valuemin="1"
-        aria-valuenow="19"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r6u:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        dd
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        /
-      </div>
-      <div
-        aria-label="year, "
-        aria-labelledby="react-aria-:r72: react-aria-:r6m:"
-        aria-valuemax="9999"
-        aria-valuemin="1"
-        aria-valuenow="2025"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r72:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        yyyy
+        <div
+          aria-describedby="react-aria-:r6o:"
+          aria-label="month, "
+          aria-labelledby="react-aria-:r6q: react-aria-:r6m:"
+          aria-valuemax="12"
+          aria-valuemin="1"
+          aria-valuenow="12"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r6q:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          mm
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          /
+        </div>
+        <div
+          aria-label="day, "
+          aria-labelledby="react-aria-:r6u: react-aria-:r6m:"
+          aria-valuemax="31"
+          aria-valuemin="1"
+          aria-valuenow="19"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r6u:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          dd
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          /
+        </div>
+        <div
+          aria-label="year, "
+          aria-labelledby="react-aria-:r72: react-aria-:r6m:"
+          aria-valuemax="9999"
+          aria-valuemin="1"
+          aria-valuenow="2025"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r72:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          yyyy
+        </div>
       </div>
     </div>
   </div>
@@ -2031,88 +2095,92 @@ exports[`DateInput > matches snapshots > with min and max values 1`] = `
       Select a date
     </p>
     <div
-      aria-describedby="react-aria-:r9b:"
-      aria-labelledby="react-aria-:r99:"
-      class="sc-dycHyt kIeuYg aje-combo-input aje-input__date-segments"
-      id="react-aria-:r98:"
-      role="group"
-      style="--input-gap: 0px; unicode-bidi: isolate;"
+      class="sc-dycHyt kIeuYg aje-combo-input"
     >
       <div
         aria-describedby="react-aria-:r9b:"
-        aria-label="month, "
-        aria-labelledby="react-aria-:r9d: react-aria-:r99:"
-        aria-valuemax="12"
-        aria-valuemin="1"
-        aria-valuenow="12"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r9d:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
+        aria-labelledby="react-aria-:r99:"
+        class="sc-eiwqOE ikpPXx aje-input__date-segments"
+        id="react-aria-:r98:"
+        role="group"
+        style="unicode-bidi: isolate;"
       >
-        mm
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        /
-      </div>
-      <div
-        aria-label="day, "
-        aria-labelledby="react-aria-:r9h: react-aria-:r99:"
-        aria-valuemax="31"
-        aria-valuemin="1"
-        aria-valuenow="19"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r9h:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        dd
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        /
-      </div>
-      <div
-        aria-label="year, "
-        aria-labelledby="react-aria-:r9l: react-aria-:r99:"
-        aria-valuemax="9999"
-        aria-valuemin="1"
-        aria-valuenow="2025"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r9l:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        yyyy
+        <div
+          aria-describedby="react-aria-:r9b:"
+          aria-label="month, "
+          aria-labelledby="react-aria-:r9d: react-aria-:r99:"
+          aria-valuemax="12"
+          aria-valuemin="1"
+          aria-valuenow="12"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r9d:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          mm
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          /
+        </div>
+        <div
+          aria-label="day, "
+          aria-labelledby="react-aria-:r9h: react-aria-:r99:"
+          aria-valuemax="31"
+          aria-valuemin="1"
+          aria-valuenow="19"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r9h:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          dd
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          /
+        </div>
+        <div
+          aria-label="year, "
+          aria-labelledby="react-aria-:r9l: react-aria-:r99:"
+          aria-valuemax="9999"
+          aria-valuemin="1"
+          aria-valuenow="2025"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r9l:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          yyyy
+        </div>
       </div>
     </div>
   </div>
@@ -2138,85 +2206,89 @@ exports[`DateInput > matches snapshots > with value 1`] = `
       Select a date
     </p>
     <div
-      aria-describedby="react-aria-description-0 react-aria-:ri:"
-      aria-labelledby="react-aria-:rg:"
-      class="sc-dycHyt kIeuYg aje-combo-input aje-input__date-segments"
-      id="react-aria-:rf:"
-      role="group"
-      style="--input-gap: 0px; unicode-bidi: isolate;"
+      class="sc-dycHyt kIeuYg aje-combo-input"
     >
       <div
         aria-describedby="react-aria-description-0 react-aria-:ri:"
-        aria-label="month, "
-        aria-labelledby="react-aria-:rk: react-aria-:rg:"
-        aria-valuemax="12"
-        aria-valuemin="1"
-        aria-valuenow="1"
-        aria-valuetext="1 – January"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment"
-        contenteditable="true"
-        enterkeyhint="next"
-        id="react-aria-:rk:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
+        aria-labelledby="react-aria-:rg:"
+        class="sc-eiwqOE ikpPXx aje-input__date-segments"
+        id="react-aria-:rf:"
+        role="group"
+        style="unicode-bidi: isolate;"
       >
-        1
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        /
-      </div>
-      <div
-        aria-label="day, "
-        aria-labelledby="react-aria-:ro: react-aria-:rg:"
-        aria-valuemax="31"
-        aria-valuemin="1"
-        aria-valuenow="15"
-        aria-valuetext="15"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment"
-        contenteditable="true"
-        enterkeyhint="next"
-        id="react-aria-:ro:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        15
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        /
-      </div>
-      <div
-        aria-label="year, "
-        aria-labelledby="react-aria-:rs: react-aria-:rg:"
-        aria-valuemax="9999"
-        aria-valuemin="1"
-        aria-valuenow="2023"
-        aria-valuetext="2023"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment"
-        contenteditable="true"
-        enterkeyhint="next"
-        id="react-aria-:rs:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        2023
+        <div
+          aria-describedby="react-aria-description-0 react-aria-:ri:"
+          aria-label="month, "
+          aria-labelledby="react-aria-:rk: react-aria-:rg:"
+          aria-valuemax="12"
+          aria-valuemin="1"
+          aria-valuenow="1"
+          aria-valuetext="1 – January"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment"
+          contenteditable="true"
+          enterkeyhint="next"
+          id="react-aria-:rk:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          1
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          /
+        </div>
+        <div
+          aria-label="day, "
+          aria-labelledby="react-aria-:ro: react-aria-:rg:"
+          aria-valuemax="31"
+          aria-valuemin="1"
+          aria-valuenow="15"
+          aria-valuetext="15"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment"
+          contenteditable="true"
+          enterkeyhint="next"
+          id="react-aria-:ro:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          15
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          /
+        </div>
+        <div
+          aria-label="year, "
+          aria-labelledby="react-aria-:rs: react-aria-:rg:"
+          aria-valuemax="9999"
+          aria-valuemin="1"
+          aria-valuenow="2023"
+          aria-valuetext="2023"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment"
+          contenteditable="true"
+          enterkeyhint="next"
+          id="react-aria-:rs:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          2023
+        </div>
       </div>
     </div>
   </div>
@@ -2242,88 +2314,92 @@ exports[`DateInput > matches snapshots > without error 1`] = `
       Select a date
     </p>
     <div
-      aria-describedby="react-aria-:rao:"
-      aria-labelledby="react-aria-:ram:"
-      class="sc-dycHyt kIeuYg aje-combo-input aje-input__date-segments"
-      id="react-aria-:ral:"
-      role="group"
-      style="--input-gap: 0px; unicode-bidi: isolate;"
+      class="sc-dycHyt kIeuYg aje-combo-input"
     >
       <div
         aria-describedby="react-aria-:rao:"
-        aria-label="month, "
-        aria-labelledby="react-aria-:raq: react-aria-:ram:"
-        aria-valuemax="12"
-        aria-valuemin="1"
-        aria-valuenow="12"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:raq:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
+        aria-labelledby="react-aria-:ram:"
+        class="sc-eiwqOE ikpPXx aje-input__date-segments"
+        id="react-aria-:ral:"
+        role="group"
+        style="unicode-bidi: isolate;"
       >
-        mm
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        /
-      </div>
-      <div
-        aria-label="day, "
-        aria-labelledby="react-aria-:rau: react-aria-:ram:"
-        aria-valuemax="31"
-        aria-valuemin="1"
-        aria-valuenow="19"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:rau:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        dd
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        /
-      </div>
-      <div
-        aria-label="year, "
-        aria-labelledby="react-aria-:rb2: react-aria-:ram:"
-        aria-valuemax="9999"
-        aria-valuemin="1"
-        aria-valuenow="2025"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:rb2:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        yyyy
+        <div
+          aria-describedby="react-aria-:rao:"
+          aria-label="month, "
+          aria-labelledby="react-aria-:raq: react-aria-:ram:"
+          aria-valuemax="12"
+          aria-valuemin="1"
+          aria-valuenow="12"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:raq:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          mm
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          /
+        </div>
+        <div
+          aria-label="day, "
+          aria-labelledby="react-aria-:rau: react-aria-:ram:"
+          aria-valuemax="31"
+          aria-valuemin="1"
+          aria-valuenow="19"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:rau:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          dd
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          /
+        </div>
+        <div
+          aria-label="year, "
+          aria-labelledby="react-aria-:rb2: react-aria-:ram:"
+          aria-valuemax="9999"
+          aria-valuemin="1"
+          aria-valuenow="2025"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:rb2:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          yyyy
+        </div>
       </div>
     </div>
   </div>
@@ -2343,88 +2419,92 @@ exports[`DateInput > matches snapshots > without label 1`] = `
       Select a date
     </p>
     <div
-      aria-describedby="react-aria-:r9q:"
-      aria-labelledby="react-aria-:r9o:"
-      class="sc-dycHyt kIeuYg aje-combo-input aje-input__date-segments"
-      id="react-aria-:r9n:"
-      role="group"
-      style="--input-gap: 0px; unicode-bidi: isolate;"
+      class="sc-dycHyt kIeuYg aje-combo-input"
     >
       <div
         aria-describedby="react-aria-:r9q:"
-        aria-label="month, "
-        aria-labelledby="react-aria-:r9s: react-aria-:r9o:"
-        aria-valuemax="12"
-        aria-valuemin="1"
-        aria-valuenow="12"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:r9s:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
+        aria-labelledby="react-aria-:r9o:"
+        class="sc-eiwqOE ikpPXx aje-input__date-segments"
+        id="react-aria-:r9n:"
+        role="group"
+        style="unicode-bidi: isolate;"
       >
-        mm
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        /
-      </div>
-      <div
-        aria-label="day, "
-        aria-labelledby="react-aria-:ra0: react-aria-:r9o:"
-        aria-valuemax="31"
-        aria-valuemin="1"
-        aria-valuenow="19"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:ra0:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        dd
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        /
-      </div>
-      <div
-        aria-label="year, "
-        aria-labelledby="react-aria-:ra4: react-aria-:r9o:"
-        aria-valuemax="9999"
-        aria-valuemin="1"
-        aria-valuenow="2025"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:ra4:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        yyyy
+        <div
+          aria-describedby="react-aria-:r9q:"
+          aria-label="month, "
+          aria-labelledby="react-aria-:r9s: react-aria-:r9o:"
+          aria-valuemax="12"
+          aria-valuemin="1"
+          aria-valuenow="12"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:r9s:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          mm
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          /
+        </div>
+        <div
+          aria-label="day, "
+          aria-labelledby="react-aria-:ra0: react-aria-:r9o:"
+          aria-valuemax="31"
+          aria-valuemin="1"
+          aria-valuenow="19"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:ra0:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          dd
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          /
+        </div>
+        <div
+          aria-label="year, "
+          aria-labelledby="react-aria-:ra4: react-aria-:r9o:"
+          aria-valuemax="9999"
+          aria-valuemin="1"
+          aria-valuenow="2025"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:ra4:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          yyyy
+        </div>
       </div>
     </div>
   </div>
@@ -2444,86 +2524,90 @@ exports[`DateInput > matches snapshots > without message 1`] = `
       Date Input
     </label>
     <div
-      aria-labelledby="react-aria-:ra7:"
-      class="sc-dycHyt kIeuYg aje-combo-input aje-input__date-segments"
-      id="react-aria-:ra6:"
-      role="group"
-      style="--input-gap: 0px; unicode-bidi: isolate;"
+      class="sc-dycHyt kIeuYg aje-combo-input"
     >
       <div
-        aria-label="month, "
-        aria-labelledby="react-aria-:rab: react-aria-:ra7:"
-        aria-valuemax="12"
-        aria-valuemin="1"
-        aria-valuenow="12"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:rab:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
+        aria-labelledby="react-aria-:ra7:"
+        class="sc-eiwqOE ikpPXx aje-input__date-segments"
+        id="react-aria-:ra6:"
+        role="group"
+        style="unicode-bidi: isolate;"
       >
-        mm
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        /
-      </div>
-      <div
-        aria-label="day, "
-        aria-labelledby="react-aria-:raf: react-aria-:ra7:"
-        aria-valuemax="31"
-        aria-valuemin="1"
-        aria-valuenow="19"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:raf:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        dd
-      </div>
-      <div
-        aria-hidden="true"
-        class="sc-dPKAra iULmFG aje-input__segment"
-      >
-        /
-      </div>
-      <div
-        aria-label="year, "
-        aria-labelledby="react-aria-:raj: react-aria-:ra7:"
-        aria-valuemax="9999"
-        aria-valuemin="1"
-        aria-valuenow="2025"
-        aria-valuetext="Empty"
-        autocorrect="off"
-        class="sc-dPKAra iULmFG aje-input__segment placeholder"
-        contenteditable="true"
-        data-placeholder="true"
-        enterkeyhint="next"
-        id="react-aria-:raj:"
-        inputmode="numeric"
-        role="spinbutton"
-        spellcheck="false"
-        style="caret-color: transparent;"
-        tabindex="0"
-      >
-        yyyy
+        <div
+          aria-label="month, "
+          aria-labelledby="react-aria-:rab: react-aria-:ra7:"
+          aria-valuemax="12"
+          aria-valuemin="1"
+          aria-valuenow="12"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:rab:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          mm
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          /
+        </div>
+        <div
+          aria-label="day, "
+          aria-labelledby="react-aria-:raf: react-aria-:ra7:"
+          aria-valuemax="31"
+          aria-valuemin="1"
+          aria-valuenow="19"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:raf:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          dd
+        </div>
+        <div
+          aria-hidden="true"
+          class="sc-dPKAra iULmFG aje-input__segment"
+        >
+          /
+        </div>
+        <div
+          aria-label="year, "
+          aria-labelledby="react-aria-:raj: react-aria-:ra7:"
+          aria-valuemax="9999"
+          aria-valuemin="1"
+          aria-valuenow="2025"
+          aria-valuetext="Empty"
+          autocorrect="off"
+          class="sc-dPKAra iULmFG aje-input__segment placeholder"
+          contenteditable="true"
+          data-placeholder="true"
+          enterkeyhint="next"
+          id="react-aria-:raj:"
+          inputmode="numeric"
+          role="spinbutton"
+          spellcheck="false"
+          style="caret-color: transparent;"
+          tabindex="0"
+        >
+          yyyy
+        </div>
       </div>
     </div>
   </div>

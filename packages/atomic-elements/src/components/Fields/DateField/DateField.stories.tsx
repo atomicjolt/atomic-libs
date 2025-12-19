@@ -4,6 +4,7 @@ import { DateField } from ".";
 import { FieldLabel } from "../Field/FieldLabel";
 import { FieldMessage } from "../Field/FieldMessage";
 import { FieldErrorMessage } from "../Field/FieldError";
+import { ComboInput } from "../ComboInput";
 import { FieldStateControls } from "@sb/helpers";
 
 export default {
@@ -80,9 +81,11 @@ export const Primary: Story = {
     children: [
       <FieldLabel key="label">Date</FieldLabel>,
       <FieldMessage key="message">Select a date</FieldMessage>,
-      <DateField.Segments key="segments">
-        {(_, index) => <DateField.Segment key={index} index={index} />}
-      </DateField.Segments>,
+      <ComboInput key="input">
+        <DateField.Segments>
+          {(_, index) => <DateField.Segment key={index} index={index} />}
+        </DateField.Segments>
+      </ComboInput>,
       <FieldErrorMessage key="error">
         Please enter a valid date
       </FieldErrorMessage>,
@@ -96,9 +99,11 @@ export const DayGranularity: Story = {
     granularity: "day",
     children: [
       <FieldLabel key="label">Birth Date</FieldLabel>,
-      <DateField.Segments key="segments">
-        {(_, index) => <DateField.Segment key={index} index={index} />}
-      </DateField.Segments>,
+      <ComboInput key="input">
+        <DateField.Segments>
+          {(_, index) => <DateField.Segment key={index} index={index} />}
+        </DateField.Segments>
+      </ComboInput>,
     ],
   },
 };
@@ -109,9 +114,11 @@ export const HourGranularity: Story = {
     granularity: "hour",
     children: [
       <FieldLabel key="label">Meeting Date & Time</FieldLabel>,
-      <DateField.Segments key="segments">
-        {(_, index) => <DateField.Segment key={index} index={index} />}
-      </DateField.Segments>,
+      <ComboInput key="input">
+        <DateField.Segments>
+          {(_, index) => <DateField.Segment key={index} index={index} />}
+        </DateField.Segments>
+      </ComboInput>,
     ],
   },
 };
@@ -122,9 +129,11 @@ export const MinuteGranularity: Story = {
     granularity: "minute",
     children: [
       <FieldLabel key="label">Appointment Time</FieldLabel>,
-      <DateField.Segments key="segments">
-        {(_, index) => <DateField.Segment key={index} index={index} />}
-      </DateField.Segments>,
+      <ComboInput key="input">
+        <DateField.Segments>
+          {(_, index) => <DateField.Segment key={index} index={index} />}
+        </DateField.Segments>
+      </ComboInput>,
     ],
   },
 };
@@ -138,9 +147,11 @@ export const WithError: Story = {
       <FieldMessage key="message">
         Choose when your event will happen
       </FieldMessage>,
-      <DateField.Segments key="segments">
-        {(_, index) => <DateField.Segment key={index} index={index} />}
-      </DateField.Segments>,
+      <ComboInput key="input">
+        <DateField.Segments>
+          {(_, index) => <DateField.Segment key={index} index={index} />}
+        </DateField.Segments>
+      </ComboInput>,
       <FieldErrorMessage key="error">
         Please select a future date
       </FieldErrorMessage>,
@@ -154,9 +165,11 @@ export const Disabled: Story = {
     isDisabled: true,
     children: [
       <FieldLabel key="label">System Date</FieldLabel>,
-      <DateField.Segments key="segments">
-        {(_, index) => <DateField.Segment key={index} index={index} />}
-      </DateField.Segments>,
+      <ComboInput key="input">
+        <DateField.Segments>
+          {(_, index) => <DateField.Segment key={index} index={index} />}
+        </DateField.Segments>
+      </ComboInput>,
     ],
   },
 };
@@ -168,9 +181,11 @@ export const Required: Story = {
     children: [
       <FieldLabel key="label">Due Date</FieldLabel>,
       <FieldMessage key="message">This field is required</FieldMessage>,
-      <DateField.Segments key="segments">
-        {(_, index) => <DateField.Segment key={index} index={index} />}
-      </DateField.Segments>,
+      <ComboInput key="input">
+        <DateField.Segments>
+          {(_, index) => <DateField.Segment key={index} index={index} />}
+        </DateField.Segments>
+      </ComboInput>,
     ],
   },
 };

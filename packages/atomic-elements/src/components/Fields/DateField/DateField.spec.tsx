@@ -2,7 +2,7 @@ import { describe, test, expect } from "vitest";
 import { render } from "@testing-library/react";
 import { parseDate } from "@internationalized/date";
 import { DateField } from ".";
-import { Label, Message, ErrorMessage } from "../";
+import { Label, Message, ErrorMessage, ComboInput } from "../";
 
 describe("DateField", () => {
   describe("matches snapshots", () => {
@@ -10,9 +10,11 @@ describe("DateField", () => {
       const result = render(
         <DateField>
           <Label>Date</Label>
-          <DateField.Segments>
-            {(_, index) => <DateField.Segment key={index} index={index} />}
-          </DateField.Segments>
+          <ComboInput>
+            <DateField.Segments>
+              {(_, index) => <DateField.Segment key={index} index={index} />}
+            </DateField.Segments>
+          </ComboInput>
         </DateField>
       );
       expect(result.asFragment()).toMatchSnapshot();
@@ -22,9 +24,11 @@ describe("DateField", () => {
       const result = render(
         <DateField value={parseDate("2023-01-15")}>
           <Label>Date</Label>
-          <DateField.Segments>
-            {(_, index) => <DateField.Segment key={index} index={index} />}
-          </DateField.Segments>
+          <ComboInput>
+            <DateField.Segments>
+              {(_, index) => <DateField.Segment key={index} index={index} />}
+            </DateField.Segments>
+          </ComboInput>
         </DateField>
       );
       expect(result.asFragment()).toMatchSnapshot();
@@ -35,9 +39,11 @@ describe("DateField", () => {
         <DateField isInvalid>
           <Label>Date</Label>
           <Message>Enter your birth date</Message>
-          <DateField.Segments>
-            {(_, index) => <DateField.Segment key={index} index={index} />}
-          </DateField.Segments>
+          <ComboInput>
+            <DateField.Segments>
+              {(_, index) => <DateField.Segment key={index} index={index} />}
+            </DateField.Segments>
+          </ComboInput>
           <ErrorMessage>Please enter a valid date</ErrorMessage>
         </DateField>
       );
@@ -48,9 +54,11 @@ describe("DateField", () => {
       const result = render(
         <DateField isDisabled>
           <Label>Date</Label>
-          <DateField.Segments>
-            {(_, index) => <DateField.Segment key={index} index={index} />}
-          </DateField.Segments>
+          <ComboInput>
+            <DateField.Segments>
+              {(_, index) => <DateField.Segment key={index} index={index} />}
+            </DateField.Segments>
+          </ComboInput>
         </DateField>
       );
       expect(result.asFragment()).toMatchSnapshot();
@@ -60,9 +68,11 @@ describe("DateField", () => {
       const result = render(
         <DateField isRequired>
           <Label>Date</Label>
-          <DateField.Segments>
-            {(_, index) => <DateField.Segment key={index} index={index} />}
-          </DateField.Segments>
+          <ComboInput>
+            <DateField.Segments>
+              {(_, index) => <DateField.Segment key={index} index={index} />}
+            </DateField.Segments>
+          </ComboInput>
         </DateField>
       );
       expect(result.asFragment()).toMatchSnapshot();
@@ -72,9 +82,11 @@ describe("DateField", () => {
       const result = render(
         <DateField granularity="hour">
           <Label>Date and Time</Label>
-          <DateField.Segments>
-            {(_, index) => <DateField.Segment key={index} index={index} />}
-          </DateField.Segments>
+          <ComboInput>
+            <DateField.Segments>
+              {(_, index) => <DateField.Segment key={index} index={index} />}
+            </DateField.Segments>
+          </ComboInput>
         </DateField>
       );
       expect(result.asFragment()).toMatchSnapshot();
