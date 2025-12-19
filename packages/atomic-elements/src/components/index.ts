@@ -41,6 +41,7 @@ export { TextAreaInput } from "./Inputs/TextAreaInput";
 export { ToggleSwitch } from "./Inputs/ToggleSwitch";
 export { FileInput } from "./Inputs/FileInput";
 export { Calendar } from "./Inputs/DateAndTimes/Calendar";
+export { RangeCalendar } from "./Inputs/DateAndTimes/RangeCalendar";
 export { DateInput } from "./Inputs/DateAndTimes/DateInput";
 export { TimeInput } from "./Inputs/DateAndTimes/TimeInput";
 export { DatePicker } from "./Inputs/DateAndTimes/DatePicker";
@@ -175,6 +176,7 @@ export type {
 } from "./Overlays/ToolTip";
 export type { OverlayTriggerProps } from "./Overlays/OverlayTrigger";
 export type { CalendarProps } from "./Inputs/DateAndTimes/Calendar";
+export type { RangeCalendarProps } from "./Inputs/DateAndTimes/RangeCalendar";
 export type { DateInputProps } from "./Inputs/DateAndTimes/DateInput";
 export type { TimeInputProps } from "./Inputs/DateAndTimes/TimeInput";
 export type { DatePickerProps } from "./Inputs/DateAndTimes/DatePicker";

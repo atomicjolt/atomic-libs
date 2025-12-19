@@ -1,0 +1,6517 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`RangeCalendar > matches snapshots > allows non-contiguous ranges 1`] = `
+<DocumentFragment>
+  <div
+    aria-label="December 2025"
+    class="sc-gjcoXW hSwPTh aje-range-calendar is-medium"
+    id="react-aria-:rp:"
+    role="application"
+  >
+    <div
+      class="sc-cMqPwU juAvst aje-flex"
+    >
+      <button
+        aria-label="Previous"
+        class="sc-hRDKVd sc-jBIHhB kwslFf hAzCSo aje-btn aje-icon-btn aje-btn--ghost is-medium"
+        data-icon-button="true"
+        tabindex="0"
+        type="button"
+      >
+        <i
+          aria-hidden="true"
+          class="sc-kfeOyU ceGEEk aje-icon material-icons is-medium"
+        >
+          chevron_left
+        </i>
+      </button>
+      <h2
+        class="sc-dVBluf lnebhm aje-range-calendar__title"
+      >
+        December 2025
+      </h2>
+      <button
+        aria-label="Next"
+        class="sc-hRDKVd sc-jBIHhB kwslFf hAzCSo aje-btn aje-icon-btn aje-btn--ghost is-medium"
+        data-icon-button="true"
+        tabindex="0"
+        type="button"
+      >
+        <i
+          aria-hidden="true"
+          class="sc-kfeOyU ceGEEk aje-icon material-icons is-medium"
+        >
+          chevron_right
+        </i>
+      </button>
+    </div>
+    <table
+      aria-label="December 2025"
+      aria-multiselectable="true"
+      class="sc-fLDLck fVlYZd aje-range-calendar__content"
+      id="react-aria-:rq:"
+      role="grid"
+    >
+      <thead
+        aria-hidden="true"
+      >
+        <tr>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            S
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            M
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            T
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            W
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            T
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            F
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            S
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Sunday, November 30, 2025"
+              class="sc-gNZgCX gjbblb"
+              hidden=""
+              role="button"
+            >
+              30
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 1, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              1
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 2, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              2
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 3, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              3
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Thursday, December 4, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              4
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Friday, December 5, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              5
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Saturday, December 6, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              6
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Sunday, December 7, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              7
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 8, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              8
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 9, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              9
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 10, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              10
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Thursday, December 11, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              11
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Friday, December 12, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              12
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Saturday, December 13, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              13
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Sunday, December 14, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              14
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 15, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              15
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 16, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              16
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 17, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              17
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Thursday, December 18, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              18
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Today, Friday, December 19, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="0"
+            >
+              19
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Saturday, December 20, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              20
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Sunday, December 21, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              21
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 22, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              22
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 23, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              23
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 24, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              24
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Thursday, December 25, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              25
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Friday, December 26, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              26
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Saturday, December 27, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              27
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Sunday, December 28, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              28
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 29, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              29
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 30, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              30
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 31, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              31
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Thursday, January 1, 2026"
+              class="sc-gNZgCX gjbblb"
+              hidden=""
+              role="button"
+            >
+              1
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Friday, January 2, 2026"
+              class="sc-gNZgCX gjbblb"
+              hidden=""
+              role="button"
+            >
+              2
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Saturday, January 3, 2026"
+              class="sc-gNZgCX gjbblb"
+              hidden=""
+              role="button"
+            >
+              3
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`RangeCalendar > matches snapshots > default variant 1`] = `
+<DocumentFragment>
+  <div
+    aria-label="December 2025"
+    class="sc-gjcoXW hSwPTh aje-range-calendar is-medium"
+    id="react-aria-:r1:"
+    role="application"
+  >
+    <div
+      class="sc-cMqPwU juAvst aje-flex"
+    >
+      <button
+        aria-label="Previous"
+        class="sc-hRDKVd sc-jBIHhB kwslFf hAzCSo aje-btn aje-icon-btn aje-btn--ghost is-medium"
+        data-icon-button="true"
+        tabindex="0"
+        type="button"
+      >
+        <i
+          aria-hidden="true"
+          class="sc-kfeOyU ceGEEk aje-icon material-icons is-medium"
+        >
+          chevron_left
+        </i>
+      </button>
+      <h2
+        class="sc-dVBluf lnebhm aje-range-calendar__title"
+      >
+        December 2025
+      </h2>
+      <button
+        aria-label="Next"
+        class="sc-hRDKVd sc-jBIHhB kwslFf hAzCSo aje-btn aje-icon-btn aje-btn--ghost is-medium"
+        data-icon-button="true"
+        tabindex="0"
+        type="button"
+      >
+        <i
+          aria-hidden="true"
+          class="sc-kfeOyU ceGEEk aje-icon material-icons is-medium"
+        >
+          chevron_right
+        </i>
+      </button>
+    </div>
+    <table
+      aria-label="December 2025"
+      aria-multiselectable="true"
+      class="sc-fLDLck fVlYZd aje-range-calendar__content"
+      id="react-aria-:r2:"
+      role="grid"
+    >
+      <thead
+        aria-hidden="true"
+      >
+        <tr>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            S
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            M
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            T
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            W
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            T
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            F
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            S
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Sunday, November 30, 2025"
+              class="sc-gNZgCX gjbblb"
+              hidden=""
+              role="button"
+            >
+              30
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 1, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              1
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 2, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              2
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 3, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              3
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Thursday, December 4, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              4
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Friday, December 5, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              5
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Saturday, December 6, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              6
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Sunday, December 7, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              7
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 8, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              8
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 9, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              9
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 10, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              10
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Thursday, December 11, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              11
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Friday, December 12, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              12
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Saturday, December 13, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              13
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Sunday, December 14, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              14
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 15, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              15
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 16, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              16
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 17, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              17
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Thursday, December 18, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              18
+            </div>
+          </td>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Today, Selected Range: Friday, December 19 to Friday, December 26, 2025, Friday, December 19, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="0"
+            >
+              19
+            </div>
+          </td>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Saturday, December 20, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              20
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Sunday, December 21, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              21
+            </div>
+          </td>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 22, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              22
+            </div>
+          </td>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 23, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              23
+            </div>
+          </td>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 24, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              24
+            </div>
+          </td>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Thursday, December 25, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              25
+            </div>
+          </td>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Selected Range: Friday, December 19 to Friday, December 26, 2025, Friday, December 26, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              26
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Saturday, December 27, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              27
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Sunday, December 28, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              28
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 29, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              29
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 30, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              30
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 31, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              31
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Thursday, January 1, 2026"
+              class="sc-gNZgCX gjbblb"
+              hidden=""
+              role="button"
+            >
+              1
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Friday, January 2, 2026"
+              class="sc-gNZgCX gjbblb"
+              hidden=""
+              role="button"
+            >
+              2
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Saturday, January 3, 2026"
+              class="sc-gNZgCX gjbblb"
+              hidden=""
+              role="button"
+            >
+              3
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`RangeCalendar > matches snapshots > disabled state 1`] = `
+<DocumentFragment>
+  <div
+    aria-label="December 2025"
+    class="sc-gjcoXW hSwPTh aje-range-calendar is-medium"
+    data-disabled="true"
+    id="react-aria-:rg:"
+    role="application"
+  >
+    <div
+      class="sc-cMqPwU juAvst aje-flex"
+    >
+      <button
+        aria-label="Previous"
+        class="sc-hRDKVd sc-jBIHhB kwslFf hAzCSo aje-btn aje-icon-btn aje-btn--ghost is-medium"
+        data-icon-button="true"
+        disabled=""
+        type="button"
+      >
+        <i
+          aria-hidden="true"
+          class="sc-kfeOyU ceGEEk aje-icon material-icons is-medium"
+        >
+          chevron_left
+        </i>
+      </button>
+      <h2
+        class="sc-dVBluf lnebhm aje-range-calendar__title"
+      >
+        December 2025
+      </h2>
+      <button
+        aria-label="Next"
+        class="sc-hRDKVd sc-jBIHhB kwslFf hAzCSo aje-btn aje-icon-btn aje-btn--ghost is-medium"
+        data-icon-button="true"
+        disabled=""
+        type="button"
+      >
+        <i
+          aria-hidden="true"
+          class="sc-kfeOyU ceGEEk aje-icon material-icons is-medium"
+        >
+          chevron_right
+        </i>
+      </button>
+    </div>
+    <table
+      aria-disabled="true"
+      aria-label="December 2025"
+      aria-multiselectable="true"
+      class="sc-fLDLck fVlYZd aje-range-calendar__content"
+      id="react-aria-:rh:"
+      role="grid"
+    >
+      <thead
+        aria-hidden="true"
+      >
+        <tr>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            S
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            M
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            T
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            W
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            T
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            F
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            S
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Sunday, November 30, 2025"
+              class="sc-gNZgCX gjbblb"
+              hidden=""
+              role="button"
+            >
+              30
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Monday, December 1, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+            >
+              1
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Tuesday, December 2, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+            >
+              2
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Wednesday, December 3, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+            >
+              3
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Thursday, December 4, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+            >
+              4
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Friday, December 5, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+            >
+              5
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Saturday, December 6, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+            >
+              6
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Sunday, December 7, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+            >
+              7
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Monday, December 8, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+            >
+              8
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Tuesday, December 9, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+            >
+              9
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Wednesday, December 10, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+            >
+              10
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Thursday, December 11, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+            >
+              11
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Friday, December 12, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+            >
+              12
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Saturday, December 13, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+            >
+              13
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Sunday, December 14, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+            >
+              14
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Monday, December 15, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+            >
+              15
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Tuesday, December 16, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+            >
+              16
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Wednesday, December 17, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+            >
+              17
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Thursday, December 18, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+            >
+              18
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Today, Selected Range: Friday, December 19 to Friday, December 26, 2025, Friday, December 19, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+            >
+              19
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Saturday, December 20, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+            >
+              20
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Sunday, December 21, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+            >
+              21
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Monday, December 22, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+            >
+              22
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Tuesday, December 23, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+            >
+              23
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Wednesday, December 24, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+            >
+              24
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Thursday, December 25, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+            >
+              25
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Selected Range: Friday, December 19 to Friday, December 26, 2025, Friday, December 26, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+            >
+              26
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Saturday, December 27, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+            >
+              27
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Sunday, December 28, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+            >
+              28
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Monday, December 29, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+            >
+              29
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Tuesday, December 30, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+            >
+              30
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Wednesday, December 31, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+            >
+              31
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Thursday, January 1, 2026"
+              class="sc-gNZgCX gjbblb"
+              hidden=""
+              role="button"
+            >
+              1
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Friday, January 2, 2026"
+              class="sc-gNZgCX gjbblb"
+              hidden=""
+              role="button"
+            >
+              2
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Saturday, January 3, 2026"
+              class="sc-gNZgCX gjbblb"
+              hidden=""
+              role="button"
+            >
+              3
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`RangeCalendar > matches snapshots > invalid state 1`] = `
+<DocumentFragment>
+  <div
+    aria-label="December 2025"
+    class="sc-gjcoXW hSwPTh aje-range-calendar is-medium"
+    data-invalid="true"
+    id="react-aria-:rj:"
+    role="application"
+  >
+    <div
+      class="sc-cMqPwU juAvst aje-flex"
+    >
+      <button
+        aria-label="Previous"
+        class="sc-hRDKVd sc-jBIHhB kwslFf hAzCSo aje-btn aje-icon-btn aje-btn--ghost is-medium"
+        data-icon-button="true"
+        tabindex="0"
+        type="button"
+      >
+        <i
+          aria-hidden="true"
+          class="sc-kfeOyU ceGEEk aje-icon material-icons is-medium"
+        >
+          chevron_left
+        </i>
+      </button>
+      <h2
+        class="sc-dVBluf lnebhm aje-range-calendar__title"
+      >
+        December 2025
+      </h2>
+      <button
+        aria-label="Next"
+        class="sc-hRDKVd sc-jBIHhB kwslFf hAzCSo aje-btn aje-icon-btn aje-btn--ghost is-medium"
+        data-icon-button="true"
+        tabindex="0"
+        type="button"
+      >
+        <i
+          aria-hidden="true"
+          class="sc-kfeOyU ceGEEk aje-icon material-icons is-medium"
+        >
+          chevron_right
+        </i>
+      </button>
+    </div>
+    <table
+      aria-label="December 2025"
+      aria-multiselectable="true"
+      class="sc-fLDLck fVlYZd aje-range-calendar__content"
+      id="react-aria-:rk:"
+      role="grid"
+    >
+      <thead
+        aria-hidden="true"
+      >
+        <tr>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            S
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            M
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            T
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            W
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            T
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            F
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            S
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Sunday, November 30, 2025"
+              class="sc-gNZgCX gjbblb"
+              hidden=""
+              role="button"
+            >
+              30
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 1, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              1
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 2, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              2
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 3, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              3
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Thursday, December 4, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              4
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Friday, December 5, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              5
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Saturday, December 6, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              6
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Sunday, December 7, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              7
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 8, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              8
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 9, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              9
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 10, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              10
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Thursday, December 11, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              11
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Friday, December 12, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              12
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Saturday, December 13, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              13
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Sunday, December 14, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              14
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 15, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              15
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 16, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              16
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 17, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              17
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Thursday, December 18, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              18
+            </div>
+          </td>
+          <td
+            aria-invalid="true"
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-invalid="true"
+              aria-label="Today, Selected Range: Friday, December 19 to Friday, December 26, 2025, Friday, December 19, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="0"
+            >
+              19
+            </div>
+          </td>
+          <td
+            aria-invalid="true"
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-invalid="true"
+              aria-label="Saturday, December 20, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              20
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td
+            aria-invalid="true"
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-invalid="true"
+              aria-label="Sunday, December 21, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              21
+            </div>
+          </td>
+          <td
+            aria-invalid="true"
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-invalid="true"
+              aria-label="Monday, December 22, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              22
+            </div>
+          </td>
+          <td
+            aria-invalid="true"
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-invalid="true"
+              aria-label="Tuesday, December 23, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              23
+            </div>
+          </td>
+          <td
+            aria-invalid="true"
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-invalid="true"
+              aria-label="Wednesday, December 24, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              24
+            </div>
+          </td>
+          <td
+            aria-invalid="true"
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-invalid="true"
+              aria-label="Thursday, December 25, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              25
+            </div>
+          </td>
+          <td
+            aria-invalid="true"
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-invalid="true"
+              aria-label="Selected Range: Friday, December 19 to Friday, December 26, 2025, Friday, December 26, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              26
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Saturday, December 27, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              27
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Sunday, December 28, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              28
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 29, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              29
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 30, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              30
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 31, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              31
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Thursday, January 1, 2026"
+              class="sc-gNZgCX gjbblb"
+              hidden=""
+              role="button"
+            >
+              1
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Friday, January 2, 2026"
+              class="sc-gNZgCX gjbblb"
+              hidden=""
+              role="button"
+            >
+              2
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Saturday, January 3, 2026"
+              class="sc-gNZgCX gjbblb"
+              hidden=""
+              role="button"
+            >
+              3
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`RangeCalendar > matches snapshots > large size 1`] = `
+<DocumentFragment>
+  <div
+    aria-label="December 2025"
+    class="sc-gjcoXW hSwPTh aje-range-calendar is-large"
+    id="react-aria-:rd:"
+    role="application"
+  >
+    <div
+      class="sc-cMqPwU juAvst aje-flex"
+    >
+      <button
+        aria-label="Previous"
+        class="sc-hRDKVd sc-jBIHhB kwslFf hAzCSo aje-btn aje-icon-btn aje-btn--ghost is-medium"
+        data-icon-button="true"
+        tabindex="0"
+        type="button"
+      >
+        <i
+          aria-hidden="true"
+          class="sc-kfeOyU ceGEEk aje-icon material-icons is-medium"
+        >
+          chevron_left
+        </i>
+      </button>
+      <h2
+        class="sc-dVBluf lnebhm aje-range-calendar__title"
+      >
+        December 2025
+      </h2>
+      <button
+        aria-label="Next"
+        class="sc-hRDKVd sc-jBIHhB kwslFf hAzCSo aje-btn aje-icon-btn aje-btn--ghost is-medium"
+        data-icon-button="true"
+        tabindex="0"
+        type="button"
+      >
+        <i
+          aria-hidden="true"
+          class="sc-kfeOyU ceGEEk aje-icon material-icons is-medium"
+        >
+          chevron_right
+        </i>
+      </button>
+    </div>
+    <table
+      aria-label="December 2025"
+      aria-multiselectable="true"
+      class="sc-fLDLck fVlYZd aje-range-calendar__content"
+      id="react-aria-:re:"
+      role="grid"
+    >
+      <thead
+        aria-hidden="true"
+      >
+        <tr>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            S
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            M
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            T
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            W
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            T
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            F
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            S
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Sunday, November 30, 2025"
+              class="sc-gNZgCX gjbblb"
+              hidden=""
+              role="button"
+            >
+              30
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 1, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              1
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 2, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              2
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 3, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              3
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Thursday, December 4, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              4
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Friday, December 5, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              5
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Saturday, December 6, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              6
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Sunday, December 7, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              7
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 8, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              8
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 9, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              9
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 10, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              10
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Thursday, December 11, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              11
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Friday, December 12, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              12
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Saturday, December 13, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              13
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Sunday, December 14, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              14
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 15, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              15
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 16, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              16
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 17, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              17
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Thursday, December 18, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              18
+            </div>
+          </td>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Today, Selected Range: Friday, December 19 to Friday, December 26, 2025, Friday, December 19, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="0"
+            >
+              19
+            </div>
+          </td>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Saturday, December 20, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              20
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Sunday, December 21, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              21
+            </div>
+          </td>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 22, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              22
+            </div>
+          </td>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 23, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              23
+            </div>
+          </td>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 24, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              24
+            </div>
+          </td>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Thursday, December 25, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              25
+            </div>
+          </td>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Selected Range: Friday, December 19 to Friday, December 26, 2025, Friday, December 26, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              26
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Saturday, December 27, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              27
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Sunday, December 28, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              28
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 29, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              29
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 30, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              30
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 31, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              31
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Thursday, January 1, 2026"
+              class="sc-gNZgCX gjbblb"
+              hidden=""
+              role="button"
+            >
+              1
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Friday, January 2, 2026"
+              class="sc-gNZgCX gjbblb"
+              hidden=""
+              role="button"
+            >
+              2
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Saturday, January 3, 2026"
+              class="sc-gNZgCX gjbblb"
+              hidden=""
+              role="button"
+            >
+              3
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`RangeCalendar > matches snapshots > medium size 1`] = `
+<DocumentFragment>
+  <div
+    aria-label="December 2025"
+    class="sc-gjcoXW hSwPTh aje-range-calendar is-medium"
+    id="react-aria-:ra:"
+    role="application"
+  >
+    <div
+      class="sc-cMqPwU juAvst aje-flex"
+    >
+      <button
+        aria-label="Previous"
+        class="sc-hRDKVd sc-jBIHhB kwslFf hAzCSo aje-btn aje-icon-btn aje-btn--ghost is-medium"
+        data-icon-button="true"
+        tabindex="0"
+        type="button"
+      >
+        <i
+          aria-hidden="true"
+          class="sc-kfeOyU ceGEEk aje-icon material-icons is-medium"
+        >
+          chevron_left
+        </i>
+      </button>
+      <h2
+        class="sc-dVBluf lnebhm aje-range-calendar__title"
+      >
+        December 2025
+      </h2>
+      <button
+        aria-label="Next"
+        class="sc-hRDKVd sc-jBIHhB kwslFf hAzCSo aje-btn aje-icon-btn aje-btn--ghost is-medium"
+        data-icon-button="true"
+        tabindex="0"
+        type="button"
+      >
+        <i
+          aria-hidden="true"
+          class="sc-kfeOyU ceGEEk aje-icon material-icons is-medium"
+        >
+          chevron_right
+        </i>
+      </button>
+    </div>
+    <table
+      aria-label="December 2025"
+      aria-multiselectable="true"
+      class="sc-fLDLck fVlYZd aje-range-calendar__content"
+      id="react-aria-:rb:"
+      role="grid"
+    >
+      <thead
+        aria-hidden="true"
+      >
+        <tr>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            S
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            M
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            T
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            W
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            T
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            F
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            S
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Sunday, November 30, 2025"
+              class="sc-gNZgCX gjbblb"
+              hidden=""
+              role="button"
+            >
+              30
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 1, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              1
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 2, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              2
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 3, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              3
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Thursday, December 4, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              4
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Friday, December 5, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              5
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Saturday, December 6, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              6
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Sunday, December 7, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              7
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 8, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              8
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 9, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              9
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 10, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              10
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Thursday, December 11, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              11
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Friday, December 12, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              12
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Saturday, December 13, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              13
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Sunday, December 14, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              14
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 15, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              15
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 16, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              16
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 17, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              17
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Thursday, December 18, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              18
+            </div>
+          </td>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Today, Selected Range: Friday, December 19 to Friday, December 26, 2025, Friday, December 19, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="0"
+            >
+              19
+            </div>
+          </td>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Saturday, December 20, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              20
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Sunday, December 21, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              21
+            </div>
+          </td>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 22, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              22
+            </div>
+          </td>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 23, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              23
+            </div>
+          </td>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 24, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              24
+            </div>
+          </td>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Thursday, December 25, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              25
+            </div>
+          </td>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Selected Range: Friday, December 19 to Friday, December 26, 2025, Friday, December 26, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              26
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Saturday, December 27, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              27
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Sunday, December 28, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              28
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 29, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              29
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 30, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              30
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 31, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              31
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Thursday, January 1, 2026"
+              class="sc-gNZgCX gjbblb"
+              hidden=""
+              role="button"
+            >
+              1
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Friday, January 2, 2026"
+              class="sc-gNZgCX gjbblb"
+              hidden=""
+              role="button"
+            >
+              2
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Saturday, January 3, 2026"
+              class="sc-gNZgCX gjbblb"
+              hidden=""
+              role="button"
+            >
+              3
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`RangeCalendar > matches snapshots > minimal props 1`] = `
+<DocumentFragment>
+  <div
+    aria-label="December 2025"
+    class="sc-gjcoXW hSwPTh aje-range-calendar is-medium"
+    id="react-aria-:rv:"
+    role="application"
+  >
+    <div
+      class="sc-cMqPwU juAvst aje-flex"
+    >
+      <button
+        aria-label="Previous"
+        class="sc-hRDKVd sc-jBIHhB kwslFf hAzCSo aje-btn aje-icon-btn aje-btn--ghost is-medium"
+        data-icon-button="true"
+        tabindex="0"
+        type="button"
+      >
+        <i
+          aria-hidden="true"
+          class="sc-kfeOyU ceGEEk aje-icon material-icons is-medium"
+        >
+          chevron_left
+        </i>
+      </button>
+      <h2
+        class="sc-dVBluf lnebhm aje-range-calendar__title"
+      >
+        December 2025
+      </h2>
+      <button
+        aria-label="Next"
+        class="sc-hRDKVd sc-jBIHhB kwslFf hAzCSo aje-btn aje-icon-btn aje-btn--ghost is-medium"
+        data-icon-button="true"
+        tabindex="0"
+        type="button"
+      >
+        <i
+          aria-hidden="true"
+          class="sc-kfeOyU ceGEEk aje-icon material-icons is-medium"
+        >
+          chevron_right
+        </i>
+      </button>
+    </div>
+    <table
+      aria-label="December 2025"
+      aria-multiselectable="true"
+      class="sc-fLDLck fVlYZd aje-range-calendar__content"
+      id="react-aria-:r10:"
+      role="grid"
+    >
+      <thead
+        aria-hidden="true"
+      >
+        <tr>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            S
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            M
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            T
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            W
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            T
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            F
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            S
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Sunday, November 30, 2025"
+              class="sc-gNZgCX gjbblb"
+              hidden=""
+              role="button"
+            >
+              30
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 1, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              1
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 2, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              2
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 3, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              3
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Thursday, December 4, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              4
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Friday, December 5, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              5
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Saturday, December 6, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              6
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Sunday, December 7, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              7
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 8, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              8
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 9, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              9
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 10, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              10
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Thursday, December 11, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              11
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Friday, December 12, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              12
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Saturday, December 13, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              13
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Sunday, December 14, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              14
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 15, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              15
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 16, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              16
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 17, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              17
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Thursday, December 18, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              18
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Today, Friday, December 19, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="0"
+            >
+              19
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Saturday, December 20, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              20
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Sunday, December 21, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              21
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 22, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              22
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 23, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              23
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 24, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              24
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Thursday, December 25, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              25
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Friday, December 26, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              26
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Saturday, December 27, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              27
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Sunday, December 28, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              28
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 29, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              29
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 30, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              30
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 31, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              31
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Thursday, January 1, 2026"
+              class="sc-gNZgCX gjbblb"
+              hidden=""
+              role="button"
+            >
+              1
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Friday, January 2, 2026"
+              class="sc-gNZgCX gjbblb"
+              hidden=""
+              role="button"
+            >
+              2
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Saturday, January 3, 2026"
+              class="sc-gNZgCX gjbblb"
+              hidden=""
+              role="button"
+            >
+              3
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`RangeCalendar > matches snapshots > small size 1`] = `
+<DocumentFragment>
+  <div
+    aria-label="December 2025"
+    class="sc-gjcoXW hSwPTh aje-range-calendar is-small"
+    id="react-aria-:r7:"
+    role="application"
+  >
+    <div
+      class="sc-cMqPwU juAvst aje-flex"
+    >
+      <button
+        aria-label="Previous"
+        class="sc-hRDKVd sc-jBIHhB kwslFf hAzCSo aje-btn aje-icon-btn aje-btn--ghost is-medium"
+        data-icon-button="true"
+        tabindex="0"
+        type="button"
+      >
+        <i
+          aria-hidden="true"
+          class="sc-kfeOyU ceGEEk aje-icon material-icons is-medium"
+        >
+          chevron_left
+        </i>
+      </button>
+      <h2
+        class="sc-dVBluf lnebhm aje-range-calendar__title"
+      >
+        December 2025
+      </h2>
+      <button
+        aria-label="Next"
+        class="sc-hRDKVd sc-jBIHhB kwslFf hAzCSo aje-btn aje-icon-btn aje-btn--ghost is-medium"
+        data-icon-button="true"
+        tabindex="0"
+        type="button"
+      >
+        <i
+          aria-hidden="true"
+          class="sc-kfeOyU ceGEEk aje-icon material-icons is-medium"
+        >
+          chevron_right
+        </i>
+      </button>
+    </div>
+    <table
+      aria-label="December 2025"
+      aria-multiselectable="true"
+      class="sc-fLDLck fVlYZd aje-range-calendar__content"
+      id="react-aria-:r8:"
+      role="grid"
+    >
+      <thead
+        aria-hidden="true"
+      >
+        <tr>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            S
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            M
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            T
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            W
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            T
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            F
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            S
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Sunday, November 30, 2025"
+              class="sc-gNZgCX gjbblb"
+              hidden=""
+              role="button"
+            >
+              30
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 1, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              1
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 2, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              2
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 3, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              3
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Thursday, December 4, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              4
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Friday, December 5, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              5
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Saturday, December 6, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              6
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Sunday, December 7, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              7
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 8, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              8
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 9, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              9
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 10, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              10
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Thursday, December 11, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              11
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Friday, December 12, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              12
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Saturday, December 13, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              13
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Sunday, December 14, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              14
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 15, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              15
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 16, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              16
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 17, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              17
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Thursday, December 18, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              18
+            </div>
+          </td>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Today, Selected Range: Friday, December 19 to Friday, December 26, 2025, Friday, December 19, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="0"
+            >
+              19
+            </div>
+          </td>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Saturday, December 20, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              20
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Sunday, December 21, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              21
+            </div>
+          </td>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 22, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              22
+            </div>
+          </td>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 23, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              23
+            </div>
+          </td>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 24, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              24
+            </div>
+          </td>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Thursday, December 25, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              25
+            </div>
+          </td>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Selected Range: Friday, December 19 to Friday, December 26, 2025, Friday, December 26, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              26
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Saturday, December 27, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              27
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Sunday, December 28, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              28
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 29, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              29
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 30, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              30
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 31, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              31
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Thursday, January 1, 2026"
+              class="sc-gNZgCX gjbblb"
+              hidden=""
+              role="button"
+            >
+              1
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Friday, January 2, 2026"
+              class="sc-gNZgCX gjbblb"
+              hidden=""
+              role="button"
+            >
+              2
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Saturday, January 3, 2026"
+              class="sc-gNZgCX gjbblb"
+              hidden=""
+              role="button"
+            >
+              3
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`RangeCalendar > matches snapshots > with controlled value 1`] = `
+<DocumentFragment>
+  <div
+    aria-label="December 2025"
+    class="sc-gjcoXW hSwPTh aje-range-calendar is-medium"
+    id="react-aria-:r4:"
+    role="application"
+  >
+    <div
+      class="sc-cMqPwU juAvst aje-flex"
+    >
+      <button
+        aria-label="Previous"
+        class="sc-hRDKVd sc-jBIHhB kwslFf hAzCSo aje-btn aje-icon-btn aje-btn--ghost is-medium"
+        data-icon-button="true"
+        tabindex="0"
+        type="button"
+      >
+        <i
+          aria-hidden="true"
+          class="sc-kfeOyU ceGEEk aje-icon material-icons is-medium"
+        >
+          chevron_left
+        </i>
+      </button>
+      <h2
+        class="sc-dVBluf lnebhm aje-range-calendar__title"
+      >
+        December 2025
+      </h2>
+      <button
+        aria-label="Next"
+        class="sc-hRDKVd sc-jBIHhB kwslFf hAzCSo aje-btn aje-icon-btn aje-btn--ghost is-medium"
+        data-icon-button="true"
+        tabindex="0"
+        type="button"
+      >
+        <i
+          aria-hidden="true"
+          class="sc-kfeOyU ceGEEk aje-icon material-icons is-medium"
+        >
+          chevron_right
+        </i>
+      </button>
+    </div>
+    <table
+      aria-label="December 2025"
+      aria-multiselectable="true"
+      class="sc-fLDLck fVlYZd aje-range-calendar__content"
+      id="react-aria-:r5:"
+      role="grid"
+    >
+      <thead
+        aria-hidden="true"
+      >
+        <tr>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            S
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            M
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            T
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            W
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            T
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            F
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            S
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Sunday, November 30, 2025"
+              class="sc-gNZgCX gjbblb"
+              hidden=""
+              role="button"
+            >
+              30
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 1, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              1
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 2, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              2
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 3, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              3
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Thursday, December 4, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              4
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Friday, December 5, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              5
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Saturday, December 6, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              6
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Sunday, December 7, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              7
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 8, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              8
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 9, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              9
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 10, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              10
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Thursday, December 11, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              11
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Friday, December 12, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              12
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Saturday, December 13, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              13
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Sunday, December 14, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              14
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 15, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              15
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 16, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              16
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 17, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              17
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Thursday, December 18, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              18
+            </div>
+          </td>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Today, Selected Range: Friday, December 19 to Friday, December 26, 2025, Friday, December 19, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="0"
+            >
+              19
+            </div>
+          </td>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Saturday, December 20, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              20
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Sunday, December 21, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              21
+            </div>
+          </td>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 22, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              22
+            </div>
+          </td>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 23, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              23
+            </div>
+          </td>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 24, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              24
+            </div>
+          </td>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Thursday, December 25, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              25
+            </div>
+          </td>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Selected Range: Friday, December 19 to Friday, December 26, 2025, Friday, December 26, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              26
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Saturday, December 27, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              27
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Sunday, December 28, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              28
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 29, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              29
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 30, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              30
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 31, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              31
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Thursday, January 1, 2026"
+              class="sc-gNZgCX gjbblb"
+              hidden=""
+              role="button"
+            >
+              1
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Friday, January 2, 2026"
+              class="sc-gNZgCX gjbblb"
+              hidden=""
+              role="button"
+            >
+              2
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Saturday, January 3, 2026"
+              class="sc-gNZgCX gjbblb"
+              hidden=""
+              role="button"
+            >
+              3
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`RangeCalendar > matches snapshots > with date unavailable function 1`] = `
+<DocumentFragment>
+  <div
+    aria-label="December 2025"
+    class="sc-gjcoXW hSwPTh aje-range-calendar is-medium"
+    id="react-aria-:rs:"
+    role="application"
+  >
+    <div
+      class="sc-cMqPwU juAvst aje-flex"
+    >
+      <button
+        aria-label="Previous"
+        class="sc-hRDKVd sc-jBIHhB kwslFf hAzCSo aje-btn aje-icon-btn aje-btn--ghost is-medium"
+        data-icon-button="true"
+        tabindex="0"
+        type="button"
+      >
+        <i
+          aria-hidden="true"
+          class="sc-kfeOyU ceGEEk aje-icon material-icons is-medium"
+        >
+          chevron_left
+        </i>
+      </button>
+      <h2
+        class="sc-dVBluf lnebhm aje-range-calendar__title"
+      >
+        December 2025
+      </h2>
+      <button
+        aria-label="Next"
+        class="sc-hRDKVd sc-jBIHhB kwslFf hAzCSo aje-btn aje-icon-btn aje-btn--ghost is-medium"
+        data-icon-button="true"
+        tabindex="0"
+        type="button"
+      >
+        <i
+          aria-hidden="true"
+          class="sc-kfeOyU ceGEEk aje-icon material-icons is-medium"
+        >
+          chevron_right
+        </i>
+      </button>
+    </div>
+    <table
+      aria-label="December 2025"
+      aria-multiselectable="true"
+      class="sc-fLDLck fVlYZd aje-range-calendar__content"
+      id="react-aria-:rt:"
+      role="grid"
+    >
+      <thead
+        aria-hidden="true"
+      >
+        <tr>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            S
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            M
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            T
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            W
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            T
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            F
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            S
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            data-unavailable="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Sunday, November 30, 2025"
+              class="sc-gNZgCX gjbblb"
+              hidden=""
+              role="button"
+            >
+              30
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 1, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              1
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 2, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              2
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 3, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              3
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Thursday, December 4, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              4
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Friday, December 5, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              5
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-unavailable="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Saturday, December 6, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              6
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-unavailable="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Sunday, December 7, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              7
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 8, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              8
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 9, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              9
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 10, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              10
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Thursday, December 11, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              11
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Friday, December 12, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              12
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-unavailable="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Saturday, December 13, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              13
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-unavailable="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Sunday, December 14, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              14
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 15, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              15
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 16, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              16
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 17, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              17
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Thursday, December 18, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              18
+            </div>
+          </td>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Today, Selected Range: Friday, December 19 to Friday, December 26, 2025, Friday, December 19, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="0"
+            >
+              19
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-unavailable="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Saturday, December 20, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              20
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-unavailable="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Sunday, December 21, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              21
+            </div>
+          </td>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 22, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              22
+            </div>
+          </td>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 23, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              23
+            </div>
+          </td>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 24, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              24
+            </div>
+          </td>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Thursday, December 25, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              25
+            </div>
+          </td>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Selected Range: Friday, December 19 to Friday, December 26, 2025, Friday, December 26, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              26
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-unavailable="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Saturday, December 27, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              27
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-unavailable="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Sunday, December 28, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              28
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 29, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              29
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 30, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              30
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 31, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              31
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Thursday, January 1, 2026"
+              class="sc-gNZgCX gjbblb"
+              hidden=""
+              role="button"
+            >
+              1
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Friday, January 2, 2026"
+              class="sc-gNZgCX gjbblb"
+              hidden=""
+              role="button"
+            >
+              2
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            data-unavailable="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Saturday, January 3, 2026"
+              class="sc-gNZgCX gjbblb"
+              hidden=""
+              role="button"
+            >
+              3
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`RangeCalendar > matches snapshots > with min and max values 1`] = `
+<DocumentFragment>
+  <div
+    aria-label="December 2025"
+    class="sc-gjcoXW hSwPTh aje-range-calendar is-medium"
+    id="react-aria-:rm:"
+    role="application"
+  >
+    <div
+      class="sc-cMqPwU juAvst aje-flex"
+    >
+      <button
+        aria-label="Previous"
+        class="sc-hRDKVd sc-jBIHhB kwslFf hAzCSo aje-btn aje-icon-btn aje-btn--ghost is-medium"
+        data-icon-button="true"
+        tabindex="0"
+        type="button"
+      >
+        <i
+          aria-hidden="true"
+          class="sc-kfeOyU ceGEEk aje-icon material-icons is-medium"
+        >
+          chevron_left
+        </i>
+      </button>
+      <h2
+        class="sc-dVBluf lnebhm aje-range-calendar__title"
+      >
+        December 2025
+      </h2>
+      <button
+        aria-label="Next"
+        class="sc-hRDKVd sc-jBIHhB kwslFf hAzCSo aje-btn aje-icon-btn aje-btn--ghost is-medium"
+        data-icon-button="true"
+        tabindex="0"
+        type="button"
+      >
+        <i
+          aria-hidden="true"
+          class="sc-kfeOyU ceGEEk aje-icon material-icons is-medium"
+        >
+          chevron_right
+        </i>
+      </button>
+    </div>
+    <table
+      aria-label="December 2025"
+      aria-multiselectable="true"
+      class="sc-fLDLck fVlYZd aje-range-calendar__content"
+      id="react-aria-:rn:"
+      role="grid"
+    >
+      <thead
+        aria-hidden="true"
+      >
+        <tr>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            S
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            M
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            T
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            W
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            T
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            F
+          </th>
+          <th
+            class="sc-dycHyt ibmtKP"
+          >
+            S
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Sunday, November 30, 2025"
+              class="sc-gNZgCX gjbblb"
+              hidden=""
+              role="button"
+            >
+              30
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 1, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              1
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 2, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              2
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 3, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              3
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Thursday, December 4, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              4
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Friday, December 5, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              5
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Saturday, December 6, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              6
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Sunday, December 7, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              7
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 8, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              8
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 9, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              9
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 10, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              10
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Thursday, December 11, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              11
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Friday, December 12, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              12
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Saturday, December 13, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              13
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Sunday, December 14, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              14
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 15, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              15
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 16, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              16
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 17, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              17
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Thursday, December 18, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              18
+            </div>
+          </td>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Today, Selected Range: Friday, December 19 to Friday, December 26, 2025, Friday, December 19, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="0"
+            >
+              19
+            </div>
+          </td>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Saturday, December 20, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              20
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Sunday, December 21, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              21
+            </div>
+          </td>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 22, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              22
+            </div>
+          </td>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 23, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              23
+            </div>
+          </td>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 24, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              24
+            </div>
+          </td>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Thursday, December 25, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              25
+            </div>
+          </td>
+          <td
+            aria-selected="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Selected Range: Friday, December 19 to Friday, December 26, 2025, Friday, December 26, 2025 selected"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              26
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Saturday, December 27, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              27
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Sunday, December 28, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              28
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Monday, December 29, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              29
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Tuesday, December 30, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              30
+            </div>
+          </td>
+          <td
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            role="gridcell"
+          >
+            <div
+              aria-label="Wednesday, December 31, 2025"
+              class="sc-gNZgCX gjbblb"
+              role="button"
+              tabindex="-1"
+            >
+              31
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Thursday, January 1, 2026"
+              class="sc-gNZgCX gjbblb"
+              hidden=""
+              role="button"
+            >
+              1
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Friday, January 2, 2026"
+              class="sc-gNZgCX gjbblb"
+              hidden=""
+              role="button"
+            >
+              2
+            </div>
+          </td>
+          <td
+            aria-disabled="true"
+            class="sc-jbAkgO BLNiq aje-range-calendar__cell"
+            data-disabled="true"
+            role="gridcell"
+          >
+            <div
+              aria-disabled="true"
+              aria-label="Saturday, January 3, 2026"
+              class="sc-gNZgCX gjbblb"
+              hidden=""
+              role="button"
+            >
+              3
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</DocumentFragment>
+`;
