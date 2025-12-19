@@ -11,6 +11,7 @@ import Overlays from "./tabs/Overlays";
 import Fields from "./tabs/Fields";
 import Loading from "./tabs/Loading";
 import Links from "./tabs/Links";
+import { DateAndTime } from "./tabs/DateAndTime";
 import { Home } from "./tabs/Home";
 
 function Playground() {
@@ -27,6 +28,7 @@ function Playground() {
           <Tabs.Tab id="localization">Localization</Tabs.Tab>
           <Tabs.Tab id="overlays">Overlays</Tabs.Tab>
           <Tabs.Tab id="fields">Fields</Tabs.Tab>
+          <Tabs.Tab id="dateandtime">Date and Time</Tabs.Tab>
           <Tabs.Tab id="loading">Loading</Tabs.Tab>
           <Tabs.Tab id="links">Links</Tabs.Tab>
           <Tabs.Tab id="aria">Aria</Tabs.Tab>
@@ -58,6 +60,10 @@ function Playground() {
 
         <Tabs.Panel id="fields">
           <Fields />
+        </Tabs.Panel>
+
+        <Tabs.Panel id="dateandtime">
+          <DateAndTime />
         </Tabs.Panel>
 
         <Tabs.Panel id="loading">

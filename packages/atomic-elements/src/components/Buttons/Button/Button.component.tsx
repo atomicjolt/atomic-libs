@@ -4,6 +4,11 @@ import { BaseButton, ButtonProps } from "@components/Internal/BaseButton";
 import { StyledButton } from "./Button.styles";
 import { ButtonContext } from "./Button.context";
 
+export type {
+  ButtonProps,
+  ButtonVariants,
+} from "@components/Internal/BaseButton";
+
 /** A button component that can be used to trigger actions or events
  *
  * @example <Button onPress={() => alert("Hello, world!")}>Click me</Button>

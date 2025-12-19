@@ -6,7 +6,7 @@ exports[`matches snapshots > matches default variant 1`] = `
     data-react-aria-hidden="true"
   />
   <div
-    class="sc-gpHbIA bhSUCw aje-select sc-gQJZgv fvvEjB aje-select aje-select--default"
+    class="sc-flQbIK cjxgDK aje-select sc-iXqmyu gMHWSj aje-select aje-select--default"
   >
     <div
       aria-hidden="true"
@@ -49,7 +49,7 @@ exports[`matches snapshots > matches default variant 1`] = `
       type="button"
     >
       <span
-        class="sc-hUAZgl copoPc"
+        class="sc-gQJZgv dlYfMK"
         id="react-aria-:r7:"
       >
         Select an option
@@ -72,7 +72,7 @@ exports[`matches snapshots > matches floating variant 1`] = `
     data-react-aria-hidden="true"
   />
   <div
-    class="sc-gpHbIA bhSUCw aje-select sc-gQJZgv fvvEjB aje-select aje-select--floating aje-select--floating"
+    class="sc-flQbIK cjxgDK aje-select sc-iXqmyu gMHWSj aje-select aje-select--floating aje-select--floating"
   >
     <div
       aria-hidden="true"
@@ -100,7 +100,7 @@ exports[`matches snapshots > matches floating variant 1`] = `
       </label>
     </div>
     <div
-      class="sc-flQbIK llRNxW"
+      class="sc-bCjwNj cJjdMN"
     >
       <button
         aria-expanded="false"
@@ -112,7 +112,7 @@ exports[`matches snapshots > matches floating variant 1`] = `
         type="button"
       >
         <span
-          class="sc-hUAZgl copoPc"
+          class="sc-gQJZgv dlYfMK"
           id="react-aria-:rf:"
         />
         <i

@@ -3,7 +3,7 @@
 exports[`TextAreaInput > matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-gNZgCX bAVTuz aje-input__text sc-eiwqOE buTlLi aje-input__textarea is-medium"
+    class="sc-gNZgCX bAVTuz aje-input__text sc-fuExOL ePgQJv aje-input__textarea is-medium"
     data-resize="both"
   >
     <label

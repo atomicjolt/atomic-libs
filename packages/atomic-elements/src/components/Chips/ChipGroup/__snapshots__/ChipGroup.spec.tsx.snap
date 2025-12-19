@@ -6,7 +6,7 @@ exports[`ChipGroup > matches snapshot 1`] = `
     data-react-aria-hidden="true"
   />
   <div
-    class="sc-eiwqOE kTkbYA aje-chip-group"
+    class="sc-fuExOL iflJZZ aje-chip-group"
   >
     <label
       class="sc-FEMpB ipRIbq"
@@ -19,7 +19,7 @@ exports[`ChipGroup > matches snapshot 1`] = `
       aria-labelledby="react-aria-:r1:"
       aria-live="off"
       aria-relevant="additions"
-      class="sc-dPKAra EVgkD"
+      class="sc-gjXmFk fSQRSD"
       data-collection="react-aria-:r5:"
       id="react-aria-:r0:"
       role="grid"
@@ -27,7 +27,7 @@ exports[`ChipGroup > matches snapshot 1`] = `
     >
       <div
         aria-label="Item"
-        class="sc-gjXmFk eErvzQ aje-chip"
+        class="sc-dVupuq fdlSjA aje-chip"
         data-collection="react-aria-:r5:"
         data-key="react-aria-1"
         id="react-aria-:r0:-react-aria-1"
@@ -36,7 +36,7 @@ exports[`ChipGroup > matches snapshot 1`] = `
       >
         <div
           aria-colindex="1"
-          class="sc-fuExOL iXcEFL"
+          class="sc-hORkcV cOPNJR"
           role="gridcell"
         >
           Item

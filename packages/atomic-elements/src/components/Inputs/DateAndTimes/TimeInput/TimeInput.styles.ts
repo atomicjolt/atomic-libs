@@ -10,3 +10,7 @@ export const TimeInputWrapper = styled.div`
   --size-lg-x: 400px;
   --input-gap: 0px;
 `;
+
+export const StyledTimeSegment = styled.div`
+  margin: 0 0.1rem;
+`;
