@@ -58,19 +58,20 @@ export function DatePicker<T extends DateValue>(props: DatePickerProps<T>) {
       {label && <Label {...labelProps}>{label}</Label>}
       {message && <Message {...descriptionProps}>{message}</Message>}
 
-      <DatePickerComboInput
+      <DateInput {...fieldProps} size="full" isRequired={isRequired} />
+
+      {/* <DatePickerComboInput
         {...groupProps}
         ref={ref}
         className="aje-input__date-segments"
         padding="both"
       >
-        <DateInput {...fieldProps} size="full" isRequired={isRequired} />
         <IconButton icon="today" variant="content" {...buttonProps} />
       </DatePickerComboInput>
 
       <ErrorMessage {...errorMessageProps} isInvalid={isInvalid}>
         {error}
-      </ErrorMessage>
+      </ErrorMessage> */}
 
       <OverlayTriggerStateContext.Provider value={state}>
         <Popover triggerRef={ref} placement="bottom start" variant="datepicker">

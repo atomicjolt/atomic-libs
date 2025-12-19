@@ -6,7 +6,7 @@ exports[`MultiSelectField > matches snapshots > when closed 1`] = `
     data-react-aria-hidden="true"
   />
   <div
-    class="sc-gpHbIA bhSUCw aje-multiselect"
+    class="sc-flQbIK cjxgDK aje-multiselect"
   >
     <button
       aria-expanded="false"
@@ -29,7 +29,7 @@ exports[`MultiSelectField > matches snapshots > when open 1`] = `
     data-react-aria-hidden="true"
   />
   <div
-    class="sc-gpHbIA bhSUCw aje-multiselect"
+    class="sc-flQbIK cjxgDK aje-multiselect"
   >
     <button
       aria-controls="react-aria-:r9:"
