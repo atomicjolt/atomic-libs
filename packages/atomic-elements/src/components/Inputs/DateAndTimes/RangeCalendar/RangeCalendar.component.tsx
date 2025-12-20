@@ -19,7 +19,7 @@ import { ErrorMessageContext } from "@components/Fields/Atoms/ErrorMessage";
 import { RangeCalendarTitle } from "./components/RangeCalendarTitle";
 import { RangeCalendarGrid } from "./components/RangeCalendarGrid";
 import { RangeCalendarCell } from "./components/RangeCalendarCell";
-import { CalendarWrapper } from "../Calendar/Calendar.styles";
+import { RangeCalendarWrapper } from "./RangeCalendar.styles";
 import {
   RangeCalendarContext,
   RangeCalendarStateContext,
@@ -91,7 +91,7 @@ export function RangeCalendar<T extends DateValue>(
   });
 
   return (
-    <CalendarWrapper {...calendarProps} {...renderProps} ref={ref}>
+    <RangeCalendarWrapper {...calendarProps} {...renderProps} ref={ref}>
       <Provider
         values={[
           [RangeCalendarStateContext.Provider, state],
@@ -114,7 +114,7 @@ export function RangeCalendar<T extends DateValue>(
       >
         {renderProps.children}
       </Provider>
-    </CalendarWrapper>
+    </RangeCalendarWrapper>
   );
 }
 
