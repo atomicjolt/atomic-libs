@@ -9,7 +9,7 @@ function sendLtiIframeResize(height) {
 
 const defaultGetSize = () => {
   const ruler = document.getElementById('content-measuring-stick');
-  return ruler.offsetTop;
+  return ruler?.offsetTop ?? 0;
 };
 
 
@@ -60,4 +60,9 @@ export default function initResizeHandler(getSize = defaultGetSize, observeImage
     subtree: true,
     characterData: true,
   });
+
+  return () => {
+    mObserver.disconnect();
+    window.removeEventListener('resize', handleResize);
+  };
 }

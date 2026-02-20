@@ -7,7 +7,8 @@ export default function ResizeWrapper(props) {
   const { children, getSize, observeImages } = props;
 
   useEffect(() => {
-    initResizeHandler(getSize, observeImages);
+    const cleanup = initResizeHandler(getSize, observeImages);
+    return cleanup;
   }, []);
 
   return (
