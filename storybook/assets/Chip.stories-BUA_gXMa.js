@@ -1,0 +1,18 @@
+import{fn as g}from"./index-BgJgh-x_.js";import{P as d}from"./helpers-B3IbUb69.js";import{C as u}from"./Chip.component-DrZQpKlp.js";import"./jsx-runtime-D_zvdyIk.js";import"./styled-components.browser.esm-Y4FpNNpy.js";import"./index-BCtMShv3.js";import"./index-C3G89a7t.js";import"./index-DLW06VQL.js";import"./index-BDzxygkP.js";import"./index-CyCRagT9.js";import"./Collection-Cmq5KClr.js";import"./CollectionBuilder-D3rKkOdu.js";import"./index-q6RvvsFA.js";import"./index-D-fs5e6L.js";import"./useFocusable-DacP9xvE.js";import"./useObjectRef-D2RG7rRi.js";import"./SSRProvider-DyiXDq2k.js";import"./scale-CqCDTNu0.js";import"./filterDOMProps-CeZl_uWj.js";import"./useSelectableList-DMhBOA5A.js";import"./useSelectableItem-D8NZ7OgS.js";import"./usePress-CqXh5MnK.js";import"./useEvent-CeKNPFU-.js";import"./scrollIntoView-DuDju04b.js";import"./isScrollable-BSEN4xi5.js";import"./FocusScope-DX4qyq_T.js";import"./context-z6pb9OkM.js";import"./useDescription-CqPnuqnT.js";import"./DOMLayoutDelegate-BpvY9qNl.js";import"./useCollator-CKtzjMN3.js";import"./useField-BY78xfaL.js";import"./useLabel-DDcndmXW.js";import"./useLabels-B8dXFA8d.js";import"./useFocusWithin-BJ0-_hiU.js";import"./useHighlightSelectionDescription-DJWzu7Hx.js";import"./LiveAnnouncer-CeCcBDbP.js";import"./useUpdateEffect-B888oq-t.js";import"./useLocalizedStringFormatter-BmC8c4z2.js";import"./useHasTabbableChild-bJug5LbY.js";import"./getScrollParent-BL0kfGii.js";import"./useLink-DD4jtrk3.js";import"./useFocusRing-DIS5Kyrs.js";import"./index-CsiUWFDz.js";import"./useRenderProps-CP918x9p.js";import"./index-EJ0-2BeM.js";import"./mixins-XviowZ_6.js";import"./IconButton.component-B6sooa0d.js";import"./BaseButton-BpwrdOfN.js";import"./useButton-9RZc7-Gk.js";import"./SpinnerLoader.component-Bw-qRosp.js";import"./Loader.component-CTOZVNHq.js";import"./Flex.component-fpVWlrim.js";import"./layout-D683Cy6J.js";import"./utils-DqmNl-Il.js";import"./Checkmark.component-Bisr1A6O.js";import"./Spinner.component-C59bpdXu.js";import"./ProgressCircle.component-gsiCSqhQ.js";import"./number-nHrFdSb-.js";import"./useNumberFormatter-BHOsbS6G.js";import"./NumberFormatter-DNR9MAW-.js";import"./colors-x_YFGAop.js";import"./Button.context-BxdzJgC_.js";import"./MaterialIcon.component-B9aixorD.js";import"./Icons.styles-D-JqKhr6.js";const Sr={title:"Chips/Chip",component:u,parameters:{layout:"centered"},argTypes:{children:{type:"string"},variant:{control:"select",options:["default","warning","success","danger"]},onRemove:{description:"Function to call when the chip is removed",table:{category:"Events"}},onAction:{table:{disable:!0}}}},r={args:{children:"Chip"}},o={args:{...r.args,onRemove:g()}},t={args:{...r.args,onPress:g()},argTypes:{...d}};var i,p,m;r.parameters={...r.parameters,docs:{...(i=r.parameters)==null?void 0:i.docs,source:{originalSource:`{
+  args: {
+    children: "Chip"
+  }
+}`,...(m=(p=r.parameters)==null?void 0:p.docs)==null?void 0:m.source}}};var e,s,a;o.parameters={...o.parameters,docs:{...(e=o.parameters)==null?void 0:e.docs,source:{originalSource:`{
+  args: {
+    ...Primary.args,
+    onRemove: fn()
+  }
+}`,...(a=(s=o.parameters)==null?void 0:s.docs)==null?void 0:a.source}}};var n,c,l;t.parameters={...t.parameters,docs:{...(n=t.parameters)==null?void 0:n.docs,source:{originalSource:`{
+  args: {
+    ...Primary.args,
+    onPress: fn()
+  },
+  argTypes: {
+    ...PressableArgTypes
+  }
+}`,...(l=(c=t.parameters)==null?void 0:c.docs)==null?void 0:l.source}}};const _r=["Primary","Removable","Pressasble"];export{t as Pressasble,r as Primary,o as Removable,_r as __namedExportsOrder,Sr as default};

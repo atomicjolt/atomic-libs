@@ -1,0 +1,5 @@
+import{R as e}from"./helpers-B3IbUb69.js";import{g as i}from"./cssprops-DECR0Nbg.js";import{C as p}from"./Checkmark.component-Bisr1A6O.js";import"./jsx-runtime-D_zvdyIk.js";import"./styled-components.browser.esm-Y4FpNNpy.js";import"./index-BCtMShv3.js";import"./index-C3G89a7t.js";import"./index-DLW06VQL.js";import"./index-BDzxygkP.js";import"./index-CyCRagT9.js";import"./Collection-Cmq5KClr.js";import"./CollectionBuilder-D3rKkOdu.js";import"./index-q6RvvsFA.js";import"./index-D-fs5e6L.js";import"./useFocusable-DacP9xvE.js";import"./useObjectRef-D2RG7rRi.js";import"./SSRProvider-DyiXDq2k.js";import"./scale-CqCDTNu0.js";import"./useRenderProps-CP918x9p.js";import"./index-EJ0-2BeM.js";import"./mixins-XviowZ_6.js";const O={title:"Animations/Checkmark",component:p,parameters:{layout:"centered",cssprops:i("Animations")},argTypes:{...e}},r={args:{size:"medium"}};var o,m,t;r.parameters={...r.parameters,docs:{...(o=r.parameters)==null?void 0:o.docs,source:{originalSource:`{
+  args: {
+    size: "medium"
+  }
+}`,...(t=(m=r.parameters)==null?void 0:m.docs)==null?void 0:t.source}}};const S=["Primary"];export{r as Primary,S as __namedExportsOrder,O as default};
