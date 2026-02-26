@@ -1,0 +1,24 @@
+import{j as t}from"./jsx-runtime-D_zvdyIk.js";import{M as I}from"./MenuTrigger-BOH-S3v0.js";import{O as d}from"./helpers-DUlpsdwY.js";import{I as o}from"./Collection-Cmq5KClr.js";import{B as u}from"./Button.component-Dz2Hdivj.js";import{M as g}from"./MaterialIcon.component-C1QRnBRO.js";import{P as c}from"./Popover.component-CCHWTFUn.js";import{M as l}from"./Menu.component-98g7k34P.js";import{I as h}from"./IconButton.component-CUXN6DzO.js";import"./index-BCtMShv3.js";import"./useMenuTrigger-DTce57WR.js";import"./useObjectRef-D2RG7rRi.js";import"./SSRProvider-DyiXDq2k.js";import"./useFocusable-DacP9xvE.js";import"./useSelectableItem-D8NZ7OgS.js";import"./usePress-CqXh5MnK.js";import"./index-q6RvvsFA.js";import"./index-D-fs5e6L.js";import"./useEvent-CeKNPFU-.js";import"./scrollIntoView-DuDju04b.js";import"./isScrollable-BSEN4xi5.js";import"./FocusScope-DX4qyq_T.js";import"./context-z6pb9OkM.js";import"./useDescription-CqPnuqnT.js";import"./useLocalizedStringFormatter-BmC8c4z2.js";import"./useOverlayTrigger-BvUXQ3-b.js";import"./useCloseOnScroll-DJl1HlMv.js";import"./PressResponder-BZaXPZ_t.js";import"./Provider-op_UCnZE.js";import"./Popover.context-C-WvC77F.js";import"./index-CsiUWFDz.js";import"./context-CRoXGI2o.js";import"./useFocusWithin-BJ0-_hiU.js";import"./getScrollParent-BL0kfGii.js";import"./useOverlayTriggerState-BQyhQ6xD.js";import"./useControlledState-vzCMHZvt.js";import"./styled-components.browser.esm-Y4FpNNpy.js";import"./spacing-Bd-CIscW.js";import"./scale-CqCDTNu0.js";import"./CollectionBuilder-D3rKkOdu.js";import"./BaseButton-BLf1-5yZ.js";import"./mixins-XviowZ_6.js";import"./useRenderProps-CP918x9p.js";import"./index-EJ0-2BeM.js";import"./useFocusRing-DIS5Kyrs.js";import"./useButton-9RZc7-Gk.js";import"./filterDOMProps-CeZl_uWj.js";import"./useLink-DD4jtrk3.js";import"./SpinnerLoader.component-mRcEyvZ_.js";import"./Loader.component-Ct1zfGD-.js";import"./Flex.component-BTH7Jim3.js";import"./layout-Dd7m2B0D.js";import"./utils-DqmNl-Il.js";import"./Checkmark.component-Bisr1A6O.js";import"./Spinner.component-C44VOTWe.js";import"./ProgressCircle.component-_TQleApR.js";import"./number-nHrFdSb-.js";import"./useLabel-DDcndmXW.js";import"./useLabels-B8dXFA8d.js";import"./useNumberFormatter-BHOsbS6G.js";import"./NumberFormatter-DNR9MAW-.js";import"./colors-x_YFGAop.js";import"./Button.context-BxdzJgC_.js";import"./Icons.styles-D-JqKhr6.js";import"./VisuallyHidden-CdgZn78T.js";import"./useOverlayPosition-CUQlxOSl.js";import"./useForwardedRef-Tweo1nQG.js";import"./useSelectableList-DMhBOA5A.js";import"./DOMLayoutDelegate-BpvY9qNl.js";import"./useCollator-CKtzjMN3.js";import"./getItemCount-lnyFJ-qq.js";import"./useHover-CQZXfm5n.js";import"./useCollectionRenderer-BGbQCQld.js";import"./Divider.component-BrVxhPI1.js";const zt={title:"Dropdowns/Menu/MenuTrigger",component:I,parameters:{layout:"centered"},argTypes:{...d,trigger:{control:"select",options:["press","longPress"],description:"The trigger type for opening the menu."}}},r={args:{children:[t.jsxs(u,{children:["Open Me",t.jsx(g,{icon:"arrow_drop_down"})]},"button"),t.jsx(c,{placement:"bottom left",children:t.jsxs(l,{children:[t.jsx(o,{onAction:()=>alert("Item 1"),children:"Item 1"}),t.jsx(o,{onAction:()=>alert("Item 2"),children:"Item 2"}),t.jsx(o,{onAction:()=>alert("Item 3"),children:"Item 3"})]})},"popover")]}},e={args:{children:[t.jsx(h,{icon:"arrow_drop_down"}),t.jsx(c,{placement:"bottom left",children:t.jsxs(l,{children:[t.jsx(o,{onAction:()=>alert("Item 1"),children:"Item 1"}),t.jsx(o,{onAction:()=>alert("Item 2"),children:"Item 2"}),t.jsx(o,{onAction:()=>alert("Item 3"),children:"Item 3"})]})},"popover")]}};var m,i,n;r.parameters={...r.parameters,docs:{...(m=r.parameters)==null?void 0:m.docs,source:{originalSource:`{
+  args: {
+    children: [<Button key="button">
+        Open Me
+        <MaterialIcon icon="arrow_drop_down" />
+      </Button>, <Popover placement="bottom left" key="popover">
+        <Menu>
+          <Item onAction={() => alert("Item 1")}>Item 1</Item>
+          <Item onAction={() => alert("Item 2")}>Item 2</Item>
+          <Item onAction={() => alert("Item 3")}>Item 3</Item>
+        </Menu>
+      </Popover>]
+  }
+}`,...(n=(i=r.parameters)==null?void 0:i.docs)==null?void 0:n.source}}};var p,s,a;e.parameters={...e.parameters,docs:{...(p=e.parameters)==null?void 0:p.docs,source:{originalSource:`{
+  args: {
+    children: [<IconButton icon="arrow_drop_down" />, <Popover placement="bottom left" key="popover">
+        <Menu>
+          <Item onAction={() => alert("Item 1")}>Item 1</Item>
+          <Item onAction={() => alert("Item 2")}>Item 2</Item>
+          <Item onAction={() => alert("Item 3")}>Item 3</Item>
+        </Menu>
+      </Popover>]
+  }
+}`,...(a=(s=e.parameters)==null?void 0:s.docs)==null?void 0:a.source}}};const Ct=["Primary","IconButtonTrigger"];export{e as IconButtonTrigger,r as Primary,Ct as __namedExportsOrder,zt as default};
