@@ -1,9 +1,9 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { now, getLocalTimeZone } from "@internationalized/date";
 import { DateField } from ".";
-import { FieldLabel } from "../Field/FieldLabel";
-import { FieldMessage } from "../Field/FieldMessage";
-import { FieldErrorMessage } from "../Field/FieldError";
+import { Label } from "../Atoms/Label";
+import { Message } from "../Atoms/Message";
+import { ErrorMessage } from "../Atoms/ErrorMessage";
 import { ComboInput } from "../ComboInput";
 import { FieldStateControls } from "@sb/helpers";
 
@@ -79,16 +79,14 @@ export const Primary: Story = {
     granularity: "day",
     hideTimeZone: true,
     children: [
-      <FieldLabel key="label">Date</FieldLabel>,
-      <FieldMessage key="message">Select a date</FieldMessage>,
-      <ComboInput key="input">
+      <Label key="label">Date</Label>,
+      <Message key="message">Select a date</Message>,
+      <ComboInput key="input" padding="both">
         <DateField.Segments>
           {(_, index) => <DateField.Segment key={index} index={index} />}
         </DateField.Segments>
       </ComboInput>,
-      <FieldErrorMessage key="error">
-        Please enter a valid date
-      </FieldErrorMessage>,
+      <ErrorMessage key="error">Please enter a valid date</ErrorMessage>,
     ],
   },
 };
@@ -98,8 +96,8 @@ export const DayGranularity: Story = {
     ...Primary.args,
     granularity: "day",
     children: [
-      <FieldLabel key="label">Birth Date</FieldLabel>,
-      <ComboInput key="input">
+      <Label key="label">Birth Date</Label>,
+      <ComboInput key="input" padding="both">
         <DateField.Segments>
           {(_, index) => <DateField.Segment key={index} index={index} />}
         </DateField.Segments>
@@ -113,8 +111,8 @@ export const HourGranularity: Story = {
     ...Primary.args,
     granularity: "hour",
     children: [
-      <FieldLabel key="label">Meeting Date & Time</FieldLabel>,
-      <ComboInput key="input">
+      <Label key="label">Meeting Date & Time</Label>,
+      <ComboInput key="input" padding="both">
         <DateField.Segments>
           {(_, index) => <DateField.Segment key={index} index={index} />}
         </DateField.Segments>
@@ -128,8 +126,8 @@ export const MinuteGranularity: Story = {
     ...Primary.args,
     granularity: "minute",
     children: [
-      <FieldLabel key="label">Appointment Time</FieldLabel>,
-      <ComboInput key="input">
+      <Label key="label">Appointment Time</Label>,
+      <ComboInput key="input" padding="both">
         <DateField.Segments>
           {(_, index) => <DateField.Segment key={index} index={index} />}
         </DateField.Segments>
@@ -143,18 +141,14 @@ export const WithError: Story = {
     ...Primary.args,
     isInvalid: true,
     children: [
-      <FieldLabel key="label">Event Date</FieldLabel>,
-      <FieldMessage key="message">
-        Choose when your event will happen
-      </FieldMessage>,
-      <ComboInput key="input">
+      <Label key="label">Event Date</Label>,
+      <Message key="message">Choose when your event will happen</Message>,
+      <ComboInput key="input" padding="both">
         <DateField.Segments>
           {(_, index) => <DateField.Segment key={index} index={index} />}
         </DateField.Segments>
       </ComboInput>,
-      <FieldErrorMessage key="error">
-        Please select a future date
-      </FieldErrorMessage>,
+      <ErrorMessage key="error">Please select a future date</ErrorMessage>,
     ],
   },
 };
@@ -164,8 +158,8 @@ export const Disabled: Story = {
     ...Primary.args,
     isDisabled: true,
     children: [
-      <FieldLabel key="label">System Date</FieldLabel>,
-      <ComboInput key="input">
+      <Label key="label">System Date</Label>,
+      <ComboInput key="input" padding="both">
         <DateField.Segments>
           {(_, index) => <DateField.Segment key={index} index={index} />}
         </DateField.Segments>
@@ -179,9 +173,9 @@ export const Required: Story = {
     ...Primary.args,
     isRequired: true,
     children: [
-      <FieldLabel key="label">Due Date</FieldLabel>,
-      <FieldMessage key="message">This field is required</FieldMessage>,
-      <ComboInput key="input">
+      <Label key="label">Due Date</Label>,
+      <Message key="message">This field is required</Message>,
+      <ComboInput key="input" padding="both">
         <DateField.Segments>
           {(_, index) => <DateField.Segment key={index} index={index} />}
         </DateField.Segments>
