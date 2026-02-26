@@ -78,7 +78,7 @@
     "react": "^19.0.0",
     "react-docgen-typescript": "^2.2.2",
     "react-dom": "^19.0.0",
-    "rollup": "^3.29.5",
+    "rollup": "^3.30.0",
     "ts-patch": "^3.3.0",
     "typescript": "^5.4.5",
     "typescript-transform-paths": "^3.5.3"
