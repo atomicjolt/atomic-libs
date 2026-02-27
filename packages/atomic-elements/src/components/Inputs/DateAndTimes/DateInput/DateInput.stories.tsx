@@ -6,6 +6,9 @@ import { DateInput } from ".";
 export default {
   title: "Inputs/Date & Time/DateInput",
   component: DateInput,
+  parameters: {
+    layout: "centered",
+  },
   argTypes: {
     ...TextInputControls,
     value: {
@@ -68,6 +71,95 @@ export const Primary: Story = {
 export const DayGranularity: Story = {
   args: {
     ...Primary.args,
+    label: "Birth Date",
     granularity: "day",
+    message: "Select your date of birth",
+  },
+};
+
+export const HourGranularity: Story = {
+  args: {
+    ...Primary.args,
+    label: "Meeting Date & Time",
+    granularity: "hour",
+    hideTimeZone: false,
+    message: "Choose a date and hour",
+  },
+};
+
+export const MinuteGranularity: Story = {
+  args: {
+    ...Primary.args,
+    label: "Appointment Time",
+    granularity: "minute",
+    hideTimeZone: false,
+    message: "Select date and time to the minute",
+  },
+};
+
+export const SecondGranularity: Story = {
+  args: {
+    ...Primary.args,
+    label: "Exact Timestamp",
+    granularity: "second",
+    hideTimeZone: false,
+    message: "Precise time with seconds",
+  },
+};
+
+export const WithError: Story = {
+  args: {
+    ...Primary.args,
+    label: "Event Date",
+    isInvalid: true,
+    error: "Please enter a valid date",
+    message: "Choose when your event will happen",
+  },
+};
+
+export const Disabled: Story = {
+  args: {
+    ...Primary.args,
+    label: "System Date",
+    isDisabled: true,
+    message: "This date cannot be changed",
+  },
+};
+
+export const Required: Story = {
+  args: {
+    ...Primary.args,
+    label: "Due Date",
+    isRequired: true,
+    message: "This field is required",
+  },
+};
+
+export const ReadOnly: Story = {
+  args: {
+    ...Primary.args,
+    label: "Created Date",
+    isReadOnly: true,
+    message: "This date is read-only",
+  },
+};
+
+export const WithLeadingZeros: Story = {
+  args: {
+    ...Primary.args,
+    label: "Formatted Date",
+    shouldForceLeadingZeros: true,
+    message: "Date with leading zeros (01/05/2024)",
+  },
+};
+
+export const HourCycle24: Story = {
+  args: {
+    ...Primary.args,
+    label: "24-Hour Format",
+    granularity: "minute",
+    hourCycle: 24,
+    hideTimeZone: false,
+    message: "Time in 24-hour format",
   },
 };

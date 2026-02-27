@@ -6,14 +6,14 @@ exports[`ListBox > matches snapshots > when closed 1`] = `
     data-react-aria-hidden="true"
   />
   <ul
-    class="sc-dPKAra hoNxNR aje-listbox is-medium"
+    class="sc-gjXmFk jdVLQN aje-listbox is-medium"
     data-collection="react-aria-:r0:"
     id="react-aria-:r1:"
     role="listbox"
     tabindex="0"
   >
     <li
-      class="sc-hORkcV cJcdeD aje-listbox__item"
+      class="sc-fAomSb eHIZpg aje-listbox__item"
       data-collection="react-aria-:r0:"
       data-key="1"
       id="react-aria-:r1:-option-1"
@@ -23,7 +23,7 @@ exports[`ListBox > matches snapshots > when closed 1`] = `
       Item 1
     </li>
     <li
-      class="sc-hORkcV cJcdeD aje-listbox__item"
+      class="sc-fAomSb eHIZpg aje-listbox__item"
       data-collection="react-aria-:r0:"
       data-key="2"
       id="react-aria-:r1:-option-2"
@@ -33,7 +33,7 @@ exports[`ListBox > matches snapshots > when closed 1`] = `
       Item 2
     </li>
     <li
-      class="sc-hORkcV cJcdeD aje-listbox__item"
+      class="sc-fAomSb eHIZpg aje-listbox__item"
       data-collection="react-aria-:r0:"
       data-key="3"
       id="react-aria-:r1:-option-3"
