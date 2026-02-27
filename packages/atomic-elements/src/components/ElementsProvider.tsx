@@ -1,16 +1,22 @@
-import { createContext, useContext } from "react";
-import { ThemeProvider } from "styled-components";
+import { createContext, useContext, useMemo } from "react";
+import { StyleSheetManager, ThemeProvider } from "styled-components";
 import { CssGlobalDefaults } from "@styles/globals";
 import { defaultTheme, Theme } from "@styles/theme";
+import { layerPlugin } from "@styles/plugins";
 
 export interface ElementsConfig {
   /** The theme to be used by the application. */
   theme?: Theme;
-  /**Flag to determine if default styles should be applied.
+  /** Flag to determine if default styles should be applied.
    * NOTE: this will apply some styles globally to your page,
    * so only use this if you are not using a global style reset already.
    */
   applyDefaultStyles?: boolean;
+
+  /** The name of the CSS layer to use for the components' styles.
+   * @default "elements"
+   */
+  layerName?: string | null;
 }
 
 export interface ElementsProviderProps extends ElementsConfig {
@@ -33,16 +39,36 @@ export function useElementsConfig(): ElementsConfig {
  * wrap the root of the application and provides the theme and global styles
  */
 export function ElementsProvider(props: ElementsProviderProps) {
-  const { children, theme = defaultTheme, applyDefaultStyles = false } = props;
+  const {
+    children,
+    theme = defaultTheme,
+    applyDefaultStyles = false,
+    layerName = "elements",
+  } = props;
+
   const CssVariables = theme._Component;
 
+  const plugins = useMemo(() => {
+    const plugins = [];
+
+    if (layerName) {
+      plugins.push(layerPlugin({ name: layerName }));
+    }
+
+    return plugins;
+  }, [layerName]);
+
   return (
-    <ElementsProviderContext.Provider value={{ theme, applyDefaultStyles }}>
-      <ThemeProvider theme={theme}>
-        <CssVariables />
-        {applyDefaultStyles && <CssGlobalDefaults />}
-        {children}
-      </ThemeProvider>
-    </ElementsProviderContext.Provider>
+    <StyleSheetManager stylisPlugins={plugins}>
+      <ElementsProviderContext.Provider
+        value={{ theme, applyDefaultStyles, layerName }}
+      >
+        <ThemeProvider theme={theme}>
+          <CssVariables />
+          {applyDefaultStyles && <CssGlobalDefaults />}
+          {children}
+        </ThemeProvider>
+      </ElementsProviderContext.Provider>
+    </StyleSheetManager>
   );
 }
