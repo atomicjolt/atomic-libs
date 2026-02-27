@@ -1,0 +1,104 @@
+# CSS Layers
+
+Atomic Elements supports wrapping all component styles in a [CSS `@layer`](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer),
+giving you explicit control over how library styles interact with your own CSS.
+
+## Why use CSS layers?
+
+Without layers, overriding library styles requires matching or beating their specificity — which often means
+adding extra selectors, using `!important`, or relying on source order. CSS layers solve this cleanly:
+styles in a lower-priority layer are always overridden by styles outside any layer, regardless of specificity.
+
+```css
+/* Without layers: this might not win due to specificity */
+.my-button {
+  background: blue;
+}
+
+/* With layers: this always wins, no specificity tricks needed */
+@layer elements {
+  .aje-btn {
+    background: red;
+  }
+}
+.my-button {
+  background: blue;
+} /* beats @layer elements unconditionally */
+```
+
+## Enabling layers
+
+By default, `ElementsProvider` wraps all component styles in an `@layer elements` block.
+No configuration is needed — just use `ElementsProvider` as normal:
+
+```tsx
+import { ElementsProvider } from "@atomicjolt/atomic-elements";
+
+const App = () => (
+  <ElementsProvider>
+    <YourApp />
+  </ElementsProvider>
+);
+```
+
+## Customizing the layer name
+
+Use the `layerName` prop to change the layer name. This is useful when you need to coordinate
+layer ordering with other style sources:
+
+```tsx
+<ElementsProvider layerName="ui">
+  <YourApp />
+</ElementsProvider>
+```
+
+## Controlling layer order
+
+Declare your layer stack at the top of your global CSS to lock in the cascade order:
+
+```css
+/* Establish layer order — last layer wins */
+@layer reset, elements, overrides;
+```
+
+With this in place, any styles you write outside a layer (or inside `@layer overrides`) will
+always take precedence over `@layer elements`, making it straightforward to customize
+component styles without fighting specificity.
+
+```css
+@layer reset, elements, overrides;
+
+@layer overrides {
+  /* These always win over @layer elements, no !important needed */
+  .aje-btn--primary {
+    --btn-bg-clr: indigo;
+    --btn-hover-bg-clr: darkslateblue;
+  }
+}
+```
+
+## Overriding with plain CSS
+
+Styles written outside any `@layer` have higher priority than any layered style by default.
+This means you can override component styles with ordinary CSS rules, even ones with lower specificity:
+
+```css
+/* No @layer declaration needed — unlayered styles always win */
+.my-button {
+  --btn-bg-clr: green;
+}
+```
+
+## Browser support
+
+`@layer` is supported in all modern browsers (Chrome 99+, Firefox 97+, Safari 15.4+).
+For applications that need to support older browsers, the layer wrapping will cause all
+component styles to be ignored in those browsers, since unsupported at-rules are skipped.
+If you need to support older browsers, do not use the `layerName` prop — disable the feature
+by passing null or an empty string:
+
+```tsx
+<ElementsProvider layerName={null}>
+  <YourApp />
+</ElementsProvider>
+```
