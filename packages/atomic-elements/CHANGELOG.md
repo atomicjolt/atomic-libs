@@ -1,5 +1,12 @@
 # @atomicjolt/atomic-elements
 
+## 3.7.0
+
+### Minor Changes
+
+- bb7ba89: Add DateField as a generalization of DateInput. Refactor DateInput to use DateField internally
+- d2056fa: Wrap all styles in a @layer elements directive for easier style overrides
+
 ## 3.6.0
 
 ### Minor Changes

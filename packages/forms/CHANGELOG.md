@@ -1,5 +1,12 @@
 # @atomicjolt/forms
 
+## 3.7.0
+
+### Patch Changes
+
+- Updated dependencies [d2056fa]
+  - @atomicjolt/atomic-elements@3.7.0
+
 ## 3.6.0
 
 ### Patch Changes
