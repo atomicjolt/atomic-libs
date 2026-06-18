@@ -3,7 +3,10 @@
   "include": ["src"],
   "exclude": ["src/**/*.spec.tsx", "src/**/*.spec.ts"],
   "compilerOptions": {
+    "rootDir": "./src",
     "outDir": "./dist",
-    "declarationDir": "./dist/types"
+    "declarationDir": "./dist/types",
+    "module": "esnext",
+    "moduleResolution": "bundler"
   }
 }

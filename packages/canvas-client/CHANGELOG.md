@@ -1,5 +1,13 @@
 # @atomicjolt/canvas-client
 
+## 0.1.3
+
+### Patch Changes
+
+- Upgrade to TS 6
+- Updated dependencies
+  - @atomicjolt/lti-client@2.7.1
+
 ## 0.1.1
 
 ### Patch Changes

@@ -3,20 +3,20 @@
 exports[`DateField > matches snapshots > basic composition 1`] = `
 <DocumentFragment>
   <div
-    class="sc-FEMpB kZvrAs aje-datefield"
+    class="sc-bdDsCe disTus aje-datefield"
   >
     <label
-      class="sc-fLDLck ljYgPJ"
+      class="sc-hKVpXn btlNHk"
       id="react-aria-:r1:"
     >
       Date
     </label>
     <div
-      class="sc-hRDKVd jFxrzF aje-combo-input"
+      class="sc-fuztkK kbsgtd aje-combo-input"
     >
       <div
         aria-labelledby="react-aria-:r1:"
-        class="sc-gNZgCX gtJSAS aje-input__date-segments"
+        class="sc-gKkgUA ehZry aje-input__date-segments"
         id="react-aria-:r0:"
         role="group"
         style="unicode-bidi: isolate;"
@@ -26,10 +26,10 @@ exports[`DateField > matches snapshots > basic composition 1`] = `
           aria-labelledby="react-aria-:r5: react-aria-:r1:"
           aria-valuemax="12"
           aria-valuemin="1"
-          aria-valuenow="2"
+          aria-valuenow="6"
           aria-valuetext="Empty"
           autocorrect="off"
-          class="sc-kfeOyU flRcvM aje-input__segment placeholder"
+          class="sc-iCECmn cMzUyD aje-input__segment placeholder"
           contenteditable="true"
           data-placeholder="true"
           enterkeyhint="next"
@@ -44,19 +44,19 @@ exports[`DateField > matches snapshots > basic composition 1`] = `
         </div>
         <div
           aria-hidden="true"
-          class="sc-kfeOyU flRcvM aje-input__segment"
+          class="sc-iCECmn cMzUyD aje-input__segment"
         >
           /
         </div>
         <div
           aria-label="day, "
           aria-labelledby="react-aria-:r9: react-aria-:r1:"
-          aria-valuemax="28"
+          aria-valuemax="30"
           aria-valuemin="1"
-          aria-valuenow="27"
+          aria-valuenow="18"
           aria-valuetext="Empty"
           autocorrect="off"
-          class="sc-kfeOyU flRcvM aje-input__segment placeholder"
+          class="sc-iCECmn cMzUyD aje-input__segment placeholder"
           contenteditable="true"
           data-placeholder="true"
           enterkeyhint="next"
@@ -71,7 +71,7 @@ exports[`DateField > matches snapshots > basic composition 1`] = `
         </div>
         <div
           aria-hidden="true"
-          class="sc-kfeOyU flRcvM aje-input__segment"
+          class="sc-iCECmn cMzUyD aje-input__segment"
         >
           /
         </div>
@@ -83,7 +83,7 @@ exports[`DateField > matches snapshots > basic composition 1`] = `
           aria-valuenow="2026"
           aria-valuetext="Empty"
           autocorrect="off"
-          class="sc-kfeOyU flRcvM aje-input__segment placeholder"
+          class="sc-iCECmn cMzUyD aje-input__segment placeholder"
           contenteditable="true"
           data-placeholder="true"
           enterkeyhint="next"
@@ -105,22 +105,22 @@ exports[`DateField > matches snapshots > basic composition 1`] = `
 exports[`DateField > matches snapshots > disabled state 1`] = `
 <DocumentFragment>
   <div
-    class="sc-FEMpB kZvrAs aje-datefield"
+    class="sc-bdDsCe disTus aje-datefield"
     data-disabled="true"
   >
     <label
-      class="sc-fLDLck ljYgPJ"
+      class="sc-hKVpXn btlNHk"
       id="react-aria-:r1e:"
     >
       Date
     </label>
     <div
-      class="sc-hRDKVd jFxrzF aje-combo-input"
+      class="sc-fuztkK kbsgtd aje-combo-input"
     >
       <div
         aria-disabled="true"
         aria-labelledby="react-aria-:r1e:"
-        class="sc-gNZgCX gtJSAS aje-input__date-segments"
+        class="sc-gKkgUA ehZry aje-input__date-segments"
         id="react-aria-:r1d:"
         role="group"
         style="unicode-bidi: isolate;"
@@ -131,9 +131,9 @@ exports[`DateField > matches snapshots > disabled state 1`] = `
           aria-labelledby="react-aria-:r1i: react-aria-:r1e:"
           aria-valuemax="12"
           aria-valuemin="1"
-          aria-valuenow="2"
+          aria-valuenow="6"
           aria-valuetext="Empty"
-          class="sc-kfeOyU flRcvM aje-input__segment placeholder"
+          class="sc-iCECmn cMzUyD aje-input__segment placeholder"
           contenteditable="false"
           data-placeholder="true"
           id="react-aria-:r1i:"
@@ -144,7 +144,7 @@ exports[`DateField > matches snapshots > disabled state 1`] = `
         </div>
         <div
           aria-hidden="true"
-          class="sc-kfeOyU flRcvM aje-input__segment"
+          class="sc-iCECmn cMzUyD aje-input__segment"
         >
           /
         </div>
@@ -152,11 +152,11 @@ exports[`DateField > matches snapshots > disabled state 1`] = `
           aria-disabled="true"
           aria-label="day, "
           aria-labelledby="react-aria-:r1m: react-aria-:r1e:"
-          aria-valuemax="28"
+          aria-valuemax="30"
           aria-valuemin="1"
-          aria-valuenow="27"
+          aria-valuenow="18"
           aria-valuetext="Empty"
-          class="sc-kfeOyU flRcvM aje-input__segment placeholder"
+          class="sc-iCECmn cMzUyD aje-input__segment placeholder"
           contenteditable="false"
           data-placeholder="true"
           id="react-aria-:r1m:"
@@ -167,7 +167,7 @@ exports[`DateField > matches snapshots > disabled state 1`] = `
         </div>
         <div
           aria-hidden="true"
-          class="sc-kfeOyU flRcvM aje-input__segment"
+          class="sc-iCECmn cMzUyD aje-input__segment"
         >
           /
         </div>
@@ -179,7 +179,7 @@ exports[`DateField > matches snapshots > disabled state 1`] = `
           aria-valuemin="1"
           aria-valuenow="2026"
           aria-valuetext="Empty"
-          class="sc-kfeOyU flRcvM aje-input__segment placeholder"
+          class="sc-iCECmn cMzUyD aje-input__segment placeholder"
           contenteditable="false"
           data-placeholder="true"
           id="react-aria-:r1q:"
@@ -197,21 +197,21 @@ exports[`DateField > matches snapshots > disabled state 1`] = `
 exports[`DateField > matches snapshots > required state 1`] = `
 <DocumentFragment>
   <div
-    class="sc-FEMpB kZvrAs aje-datefield"
+    class="sc-bdDsCe disTus aje-datefield"
     data-required="true"
   >
     <label
-      class="sc-fLDLck ljYgPJ"
+      class="sc-hKVpXn btlNHk"
       id="react-aria-:r1t:"
     >
       Date
     </label>
     <div
-      class="sc-hRDKVd jFxrzF aje-combo-input"
+      class="sc-fuztkK kbsgtd aje-combo-input"
     >
       <div
         aria-labelledby="react-aria-:r1t:"
-        class="sc-gNZgCX gtJSAS aje-input__date-segments"
+        class="sc-gKkgUA ehZry aje-input__date-segments"
         id="react-aria-:r1s:"
         role="group"
         style="unicode-bidi: isolate;"
@@ -222,10 +222,10 @@ exports[`DateField > matches snapshots > required state 1`] = `
           aria-required="true"
           aria-valuemax="12"
           aria-valuemin="1"
-          aria-valuenow="2"
+          aria-valuenow="6"
           aria-valuetext="Empty"
           autocorrect="off"
-          class="sc-kfeOyU flRcvM aje-input__segment placeholder"
+          class="sc-iCECmn cMzUyD aje-input__segment placeholder"
           contenteditable="true"
           data-placeholder="true"
           enterkeyhint="next"
@@ -240,7 +240,7 @@ exports[`DateField > matches snapshots > required state 1`] = `
         </div>
         <div
           aria-hidden="true"
-          class="sc-kfeOyU flRcvM aje-input__segment"
+          class="sc-iCECmn cMzUyD aje-input__segment"
         >
           /
         </div>
@@ -248,12 +248,12 @@ exports[`DateField > matches snapshots > required state 1`] = `
           aria-label="day, "
           aria-labelledby="react-aria-:r25: react-aria-:r1t:"
           aria-required="true"
-          aria-valuemax="28"
+          aria-valuemax="30"
           aria-valuemin="1"
-          aria-valuenow="27"
+          aria-valuenow="18"
           aria-valuetext="Empty"
           autocorrect="off"
-          class="sc-kfeOyU flRcvM aje-input__segment placeholder"
+          class="sc-iCECmn cMzUyD aje-input__segment placeholder"
           contenteditable="true"
           data-placeholder="true"
           enterkeyhint="next"
@@ -268,7 +268,7 @@ exports[`DateField > matches snapshots > required state 1`] = `
         </div>
         <div
           aria-hidden="true"
-          class="sc-kfeOyU flRcvM aje-input__segment"
+          class="sc-iCECmn cMzUyD aje-input__segment"
         >
           /
         </div>
@@ -281,7 +281,7 @@ exports[`DateField > matches snapshots > required state 1`] = `
           aria-valuenow="2026"
           aria-valuetext="Empty"
           autocorrect="off"
-          class="sc-kfeOyU flRcvM aje-input__segment placeholder"
+          class="sc-iCECmn cMzUyD aje-input__segment placeholder"
           contenteditable="true"
           data-placeholder="true"
           enterkeyhint="next"
@@ -303,20 +303,20 @@ exports[`DateField > matches snapshots > required state 1`] = `
 exports[`DateField > matches snapshots > with granularity hour 1`] = `
 <DocumentFragment>
   <div
-    class="sc-FEMpB kZvrAs aje-datefield"
+    class="sc-bdDsCe disTus aje-datefield"
   >
     <label
-      class="sc-fLDLck ljYgPJ"
+      class="sc-hKVpXn btlNHk"
       id="react-aria-:r2c:"
     >
       Date and Time
     </label>
     <div
-      class="sc-hRDKVd jFxrzF aje-combo-input"
+      class="sc-fuztkK kbsgtd aje-combo-input"
     >
       <div
         aria-labelledby="react-aria-:r2c:"
-        class="sc-gNZgCX gtJSAS aje-input__date-segments"
+        class="sc-gKkgUA ehZry aje-input__date-segments"
         id="react-aria-:r2b:"
         role="group"
         style="unicode-bidi: isolate;"
@@ -326,10 +326,10 @@ exports[`DateField > matches snapshots > with granularity hour 1`] = `
           aria-labelledby="react-aria-:r2g: react-aria-:r2c:"
           aria-valuemax="12"
           aria-valuemin="1"
-          aria-valuenow="2"
+          aria-valuenow="6"
           aria-valuetext="Empty"
           autocorrect="off"
-          class="sc-kfeOyU flRcvM aje-input__segment placeholder"
+          class="sc-iCECmn cMzUyD aje-input__segment placeholder"
           contenteditable="true"
           data-placeholder="true"
           enterkeyhint="next"
@@ -344,19 +344,19 @@ exports[`DateField > matches snapshots > with granularity hour 1`] = `
         </div>
         <div
           aria-hidden="true"
-          class="sc-kfeOyU flRcvM aje-input__segment"
+          class="sc-iCECmn cMzUyD aje-input__segment"
         >
           /
         </div>
         <div
           aria-label="day, "
           aria-labelledby="react-aria-:r2k: react-aria-:r2c:"
-          aria-valuemax="28"
+          aria-valuemax="30"
           aria-valuemin="1"
-          aria-valuenow="27"
+          aria-valuenow="18"
           aria-valuetext="Empty"
           autocorrect="off"
-          class="sc-kfeOyU flRcvM aje-input__segment placeholder"
+          class="sc-iCECmn cMzUyD aje-input__segment placeholder"
           contenteditable="true"
           data-placeholder="true"
           enterkeyhint="next"
@@ -371,7 +371,7 @@ exports[`DateField > matches snapshots > with granularity hour 1`] = `
         </div>
         <div
           aria-hidden="true"
-          class="sc-kfeOyU flRcvM aje-input__segment"
+          class="sc-iCECmn cMzUyD aje-input__segment"
         >
           /
         </div>
@@ -383,7 +383,7 @@ exports[`DateField > matches snapshots > with granularity hour 1`] = `
           aria-valuenow="2026"
           aria-valuetext="Empty"
           autocorrect="off"
-          class="sc-kfeOyU flRcvM aje-input__segment placeholder"
+          class="sc-iCECmn cMzUyD aje-input__segment placeholder"
           contenteditable="true"
           data-placeholder="true"
           enterkeyhint="next"
@@ -398,13 +398,13 @@ exports[`DateField > matches snapshots > with granularity hour 1`] = `
         </div>
         <div
           aria-hidden="true"
-          class="sc-kfeOyU flRcvM aje-input__segment"
+          class="sc-iCECmn cMzUyD aje-input__segment"
         >
           , 
         </div>
         <div
           aria-hidden="true"
-          class="sc-kfeOyU flRcvM aje-input__segment"
+          class="sc-iCECmn cMzUyD aje-input__segment"
         >
           ⁦
         </div>
@@ -416,7 +416,7 @@ exports[`DateField > matches snapshots > with granularity hour 1`] = `
           aria-valuenow="0"
           aria-valuetext="Empty"
           autocorrect="off"
-          class="sc-kfeOyU flRcvM aje-input__segment placeholder"
+          class="sc-iCECmn cMzUyD aje-input__segment placeholder"
           contenteditable="true"
           data-placeholder="true"
           enterkeyhint="next"
@@ -431,13 +431,13 @@ exports[`DateField > matches snapshots > with granularity hour 1`] = `
         </div>
         <div
           aria-hidden="true"
-          class="sc-kfeOyU flRcvM aje-input__segment"
+          class="sc-iCECmn cMzUyD aje-input__segment"
         >
           ⁩
         </div>
         <div
           aria-hidden="true"
-          class="sc-kfeOyU flRcvM aje-input__segment"
+          class="sc-iCECmn cMzUyD aje-input__segment"
         >
            
         </div>
@@ -449,7 +449,7 @@ exports[`DateField > matches snapshots > with granularity hour 1`] = `
           aria-valuenow="0"
           aria-valuetext="Empty"
           autocorrect="off"
-          class="sc-kfeOyU flRcvM aje-input__segment placeholder"
+          class="sc-iCECmn cMzUyD aje-input__segment placeholder"
           contenteditable="true"
           data-placeholder="true"
           enterkeyhint="next"
@@ -470,28 +470,28 @@ exports[`DateField > matches snapshots > with granularity hour 1`] = `
 exports[`DateField > matches snapshots > with message and error 1`] = `
 <DocumentFragment>
   <div
-    class="sc-FEMpB kZvrAs aje-datefield"
+    class="sc-bdDsCe disTus aje-datefield"
     data-invalid="true"
   >
     <label
-      class="sc-fLDLck ljYgPJ"
+      class="sc-hKVpXn btlNHk"
       id="react-aria-:rv:"
     >
       Date
     </label>
     <p
-      class="sc-jbAkgO eCpzul is-auto"
+      class="sc-jSppWd hCVIqy is-auto"
       id="react-aria-:r11:"
     >
       Enter your birth date
     </p>
     <div
-      class="sc-hRDKVd jFxrzF aje-combo-input"
+      class="sc-fuztkK kbsgtd aje-combo-input"
     >
       <div
         aria-describedby="react-aria-:r11: react-aria-:r12:"
         aria-labelledby="react-aria-:rv:"
-        class="sc-gNZgCX gtJSAS aje-input__date-segments"
+        class="sc-gKkgUA ehZry aje-input__date-segments"
         id="react-aria-:ru:"
         role="group"
         style="unicode-bidi: isolate;"
@@ -503,10 +503,10 @@ exports[`DateField > matches snapshots > with message and error 1`] = `
           aria-labelledby="react-aria-:r13: react-aria-:rv:"
           aria-valuemax="12"
           aria-valuemin="1"
-          aria-valuenow="2"
+          aria-valuenow="6"
           aria-valuetext="Empty"
           autocorrect="off"
-          class="sc-kfeOyU flRcvM aje-input__segment placeholder"
+          class="sc-iCECmn cMzUyD aje-input__segment placeholder"
           contenteditable="true"
           data-placeholder="true"
           enterkeyhint="next"
@@ -521,7 +521,7 @@ exports[`DateField > matches snapshots > with message and error 1`] = `
         </div>
         <div
           aria-hidden="true"
-          class="sc-kfeOyU flRcvM aje-input__segment"
+          class="sc-iCECmn cMzUyD aje-input__segment"
         >
           /
         </div>
@@ -530,12 +530,12 @@ exports[`DateField > matches snapshots > with message and error 1`] = `
           aria-invalid="true"
           aria-label="day, "
           aria-labelledby="react-aria-:r17: react-aria-:rv:"
-          aria-valuemax="28"
+          aria-valuemax="30"
           aria-valuemin="1"
-          aria-valuenow="27"
+          aria-valuenow="18"
           aria-valuetext="Empty"
           autocorrect="off"
-          class="sc-kfeOyU flRcvM aje-input__segment placeholder"
+          class="sc-iCECmn cMzUyD aje-input__segment placeholder"
           contenteditable="true"
           data-placeholder="true"
           enterkeyhint="next"
@@ -550,7 +550,7 @@ exports[`DateField > matches snapshots > with message and error 1`] = `
         </div>
         <div
           aria-hidden="true"
-          class="sc-kfeOyU flRcvM aje-input__segment"
+          class="sc-iCECmn cMzUyD aje-input__segment"
         >
           /
         </div>
@@ -564,7 +564,7 @@ exports[`DateField > matches snapshots > with message and error 1`] = `
           aria-valuenow="2026"
           aria-valuetext="Empty"
           autocorrect="off"
-          class="sc-kfeOyU flRcvM aje-input__segment placeholder"
+          class="sc-iCECmn cMzUyD aje-input__segment placeholder"
           contenteditable="true"
           data-placeholder="true"
           enterkeyhint="next"
@@ -580,7 +580,7 @@ exports[`DateField > matches snapshots > with message and error 1`] = `
       </div>
     </div>
     <p
-      class="sc-dycHyt bhJLqG is-medium"
+      class="sc-eCQgVK gmnXRP is-medium"
       id="react-aria-:r12:"
     >
       Please enter a valid date
@@ -592,21 +592,21 @@ exports[`DateField > matches snapshots > with message and error 1`] = `
 exports[`DateField > matches snapshots > with value 1`] = `
 <DocumentFragment>
   <div
-    class="sc-FEMpB kZvrAs aje-datefield"
+    class="sc-bdDsCe disTus aje-datefield"
   >
     <label
-      class="sc-fLDLck ljYgPJ"
+      class="sc-hKVpXn btlNHk"
       id="react-aria-:rg:"
     >
       Date
     </label>
     <div
-      class="sc-hRDKVd jFxrzF aje-combo-input"
+      class="sc-fuztkK kbsgtd aje-combo-input"
     >
       <div
         aria-describedby="react-aria-description-0"
         aria-labelledby="react-aria-:rg:"
-        class="sc-gNZgCX gtJSAS aje-input__date-segments"
+        class="sc-gKkgUA ehZry aje-input__date-segments"
         id="react-aria-:rf:"
         role="group"
         style="unicode-bidi: isolate;"
@@ -620,7 +620,7 @@ exports[`DateField > matches snapshots > with value 1`] = `
           aria-valuenow="1"
           aria-valuetext="1 – January"
           autocorrect="off"
-          class="sc-kfeOyU flRcvM aje-input__segment"
+          class="sc-iCECmn cMzUyD aje-input__segment"
           contenteditable="true"
           enterkeyhint="next"
           id="react-aria-:rk:"
@@ -634,7 +634,7 @@ exports[`DateField > matches snapshots > with value 1`] = `
         </div>
         <div
           aria-hidden="true"
-          class="sc-kfeOyU flRcvM aje-input__segment"
+          class="sc-iCECmn cMzUyD aje-input__segment"
         >
           /
         </div>
@@ -646,7 +646,7 @@ exports[`DateField > matches snapshots > with value 1`] = `
           aria-valuenow="15"
           aria-valuetext="15"
           autocorrect="off"
-          class="sc-kfeOyU flRcvM aje-input__segment"
+          class="sc-iCECmn cMzUyD aje-input__segment"
           contenteditable="true"
           enterkeyhint="next"
           id="react-aria-:ro:"
@@ -660,7 +660,7 @@ exports[`DateField > matches snapshots > with value 1`] = `
         </div>
         <div
           aria-hidden="true"
-          class="sc-kfeOyU flRcvM aje-input__segment"
+          class="sc-iCECmn cMzUyD aje-input__segment"
         >
           /
         </div>
@@ -672,7 +672,7 @@ exports[`DateField > matches snapshots > with value 1`] = `
           aria-valuenow="2023"
           aria-valuetext="2023"
           autocorrect="off"
-          class="sc-kfeOyU flRcvM aje-input__segment"
+          class="sc-iCECmn cMzUyD aje-input__segment"
           contenteditable="true"
           enterkeyhint="next"
           id="react-aria-:rs:"

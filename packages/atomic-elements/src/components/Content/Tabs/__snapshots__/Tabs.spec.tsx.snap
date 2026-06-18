@@ -6,22 +6,22 @@ exports[`matches snapshot 1`] = `
     data-react-aria-hidden="true"
   />
   <div
-    class="sc-gNZgCX btRDZW aje-tabs aje-tabs--default"
+    class="sc-gKkgUA cQTxby aje-tabs aje-tabs--default"
   >
     <div
       aria-orientation="horizontal"
-      class="sc-FEMpB eeXFOn"
+      class="sc-bdDsCe WCjWv"
       data-collection="react-aria-:r0:"
       id="react-aria-:r1:"
       role="tablist"
     >
       <div
-        class="sc-gjcoXW hCeGzK"
+        class="sc-gtcBCx jKEBzi"
       >
         <div
           aria-controls="react-aria-:r1:-tabpanel-tab1"
           aria-selected="true"
-          class="sc-dycHyt Mjpxg aje-tabs__tab"
+          class="sc-eCQgVK jqUcDJ aje-tabs__tab"
           data-collection="react-aria-:r0:"
           data-key="tab1"
           data-selected="true"
@@ -35,7 +35,7 @@ exports[`matches snapshot 1`] = `
         </div>
         <div
           aria-selected="false"
-          class="sc-dycHyt Mjpxg aje-tabs__tab"
+          class="sc-eCQgVK jqUcDJ aje-tabs__tab"
           data-collection="react-aria-:r0:"
           data-key="tab2"
           id="react-aria-:r1:-tab-tab2"
@@ -48,7 +48,7 @@ exports[`matches snapshot 1`] = `
         </div>
         <div
           aria-selected="false"
-          class="sc-dycHyt Mjpxg aje-tabs__tab"
+          class="sc-eCQgVK jqUcDJ aje-tabs__tab"
           data-collection="react-aria-:r0:"
           data-key="tab3"
           id="react-aria-:r1:-tab-tab3"
@@ -63,7 +63,7 @@ exports[`matches snapshot 1`] = `
     </div>
     <div
       aria-labelledby="react-aria-:r1:-tab-tab1"
-      class="sc-jbAkgO hgPxtI"
+      class="sc-jSppWd dTryRb"
       id="react-aria-:r1:-tabpanel-tab1"
       role="tabpanel"
       tabindex="0"

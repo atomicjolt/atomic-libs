@@ -1,6 +1,6 @@
 {
   "name": "@atomicjolt/atomic-fuel",
-  "version": "7.0.4",
+  "version": "7.0.5",
   "description": "Atomic Jolt's front-end library code",
   "scripts": {
     "test": "vitest run",

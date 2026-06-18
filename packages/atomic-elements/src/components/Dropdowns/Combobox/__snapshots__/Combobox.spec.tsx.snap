@@ -6,23 +6,23 @@ exports[`matches snapshots > matches default variant 1`] = `
     data-react-aria-hidden="true"
   />
   <div
-    class="sc-gQJZgv hPjVTq aje-combobox sc-bCjwNj dgLlxv is-medium"
+    class="sc-ivKqQM hinzSz aje-combobox sc-cxxQMU jlrvPm is-medium"
   >
     <label
-      class="sc-jHswkR dFmjfU"
+      class="sc-crPgjm gzYIYu"
       for="react-aria-:r3:"
       id="react-aria-:r4:"
     >
       Text Label
     </label>
     <p
-      class="sc-cSaEAk bZqgLB is-auto"
+      class="sc-dYjPD eNNyxf is-auto"
       id="react-aria-:r6:"
     >
       message
     </p>
     <div
-      class="sc-kXOizl cQNTLc aje-combo-input"
+      class="sc-hCcPtG rkCyy aje-combo-input"
     >
       <input
         aria-autocomplete="list"
@@ -31,7 +31,7 @@ exports[`matches snapshots > matches default variant 1`] = `
         aria-labelledby="react-aria-:r4:"
         autocomplete="off"
         autocorrect="off"
-        class="sc-dkBYrC buFMAF is-full"
+        class="sc-krVzYl ePxwJv is-full"
         id="react-aria-:r3:"
         role="combobox"
         spellcheck="false"
@@ -44,7 +44,7 @@ exports[`matches snapshots > matches default variant 1`] = `
         aria-haspopup="listbox"
         aria-label="Show suggestions"
         aria-labelledby="react-aria-:r0: react-aria-:r4:"
-        class="sc-gjcoXW sc-dVBluf fWtrmi dWLcGs aje-btn aje-icon-btn aje-btn--content is-auto"
+        class="sc-gtcBCx sc-dkXsAU inNouS foOSKo aje-btn aje-icon-btn aje-btn--content is-auto"
         data-icon-button="true"
         id="react-aria-:r0:"
         tabindex="-1"
@@ -52,7 +52,7 @@ exports[`matches snapshots > matches default variant 1`] = `
       >
         <i
           aria-hidden="true"
-          class="sc-FEMpB jyuubH aje-icon material-icons is-auto"
+          class="sc-bdDsCe czzecf aje-icon material-icons is-auto"
         >
           search
         </i>
@@ -68,13 +68,13 @@ exports[`matches snapshots > matches floating variant 1`] = `
     data-react-aria-hidden="true"
   />
   <div
-    class="sc-gQJZgv hPjVTq aje-combobox sc-bCjwNj dgLlxv aje-combobox--floating is-medium"
+    class="sc-ivKqQM hinzSz aje-combobox sc-cxxQMU jlrvPm aje-combobox--floating is-medium"
   >
     <div
-      class="sc-flQbIK llRNxW"
+      class="sc-bCgoVd kvFozl"
     >
       <div
-        class="sc-kXOizl cQNTLc aje-combo-input"
+        class="sc-hCcPtG rkCyy aje-combo-input"
       >
         <input
           aria-autocomplete="list"
@@ -83,7 +83,7 @@ exports[`matches snapshots > matches floating variant 1`] = `
           aria-labelledby="react-aria-:re:"
           autocomplete="off"
           autocorrect="off"
-          class="sc-dkBYrC buFMAF is-full"
+          class="sc-krVzYl ePxwJv is-full"
           id="react-aria-:rd:"
           role="combobox"
           spellcheck="false"
@@ -96,7 +96,7 @@ exports[`matches snapshots > matches floating variant 1`] = `
           aria-haspopup="listbox"
           aria-label="Show suggestions"
           aria-labelledby="react-aria-:ra: react-aria-:re:"
-          class="sc-gjcoXW sc-dVBluf fWtrmi dWLcGs aje-btn aje-icon-btn aje-btn--content is-auto"
+          class="sc-gtcBCx sc-dkXsAU inNouS foOSKo aje-btn aje-icon-btn aje-btn--content is-auto"
           data-icon-button="true"
           id="react-aria-:ra:"
           tabindex="-1"
@@ -104,14 +104,14 @@ exports[`matches snapshots > matches floating variant 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-FEMpB jyuubH aje-icon material-icons is-auto"
+            class="sc-bdDsCe czzecf aje-icon material-icons is-auto"
           >
             search
           </i>
         </button>
       </div>
       <label
-        class="sc-jHswkR dFmjfU"
+        class="sc-crPgjm gzYIYu"
         for="react-aria-:rd:"
         id="react-aria-:re:"
       >
@@ -119,7 +119,7 @@ exports[`matches snapshots > matches floating variant 1`] = `
       </label>
     </div>
     <p
-      class="sc-cSaEAk bZqgLB is-auto"
+      class="sc-dYjPD eNNyxf is-auto"
       id="react-aria-:rg:"
     >
       message

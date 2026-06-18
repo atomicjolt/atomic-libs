@@ -1,5 +1,21 @@
 # @atomicjolt/forms
 
+## 3.7.2
+
+### Patch Changes
+
+- Upgrade styled-components to latest version
+- Updated dependencies
+  - @atomicjolt/atomic-elements@3.7.2
+
+## 3.7.1
+
+### Patch Changes
+
+- Upgrade to TS 6
+- Updated dependencies
+  - @atomicjolt/atomic-elements@3.7.1
+
 ## 3.7.0
 
 ### Patch Changes
