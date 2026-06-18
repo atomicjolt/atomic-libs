@@ -24,6 +24,7 @@ const formatEntryPoint = (format) => ({
       tsconfig: "./tsconfig.build.json",
       compilerOptions: {
         baseUrl: "./",
+        rootDir: "./src",
         outDir: `dist/${format}`,
         declarationDir: `dist/${format}/types`,
         plugins: [
