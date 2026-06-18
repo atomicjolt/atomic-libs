@@ -1,14 +1,15 @@
 {
   "compilerOptions": {
+    "rootDir": ".",
     "target": "ES2021",
-    "module": "ESNext",
+    "module": "nodenext",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
     "jsx": "react-jsx",
     "declaration": true,
     "sourceMap": true,
-    "moduleResolution": "node",
+    "moduleResolution": "nodenext",
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
 
