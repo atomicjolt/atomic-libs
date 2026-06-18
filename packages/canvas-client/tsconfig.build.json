@@ -4,6 +4,8 @@
   "exclude": ["src/**/*.spec.tsx", "src/**/*.spec.ts"],
   "compilerOptions": {
     "outDir": "./dist",
-    "declarationDir": "./dist/types"
+    "declarationDir": "./dist/types",
+    "module": "esnext",
+    "moduleResolution": "bundler"
   }
 }
