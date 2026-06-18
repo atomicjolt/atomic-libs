@@ -1,5 +1,11 @@
 # @atomicjolt/atomic-elements
 
+## 3.7.2
+
+### Patch Changes
+
+- Upgrade styled-components to latest version
+
 ## 3.7.1
 
 ### Patch Changes
