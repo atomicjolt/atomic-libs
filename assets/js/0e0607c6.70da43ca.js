@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkatomic_packages=self.webpackChunkatomic_packages||[]).push([[5008],{7389(a){a.exports=JSON.parse('{"metadata":{"permalink":"/atomic-libs/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":0,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);

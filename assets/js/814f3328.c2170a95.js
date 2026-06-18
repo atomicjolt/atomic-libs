@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkatomic_packages=self.webpackChunkatomic_packages||[]).push([[7472],{4469(e){e.exports=JSON.parse('{"title":"Recent posts","items":[]}')}}]);
