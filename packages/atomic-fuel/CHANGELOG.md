@@ -1,5 +1,11 @@
 # @atomicjolt/atomic-fuel
 
+## 7.0.5
+
+### Patch Changes
+
+- Upgrade to TS 6
+
 ## 7.0.4
 
 ### Patch Changes
