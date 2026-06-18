@@ -8,7 +8,7 @@ function colorProperty<T extends object>(cssProperty: string, prop: string) {
 
     if (theme?.variables && $color && ($color as string) in theme.variables) {
       return {
-        [cssProperty]: theme.getVar($color),
+        [cssProperty]: theme.getVar($color as string),
       };
     }
 

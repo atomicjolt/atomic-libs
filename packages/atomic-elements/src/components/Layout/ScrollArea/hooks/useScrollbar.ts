@@ -48,7 +48,7 @@ export function useScrollBar(props: UseScrollBarProps, state: ScrollState) {
   const thumbPositionPercent =
     maxScroll > 0 ? (currentScroll / maxScroll) * (100 - thumbSizePercent) : 0;
 
-  const scrollIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const scrollIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const targetPositionRef = useRef<number | null>(null);
 
   const stopScrolling = useCallback(() => {

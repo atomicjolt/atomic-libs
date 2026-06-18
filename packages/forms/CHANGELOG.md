@@ -1,5 +1,13 @@
 # @atomicjolt/forms
 
+## 3.7.3
+
+### Patch Changes
+
+- Fixed some type issues in Atomic Elements
+- Updated dependencies
+  - @atomicjolt/atomic-elements@3.7.3
+
 ## 3.7.2
 
 ### Patch Changes

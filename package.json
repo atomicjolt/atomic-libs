@@ -13,7 +13,7 @@
     "packages/canvas-client"
   ],
   "scripts": {
-    "prepare": "npm run storybook:cssprops",
+    "prepare": "npm run storybook:cssprops && ts-patch install -s",
     "playground": "vite --config playground/vite.config.ts dev",
     "storybook:dev": "storybook dev -p 6006 ",
     "storybook:cssprops": "tsx bin/update-css-props.mts",
@@ -58,6 +58,7 @@
     "jsdom": "^26.0.0",
     "simple-scaffold": "^2.3.2",
     "storybook": "^8.6.17",
+    "ts-patch": "^4.0.1",
     "tsx": "^4.19.2",
     "typescript": "^6.0.0",
     "vite-plugin-dts": "4.5.3",

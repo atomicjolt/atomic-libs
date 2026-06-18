@@ -92,3 +92,7 @@ export function variableAlias(name: VariableName, defaultValue?: string) {
 }
 
 export const defaultTheme = createTheme({ variables });
+
+declare module "styled-components" {
+  export interface DefaultTheme extends Theme {}
+}

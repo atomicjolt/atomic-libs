@@ -1,5 +1,11 @@
 # @atomicjolt/atomic-elements
 
+## 3.7.3
+
+### Patch Changes
+
+- Fixed some type issues in Atomic Elements
+
 ## 3.7.2
 
 ### Patch Changes

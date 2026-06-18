@@ -29,9 +29,9 @@ export function useScrollBarButton(
     accelerationRate = 0.5,
   } = props;
 
-  const scrollIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const scrollIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const speedMultiplierRef = useRef<number>(1);
-  const accelerationIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const accelerationIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const isHorizontal = orientation === "horizontal";
   const isAdvance = direction === "advance";
