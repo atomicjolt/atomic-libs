@@ -58,6 +58,7 @@
     "react-stately": "^3.34.0",
     "react-transition-group": "^4.4.5",
     "styled-components": "6.4.2",
+    "stylis": "^4.3.6",
     "tslib": "^2.4.0"
   },
   "peerDependencies": {
@@ -73,15 +74,14 @@
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "@types/react-transition-group": "^4.4.10",
+    "@types/stylis": "^4.2.7",
     "@vitejs/plugin-react": "^4.3.0",
     "gh-pages": "^5.0.0",
     "react": "^19.0.0",
     "react-docgen-typescript": "^2.2.2",
     "react-dom": "^19.0.0",
     "rollup": "^3.30.0",
-    "ts-patch": "^3.3.0",
-    "typescript": "^5.4.5",
-    "typescript-transform-paths": "^3.5.3"
+    "typescript-transform-paths": "^4.0.0"
   },
   "scripts": {
     "build": "rm -rf dist && rollup --config rollup.config.js && rm -rf dist/cjs/types && mv dist/esm/types dist/types",
@@ -89,8 +89,7 @@
     "test:watch": "vitest",
     "test:ui": "vitest --ui",
     "test:update": "vitest run -u",
-    "prepublishOnly": "npm run build",
-    "prepare": "ts-patch install -s"
+    "prepublishOnly": "npm run build"
   },
   "stableVersion": "1.0.1"
 }
