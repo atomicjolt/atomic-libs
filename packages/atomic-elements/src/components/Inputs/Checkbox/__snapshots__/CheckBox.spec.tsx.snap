@@ -3,15 +3,15 @@
 exports[`CheckBox > Snapshots > should match snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-fAomSb csdZfx aje-checkbox"
+    class="sc-dlwHGs ekETHh aje-checkbox"
   >
     <input
-      class="sc-hORkcV ipHIGb"
+      class="sc-dILkzW kgnFqo"
       tabindex="0"
       type="checkbox"
     />
     <span
-      class="sc-dVupuq rOOtK"
+      class="sc-hHopjF hdqHiw"
     />
   </div>
 </DocumentFragment>

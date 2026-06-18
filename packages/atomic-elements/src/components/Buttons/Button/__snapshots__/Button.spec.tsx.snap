@@ -3,7 +3,7 @@
 exports[`Button > matches snapshots > changes variant 1`] = `
 <DocumentFragment>
   <button
-    class="sc-hRDKVd kwslFf aje-btn aje-btn--secondary is-auto"
+    class="sc-fuztkK fTXzHK aje-btn aje-btn--secondary is-auto"
     tabindex="0"
     type="button"
   >
@@ -15,17 +15,17 @@ exports[`Button > matches snapshots > changes variant 1`] = `
 exports[`Button > matches snapshots > loading completed state 1`] = `
 <DocumentFragment>
   <button
-    class="sc-hRDKVd kwslFf aje-btn aje-btn--primary is-auto"
+    class="sc-fuztkK fTXzHK aje-btn aje-btn--primary is-auto"
     data-loading="true"
     tabindex="0"
     type="button"
   >
     <div
-      class="sc-dVBluf iYAHRU aje-loader aje-loader--spinner is-medium"
+      class="sc-dkXsAU fCBAjc aje-loader aje-loader--spinner is-medium"
       data-placement="absolute center"
     >
       <span
-        class="sc-gjcoXW dJwhQH aje-checkmark is-medium"
+        class="sc-gtcBCx fflXWo aje-checkmark is-medium"
         data-testid="checkmark"
       />
     </div>
@@ -37,23 +37,23 @@ exports[`Button > matches snapshots > loading completed state 1`] = `
 exports[`Button > matches snapshots > loading state 1`] = `
 <DocumentFragment>
   <button
-    class="sc-hRDKVd kwslFf aje-btn aje-btn--primary is-auto"
+    class="sc-fuztkK fTXzHK aje-btn aje-btn--primary is-auto"
     data-loading="true"
     tabindex="0"
     type="button"
   >
     <div
-      class="sc-dVBluf iYAHRU aje-loader aje-loader--spinner is-medium"
+      class="sc-dkXsAU fCBAjc aje-loader aje-loader--spinner is-medium"
       data-placement="absolute center"
     >
       <div
-        class="sc-FEMpB BJcTP aje-flex"
+        class="sc-bdDsCe iSrrdl aje-flex"
       >
         <svg
           aria-label="loading"
           aria-valuemax="100"
           aria-valuemin="0"
-          class="sc-kfeOyU jmiEpZ aje-progresscircle aje-spinner"
+          class="sc-iCECmn qccNU aje-progresscircle aje-spinner"
           data-indeterminate="true"
           data-testid="spinner-svg"
           height="2em"
@@ -63,20 +63,20 @@ exports[`Button > matches snapshots > loading state 1`] = `
           width="2em"
         >
           <circle
-            class="sc-gNZgCX gybRWL"
+            class="sc-gKkgUA gDNCqm"
             cx="22"
             cy="22"
             r="16"
           />
           <circle
-            class="sc-jbAkgO fEqhtL"
+            class="sc-jSppWd jQIQOZ"
             cx="22"
             cy="22"
             r="16"
             stroke-width="6"
           />
           <circle
-            class="sc-dycHyt hudqfR"
+            class="sc-eCQgVK iTUieR"
             cx="22"
             cy="22"
             r="16"
@@ -96,7 +96,7 @@ exports[`Button > matches snapshots > loading state 1`] = `
 exports[`Button > matches snapshots > normal display 1`] = `
 <DocumentFragment>
   <button
-    class="sc-hRDKVd kwslFf aje-btn aje-btn--primary is-auto"
+    class="sc-fuztkK fTXzHK aje-btn aje-btn--primary is-auto"
     tabindex="0"
     type="button"
   >

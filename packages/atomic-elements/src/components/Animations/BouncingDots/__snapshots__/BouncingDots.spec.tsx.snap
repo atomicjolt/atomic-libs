@@ -3,23 +3,23 @@
 exports[`BouncingDots > snapshots > matches props snapshot 1`] = `
 <div>
   <div
-    class="sc-FEMpB kisnfQ aje-bouncing-dots custom-class is-small"
+    class="sc-bdDsCe iCuTFz aje-bouncing-dots custom-class is-small"
     style="color: red;"
   >
     <span
-      class="sc-gjcoXW jDAVOB aje-bouncing-dots__dot"
+      class="sc-gtcBCx kHHBzz aje-bouncing-dots__dot"
     />
     <span
-      class="sc-gjcoXW cDkKfS aje-bouncing-dots__dot"
+      class="sc-gtcBCx kTkLDs aje-bouncing-dots__dot"
     />
     <span
-      class="sc-gjcoXW gjANQY aje-bouncing-dots__dot"
+      class="sc-gtcBCx blzoIu aje-bouncing-dots__dot"
     />
     <span
-      class="sc-gjcoXW fXkSdv aje-bouncing-dots__dot"
+      class="sc-gtcBCx izOuBl aje-bouncing-dots__dot"
     />
     <span
-      class="sc-gjcoXW eIFvQr aje-bouncing-dots__dot"
+      class="sc-gtcBCx fvgAtJ aje-bouncing-dots__dot"
     />
   </div>
 </div>
@@ -28,16 +28,16 @@ exports[`BouncingDots > snapshots > matches props snapshot 1`] = `
 exports[`BouncingDots > snapshots > matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-FEMpB GHmAc aje-bouncing-dots is-medium"
+    class="sc-bdDsCe eyNVMz aje-bouncing-dots is-medium"
   >
     <span
-      class="sc-gjcoXW jDAVOB aje-bouncing-dots__dot"
+      class="sc-gtcBCx kHHBzz aje-bouncing-dots__dot"
     />
     <span
-      class="sc-gjcoXW cDkKfS aje-bouncing-dots__dot"
+      class="sc-gtcBCx kTkLDs aje-bouncing-dots__dot"
     />
     <span
-      class="sc-gjcoXW gjANQY aje-bouncing-dots__dot"
+      class="sc-gtcBCx blzoIu aje-bouncing-dots__dot"
     />
   </div>
 </DocumentFragment>

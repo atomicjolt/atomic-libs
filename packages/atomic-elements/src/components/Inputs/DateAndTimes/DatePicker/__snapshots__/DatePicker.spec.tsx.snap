@@ -6,27 +6,27 @@ exports[`DatePicker > matches snapshots > 24 hour cycle 1`] = `
     class="aje-date-picker"
   >
     <div
-      class="sc-gpHbIA krEiXp aje-datefield is-medium"
+      class="sc-kgohyr dcgWfH aje-datefield is-medium"
       id="react-aria-:ra6:"
       style="min-width: var(--size-x);"
     >
       <label
-        class="sc-fuExOL eaPa-Dm"
+        class="sc-bjLslk ixqZUf"
         id="react-aria-:ra8:"
       >
         Date Picker
       </label>
       <p
-        class="sc-gjXmFk doacEC is-auto"
+        class="sc-ieCSdj eqwBVe is-auto"
         id="react-aria-:raa:"
       >
         Select a date
       </p>
       <div
-        class="sc-dVupuq fSYjxQ aje-combo-input"
+        class="sc-hHopjF lbIfIi aje-combo-input"
       >
         <div
-          class="sc-hUAZgl hKJzsE aje-input__date-segments"
+          class="sc-fKwzVe fGeCLx aje-input__date-segments"
           id="react-aria-:ra6:"
           role="presentation"
           style="unicode-bidi: isolate;"
@@ -40,7 +40,7 @@ exports[`DatePicker > matches snapshots > 24 hour cycle 1`] = `
             aria-valuenow="6"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -55,7 +55,7 @@ exports[`DatePicker > matches snapshots > 24 hour cycle 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             /
           </div>
@@ -67,7 +67,7 @@ exports[`DatePicker > matches snapshots > 24 hour cycle 1`] = `
             aria-valuenow="18"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -82,7 +82,7 @@ exports[`DatePicker > matches snapshots > 24 hour cycle 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             /
           </div>
@@ -94,7 +94,7 @@ exports[`DatePicker > matches snapshots > 24 hour cycle 1`] = `
             aria-valuenow="2026"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -109,13 +109,13 @@ exports[`DatePicker > matches snapshots > 24 hour cycle 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             , 
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             ⁦
           </div>
@@ -127,7 +127,7 @@ exports[`DatePicker > matches snapshots > 24 hour cycle 1`] = `
             aria-valuenow="0"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -142,7 +142,7 @@ exports[`DatePicker > matches snapshots > 24 hour cycle 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             ⁩
           </div>
@@ -153,7 +153,7 @@ exports[`DatePicker > matches snapshots > 24 hour cycle 1`] = `
           aria-haspopup="dialog"
           aria-label="Calendar"
           aria-labelledby="react-aria-:ra4: react-aria-:ra8:"
-          class="sc-gjcoXW sc-dVBluf fWtrmi dWLcGs aje-btn aje-icon-btn aje-btn--content is-medium"
+          class="sc-gtcBCx sc-dkXsAU inNouS foOSKo aje-btn aje-icon-btn aje-btn--content is-medium"
           data-icon-button="true"
           id="react-aria-:ra4:"
           style="margin-left: auto;"
@@ -162,7 +162,7 @@ exports[`DatePicker > matches snapshots > 24 hour cycle 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
+            class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
           >
             today
           </i>
@@ -179,27 +179,27 @@ exports[`DatePicker > matches snapshots > day granularity 1`] = `
     class="aje-date-picker"
   >
     <div
-      class="sc-gpHbIA krEiXp aje-datefield is-medium"
+      class="sc-kgohyr dcgWfH aje-datefield is-medium"
       id="react-aria-:r27:"
       style="min-width: var(--size-x);"
     >
       <label
-        class="sc-fuExOL eaPa-Dm"
+        class="sc-bjLslk ixqZUf"
         id="react-aria-:r29:"
       >
         Date Picker
       </label>
       <p
-        class="sc-gjXmFk doacEC is-auto"
+        class="sc-ieCSdj eqwBVe is-auto"
         id="react-aria-:r2b:"
       >
         Select a date
       </p>
       <div
-        class="sc-dVupuq fSYjxQ aje-combo-input"
+        class="sc-hHopjF lbIfIi aje-combo-input"
       >
         <div
-          class="sc-hUAZgl hKJzsE aje-input__date-segments"
+          class="sc-fKwzVe fGeCLx aje-input__date-segments"
           id="react-aria-:r27:"
           role="presentation"
           style="unicode-bidi: isolate;"
@@ -213,7 +213,7 @@ exports[`DatePicker > matches snapshots > day granularity 1`] = `
             aria-valuenow="6"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -228,7 +228,7 @@ exports[`DatePicker > matches snapshots > day granularity 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             /
           </div>
@@ -240,7 +240,7 @@ exports[`DatePicker > matches snapshots > day granularity 1`] = `
             aria-valuenow="18"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -255,7 +255,7 @@ exports[`DatePicker > matches snapshots > day granularity 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             /
           </div>
@@ -267,7 +267,7 @@ exports[`DatePicker > matches snapshots > day granularity 1`] = `
             aria-valuenow="2026"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -287,7 +287,7 @@ exports[`DatePicker > matches snapshots > day granularity 1`] = `
           aria-haspopup="dialog"
           aria-label="Calendar"
           aria-labelledby="react-aria-:r25: react-aria-:r29:"
-          class="sc-gjcoXW sc-dVBluf fWtrmi dWLcGs aje-btn aje-icon-btn aje-btn--content is-medium"
+          class="sc-gtcBCx sc-dkXsAU inNouS foOSKo aje-btn aje-icon-btn aje-btn--content is-medium"
           data-icon-button="true"
           id="react-aria-:r25:"
           style="margin-left: auto;"
@@ -296,7 +296,7 @@ exports[`DatePicker > matches snapshots > day granularity 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
+            class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
           >
             today
           </i>
@@ -313,27 +313,27 @@ exports[`DatePicker > matches snapshots > default variant 1`] = `
     class="aje-date-picker"
   >
     <div
-      class="sc-gpHbIA krEiXp aje-datefield is-medium"
+      class="sc-kgohyr dcgWfH aje-datefield is-medium"
       id="react-aria-:r2:"
       style="min-width: var(--size-x);"
     >
       <label
-        class="sc-fuExOL eaPa-Dm"
+        class="sc-bjLslk ixqZUf"
         id="react-aria-:r4:"
       >
         Date Picker
       </label>
       <p
-        class="sc-gjXmFk doacEC is-auto"
+        class="sc-ieCSdj eqwBVe is-auto"
         id="react-aria-:r6:"
       >
         Select a date
       </p>
       <div
-        class="sc-dVupuq fSYjxQ aje-combo-input"
+        class="sc-hHopjF lbIfIi aje-combo-input"
       >
         <div
-          class="sc-hUAZgl hKJzsE aje-input__date-segments"
+          class="sc-fKwzVe fGeCLx aje-input__date-segments"
           id="react-aria-:r2:"
           role="presentation"
           style="unicode-bidi: isolate;"
@@ -347,7 +347,7 @@ exports[`DatePicker > matches snapshots > default variant 1`] = `
             aria-valuenow="6"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -362,7 +362,7 @@ exports[`DatePicker > matches snapshots > default variant 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             /
           </div>
@@ -374,7 +374,7 @@ exports[`DatePicker > matches snapshots > default variant 1`] = `
             aria-valuenow="18"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -389,7 +389,7 @@ exports[`DatePicker > matches snapshots > default variant 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             /
           </div>
@@ -401,7 +401,7 @@ exports[`DatePicker > matches snapshots > default variant 1`] = `
             aria-valuenow="2026"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -421,7 +421,7 @@ exports[`DatePicker > matches snapshots > default variant 1`] = `
           aria-haspopup="dialog"
           aria-label="Calendar"
           aria-labelledby="react-aria-:r0: react-aria-:r4:"
-          class="sc-gjcoXW sc-dVBluf fWtrmi dWLcGs aje-btn aje-icon-btn aje-btn--content is-medium"
+          class="sc-gtcBCx sc-dkXsAU inNouS foOSKo aje-btn aje-icon-btn aje-btn--content is-medium"
           data-icon-button="true"
           id="react-aria-:r0:"
           style="margin-left: auto;"
@@ -430,7 +430,7 @@ exports[`DatePicker > matches snapshots > default variant 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
+            class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
           >
             today
           </i>
@@ -448,28 +448,28 @@ exports[`DatePicker > matches snapshots > disabled state 1`] = `
     data-disabled="true"
   >
     <div
-      class="sc-gpHbIA krEiXp aje-datefield is-medium"
+      class="sc-kgohyr dcgWfH aje-datefield is-medium"
       data-disabled="true"
       id="react-aria-:r6j:"
       style="min-width: var(--size-x);"
     >
       <label
-        class="sc-fuExOL eaPa-Dm"
+        class="sc-bjLslk ixqZUf"
         id="react-aria-:r6l:"
       >
         Date Picker
       </label>
       <p
-        class="sc-gjXmFk doacEC is-auto"
+        class="sc-ieCSdj eqwBVe is-auto"
         id="react-aria-:r6n:"
       >
         Select a date
       </p>
       <div
-        class="sc-dVupuq fSYjxQ aje-combo-input"
+        class="sc-hHopjF lbIfIi aje-combo-input"
       >
         <div
-          class="sc-hUAZgl hKJzsE aje-input__date-segments"
+          class="sc-fKwzVe fGeCLx aje-input__date-segments"
           id="react-aria-:r6j:"
           role="presentation"
           style="unicode-bidi: isolate;"
@@ -483,7 +483,7 @@ exports[`DatePicker > matches snapshots > disabled state 1`] = `
             aria-valuemin="1"
             aria-valuenow="6"
             aria-valuetext="Empty"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="false"
             data-placeholder="true"
             id="react-aria-:r6u:"
@@ -494,7 +494,7 @@ exports[`DatePicker > matches snapshots > disabled state 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             /
           </div>
@@ -506,7 +506,7 @@ exports[`DatePicker > matches snapshots > disabled state 1`] = `
             aria-valuemin="1"
             aria-valuenow="18"
             aria-valuetext="Empty"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="false"
             data-placeholder="true"
             id="react-aria-:r72:"
@@ -517,7 +517,7 @@ exports[`DatePicker > matches snapshots > disabled state 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             /
           </div>
@@ -529,7 +529,7 @@ exports[`DatePicker > matches snapshots > disabled state 1`] = `
             aria-valuemin="1"
             aria-valuenow="2026"
             aria-valuetext="Empty"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="false"
             data-placeholder="true"
             id="react-aria-:r76:"
@@ -545,7 +545,7 @@ exports[`DatePicker > matches snapshots > disabled state 1`] = `
           aria-haspopup="dialog"
           aria-label="Calendar"
           aria-labelledby="react-aria-:r6h: react-aria-:r6l:"
-          class="sc-gjcoXW sc-dVBluf fWtrmi dWLcGs aje-btn aje-icon-btn aje-btn--content is-medium"
+          class="sc-gtcBCx sc-dkXsAU inNouS foOSKo aje-btn aje-icon-btn aje-btn--content is-medium"
           data-icon-button="true"
           disabled=""
           id="react-aria-:r6h:"
@@ -554,7 +554,7 @@ exports[`DatePicker > matches snapshots > disabled state 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
+            class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
           >
             today
           </i>
@@ -571,27 +571,27 @@ exports[`DatePicker > matches snapshots > hour granularity 1`] = `
     class="aje-date-picker"
   >
     <div
-      class="sc-gpHbIA krEiXp aje-datefield is-medium"
+      class="sc-kgohyr dcgWfH aje-datefield is-medium"
       id="react-aria-:r2u:"
       style="min-width: var(--size-x);"
     >
       <label
-        class="sc-fuExOL eaPa-Dm"
+        class="sc-bjLslk ixqZUf"
         id="react-aria-:r30:"
       >
         Date Picker
       </label>
       <p
-        class="sc-gjXmFk doacEC is-auto"
+        class="sc-ieCSdj eqwBVe is-auto"
         id="react-aria-:r32:"
       >
         Select a date
       </p>
       <div
-        class="sc-dVupuq fSYjxQ aje-combo-input"
+        class="sc-hHopjF lbIfIi aje-combo-input"
       >
         <div
-          class="sc-hUAZgl hKJzsE aje-input__date-segments"
+          class="sc-fKwzVe fGeCLx aje-input__date-segments"
           id="react-aria-:r2u:"
           role="presentation"
           style="unicode-bidi: isolate;"
@@ -605,7 +605,7 @@ exports[`DatePicker > matches snapshots > hour granularity 1`] = `
             aria-valuenow="6"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -620,7 +620,7 @@ exports[`DatePicker > matches snapshots > hour granularity 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             /
           </div>
@@ -632,7 +632,7 @@ exports[`DatePicker > matches snapshots > hour granularity 1`] = `
             aria-valuenow="18"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -647,7 +647,7 @@ exports[`DatePicker > matches snapshots > hour granularity 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             /
           </div>
@@ -659,7 +659,7 @@ exports[`DatePicker > matches snapshots > hour granularity 1`] = `
             aria-valuenow="2026"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -674,13 +674,13 @@ exports[`DatePicker > matches snapshots > hour granularity 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             , 
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             ⁦
           </div>
@@ -692,7 +692,7 @@ exports[`DatePicker > matches snapshots > hour granularity 1`] = `
             aria-valuenow="0"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -707,13 +707,13 @@ exports[`DatePicker > matches snapshots > hour granularity 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             ⁩
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
              
           </div>
@@ -725,7 +725,7 @@ exports[`DatePicker > matches snapshots > hour granularity 1`] = `
             aria-valuenow="0"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -744,7 +744,7 @@ exports[`DatePicker > matches snapshots > hour granularity 1`] = `
           aria-haspopup="dialog"
           aria-label="Calendar"
           aria-labelledby="react-aria-:r2s: react-aria-:r30:"
-          class="sc-gjcoXW sc-dVBluf fWtrmi dWLcGs aje-btn aje-icon-btn aje-btn--content is-medium"
+          class="sc-gtcBCx sc-dkXsAU inNouS foOSKo aje-btn aje-icon-btn aje-btn--content is-medium"
           data-icon-button="true"
           id="react-aria-:r2s:"
           style="margin-left: auto;"
@@ -753,7 +753,7 @@ exports[`DatePicker > matches snapshots > hour granularity 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
+            class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
           >
             today
           </i>
@@ -771,28 +771,28 @@ exports[`DatePicker > matches snapshots > invalid state 1`] = `
     data-invalid="true"
   >
     <div
-      class="sc-gpHbIA krEiXp aje-datefield is-medium"
+      class="sc-kgohyr dcgWfH aje-datefield is-medium"
       data-invalid="true"
       id="react-aria-:r8o:"
       style="min-width: var(--size-x);"
     >
       <label
-        class="sc-fuExOL eaPa-Dm"
+        class="sc-bjLslk ixqZUf"
         id="react-aria-:r8q:"
       >
         Date Picker
       </label>
       <p
-        class="sc-gjXmFk doacEC is-auto"
+        class="sc-ieCSdj eqwBVe is-auto"
         id="react-aria-:r8s:"
       >
         Select a date
       </p>
       <div
-        class="sc-dVupuq fSYjxQ aje-combo-input"
+        class="sc-hHopjF lbIfIi aje-combo-input"
       >
         <div
-          class="sc-hUAZgl hKJzsE aje-input__date-segments"
+          class="sc-fKwzVe fGeCLx aje-input__date-segments"
           id="react-aria-:r8o:"
           role="presentation"
           style="unicode-bidi: isolate;"
@@ -807,7 +807,7 @@ exports[`DatePicker > matches snapshots > invalid state 1`] = `
             aria-valuenow="6"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -822,7 +822,7 @@ exports[`DatePicker > matches snapshots > invalid state 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             /
           </div>
@@ -836,7 +836,7 @@ exports[`DatePicker > matches snapshots > invalid state 1`] = `
             aria-valuenow="18"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -851,7 +851,7 @@ exports[`DatePicker > matches snapshots > invalid state 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             /
           </div>
@@ -865,7 +865,7 @@ exports[`DatePicker > matches snapshots > invalid state 1`] = `
             aria-valuenow="2026"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -885,7 +885,7 @@ exports[`DatePicker > matches snapshots > invalid state 1`] = `
           aria-haspopup="dialog"
           aria-label="Calendar"
           aria-labelledby="react-aria-:r8m: react-aria-:r8q:"
-          class="sc-gjcoXW sc-dVBluf fWtrmi dWLcGs aje-btn aje-icon-btn aje-btn--content is-medium"
+          class="sc-gtcBCx sc-dkXsAU inNouS foOSKo aje-btn aje-icon-btn aje-btn--content is-medium"
           data-icon-button="true"
           id="react-aria-:r8m:"
           style="margin-left: auto;"
@@ -894,14 +894,14 @@ exports[`DatePicker > matches snapshots > invalid state 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
+            class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
           >
             today
           </i>
         </button>
       </div>
       <p
-        class="sc-jHswkR fYceRy is-medium"
+        class="sc-crPgjm fyKbTf is-medium"
         id="react-aria-:r8t:"
       >
         Invalid date
@@ -917,27 +917,27 @@ exports[`DatePicker > matches snapshots > large calendar size 1`] = `
     class="aje-date-picker"
   >
     <div
-      class="sc-gpHbIA krEiXp aje-datefield is-medium"
+      class="sc-kgohyr dcgWfH aje-datefield is-medium"
       id="react-aria-:reo:"
       style="min-width: var(--size-x);"
     >
       <label
-        class="sc-fuExOL eaPa-Dm"
+        class="sc-bjLslk ixqZUf"
         id="react-aria-:req:"
       >
         Date Picker
       </label>
       <p
-        class="sc-gjXmFk doacEC is-auto"
+        class="sc-ieCSdj eqwBVe is-auto"
         id="react-aria-:res:"
       >
         Select a date
       </p>
       <div
-        class="sc-dVupuq fSYjxQ aje-combo-input"
+        class="sc-hHopjF lbIfIi aje-combo-input"
       >
         <div
-          class="sc-hUAZgl hKJzsE aje-input__date-segments"
+          class="sc-fKwzVe fGeCLx aje-input__date-segments"
           id="react-aria-:reo:"
           role="presentation"
           style="unicode-bidi: isolate;"
@@ -951,7 +951,7 @@ exports[`DatePicker > matches snapshots > large calendar size 1`] = `
             aria-valuenow="6"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -966,7 +966,7 @@ exports[`DatePicker > matches snapshots > large calendar size 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             /
           </div>
@@ -978,7 +978,7 @@ exports[`DatePicker > matches snapshots > large calendar size 1`] = `
             aria-valuenow="18"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -993,7 +993,7 @@ exports[`DatePicker > matches snapshots > large calendar size 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             /
           </div>
@@ -1005,7 +1005,7 @@ exports[`DatePicker > matches snapshots > large calendar size 1`] = `
             aria-valuenow="2026"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -1025,7 +1025,7 @@ exports[`DatePicker > matches snapshots > large calendar size 1`] = `
           aria-haspopup="dialog"
           aria-label="Calendar"
           aria-labelledby="react-aria-:rem: react-aria-:req:"
-          class="sc-gjcoXW sc-dVBluf fWtrmi dWLcGs aje-btn aje-icon-btn aje-btn--content is-medium"
+          class="sc-gtcBCx sc-dkXsAU inNouS foOSKo aje-btn aje-icon-btn aje-btn--content is-medium"
           data-icon-button="true"
           id="react-aria-:rem:"
           style="margin-left: auto;"
@@ -1034,7 +1034,7 @@ exports[`DatePicker > matches snapshots > large calendar size 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
+            class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
           >
             today
           </i>
@@ -1051,27 +1051,27 @@ exports[`DatePicker > matches snapshots > large size 1`] = `
     class="aje-date-picker is-large"
   >
     <div
-      class="sc-gpHbIA krEiXp aje-datefield is-large"
+      class="sc-kgohyr dcgWfH aje-datefield is-large"
       id="react-aria-:rcj:"
       style="min-width: var(--size-x);"
     >
       <label
-        class="sc-fuExOL eaPa-Dm"
+        class="sc-bjLslk ixqZUf"
         id="react-aria-:rcl:"
       >
         Date Picker
       </label>
       <p
-        class="sc-gjXmFk doacEC is-auto"
+        class="sc-ieCSdj eqwBVe is-auto"
         id="react-aria-:rcn:"
       >
         Select a date
       </p>
       <div
-        class="sc-dVupuq fSYjxQ aje-combo-input"
+        class="sc-hHopjF lbIfIi aje-combo-input"
       >
         <div
-          class="sc-hUAZgl hKJzsE aje-input__date-segments"
+          class="sc-fKwzVe fGeCLx aje-input__date-segments"
           id="react-aria-:rcj:"
           role="presentation"
           style="unicode-bidi: isolate;"
@@ -1085,7 +1085,7 @@ exports[`DatePicker > matches snapshots > large size 1`] = `
             aria-valuenow="6"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -1100,7 +1100,7 @@ exports[`DatePicker > matches snapshots > large size 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             /
           </div>
@@ -1112,7 +1112,7 @@ exports[`DatePicker > matches snapshots > large size 1`] = `
             aria-valuenow="18"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -1127,7 +1127,7 @@ exports[`DatePicker > matches snapshots > large size 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             /
           </div>
@@ -1139,7 +1139,7 @@ exports[`DatePicker > matches snapshots > large size 1`] = `
             aria-valuenow="2026"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -1159,7 +1159,7 @@ exports[`DatePicker > matches snapshots > large size 1`] = `
           aria-haspopup="dialog"
           aria-label="Calendar"
           aria-labelledby="react-aria-:rch: react-aria-:rcl:"
-          class="sc-gjcoXW sc-dVBluf fWtrmi dWLcGs aje-btn aje-icon-btn aje-btn--content is-medium"
+          class="sc-gtcBCx sc-dkXsAU inNouS foOSKo aje-btn aje-icon-btn aje-btn--content is-medium"
           data-icon-button="true"
           id="react-aria-:rch:"
           style="margin-left: auto;"
@@ -1168,7 +1168,7 @@ exports[`DatePicker > matches snapshots > large size 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
+            class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
           >
             today
           </i>
@@ -1185,27 +1185,27 @@ exports[`DatePicker > matches snapshots > medium calendar size 1`] = `
     class="aje-date-picker"
   >
     <div
-      class="sc-gpHbIA krEiXp aje-datefield is-medium"
+      class="sc-kgohyr dcgWfH aje-datefield is-medium"
       id="react-aria-:re1:"
       style="min-width: var(--size-x);"
     >
       <label
-        class="sc-fuExOL eaPa-Dm"
+        class="sc-bjLslk ixqZUf"
         id="react-aria-:re3:"
       >
         Date Picker
       </label>
       <p
-        class="sc-gjXmFk doacEC is-auto"
+        class="sc-ieCSdj eqwBVe is-auto"
         id="react-aria-:re5:"
       >
         Select a date
       </p>
       <div
-        class="sc-dVupuq fSYjxQ aje-combo-input"
+        class="sc-hHopjF lbIfIi aje-combo-input"
       >
         <div
-          class="sc-hUAZgl hKJzsE aje-input__date-segments"
+          class="sc-fKwzVe fGeCLx aje-input__date-segments"
           id="react-aria-:re1:"
           role="presentation"
           style="unicode-bidi: isolate;"
@@ -1219,7 +1219,7 @@ exports[`DatePicker > matches snapshots > medium calendar size 1`] = `
             aria-valuenow="6"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -1234,7 +1234,7 @@ exports[`DatePicker > matches snapshots > medium calendar size 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             /
           </div>
@@ -1246,7 +1246,7 @@ exports[`DatePicker > matches snapshots > medium calendar size 1`] = `
             aria-valuenow="18"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -1261,7 +1261,7 @@ exports[`DatePicker > matches snapshots > medium calendar size 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             /
           </div>
@@ -1273,7 +1273,7 @@ exports[`DatePicker > matches snapshots > medium calendar size 1`] = `
             aria-valuenow="2026"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -1293,7 +1293,7 @@ exports[`DatePicker > matches snapshots > medium calendar size 1`] = `
           aria-haspopup="dialog"
           aria-label="Calendar"
           aria-labelledby="react-aria-:rdv: react-aria-:re3:"
-          class="sc-gjcoXW sc-dVBluf fWtrmi dWLcGs aje-btn aje-icon-btn aje-btn--content is-medium"
+          class="sc-gtcBCx sc-dkXsAU inNouS foOSKo aje-btn aje-icon-btn aje-btn--content is-medium"
           data-icon-button="true"
           id="react-aria-:rdv:"
           style="margin-left: auto;"
@@ -1302,7 +1302,7 @@ exports[`DatePicker > matches snapshots > medium calendar size 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
+            class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
           >
             today
           </i>
@@ -1319,27 +1319,27 @@ exports[`DatePicker > matches snapshots > medium size 1`] = `
     class="aje-date-picker is-medium"
   >
     <div
-      class="sc-gpHbIA krEiXp aje-datefield is-medium"
+      class="sc-kgohyr dcgWfH aje-datefield is-medium"
       id="react-aria-:rbs:"
       style="min-width: var(--size-x);"
     >
       <label
-        class="sc-fuExOL eaPa-Dm"
+        class="sc-bjLslk ixqZUf"
         id="react-aria-:rbu:"
       >
         Date Picker
       </label>
       <p
-        class="sc-gjXmFk doacEC is-auto"
+        class="sc-ieCSdj eqwBVe is-auto"
         id="react-aria-:rc0:"
       >
         Select a date
       </p>
       <div
-        class="sc-dVupuq fSYjxQ aje-combo-input"
+        class="sc-hHopjF lbIfIi aje-combo-input"
       >
         <div
-          class="sc-hUAZgl hKJzsE aje-input__date-segments"
+          class="sc-fKwzVe fGeCLx aje-input__date-segments"
           id="react-aria-:rbs:"
           role="presentation"
           style="unicode-bidi: isolate;"
@@ -1353,7 +1353,7 @@ exports[`DatePicker > matches snapshots > medium size 1`] = `
             aria-valuenow="6"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -1368,7 +1368,7 @@ exports[`DatePicker > matches snapshots > medium size 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             /
           </div>
@@ -1380,7 +1380,7 @@ exports[`DatePicker > matches snapshots > medium size 1`] = `
             aria-valuenow="18"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -1395,7 +1395,7 @@ exports[`DatePicker > matches snapshots > medium size 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             /
           </div>
@@ -1407,7 +1407,7 @@ exports[`DatePicker > matches snapshots > medium size 1`] = `
             aria-valuenow="2026"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -1427,7 +1427,7 @@ exports[`DatePicker > matches snapshots > medium size 1`] = `
           aria-haspopup="dialog"
           aria-label="Calendar"
           aria-labelledby="react-aria-:rbq: react-aria-:rbu:"
-          class="sc-gjcoXW sc-dVBluf fWtrmi dWLcGs aje-btn aje-icon-btn aje-btn--content is-medium"
+          class="sc-gtcBCx sc-dkXsAU inNouS foOSKo aje-btn aje-icon-btn aje-btn--content is-medium"
           data-icon-button="true"
           id="react-aria-:rbq:"
           style="margin-left: auto;"
@@ -1436,7 +1436,7 @@ exports[`DatePicker > matches snapshots > medium size 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
+            class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
           >
             today
           </i>
@@ -1453,19 +1453,19 @@ exports[`DatePicker > matches snapshots > minimal props 1`] = `
     class="aje-date-picker"
   >
     <div
-      class="sc-gpHbIA krEiXp aje-datefield is-medium"
+      class="sc-kgohyr dcgWfH aje-datefield is-medium"
       id="react-aria-:rib:"
       style="min-width: var(--size-x);"
     >
       <label
-        class="sc-fuExOL eaPa-Dm"
+        class="sc-bjLslk ixqZUf"
         id="react-aria-:rii:"
       />
       <div
-        class="sc-dVupuq fSYjxQ aje-combo-input"
+        class="sc-hHopjF lbIfIi aje-combo-input"
       >
         <div
-          class="sc-hUAZgl hKJzsE aje-input__date-segments"
+          class="sc-fKwzVe fGeCLx aje-input__date-segments"
           id="react-aria-:rib:"
           role="presentation"
           style="unicode-bidi: isolate;"
@@ -1478,7 +1478,7 @@ exports[`DatePicker > matches snapshots > minimal props 1`] = `
             aria-valuenow="6"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -1493,7 +1493,7 @@ exports[`DatePicker > matches snapshots > minimal props 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             /
           </div>
@@ -1505,7 +1505,7 @@ exports[`DatePicker > matches snapshots > minimal props 1`] = `
             aria-valuenow="18"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -1520,7 +1520,7 @@ exports[`DatePicker > matches snapshots > minimal props 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             /
           </div>
@@ -1532,7 +1532,7 @@ exports[`DatePicker > matches snapshots > minimal props 1`] = `
             aria-valuenow="2026"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -1551,7 +1551,7 @@ exports[`DatePicker > matches snapshots > minimal props 1`] = `
           aria-haspopup="dialog"
           aria-label="Calendar"
           aria-labelledby="react-aria-:ri9: react-aria-:ric:"
-          class="sc-gjcoXW sc-dVBluf fWtrmi dWLcGs aje-btn aje-icon-btn aje-btn--content is-medium"
+          class="sc-gtcBCx sc-dkXsAU inNouS foOSKo aje-btn aje-icon-btn aje-btn--content is-medium"
           data-icon-button="true"
           id="react-aria-:ri9:"
           style="margin-left: auto;"
@@ -1560,7 +1560,7 @@ exports[`DatePicker > matches snapshots > minimal props 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
+            class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
           >
             today
           </i>
@@ -1577,27 +1577,27 @@ exports[`DatePicker > matches snapshots > minute granularity 1`] = `
     class="aje-date-picker"
   >
     <div
-      class="sc-gpHbIA krEiXp aje-datefield is-medium"
+      class="sc-kgohyr dcgWfH aje-datefield is-medium"
       id="react-aria-:r41:"
       style="min-width: var(--size-x);"
     >
       <label
-        class="sc-fuExOL eaPa-Dm"
+        class="sc-bjLslk ixqZUf"
         id="react-aria-:r43:"
       >
         Date Picker
       </label>
       <p
-        class="sc-gjXmFk doacEC is-auto"
+        class="sc-ieCSdj eqwBVe is-auto"
         id="react-aria-:r45:"
       >
         Select a date
       </p>
       <div
-        class="sc-dVupuq fSYjxQ aje-combo-input"
+        class="sc-hHopjF lbIfIi aje-combo-input"
       >
         <div
-          class="sc-hUAZgl hKJzsE aje-input__date-segments"
+          class="sc-fKwzVe fGeCLx aje-input__date-segments"
           id="react-aria-:r41:"
           role="presentation"
           style="unicode-bidi: isolate;"
@@ -1611,7 +1611,7 @@ exports[`DatePicker > matches snapshots > minute granularity 1`] = `
             aria-valuenow="6"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -1626,7 +1626,7 @@ exports[`DatePicker > matches snapshots > minute granularity 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             /
           </div>
@@ -1638,7 +1638,7 @@ exports[`DatePicker > matches snapshots > minute granularity 1`] = `
             aria-valuenow="18"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -1653,7 +1653,7 @@ exports[`DatePicker > matches snapshots > minute granularity 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             /
           </div>
@@ -1665,7 +1665,7 @@ exports[`DatePicker > matches snapshots > minute granularity 1`] = `
             aria-valuenow="2026"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -1680,13 +1680,13 @@ exports[`DatePicker > matches snapshots > minute granularity 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             , 
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             ⁦
           </div>
@@ -1698,7 +1698,7 @@ exports[`DatePicker > matches snapshots > minute granularity 1`] = `
             aria-valuenow="0"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -1713,7 +1713,7 @@ exports[`DatePicker > matches snapshots > minute granularity 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             :
           </div>
@@ -1725,7 +1725,7 @@ exports[`DatePicker > matches snapshots > minute granularity 1`] = `
             aria-valuenow="0"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -1740,13 +1740,13 @@ exports[`DatePicker > matches snapshots > minute granularity 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             ⁩
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
              
           </div>
@@ -1758,7 +1758,7 @@ exports[`DatePicker > matches snapshots > minute granularity 1`] = `
             aria-valuenow="0"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -1777,7 +1777,7 @@ exports[`DatePicker > matches snapshots > minute granularity 1`] = `
           aria-haspopup="dialog"
           aria-label="Calendar"
           aria-labelledby="react-aria-:r3v: react-aria-:r43:"
-          class="sc-gjcoXW sc-dVBluf fWtrmi dWLcGs aje-btn aje-icon-btn aje-btn--content is-medium"
+          class="sc-gtcBCx sc-dkXsAU inNouS foOSKo aje-btn aje-icon-btn aje-btn--content is-medium"
           data-icon-button="true"
           id="react-aria-:r3v:"
           style="margin-left: auto;"
@@ -1786,7 +1786,7 @@ exports[`DatePicker > matches snapshots > minute granularity 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
+            class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
           >
             today
           </i>
@@ -1804,28 +1804,28 @@ exports[`DatePicker > matches snapshots > readonly state 1`] = `
     data-readonly="true"
   >
     <div
-      class="sc-gpHbIA krEiXp aje-datefield is-medium"
+      class="sc-kgohyr dcgWfH aje-datefield is-medium"
       data-readonly="true"
       id="react-aria-:r81:"
       style="min-width: var(--size-x);"
     >
       <label
-        class="sc-fuExOL eaPa-Dm"
+        class="sc-bjLslk ixqZUf"
         id="react-aria-:r83:"
       >
         Date Picker
       </label>
       <p
-        class="sc-gjXmFk doacEC is-auto"
+        class="sc-ieCSdj eqwBVe is-auto"
         id="react-aria-:r85:"
       >
         Select a date
       </p>
       <div
-        class="sc-dVupuq fSYjxQ aje-combo-input"
+        class="sc-hHopjF lbIfIi aje-combo-input"
       >
         <div
-          class="sc-hUAZgl hKJzsE aje-input__date-segments"
+          class="sc-fKwzVe fGeCLx aje-input__date-segments"
           id="react-aria-:r81:"
           role="presentation"
           style="unicode-bidi: isolate;"
@@ -1839,7 +1839,7 @@ exports[`DatePicker > matches snapshots > readonly state 1`] = `
             aria-valuemin="1"
             aria-valuenow="6"
             aria-valuetext="Empty"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="false"
             data-placeholder="true"
             id="react-aria-:r8c:"
@@ -1851,7 +1851,7 @@ exports[`DatePicker > matches snapshots > readonly state 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             /
           </div>
@@ -1863,7 +1863,7 @@ exports[`DatePicker > matches snapshots > readonly state 1`] = `
             aria-valuemin="1"
             aria-valuenow="18"
             aria-valuetext="Empty"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="false"
             data-placeholder="true"
             id="react-aria-:r8g:"
@@ -1875,7 +1875,7 @@ exports[`DatePicker > matches snapshots > readonly state 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             /
           </div>
@@ -1887,7 +1887,7 @@ exports[`DatePicker > matches snapshots > readonly state 1`] = `
             aria-valuemin="1"
             aria-valuenow="2026"
             aria-valuetext="Empty"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="false"
             data-placeholder="true"
             id="react-aria-:r8k:"
@@ -1904,7 +1904,7 @@ exports[`DatePicker > matches snapshots > readonly state 1`] = `
           aria-haspopup="dialog"
           aria-label="Calendar"
           aria-labelledby="react-aria-:r7v: react-aria-:r83:"
-          class="sc-gjcoXW sc-dVBluf fWtrmi dWLcGs aje-btn aje-icon-btn aje-btn--content is-medium"
+          class="sc-gtcBCx sc-dkXsAU inNouS foOSKo aje-btn aje-icon-btn aje-btn--content is-medium"
           data-icon-button="true"
           disabled=""
           id="react-aria-:r7v:"
@@ -1913,7 +1913,7 @@ exports[`DatePicker > matches snapshots > readonly state 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
+            class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
           >
             today
           </i>
@@ -1931,28 +1931,28 @@ exports[`DatePicker > matches snapshots > required state 1`] = `
     data-required="true"
   >
     <div
-      class="sc-gpHbIA krEiXp aje-datefield is-medium"
+      class="sc-kgohyr dcgWfH aje-datefield is-medium"
       data-required="true"
       id="react-aria-:r7a:"
       style="min-width: var(--size-x);"
     >
       <label
-        class="sc-fuExOL eaPa-Dm"
+        class="sc-bjLslk ixqZUf"
         id="react-aria-:r7c:"
       >
         Date Picker
       </label>
       <p
-        class="sc-gjXmFk doacEC is-auto"
+        class="sc-ieCSdj eqwBVe is-auto"
         id="react-aria-:r7e:"
       >
         Select a date
       </p>
       <div
-        class="sc-dVupuq fSYjxQ aje-combo-input"
+        class="sc-hHopjF lbIfIi aje-combo-input"
       >
         <div
-          class="sc-hUAZgl hKJzsE aje-input__date-segments"
+          class="sc-fKwzVe fGeCLx aje-input__date-segments"
           id="react-aria-:r7a:"
           role="presentation"
           style="unicode-bidi: isolate;"
@@ -1967,7 +1967,7 @@ exports[`DatePicker > matches snapshots > required state 1`] = `
             aria-valuenow="6"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -1982,7 +1982,7 @@ exports[`DatePicker > matches snapshots > required state 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             /
           </div>
@@ -1995,7 +1995,7 @@ exports[`DatePicker > matches snapshots > required state 1`] = `
             aria-valuenow="18"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -2010,7 +2010,7 @@ exports[`DatePicker > matches snapshots > required state 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             /
           </div>
@@ -2023,7 +2023,7 @@ exports[`DatePicker > matches snapshots > required state 1`] = `
             aria-valuenow="2026"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -2043,7 +2043,7 @@ exports[`DatePicker > matches snapshots > required state 1`] = `
           aria-haspopup="dialog"
           aria-label="Calendar"
           aria-labelledby="react-aria-:r78: react-aria-:r7c:"
-          class="sc-gjcoXW sc-dVBluf fWtrmi dWLcGs aje-btn aje-icon-btn aje-btn--content is-medium"
+          class="sc-gtcBCx sc-dkXsAU inNouS foOSKo aje-btn aje-icon-btn aje-btn--content is-medium"
           data-icon-button="true"
           id="react-aria-:r78:"
           style="margin-left: auto;"
@@ -2052,7 +2052,7 @@ exports[`DatePicker > matches snapshots > required state 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
+            class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
           >
             today
           </i>
@@ -2069,27 +2069,27 @@ exports[`DatePicker > matches snapshots > second granularity 1`] = `
     class="aje-date-picker"
   >
     <div
-      class="sc-gpHbIA krEiXp aje-datefield is-medium"
+      class="sc-kgohyr dcgWfH aje-datefield is-medium"
       id="react-aria-:r58:"
       style="min-width: var(--size-x);"
     >
       <label
-        class="sc-fuExOL eaPa-Dm"
+        class="sc-bjLslk ixqZUf"
         id="react-aria-:r5a:"
       >
         Date Picker
       </label>
       <p
-        class="sc-gjXmFk doacEC is-auto"
+        class="sc-ieCSdj eqwBVe is-auto"
         id="react-aria-:r5c:"
       >
         Select a date
       </p>
       <div
-        class="sc-dVupuq fSYjxQ aje-combo-input"
+        class="sc-hHopjF lbIfIi aje-combo-input"
       >
         <div
-          class="sc-hUAZgl hKJzsE aje-input__date-segments"
+          class="sc-fKwzVe fGeCLx aje-input__date-segments"
           id="react-aria-:r58:"
           role="presentation"
           style="unicode-bidi: isolate;"
@@ -2103,7 +2103,7 @@ exports[`DatePicker > matches snapshots > second granularity 1`] = `
             aria-valuenow="6"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -2118,7 +2118,7 @@ exports[`DatePicker > matches snapshots > second granularity 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             /
           </div>
@@ -2130,7 +2130,7 @@ exports[`DatePicker > matches snapshots > second granularity 1`] = `
             aria-valuenow="18"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -2145,7 +2145,7 @@ exports[`DatePicker > matches snapshots > second granularity 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             /
           </div>
@@ -2157,7 +2157,7 @@ exports[`DatePicker > matches snapshots > second granularity 1`] = `
             aria-valuenow="2026"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -2172,13 +2172,13 @@ exports[`DatePicker > matches snapshots > second granularity 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             , 
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             ⁦
           </div>
@@ -2190,7 +2190,7 @@ exports[`DatePicker > matches snapshots > second granularity 1`] = `
             aria-valuenow="0"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -2205,7 +2205,7 @@ exports[`DatePicker > matches snapshots > second granularity 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             :
           </div>
@@ -2217,7 +2217,7 @@ exports[`DatePicker > matches snapshots > second granularity 1`] = `
             aria-valuenow="0"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -2232,7 +2232,7 @@ exports[`DatePicker > matches snapshots > second granularity 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             :
           </div>
@@ -2244,7 +2244,7 @@ exports[`DatePicker > matches snapshots > second granularity 1`] = `
             aria-valuenow="0"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -2259,13 +2259,13 @@ exports[`DatePicker > matches snapshots > second granularity 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             ⁩
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
              
           </div>
@@ -2277,7 +2277,7 @@ exports[`DatePicker > matches snapshots > second granularity 1`] = `
             aria-valuenow="0"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -2296,7 +2296,7 @@ exports[`DatePicker > matches snapshots > second granularity 1`] = `
           aria-haspopup="dialog"
           aria-label="Calendar"
           aria-labelledby="react-aria-:r56: react-aria-:r5a:"
-          class="sc-gjcoXW sc-dVBluf fWtrmi dWLcGs aje-btn aje-icon-btn aje-btn--content is-medium"
+          class="sc-gtcBCx sc-dkXsAU inNouS foOSKo aje-btn aje-icon-btn aje-btn--content is-medium"
           data-icon-button="true"
           id="react-aria-:r56:"
           style="margin-left: auto;"
@@ -2305,7 +2305,7 @@ exports[`DatePicker > matches snapshots > second granularity 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
+            class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
           >
             today
           </i>
@@ -2322,27 +2322,27 @@ exports[`DatePicker > matches snapshots > small calendar size 1`] = `
     class="aje-date-picker"
   >
     <div
-      class="sc-gpHbIA krEiXp aje-datefield is-medium"
+      class="sc-kgohyr dcgWfH aje-datefield is-medium"
       id="react-aria-:rda:"
       style="min-width: var(--size-x);"
     >
       <label
-        class="sc-fuExOL eaPa-Dm"
+        class="sc-bjLslk ixqZUf"
         id="react-aria-:rdc:"
       >
         Date Picker
       </label>
       <p
-        class="sc-gjXmFk doacEC is-auto"
+        class="sc-ieCSdj eqwBVe is-auto"
         id="react-aria-:rde:"
       >
         Select a date
       </p>
       <div
-        class="sc-dVupuq fSYjxQ aje-combo-input"
+        class="sc-hHopjF lbIfIi aje-combo-input"
       >
         <div
-          class="sc-hUAZgl hKJzsE aje-input__date-segments"
+          class="sc-fKwzVe fGeCLx aje-input__date-segments"
           id="react-aria-:rda:"
           role="presentation"
           style="unicode-bidi: isolate;"
@@ -2356,7 +2356,7 @@ exports[`DatePicker > matches snapshots > small calendar size 1`] = `
             aria-valuenow="6"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -2371,7 +2371,7 @@ exports[`DatePicker > matches snapshots > small calendar size 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             /
           </div>
@@ -2383,7 +2383,7 @@ exports[`DatePicker > matches snapshots > small calendar size 1`] = `
             aria-valuenow="18"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -2398,7 +2398,7 @@ exports[`DatePicker > matches snapshots > small calendar size 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             /
           </div>
@@ -2410,7 +2410,7 @@ exports[`DatePicker > matches snapshots > small calendar size 1`] = `
             aria-valuenow="2026"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -2430,7 +2430,7 @@ exports[`DatePicker > matches snapshots > small calendar size 1`] = `
           aria-haspopup="dialog"
           aria-label="Calendar"
           aria-labelledby="react-aria-:rd8: react-aria-:rdc:"
-          class="sc-gjcoXW sc-dVBluf fWtrmi dWLcGs aje-btn aje-icon-btn aje-btn--content is-medium"
+          class="sc-gtcBCx sc-dkXsAU inNouS foOSKo aje-btn aje-icon-btn aje-btn--content is-medium"
           data-icon-button="true"
           id="react-aria-:rd8:"
           style="margin-left: auto;"
@@ -2439,7 +2439,7 @@ exports[`DatePicker > matches snapshots > small calendar size 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
+            class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
           >
             today
           </i>
@@ -2456,27 +2456,27 @@ exports[`DatePicker > matches snapshots > small size 1`] = `
     class="aje-date-picker is-small"
   >
     <div
-      class="sc-gpHbIA krEiXp aje-datefield is-small"
+      class="sc-kgohyr dcgWfH aje-datefield is-small"
       id="react-aria-:rb5:"
       style="min-width: var(--size-x);"
     >
       <label
-        class="sc-fuExOL eaPa-Dm"
+        class="sc-bjLslk ixqZUf"
         id="react-aria-:rb7:"
       >
         Date Picker
       </label>
       <p
-        class="sc-gjXmFk doacEC is-auto"
+        class="sc-ieCSdj eqwBVe is-auto"
         id="react-aria-:rb9:"
       >
         Select a date
       </p>
       <div
-        class="sc-dVupuq fSYjxQ aje-combo-input"
+        class="sc-hHopjF lbIfIi aje-combo-input"
       >
         <div
-          class="sc-hUAZgl hKJzsE aje-input__date-segments"
+          class="sc-fKwzVe fGeCLx aje-input__date-segments"
           id="react-aria-:rb5:"
           role="presentation"
           style="unicode-bidi: isolate;"
@@ -2490,7 +2490,7 @@ exports[`DatePicker > matches snapshots > small size 1`] = `
             aria-valuenow="6"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -2505,7 +2505,7 @@ exports[`DatePicker > matches snapshots > small size 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             /
           </div>
@@ -2517,7 +2517,7 @@ exports[`DatePicker > matches snapshots > small size 1`] = `
             aria-valuenow="18"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -2532,7 +2532,7 @@ exports[`DatePicker > matches snapshots > small size 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             /
           </div>
@@ -2544,7 +2544,7 @@ exports[`DatePicker > matches snapshots > small size 1`] = `
             aria-valuenow="2026"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -2564,7 +2564,7 @@ exports[`DatePicker > matches snapshots > small size 1`] = `
           aria-haspopup="dialog"
           aria-label="Calendar"
           aria-labelledby="react-aria-:rb3: react-aria-:rb7:"
-          class="sc-gjcoXW sc-dVBluf fWtrmi dWLcGs aje-btn aje-icon-btn aje-btn--content is-medium"
+          class="sc-gtcBCx sc-dkXsAU inNouS foOSKo aje-btn aje-icon-btn aje-btn--content is-medium"
           data-icon-button="true"
           id="react-aria-:rb3:"
           style="margin-left: auto;"
@@ -2573,7 +2573,7 @@ exports[`DatePicker > matches snapshots > small size 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
+            class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
           >
             today
           </i>
@@ -2590,27 +2590,27 @@ exports[`DatePicker > matches snapshots > with default value 1`] = `
     class="aje-date-picker"
   >
     <div
-      class="sc-gpHbIA krEiXp aje-datefield is-medium"
+      class="sc-kgohyr dcgWfH aje-datefield is-medium"
       id="react-aria-:r1g:"
       style="min-width: var(--size-x);"
     >
       <label
-        class="sc-fuExOL eaPa-Dm"
+        class="sc-bjLslk ixqZUf"
         id="react-aria-:r1i:"
       >
         Date Picker
       </label>
       <p
-        class="sc-gjXmFk doacEC is-auto"
+        class="sc-ieCSdj eqwBVe is-auto"
         id="react-aria-:r1k:"
       >
         Select a date
       </p>
       <div
-        class="sc-dVupuq fSYjxQ aje-combo-input"
+        class="sc-hHopjF lbIfIi aje-combo-input"
       >
         <div
-          class="sc-hUAZgl hKJzsE aje-input__date-segments"
+          class="sc-fKwzVe fGeCLx aje-input__date-segments"
           id="react-aria-:r1g:"
           role="presentation"
           style="unicode-bidi: isolate;"
@@ -2624,7 +2624,7 @@ exports[`DatePicker > matches snapshots > with default value 1`] = `
             aria-valuenow="12"
             aria-valuetext="12 – December"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
             contenteditable="true"
             enterkeyhint="next"
             id="react-aria-:r1r:"
@@ -2638,7 +2638,7 @@ exports[`DatePicker > matches snapshots > with default value 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             /
           </div>
@@ -2650,7 +2650,7 @@ exports[`DatePicker > matches snapshots > with default value 1`] = `
             aria-valuenow="25"
             aria-valuetext="25"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
             contenteditable="true"
             enterkeyhint="next"
             id="react-aria-:r1v:"
@@ -2664,7 +2664,7 @@ exports[`DatePicker > matches snapshots > with default value 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             /
           </div>
@@ -2676,7 +2676,7 @@ exports[`DatePicker > matches snapshots > with default value 1`] = `
             aria-valuenow="2023"
             aria-valuetext="2023"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
             contenteditable="true"
             enterkeyhint="next"
             id="react-aria-:r23:"
@@ -2695,7 +2695,7 @@ exports[`DatePicker > matches snapshots > with default value 1`] = `
           aria-haspopup="dialog"
           aria-label="Calendar"
           aria-labelledby="react-aria-:r1e: react-aria-:r1i:"
-          class="sc-gjcoXW sc-dVBluf fWtrmi dWLcGs aje-btn aje-icon-btn aje-btn--content is-medium"
+          class="sc-gtcBCx sc-dkXsAU inNouS foOSKo aje-btn aje-icon-btn aje-btn--content is-medium"
           data-icon-button="true"
           id="react-aria-:r1e:"
           style="margin-left: auto;"
@@ -2704,7 +2704,7 @@ exports[`DatePicker > matches snapshots > with default value 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
+            class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
           >
             today
           </i>
@@ -2721,27 +2721,27 @@ exports[`DatePicker > matches snapshots > with leading zeros 1`] = `
     class="aje-date-picker"
   >
     <div
-      class="sc-gpHbIA krEiXp aje-datefield is-medium"
+      class="sc-kgohyr dcgWfH aje-datefield is-medium"
       id="react-aria-:r9f:"
       style="min-width: var(--size-x);"
     >
       <label
-        class="sc-fuExOL eaPa-Dm"
+        class="sc-bjLslk ixqZUf"
         id="react-aria-:r9h:"
       >
         Date Picker
       </label>
       <p
-        class="sc-gjXmFk doacEC is-auto"
+        class="sc-ieCSdj eqwBVe is-auto"
         id="react-aria-:r9j:"
       >
         Select a date
       </p>
       <div
-        class="sc-dVupuq fSYjxQ aje-combo-input"
+        class="sc-hHopjF lbIfIi aje-combo-input"
       >
         <div
-          class="sc-hUAZgl hKJzsE aje-input__date-segments"
+          class="sc-fKwzVe fGeCLx aje-input__date-segments"
           id="react-aria-:r9f:"
           role="presentation"
           style="unicode-bidi: isolate;"
@@ -2755,7 +2755,7 @@ exports[`DatePicker > matches snapshots > with leading zeros 1`] = `
             aria-valuenow="6"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -2770,7 +2770,7 @@ exports[`DatePicker > matches snapshots > with leading zeros 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             /
           </div>
@@ -2782,7 +2782,7 @@ exports[`DatePicker > matches snapshots > with leading zeros 1`] = `
             aria-valuenow="18"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -2797,7 +2797,7 @@ exports[`DatePicker > matches snapshots > with leading zeros 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             /
           </div>
@@ -2809,7 +2809,7 @@ exports[`DatePicker > matches snapshots > with leading zeros 1`] = `
             aria-valuenow="2026"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -2829,7 +2829,7 @@ exports[`DatePicker > matches snapshots > with leading zeros 1`] = `
           aria-haspopup="dialog"
           aria-label="Calendar"
           aria-labelledby="react-aria-:r9d: react-aria-:r9h:"
-          class="sc-gjcoXW sc-dVBluf fWtrmi dWLcGs aje-btn aje-icon-btn aje-btn--content is-medium"
+          class="sc-gtcBCx sc-dkXsAU inNouS foOSKo aje-btn aje-icon-btn aje-btn--content is-medium"
           data-icon-button="true"
           id="react-aria-:r9d:"
           style="margin-left: auto;"
@@ -2838,7 +2838,7 @@ exports[`DatePicker > matches snapshots > with leading zeros 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
+            class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
           >
             today
           </i>
@@ -2855,27 +2855,27 @@ exports[`DatePicker > matches snapshots > with min and max values 1`] = `
     class="aje-date-picker"
   >
     <div
-      class="sc-gpHbIA krEiXp aje-datefield is-medium"
+      class="sc-kgohyr dcgWfH aje-datefield is-medium"
       id="react-aria-:rff:"
       style="min-width: var(--size-x);"
     >
       <label
-        class="sc-fuExOL eaPa-Dm"
+        class="sc-bjLslk ixqZUf"
         id="react-aria-:rfh:"
       >
         Date Picker
       </label>
       <p
-        class="sc-gjXmFk doacEC is-auto"
+        class="sc-ieCSdj eqwBVe is-auto"
         id="react-aria-:rfj:"
       >
         Select a date
       </p>
       <div
-        class="sc-dVupuq fSYjxQ aje-combo-input"
+        class="sc-hHopjF lbIfIi aje-combo-input"
       >
         <div
-          class="sc-hUAZgl hKJzsE aje-input__date-segments"
+          class="sc-fKwzVe fGeCLx aje-input__date-segments"
           id="react-aria-:rff:"
           role="presentation"
           style="unicode-bidi: isolate;"
@@ -2889,7 +2889,7 @@ exports[`DatePicker > matches snapshots > with min and max values 1`] = `
             aria-valuenow="6"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -2904,7 +2904,7 @@ exports[`DatePicker > matches snapshots > with min and max values 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             /
           </div>
@@ -2916,7 +2916,7 @@ exports[`DatePicker > matches snapshots > with min and max values 1`] = `
             aria-valuenow="18"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -2931,7 +2931,7 @@ exports[`DatePicker > matches snapshots > with min and max values 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             /
           </div>
@@ -2943,7 +2943,7 @@ exports[`DatePicker > matches snapshots > with min and max values 1`] = `
             aria-valuenow="2026"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -2963,7 +2963,7 @@ exports[`DatePicker > matches snapshots > with min and max values 1`] = `
           aria-haspopup="dialog"
           aria-label="Calendar"
           aria-labelledby="react-aria-:rfd: react-aria-:rfh:"
-          class="sc-gjcoXW sc-dVBluf fWtrmi dWLcGs aje-btn aje-icon-btn aje-btn--content is-medium"
+          class="sc-gtcBCx sc-dkXsAU inNouS foOSKo aje-btn aje-icon-btn aje-btn--content is-medium"
           data-icon-button="true"
           id="react-aria-:rfd:"
           style="margin-left: auto;"
@@ -2972,7 +2972,7 @@ exports[`DatePicker > matches snapshots > with min and max values 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
+            class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
           >
             today
           </i>
@@ -2989,27 +2989,27 @@ exports[`DatePicker > matches snapshots > with value 1`] = `
     class="aje-date-picker"
   >
     <div
-      class="sc-gpHbIA krEiXp aje-datefield is-medium"
+      class="sc-kgohyr dcgWfH aje-datefield is-medium"
       id="react-aria-:rp:"
       style="min-width: var(--size-x);"
     >
       <label
-        class="sc-fuExOL eaPa-Dm"
+        class="sc-bjLslk ixqZUf"
         id="react-aria-:rr:"
       >
         Date Picker
       </label>
       <p
-        class="sc-gjXmFk doacEC is-auto"
+        class="sc-ieCSdj eqwBVe is-auto"
         id="react-aria-:rt:"
       >
         Select a date
       </p>
       <div
-        class="sc-dVupuq fSYjxQ aje-combo-input"
+        class="sc-hHopjF lbIfIi aje-combo-input"
       >
         <div
-          class="sc-hUAZgl hKJzsE aje-input__date-segments"
+          class="sc-fKwzVe fGeCLx aje-input__date-segments"
           id="react-aria-:rp:"
           role="presentation"
           style="unicode-bidi: isolate;"
@@ -3023,7 +3023,7 @@ exports[`DatePicker > matches snapshots > with value 1`] = `
             aria-valuenow="1"
             aria-valuetext="1 – January"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
             contenteditable="true"
             enterkeyhint="next"
             id="react-aria-:r14:"
@@ -3037,7 +3037,7 @@ exports[`DatePicker > matches snapshots > with value 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             /
           </div>
@@ -3049,7 +3049,7 @@ exports[`DatePicker > matches snapshots > with value 1`] = `
             aria-valuenow="15"
             aria-valuetext="15"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
             contenteditable="true"
             enterkeyhint="next"
             id="react-aria-:r18:"
@@ -3063,7 +3063,7 @@ exports[`DatePicker > matches snapshots > with value 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             /
           </div>
@@ -3075,7 +3075,7 @@ exports[`DatePicker > matches snapshots > with value 1`] = `
             aria-valuenow="2023"
             aria-valuetext="2023"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
             contenteditable="true"
             enterkeyhint="next"
             id="react-aria-:r1c:"
@@ -3094,7 +3094,7 @@ exports[`DatePicker > matches snapshots > with value 1`] = `
           aria-haspopup="dialog"
           aria-label="Calendar"
           aria-labelledby="react-aria-:rn: react-aria-:rr:"
-          class="sc-gjcoXW sc-dVBluf fWtrmi dWLcGs aje-btn aje-icon-btn aje-btn--content is-medium"
+          class="sc-gtcBCx sc-dkXsAU inNouS foOSKo aje-btn aje-icon-btn aje-btn--content is-medium"
           data-icon-button="true"
           id="react-aria-:rn:"
           style="margin-left: auto;"
@@ -3103,7 +3103,7 @@ exports[`DatePicker > matches snapshots > with value 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
+            class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
           >
             today
           </i>
@@ -3120,27 +3120,27 @@ exports[`DatePicker > matches snapshots > without error 1`] = `
     class="aje-date-picker"
   >
     <div
-      class="sc-gpHbIA krEiXp aje-datefield is-medium"
+      class="sc-kgohyr dcgWfH aje-datefield is-medium"
       id="react-aria-:rhk:"
       style="min-width: var(--size-x);"
     >
       <label
-        class="sc-fuExOL eaPa-Dm"
+        class="sc-bjLslk ixqZUf"
         id="react-aria-:rhm:"
       >
         Date Picker
       </label>
       <p
-        class="sc-gjXmFk doacEC is-auto"
+        class="sc-ieCSdj eqwBVe is-auto"
         id="react-aria-:rho:"
       >
         Select a date
       </p>
       <div
-        class="sc-dVupuq fSYjxQ aje-combo-input"
+        class="sc-hHopjF lbIfIi aje-combo-input"
       >
         <div
-          class="sc-hUAZgl hKJzsE aje-input__date-segments"
+          class="sc-fKwzVe fGeCLx aje-input__date-segments"
           id="react-aria-:rhk:"
           role="presentation"
           style="unicode-bidi: isolate;"
@@ -3154,7 +3154,7 @@ exports[`DatePicker > matches snapshots > without error 1`] = `
             aria-valuenow="6"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -3169,7 +3169,7 @@ exports[`DatePicker > matches snapshots > without error 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             /
           </div>
@@ -3181,7 +3181,7 @@ exports[`DatePicker > matches snapshots > without error 1`] = `
             aria-valuenow="18"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -3196,7 +3196,7 @@ exports[`DatePicker > matches snapshots > without error 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             /
           </div>
@@ -3208,7 +3208,7 @@ exports[`DatePicker > matches snapshots > without error 1`] = `
             aria-valuenow="2026"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -3228,7 +3228,7 @@ exports[`DatePicker > matches snapshots > without error 1`] = `
           aria-haspopup="dialog"
           aria-label="Calendar"
           aria-labelledby="react-aria-:rhi: react-aria-:rhm:"
-          class="sc-gjcoXW sc-dVBluf fWtrmi dWLcGs aje-btn aje-icon-btn aje-btn--content is-medium"
+          class="sc-gtcBCx sc-dkXsAU inNouS foOSKo aje-btn aje-icon-btn aje-btn--content is-medium"
           data-icon-button="true"
           id="react-aria-:rhi:"
           style="margin-left: auto;"
@@ -3237,7 +3237,7 @@ exports[`DatePicker > matches snapshots > without error 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
+            class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
           >
             today
           </i>
@@ -3254,25 +3254,25 @@ exports[`DatePicker > matches snapshots > without label 1`] = `
     class="aje-date-picker"
   >
     <div
-      class="sc-gpHbIA krEiXp aje-datefield is-medium"
+      class="sc-kgohyr dcgWfH aje-datefield is-medium"
       id="react-aria-:rg6:"
       style="min-width: var(--size-x);"
     >
       <label
-        class="sc-fuExOL eaPa-Dm"
+        class="sc-bjLslk ixqZUf"
         id="react-aria-:rgd:"
       />
       <p
-        class="sc-gjXmFk doacEC is-auto"
+        class="sc-ieCSdj eqwBVe is-auto"
         id="react-aria-:rga:"
       >
         Select a date
       </p>
       <div
-        class="sc-dVupuq fSYjxQ aje-combo-input"
+        class="sc-hHopjF lbIfIi aje-combo-input"
       >
         <div
-          class="sc-hUAZgl hKJzsE aje-input__date-segments"
+          class="sc-fKwzVe fGeCLx aje-input__date-segments"
           id="react-aria-:rg6:"
           role="presentation"
           style="unicode-bidi: isolate;"
@@ -3286,7 +3286,7 @@ exports[`DatePicker > matches snapshots > without label 1`] = `
             aria-valuenow="6"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -3301,7 +3301,7 @@ exports[`DatePicker > matches snapshots > without label 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             /
           </div>
@@ -3313,7 +3313,7 @@ exports[`DatePicker > matches snapshots > without label 1`] = `
             aria-valuenow="18"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -3328,7 +3328,7 @@ exports[`DatePicker > matches snapshots > without label 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             /
           </div>
@@ -3340,7 +3340,7 @@ exports[`DatePicker > matches snapshots > without label 1`] = `
             aria-valuenow="2026"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -3360,7 +3360,7 @@ exports[`DatePicker > matches snapshots > without label 1`] = `
           aria-haspopup="dialog"
           aria-label="Calendar"
           aria-labelledby="react-aria-:rg4: react-aria-:rg7:"
-          class="sc-gjcoXW sc-dVBluf fWtrmi dWLcGs aje-btn aje-icon-btn aje-btn--content is-medium"
+          class="sc-gtcBCx sc-dkXsAU inNouS foOSKo aje-btn aje-icon-btn aje-btn--content is-medium"
           data-icon-button="true"
           id="react-aria-:rg4:"
           style="margin-left: auto;"
@@ -3369,7 +3369,7 @@ exports[`DatePicker > matches snapshots > without label 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
+            class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
           >
             today
           </i>
@@ -3386,21 +3386,21 @@ exports[`DatePicker > matches snapshots > without message 1`] = `
     class="aje-date-picker"
   >
     <div
-      class="sc-gpHbIA krEiXp aje-datefield is-medium"
+      class="sc-kgohyr dcgWfH aje-datefield is-medium"
       id="react-aria-:rgt:"
       style="min-width: var(--size-x);"
     >
       <label
-        class="sc-fuExOL eaPa-Dm"
+        class="sc-bjLslk ixqZUf"
         id="react-aria-:rgv:"
       >
         Date Picker
       </label>
       <div
-        class="sc-dVupuq fSYjxQ aje-combo-input"
+        class="sc-hHopjF lbIfIi aje-combo-input"
       >
         <div
-          class="sc-hUAZgl hKJzsE aje-input__date-segments"
+          class="sc-fKwzVe fGeCLx aje-input__date-segments"
           id="react-aria-:rgt:"
           role="presentation"
           style="unicode-bidi: isolate;"
@@ -3413,7 +3413,7 @@ exports[`DatePicker > matches snapshots > without message 1`] = `
             aria-valuenow="6"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -3428,7 +3428,7 @@ exports[`DatePicker > matches snapshots > without message 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             /
           </div>
@@ -3440,7 +3440,7 @@ exports[`DatePicker > matches snapshots > without message 1`] = `
             aria-valuenow="18"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -3455,7 +3455,7 @@ exports[`DatePicker > matches snapshots > without message 1`] = `
           </div>
           <div
             aria-hidden="true"
-            class="sc-flQbIK tWhTg aje-input__segment"
+            class="sc-bCgoVd jAtiqP aje-input__segment"
           >
             /
           </div>
@@ -3467,7 +3467,7 @@ exports[`DatePicker > matches snapshots > without message 1`] = `
             aria-valuenow="2026"
             aria-valuetext="Empty"
             autocorrect="off"
-            class="sc-flQbIK tWhTg aje-input__segment placeholder"
+            class="sc-bCgoVd jAtiqP aje-input__segment placeholder"
             contenteditable="true"
             data-placeholder="true"
             enterkeyhint="next"
@@ -3486,7 +3486,7 @@ exports[`DatePicker > matches snapshots > without message 1`] = `
           aria-haspopup="dialog"
           aria-label="Calendar"
           aria-labelledby="react-aria-:rgr: react-aria-:rgv:"
-          class="sc-gjcoXW sc-dVBluf fWtrmi dWLcGs aje-btn aje-icon-btn aje-btn--content is-medium"
+          class="sc-gtcBCx sc-dkXsAU inNouS foOSKo aje-btn aje-icon-btn aje-btn--content is-medium"
           data-icon-button="true"
           id="react-aria-:rgr:"
           style="margin-left: auto;"
@@ -3495,7 +3495,7 @@ exports[`DatePicker > matches snapshots > without message 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-FEMpB jyuubH aje-icon material-icons is-medium"
+            class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
           >
             today
           </i>

@@ -3,16 +3,16 @@
 exports[`LoadingStatus > matches error snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-kfeOyU kQDcwU aje-banner aje-banner--error"
+    class="sc-iCECmn jdNlZf aje-banner aje-banner--error"
   >
     <i
       aria-hidden="true"
-      class="sc-gNZgCX gypsPY aje-icon material-icons is-medium"
+      class="sc-gKkgUA fKXEOU aje-icon material-icons is-medium"
     >
       error
     </i>
     <div
-      class="sc-hRDKVd eeBDAN"
+      class="sc-fuztkK jgmfqx"
     >
       An error occurred
     </div>
@@ -23,23 +23,23 @@ exports[`LoadingStatus > matches error snapshot 1`] = `
 exports[`LoadingStatus > matches loading snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-dVBluf iYAHRU aje-loader aje-loader--bouncing-dots is-medium"
+    class="sc-dkXsAU fCBAjc aje-loader aje-loader--bouncing-dots is-medium"
     data-placement="center"
   >
     <div
-      class="sc-FEMpB BJcTP aje-flex"
+      class="sc-bdDsCe iSrrdl aje-flex"
     >
       <div
-        class="sc-dycHyt jfVlHP aje-bouncing-dots is-medium"
+        class="sc-eCQgVK bGoxvh aje-bouncing-dots is-medium"
       >
         <span
-          class="sc-jbAkgO cvRUGp aje-bouncing-dots__dot"
+          class="sc-jSppWd ivXBdY aje-bouncing-dots__dot"
         />
         <span
-          class="sc-jbAkgO kBvnAC aje-bouncing-dots__dot"
+          class="sc-jSppWd iPVdAT aje-bouncing-dots__dot"
         />
         <span
-          class="sc-jbAkgO krnwhI aje-bouncing-dots__dot"
+          class="sc-jSppWd grkoUh aje-bouncing-dots__dot"
         />
       </div>
     </div>

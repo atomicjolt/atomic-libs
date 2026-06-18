@@ -6,13 +6,13 @@ exports[`View > Snapshots > should match snapshot 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="sc-FEMpB aje-view"
+        class="sc-bdDsCe aje-view"
       />
     </div>
   </body>,
   "container": <div>
     <div
-      class="sc-FEMpB aje-view"
+      class="sc-bdDsCe aje-view"
     />
   </div>,
   "debug": [Function],

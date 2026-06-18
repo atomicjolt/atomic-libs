@@ -6,10 +6,10 @@ exports[`MultiSelect > matches default variant 1`] = `
     data-react-aria-hidden="true"
   />
   <div
-    class="sc-gQJZgv hPjVTq aje-multiselect sc-bCjwNj jnfLbf aje-multiselect aje-multiselect--default"
+    class="sc-ivKqQM hinzSz aje-multiselect sc-cxxQMU hRNRje aje-multiselect aje-multiselect--default"
   >
     <label
-      class="sc-dVBluf eSKkgA"
+      class="sc-dkXsAU bCsPXP"
       for="react-aria-:r2:"
       id="react-aria-:r3:"
     >
@@ -19,7 +19,7 @@ exports[`MultiSelect > matches default variant 1`] = `
       aria-expanded="false"
       aria-haspopup="listbox"
       aria-labelledby="react-aria-:r7: react-aria-:r3:"
-      class="sc-cMqPwU fLpmHx aje-btn aje-btn--dropdown is-medium"
+      class="sc-jrIDTr hLlmew aje-btn aje-btn--dropdown is-medium"
       id="react-aria-:r2:"
       tabindex="0"
       type="button"
@@ -27,7 +27,7 @@ exports[`MultiSelect > matches default variant 1`] = `
       Select an option
       <i
         aria-hidden="true"
-        class="sc-jBIHhB dShSRo aje-icon material-icons is-medium"
+        class="sc-qdQOe fAeGwC aje-icon material-icons is-medium"
         style="margin-left: auto;"
       >
         arrow_drop_down
@@ -43,16 +43,16 @@ exports[`MultiSelect > matches floating variant 1`] = `
     data-react-aria-hidden="true"
   />
   <div
-    class="sc-gQJZgv hPjVTq aje-multiselect sc-bCjwNj jnfLbf aje-multiselect aje-multiselect--floating aje-multiselect--floating"
+    class="sc-ivKqQM hinzSz aje-multiselect sc-cxxQMU hRNRje aje-multiselect aje-multiselect--floating aje-multiselect--floating"
   >
     <div
-      class="sc-flQbIK llRNxW"
+      class="sc-bCgoVd kvFozl"
     >
       <button
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-labelledby="react-aria-:rf: react-aria-:rb:"
-        class="sc-cMqPwU fLpmHx aje-btn aje-btn--dropdown is-medium"
+        class="sc-jrIDTr hLlmew aje-btn aje-btn--dropdown is-medium"
         data-float="true"
         id="react-aria-:ra:"
         tabindex="0"
@@ -60,14 +60,14 @@ exports[`MultiSelect > matches floating variant 1`] = `
       >
         <i
           aria-hidden="true"
-          class="sc-jBIHhB dShSRo aje-icon material-icons is-medium"
+          class="sc-qdQOe fAeGwC aje-icon material-icons is-medium"
           style="margin-left: auto;"
         >
           arrow_drop_down
         </i>
       </button>
       <label
-        class="sc-dVBluf eSKkgA"
+        class="sc-dkXsAU bCsPXP"
         for="react-aria-:ra:"
         id="react-aria-:rb:"
       >

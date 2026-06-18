@@ -6,10 +6,10 @@ exports[`ScrollArea > Snapshots > should match snapshot with basic structure 1`]
   "baseElement": <body>
     <div>
       <div
-        class="sc-FEMpB bspVW aje-scrollarea"
+        class="sc-bdDsCe immpVy aje-scrollarea"
       >
         <div
-          class="sc-gjcoXW bIfMbm aje-scrollarea__viewport"
+          class="sc-gtcBCx eymZHW aje-scrollarea__viewport"
           style="height: 200px; width: 300px;"
         >
           <div
@@ -25,10 +25,10 @@ exports[`ScrollArea > Snapshots > should match snapshot with basic structure 1`]
   </body>,
   "container": <div>
     <div
-      class="sc-FEMpB bspVW aje-scrollarea"
+      class="sc-bdDsCe immpVy aje-scrollarea"
     >
       <div
-        class="sc-gjcoXW bIfMbm aje-scrollarea__viewport"
+        class="sc-gtcBCx eymZHW aje-scrollarea__viewport"
         style="height: 200px; width: 300px;"
       >
         <div
@@ -101,10 +101,10 @@ exports[`ScrollArea > Snapshots > should match snapshot with both scrollbars 1`]
   "baseElement": <body>
     <div>
       <div
-        class="sc-FEMpB bspVW aje-scrollarea"
+        class="sc-bdDsCe immpVy aje-scrollarea"
       >
         <div
-          class="sc-gjcoXW bIfMbm aje-scrollarea__viewport"
+          class="sc-gtcBCx eymZHW aje-scrollarea__viewport"
           style="height: 200px; width: 300px;"
         >
           <div
@@ -120,10 +120,10 @@ exports[`ScrollArea > Snapshots > should match snapshot with both scrollbars 1`]
   </body>,
   "container": <div>
     <div
-      class="sc-FEMpB bspVW aje-scrollarea"
+      class="sc-bdDsCe immpVy aje-scrollarea"
     >
       <div
-        class="sc-gjcoXW bIfMbm aje-scrollarea__viewport"
+        class="sc-gtcBCx eymZHW aje-scrollarea__viewport"
         style="height: 200px; width: 300px;"
       >
         <div
@@ -196,10 +196,10 @@ exports[`ScrollArea > Snapshots > should match snapshot with custom root props 1
   "baseElement": <body>
     <div>
       <div
-        class="sc-FEMpB bspVW aje-scrollarea custom-scroll-area"
+        class="sc-bdDsCe immpVy aje-scrollarea custom-scroll-area"
       >
         <div
-          class="sc-gjcoXW bIfMbm aje-scrollarea__viewport"
+          class="sc-gtcBCx eymZHW aje-scrollarea__viewport"
         >
           <div
             style="height: 400px; width: 600px;"
@@ -214,10 +214,10 @@ exports[`ScrollArea > Snapshots > should match snapshot with custom root props 1
   </body>,
   "container": <div>
     <div
-      class="sc-FEMpB bspVW aje-scrollarea custom-scroll-area"
+      class="sc-bdDsCe immpVy aje-scrollarea custom-scroll-area"
     >
       <div
-        class="sc-gjcoXW bIfMbm aje-scrollarea__viewport"
+        class="sc-gtcBCx eymZHW aje-scrollarea__viewport"
       >
         <div
           style="height: 400px; width: 600px;"
@@ -289,10 +289,10 @@ exports[`ScrollArea > Snapshots > should match snapshot with horizontal scrollba
   "baseElement": <body>
     <div>
       <div
-        class="sc-FEMpB bspVW aje-scrollarea"
+        class="sc-bdDsCe immpVy aje-scrollarea"
       >
         <div
-          class="sc-gjcoXW bIfMbm aje-scrollarea__viewport"
+          class="sc-gtcBCx eymZHW aje-scrollarea__viewport"
           style="height: 200px; width: 300px;"
         >
           <div
@@ -308,10 +308,10 @@ exports[`ScrollArea > Snapshots > should match snapshot with horizontal scrollba
   </body>,
   "container": <div>
     <div
-      class="sc-FEMpB bspVW aje-scrollarea"
+      class="sc-bdDsCe immpVy aje-scrollarea"
     >
       <div
-        class="sc-gjcoXW bIfMbm aje-scrollarea__viewport"
+        class="sc-gtcBCx eymZHW aje-scrollarea__viewport"
         style="height: 200px; width: 300px;"
       >
         <div
@@ -384,10 +384,10 @@ exports[`ScrollArea > Snapshots > should match snapshot with scrollbar props 1`]
   "baseElement": <body>
     <div>
       <div
-        class="sc-FEMpB bspVW aje-scrollarea"
+        class="sc-bdDsCe immpVy aje-scrollarea"
       >
         <div
-          class="sc-gjcoXW bIfMbm aje-scrollarea__viewport"
+          class="sc-gtcBCx eymZHW aje-scrollarea__viewport"
           style="height: 200px; width: 300px;"
         >
           <div
@@ -399,25 +399,25 @@ exports[`ScrollArea > Snapshots > should match snapshot with scrollbar props 1`]
           </div>
         </div>
         <div
-          class="sc-dycHyt bIzKlf aje-flex aje-scrollarea__scrollbar"
+          class="sc-eCQgVK dZxkrY aje-flex aje-scrollarea__scrollbar"
           style="height: 0px; visibility: hidden;"
         >
           <button
             aria-label="Scroll retreat vertically"
-            class="sc-gNZgCX sc-kfeOyU cHjvIr huOvKw aje-btn aje-icon-btn aje-btn--scrollbar is-medium"
+            class="sc-gKkgUA sc-iCECmn SsqCX jtBKzn aje-btn aje-icon-btn aje-btn--scrollbar is-medium"
             data-icon-button="true"
             tabindex="0"
             type="button"
           >
             <i
               aria-hidden="true"
-              class="sc-jbAkgO jwsDCd aje-icon material-icons is-medium"
+              class="sc-jSppWd gsVrle aje-icon material-icons is-medium"
             >
               arrow_drop_up
             </i>
           </button>
           <div
-            class="sc-dVBluf fiQAHo"
+            class="sc-dkXsAU hPFgsg"
             data-active="false"
             data-orientation="vertical"
           >
@@ -427,7 +427,7 @@ exports[`ScrollArea > Snapshots > should match snapshot with scrollbar props 1`]
               aria-valuemax="0"
               aria-valuemin="0"
               aria-valuenow="0"
-              class="sc-fLDLck jHHghy"
+              class="sc-hKVpXn fykFWE"
               data-active="false"
               role="scrollbar"
               style="height: 100%; top: 0%;"
@@ -436,14 +436,14 @@ exports[`ScrollArea > Snapshots > should match snapshot with scrollbar props 1`]
           </div>
           <button
             aria-label="Scroll advance vertically"
-            class="sc-gNZgCX sc-kfeOyU cHjvIr huOvKw aje-btn aje-icon-btn aje-btn--scrollbar is-medium"
+            class="sc-gKkgUA sc-iCECmn SsqCX jtBKzn aje-btn aje-icon-btn aje-btn--scrollbar is-medium"
             data-icon-button="true"
             tabindex="0"
             type="button"
           >
             <i
               aria-hidden="true"
-              class="sc-jbAkgO jwsDCd aje-icon material-icons is-medium"
+              class="sc-jSppWd gsVrle aje-icon material-icons is-medium"
             >
               arrow_drop_down
             </i>
@@ -454,10 +454,10 @@ exports[`ScrollArea > Snapshots > should match snapshot with scrollbar props 1`]
   </body>,
   "container": <div>
     <div
-      class="sc-FEMpB bspVW aje-scrollarea"
+      class="sc-bdDsCe immpVy aje-scrollarea"
     >
       <div
-        class="sc-gjcoXW bIfMbm aje-scrollarea__viewport"
+        class="sc-gtcBCx eymZHW aje-scrollarea__viewport"
         style="height: 200px; width: 300px;"
       >
         <div
@@ -469,25 +469,25 @@ exports[`ScrollArea > Snapshots > should match snapshot with scrollbar props 1`]
         </div>
       </div>
       <div
-        class="sc-dycHyt bIzKlf aje-flex aje-scrollarea__scrollbar"
+        class="sc-eCQgVK dZxkrY aje-flex aje-scrollarea__scrollbar"
         style="height: 0px; visibility: hidden;"
       >
         <button
           aria-label="Scroll retreat vertically"
-          class="sc-gNZgCX sc-kfeOyU cHjvIr huOvKw aje-btn aje-icon-btn aje-btn--scrollbar is-medium"
+          class="sc-gKkgUA sc-iCECmn SsqCX jtBKzn aje-btn aje-icon-btn aje-btn--scrollbar is-medium"
           data-icon-button="true"
           tabindex="0"
           type="button"
         >
           <i
             aria-hidden="true"
-            class="sc-jbAkgO jwsDCd aje-icon material-icons is-medium"
+            class="sc-jSppWd gsVrle aje-icon material-icons is-medium"
           >
             arrow_drop_up
           </i>
         </button>
         <div
-          class="sc-dVBluf fiQAHo"
+          class="sc-dkXsAU hPFgsg"
           data-active="false"
           data-orientation="vertical"
         >
@@ -497,7 +497,7 @@ exports[`ScrollArea > Snapshots > should match snapshot with scrollbar props 1`]
             aria-valuemax="0"
             aria-valuemin="0"
             aria-valuenow="0"
-            class="sc-fLDLck jHHghy"
+            class="sc-hKVpXn fykFWE"
             data-active="false"
             role="scrollbar"
             style="height: 100%; top: 0%;"
@@ -506,14 +506,14 @@ exports[`ScrollArea > Snapshots > should match snapshot with scrollbar props 1`]
         </div>
         <button
           aria-label="Scroll advance vertically"
-          class="sc-gNZgCX sc-kfeOyU cHjvIr huOvKw aje-btn aje-icon-btn aje-btn--scrollbar is-medium"
+          class="sc-gKkgUA sc-iCECmn SsqCX jtBKzn aje-btn aje-icon-btn aje-btn--scrollbar is-medium"
           data-icon-button="true"
           tabindex="0"
           type="button"
         >
           <i
             aria-hidden="true"
-            class="sc-jbAkgO jwsDCd aje-icon material-icons is-medium"
+            class="sc-jSppWd gsVrle aje-icon material-icons is-medium"
           >
             arrow_drop_down
           </i>
@@ -581,10 +581,10 @@ exports[`ScrollArea > Snapshots > should match snapshot with vertical scrollbar 
   "baseElement": <body>
     <div>
       <div
-        class="sc-FEMpB bspVW aje-scrollarea"
+        class="sc-bdDsCe immpVy aje-scrollarea"
       >
         <div
-          class="sc-gjcoXW bIfMbm aje-scrollarea__viewport"
+          class="sc-gtcBCx eymZHW aje-scrollarea__viewport"
           style="height: 200px; width: 300px;"
         >
           <div
@@ -600,10 +600,10 @@ exports[`ScrollArea > Snapshots > should match snapshot with vertical scrollbar 
   </body>,
   "container": <div>
     <div
-      class="sc-FEMpB bspVW aje-scrollarea"
+      class="sc-bdDsCe immpVy aje-scrollarea"
     >
       <div
-        class="sc-gjcoXW bIfMbm aje-scrollarea__viewport"
+        class="sc-gtcBCx eymZHW aje-scrollarea__viewport"
         style="height: 200px; width: 300px;"
       >
         <div

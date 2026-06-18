@@ -10,7 +10,7 @@ exports[`ProgressCircle > Snapshots > should match snapshot 1`] = `
         aria-valuemin="0"
         aria-valuenow="0"
         aria-valuetext="0%"
-        class="sc-fLDLck iBnMzL aje-progresscircle"
+        class="sc-hKVpXn fCZpCC aje-progresscircle"
         height="60"
         id="react-aria-:r0:"
         role="progressbar"
@@ -18,20 +18,20 @@ exports[`ProgressCircle > Snapshots > should match snapshot 1`] = `
         width="60"
       >
         <circle
-          class="sc-dVBluf fwCXlP"
+          class="sc-dkXsAU laHqZS"
           cx="22"
           cy="22"
           r="16"
         />
         <circle
-          class="sc-gjcoXW ldIGnd"
+          class="sc-gtcBCx caNSzo"
           cx="22"
           cy="22"
           r="16"
           stroke-width="10"
         />
         <circle
-          class="sc-FEMpB hOofgi"
+          class="sc-bdDsCe efvArf"
           cx="22"
           cy="22"
           r="16"
@@ -48,7 +48,7 @@ exports[`ProgressCircle > Snapshots > should match snapshot 1`] = `
       aria-valuemin="0"
       aria-valuenow="0"
       aria-valuetext="0%"
-      class="sc-fLDLck iBnMzL aje-progresscircle"
+      class="sc-hKVpXn fCZpCC aje-progresscircle"
       height="60"
       id="react-aria-:r0:"
       role="progressbar"
@@ -56,20 +56,20 @@ exports[`ProgressCircle > Snapshots > should match snapshot 1`] = `
       width="60"
     >
       <circle
-        class="sc-dVBluf fwCXlP"
+        class="sc-dkXsAU laHqZS"
         cx="22"
         cy="22"
         r="16"
       />
       <circle
-        class="sc-gjcoXW ldIGnd"
+        class="sc-gtcBCx caNSzo"
         cx="22"
         cy="22"
         r="16"
         stroke-width="10"
       />
       <circle
-        class="sc-FEMpB hOofgi"
+        class="sc-bdDsCe efvArf"
         cx="22"
         cy="22"
         r="16"
