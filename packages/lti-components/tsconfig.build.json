@@ -3,6 +3,7 @@
     "lib": ["ESNext", "dom"],
     "module": "ESNext",
     "target": "ESNext",
+    "rootDir": "./src",
     "outDir": "dist",
     "declarationDir": "types",
     "declaration": true,
