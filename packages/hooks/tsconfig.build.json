@@ -4,6 +4,7 @@
   "compilerOptions": {
     "outDir": "./dist",
     "declarationDir": "./dist/types",
-    "module": "ESNext"
+    "module": "esnext",
+    "moduleResolution": "bundler"
   }
 }

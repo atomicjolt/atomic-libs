@@ -1,6 +1,8 @@
 {
   "extends": "../../tsconfig.json",
+  "include": ["./src/*"],
   "compilerOptions": {
+    "rootDir": ".",
     "moduleResolution": "bundler",
     "module": "preserve",
     "outDir": "dist/esm",
