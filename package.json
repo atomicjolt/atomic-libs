@@ -58,6 +58,7 @@
     "jsdom": "^26.0.0",
     "simple-scaffold": "^2.3.2",
     "storybook": "^8.6.17",
+    "styled-components": "^6.4.2",
     "ts-patch": "^4.0.1",
     "tsx": "^4.19.2",
     "typescript": "^6.0.0",
