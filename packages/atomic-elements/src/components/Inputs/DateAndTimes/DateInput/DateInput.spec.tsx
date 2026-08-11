@@ -2,9 +2,12 @@ import { describe, test, expect } from "vitest";
 import { render } from "@testing-library/react";
 import { parseDate, now, getLocalTimeZone } from "@internationalized/date";
 import { DateInput } from ".";
+import { freezeTime } from "../../../../test/freezeTime";
 
 describe("DateInput", () => {
   describe("matches snapshots", () => {
+    freezeTime();
+
     const shared = {
       label: "Date Input",
       message: "Select a date",
