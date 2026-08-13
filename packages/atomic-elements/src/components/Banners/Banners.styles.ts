@@ -14,15 +14,14 @@ export const StyledBanner = styled.div`
   align-items: flex-start;
   gap: 4px;
 
-  & > .aje-banner__icon-container {
+  /** Legacy support for icons rendered directly inside a Banner.
+   * Prefer \`Banner.Icon\`, which aligns the icon with the Banner's buttons */
+  & > i {
     height: var(--banner-btn-size);
     width: var(--banner-btn-size);
     display: grid;
     place-items: center;
-
-    & > i {
-      color: var(--banner-icon-clr);
-    }
+    color: var(--banner-icon-clr);
   }
 
   &.aje-banner {
@@ -91,6 +90,14 @@ export const StyledBanner = styled.div`
       outline-offset: 2px;
     }
   }
+`;
+
+export const StyledBannerIcon = styled.div`
+  height: var(--banner-btn-size);
+  width: var(--banner-btn-size);
+  display: grid;
+  place-items: center;
+  color: var(--banner-icon-clr);
 `;
 
 export const BannerContent = styled.div<MarginProps>`

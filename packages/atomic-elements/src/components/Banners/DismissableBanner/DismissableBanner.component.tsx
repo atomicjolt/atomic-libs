@@ -6,7 +6,6 @@ import {
   RenderBaseProps,
 } from "../../../types";
 import { useRenderProps } from "@hooks/useRenderProps";
-import { MaterialIcon } from "../../Icons/MaterialIcon";
 import { Banner, BannerVariants } from "../Banner";
 import { useTranslations } from "@hooks/useTranslations";
 
@@ -52,11 +51,7 @@ export const DismissableBanner = forwardRef<
 
   return (
     <Banner ref={ref} variant={variant} {...rest}>
-      {icon && (
-        <div className="aje-banner__icon-container">
-          <MaterialIcon icon={icon} variant={iconVariant} />
-        </div>
-      )}
+      {icon && <Banner.Icon icon={icon} variant={iconVariant} />}
       <Banner.Content>{renderProps.children}</Banner.Content>
       {onDismiss && (
         <Banner.IconButton
