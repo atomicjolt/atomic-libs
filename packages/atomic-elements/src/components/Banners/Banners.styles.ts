@@ -14,12 +14,15 @@ export const StyledBanner = styled.div`
   align-items: flex-start;
   gap: 4px;
 
-  & > i {
+  & > .aje-banner__icon-container {
     height: var(--banner-btn-size);
     width: var(--banner-btn-size);
     display: grid;
     place-items: center;
-    color: var(--banner-icon-clr);
+
+    & > i {
+      color: var(--banner-icon-clr);
+    }
   }
 
   &.aje-banner {

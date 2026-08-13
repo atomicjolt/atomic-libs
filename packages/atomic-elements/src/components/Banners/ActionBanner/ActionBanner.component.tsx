@@ -48,7 +48,11 @@ export const ActionBanner = forwardRef<HTMLDivElement, ActionBannerProps>(
 
     return (
       <Banner ref={ref} {...renderProps} {...rest}>
-        {icon && <MaterialIcon icon={icon} variant={iconVariant} />}
+        {icon && (
+          <div className="aje-banner__icon-container">
+            <MaterialIcon icon={icon} variant={iconVariant} />
+          </div>
+        )}
         <Banner.Content>{renderProps.children}</Banner.Content>
         <Banner.Button variant={buttonVariant} onPress={onPress}>
           {buttonText}

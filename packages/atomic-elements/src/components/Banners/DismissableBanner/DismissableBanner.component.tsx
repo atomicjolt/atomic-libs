@@ -52,7 +52,11 @@ export const DismissableBanner = forwardRef<
 
   return (
     <Banner ref={ref} variant={variant} {...rest}>
-      {icon && <MaterialIcon icon={icon} variant={iconVariant} />}
+      {icon && (
+        <div className="aje-banner__icon-container">
+          <MaterialIcon icon={icon} variant={iconVariant} />
+        </div>
+      )}
       <Banner.Content>{renderProps.children}</Banner.Content>
       {onDismiss && (
         <Banner.IconButton
