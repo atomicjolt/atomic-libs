@@ -31,22 +31,17 @@ export const ActionBanner = forwardRef<HTMLDivElement, ActionBannerProps>(
       buttonVariant = "inverted",
       buttonText,
       onPress,
-      className,
-      style,
       children,
       ...rest
     } = props;
 
     const renderProps = useRenderProps({
       componentClassName: "aje-banner",
-      className,
-      style,
-      variant,
       children,
     });
 
     return (
-      <Banner ref={ref} {...renderProps} {...rest}>
+      <Banner ref={ref} variant={variant} {...rest}>
         {icon && <Banner.Icon icon={icon} variant={iconVariant} />}
         <Banner.Content>{renderProps.children}</Banner.Content>
         <Banner.Button variant={buttonVariant} onPress={onPress}>
