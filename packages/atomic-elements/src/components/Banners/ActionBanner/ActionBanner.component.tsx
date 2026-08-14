@@ -5,7 +5,6 @@ import {
   MaterialIcons,
   RenderBaseProps,
 } from "../../../types";
-import { MaterialIcon } from "../../Icons/MaterialIcon";
 import { Banner, BannerVariants } from "../Banner";
 import { ButtonVariants } from "../../Buttons/Button";
 import { useRenderProps } from "@hooks";
@@ -32,23 +31,18 @@ export const ActionBanner = forwardRef<HTMLDivElement, ActionBannerProps>(
       buttonVariant = "inverted",
       buttonText,
       onPress,
-      className,
-      style,
       children,
       ...rest
     } = props;
 
     const renderProps = useRenderProps({
       componentClassName: "aje-banner",
-      className,
-      style,
-      variant,
       children,
     });
 
     return (
-      <Banner ref={ref} {...renderProps} {...rest}>
-        {icon && <MaterialIcon icon={icon} variant={iconVariant} />}
+      <Banner ref={ref} variant={variant} {...rest}>
+        {icon && <Banner.Icon icon={icon} variant={iconVariant} />}
         <Banner.Content>{renderProps.children}</Banner.Content>
         <Banner.Button variant={buttonVariant} onPress={onPress}>
           {buttonText}

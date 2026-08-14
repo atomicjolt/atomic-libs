@@ -3,14 +3,18 @@
 exports[`LoadingStatus > matches error snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-iCECmn jdNlZf aje-banner aje-banner--error"
+    class="sc-gKkgUA eYpSlh aje-banner aje-banner--error"
   >
-    <i
-      aria-hidden="true"
-      class="sc-gKkgUA fKXEOU aje-icon material-icons is-medium"
+    <div
+      class="sc-iCECmn NCA-Dz aje-banner__icon"
     >
-      error
-    </i>
+      <i
+        aria-hidden="true"
+        class="sc-jrIDTr gQvmgr aje-icon material-icons is-medium"
+      >
+        error
+      </i>
+    </div>
     <div
       class="sc-fuztkK jgmfqx"
     >
