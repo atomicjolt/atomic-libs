@@ -1,5 +1,13 @@
 # @atomicjolt/atomic-elements
 
+## 3.9.0
+
+### Minor Changes
+
+- f9adc5c: Added a Banner.Icon component that correctly positions Material Icons
+
+  Fix duplicate class names applied to ActionBanner
+
 ## 3.8.0
 
 ### Minor Changes
