@@ -46,8 +46,6 @@ export function NumberField(props: NumberFieldProps) {
     inputRef
   );
 
-  console.log("input value:", inputRef.current?.value);
-
   const renderProps = useRenderProps({
     ...props,
     componentClassName: "aje-input__number",
