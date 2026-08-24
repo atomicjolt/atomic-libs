@@ -33,13 +33,6 @@ const InputVariants = css`
       outline: none;
     }
 
-    ${StyledComboInput}:focus-within, &[data-has-value] {
-      --input-bg-clr: var(--neutral50);
-      input {
-        --input-border-clr: none;
-      }
-    }
-
     input:focus ~ label,
     &[data-has-value] label,
     ${StyledComboInput}:focus-within ~ label {
@@ -51,12 +44,10 @@ const InputVariants = css`
     }
 
     input:hover {
-      --input-border-clr: var(--neutral500);
       box-shadow: 0 0 0 1px var(--input-border-clr);
     }
 
     ${StyledComboInput} input:hover {
-      --input-border-clr: none;
       box-shadow: none;
     }
 
