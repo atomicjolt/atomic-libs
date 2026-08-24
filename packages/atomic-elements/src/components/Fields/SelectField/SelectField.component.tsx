@@ -92,6 +92,7 @@ export function SelectFieldInner<T extends object>(
       "data-disabled": isDisabled,
       "data-required": isRequired,
       "data-readonly": isReadOnly,
+      "data-has-value": !!state.selectedKey,
     },
   });
 
