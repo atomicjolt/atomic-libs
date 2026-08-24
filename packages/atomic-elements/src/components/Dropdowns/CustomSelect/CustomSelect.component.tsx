@@ -51,9 +51,6 @@ export const CustomSelect = forwardRef(function CustomSelect<T extends object>(
   const renderProps = useRenderProps({
     componentClassName: "aje-select",
     variant,
-    selectors: {
-      "data-float": !!props.selectedKey && variant === "floating",
-    },
   });
 
   const buttonVariant = buttonVariantMap[variant] ?? "dropdown";

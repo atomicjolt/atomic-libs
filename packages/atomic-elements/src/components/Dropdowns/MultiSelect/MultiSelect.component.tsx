@@ -32,7 +32,7 @@ export function MultiSelect<T extends object>(props: MultiSelectProps<T>) {
     error,
     message,
     placeholder = "Select an option",
-    selectionPlaceholder = placeholder,
+    selectionPlaceholder = "Items selected",
     variant = "default",
     maxHeight = 300,
     dropdownPlacement = "bottom start",
@@ -41,9 +41,6 @@ export function MultiSelect<T extends object>(props: MultiSelectProps<T>) {
   const renderProps = useRenderProps({
     componentClassName: "aje-multiselect",
     variant,
-    selectors: {
-      "data-float": variant === "floating",
-    },
   });
 
   const buttonVariant = buttonVariantMap[variant] ?? "dropdown";

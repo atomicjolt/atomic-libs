@@ -106,6 +106,7 @@ function ComboBoxFieldInner<T extends object>(
       "data-readonly": isReadOnly,
       "data-required": isRequired,
       "data-invalid": isInvalid,
+      "data-has-value": !!state.inputValue || state.isFocused,
     },
   });
 

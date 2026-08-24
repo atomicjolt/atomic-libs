@@ -7,13 +7,8 @@ import { StyledComboInput } from "../Fields/ComboInput";
 
 const InputVariants = css`
   &.aje-input--floating {
-    --input-height: 48px;
-    --input-padding-horiz: 1em;
-    --input-bg-clr: var(--neutral100);
     --input-transition: 100ms ease;
-
     --floating-font-size: 1.6rem;
-    --floating-label-clr: var(--text-clr-alt);
 
     label {
       ${mixins.Regular}
@@ -38,7 +33,7 @@ const InputVariants = css`
       outline: none;
     }
 
-    ${StyledComboInput}:focus-within, &[data-float] {
+    ${StyledComboInput}:focus-within, &[data-has-value] {
       --input-bg-clr: var(--neutral50);
       input {
         --input-border-clr: none;
@@ -46,7 +41,7 @@ const InputVariants = css`
     }
 
     input:focus ~ label,
-    &[data-float] label,
+    &[data-has-value] label,
     ${StyledComboInput}:focus-within ~ label {
       top: 0px;
       left: 1em;
