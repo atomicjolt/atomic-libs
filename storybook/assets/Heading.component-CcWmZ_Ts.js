@@ -1,0 +1,6 @@
+import{j as d}from"./jsx-runtime-D_zvdyIk.js";import{r as m}from"./index-BCtMShv3.js";import{c as u,u as p}from"./index-CsiUWFDz.js";import{u as c}from"./useRenderProps-CP918x9p.js";import{g as f}from"./styled-components.browser.esm-DC3GK9Rn.js";import{a as g,m as y}from"./layout-SmZ-geAZ.js";import{t as h}from"./typography-B_qJ0BtB.js";import{t as v}from"./colors-x_YFGAop.js";const x=u(),H=f.h1`
+  ${h.defaults({$size:"6"})}
+  ${y.defaults({$m:"0"})}
+  ${v.defaults({$color:"text-clr"})}
+  ${g}
+`,r=m.forwardRef(function(e,a){[e,a]=p(x,e,a);const{className:n,style:o,children:l,...i}=e,t=c({componentClassName:"aje-heading",className:n,style:o,children:l});return d.jsx(H,{ref:a,...t,...i,children:t.children})});r.displayName="Heading";try{r.displayName="Heading",r.__docgenInfo={description:"",displayName:"Heading",props:{as:{defaultValue:null,description:"",name:"as",required:!1,type:{name:"enum",value:[{value:"undefined"},{value:'"h1"'},{value:'"h2"'},{value:'"h3"'},{value:'"h4"'},{value:'"h5"'},{value:'"h6"'}]}},className:{defaultValue:null,description:"",name:"className",required:!1,type:{name:"RenderClassName<never>"}},style:{defaultValue:null,description:"",name:"style",required:!1,type:{name:"RenderStyle<never> | undefined"}}}}}catch{}export{r as H};
