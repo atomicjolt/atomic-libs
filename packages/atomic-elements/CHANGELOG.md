@@ -1,5 +1,11 @@
 # @atomicjolt/atomic-elements
 
+## 3.9.2
+
+### Patch Changes
+
+- fix style problems with floating TextInput
+
 ## 3.9.1
 
 ### Patch Changes
