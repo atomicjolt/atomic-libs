@@ -1,5 +1,21 @@
 # @atomicjolt/forms
 
+## 5.0.0
+
+### Patch Changes
+
+- Updated dependencies [f9adc5c]
+  - @atomicjolt/atomic-elements@3.9.0
+
+## 4.0.0
+
+### Patch Changes
+
+- Updated dependencies
+- Updated dependencies
+- Updated dependencies
+  - @atomicjolt/atomic-elements@3.8.0
+
 ## 3.7.3
 
 ### Patch Changes

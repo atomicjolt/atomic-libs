@@ -3,9 +3,12 @@ import { render } from "@testing-library/react";
 import { parseDate } from "@internationalized/date";
 import { DateField } from ".";
 import { Label, Message, ErrorMessage, ComboInput } from "../";
+import { freezeTime } from "../../../test/freezeTime";
 
 describe("DateField", () => {
   describe("matches snapshots", () => {
+    freezeTime();
+
     test("basic composition", () => {
       const result = render(
         <DateField>

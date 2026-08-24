@@ -33,12 +33,6 @@ export const NumberInput = React.forwardRef(
         className={classNames(className, {
           [`aje-input--${variant}`]: variant,
         })}
-        data-float={
-          (props.value !== undefined &&
-            props.value !== null &&
-            variant === "floating") ||
-          undefined
-        }
         {...rest}
       >
         <FloatingFieldInputWrapper
@@ -49,7 +43,16 @@ export const NumberInput = React.forwardRef(
         >
           <ComboInput padding="both">
             <FieldInput />
-            <Group $direction="column" isMerged>
+            <Group
+              $direction="column"
+              isMerged
+              // Shrink the size of the buttons so they fit nicely within the input field
+              style={
+                {
+                  "--btn-icon-size": "1.9rem",
+                } as React.CSSProperties
+              }
+            >
               <IconButton
                 slot="increment"
                 icon="arrow_drop_up"

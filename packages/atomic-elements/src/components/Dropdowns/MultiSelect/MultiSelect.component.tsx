@@ -7,7 +7,7 @@ import { Button } from "@components/Buttons/Button";
 import { MaterialIcon } from "@components/Icons/MaterialIcon";
 import { useRenderProps } from "@hooks/useRenderProps";
 import { MultiSelectStateContext } from "@components/Fields/MultiSelectField";
-import { StyledMultiSelectField } from "./MultiSelect.styles";
+import { ButtonText, StyledMultiSelectField } from "./MultiSelect.styles";
 import { AriaMultiSelectProps } from "../../Fields/MultiSelectField";
 
 export interface MultiSelectProps<T extends object>
@@ -32,7 +32,7 @@ export function MultiSelect<T extends object>(props: MultiSelectProps<T>) {
     error,
     message,
     placeholder = "Select an option",
-    selectionPlaceholder = placeholder,
+    selectionPlaceholder = "Items selected",
     variant = "default",
     maxHeight = 300,
     dropdownPlacement = "bottom start",
@@ -41,9 +41,6 @@ export function MultiSelect<T extends object>(props: MultiSelectProps<T>) {
   const renderProps = useRenderProps({
     componentClassName: "aje-multiselect",
     variant,
-    selectors: {
-      "data-float": variant === "floating",
-    },
   });
 
   const buttonVariant = buttonVariantMap[variant] ?? "dropdown";
@@ -87,15 +84,15 @@ function MultiSelectText(props: MultiSelectTextProps) {
 
   if (variant === "floating") {
     if (state.selectionManager.selectedKeys.size > 0) {
-      return selectionPlaceholder;
+      return <ButtonText>{selectionPlaceholder}</ButtonText>;
     }
 
     return "";
   }
 
   if (state.selectionManager.selectedKeys.size > 0) {
-    return selectionPlaceholder;
+    return <ButtonText>{selectionPlaceholder}</ButtonText>;
   }
 
-  return placeholder;
+  return <ButtonText>{placeholder}</ButtonText>;
 }

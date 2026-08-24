@@ -106,6 +106,7 @@ function ComboBoxFieldInner<T extends object>(
       "data-readonly": isReadOnly,
       "data-required": isRequired,
       "data-invalid": isInvalid,
+      "data-has-value": !!state.inputValue || state.isFocused,
     },
   });
 
@@ -126,6 +127,14 @@ function ComboBoxFieldInner<T extends object>(
               triggerRef: inputWrapperRef.current ? inputWrapperRef : inputRef,
               isOpen: state.isOpen,
               variant: "listbox",
+              // A ComboBox keeps focus in its own text input while the listbox
+              // is open, so its popover must not be modal. `usePopover`'s modal
+              // branch calls `ariaHideOutside(..., { shouldUseInert: true })`,
+              // which marks everything outside the popover `inert` — including
+              // the input that opened it, leaving it impossible to focus or
+              // type in. React Aria Components sets this on ComboBox popovers
+              // for the same reason.
+              isNonModal: true,
             },
           ],
           [ListBoxContext.Provider, listBoxProps],
