@@ -7,13 +7,8 @@ import { StyledComboInput } from "../Fields/ComboInput";
 
 const InputVariants = css`
   &.aje-input--floating {
-    --input-height: 48px;
-    --input-padding-horiz: 1em;
-    --input-bg-clr: var(--neutral100);
     --input-transition: 100ms ease;
-
     --floating-font-size: 1.6rem;
-    --floating-label-clr: var(--text-clr-alt);
 
     label {
       ${mixins.Regular}
@@ -38,15 +33,8 @@ const InputVariants = css`
       outline: none;
     }
 
-    ${StyledComboInput}:focus-within, &[data-float] {
-      --input-bg-clr: var(--neutral50);
-      input {
-        --input-border-clr: none;
-      }
-    }
-
     input:focus ~ label,
-    &[data-float] label,
+    &[data-has-value] label,
     ${StyledComboInput}:focus-within ~ label {
       top: 0px;
       left: 1em;
@@ -56,12 +44,10 @@ const InputVariants = css`
     }
 
     input:hover {
-      --input-border-clr: var(--neutral500);
       box-shadow: 0 0 0 1px var(--input-border-clr);
     }
 
     ${StyledComboInput} input:hover {
-      --input-border-clr: none;
       box-shadow: none;
     }
 

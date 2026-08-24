@@ -84,6 +84,7 @@ export function MultiSelectFieldInner<T extends object>(
       "data-disabled": isDisabled,
       "data-required": isRequired,
       "data-readonly": isReadOnly,
+      "data-has-value": !!state.selectionManager.selectedKeys.size,
     },
   });
 
