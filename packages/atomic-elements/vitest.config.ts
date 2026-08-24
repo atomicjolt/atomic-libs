@@ -29,5 +29,10 @@ export default defineConfig({
   test: {
     environment: "jsdom",
     setupFiles: ["./vitest.setup.ts"],
+    // Date/time components render in the local zone, so pin it to keep
+    // snapshots identical across machines and CI.
+    env: {
+      TZ: "UTC",
+    },
   },
 });

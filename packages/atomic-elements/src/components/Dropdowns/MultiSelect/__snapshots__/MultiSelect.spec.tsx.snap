@@ -6,7 +6,7 @@ exports[`MultiSelect > matches default variant 1`] = `
     data-react-aria-hidden="true"
   />
   <div
-    class="sc-ivKqQM hinzSz aje-multiselect sc-cxxQMU hRNRje aje-multiselect aje-multiselect--default"
+    class="sc-ivKqQM hinzSz aje-multiselect sc-cxxQMU biZliu aje-multiselect aje-multiselect--default"
   >
     <label
       class="sc-dkXsAU bCsPXP"
@@ -24,7 +24,11 @@ exports[`MultiSelect > matches default variant 1`] = `
       tabindex="0"
       type="button"
     >
-      Select an option
+      <span
+        class="sc-llQYOh iZcyGh"
+      >
+        Select an option
+      </span>
       <i
         aria-hidden="true"
         class="sc-qdQOe fAeGwC aje-icon material-icons is-medium"
@@ -43,7 +47,7 @@ exports[`MultiSelect > matches floating variant 1`] = `
     data-react-aria-hidden="true"
   />
   <div
-    class="sc-ivKqQM hinzSz aje-multiselect sc-cxxQMU hRNRje aje-multiselect aje-multiselect--floating aje-multiselect--floating"
+    class="sc-ivKqQM hinzSz aje-multiselect sc-cxxQMU biZliu aje-multiselect aje-multiselect--floating aje-multiselect--floating"
   >
     <div
       class="sc-bCgoVd kvFozl"
@@ -53,7 +57,6 @@ exports[`MultiSelect > matches floating variant 1`] = `
         aria-haspopup="listbox"
         aria-labelledby="react-aria-:rf: react-aria-:rb:"
         class="sc-jrIDTr hLlmew aje-btn aje-btn--dropdown is-medium"
-        data-float="true"
         id="react-aria-:ra:"
         tabindex="0"
         type="button"

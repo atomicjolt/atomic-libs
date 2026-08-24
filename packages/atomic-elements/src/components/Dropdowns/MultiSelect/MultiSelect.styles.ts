@@ -7,3 +7,9 @@ export const StyledMultiSelectField = styled(MultiSelectField)`
     ${FloatingDropdown}
   }
 `;
+
+export const ButtonText = styled.span`
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+`;
