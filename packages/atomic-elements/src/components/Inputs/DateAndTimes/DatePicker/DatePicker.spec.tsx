@@ -2,9 +2,12 @@ import { describe, test, expect } from 'vitest';
 import { render } from '@testing-library/react';
 import { parseDate, now, getLocalTimeZone } from '@internationalized/date';
 import { DatePicker } from '.';
+import { freezeTime } from '../../../../test/freezeTime';
 
 describe('DatePicker', () => {
   describe('matches snapshots', () => {
+    freezeTime();
+
     const shared = {
       label: 'Date Picker',
       message: 'Select a date',

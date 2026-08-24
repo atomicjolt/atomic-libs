@@ -23,7 +23,7 @@ export const FloatingDropdown = css`
     left: 1em;
   }
 
-  &[data-float] {
+  &[data-has-value] {
     label {
       --floating-font-size: 1.4rem;
       transform: translateY(-50%);

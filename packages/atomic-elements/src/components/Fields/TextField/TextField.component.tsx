@@ -73,6 +73,7 @@ export function TextField(props: TextFieldProps) {
       "data-disabled": isDisabled,
       "data-readonly": isReadOnly,
       "data-required": isRequired,
+      "data-has-value": !!inputRef.current?.value,
     },
   });
 
