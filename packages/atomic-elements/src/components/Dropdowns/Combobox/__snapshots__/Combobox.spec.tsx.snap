@@ -6,7 +6,7 @@ exports[`matches snapshots > matches default variant 1`] = `
     data-react-aria-hidden="true"
   />
   <div
-    class="sc-ivKqQM hinzSz aje-combobox sc-cxxQMU jlrvPm is-medium"
+    class="sc-ivKqQM hinzSz aje-combobox sc-cxxQMU hpfxDi is-medium"
   >
     <label
       class="sc-crPgjm gzYIYu"
@@ -68,7 +68,7 @@ exports[`matches snapshots > matches floating variant 1`] = `
     data-react-aria-hidden="true"
   />
   <div
-    class="sc-ivKqQM hinzSz aje-combobox sc-cxxQMU jlrvPm aje-combobox--floating is-medium"
+    class="sc-ivKqQM hinzSz aje-combobox sc-cxxQMU hpfxDi aje-combobox--floating is-medium"
   >
     <div
       class="sc-bCgoVd kvFozl"
