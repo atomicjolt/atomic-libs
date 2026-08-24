@@ -36,7 +36,6 @@ export const TextInput = React.forwardRef(function TextInput(
       className={classNames(className, {
         [`aje-input--${variant}`]: variant,
       })}
-      data-float={(Boolean(props.value) && variant === "floating") || undefined}
       {...rest}
     >
       <FloatingFieldInputWrapper

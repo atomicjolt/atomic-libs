@@ -19,19 +19,11 @@ import { ComboInputContext } from "../ComboInput";
 
 export interface NumberFieldProps
   extends FieldProps,
-    Omit<AriaProps<AriaNumberFieldProps>, "placeholder"> {
-  "data-float"?: boolean;
-}
+    Omit<AriaProps<AriaNumberFieldProps>, "placeholder"> {}
 
 /** Provides the accessbility implementation for a number field and its associated label, error message, and description. */
 export function NumberField(props: NumberFieldProps) {
-  const {
-    isDisabled,
-    isRequired,
-    isReadOnly,
-    name,
-    "data-float": dataFloat,
-  } = props;
+  const { isDisabled, isRequired, isReadOnly, name } = props;
 
   const inputRef = useRef<HTMLInputElement | null>(null);
 
@@ -63,11 +55,12 @@ export function NumberField(props: NumberFieldProps) {
       "data-disabled": isDisabled,
       "data-readonly": isReadOnly,
       "data-required": isRequired,
+      "data-has-value": Boolean(String(inputRef.current?.value)),
     },
   });
 
   return (
-    <StyledField {...renderProps} data-float={dataFloat}>
+    <StyledField {...renderProps}>
       <Provider
         values={[
           [FieldLabelContext.Provider, labelProps],
