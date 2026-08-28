@@ -1,0 +1,7 @@
+import{g as p}from"./cssprops-DECR0Nbg.js";import{A as m}from"./helpers-Dg16nnrp.js";import{T as i}from"./ThreeDotLoader.component-KcnF0qP-.js";import"./jsx-runtime-D_zvdyIk.js";import"./styled-components.browser.esm-DC3GK9Rn.js";import"./index-BCtMShv3.js";import"./index-CuJa4tx4.js";import"./Collection-DjjOtLT0.js";import"./CollectionBuilder-D3rKkOdu.js";import"./index-q6RvvsFA.js";import"./index-D-fs5e6L.js";import"./useFocusable-DacP9xvE.js";import"./useObjectRef-D2RG7rRi.js";import"./SSRProvider-DyiXDq2k.js";import"./index-Km3Ox9s4.js";import"./spacing-Bd-CIscW.js";import"./scale-CqCDTNu0.js";import"./Loader.component-1e-F28hS.js";import"./filterDOMProps-CeZl_uWj.js";import"./useRenderProps-CP918x9p.js";import"./index-EJ0-2BeM.js";import"./mixins-CcgEHb9c.js";import"./Flex.component-C2PgiZIH.js";import"./index-CsiUWFDz.js";import"./layout-Dd7m2B0D.js";import"./utils-DqmNl-Il.js";import"./Checkmark.component-BsvhAJlZ.js";import"./BouncingDots.component-BYyj1uza.js";const w={title:"Feedback/ThreeDotLoader",component:i,parameters:{cssprops:p("Loader")},argTypes:{...m,message:{control:"text"}}},r={args:{isLoading:!0,placement:"center",message:"Spinning up the engines..."}};var t,e,o;r.parameters={...r.parameters,docs:{...(t=r.parameters)==null?void 0:t.docs,source:{originalSource:`{
+  args: {
+    isLoading: true,
+    placement: "center",
+    message: "Spinning up the engines..."
+  }
+}`,...(o=(e=r.parameters)==null?void 0:e.docs)==null?void 0:o.source}}};const z=["Primary"];export{r as Primary,z as __namedExportsOrder,w as default};

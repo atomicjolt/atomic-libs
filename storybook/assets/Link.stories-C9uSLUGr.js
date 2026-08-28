@@ -1,0 +1,8 @@
+import{g as e}from"./cssprops-DECR0Nbg.js";import{C as s,h as i,R as a,i as m}from"./helpers-Dg16nnrp.js";import{L as n}from"./Link.component-BtQnW_K8.js";import"./jsx-runtime-D_zvdyIk.js";import"./styled-components.browser.esm-DC3GK9Rn.js";import"./index-BCtMShv3.js";import"./index-CuJa4tx4.js";import"./Collection-DjjOtLT0.js";import"./CollectionBuilder-D3rKkOdu.js";import"./index-q6RvvsFA.js";import"./index-D-fs5e6L.js";import"./useFocusable-DacP9xvE.js";import"./useObjectRef-D2RG7rRi.js";import"./SSRProvider-DyiXDq2k.js";import"./index-Km3Ox9s4.js";import"./spacing-Bd-CIscW.js";import"./scale-CqCDTNu0.js";import"./useLink-DD4jtrk3.js";import"./filterDOMProps-CeZl_uWj.js";import"./usePress-CqXh5MnK.js";import"./useRenderProps-CP918x9p.js";import"./index-EJ0-2BeM.js";import"./typography-B_qJ0BtB.js";import"./layout-Dd7m2B0D.js";import"./utils-DqmNl-Il.js";import"./colors-x_YFGAop.js";const q={title:"Typography/Link",component:n,parameters:{layout:"centered",cssProps:e("Link")},argTypes:{...m,...a,...i,...s,as:{control:"select",options:["a","span"]},target:{control:"select",options:["_blank","_self","_parent","_top"]}}},r={args:{children:"Link",href:"https://atomicjolt.com",target:"_blank",$size:"4"}};var t,o,p;r.parameters={...r.parameters,docs:{...(t=r.parameters)==null?void 0:t.docs,source:{originalSource:`{
+  args: {
+    children: "Link",
+    href: "https://atomicjolt.com",
+    target: "_blank",
+    $size: "4"
+  }
+}`,...(p=(o=r.parameters)==null?void 0:o.docs)==null?void 0:p.source}}};const v=["Default"];export{r as Default,v as __namedExportsOrder,q as default};
