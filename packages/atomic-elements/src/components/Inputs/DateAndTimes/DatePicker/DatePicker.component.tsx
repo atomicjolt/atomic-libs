@@ -63,9 +63,9 @@ export function DatePicker<T extends DateValue>(props: DatePickerProps<T>) {
           {...fieldProps}
           size={size}
           style={{
-            // The props of DateInput can affect the width due to number of segments shown
-            // so we allow it grow larger than the default width constraints.
-            width: "unset",
+            // The props of DateInput can affect the width due to number of segments shown,
+            // so we shrink-to-fit the content but keep the default size as a floor.
+            width: "fit-content",
             minWidth: "var(--size-x)",
             ...renderProps.style,
           }}
