@@ -1,5 +1,5 @@
+import React, { forwardRef, type JSX } from "react";
 import { AriaComboBoxProps } from "@react-aria/combobox";
-
 import {
   AriaProps,
   CanHaveIcon,
@@ -14,10 +14,8 @@ import { ListBox } from "../ListBox";
 import { ComboInput, Input } from "../../Fields";
 import { MaterialIcon } from "@components/Icons/MaterialIcon";
 import { FloatingFieldInputWrapper } from "@components/Internal/FloatingFieldInputWrapper";
-import {
-  StyledComboBoxField,
-  StyledLoadingComboBox,
-} from "./Combobox.styles";
+import { StyledComboBoxField, StyledLoadingComboBox } from "./Combobox.styles";
+import { useRenderProps } from "@hooks";
 import { useLoading } from "@components/Feedback/Loading";
 
 export interface ComboBoxProps<T>
@@ -31,8 +29,6 @@ export interface ComboBoxProps<T>
 }
 
 /** Combox combinds a text input field with a dropdown list of options for the user to select from */
-import React, { forwardRef, type JSX } from "react";
-
 export const ComboBox = forwardRef(function ComboBox<T extends object>(
   props: ComboBoxProps<T>,
   ref: React.Ref<HTMLInputElement>
@@ -47,9 +43,17 @@ export const ComboBox = forwardRef(function ComboBox<T extends object>(
     variant = "default",
     maxHeight = 300,
     dropdownPlacement = "bottom start",
+    size = "medium",
   } = props;
 
   const { isLoading, loadingLabel } = useLoading(props);
+
+  const renderProps = useRenderProps({
+    componentClassName: "aje-combobox",
+    variant,
+    size,
+    ...props,
+  });
 
   if (isLoading) {
     return (

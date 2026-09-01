@@ -41,6 +41,7 @@ export function MultiSelect<T extends object>(props: MultiSelectProps<T>) {
     variant = "default",
     maxHeight = 300,
     dropdownPlacement = "bottom start",
+    size = "medium",
   } = props;
 
   const { isLoading, loadingLabel } = useLoading(props);
@@ -48,6 +49,8 @@ export function MultiSelect<T extends object>(props: MultiSelectProps<T>) {
   const renderProps = useRenderProps({
     componentClassName: "aje-multiselect",
     variant,
+    size,
+    ...props,
   });
 
   const buttonVariant = buttonVariantMap[variant] ?? "dropdown";

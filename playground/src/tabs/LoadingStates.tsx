@@ -4,6 +4,7 @@ import {
   CheckBox,
   ComboBox,
   CustomSelect,
+  ExtendedSize,
   FileInput,
   Flex,
   Heading,
@@ -22,7 +23,7 @@ import {
   TextAreaInput,
   TextInput,
   ToggleSwitch,
-} from "../elements";
+} from "@atomicjolt/atomic-elements";
 
 interface Data {
   name: string;
@@ -35,15 +36,30 @@ const data: Data = {
 };
 
 export default function LoadingStates() {
+  const [size, setSize] = useState<ExtendedSize>("medium");
   const [isLoading, setIsLoading] = useState(false);
   const [number, setNumber] = useState(0);
   const [maybeData, setMaybeData] = useState<Data | null>(null);
 
   return (
     <div style={{ padding: "16px" }}>
-      <ToggleSwitch isSelected={isLoading} onChange={setIsLoading}>
-        Loading
-      </ToggleSwitch>
+      <Flex $gap="2" $direction="column">
+        <ToggleSwitch isSelected={isLoading} onChange={setIsLoading}>
+          Loading
+        </ToggleSwitch>
+
+        <CustomSelect
+          label="Size"
+          selectedKey={size}
+          onSelectionChange={(key) => setSize(key as ExtendedSize)}
+        >
+          <Item id="small">Small</Item>
+          <Item id="medium">Medium</Item>
+          <Item id="large">Large</Item>
+          <Item id="auto">Auto</Item>
+          <Item id="full">Full</Item>
+        </CustomSelect>
+      </Flex>
       <hr />
       <Heading as="h2" $size="7">
         Local isLoading prop
@@ -55,12 +71,13 @@ export default function LoadingStates() {
         Button / IconButton
       </Heading>
       <Flex $gap="2">
-        <Button isLoading={isLoading} loadingLabel="Loading">
+        <Button size={size} isLoading={isLoading} loadingLabel="Loading">
           Submit
         </Button>{" "}
         <IconButton
           icon="add"
           aria-label="Add"
+          size={size}
           isLoading={isLoading}
           loadingLabel="Loading"
         />
@@ -73,7 +90,7 @@ export default function LoadingStates() {
         Subscribe to newsletter
       </CheckBox>
       <br />
-      <ToggleSwitch isLoading={isLoading} loadingLabel="Loading">
+      <ToggleSwitch size={size} isLoading={isLoading} loadingLabel="Loading">
         Enable notifications
       </ToggleSwitch>
       <br />
@@ -90,7 +107,12 @@ export default function LoadingStates() {
       <Heading as="h3" $size="5">
         FileInput
       </Heading>
-      <FileInput label="Upload" isLoading={isLoading} loadingLabel="Loading" />
+      <FileInput
+        label="Upload"
+        size={size}
+        isLoading={isLoading}
+        loadingLabel="Loading"
+      />
       <hr />
       <Heading as="h3" $size="5">
         CustomSelect / MultiSelect / ComboBox
@@ -98,6 +120,7 @@ export default function LoadingStates() {
       <CustomSelect
         label="Custom Select"
         placeholder="Select an item"
+        size={size}
         isLoading={isLoading}
         loadingLabel="Loading"
       >
@@ -108,6 +131,7 @@ export default function LoadingStates() {
       <br />
       <MultiSelect
         label="Multi Select"
+        size={size}
         isLoading={isLoading}
         loadingLabel="Loading"
       >
@@ -119,6 +143,7 @@ export default function LoadingStates() {
       <ComboBox
         label="Combo Box"
         placeholder="Select an item"
+        size={size}
         isLoading={isLoading}
         loadingLabel="Loading"
       >
@@ -134,6 +159,7 @@ export default function LoadingStates() {
         label="Number"
         value={number}
         onChange={setNumber}
+        size={size}
         isLoading={isLoading}
         loadingLabel="Loading"
       />
@@ -141,14 +167,21 @@ export default function LoadingStates() {
       <SearchInput
         label="Search"
         onSubmit={(value) => console.log(value)}
+        size={size}
         isLoading={isLoading}
         loadingLabel="Loading"
       />
       <br />
-      <TextInput label="Text" isLoading={isLoading} loadingLabel="Loading" />
+      <TextInput
+        label="Text"
+        size={size}
+        isLoading={isLoading}
+        loadingLabel="Loading"
+      />
       <br />
       <TextAreaInput
         label="Text Area"
+        size={size}
         isLoading={isLoading}
         loadingLabel="Loading"
       />
@@ -156,7 +189,7 @@ export default function LoadingStates() {
       <Heading as="h3" $size="5">
         Table
       </Heading>
-      <Table aria-label="Table">
+      <Table aria-label="Table" size={size}>
         <Table.Header>
           <Table.Column id="foo">Foo</Table.Column>
           <Table.Column id="bar">Bar</Table.Column>
@@ -216,13 +249,14 @@ export default function LoadingStates() {
       </Text>
       <Loading isLoading={isLoading}>
         <Flex $gap="2">
-          <Button>Submit</Button> <IconButton icon="add" aria-label="Add" />
+          <Button size={size}>Submit</Button>{" "}
+          <IconButton icon="add" aria-label="Add" size={size} />
         </Flex>
         <br />
         <br />
         <CheckBox>Subscribe to newsletter</CheckBox>
         <br />
-        <ToggleSwitch>Enable notifications</ToggleSwitch>
+        <ToggleSwitch size={size}>Enable notifications</ToggleSwitch>
         <br />
         <RadioGroup label="Favorite color">
           <Radio value="red">Red</Radio>
@@ -230,33 +264,41 @@ export default function LoadingStates() {
           <Radio value="blue">Blue</Radio>
         </RadioGroup>
         <hr />
-        <FileInput label="Upload" />
+        <FileInput label="Upload" size={size} />
         <hr />
-        <CustomSelect label="Custom Select" placeholder="Select an item">
+        <CustomSelect
+          label="Custom Select"
+          placeholder="Select an item"
+          size={size}
+        >
           <Item>Item 1</Item>
           <Item>Item 2</Item>
           <Item>Item 3</Item>
         </CustomSelect>
         <br />
-        <MultiSelect label="Multi Select">
+        <MultiSelect label="Multi Select" size={size}>
           <Item>Item 1</Item>
           <Item>Item 2</Item>
           <Item>Item 3</Item>
         </MultiSelect>
         <br />
-        <ComboBox label="Combo Box" placeholder="Select an item">
+        <ComboBox label="Combo Box" placeholder="Select an item" size={size}>
           <Item>Item 1</Item>
           <Item>Item 2</Item>
           <Item>Item 3</Item>
         </ComboBox>
         <hr />
-        <NumberInput label="Number" />
+        <NumberInput label="Number" size={size} />
         <br />
-        <SearchInput label="Search" onSubmit={(value) => console.log(value)} />
+        <SearchInput
+          label="Search"
+          onSubmit={(value) => console.log(value)}
+          size={size}
+        />
         <br />
-        <TextInput label="Text" />
+        <TextInput label="Text" size={size} />
         <br />
-        <TextAreaInput label="Text Area" />
+        <TextAreaInput label="Text Area" size={size} />
         <hr />
         <ToggleSwitch
           isSelected={maybeData != null}

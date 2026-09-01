@@ -4,7 +4,7 @@ import { ComboBoxField } from "@components/Fields/ComboBoxField";
 import { SkeletonLoader } from "@components/Feedback/SkeletonLoader";
 
 export const StyledLoadingComboBox = styled(SkeletonLoader)`
-  width: 200px;
+  width: var(--size-x);
   max-width: 100%;
   height: var(--input-height, 40px);
   display: block;

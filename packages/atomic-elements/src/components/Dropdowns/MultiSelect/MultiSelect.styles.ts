@@ -4,7 +4,7 @@ import { FloatingDropdown } from "../Dropdowns.styles";
 import { SkeletonLoader } from "@components/Feedback/SkeletonLoader";
 
 export const StyledLoadingMultiSelect = styled(SkeletonLoader)`
-  width: 200px;
+  width: var(--size-x);
   max-width: 100%;
   height: var(--input-height, 40px);
   display: block;

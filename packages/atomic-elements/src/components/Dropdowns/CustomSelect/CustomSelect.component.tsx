@@ -12,10 +12,7 @@ import { Popover } from "../../Overlays/Popover";
 import { ListBox } from "../ListBox";
 import { SelectField } from "@components/Fields/SelectField";
 import { FloatingFieldInputWrapper } from "@components/Internal/FloatingFieldInputWrapper";
-import {
-  StyledLoadingSelect,
-  StyledSelectField,
-} from "./CustomSelect.styles";
+import { StyledLoadingSelect, StyledSelectField } from "./CustomSelect.styles";
 import { Button } from "@components/Buttons/Button";
 import { MaterialIcon } from "@components/Icons/MaterialIcon";
 import { useLoading } from "@components/Feedback/Loading";
@@ -46,6 +43,7 @@ export const CustomSelect = forwardRef(function CustomSelect<T extends object>(
     variant = "default",
     maxHeight = 300,
     dropdownPlacement = "bottom start",
+    size = "medium",
   } = props;
 
   const t = useTranslations();
@@ -57,6 +55,8 @@ export const CustomSelect = forwardRef(function CustomSelect<T extends object>(
   const renderProps = useRenderProps({
     componentClassName: "aje-select",
     variant,
+    size,
+    ...props,
   });
 
   const buttonVariant = buttonVariantMap[variant] ?? "dropdown";
