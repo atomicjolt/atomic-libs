@@ -1,6 +1,13 @@
 import mixins from "@styles/mixins";
 import styled from "styled-components";
 import { PaddingSide } from "./ComboInput.types";
+import { SkeletonLoader } from "@components/Feedback/SkeletonLoader";
+
+export const StyledLoadingComboInput = styled(SkeletonLoader)`
+  ${mixins.SizingX}
+  height: var(--input-height);
+  display: block;
+`;
 
 export const StyledComboInput = styled.div<{ $paddingSide?: PaddingSide }>`
   ${mixins.Regular}

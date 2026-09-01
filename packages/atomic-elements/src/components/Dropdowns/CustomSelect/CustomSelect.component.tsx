@@ -12,9 +12,10 @@ import { Popover } from "../../Overlays/Popover";
 import { ListBox } from "../ListBox";
 import { SelectField } from "@components/Fields/SelectField";
 import { FloatingFieldInputWrapper } from "@components/Internal/FloatingFieldInputWrapper";
-import { StyledSelectField } from "./CustomSelect.styles";
+import { StyledLoadingSelect, StyledSelectField } from "./CustomSelect.styles";
 import { Button } from "@components/Buttons/Button";
 import { MaterialIcon } from "@components/Icons/MaterialIcon";
+import { useLoading } from "@components/Feedback/Loading";
 
 export type CustomSelectVariants = "default" | "floating" | "ghost";
 
@@ -42,18 +43,47 @@ export const CustomSelect = forwardRef(function CustomSelect<T extends object>(
     variant = "default",
     maxHeight = 300,
     dropdownPlacement = "bottom start",
+    size = "medium",
   } = props;
 
   const t = useTranslations();
 
   const placeholder = props.placeholder ?? t("select.placeholder");
 
+  const { isLoading, loadingLabel } = useLoading(props);
+
   const renderProps = useRenderProps({
     componentClassName: "aje-select",
     variant,
+    size,
+    ...props,
   });
 
   const buttonVariant = buttonVariantMap[variant] ?? "dropdown";
+
+  if (isLoading) {
+    return (
+      <StyledSelectField {...props} {...renderProps} ref={ref}>
+        <FloatingFieldInputWrapper
+          floating={variant === "floating"}
+          label={label}
+          message={message}
+          error={error}
+        >
+          <StyledLoadingSelect title={loadingLabel}>
+            <rect
+              x="0"
+              y="0"
+              width="100%"
+              height="100%"
+              rx="var(--input-border-radius)"
+              ry="var(--input-border-radius)"
+            />
+          </StyledLoadingSelect>
+        </FloatingFieldInputWrapper>
+      </StyledSelectField>
+    );
+  }
 
   return (
     <StyledSelectField {...props} {...renderProps} ref={ref}>

@@ -7,8 +7,13 @@ import { Button } from "@components/Buttons/Button";
 import { MaterialIcon } from "@components/Icons/MaterialIcon";
 import { useRenderProps } from "@hooks/useRenderProps";
 import { MultiSelectStateContext } from "@components/Fields/MultiSelectField";
-import { ButtonText, StyledMultiSelectField } from "./MultiSelect.styles";
+import {
+  ButtonText,
+  StyledLoadingMultiSelect,
+  StyledMultiSelectField,
+} from "./MultiSelect.styles";
 import { AriaMultiSelectProps } from "../../Fields/MultiSelectField";
+import { useLoading } from "@components/Feedback/Loading";
 
 export interface MultiSelectProps<T extends object>
   extends AriaProps<AriaMultiSelectProps<T>>,
@@ -36,14 +41,43 @@ export function MultiSelect<T extends object>(props: MultiSelectProps<T>) {
     variant = "default",
     maxHeight = 300,
     dropdownPlacement = "bottom start",
+    size = "medium",
   } = props;
+
+  const { isLoading, loadingLabel } = useLoading(props);
 
   const renderProps = useRenderProps({
     componentClassName: "aje-multiselect",
     variant,
+    size,
+    ...props,
   });
 
   const buttonVariant = buttonVariantMap[variant] ?? "dropdown";
+
+  if (isLoading) {
+    return (
+      <StyledMultiSelectField {...props} {...renderProps} ref={ref}>
+        <FloatingFieldInputWrapper
+          label={label}
+          message={message}
+          error={error}
+          floating={variant === "floating"}
+        >
+          <StyledLoadingMultiSelect title={loadingLabel}>
+            <rect
+              x="0"
+              y="0"
+              width="100%"
+              height="100%"
+              rx="var(--input-border-radius)"
+              ry="var(--input-border-radius)"
+            />
+          </StyledLoadingMultiSelect>
+        </FloatingFieldInputWrapper>
+      </StyledMultiSelectField>
+    );
+  }
 
   return (
     <StyledMultiSelectField {...props} {...renderProps} ref={ref}>

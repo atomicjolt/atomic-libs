@@ -5,6 +5,7 @@ import { ElementWrapperProps } from "../../../../types";
 import { useContextProps } from "@hooks/useContextProps";
 import { LabelContext } from "./Label.context";
 import { useRenderProps } from "@hooks";
+import { filterDOMProps } from "@react-aria/utils";
 
 const StyledLabel = styled.label<{ $paddingBottom: string }>`
   ${mixins.Bold}
@@ -30,12 +31,16 @@ export const Label = React.forwardRef(function Label(
 ) {
   [props, ref] = useContextProps(LabelContext, props, ref);
 
-  const { className, size, as = "label", ...rest } = props;
+  const { className, size, as = "label", children, ...rest } = props;
 
   const renderProps = useRenderProps({
     componentClassName: className,
     size,
   });
 
-  return <StyledLabel as={as} ref={ref} {...renderProps} {...rest} />;
+  return (
+    <StyledLabel as={as} ref={ref} {...renderProps} {...filterDOMProps(rest)}>
+      {children}
+    </StyledLabel>
+  );
 });

@@ -28,3 +28,11 @@ export const Primary: Story = {
     message: "1000 characters",
   },
 };
+
+export const Loading: Story = {
+  args: {
+    ...Primary.args,
+    isLoading: true,
+    loadingLabel: "Loading",
+  },
+};

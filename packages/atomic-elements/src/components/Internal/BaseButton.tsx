@@ -13,6 +13,7 @@ import { SpinnerLoader } from "@components/Feedback/SpinnerLoader";
 import { useRenderProps } from "@hooks";
 import { useFocusRing } from "@hooks/useFocusRing";
 import { useButtonLink } from "@hooks/useButtonLink";
+import { useLoading } from "@components/Feedback/Loading";
 
 export type ButtonVariants = SuggestStrings<
   | "primary"
@@ -41,6 +42,9 @@ export interface ButtonProps
     SlotProps {
   as?: "button" | "a";
   size?: ExtendedSize;
+
+  /** Transitions the loading spinner to a checkmark */
+  loadingComplete?: boolean;
 }
 
 export interface BaseButtonProps extends ButtonProps {
@@ -54,13 +58,13 @@ export const BaseButton = forwardRef<HTMLButtonElement, BaseButtonProps>(
 
     const {
       Component,
-      isLoading = false,
-      loadingLabel,
       loadingComplete = false,
       as = props.href ? "a" : "button",
       variant = "primary",
       size = "auto",
     } = props;
+
+    const { isLoading = false, loadingLabel } = useLoading(props);
 
     const { buttonProps, isPressed } = useButtonLink(
       {

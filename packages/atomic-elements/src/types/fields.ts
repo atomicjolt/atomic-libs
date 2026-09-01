@@ -1,4 +1,4 @@
-import { BaseProps } from "./common";
+import { BaseProps, LoadingProps } from "./common";
 
 export interface HelpMessageProps {
   /** For additional information (ex. date format mm/dd/yy) */
@@ -48,4 +48,5 @@ export interface FieldInputProps
   extends BaseProps,
     HelpTextProps,
     FieldStatusProps,
-    FieldDomProps {}
+    FieldDomProps,
+    LoadingProps {}

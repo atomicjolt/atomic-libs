@@ -52,8 +52,6 @@ export type LoadingProps = {
   isLoading?: boolean;
   /** aria accessiblity label to inform screen-readers that it is loading */
   loadingLabel?: string;
-  /** Transitions the loading spinner to a checkmark */
-  loadingComplete?: boolean;
 };
 
 export type SuggestStrings<T> = T | (string & {});
