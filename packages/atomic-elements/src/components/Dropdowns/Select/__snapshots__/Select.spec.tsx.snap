@@ -7,7 +7,6 @@ exports[`matches snapshot 1`] = `
   >
     <label
       class="sc-dkXsAU bCsPXP"
-      for="select-:r0:-select"
     >
       Label
     </label>

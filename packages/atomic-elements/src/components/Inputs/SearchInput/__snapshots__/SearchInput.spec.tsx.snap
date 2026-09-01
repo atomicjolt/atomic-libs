@@ -3,21 +3,20 @@
 exports[`matches snapshot > displays with search button 1`] = `
 <DocumentFragment>
   <div
-    class="sc-gKkgUA kDJWYP aje-field__search is-medium"
+    class="sc-iqkkDd kdRpNH aje-field__search is-medium"
   >
     <label
       class="sc-bdDsCe bLPJOA"
-      for="react-aria-:r5:"
       id="react-aria-:r6:"
     >
       search
     </label>
     <div
-      class="sc-eCQgVK lhFnxc aje-combo-input"
+      class="sc-qdQOe kPUMiD aje-combo-input"
     >
       <input
         aria-labelledby="react-aria-:r6:"
-        class="sc-hKVpXn ecqUOI"
+        class="sc-gKkgUA bzpolP"
         id="react-aria-:r5:"
         tabindex="0"
         type="search"
@@ -25,14 +24,14 @@ exports[`matches snapshot > displays with search button 1`] = `
       />
       <button
         aria-label="search"
-        class="sc-fuztkK sc-qdQOe fTXzHK iFSkaa aje-btn aje-icon-btn aje-btn--content is-medium"
+        class="sc-dYjPD sc-bqqMSY hHQCzc dIQBXN aje-btn aje-icon-btn aje-btn--content is-medium"
         data-icon-button="true"
         tabindex="0"
         type="button"
       >
         <i
           aria-hidden="true"
-          class="sc-iCECmn erxnfb aje-icon material-icons is-medium"
+          class="sc-crPgjm bIBcHh aje-icon material-icons is-medium"
         >
           search
         </i>
@@ -45,21 +44,20 @@ exports[`matches snapshot > displays with search button 1`] = `
 exports[`matches snapshot > displays without button 1`] = `
 <DocumentFragment>
   <div
-    class="sc-gKkgUA kDJWYP aje-field__search is-medium"
+    class="sc-iqkkDd kdRpNH aje-field__search is-medium"
   >
     <label
       class="sc-bdDsCe bLPJOA"
-      for="react-aria-:r0:"
       id="react-aria-:r1:"
     >
       search
     </label>
     <div
-      class="sc-eCQgVK lhFnxc aje-combo-input"
+      class="sc-qdQOe kPUMiD aje-combo-input"
     >
       <input
         aria-labelledby="react-aria-:r1:"
-        class="sc-hKVpXn ecqUOI"
+        class="sc-gKkgUA bzpolP"
         id="react-aria-:r0:"
         tabindex="0"
         type="search"
@@ -67,14 +65,14 @@ exports[`matches snapshot > displays without button 1`] = `
       />
       <button
         aria-label="search"
-        class="sc-fuztkK sc-qdQOe fTXzHK iFSkaa aje-btn aje-icon-btn aje-btn--content is-medium"
+        class="sc-dYjPD sc-bqqMSY hHQCzc dIQBXN aje-btn aje-icon-btn aje-btn--content is-medium"
         data-icon-button="true"
         tabindex="0"
         type="button"
       >
         <i
           aria-hidden="true"
-          class="sc-iCECmn erxnfb aje-icon material-icons is-medium"
+          class="sc-crPgjm bIBcHh aje-icon material-icons is-medium"
         >
           search
         </i>

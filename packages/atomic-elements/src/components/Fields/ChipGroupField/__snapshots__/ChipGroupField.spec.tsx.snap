@@ -6,14 +6,14 @@ exports[`ChipGroupField > matches snapshot 1`] = `
     data-react-aria-hidden="true"
   />
   <div
-    class="sc-bjLslk gYNvEP aje-chip-group"
+    class="sc-fKwzVe fdNiPE aje-chip-group"
   >
     <div
       aria-atomic="false"
       aria-labelledby="react-aria-:r1:"
       aria-live="off"
       aria-relevant="additions"
-      class="sc-ieCSdj lmMnXf"
+      class="sc-bCgoVd zQafC"
       data-collection="react-aria-:r5:"
       id="react-aria-:r0:"
       role="grid"
@@ -21,7 +21,7 @@ exports[`ChipGroupField > matches snapshot 1`] = `
     >
       <div
         aria-label="Item 1"
-        class="sc-hHopjF jeiOnT aje-chip"
+        class="sc-cxxQMU eMnPiM aje-chip"
         data-collection="react-aria-:r5:"
         data-key="react-aria-1"
         id="react-aria-:r0:-react-aria-1"
@@ -30,7 +30,7 @@ exports[`ChipGroupField > matches snapshot 1`] = `
       >
         <div
           aria-colindex="1"
-          class="sc-dILkzW knTmYa"
+          class="sc-ivKqQM hZfdyg"
           role="gridcell"
         >
           Item 1
@@ -38,7 +38,7 @@ exports[`ChipGroupField > matches snapshot 1`] = `
       </div>
       <div
         aria-label="Item 2"
-        class="sc-hHopjF jeiOnT aje-chip"
+        class="sc-cxxQMU eMnPiM aje-chip"
         data-collection="react-aria-:r5:"
         data-key="react-aria-2"
         id="react-aria-:r0:-react-aria-2"
@@ -47,7 +47,7 @@ exports[`ChipGroupField > matches snapshot 1`] = `
       >
         <div
           aria-colindex="1"
-          class="sc-dILkzW knTmYa"
+          class="sc-ivKqQM hZfdyg"
           role="gridcell"
         >
           Item 2
@@ -55,7 +55,7 @@ exports[`ChipGroupField > matches snapshot 1`] = `
       </div>
       <div
         aria-label="Item 3"
-        class="sc-hHopjF jeiOnT aje-chip"
+        class="sc-cxxQMU eMnPiM aje-chip"
         data-collection="react-aria-:r5:"
         data-key="react-aria-3"
         id="react-aria-:r0:-react-aria-3"
@@ -64,7 +64,7 @@ exports[`ChipGroupField > matches snapshot 1`] = `
       >
         <div
           aria-colindex="1"
-          class="sc-dILkzW knTmYa"
+          class="sc-ivKqQM hZfdyg"
           role="gridcell"
         >
           Item 3
