@@ -5,6 +5,7 @@ import { ElementWrapperProps } from "../../../../types";
 import { useContextProps } from "@hooks/useContextProps";
 import { useRenderProps } from "@hooks";
 import { MessageContext } from "./Message.context";
+import { filterDOMProps } from "@react-aria/utils";
 
 export const StyledMessage = styled.p`
   ${mixins.Regular}
@@ -25,12 +26,16 @@ export const Message = React.forwardRef(function Message(
   ref: React.Ref<HTMLParagraphElement>
 ) {
   [props, ref] = useContextProps(MessageContext, props, ref);
-  const { as, className, size = "auto", ...rest } = props;
+  const { as, className, size = "auto", children, ...rest } = props;
 
   const renderProps = useRenderProps({
     componentClassName: className,
     size,
   });
 
-  return <StyledMessage as={as} ref={ref} {...renderProps} {...rest} />;
+  return (
+    <StyledMessage as={as} ref={ref} {...renderProps} {...filterDOMProps(rest)}>
+      {children}
+    </StyledMessage>
+  );
 });

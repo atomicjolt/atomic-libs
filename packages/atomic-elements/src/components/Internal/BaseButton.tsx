@@ -41,6 +41,9 @@ export interface ButtonProps
     SlotProps {
   as?: "button" | "a";
   size?: ExtendedSize;
+
+  /** Transitions the loading spinner to a checkmark */
+  loadingComplete?: boolean;
 }
 
 export interface BaseButtonProps extends ButtonProps {

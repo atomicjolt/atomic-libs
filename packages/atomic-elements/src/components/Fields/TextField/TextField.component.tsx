@@ -1,7 +1,7 @@
 import { useCallback, useRef, useState } from "react";
 import { AriaTextFieldProps, useTextField } from "@react-aria/textfield";
 import { FieldProps } from "../Field";
-import { AriaProps } from "../../../types";
+import { AriaProps, LoadingProps } from "../../../types";
 import { StyledField } from "../Field.styles";
 import { Provider } from "../../Internal/Provider";
 import {
@@ -17,13 +17,22 @@ import { TextAreaContext } from "../Atoms/TextArea";
 
 export interface TextFieldProps
   extends FieldProps,
-    Omit<AriaProps<AriaTextFieldProps>, "placeholder"> {}
+    Omit<AriaProps<AriaTextFieldProps>, "placeholder">,
+    LoadingProps {}
 
 /** Provides the accessbility implementation for a
  * text field and its associated label, error message, and description.
  * */
 export function TextField(props: TextFieldProps) {
-  const { type = "text", isDisabled, isRequired, isReadOnly, name } = props;
+  const {
+    type = "text",
+    isDisabled,
+    isRequired,
+    isReadOnly,
+    name,
+    isLoading,
+    loadingLabel,
+  } = props;
 
   const [inputElementType, setInputElementType] = useState<
     "input" | "textarea" | null
@@ -83,6 +92,8 @@ export function TextField(props: TextFieldProps) {
     readOnly: isReadOnly,
     name,
     ref: inputOrTextAreaRef,
+    isLoading,
+    loadingLabel,
   };
 
   return (
@@ -92,7 +103,7 @@ export function TextField(props: TextFieldProps) {
           [FieldLabelContext.Provider, labelProps],
           [FieldMessageContext.Provider, descriptionProps],
           [FieldErrorContext.Provider, { ...errorMessageProps, isInvalid }],
-          [ComboInputContext.Provider, { inputRef }],
+          [ComboInputContext.Provider, { inputRef, isLoading, loadingLabel }],
           [FieldInputContext.Provider, inputCtx],
           [TextAreaContext.Provider, inputCtx],
         ]}
