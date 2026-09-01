@@ -1,5 +1,14 @@
 import mixins from "@styles/mixins";
 import styled from "styled-components";
+import { SkeletonLoader } from "@components/Feedback/SkeletonLoader";
+
+export const StyledLoadingTextArea = styled(SkeletonLoader)`
+  ${mixins.Border("input")}
+  min-width: 200px;
+  min-height: var(--textarea-height, 80px);
+  width: 100%;
+  display: block;
+`;
 
 export const StyledTextArea = styled.textarea`
   ${mixins.Regular}

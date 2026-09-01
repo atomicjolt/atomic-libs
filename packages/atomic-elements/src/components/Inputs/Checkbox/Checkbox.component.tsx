@@ -6,16 +6,22 @@ import {
   AriaProps,
   FieldStatusProps,
   HelpTextProps,
+  LoadingProps,
   RenderBaseProps,
 } from "../../../types";
 import { HiddenInput } from "../Inputs.styles";
-import { CheckBoxLabel, CheckboxWrapper } from "./Checkbox.styles";
+import {
+  CheckBoxLabel,
+  CheckboxWrapper,
+  StyledLoadingCheckbox,
+} from "./Checkbox.styles";
 import { ErrorMessage, Message } from "../../Fields";
 import { useContextProps } from "@hooks/useContextProps";
 import { CheckBoxContext } from "./Checkbox.context";
 import { SlotProps } from "@hooks/useSlottedContext";
 import { useRenderProps } from "@hooks";
 import { RequiredMarker } from "@components/Internal/RequiredMarker";
+import { useLoading } from "@components/Feedback/Loading";
 
 interface CheckBoxRenderProps {
   isSelected: boolean;
@@ -31,6 +37,7 @@ export interface CheckBoxProps
     Omit<HelpTextProps, "label">,
     FieldStatusProps,
     RenderBaseProps<CheckBoxRenderProps>,
+    LoadingProps,
     SlotProps {
   name?: string;
 }
@@ -59,6 +66,8 @@ export const CheckBox = React.forwardRef<HTMLInputElement, CheckBoxProps>(
       ref
     );
 
+    const { isLoading, loadingLabel } = useLoading(props);
+
     const renderProps = useRenderProps({
       componentClassName: "aje-checkbox",
       values: {
@@ -76,6 +85,7 @@ export const CheckBox = React.forwardRef<HTMLInputElement, CheckBoxProps>(
         "data-disabled": isDisabled,
         "data-readonly": isReadOnly,
         "data-required": isRequired,
+        "data-loading": isLoading,
       },
       ...props,
     });
@@ -89,8 +99,24 @@ export const CheckBox = React.forwardRef<HTMLInputElement, CheckBoxProps>(
           ref={ref}
           aria-checked={ariaChecked}
           name={name}
+          disabled={isLoading || inputProps.disabled}
         />
         <CheckBoxLabel {...labelProps} $rtl={direction === "rtl"}>
+          {isLoading && (
+            <StyledLoadingCheckbox
+              $rtl={direction === "rtl"}
+              title={loadingLabel}
+            >
+              <rect
+                x="0"
+                y="0"
+                width="100%"
+                height="100%"
+                rx="var(--checkbox-border-radius, 0)"
+                ry="var(--checkbox-border-radius, 0)"
+              />
+            </StyledLoadingCheckbox>
+          )}
           {renderProps.children}
           {isRequired && <RequiredMarker />}
           {message && <Message>{message}</Message>}

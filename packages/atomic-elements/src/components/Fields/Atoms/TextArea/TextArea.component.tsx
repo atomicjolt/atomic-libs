@@ -1,21 +1,10 @@
 import React, { forwardRef } from "react";
-import styled from "styled-components";
-import mixins from "../../../../styles/mixins";
 import { ElementWrapperProps, LoadingProps } from "../../../../types";
-import { StyledTextArea } from "./TextArea.styles";
+import { StyledLoadingTextArea, StyledTextArea } from "./TextArea.styles";
 import { useContextProps } from "@hooks/useContextProps";
 import { useRenderProps } from "@hooks";
 import { TextAreaContext } from "./TextArea.context";
-import { SkeletonLoader } from "@components/Feedback/SkeletonLoader";
 import { useLoading } from "@components/Feedback/Loading";
-
-const StyledLoadingTextArea = styled(SkeletonLoader)`
-  ${mixins.Border("input")}
-  min-width: 200px;
-  min-height: var(--textarea-height, 80px);
-  width: 100%;
-  display: block;
-`;
 
 export interface TextAreaProps
   extends ElementWrapperProps<

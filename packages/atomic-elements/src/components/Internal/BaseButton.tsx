@@ -13,6 +13,7 @@ import { SpinnerLoader } from "@components/Feedback/SpinnerLoader";
 import { useRenderProps } from "@hooks";
 import { useFocusRing } from "@hooks/useFocusRing";
 import { useButtonLink } from "@hooks/useButtonLink";
+import { useLoading } from "@components/Feedback/Loading";
 
 export type ButtonVariants = SuggestStrings<
   | "primary"
@@ -57,13 +58,13 @@ export const BaseButton = forwardRef<HTMLButtonElement, BaseButtonProps>(
 
     const {
       Component,
-      isLoading = false,
-      loadingLabel,
       loadingComplete = false,
       as = props.href ? "a" : "button",
       variant = "primary",
       size = "auto",
     } = props;
+
+    const { isLoading = false, loadingLabel } = useLoading(props);
 
     const { buttonProps, isPressed } = useButtonLink(
       {

@@ -1,19 +1,13 @@
 import React from "react";
-import styled from "styled-components";
-import mixins from "@styles/mixins";
 import { useContextProps } from "@hooks/useContextProps";
 import { useRenderProps } from "@hooks/useRenderProps";
 import { ComboInputContext } from "./ComboInput.context";
 import { ComboInputProps } from "./ComboInput.types";
-import { StyledComboInput } from "./ComboInput.styles";
-import { SkeletonLoader } from "@components/Feedback/SkeletonLoader";
+import {
+  StyledComboInput,
+  StyledLoadingComboInput,
+} from "./ComboInput.styles";
 import { useLoading } from "@components/Feedback/Loading";
-
-const StyledLoadingComboInput = styled(SkeletonLoader)`
-  ${mixins.SizingX}
-  height: var(--input-height);
-  display: block;
-`;
 
 /**
  * ComboInput is a wrapper component designed to provide an input-like interface

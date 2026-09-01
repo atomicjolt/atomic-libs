@@ -232,7 +232,6 @@ export default function Fields() {
           error="Error"
           label="Label"
           placeholder="Select an item"
-          variant="floating"
         >
           <Item>Item 1</Item>
           <Item>Item 2</Item>

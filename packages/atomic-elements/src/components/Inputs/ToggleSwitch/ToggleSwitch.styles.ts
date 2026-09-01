@@ -1,5 +1,12 @@
 import styled, { keyframes } from "styled-components";
 import mixins from "../../../styles/mixins";
+import { SkeletonLoader } from "@components/Feedback/SkeletonLoader";
+
+export const StyledLoadingToggleSwitch = styled(SkeletonLoader)`
+  width: calc(var(--toggle-size) * 1.666);
+  height: var(--toggle-size);
+  display: inline-block;
+`;
 
 const squishy = keyframes`
   0% {
