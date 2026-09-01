@@ -10,6 +10,18 @@ const meta: Meta<typeof ToggleSwitch> = {
     cssprops: getCssProps("Toggle"),
   },
   argTypes: {
+    isLoading: {
+      control: "boolean",
+      table: {
+        category: "Field State",
+      },
+    },
+    loadingLabel: {
+      control: "text",
+      table: {
+        category: "Field State",
+      },
+    },
     onChange: {
       control: false,
       table: {
@@ -35,5 +47,13 @@ type Story = StoryObj<typeof ToggleSwitch>;
 export const Primary: Story = {
   args: {
     children: "Toggle switch",
+  },
+};
+
+export const Loading: Story = {
+  args: {
+    ...Primary.args,
+    isLoading: true,
+    loadingLabel: "Loading",
   },
 };

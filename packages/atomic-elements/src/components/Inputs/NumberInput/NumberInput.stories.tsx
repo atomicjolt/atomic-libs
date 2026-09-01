@@ -90,3 +90,11 @@ export const FormatAsUnit: Story = {
     },
   },
 };
+
+export const Loading: Story = {
+  args: {
+    ...Primary.args,
+    isLoading: true,
+    loadingLabel: "Loading",
+  },
+};

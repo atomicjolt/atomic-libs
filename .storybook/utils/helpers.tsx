@@ -31,6 +31,18 @@ export const FieldStateControls: ArgTypes = {
       category: "Field State",
     },
   },
+  isLoading: {
+    control: "boolean",
+    table: {
+      category: "Field State",
+    },
+  },
+  loadingLabel: {
+    control: "text",
+    table: {
+      category: "Field State",
+    },
+  },
 };
 
 export const InputControls: ArgTypes = {

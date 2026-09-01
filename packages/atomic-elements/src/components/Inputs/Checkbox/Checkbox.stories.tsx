@@ -69,3 +69,11 @@ export const Primary: Story = {
     children: "Checkbox Label",
   },
 };
+
+export const Loading: Story = {
+  args: {
+    ...Primary.args,
+    isLoading: true,
+    loadingLabel: "Loading",
+  },
+};

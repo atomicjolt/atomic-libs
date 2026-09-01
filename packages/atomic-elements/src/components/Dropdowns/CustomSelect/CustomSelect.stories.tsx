@@ -100,6 +100,14 @@ export const Floating: Story = {
   },
 };
 
+export const Loading: Story = {
+  args: {
+    ...Primary.args,
+    isLoading: true,
+    loadingLabel: "Loading",
+  },
+};
+
 export const WithCustomContent: Story = {
   args: {
     ...Primary.args,
