@@ -22,10 +22,7 @@ const App = () => (
 );
 ```
 
-
-
-If you were using `CssGlobalDefaults` before, you can add the `applyGlobalStyles` prop to `ElementsProvider` to apply the global styles.
-
+If you were using `CssGlobalDefaults` before, you can add the `applyDefaultStyles` prop to `ElementsProvider` to apply the global styles.
 
 ### Collection Components
 
@@ -66,14 +63,14 @@ The Flex component has recieved an updated set of props to match the other new L
 <Flex
     $gap="20px"
     $align="center"
-    $justfiy="space-between"
+    $justify="space-between"
 >
     <Button>Button 1</Button>
     <Button>Button 2</Button>
 </Flex>
 ```
 
-Reference  [Storybook](https://atomicjolt.github.io/atomic-libs/storybook/?path=/docs/layouts-flex--overview) for the full set of props
+Reference [Storybook](https://atomicjolt.github.io/atomic-libs/storybook/?path=/docs/layouts-flex--overview) for the full set of props
 
 ### Calendar Component
 
@@ -81,18 +78,12 @@ The Calendar component now exposes a composition API for more flexibility.
 
 ```tsx
 <Calendar>
-    <Flex
-        $gap={20}
-        $align="center"
-        $justfiy="space-between"
-      >
-        <IconButton slot="previous-month" icon="chevron_left" variant="ghost" />
-        <Calendar.Title />
-        <IconButton slot="next-month" icon="chevron_right" variant="ghost" />
-    </Flex>
-    <Calendar.Grid>
-    {(date) => <Calendar.Cell date={date} />}
-    </Calendar.Grid>
+  <Flex $gap="20px" $align="center" $justify="space-between">
+    <IconButton slot="previous-month" icon="chevron_left" variant="ghost" />
+    <Calendar.Title />
+    <IconButton slot="next-month" icon="chevron_right" variant="ghost" />
+  </Flex>
+  <Calendar.Grid>{(date) => <Calendar.Cell date={date} />}</Calendar.Grid>
 </Calendar>
 ```
 
@@ -102,41 +93,154 @@ Table No longer supports the `paginationDescriptor` prop. If you want to add pag
 `Table.Bottom` and `Pagination` components.
 
 ```tsx
-<Table hasBottom>
+<>
+  <Table hasBottom>
     <Table.Header>
-        <Table.Column> Name </Table.Column>
-        <Table.Column> Age </Table.Column>
+      <Table.Column> Name </Table.Column>
+      <Table.Column> Age </Table.Column>
     </Table.Header>
     <Table.Body>
-        <Table.Row>
-            <Table.Cell> John Doe </Table.Cell>
-            <Table.Cell> 25 </Table.Cell>
-        </Table.Row>
+      <Table.Row>
+        <Table.Cell> John Doe </Table.Cell>
+        <Table.Cell> 25 </Table.Cell>
+      </Table.Row>
     </Table.Body>
-</Table>
-<Table.Bottom>
+  </Table>
+  <Table.Bottom>
     <Pagination>
-        <Flex
-            alignItems="center"
-            gap={8}
-        >
-            <Pagination.FirstPage />
-            <Pagination.PrevPage />
-            <Pagination.CurrentPage />
-            <Pagination.NextPage />
-            <Pagination.LastPage />
-        </Flex>
+      <Flex $align="center" $gap="8px">
+        <Pagination.FirstPage />
+        <Pagination.PrevPage />
+        <Pagination.CurrentPage />
+        <Pagination.NextPage />
+        <Pagination.LastPage />
+      </Flex>
     </Pagination>
-</Table.Body>
+  </Table.Bottom>
+</>
 ```
 
+`Table.Bottom` is a sibling of `Table`, not a child — `hasBottom` on `Table` just reserves the space for it.
+
+### Tabs Component
+
+`Tabs` has moved from the old `items`/render-prop collection API to a composition API using `Tabs.List`, `Tabs.Tab`, and `Tabs.Panel`.
+
+```tsx
+// Before
+<Tabs selectedKey={tab} onSelectionChange={setTab}>
+    <Item key="one" title="Tab One">
+        <PanelOne />
+    </Item>
+    <Item key="two" title="Tab Two">
+        <PanelTwo />
+    </Item>
+</Tabs>
+
+// After
+<Tabs selectedKey={tab} onSelectionChange={(key) => key != null && setTab(key)}>
+    <Tabs.List>
+        <Tabs.Tab id="one">Tab One</Tabs.Tab>
+        <Tabs.Tab id="two">Tab Two</Tabs.Tab>
+    </Tabs.List>
+    <Tabs.Panel id="one">
+        <PanelOne />
+    </Tabs.Panel>
+    <Tabs.Panel id="two">
+        <PanelTwo />
+    </Tabs.Panel>
+</Tabs>
+```
+
+A couple of things to watch for:
+
+- The old `info` slot (a node rendered inside the tab list, e.g. for a badge or counter next to the tabs) has been removed. Render that content yourself as a sibling of `Tabs.List` instead.
+- `onSelectionChange`'s `key` argument is now typed as possibly `null`. Guard against it if your handler expects a non-null key.
+
+### RadioGroup
+
+`RadioGroup`'s markup changed in a couple of ways that mostly matter if you have CSS targeting it directly:
+
+- The group's `<legend>` no longer gets an `aje-radio-group__label` class — it renders as a bare `<legend>`. Target the element directly, or pass your own `className`.
+- Each `Radio` row (`.aje-radio`) is now a plain `<div>`, not a `<label>`. The label semantics — and the `.aje-checkbox__label` class — live on an inner wrapper instead. If your styling relied on the whole row being one clickable `<label>`, stretch a hit area over the row yourself:
+
+```css
+.aje-radio {
+  position: relative;
+}
+.aje-checkbox__label::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+```
+
+### Styling with CSS Layers
+
+As of `3.7.0`, component styles ship inside an `@layer elements` layer, so plain (unlayered) CSS in your app now wins the cascade automatically, regardless of specificity. This makes overriding component styles much easier, but it can also flip the outcome of app CSS you already had.
+
+In particular, any existing unlayered rule that used to lose a specificity fight against a component's own styles now wins outright. A common example is a broad link reset like `a, a:link, a:visited { color: inherit; }` — this will now override the text color of a `Button` rendered as a link (`as="a"`, or with an `href`). Audit selectors like this against components after upgrading, and scope them more narrowly if needed.
+
+### Peer Dependency Versions (react-aria / react-stately)
+
+v3 is built on `react-aria`/`react-stately`'s collection primitives, and a few of the underlying `@react-aria`/`@react-stately`/`@react-types` package versions were only pinned and declared correctly as of `@atomicjolt/atomic-elements@3.8.0`. **We recommend upgrading straight to `3.8.0` or later** rather than an earlier `3.x` release.
+
+If you do land on an earlier `3.x` version first:
+
+- `@react-aria/collections` can resolve to a version (e.g. `3.1.x`) that's incompatible with `Table`, which then crashes on mount with `TypeError: node.render is not a function`.
+- Several `@react-aria`/`@react-stately`/`@react-types` packages the library imports at runtime or references in its type declarations weren't declared as dependencies, so they may fail to resolve depending on what your lockfile happens to hoist.
+
+Both are fixed in `3.8.0`. If you must stay on an earlier `3.x` release in the meantime, you can work around the first issue with an `overrides` (npm) / `resolutions` (yarn) entry pinning `@react-aria/collections` to `3.0.0-beta.1`.
+
+### Testing
+
+Components built on `react-aria`'s overlay positioning — `Popover`, `ListBox`, `Menu`, and anything composed from them, like `CustomSelect` and `ComboBox` — depend on browser APIs `jsdom` doesn't implement: `ResizeObserver`, `IntersectionObserver`, and `window.matchMedia`. Without them, these components silently never open under test, which looks exactly like an application bug rather than a missing shim. Add these to your test setup:
+
+```js
+if (typeof global.ResizeObserver === "undefined") {
+  global.ResizeObserver = class {
+    observe() {}
+    unobserve() {}
+    disconnect() {}
+  };
+}
+if (typeof global.IntersectionObserver === "undefined") {
+  global.IntersectionObserver = class {
+    observe() {}
+    unobserve() {}
+    disconnect() {}
+    takeRecords() {
+      return [];
+    }
+  };
+}
+if (typeof window !== "undefined" && typeof window.matchMedia !== "function") {
+  window.matchMedia = (query) => ({
+    matches: false,
+    media: query,
+    onchange: null,
+    addListener() {},
+    removeListener() {},
+    addEventListener() {},
+    removeEventListener() {},
+    dispatchEvent: () => false,
+  });
+}
+```
 
 ### Removed
 
-| Component | Replacement |
-| --- | --- |
-| `CssVariables` | Wrap your app in the `ElementsProvider` component |
-| `CssGlobalDefaults` | add the `applyGlobalStyles` prop to `ElementsProvider` |
-| `LoadFonts` | Load the fonts directly |
-| `SensibleDefaults` | No longer needed |
-| `PageSizeSelect` | Use `Pagination.PageSize` |
+| Component           | Replacement                                             |
+| ------------------- | ------------------------------------------------------- |
+| `CssVariables`      | Wrap your app in the `ElementsProvider` component       |
+| `CssGlobalDefaults` | add the `applyDefaultStyles` prop to `ElementsProvider` |
+| `LoadFonts`         | Load the fonts directly                                 |
+| `SensibleDefaults`  | No longer needed                                        |
+| `PageSizeSelect`    | Use `Pagination.PageSize`                               |
+
+### Other Notable Changes
+
+| Component      | Change                                                                                                                |
+| -------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `CheckBox`     | `id` no longer needs to be passed manually — one is generated internally                                              |
+| `MaterialIcon` | Icon name types were fixed up and expanded — remove any `@ts-expect-error` workarounds you added for valid icon names |
