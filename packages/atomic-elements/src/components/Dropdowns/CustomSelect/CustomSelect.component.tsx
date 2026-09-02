@@ -51,6 +51,7 @@ export const CustomSelect = forwardRef(function CustomSelect<T extends object>(
   const renderProps = useRenderProps({
     componentClassName: "aje-select",
     variant,
+    ...props,
   });
 
   const buttonVariant = buttonVariantMap[variant] ?? "dropdown";
