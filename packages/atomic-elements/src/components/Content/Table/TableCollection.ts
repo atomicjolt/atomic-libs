@@ -1,5 +1,8 @@
 import { BaseCollection, CollectionNode } from "@react-aria/collections";
-import { TableCollection as ITableCollection, buildHeaderRows } from "@react-stately/table";
+import {
+  TableCollection as ITableCollection,
+  buildHeaderRows,
+} from "@react-stately/table";
 import { GridNode } from "@react-types/grid";
 import { Key, Node } from "react-stately";
 
@@ -46,21 +49,36 @@ export class TableCollection<T>
 
     let columnKeyMap = new Map();
     let visit = (node: Node<T>) => {
-      switch (node.type) {
-        case "column":
-          columnKeyMap.set(node.key, node);
-          if (!node.hasChildNodes) {
-            node.index = this.columns.length;
-            this.columns.push(node);
-
-            if (node.props.isRowHeader) {
-              this.rowHeaderColumnKeys.add(node.key);
-            }
-          }
-          break;
-      }
+      // Recurse using the real node so structural traversal (getChildren)
+      // is never affected by what we do below.
       for (let child of this.getChildren(node.key)) {
         visit(child);
+      }
+
+      if (node.type !== "column") {
+        return;
+      }
+
+      // buildHeaderRows mutates colSpan/level/nextKey/prevKey directly on
+      // the node objects it's given to build its header-row linkage. Since
+      // these are the SAME persistent objects our own keyMap uses for real
+      // structural traversal (getChildren), passing them in directly lets
+      // buildHeaderRows' rendering-order links leak into and corrupt the
+      // real parent/child structure on the next commit - which compounds
+      // and hangs the table once columns are nested. Give buildHeaderRows
+      // disposable clones instead so it can mutate freely.
+      let columnNode = (
+        node as unknown as CollectionNode<T>
+      ).clone() as unknown as GridNode<T>;
+      columnKeyMap.set(columnNode.key, columnNode);
+
+      if (!columnNode.hasChildNodes) {
+        columnNode.index = this.columns.length;
+        this.columns.push(columnNode);
+
+        if (columnNode.props.isRowHeader) {
+          this.rowHeaderColumnKeys.add(columnNode.key);
+        }
       }
     };
 
@@ -70,18 +88,6 @@ export class TableCollection<T>
 
     this.headerRows = buildHeaderRows(columnKeyMap, this.columns);
     this.columnsDirty = false;
-
-    // For accessibility react-aria-component enforces that there is a
-    // row header for every table. We don't want to enforce this
-    // if (
-    //   this.rowHeaderColumnKeys.size === 0 &&
-    //   this.columns.length > 0 &&
-    //   !isSSR
-    // ) {
-    //   throw new Error(
-    //     "A table must have at least one Column with the isRowHeader prop set to true"
-    //   );
-    // }
   }
 
   get columnCount() {
@@ -115,7 +121,7 @@ export class TableCollection<T>
       return node.nextKey ?? null;
     }
 
-    return super.getKeyAfter(key) ;
+    return super.getKeyAfter(key);
   }
 
   getKeyBefore(key: Key) {
