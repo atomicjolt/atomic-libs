@@ -1,0 +1,32 @@
+import{j as s}from"./jsx-runtime-D_zvdyIk.js";import{D as y,C as T,h as k,R as q,i as F}from"./helpers-DAXTCGkN.js";import"./index-B-ANkEne.js";import{T as x}from"./Text.component-1RwQ-LiT.js";import{V as j}from"./View.component-DZDMWB_J.js";import{L as z}from"./Link.component-BGSr0dcY.js";import"./styled-components.browser.esm-DC3GK9Rn.js";import"./index-BCtMShv3.js";import"./index-CxJiuIRp.js";import"./index-VDq0Af83.js";import"./index-DAbKjukP.js";import"./index-BCSx5Rst.js";import"./index-CEkc_6Jz.js";import"./index-CBCMMQRA.js";import"./Collection-DjjOtLT0.js";import"./CollectionBuilder-D3rKkOdu.js";import"./index-q6RvvsFA.js";import"./index-D-fs5e6L.js";import"./useFocusable-DacP9xvE.js";import"./useObjectRef-D2RG7rRi.js";import"./SSRProvider-DyiXDq2k.js";import"./index-Km3Ox9s4.js";import"./scale-CqCDTNu0.js";import"./index-CsiUWFDz.js";import"./useRenderProps-CP918x9p.js";import"./index-EJ0-2BeM.js";import"./typography-B_qJ0BtB.js";import"./layout-SmZ-geAZ.js";import"./utils-DqmNl-Il.js";import"./colors-x_YFGAop.js";import"./useLink-DD4jtrk3.js";import"./filterDOMProps-CeZl_uWj.js";import"./usePress-CqXh5MnK.js";const oe={title:"Typography/Text",component:x,argTypes:{...F,...q,...k,...T,...y,as:{control:"select",options:["div","span","p","label"]}}},e={args:{as:"div",$size:"3",children:"The quick brown fox jumps over the lazy dog"}},r={args:{as:"p",$size:"3",children:["The quick brown fox jumps over the ",s.jsx(z,{target:"_blank",href:"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdogsbestlife.com%2Fwp-content%2Fuploads%2F2022%2F08%2Flazy-dog-breeds-frenchie-scaled.jpeg&f=1&nofb=1&ipt=7ecf8e2e9cb633f95d3d2d92dbfced090b1fa02ea58f4c53fd5a0bf72036b9dd&ipo=images",children:"lazy dog"})]}},i={render:b=>s.jsx(j,{$maxWidth:"250px",children:s.jsx(x,{...b,children:"The quick brown fox jumps over the lazy dog"})}),args:{...e.args,$truncate:!0}},t={args:{...e.args,children:"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium distinctio eius nesciunt eveniet sint ad dicta suscipit, quod ipsum facere laboriosam adipisci excepturi quia deserunt, aperiam maxime neque dignissimos atque!",$clamp:"2",$maxWidth:"250px"}};var o,a,n;e.parameters={...e.parameters,docs:{...(o=e.parameters)==null?void 0:o.docs,source:{originalSource:`{
+  args: {
+    as: "div",
+    $size: "3",
+    children: "The quick brown fox jumps over the lazy dog"
+  }
+}`,...(n=(a=e.parameters)==null?void 0:a.docs)==null?void 0:n.source}}};var p,m,c;r.parameters={...r.parameters,docs:{...(p=r.parameters)==null?void 0:p.docs,source:{originalSource:`{
+  args: {
+    as: "p",
+    $size: "3",
+    children: ["The quick brown fox jumps over the ", <Link target="_blank" href="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdogsbestlife.com%2Fwp-content%2Fuploads%2F2022%2F08%2Flazy-dog-breeds-frenchie-scaled.jpeg&f=1&nofb=1&ipt=7ecf8e2e9cb633f95d3d2d92dbfced090b1fa02ea58f4c53fd5a0bf72036b9dd&ipo=images">
+        lazy dog
+      </Link>]
+  }
+}`,...(c=(m=r.parameters)==null?void 0:m.docs)==null?void 0:c.source}}};var d,u,g;i.parameters={...i.parameters,docs:{...(d=i.parameters)==null?void 0:d.docs,source:{originalSource:`{
+  render: args => {
+    return <View $maxWidth="250px">
+        <Text {...args}>The quick brown fox jumps over the lazy dog</Text>
+      </View>;
+  },
+  args: {
+    ...Primary.args,
+    $truncate: true
+  }
+}`,...(g=(u=i.parameters)==null?void 0:u.docs)==null?void 0:g.source}}};var l,f,h;t.parameters={...t.parameters,docs:{...(l=t.parameters)==null?void 0:l.docs,source:{originalSource:`{
+  args: {
+    ...Primary.args,
+    children: \`Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium distinctio eius nesciunt eveniet sint ad dicta suscipit, quod ipsum facere laboriosam adipisci excepturi quia deserunt, aperiam maxime neque dignissimos atque!\`,
+    $clamp: "2",
+    $maxWidth: "250px"
+  }
+}`,...(h=(f=t.parameters)==null?void 0:f.docs)==null?void 0:h.source}}};const ae=["Primary","WithLink","Truncated","Clamped"];export{t as Clamped,e as Primary,i as Truncated,r as WithLink,ae as __namedExportsOrder,oe as default};
