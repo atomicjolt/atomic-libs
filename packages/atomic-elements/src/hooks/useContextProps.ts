@@ -1,4 +1,5 @@
 import { mergeProps, mergeRefs, useObjectRef } from "@react-aria/utils";
+import { useMemo } from "react";
 import {
   SlotProps,
   SlottedContextValue,
@@ -18,7 +19,9 @@ export function useContextProps<T extends object, R>(
   const ctx = useSlottedContext(context, (props as SlotProps).slot) || {};
   const { ref: contextRef, ...contextProps } = ctx as WithRef<T, R>;
 
-  const mergedRef = useObjectRef(mergeRefs(ref, contextRef!));
+  const mergedRef = useObjectRef(
+    useMemo(() => mergeRefs(ref, contextRef!), [ref, contextRef])
+  );
 
   const mergedProps = mergeProps(contextProps, props) as T;
 
