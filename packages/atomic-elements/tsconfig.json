@@ -1,6 +1,6 @@
 {
   "extends": "../../tsconfig.json",
-  "include": ["src"],
+  "include": ["src", "vitest.setup.ts"],
   "compilerOptions": {
     "rootDir": ".",
     "moduleResolution": "bundler",
