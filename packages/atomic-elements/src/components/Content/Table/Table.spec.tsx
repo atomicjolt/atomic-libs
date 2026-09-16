@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { Table } from ".";
 import { TableProps, LoadingProps } from "./Table.types";
 import { Button } from "@components/Buttons/Button";
@@ -133,6 +133,131 @@ describe("Table", () => {
     },
     10000
   );
+
+  it("keeps grouped header rows aligned with their leaf columns when a nested sub-group is toggled", () => {
+    // Regression test for #267: buildHeaderRows names each placeholder
+    // after whichever real column borders it (the next column for a
+    // mid-row gap, the last-placed column for a trailing one) rather than
+    // by its own position. A column with a gap on both sides - here,
+    // "Milestones" sits between the gap left by "Lead" and the gap left by
+    // "Owner" - gets two placeholders sharing that one name. Without a
+    // position-based key (see TableHeaderRowCells in TableHeader.tsx), React
+    // can't tell the two placeholders apart, so a stale cell survives every
+    // toggle and the header row above them keeps growing wider than the
+    // columns underneath it instead of tracking the current leaf count.
+    function Harness() {
+      const [nested, setNested] = useState(true);
+      return (
+        <div>
+          <Button onPress={() => setNested((value) => !value)}>Toggle</Button>
+          <Table aria-label="table">
+            <Table.Header>
+              <Table.Column title="Team">
+                <Table.Column title="Location">
+                  <Table.Column id="city" isRowHeader>
+                    City
+                  </Table.Column>
+                  <Table.Column id="state">State</Table.Column>
+                </Table.Column>
+                <Table.Column id="lead">Lead</Table.Column>
+              </Table.Column>
+              <Table.Column title="Project">
+                {nested ? (
+                  <Table.Column title="Milestones">
+                    <Table.Column id="m1">M1</Table.Column>
+                    <Table.Column id="m2">M2</Table.Column>
+                  </Table.Column>
+                ) : (
+                  <Table.Column id="m1">M1</Table.Column>
+                )}
+                <Table.Column id="owner">Owner</Table.Column>
+              </Table.Column>
+            </Table.Header>
+            <Table.Body>
+              <Table.Row>
+                <Table.Cell>Austin</Table.Cell>
+                <Table.Cell>TX</Table.Cell>
+                <Table.Cell>Jane</Table.Cell>
+                <Table.Cell>Kickoff</Table.Cell>
+                {nested && <Table.Cell>Beta</Table.Cell>}
+                <Table.Cell>Priya</Table.Cell>
+              </Table.Row>
+            </Table.Body>
+          </Table>
+        </div>
+      );
+    }
+
+    const { container, getByText } = render(<Harness />);
+    const button = getByText("Toggle");
+
+    function headerRowWidths() {
+      return Array.from(container.querySelectorAll("thead tr")).map((row) =>
+        Array.from(row.querySelectorAll("th")).reduce(
+          (sum, th) => sum + Number(th.getAttribute("colspan") || 1),
+          0
+        )
+      );
+    }
+
+    // Starts nested (6 leaves); each click flips between 5 leaves
+    // (collapsed) and 6 (nested). Every header row should always sum to
+    // whichever is current - never more, and never a leftover from before.
+    for (let i = 0; i < 6; i++) {
+      fireEvent.click(button);
+      const expectedWidth = i % 2 === 0 ? 5 : 6;
+      headerRowWidths().forEach((width) => expect(width).toBe(expectedWidth));
+    }
+  });
+
+  it("does not emit a duplicate-key warning for a column with placeholder gaps on both sides", () => {
+    // The duplicate placeholder key from #267 isn't toggle-induced - it's a
+    // property of the row's shape, present from the very first render.
+    const errors: unknown[][] = [];
+    const spy = vi.spyOn(console, "error").mockImplementation((...args) => {
+      errors.push(args);
+    });
+
+    render(
+      <Table aria-label="table">
+        <Table.Header>
+          <Table.Column title="Team">
+            <Table.Column title="Location">
+              <Table.Column id="city" isRowHeader>
+                City
+              </Table.Column>
+              <Table.Column id="state">State</Table.Column>
+            </Table.Column>
+            <Table.Column id="lead">Lead</Table.Column>
+          </Table.Column>
+          <Table.Column title="Project">
+            <Table.Column title="Milestones">
+              <Table.Column id="m1">M1</Table.Column>
+              <Table.Column id="m2">M2</Table.Column>
+            </Table.Column>
+            <Table.Column id="owner">Owner</Table.Column>
+          </Table.Column>
+        </Table.Header>
+        <Table.Body>
+          <Table.Row>
+            <Table.Cell>Austin</Table.Cell>
+            <Table.Cell>TX</Table.Cell>
+            <Table.Cell>Jane</Table.Cell>
+            <Table.Cell>Kickoff</Table.Cell>
+            <Table.Cell>Beta</Table.Cell>
+            <Table.Cell>Priya</Table.Cell>
+          </Table.Row>
+        </Table.Body>
+      </Table>
+    );
+
+    spy.mockRestore();
+
+    const keyWarnings = errors.filter((args) =>
+      args.some((arg) => typeof arg === "string" && /same key/i.test(arg))
+    );
+    expect(keyWarnings).toHaveLength(0);
+  });
 
   it("should renderEmpty when there is no rows", () => {
     render(

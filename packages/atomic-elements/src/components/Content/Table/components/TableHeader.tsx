@@ -3,7 +3,11 @@ import { GridNode } from "@react-types/grid";
 import { Node } from "react-stately";
 import { useTableSelectAllCheckbox } from "@react-aria/table";
 import { useRenderProps } from "@hooks/useRenderProps";
-import { Collection, createBranchComponent, useCachedChildren } from "@react-aria/collections";
+import {
+  Collection,
+  createBranchComponent,
+  useCachedChildren,
+} from "@react-aria/collections";
 
 import { CheckBox, CheckBoxContext } from "@components/Inputs/Checkbox";
 import { DEFAULT_SLOT } from "@hooks/useSlottedContext";
@@ -31,7 +35,21 @@ function TableHeaderRowCells<T>(props: TableHeaderRowCellsProps<T>) {
     items: state.collection.getChildren!(row.key),
     children: (node: GridNode<T>) =>
       node.type === "placeholder" ? (
-        <TableColumnPlaceholder node={node} />
+        // buildHeaderRows names a placeholder after whichever real column
+        // borders it (the next column for a mid-row gap, the last-placed
+        // column for a trailing one), not after its own position. A column
+        // with a gap on both sides - e.g. a group flanked by two shorter
+        // siblings - produces two placeholders sharing that one name, which
+        // duplicates/loses cells across renders. Row + index is
+        // always unique per row, so key off that instead. Use `id`, not
+        // `key`: useCachedChildren clones this element and keys it off
+        // `props.id` (falling back to the node's own colliding `.key`
+        // otherwise - see useCachedChildren.ts), so a plain `key` prop here
+        // would be discarded.
+        <TableColumnPlaceholder
+          id={`${row.key}-placeholder-${node.index}`}
+          node={node}
+        />
       ) : (
         node.render!(node)
       ),
@@ -40,7 +58,17 @@ function TableHeaderRowCells<T>(props: TableHeaderRowCellsProps<T>) {
   return <>{cells}</>;
 }
 
-function TableColumnPlaceholder<T>({ node }: { node: GridNode<T> }) {
+interface TableColumnPlaceHolderProps<T> {
+  id: string;
+  node: GridNode<T>;
+}
+
+function TableColumnPlaceholder<T>({
+  // Intentionally ignore the id as it's just used to override the
+  // react-aria key management, it doesn't need to make it into the DOM
+  id: _id,
+  node,
+}: TableColumnPlaceHolderProps<T>) {
   return (
     <StyledTh
       role="columnheader"
