@@ -38,9 +38,13 @@ export const Label = React.forwardRef(function Label(
     size,
   });
 
-  return (
-    <StyledLabel as={as} ref={ref} {...renderProps} {...filterDOMProps(rest)}>
+    <StyledLabel
+      as={as}
+      ref={ref}
+      {...renderProps}
+      {...filterDOMProps(rest)}
+      htmlFor={rest.htmlFor}
+    >
       {children}
     </StyledLabel>
-  );
 });
