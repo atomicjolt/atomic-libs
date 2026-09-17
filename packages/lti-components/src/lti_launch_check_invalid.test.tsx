@@ -42,19 +42,18 @@ const idToken: IdToken = {
   locale: '',
 };
 
-describe('LtiLaunchCheck', () => {
-  
-  it('renders error message when isValid is false', async () => {
-  
-    vi.mock('@atomicjolt/lti-client', async () => {
-      const originalModule = await vi.importActual('@atomicjolt/lti-client') as typeof import('@atomicjolt/lti-client');
-      return {
-        __esModule: true,
-        ...originalModule,
-        ltiLaunch: () => false,
-      };
-    });
+vi.mock('@atomicjolt/lti-client', async () => {
+  const originalModule = await vi.importActual('@atomicjolt/lti-client') as typeof import('@atomicjolt/lti-client');
+  return {
+    __esModule: true,
+    ...originalModule,
+    ltiLaunch: () => false,
+  };
+});
 
+describe('LtiLaunchCheck', () => {
+
+  it('renders error message when isValid is false', async () => {
     const mockStateValidation = {
       idToken: idToken,
       state: 'invalidState',
