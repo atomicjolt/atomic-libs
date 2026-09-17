@@ -70,6 +70,14 @@ export const ForTextArea: Story = {
   },
 };
 
+export const Loading: Story = {
+  args: {
+    ...Primary.args,
+    isLoading: true,
+    loadingLabel: "Loading",
+  },
+};
+
 export const WithButton: Story = {
   args: {
     ...Primary.args,

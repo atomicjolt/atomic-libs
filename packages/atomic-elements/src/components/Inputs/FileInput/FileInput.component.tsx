@@ -11,11 +11,13 @@ import {
   FileInputStrong,
   FileInputWrapper,
   StyledFileInputButton,
+  StyledLoadingFileInput,
 } from "./FileInput.styles";
 import { ErrorMessage, Message } from "../../Fields";
 import { FileTrigger } from "@components/Buttons/FileTrigger";
 import { useFocusRing } from "@hooks/useFocusRing";
 import { DropZone } from "@components/DragAndDrop/DropZone";
+import { useLoading } from "@components/Feedback/Loading";
 
 export interface FileInputProps
   extends Omit<FieldInputProps, "isReadOnly">,
@@ -56,8 +58,12 @@ export const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
       id = inputId,
       acceptedFileTypes,
       name,
+      isLoading: _isLoading,
+      loadingLabel: _loadingLabel,
       ...rest
     } = props;
+
+    const { isLoading, loadingLabel } = useLoading(props);
 
     const renderProps = useRenderProps({
       componentClassName: "aje-input__file",
@@ -69,6 +75,16 @@ export const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
         "data-required": isRequired,
       },
     });
+
+    if (isLoading) {
+      return (
+        <FileInputWrapper {...renderProps}>
+          <StyledLoadingFileInput title={loadingLabel}>
+            <rect x="0" y="0" width="100%" height="100%" rx="5" ry="5" />
+          </StyledLoadingFileInput>
+        </FileInputWrapper>
+      );
+    }
 
     return (
       <FileInputWrapper {...renderProps} {...rest}>

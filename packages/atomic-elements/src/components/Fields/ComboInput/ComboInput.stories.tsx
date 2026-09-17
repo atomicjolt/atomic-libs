@@ -21,6 +21,18 @@ export default {
       control: "select",
       options: ["left", "right", "both"],
     },
+    isLoading: {
+      control: "boolean",
+      table: {
+        category: "Field State",
+      },
+    },
+    loadingLabel: {
+      control: "text",
+      table: {
+        category: "Field State",
+      },
+    },
   },
 } as Meta<typeof ComboInput>;
 
@@ -33,6 +45,14 @@ export const Primary: Story = {
       <Input placeholder="Search" key="actual-input" />,
     ],
     padding: "both",
+  },
+};
+
+export const Loading: Story = {
+  args: {
+    ...Primary.args,
+    isLoading: true,
+    loadingLabel: "Loading",
   },
 };
 

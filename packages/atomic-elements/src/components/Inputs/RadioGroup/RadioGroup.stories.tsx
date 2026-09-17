@@ -90,3 +90,11 @@ export const WithDisabledOptions: Story = {
     ],
   },
 };
+
+export const Loading: Story = {
+  args: {
+    ...Primary.args,
+    isLoading: true,
+    loadingLabel: "Loading",
+  },
+};

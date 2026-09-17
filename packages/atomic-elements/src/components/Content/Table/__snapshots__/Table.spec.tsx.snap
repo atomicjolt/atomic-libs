@@ -11,13 +11,13 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
       <table
         aria-describedby=""
         aria-label="table"
-        class="sc-ivKqQM dvdTUR aje-table"
+        class="sc-giQkEn lnLxOL aje-table"
         data-collection="react-aria-:re:"
         role="grid"
         tabindex="0"
       >
         <thead
-          class="sc-giQkEn hpXlZv aje-table__header"
+          class="sc-ikBzZv jhKIUW aje-table__header"
           role="rowgroup"
         >
           <tr
@@ -26,7 +26,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
           >
             <th
               aria-colindex="1"
-              class="sc-bYgEKt ljtAAl aje-table__column"
+              class="sc-hiunUN dJuUyV aje-table__column"
               data-collection="react-aria-:re:"
               data-key="a"
               data-searchable="true"
@@ -38,29 +38,29 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
               tabindex="-1"
             >
               <div
-                class="sc-ezjgic kswyAg"
+                class="sc-jJwPsw iZUnjr"
               >
                 Column 1
                 <div
                   aria-expanded="true"
-                  class="sc-eCQgVK lhFnxc aje-combo-input sc-ikBzZv dACBcu"
+                  class="sc-qdQOe kPUMiD aje-combo-input sc-cBEgGa brMiEN"
                 >
                   <input
                     aria-label="Search a"
-                    class="sc-hKVpXn ecqUOI"
+                    class="sc-gKkgUA bzpolP"
                     role="search"
                     slot="search"
                     value="search"
                   />
                   <button
-                    class="sc-fuztkK sc-qdQOe fTXzHK iFSkaa aje-btn aje-icon-btn aje-btn--content is-small"
+                    class="sc-dYjPD sc-bqqMSY hHQCzc dIQBXN aje-btn aje-icon-btn aje-btn--content is-small"
                     data-icon-button="true"
                     tabindex="0"
                     type="button"
                   >
                     <i
                       aria-hidden="true"
-                      class="sc-iCECmn erxnfb aje-icon material-icons is-small"
+                      class="sc-crPgjm bIBcHh aje-icon material-icons is-small"
                     >
                       close
                     </i>
@@ -70,7 +70,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
             </th>
             <th
               aria-colindex="2"
-              class="sc-bYgEKt ljtAAl aje-table__column"
+              class="sc-hiunUN dJuUyV aje-table__column"
               data-collection="react-aria-:re:"
               data-key="b"
               data-sort-visibility="selected"
@@ -80,7 +80,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
               tabindex="-1"
             >
               <div
-                class="sc-ezjgic kswyAg"
+                class="sc-jJwPsw iZUnjr"
               >
                 Column 2
               </div>
@@ -88,19 +88,19 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
           </tr>
         </thead>
         <tbody
-          class="sc-hiunUN aje-table__body"
+          class="sc-jcgtOs aje-table__body"
           role="rowgroup"
         >
           <tr
             aria-labelledby="react-aria-:rd:-react-aria-6-a"
-            class="sc-cxxQMU kPmlSu aje-table__row"
+            class="sc-ezjgic bZStHI aje-table__row"
             data-collection="react-aria-:re:"
             data-key="react-aria-6"
             role="row"
             tabindex="-1"
           >
             <th
-              class="sc-gXvOjn dTIEYA aje-table__cell"
+              class="sc-caHARj lcRrQB aje-table__cell"
               data-collection="react-aria-:re:"
               data-key="react-aria-4"
               id="react-aria-:rd:-react-aria-6-a"
@@ -110,7 +110,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
               Row 1, Cell 1
             </th>
             <td
-              class="sc-cBEgGa kYcIRW aje-table__cell"
+              class="sc-iUlCMS iIkvIm aje-table__cell"
               data-collection="react-aria-:re:"
               data-key="react-aria-5"
               id="react-aria-:rl:"
@@ -122,14 +122,14 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
           </tr>
           <tr
             aria-labelledby="react-aria-:rd:-react-aria-9-a"
-            class="sc-cxxQMU kPmlSu aje-table__row"
+            class="sc-ezjgic bZStHI aje-table__row"
             data-collection="react-aria-:re:"
             data-key="react-aria-9"
             role="row"
             tabindex="-1"
           >
             <th
-              class="sc-gXvOjn dTIEYA aje-table__cell"
+              class="sc-caHARj lcRrQB aje-table__cell"
               data-collection="react-aria-:re:"
               data-key="react-aria-7"
               id="react-aria-:rd:-react-aria-9-a"
@@ -139,7 +139,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
               Row 2, Cell 1
             </th>
             <td
-              class="sc-cBEgGa kYcIRW aje-table__cell"
+              class="sc-iUlCMS iIkvIm aje-table__cell"
               data-collection="react-aria-:re:"
               data-key="react-aria-8"
               id="react-aria-:rp:"
@@ -160,13 +160,13 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
     <table
       aria-describedby=""
       aria-label="table"
-      class="sc-ivKqQM dvdTUR aje-table"
+      class="sc-giQkEn lnLxOL aje-table"
       data-collection="react-aria-:re:"
       role="grid"
       tabindex="0"
     >
       <thead
-        class="sc-giQkEn hpXlZv aje-table__header"
+        class="sc-ikBzZv jhKIUW aje-table__header"
         role="rowgroup"
       >
         <tr
@@ -175,7 +175,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
         >
           <th
             aria-colindex="1"
-            class="sc-bYgEKt ljtAAl aje-table__column"
+            class="sc-hiunUN dJuUyV aje-table__column"
             data-collection="react-aria-:re:"
             data-key="a"
             data-searchable="true"
@@ -187,29 +187,29 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
             tabindex="-1"
           >
             <div
-              class="sc-ezjgic kswyAg"
+              class="sc-jJwPsw iZUnjr"
             >
               Column 1
               <div
                 aria-expanded="true"
-                class="sc-eCQgVK lhFnxc aje-combo-input sc-ikBzZv dACBcu"
+                class="sc-qdQOe kPUMiD aje-combo-input sc-cBEgGa brMiEN"
               >
                 <input
                   aria-label="Search a"
-                  class="sc-hKVpXn ecqUOI"
+                  class="sc-gKkgUA bzpolP"
                   role="search"
                   slot="search"
                   value="search"
                 />
                 <button
-                  class="sc-fuztkK sc-qdQOe fTXzHK iFSkaa aje-btn aje-icon-btn aje-btn--content is-small"
+                  class="sc-dYjPD sc-bqqMSY hHQCzc dIQBXN aje-btn aje-icon-btn aje-btn--content is-small"
                   data-icon-button="true"
                   tabindex="0"
                   type="button"
                 >
                   <i
                     aria-hidden="true"
-                    class="sc-iCECmn erxnfb aje-icon material-icons is-small"
+                    class="sc-crPgjm bIBcHh aje-icon material-icons is-small"
                   >
                     close
                   </i>
@@ -219,7 +219,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
           </th>
           <th
             aria-colindex="2"
-            class="sc-bYgEKt ljtAAl aje-table__column"
+            class="sc-hiunUN dJuUyV aje-table__column"
             data-collection="react-aria-:re:"
             data-key="b"
             data-sort-visibility="selected"
@@ -229,7 +229,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
             tabindex="-1"
           >
             <div
-              class="sc-ezjgic kswyAg"
+              class="sc-jJwPsw iZUnjr"
             >
               Column 2
             </div>
@@ -237,19 +237,19 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
         </tr>
       </thead>
       <tbody
-        class="sc-hiunUN aje-table__body"
+        class="sc-jcgtOs aje-table__body"
         role="rowgroup"
       >
         <tr
           aria-labelledby="react-aria-:rd:-react-aria-6-a"
-          class="sc-cxxQMU kPmlSu aje-table__row"
+          class="sc-ezjgic bZStHI aje-table__row"
           data-collection="react-aria-:re:"
           data-key="react-aria-6"
           role="row"
           tabindex="-1"
         >
           <th
-            class="sc-gXvOjn dTIEYA aje-table__cell"
+            class="sc-caHARj lcRrQB aje-table__cell"
             data-collection="react-aria-:re:"
             data-key="react-aria-4"
             id="react-aria-:rd:-react-aria-6-a"
@@ -259,7 +259,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
             Row 1, Cell 1
           </th>
           <td
-            class="sc-cBEgGa kYcIRW aje-table__cell"
+            class="sc-iUlCMS iIkvIm aje-table__cell"
             data-collection="react-aria-:re:"
             data-key="react-aria-5"
             id="react-aria-:rl:"
@@ -271,14 +271,14 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
         </tr>
         <tr
           aria-labelledby="react-aria-:rd:-react-aria-9-a"
-          class="sc-cxxQMU kPmlSu aje-table__row"
+          class="sc-ezjgic bZStHI aje-table__row"
           data-collection="react-aria-:re:"
           data-key="react-aria-9"
           role="row"
           tabindex="-1"
         >
           <th
-            class="sc-gXvOjn dTIEYA aje-table__cell"
+            class="sc-caHARj lcRrQB aje-table__cell"
             data-collection="react-aria-:re:"
             data-key="react-aria-7"
             id="react-aria-:rd:-react-aria-9-a"
@@ -288,7 +288,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
             Row 2, Cell 1
           </th>
           <td
-            class="sc-cBEgGa kYcIRW aje-table__cell"
+            class="sc-iUlCMS iIkvIm aje-table__cell"
             data-collection="react-aria-:re:"
             data-key="react-aria-8"
             id="react-aria-:rp:"
@@ -366,13 +366,13 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
       <table
         aria-describedby=""
         aria-label="table"
-        class="sc-ivKqQM dvdTUR aje-table"
+        class="sc-giQkEn lnLxOL aje-table"
         data-collection="react-aria-:r1:"
         role="grid"
         tabindex="0"
       >
         <thead
-          class="sc-giQkEn hpXlZv aje-table__header"
+          class="sc-ikBzZv jhKIUW aje-table__header"
           role="rowgroup"
         >
           <tr
@@ -381,7 +381,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
           >
             <th
               aria-colindex="1"
-              class="sc-bYgEKt ljtAAl aje-table__column"
+              class="sc-hiunUN dJuUyV aje-table__column"
               data-collection="react-aria-:r1:"
               data-key="a"
               data-searchable="true"
@@ -392,44 +392,44 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
               tabindex="-1"
             >
               <div
-                class="sc-ezjgic kswyAg"
+                class="sc-jJwPsw iZUnjr"
               >
                 Column 1
                 <div
                   aria-expanded="false"
-                  class="sc-eCQgVK lhFnxc aje-combo-input sc-ikBzZv dACBcu"
+                  class="sc-qdQOe kPUMiD aje-combo-input sc-cBEgGa brMiEN"
                 >
                   <input
                     aria-label="Search a"
-                    class="sc-hKVpXn ecqUOI"
+                    class="sc-gKkgUA bzpolP"
                     disabled=""
                     role="search"
                     slot="search"
                     value=""
                   />
                   <button
-                    class="sc-fuztkK sc-qdQOe fTXzHK iFSkaa aje-btn aje-icon-btn aje-btn--content is-small"
+                    class="sc-dYjPD sc-bqqMSY hHQCzc dIQBXN aje-btn aje-icon-btn aje-btn--content is-small"
                     data-icon-button="true"
                     tabindex="0"
                     type="button"
                   >
                     <i
                       aria-hidden="true"
-                      class="sc-iCECmn erxnfb aje-icon material-icons is-small"
+                      class="sc-crPgjm bIBcHh aje-icon material-icons is-small"
                     >
                       close
                     </i>
                   </button>
                 </div>
                 <button
-                  class="sc-fuztkK sc-qdQOe fTXzHK iFSkaa aje-btn aje-icon-btn aje-btn--content is-small"
+                  class="sc-dYjPD sc-bqqMSY hHQCzc dIQBXN aje-btn aje-icon-btn aje-btn--content is-small"
                   data-icon-button="true"
                   tabindex="0"
                   type="button"
                 >
                   <i
                     aria-hidden="true"
-                    class="sc-iCECmn erxnfb aje-icon material-icons is-small"
+                    class="sc-crPgjm bIBcHh aje-icon material-icons is-small"
                   >
                     search
                   </i>
@@ -438,7 +438,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
             </th>
             <th
               aria-colindex="2"
-              class="sc-bYgEKt ljtAAl aje-table__column"
+              class="sc-hiunUN dJuUyV aje-table__column"
               data-collection="react-aria-:r1:"
               data-key="b"
               data-sort-visibility="selected"
@@ -448,7 +448,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
               tabindex="-1"
             >
               <div
-                class="sc-ezjgic kswyAg"
+                class="sc-jJwPsw iZUnjr"
               >
                 Column 2
               </div>
@@ -456,19 +456,19 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
           </tr>
         </thead>
         <tbody
-          class="sc-hiunUN aje-table__body"
+          class="sc-jcgtOs aje-table__body"
           role="rowgroup"
         >
           <tr
             aria-labelledby="react-aria-:r0:-react-aria-6-a"
-            class="sc-cxxQMU kPmlSu aje-table__row"
+            class="sc-ezjgic bZStHI aje-table__row"
             data-collection="react-aria-:r1:"
             data-key="react-aria-6"
             role="row"
             tabindex="-1"
           >
             <th
-              class="sc-gXvOjn dTIEYA aje-table__cell"
+              class="sc-caHARj lcRrQB aje-table__cell"
               data-collection="react-aria-:r1:"
               data-key="react-aria-4"
               id="react-aria-:r0:-react-aria-6-a"
@@ -478,7 +478,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
               Row 1, Cell 1
             </th>
             <td
-              class="sc-cBEgGa kYcIRW aje-table__cell"
+              class="sc-iUlCMS iIkvIm aje-table__cell"
               data-collection="react-aria-:r1:"
               data-key="react-aria-5"
               id="react-aria-:r8:"
@@ -490,14 +490,14 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
           </tr>
           <tr
             aria-labelledby="react-aria-:r0:-react-aria-9-a"
-            class="sc-cxxQMU kPmlSu aje-table__row"
+            class="sc-ezjgic bZStHI aje-table__row"
             data-collection="react-aria-:r1:"
             data-key="react-aria-9"
             role="row"
             tabindex="-1"
           >
             <th
-              class="sc-gXvOjn dTIEYA aje-table__cell"
+              class="sc-caHARj lcRrQB aje-table__cell"
               data-collection="react-aria-:r1:"
               data-key="react-aria-7"
               id="react-aria-:r0:-react-aria-9-a"
@@ -507,7 +507,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
               Row 2, Cell 1
             </th>
             <td
-              class="sc-cBEgGa kYcIRW aje-table__cell"
+              class="sc-iUlCMS iIkvIm aje-table__cell"
               data-collection="react-aria-:r1:"
               data-key="react-aria-8"
               id="react-aria-:rc:"
@@ -528,13 +528,13 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
     <table
       aria-describedby=""
       aria-label="table"
-      class="sc-ivKqQM dvdTUR aje-table"
+      class="sc-giQkEn lnLxOL aje-table"
       data-collection="react-aria-:r1:"
       role="grid"
       tabindex="0"
     >
       <thead
-        class="sc-giQkEn hpXlZv aje-table__header"
+        class="sc-ikBzZv jhKIUW aje-table__header"
         role="rowgroup"
       >
         <tr
@@ -543,7 +543,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
         >
           <th
             aria-colindex="1"
-            class="sc-bYgEKt ljtAAl aje-table__column"
+            class="sc-hiunUN dJuUyV aje-table__column"
             data-collection="react-aria-:r1:"
             data-key="a"
             data-searchable="true"
@@ -554,44 +554,44 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
             tabindex="-1"
           >
             <div
-              class="sc-ezjgic kswyAg"
+              class="sc-jJwPsw iZUnjr"
             >
               Column 1
               <div
                 aria-expanded="false"
-                class="sc-eCQgVK lhFnxc aje-combo-input sc-ikBzZv dACBcu"
+                class="sc-qdQOe kPUMiD aje-combo-input sc-cBEgGa brMiEN"
               >
                 <input
                   aria-label="Search a"
-                  class="sc-hKVpXn ecqUOI"
+                  class="sc-gKkgUA bzpolP"
                   disabled=""
                   role="search"
                   slot="search"
                   value=""
                 />
                 <button
-                  class="sc-fuztkK sc-qdQOe fTXzHK iFSkaa aje-btn aje-icon-btn aje-btn--content is-small"
+                  class="sc-dYjPD sc-bqqMSY hHQCzc dIQBXN aje-btn aje-icon-btn aje-btn--content is-small"
                   data-icon-button="true"
                   tabindex="0"
                   type="button"
                 >
                   <i
                     aria-hidden="true"
-                    class="sc-iCECmn erxnfb aje-icon material-icons is-small"
+                    class="sc-crPgjm bIBcHh aje-icon material-icons is-small"
                   >
                     close
                   </i>
                 </button>
               </div>
               <button
-                class="sc-fuztkK sc-qdQOe fTXzHK iFSkaa aje-btn aje-icon-btn aje-btn--content is-small"
+                class="sc-dYjPD sc-bqqMSY hHQCzc dIQBXN aje-btn aje-icon-btn aje-btn--content is-small"
                 data-icon-button="true"
                 tabindex="0"
                 type="button"
               >
                 <i
                   aria-hidden="true"
-                  class="sc-iCECmn erxnfb aje-icon material-icons is-small"
+                  class="sc-crPgjm bIBcHh aje-icon material-icons is-small"
                 >
                   search
                 </i>
@@ -600,7 +600,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
           </th>
           <th
             aria-colindex="2"
-            class="sc-bYgEKt ljtAAl aje-table__column"
+            class="sc-hiunUN dJuUyV aje-table__column"
             data-collection="react-aria-:r1:"
             data-key="b"
             data-sort-visibility="selected"
@@ -610,7 +610,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
             tabindex="-1"
           >
             <div
-              class="sc-ezjgic kswyAg"
+              class="sc-jJwPsw iZUnjr"
             >
               Column 2
             </div>
@@ -618,19 +618,19 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
         </tr>
       </thead>
       <tbody
-        class="sc-hiunUN aje-table__body"
+        class="sc-jcgtOs aje-table__body"
         role="rowgroup"
       >
         <tr
           aria-labelledby="react-aria-:r0:-react-aria-6-a"
-          class="sc-cxxQMU kPmlSu aje-table__row"
+          class="sc-ezjgic bZStHI aje-table__row"
           data-collection="react-aria-:r1:"
           data-key="react-aria-6"
           role="row"
           tabindex="-1"
         >
           <th
-            class="sc-gXvOjn dTIEYA aje-table__cell"
+            class="sc-caHARj lcRrQB aje-table__cell"
             data-collection="react-aria-:r1:"
             data-key="react-aria-4"
             id="react-aria-:r0:-react-aria-6-a"
@@ -640,7 +640,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
             Row 1, Cell 1
           </th>
           <td
-            class="sc-cBEgGa kYcIRW aje-table__cell"
+            class="sc-iUlCMS iIkvIm aje-table__cell"
             data-collection="react-aria-:r1:"
             data-key="react-aria-5"
             id="react-aria-:r8:"
@@ -652,14 +652,14 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
         </tr>
         <tr
           aria-labelledby="react-aria-:r0:-react-aria-9-a"
-          class="sc-cxxQMU kPmlSu aje-table__row"
+          class="sc-ezjgic bZStHI aje-table__row"
           data-collection="react-aria-:r1:"
           data-key="react-aria-9"
           role="row"
           tabindex="-1"
         >
           <th
-            class="sc-gXvOjn dTIEYA aje-table__cell"
+            class="sc-caHARj lcRrQB aje-table__cell"
             data-collection="react-aria-:r1:"
             data-key="react-aria-7"
             id="react-aria-:r0:-react-aria-9-a"
@@ -669,7 +669,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
             Row 2, Cell 1
           </th>
           <td
-            class="sc-cBEgGa kYcIRW aje-table__cell"
+            class="sc-iUlCMS iIkvIm aje-table__cell"
             data-collection="react-aria-:r1:"
             data-key="react-aria-8"
             id="react-aria-:rc:"
@@ -747,13 +747,13 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
       <table
         aria-describedby=""
         aria-label="table"
-        class="sc-ivKqQM dvdTUR aje-table"
+        class="sc-giQkEn lnLxOL aje-table"
         data-collection="react-aria-:rr:"
         role="grid"
         tabindex="0"
       >
         <thead
-          class="sc-giQkEn hpXlZv aje-table__header"
+          class="sc-ikBzZv jhKIUW aje-table__header"
           role="rowgroup"
         >
           <tr
@@ -762,7 +762,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
           >
             <th
               aria-colindex="1"
-              class="sc-bYgEKt ljtAAl aje-table__column"
+              class="sc-hiunUN dJuUyV aje-table__column"
               data-collection="react-aria-:rr:"
               data-key="a"
               data-searchable="true"
@@ -773,44 +773,44 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
               tabindex="-1"
             >
               <div
-                class="sc-ezjgic kswyAg"
+                class="sc-jJwPsw iZUnjr"
               >
                 Column 1
                 <div
                   aria-expanded="false"
-                  class="sc-eCQgVK lhFnxc aje-combo-input sc-ikBzZv dACBcu"
+                  class="sc-qdQOe kPUMiD aje-combo-input sc-cBEgGa brMiEN"
                 >
                   <input
                     aria-label="Search a"
-                    class="sc-hKVpXn ecqUOI"
+                    class="sc-gKkgUA bzpolP"
                     disabled=""
                     role="search"
                     slot="search"
                     value=""
                   />
                   <button
-                    class="sc-fuztkK sc-qdQOe fTXzHK iFSkaa aje-btn aje-icon-btn aje-btn--content is-small"
+                    class="sc-dYjPD sc-bqqMSY hHQCzc dIQBXN aje-btn aje-icon-btn aje-btn--content is-small"
                     data-icon-button="true"
                     tabindex="0"
                     type="button"
                   >
                     <i
                       aria-hidden="true"
-                      class="sc-iCECmn erxnfb aje-icon material-icons is-small"
+                      class="sc-crPgjm bIBcHh aje-icon material-icons is-small"
                     >
                       close
                     </i>
                   </button>
                 </div>
                 <button
-                  class="sc-fuztkK sc-qdQOe fTXzHK iFSkaa aje-btn aje-icon-btn aje-btn--content is-small"
+                  class="sc-dYjPD sc-bqqMSY hHQCzc dIQBXN aje-btn aje-icon-btn aje-btn--content is-small"
                   data-icon-button="true"
                   tabindex="0"
                   type="button"
                 >
                   <i
                     aria-hidden="true"
-                    class="sc-iCECmn erxnfb aje-icon material-icons is-small"
+                    class="sc-crPgjm bIBcHh aje-icon material-icons is-small"
                   >
                     search
                   </i>
@@ -819,7 +819,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </th>
             <th
               aria-colindex="2"
-              class="sc-bYgEKt ljtAAl aje-table__column"
+              class="sc-hiunUN dJuUyV aje-table__column"
               data-collection="react-aria-:rr:"
               data-key="b"
               data-sort-visibility="selected"
@@ -829,7 +829,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
               tabindex="-1"
             >
               <div
-                class="sc-ezjgic kswyAg"
+                class="sc-jJwPsw iZUnjr"
               >
                 Column 2
               </div>
@@ -837,19 +837,19 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
           </tr>
         </thead>
         <tbody
-          class="sc-hiunUN aje-table__body"
+          class="sc-jcgtOs aje-table__body"
           data-loading="true"
           role="rowgroup"
         >
           <tr
-            class="sc-cxxQMU kPmlSu"
+            class="sc-ezjgic bZStHI"
           >
             <td
-              class="sc-cBEgGa kYcIRW"
+              class="sc-iUlCMS iIkvIm"
             >
               <svg
                 aria-labelledby=":rv:-aria"
-                class="sc-kgohyr kmNOSy aje-skeleton-loader sc-ciCrSJ gtAOoi"
+                class="sc-hKVpXn icWWvx aje-skeleton-loader sc-iBjNZB kgvISf"
                 role="img"
               >
                 <rect
@@ -879,15 +879,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                     id=":rv:-animated-diff"
                   >
                     <stop
-                      class="sc-fKwzVe gTpKTn"
+                      class="sc-eCQgVK bOcrcx"
                       offset="0%"
                     />
                     <stop
-                      class="sc-bCgoVd LTccX"
+                      class="sc-jSppWd fLOjNm"
                       offset="50%"
                     />
                     <stop
-                      class="sc-fKwzVe gTpKTn"
+                      class="sc-eCQgVK bOcrcx"
                       offset="100%"
                     />
                     <animatetransform
@@ -902,11 +902,11 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
               </svg>
             </td>
             <td
-              class="sc-cBEgGa kYcIRW"
+              class="sc-iUlCMS iIkvIm"
             >
               <svg
                 aria-labelledby=":r10:-aria"
-                class="sc-kgohyr kmNOSy aje-skeleton-loader sc-ciCrSJ gtAOoi"
+                class="sc-hKVpXn icWWvx aje-skeleton-loader sc-iBjNZB kgvISf"
                 role="img"
               >
                 <rect
@@ -936,15 +936,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                     id=":r10:-animated-diff"
                   >
                     <stop
-                      class="sc-fKwzVe gTpKTn"
+                      class="sc-eCQgVK bOcrcx"
                       offset="0%"
                     />
                     <stop
-                      class="sc-bCgoVd LTccX"
+                      class="sc-jSppWd fLOjNm"
                       offset="50%"
                     />
                     <stop
-                      class="sc-fKwzVe gTpKTn"
+                      class="sc-eCQgVK bOcrcx"
                       offset="100%"
                     />
                     <animatetransform
@@ -960,14 +960,14 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </td>
           </tr>
           <tr
-            class="sc-cxxQMU kPmlSu"
+            class="sc-ezjgic bZStHI"
           >
             <td
-              class="sc-cBEgGa kYcIRW"
+              class="sc-iUlCMS iIkvIm"
             >
               <svg
                 aria-labelledby=":r11:-aria"
-                class="sc-kgohyr kmNOSy aje-skeleton-loader sc-ciCrSJ gtAOoi"
+                class="sc-hKVpXn icWWvx aje-skeleton-loader sc-iBjNZB kgvISf"
                 role="img"
               >
                 <rect
@@ -997,15 +997,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                     id=":r11:-animated-diff"
                   >
                     <stop
-                      class="sc-fKwzVe gTpKTn"
+                      class="sc-eCQgVK bOcrcx"
                       offset="0%"
                     />
                     <stop
-                      class="sc-bCgoVd LTccX"
+                      class="sc-jSppWd fLOjNm"
                       offset="50%"
                     />
                     <stop
-                      class="sc-fKwzVe gTpKTn"
+                      class="sc-eCQgVK bOcrcx"
                       offset="100%"
                     />
                     <animatetransform
@@ -1020,11 +1020,11 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
               </svg>
             </td>
             <td
-              class="sc-cBEgGa kYcIRW"
+              class="sc-iUlCMS iIkvIm"
             >
               <svg
                 aria-labelledby=":r12:-aria"
-                class="sc-kgohyr kmNOSy aje-skeleton-loader sc-ciCrSJ gtAOoi"
+                class="sc-hKVpXn icWWvx aje-skeleton-loader sc-iBjNZB kgvISf"
                 role="img"
               >
                 <rect
@@ -1054,15 +1054,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                     id=":r12:-animated-diff"
                   >
                     <stop
-                      class="sc-fKwzVe gTpKTn"
+                      class="sc-eCQgVK bOcrcx"
                       offset="0%"
                     />
                     <stop
-                      class="sc-bCgoVd LTccX"
+                      class="sc-jSppWd fLOjNm"
                       offset="50%"
                     />
                     <stop
-                      class="sc-fKwzVe gTpKTn"
+                      class="sc-eCQgVK bOcrcx"
                       offset="100%"
                     />
                     <animatetransform
@@ -1078,14 +1078,14 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </td>
           </tr>
           <tr
-            class="sc-cxxQMU kPmlSu"
+            class="sc-ezjgic bZStHI"
           >
             <td
-              class="sc-cBEgGa kYcIRW"
+              class="sc-iUlCMS iIkvIm"
             >
               <svg
                 aria-labelledby=":r13:-aria"
-                class="sc-kgohyr kmNOSy aje-skeleton-loader sc-ciCrSJ gtAOoi"
+                class="sc-hKVpXn icWWvx aje-skeleton-loader sc-iBjNZB kgvISf"
                 role="img"
               >
                 <rect
@@ -1115,15 +1115,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                     id=":r13:-animated-diff"
                   >
                     <stop
-                      class="sc-fKwzVe gTpKTn"
+                      class="sc-eCQgVK bOcrcx"
                       offset="0%"
                     />
                     <stop
-                      class="sc-bCgoVd LTccX"
+                      class="sc-jSppWd fLOjNm"
                       offset="50%"
                     />
                     <stop
-                      class="sc-fKwzVe gTpKTn"
+                      class="sc-eCQgVK bOcrcx"
                       offset="100%"
                     />
                     <animatetransform
@@ -1138,11 +1138,11 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
               </svg>
             </td>
             <td
-              class="sc-cBEgGa kYcIRW"
+              class="sc-iUlCMS iIkvIm"
             >
               <svg
                 aria-labelledby=":r14:-aria"
-                class="sc-kgohyr kmNOSy aje-skeleton-loader sc-ciCrSJ gtAOoi"
+                class="sc-hKVpXn icWWvx aje-skeleton-loader sc-iBjNZB kgvISf"
                 role="img"
               >
                 <rect
@@ -1172,15 +1172,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                     id=":r14:-animated-diff"
                   >
                     <stop
-                      class="sc-fKwzVe gTpKTn"
+                      class="sc-eCQgVK bOcrcx"
                       offset="0%"
                     />
                     <stop
-                      class="sc-bCgoVd LTccX"
+                      class="sc-jSppWd fLOjNm"
                       offset="50%"
                     />
                     <stop
-                      class="sc-fKwzVe gTpKTn"
+                      class="sc-eCQgVK bOcrcx"
                       offset="100%"
                     />
                     <animatetransform
@@ -1196,14 +1196,14 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </td>
           </tr>
           <tr
-            class="sc-cxxQMU kPmlSu"
+            class="sc-ezjgic bZStHI"
           >
             <td
-              class="sc-cBEgGa kYcIRW"
+              class="sc-iUlCMS iIkvIm"
             >
               <svg
                 aria-labelledby=":r15:-aria"
-                class="sc-kgohyr kmNOSy aje-skeleton-loader sc-ciCrSJ gtAOoi"
+                class="sc-hKVpXn icWWvx aje-skeleton-loader sc-iBjNZB kgvISf"
                 role="img"
               >
                 <rect
@@ -1233,15 +1233,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                     id=":r15:-animated-diff"
                   >
                     <stop
-                      class="sc-fKwzVe gTpKTn"
+                      class="sc-eCQgVK bOcrcx"
                       offset="0%"
                     />
                     <stop
-                      class="sc-bCgoVd LTccX"
+                      class="sc-jSppWd fLOjNm"
                       offset="50%"
                     />
                     <stop
-                      class="sc-fKwzVe gTpKTn"
+                      class="sc-eCQgVK bOcrcx"
                       offset="100%"
                     />
                     <animatetransform
@@ -1256,11 +1256,11 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
               </svg>
             </td>
             <td
-              class="sc-cBEgGa kYcIRW"
+              class="sc-iUlCMS iIkvIm"
             >
               <svg
                 aria-labelledby=":r16:-aria"
-                class="sc-kgohyr kmNOSy aje-skeleton-loader sc-ciCrSJ gtAOoi"
+                class="sc-hKVpXn icWWvx aje-skeleton-loader sc-iBjNZB kgvISf"
                 role="img"
               >
                 <rect
@@ -1290,15 +1290,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                     id=":r16:-animated-diff"
                   >
                     <stop
-                      class="sc-fKwzVe gTpKTn"
+                      class="sc-eCQgVK bOcrcx"
                       offset="0%"
                     />
                     <stop
-                      class="sc-bCgoVd LTccX"
+                      class="sc-jSppWd fLOjNm"
                       offset="50%"
                     />
                     <stop
-                      class="sc-fKwzVe gTpKTn"
+                      class="sc-eCQgVK bOcrcx"
                       offset="100%"
                     />
                     <animatetransform
@@ -1314,14 +1314,14 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </td>
           </tr>
           <tr
-            class="sc-cxxQMU kPmlSu"
+            class="sc-ezjgic bZStHI"
           >
             <td
-              class="sc-cBEgGa kYcIRW"
+              class="sc-iUlCMS iIkvIm"
             >
               <svg
                 aria-labelledby=":r17:-aria"
-                class="sc-kgohyr kmNOSy aje-skeleton-loader sc-ciCrSJ gtAOoi"
+                class="sc-hKVpXn icWWvx aje-skeleton-loader sc-iBjNZB kgvISf"
                 role="img"
               >
                 <rect
@@ -1351,15 +1351,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                     id=":r17:-animated-diff"
                   >
                     <stop
-                      class="sc-fKwzVe gTpKTn"
+                      class="sc-eCQgVK bOcrcx"
                       offset="0%"
                     />
                     <stop
-                      class="sc-bCgoVd LTccX"
+                      class="sc-jSppWd fLOjNm"
                       offset="50%"
                     />
                     <stop
-                      class="sc-fKwzVe gTpKTn"
+                      class="sc-eCQgVK bOcrcx"
                       offset="100%"
                     />
                     <animatetransform
@@ -1374,11 +1374,11 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
               </svg>
             </td>
             <td
-              class="sc-cBEgGa kYcIRW"
+              class="sc-iUlCMS iIkvIm"
             >
               <svg
                 aria-labelledby=":r18:-aria"
-                class="sc-kgohyr kmNOSy aje-skeleton-loader sc-ciCrSJ gtAOoi"
+                class="sc-hKVpXn icWWvx aje-skeleton-loader sc-iBjNZB kgvISf"
                 role="img"
               >
                 <rect
@@ -1408,15 +1408,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                     id=":r18:-animated-diff"
                   >
                     <stop
-                      class="sc-fKwzVe gTpKTn"
+                      class="sc-eCQgVK bOcrcx"
                       offset="0%"
                     />
                     <stop
-                      class="sc-bCgoVd LTccX"
+                      class="sc-jSppWd fLOjNm"
                       offset="50%"
                     />
                     <stop
-                      class="sc-fKwzVe gTpKTn"
+                      class="sc-eCQgVK bOcrcx"
                       offset="100%"
                     />
                     <animatetransform
@@ -1432,14 +1432,14 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </td>
           </tr>
           <tr
-            class="sc-cxxQMU kPmlSu"
+            class="sc-ezjgic bZStHI"
           >
             <td
-              class="sc-cBEgGa kYcIRW"
+              class="sc-iUlCMS iIkvIm"
             >
               <svg
                 aria-labelledby=":r19:-aria"
-                class="sc-kgohyr kmNOSy aje-skeleton-loader sc-ciCrSJ gtAOoi"
+                class="sc-hKVpXn icWWvx aje-skeleton-loader sc-iBjNZB kgvISf"
                 role="img"
               >
                 <rect
@@ -1469,15 +1469,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                     id=":r19:-animated-diff"
                   >
                     <stop
-                      class="sc-fKwzVe gTpKTn"
+                      class="sc-eCQgVK bOcrcx"
                       offset="0%"
                     />
                     <stop
-                      class="sc-bCgoVd LTccX"
+                      class="sc-jSppWd fLOjNm"
                       offset="50%"
                     />
                     <stop
-                      class="sc-fKwzVe gTpKTn"
+                      class="sc-eCQgVK bOcrcx"
                       offset="100%"
                     />
                     <animatetransform
@@ -1492,11 +1492,11 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
               </svg>
             </td>
             <td
-              class="sc-cBEgGa kYcIRW"
+              class="sc-iUlCMS iIkvIm"
             >
               <svg
                 aria-labelledby=":r1a:-aria"
-                class="sc-kgohyr kmNOSy aje-skeleton-loader sc-ciCrSJ gtAOoi"
+                class="sc-hKVpXn icWWvx aje-skeleton-loader sc-iBjNZB kgvISf"
                 role="img"
               >
                 <rect
@@ -1526,15 +1526,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                     id=":r1a:-animated-diff"
                   >
                     <stop
-                      class="sc-fKwzVe gTpKTn"
+                      class="sc-eCQgVK bOcrcx"
                       offset="0%"
                     />
                     <stop
-                      class="sc-bCgoVd LTccX"
+                      class="sc-jSppWd fLOjNm"
                       offset="50%"
                     />
                     <stop
-                      class="sc-fKwzVe gTpKTn"
+                      class="sc-eCQgVK bOcrcx"
                       offset="100%"
                     />
                     <animatetransform
@@ -1550,14 +1550,14 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </td>
           </tr>
           <tr
-            class="sc-cxxQMU kPmlSu"
+            class="sc-ezjgic bZStHI"
           >
             <td
-              class="sc-cBEgGa kYcIRW"
+              class="sc-iUlCMS iIkvIm"
             >
               <svg
                 aria-labelledby=":r1b:-aria"
-                class="sc-kgohyr kmNOSy aje-skeleton-loader sc-ciCrSJ gtAOoi"
+                class="sc-hKVpXn icWWvx aje-skeleton-loader sc-iBjNZB kgvISf"
                 role="img"
               >
                 <rect
@@ -1587,15 +1587,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                     id=":r1b:-animated-diff"
                   >
                     <stop
-                      class="sc-fKwzVe gTpKTn"
+                      class="sc-eCQgVK bOcrcx"
                       offset="0%"
                     />
                     <stop
-                      class="sc-bCgoVd LTccX"
+                      class="sc-jSppWd fLOjNm"
                       offset="50%"
                     />
                     <stop
-                      class="sc-fKwzVe gTpKTn"
+                      class="sc-eCQgVK bOcrcx"
                       offset="100%"
                     />
                     <animatetransform
@@ -1610,11 +1610,11 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
               </svg>
             </td>
             <td
-              class="sc-cBEgGa kYcIRW"
+              class="sc-iUlCMS iIkvIm"
             >
               <svg
                 aria-labelledby=":r1c:-aria"
-                class="sc-kgohyr kmNOSy aje-skeleton-loader sc-ciCrSJ gtAOoi"
+                class="sc-hKVpXn icWWvx aje-skeleton-loader sc-iBjNZB kgvISf"
                 role="img"
               >
                 <rect
@@ -1644,15 +1644,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                     id=":r1c:-animated-diff"
                   >
                     <stop
-                      class="sc-fKwzVe gTpKTn"
+                      class="sc-eCQgVK bOcrcx"
                       offset="0%"
                     />
                     <stop
-                      class="sc-bCgoVd LTccX"
+                      class="sc-jSppWd fLOjNm"
                       offset="50%"
                     />
                     <stop
-                      class="sc-fKwzVe gTpKTn"
+                      class="sc-eCQgVK bOcrcx"
                       offset="100%"
                     />
                     <animatetransform
@@ -1668,14 +1668,14 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </td>
           </tr>
           <tr
-            class="sc-cxxQMU kPmlSu"
+            class="sc-ezjgic bZStHI"
           >
             <td
-              class="sc-cBEgGa kYcIRW"
+              class="sc-iUlCMS iIkvIm"
             >
               <svg
                 aria-labelledby=":r1d:-aria"
-                class="sc-kgohyr kmNOSy aje-skeleton-loader sc-ciCrSJ gtAOoi"
+                class="sc-hKVpXn icWWvx aje-skeleton-loader sc-iBjNZB kgvISf"
                 role="img"
               >
                 <rect
@@ -1705,15 +1705,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                     id=":r1d:-animated-diff"
                   >
                     <stop
-                      class="sc-fKwzVe gTpKTn"
+                      class="sc-eCQgVK bOcrcx"
                       offset="0%"
                     />
                     <stop
-                      class="sc-bCgoVd LTccX"
+                      class="sc-jSppWd fLOjNm"
                       offset="50%"
                     />
                     <stop
-                      class="sc-fKwzVe gTpKTn"
+                      class="sc-eCQgVK bOcrcx"
                       offset="100%"
                     />
                     <animatetransform
@@ -1728,11 +1728,11 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
               </svg>
             </td>
             <td
-              class="sc-cBEgGa kYcIRW"
+              class="sc-iUlCMS iIkvIm"
             >
               <svg
                 aria-labelledby=":r1e:-aria"
-                class="sc-kgohyr kmNOSy aje-skeleton-loader sc-ciCrSJ gtAOoi"
+                class="sc-hKVpXn icWWvx aje-skeleton-loader sc-iBjNZB kgvISf"
                 role="img"
               >
                 <rect
@@ -1762,15 +1762,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                     id=":r1e:-animated-diff"
                   >
                     <stop
-                      class="sc-fKwzVe gTpKTn"
+                      class="sc-eCQgVK bOcrcx"
                       offset="0%"
                     />
                     <stop
-                      class="sc-bCgoVd LTccX"
+                      class="sc-jSppWd fLOjNm"
                       offset="50%"
                     />
                     <stop
-                      class="sc-fKwzVe gTpKTn"
+                      class="sc-eCQgVK bOcrcx"
                       offset="100%"
                     />
                     <animatetransform
@@ -1786,14 +1786,14 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </td>
           </tr>
           <tr
-            class="sc-cxxQMU kPmlSu"
+            class="sc-ezjgic bZStHI"
           >
             <td
-              class="sc-cBEgGa kYcIRW"
+              class="sc-iUlCMS iIkvIm"
             >
               <svg
                 aria-labelledby=":r1f:-aria"
-                class="sc-kgohyr kmNOSy aje-skeleton-loader sc-ciCrSJ gtAOoi"
+                class="sc-hKVpXn icWWvx aje-skeleton-loader sc-iBjNZB kgvISf"
                 role="img"
               >
                 <rect
@@ -1823,15 +1823,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                     id=":r1f:-animated-diff"
                   >
                     <stop
-                      class="sc-fKwzVe gTpKTn"
+                      class="sc-eCQgVK bOcrcx"
                       offset="0%"
                     />
                     <stop
-                      class="sc-bCgoVd LTccX"
+                      class="sc-jSppWd fLOjNm"
                       offset="50%"
                     />
                     <stop
-                      class="sc-fKwzVe gTpKTn"
+                      class="sc-eCQgVK bOcrcx"
                       offset="100%"
                     />
                     <animatetransform
@@ -1846,11 +1846,11 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
               </svg>
             </td>
             <td
-              class="sc-cBEgGa kYcIRW"
+              class="sc-iUlCMS iIkvIm"
             >
               <svg
                 aria-labelledby=":r1g:-aria"
-                class="sc-kgohyr kmNOSy aje-skeleton-loader sc-ciCrSJ gtAOoi"
+                class="sc-hKVpXn icWWvx aje-skeleton-loader sc-iBjNZB kgvISf"
                 role="img"
               >
                 <rect
@@ -1880,15 +1880,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                     id=":r1g:-animated-diff"
                   >
                     <stop
-                      class="sc-fKwzVe gTpKTn"
+                      class="sc-eCQgVK bOcrcx"
                       offset="0%"
                     />
                     <stop
-                      class="sc-bCgoVd LTccX"
+                      class="sc-jSppWd fLOjNm"
                       offset="50%"
                     />
                     <stop
-                      class="sc-fKwzVe gTpKTn"
+                      class="sc-eCQgVK bOcrcx"
                       offset="100%"
                     />
                     <animatetransform
@@ -1904,14 +1904,14 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </td>
           </tr>
           <tr
-            class="sc-cxxQMU kPmlSu"
+            class="sc-ezjgic bZStHI"
           >
             <td
-              class="sc-cBEgGa kYcIRW"
+              class="sc-iUlCMS iIkvIm"
             >
               <svg
                 aria-labelledby=":r1h:-aria"
-                class="sc-kgohyr kmNOSy aje-skeleton-loader sc-ciCrSJ gtAOoi"
+                class="sc-hKVpXn icWWvx aje-skeleton-loader sc-iBjNZB kgvISf"
                 role="img"
               >
                 <rect
@@ -1941,15 +1941,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                     id=":r1h:-animated-diff"
                   >
                     <stop
-                      class="sc-fKwzVe gTpKTn"
+                      class="sc-eCQgVK bOcrcx"
                       offset="0%"
                     />
                     <stop
-                      class="sc-bCgoVd LTccX"
+                      class="sc-jSppWd fLOjNm"
                       offset="50%"
                     />
                     <stop
-                      class="sc-fKwzVe gTpKTn"
+                      class="sc-eCQgVK bOcrcx"
                       offset="100%"
                     />
                     <animatetransform
@@ -1964,11 +1964,11 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
               </svg>
             </td>
             <td
-              class="sc-cBEgGa kYcIRW"
+              class="sc-iUlCMS iIkvIm"
             >
               <svg
                 aria-labelledby=":r1i:-aria"
-                class="sc-kgohyr kmNOSy aje-skeleton-loader sc-ciCrSJ gtAOoi"
+                class="sc-hKVpXn icWWvx aje-skeleton-loader sc-iBjNZB kgvISf"
                 role="img"
               >
                 <rect
@@ -1998,15 +1998,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                     id=":r1i:-animated-diff"
                   >
                     <stop
-                      class="sc-fKwzVe gTpKTn"
+                      class="sc-eCQgVK bOcrcx"
                       offset="0%"
                     />
                     <stop
-                      class="sc-bCgoVd LTccX"
+                      class="sc-jSppWd fLOjNm"
                       offset="50%"
                     />
                     <stop
-                      class="sc-fKwzVe gTpKTn"
+                      class="sc-eCQgVK bOcrcx"
                       offset="100%"
                     />
                     <animatetransform
@@ -2032,13 +2032,13 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
     <table
       aria-describedby=""
       aria-label="table"
-      class="sc-ivKqQM dvdTUR aje-table"
+      class="sc-giQkEn lnLxOL aje-table"
       data-collection="react-aria-:rr:"
       role="grid"
       tabindex="0"
     >
       <thead
-        class="sc-giQkEn hpXlZv aje-table__header"
+        class="sc-ikBzZv jhKIUW aje-table__header"
         role="rowgroup"
       >
         <tr
@@ -2047,7 +2047,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
         >
           <th
             aria-colindex="1"
-            class="sc-bYgEKt ljtAAl aje-table__column"
+            class="sc-hiunUN dJuUyV aje-table__column"
             data-collection="react-aria-:rr:"
             data-key="a"
             data-searchable="true"
@@ -2058,44 +2058,44 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             tabindex="-1"
           >
             <div
-              class="sc-ezjgic kswyAg"
+              class="sc-jJwPsw iZUnjr"
             >
               Column 1
               <div
                 aria-expanded="false"
-                class="sc-eCQgVK lhFnxc aje-combo-input sc-ikBzZv dACBcu"
+                class="sc-qdQOe kPUMiD aje-combo-input sc-cBEgGa brMiEN"
               >
                 <input
                   aria-label="Search a"
-                  class="sc-hKVpXn ecqUOI"
+                  class="sc-gKkgUA bzpolP"
                   disabled=""
                   role="search"
                   slot="search"
                   value=""
                 />
                 <button
-                  class="sc-fuztkK sc-qdQOe fTXzHK iFSkaa aje-btn aje-icon-btn aje-btn--content is-small"
+                  class="sc-dYjPD sc-bqqMSY hHQCzc dIQBXN aje-btn aje-icon-btn aje-btn--content is-small"
                   data-icon-button="true"
                   tabindex="0"
                   type="button"
                 >
                   <i
                     aria-hidden="true"
-                    class="sc-iCECmn erxnfb aje-icon material-icons is-small"
+                    class="sc-crPgjm bIBcHh aje-icon material-icons is-small"
                   >
                     close
                   </i>
                 </button>
               </div>
               <button
-                class="sc-fuztkK sc-qdQOe fTXzHK iFSkaa aje-btn aje-icon-btn aje-btn--content is-small"
+                class="sc-dYjPD sc-bqqMSY hHQCzc dIQBXN aje-btn aje-icon-btn aje-btn--content is-small"
                 data-icon-button="true"
                 tabindex="0"
                 type="button"
               >
                 <i
                   aria-hidden="true"
-                  class="sc-iCECmn erxnfb aje-icon material-icons is-small"
+                  class="sc-crPgjm bIBcHh aje-icon material-icons is-small"
                 >
                   search
                 </i>
@@ -2104,7 +2104,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
           </th>
           <th
             aria-colindex="2"
-            class="sc-bYgEKt ljtAAl aje-table__column"
+            class="sc-hiunUN dJuUyV aje-table__column"
             data-collection="react-aria-:rr:"
             data-key="b"
             data-sort-visibility="selected"
@@ -2114,7 +2114,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             tabindex="-1"
           >
             <div
-              class="sc-ezjgic kswyAg"
+              class="sc-jJwPsw iZUnjr"
             >
               Column 2
             </div>
@@ -2122,19 +2122,19 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
         </tr>
       </thead>
       <tbody
-        class="sc-hiunUN aje-table__body"
+        class="sc-jcgtOs aje-table__body"
         data-loading="true"
         role="rowgroup"
       >
         <tr
-          class="sc-cxxQMU kPmlSu"
+          class="sc-ezjgic bZStHI"
         >
           <td
-            class="sc-cBEgGa kYcIRW"
+            class="sc-iUlCMS iIkvIm"
           >
             <svg
               aria-labelledby=":rv:-aria"
-              class="sc-kgohyr kmNOSy aje-skeleton-loader sc-ciCrSJ gtAOoi"
+              class="sc-hKVpXn icWWvx aje-skeleton-loader sc-iBjNZB kgvISf"
               role="img"
             >
               <rect
@@ -2164,15 +2164,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   id=":rv:-animated-diff"
                 >
                   <stop
-                    class="sc-fKwzVe gTpKTn"
+                    class="sc-eCQgVK bOcrcx"
                     offset="0%"
                   />
                   <stop
-                    class="sc-bCgoVd LTccX"
+                    class="sc-jSppWd fLOjNm"
                     offset="50%"
                   />
                   <stop
-                    class="sc-fKwzVe gTpKTn"
+                    class="sc-eCQgVK bOcrcx"
                     offset="100%"
                   />
                   <animatetransform
@@ -2187,11 +2187,11 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </svg>
           </td>
           <td
-            class="sc-cBEgGa kYcIRW"
+            class="sc-iUlCMS iIkvIm"
           >
             <svg
               aria-labelledby=":r10:-aria"
-              class="sc-kgohyr kmNOSy aje-skeleton-loader sc-ciCrSJ gtAOoi"
+              class="sc-hKVpXn icWWvx aje-skeleton-loader sc-iBjNZB kgvISf"
               role="img"
             >
               <rect
@@ -2221,15 +2221,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   id=":r10:-animated-diff"
                 >
                   <stop
-                    class="sc-fKwzVe gTpKTn"
+                    class="sc-eCQgVK bOcrcx"
                     offset="0%"
                   />
                   <stop
-                    class="sc-bCgoVd LTccX"
+                    class="sc-jSppWd fLOjNm"
                     offset="50%"
                   />
                   <stop
-                    class="sc-fKwzVe gTpKTn"
+                    class="sc-eCQgVK bOcrcx"
                     offset="100%"
                   />
                   <animatetransform
@@ -2245,14 +2245,14 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
           </td>
         </tr>
         <tr
-          class="sc-cxxQMU kPmlSu"
+          class="sc-ezjgic bZStHI"
         >
           <td
-            class="sc-cBEgGa kYcIRW"
+            class="sc-iUlCMS iIkvIm"
           >
             <svg
               aria-labelledby=":r11:-aria"
-              class="sc-kgohyr kmNOSy aje-skeleton-loader sc-ciCrSJ gtAOoi"
+              class="sc-hKVpXn icWWvx aje-skeleton-loader sc-iBjNZB kgvISf"
               role="img"
             >
               <rect
@@ -2282,15 +2282,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   id=":r11:-animated-diff"
                 >
                   <stop
-                    class="sc-fKwzVe gTpKTn"
+                    class="sc-eCQgVK bOcrcx"
                     offset="0%"
                   />
                   <stop
-                    class="sc-bCgoVd LTccX"
+                    class="sc-jSppWd fLOjNm"
                     offset="50%"
                   />
                   <stop
-                    class="sc-fKwzVe gTpKTn"
+                    class="sc-eCQgVK bOcrcx"
                     offset="100%"
                   />
                   <animatetransform
@@ -2305,11 +2305,11 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </svg>
           </td>
           <td
-            class="sc-cBEgGa kYcIRW"
+            class="sc-iUlCMS iIkvIm"
           >
             <svg
               aria-labelledby=":r12:-aria"
-              class="sc-kgohyr kmNOSy aje-skeleton-loader sc-ciCrSJ gtAOoi"
+              class="sc-hKVpXn icWWvx aje-skeleton-loader sc-iBjNZB kgvISf"
               role="img"
             >
               <rect
@@ -2339,15 +2339,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   id=":r12:-animated-diff"
                 >
                   <stop
-                    class="sc-fKwzVe gTpKTn"
+                    class="sc-eCQgVK bOcrcx"
                     offset="0%"
                   />
                   <stop
-                    class="sc-bCgoVd LTccX"
+                    class="sc-jSppWd fLOjNm"
                     offset="50%"
                   />
                   <stop
-                    class="sc-fKwzVe gTpKTn"
+                    class="sc-eCQgVK bOcrcx"
                     offset="100%"
                   />
                   <animatetransform
@@ -2363,14 +2363,14 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
           </td>
         </tr>
         <tr
-          class="sc-cxxQMU kPmlSu"
+          class="sc-ezjgic bZStHI"
         >
           <td
-            class="sc-cBEgGa kYcIRW"
+            class="sc-iUlCMS iIkvIm"
           >
             <svg
               aria-labelledby=":r13:-aria"
-              class="sc-kgohyr kmNOSy aje-skeleton-loader sc-ciCrSJ gtAOoi"
+              class="sc-hKVpXn icWWvx aje-skeleton-loader sc-iBjNZB kgvISf"
               role="img"
             >
               <rect
@@ -2400,15 +2400,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   id=":r13:-animated-diff"
                 >
                   <stop
-                    class="sc-fKwzVe gTpKTn"
+                    class="sc-eCQgVK bOcrcx"
                     offset="0%"
                   />
                   <stop
-                    class="sc-bCgoVd LTccX"
+                    class="sc-jSppWd fLOjNm"
                     offset="50%"
                   />
                   <stop
-                    class="sc-fKwzVe gTpKTn"
+                    class="sc-eCQgVK bOcrcx"
                     offset="100%"
                   />
                   <animatetransform
@@ -2423,11 +2423,11 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </svg>
           </td>
           <td
-            class="sc-cBEgGa kYcIRW"
+            class="sc-iUlCMS iIkvIm"
           >
             <svg
               aria-labelledby=":r14:-aria"
-              class="sc-kgohyr kmNOSy aje-skeleton-loader sc-ciCrSJ gtAOoi"
+              class="sc-hKVpXn icWWvx aje-skeleton-loader sc-iBjNZB kgvISf"
               role="img"
             >
               <rect
@@ -2457,15 +2457,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   id=":r14:-animated-diff"
                 >
                   <stop
-                    class="sc-fKwzVe gTpKTn"
+                    class="sc-eCQgVK bOcrcx"
                     offset="0%"
                   />
                   <stop
-                    class="sc-bCgoVd LTccX"
+                    class="sc-jSppWd fLOjNm"
                     offset="50%"
                   />
                   <stop
-                    class="sc-fKwzVe gTpKTn"
+                    class="sc-eCQgVK bOcrcx"
                     offset="100%"
                   />
                   <animatetransform
@@ -2481,14 +2481,14 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
           </td>
         </tr>
         <tr
-          class="sc-cxxQMU kPmlSu"
+          class="sc-ezjgic bZStHI"
         >
           <td
-            class="sc-cBEgGa kYcIRW"
+            class="sc-iUlCMS iIkvIm"
           >
             <svg
               aria-labelledby=":r15:-aria"
-              class="sc-kgohyr kmNOSy aje-skeleton-loader sc-ciCrSJ gtAOoi"
+              class="sc-hKVpXn icWWvx aje-skeleton-loader sc-iBjNZB kgvISf"
               role="img"
             >
               <rect
@@ -2518,15 +2518,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   id=":r15:-animated-diff"
                 >
                   <stop
-                    class="sc-fKwzVe gTpKTn"
+                    class="sc-eCQgVK bOcrcx"
                     offset="0%"
                   />
                   <stop
-                    class="sc-bCgoVd LTccX"
+                    class="sc-jSppWd fLOjNm"
                     offset="50%"
                   />
                   <stop
-                    class="sc-fKwzVe gTpKTn"
+                    class="sc-eCQgVK bOcrcx"
                     offset="100%"
                   />
                   <animatetransform
@@ -2541,11 +2541,11 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </svg>
           </td>
           <td
-            class="sc-cBEgGa kYcIRW"
+            class="sc-iUlCMS iIkvIm"
           >
             <svg
               aria-labelledby=":r16:-aria"
-              class="sc-kgohyr kmNOSy aje-skeleton-loader sc-ciCrSJ gtAOoi"
+              class="sc-hKVpXn icWWvx aje-skeleton-loader sc-iBjNZB kgvISf"
               role="img"
             >
               <rect
@@ -2575,15 +2575,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   id=":r16:-animated-diff"
                 >
                   <stop
-                    class="sc-fKwzVe gTpKTn"
+                    class="sc-eCQgVK bOcrcx"
                     offset="0%"
                   />
                   <stop
-                    class="sc-bCgoVd LTccX"
+                    class="sc-jSppWd fLOjNm"
                     offset="50%"
                   />
                   <stop
-                    class="sc-fKwzVe gTpKTn"
+                    class="sc-eCQgVK bOcrcx"
                     offset="100%"
                   />
                   <animatetransform
@@ -2599,14 +2599,14 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
           </td>
         </tr>
         <tr
-          class="sc-cxxQMU kPmlSu"
+          class="sc-ezjgic bZStHI"
         >
           <td
-            class="sc-cBEgGa kYcIRW"
+            class="sc-iUlCMS iIkvIm"
           >
             <svg
               aria-labelledby=":r17:-aria"
-              class="sc-kgohyr kmNOSy aje-skeleton-loader sc-ciCrSJ gtAOoi"
+              class="sc-hKVpXn icWWvx aje-skeleton-loader sc-iBjNZB kgvISf"
               role="img"
             >
               <rect
@@ -2636,15 +2636,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   id=":r17:-animated-diff"
                 >
                   <stop
-                    class="sc-fKwzVe gTpKTn"
+                    class="sc-eCQgVK bOcrcx"
                     offset="0%"
                   />
                   <stop
-                    class="sc-bCgoVd LTccX"
+                    class="sc-jSppWd fLOjNm"
                     offset="50%"
                   />
                   <stop
-                    class="sc-fKwzVe gTpKTn"
+                    class="sc-eCQgVK bOcrcx"
                     offset="100%"
                   />
                   <animatetransform
@@ -2659,11 +2659,11 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </svg>
           </td>
           <td
-            class="sc-cBEgGa kYcIRW"
+            class="sc-iUlCMS iIkvIm"
           >
             <svg
               aria-labelledby=":r18:-aria"
-              class="sc-kgohyr kmNOSy aje-skeleton-loader sc-ciCrSJ gtAOoi"
+              class="sc-hKVpXn icWWvx aje-skeleton-loader sc-iBjNZB kgvISf"
               role="img"
             >
               <rect
@@ -2693,15 +2693,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   id=":r18:-animated-diff"
                 >
                   <stop
-                    class="sc-fKwzVe gTpKTn"
+                    class="sc-eCQgVK bOcrcx"
                     offset="0%"
                   />
                   <stop
-                    class="sc-bCgoVd LTccX"
+                    class="sc-jSppWd fLOjNm"
                     offset="50%"
                   />
                   <stop
-                    class="sc-fKwzVe gTpKTn"
+                    class="sc-eCQgVK bOcrcx"
                     offset="100%"
                   />
                   <animatetransform
@@ -2717,14 +2717,14 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
           </td>
         </tr>
         <tr
-          class="sc-cxxQMU kPmlSu"
+          class="sc-ezjgic bZStHI"
         >
           <td
-            class="sc-cBEgGa kYcIRW"
+            class="sc-iUlCMS iIkvIm"
           >
             <svg
               aria-labelledby=":r19:-aria"
-              class="sc-kgohyr kmNOSy aje-skeleton-loader sc-ciCrSJ gtAOoi"
+              class="sc-hKVpXn icWWvx aje-skeleton-loader sc-iBjNZB kgvISf"
               role="img"
             >
               <rect
@@ -2754,15 +2754,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   id=":r19:-animated-diff"
                 >
                   <stop
-                    class="sc-fKwzVe gTpKTn"
+                    class="sc-eCQgVK bOcrcx"
                     offset="0%"
                   />
                   <stop
-                    class="sc-bCgoVd LTccX"
+                    class="sc-jSppWd fLOjNm"
                     offset="50%"
                   />
                   <stop
-                    class="sc-fKwzVe gTpKTn"
+                    class="sc-eCQgVK bOcrcx"
                     offset="100%"
                   />
                   <animatetransform
@@ -2777,11 +2777,11 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </svg>
           </td>
           <td
-            class="sc-cBEgGa kYcIRW"
+            class="sc-iUlCMS iIkvIm"
           >
             <svg
               aria-labelledby=":r1a:-aria"
-              class="sc-kgohyr kmNOSy aje-skeleton-loader sc-ciCrSJ gtAOoi"
+              class="sc-hKVpXn icWWvx aje-skeleton-loader sc-iBjNZB kgvISf"
               role="img"
             >
               <rect
@@ -2811,15 +2811,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   id=":r1a:-animated-diff"
                 >
                   <stop
-                    class="sc-fKwzVe gTpKTn"
+                    class="sc-eCQgVK bOcrcx"
                     offset="0%"
                   />
                   <stop
-                    class="sc-bCgoVd LTccX"
+                    class="sc-jSppWd fLOjNm"
                     offset="50%"
                   />
                   <stop
-                    class="sc-fKwzVe gTpKTn"
+                    class="sc-eCQgVK bOcrcx"
                     offset="100%"
                   />
                   <animatetransform
@@ -2835,14 +2835,14 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
           </td>
         </tr>
         <tr
-          class="sc-cxxQMU kPmlSu"
+          class="sc-ezjgic bZStHI"
         >
           <td
-            class="sc-cBEgGa kYcIRW"
+            class="sc-iUlCMS iIkvIm"
           >
             <svg
               aria-labelledby=":r1b:-aria"
-              class="sc-kgohyr kmNOSy aje-skeleton-loader sc-ciCrSJ gtAOoi"
+              class="sc-hKVpXn icWWvx aje-skeleton-loader sc-iBjNZB kgvISf"
               role="img"
             >
               <rect
@@ -2872,15 +2872,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   id=":r1b:-animated-diff"
                 >
                   <stop
-                    class="sc-fKwzVe gTpKTn"
+                    class="sc-eCQgVK bOcrcx"
                     offset="0%"
                   />
                   <stop
-                    class="sc-bCgoVd LTccX"
+                    class="sc-jSppWd fLOjNm"
                     offset="50%"
                   />
                   <stop
-                    class="sc-fKwzVe gTpKTn"
+                    class="sc-eCQgVK bOcrcx"
                     offset="100%"
                   />
                   <animatetransform
@@ -2895,11 +2895,11 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </svg>
           </td>
           <td
-            class="sc-cBEgGa kYcIRW"
+            class="sc-iUlCMS iIkvIm"
           >
             <svg
               aria-labelledby=":r1c:-aria"
-              class="sc-kgohyr kmNOSy aje-skeleton-loader sc-ciCrSJ gtAOoi"
+              class="sc-hKVpXn icWWvx aje-skeleton-loader sc-iBjNZB kgvISf"
               role="img"
             >
               <rect
@@ -2929,15 +2929,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   id=":r1c:-animated-diff"
                 >
                   <stop
-                    class="sc-fKwzVe gTpKTn"
+                    class="sc-eCQgVK bOcrcx"
                     offset="0%"
                   />
                   <stop
-                    class="sc-bCgoVd LTccX"
+                    class="sc-jSppWd fLOjNm"
                     offset="50%"
                   />
                   <stop
-                    class="sc-fKwzVe gTpKTn"
+                    class="sc-eCQgVK bOcrcx"
                     offset="100%"
                   />
                   <animatetransform
@@ -2953,14 +2953,14 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
           </td>
         </tr>
         <tr
-          class="sc-cxxQMU kPmlSu"
+          class="sc-ezjgic bZStHI"
         >
           <td
-            class="sc-cBEgGa kYcIRW"
+            class="sc-iUlCMS iIkvIm"
           >
             <svg
               aria-labelledby=":r1d:-aria"
-              class="sc-kgohyr kmNOSy aje-skeleton-loader sc-ciCrSJ gtAOoi"
+              class="sc-hKVpXn icWWvx aje-skeleton-loader sc-iBjNZB kgvISf"
               role="img"
             >
               <rect
@@ -2990,15 +2990,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   id=":r1d:-animated-diff"
                 >
                   <stop
-                    class="sc-fKwzVe gTpKTn"
+                    class="sc-eCQgVK bOcrcx"
                     offset="0%"
                   />
                   <stop
-                    class="sc-bCgoVd LTccX"
+                    class="sc-jSppWd fLOjNm"
                     offset="50%"
                   />
                   <stop
-                    class="sc-fKwzVe gTpKTn"
+                    class="sc-eCQgVK bOcrcx"
                     offset="100%"
                   />
                   <animatetransform
@@ -3013,11 +3013,11 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </svg>
           </td>
           <td
-            class="sc-cBEgGa kYcIRW"
+            class="sc-iUlCMS iIkvIm"
           >
             <svg
               aria-labelledby=":r1e:-aria"
-              class="sc-kgohyr kmNOSy aje-skeleton-loader sc-ciCrSJ gtAOoi"
+              class="sc-hKVpXn icWWvx aje-skeleton-loader sc-iBjNZB kgvISf"
               role="img"
             >
               <rect
@@ -3047,15 +3047,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   id=":r1e:-animated-diff"
                 >
                   <stop
-                    class="sc-fKwzVe gTpKTn"
+                    class="sc-eCQgVK bOcrcx"
                     offset="0%"
                   />
                   <stop
-                    class="sc-bCgoVd LTccX"
+                    class="sc-jSppWd fLOjNm"
                     offset="50%"
                   />
                   <stop
-                    class="sc-fKwzVe gTpKTn"
+                    class="sc-eCQgVK bOcrcx"
                     offset="100%"
                   />
                   <animatetransform
@@ -3071,14 +3071,14 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
           </td>
         </tr>
         <tr
-          class="sc-cxxQMU kPmlSu"
+          class="sc-ezjgic bZStHI"
         >
           <td
-            class="sc-cBEgGa kYcIRW"
+            class="sc-iUlCMS iIkvIm"
           >
             <svg
               aria-labelledby=":r1f:-aria"
-              class="sc-kgohyr kmNOSy aje-skeleton-loader sc-ciCrSJ gtAOoi"
+              class="sc-hKVpXn icWWvx aje-skeleton-loader sc-iBjNZB kgvISf"
               role="img"
             >
               <rect
@@ -3108,15 +3108,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   id=":r1f:-animated-diff"
                 >
                   <stop
-                    class="sc-fKwzVe gTpKTn"
+                    class="sc-eCQgVK bOcrcx"
                     offset="0%"
                   />
                   <stop
-                    class="sc-bCgoVd LTccX"
+                    class="sc-jSppWd fLOjNm"
                     offset="50%"
                   />
                   <stop
-                    class="sc-fKwzVe gTpKTn"
+                    class="sc-eCQgVK bOcrcx"
                     offset="100%"
                   />
                   <animatetransform
@@ -3131,11 +3131,11 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </svg>
           </td>
           <td
-            class="sc-cBEgGa kYcIRW"
+            class="sc-iUlCMS iIkvIm"
           >
             <svg
               aria-labelledby=":r1g:-aria"
-              class="sc-kgohyr kmNOSy aje-skeleton-loader sc-ciCrSJ gtAOoi"
+              class="sc-hKVpXn icWWvx aje-skeleton-loader sc-iBjNZB kgvISf"
               role="img"
             >
               <rect
@@ -3165,15 +3165,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   id=":r1g:-animated-diff"
                 >
                   <stop
-                    class="sc-fKwzVe gTpKTn"
+                    class="sc-eCQgVK bOcrcx"
                     offset="0%"
                   />
                   <stop
-                    class="sc-bCgoVd LTccX"
+                    class="sc-jSppWd fLOjNm"
                     offset="50%"
                   />
                   <stop
-                    class="sc-fKwzVe gTpKTn"
+                    class="sc-eCQgVK bOcrcx"
                     offset="100%"
                   />
                   <animatetransform
@@ -3189,14 +3189,14 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
           </td>
         </tr>
         <tr
-          class="sc-cxxQMU kPmlSu"
+          class="sc-ezjgic bZStHI"
         >
           <td
-            class="sc-cBEgGa kYcIRW"
+            class="sc-iUlCMS iIkvIm"
           >
             <svg
               aria-labelledby=":r1h:-aria"
-              class="sc-kgohyr kmNOSy aje-skeleton-loader sc-ciCrSJ gtAOoi"
+              class="sc-hKVpXn icWWvx aje-skeleton-loader sc-iBjNZB kgvISf"
               role="img"
             >
               <rect
@@ -3226,15 +3226,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   id=":r1h:-animated-diff"
                 >
                   <stop
-                    class="sc-fKwzVe gTpKTn"
+                    class="sc-eCQgVK bOcrcx"
                     offset="0%"
                   />
                   <stop
-                    class="sc-bCgoVd LTccX"
+                    class="sc-jSppWd fLOjNm"
                     offset="50%"
                   />
                   <stop
-                    class="sc-fKwzVe gTpKTn"
+                    class="sc-eCQgVK bOcrcx"
                     offset="100%"
                   />
                   <animatetransform
@@ -3249,11 +3249,11 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </svg>
           </td>
           <td
-            class="sc-cBEgGa kYcIRW"
+            class="sc-iUlCMS iIkvIm"
           >
             <svg
               aria-labelledby=":r1i:-aria"
-              class="sc-kgohyr kmNOSy aje-skeleton-loader sc-ciCrSJ gtAOoi"
+              class="sc-hKVpXn icWWvx aje-skeleton-loader sc-iBjNZB kgvISf"
               role="img"
             >
               <rect
@@ -3283,15 +3283,15 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   id=":r1i:-animated-diff"
                 >
                   <stop
-                    class="sc-fKwzVe gTpKTn"
+                    class="sc-eCQgVK bOcrcx"
                     offset="0%"
                   />
                   <stop
-                    class="sc-bCgoVd LTccX"
+                    class="sc-jSppWd fLOjNm"
                     offset="50%"
                   />
                   <stop
-                    class="sc-fKwzVe gTpKTn"
+                    class="sc-eCQgVK bOcrcx"
                     offset="100%"
                   />
                   <animatetransform

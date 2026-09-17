@@ -6,4 +6,5 @@ export default {
   "today": "Today",
   "select.placeholder": "Select an option",
   "back": "Back",
+  "loading": "Loading"
 }

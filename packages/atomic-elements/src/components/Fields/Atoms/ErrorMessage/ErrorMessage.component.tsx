@@ -5,6 +5,7 @@ import { ElementWrapperProps } from "../../../../types";
 import { useContextProps } from "@hooks/useContextProps";
 import { useRenderProps } from "@hooks";
 import { ErrorMessageContext } from "./ErrorMessage.context";
+import { filterDOMProps } from "@react-aria/utils";
 
 /** A styled error message */
 export const StyledErrorMessage = styled.p`
@@ -26,7 +27,14 @@ export const ErrorMessage = React.forwardRef(function ErrorMessage(
   ref: React.Ref<HTMLParagraphElement>
 ) {
   [props, ref] = useContextProps(ErrorMessageContext, props, ref);
-  const { className, size = "medium", as = "p", isInvalid, ...rest } = props;
+  const {
+    className,
+    size = "medium",
+    as = "p",
+    isInvalid,
+    children,
+    ...rest
+  } = props;
 
   const renderProps = useRenderProps({
     componentClassName: className,
@@ -35,5 +43,14 @@ export const ErrorMessage = React.forwardRef(function ErrorMessage(
 
   if (!isInvalid) return;
 
-  return <StyledErrorMessage as={as} ref={ref} {...renderProps} {...rest} />;
+  return (
+    <StyledErrorMessage
+      as={as}
+      ref={ref}
+      {...renderProps}
+      {...filterDOMProps(rest)}
+    >
+      {children}
+    </StyledErrorMessage>
+  );
 });

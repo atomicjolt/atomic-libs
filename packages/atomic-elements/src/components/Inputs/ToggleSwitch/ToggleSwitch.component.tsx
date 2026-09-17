@@ -5,23 +5,26 @@ import type { AriaLabelingProps } from "@react-types/shared";
 import { useSwitch, AriaSwitchProps } from "@react-aria/switch";
 import { VisuallyHidden } from "@react-aria/visually-hidden";
 
-import { AriaProps, BaseProps, FieldDomProps } from "../../../types";
+import { AriaProps, BaseProps, FieldDomProps, LoadingProps } from "../../../types";
 import {
   ToggleSwitchIcon,
   ToggleSwitchContainer,
   ToggleSwitchLabel,
   ToggleSwitchWrapper,
+  StyledLoadingToggleSwitch,
 } from "./ToggleSwitch.styles";
 import { useForwardedRef } from "../../../hooks/useForwardedRef";
 import { useFirstStateChange } from "../../../hooks/util";
 import { useFocusRing } from "../../../hooks/useFocusRing";
 import { fieldStatusSelectors, useRenderProps } from "@hooks/useRenderProps";
+import { useLoading } from "@components/Feedback/Loading";
 
 export interface ToggleSwitchProps
   extends AriaProps<AriaSwitchProps>,
     AriaLabelingProps,
     FieldDomProps,
-    BaseProps {
+    BaseProps,
+    LoadingProps {
   /** The position of the children relative to the switch */
   childrenPosition?: "left" | "right";
   isDisabled?: boolean;
@@ -45,11 +48,12 @@ export const ToggleSwitch = React.forwardRef<
   const changed = useFirstStateChange(state.isSelected);
 
   const { childrenPosition = "left" } = props;
+  const { isLoading, loadingLabel } = useLoading(props);
 
   const renderProps = useRenderProps({
     componentClassName: "aje-toggle-switch",
     ...props,
-    selectors: fieldStatusSelectors(props),
+    selectors: { ...fieldStatusSelectors(props), "data-loading": isLoading },
   });
 
   return (
@@ -63,14 +67,32 @@ export const ToggleSwitch = React.forwardRef<
         })}
       >
         <VisuallyHidden>
-          <input {...inputProps} {...focusProps} ref={internalRef} />
+          <input
+            {...inputProps}
+            {...focusProps}
+            ref={internalRef}
+            disabled={isLoading || inputProps.disabled}
+          />
         </VisuallyHidden>
 
         {childrenPosition === "left" && renderProps.children}
 
-        <ToggleSwitchContainer data-focus-visible={isFocusVisible}>
-          <ToggleSwitchIcon />
-        </ToggleSwitchContainer>
+        {isLoading ? (
+          <StyledLoadingToggleSwitch title={loadingLabel}>
+            <rect
+              x="0"
+              y="0"
+              width="100%"
+              height="100%"
+              rx="calc(var(--toggle-size) / 2)"
+              ry="calc(var(--toggle-size) / 2)"
+            />
+          </StyledLoadingToggleSwitch>
+        ) : (
+          <ToggleSwitchContainer data-focus-visible={isFocusVisible}>
+            <ToggleSwitchIcon />
+          </ToggleSwitchContainer>
+        )}
 
         {childrenPosition === "right" && renderProps.children}
       </ToggleSwitchLabel>

@@ -2,6 +2,19 @@ import styled from "styled-components";
 import { DirectionProps } from "../../../types";
 import mixins from "@styles/mixins";
 import { direction } from "@styles/utils";
+import { SkeletonLoader } from "@components/Feedback/SkeletonLoader";
+
+export const StyledLoadingOptions = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+`;
+
+export const StyledLoadingOption = styled(SkeletonLoader)`
+  width: 160px;
+  height: var(--radio-label-height);
+  display: block;
+`;
 
 export const RadioLabel = styled.span<DirectionProps>`
   ${mixins.Regular}

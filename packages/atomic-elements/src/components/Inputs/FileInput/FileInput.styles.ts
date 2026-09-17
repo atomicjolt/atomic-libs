@@ -1,5 +1,12 @@
 import styled from "styled-components";
 import mixins from "../../../styles/mixins";
+import { SkeletonLoader } from "@components/Feedback/SkeletonLoader";
+
+export const StyledLoadingFileInput = styled(SkeletonLoader)`
+  width: 287px;
+  height: 38px;
+  display: inline-block;
+`;
 
 export const FileInputSpan = styled.span`
   width: 200px;
