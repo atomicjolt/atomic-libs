@@ -2,4 +2,4 @@
 "@atomicjolt/atomic-elements": patch
 ---
 
-Fix DateInput and DatePicker sizing issues
+fix grouped header alignment and duplication

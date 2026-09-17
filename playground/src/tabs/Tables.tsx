@@ -2,9 +2,13 @@ import React, { useState } from "react";
 import { Button, SortDescriptor, Table, Text } from "../elements";
 
 export default function Tables() {
+  const [value, setValue] = useState(0);
   return (
     <div style={{ padding: "16px" }}>
       <RegularTable />
+      <br />
+      <br />
+      <NestedColumnsTable />
       {/* <TableLoader /> */}
     </div>
   );
@@ -24,22 +28,10 @@ function RegularTable() {
       onSortChange={setSortDescriptor}
     >
       <Table.Header>
-        <Table.Column
-          id="foo"
-          showDivider
-          allowsSorting
-          sortVisibility="always"
-          allowsSearching
-        >
+        <Table.Column id="foo" showDivider allowsSorting allowsSearching>
           Foo
         </Table.Column>
-        <Table.Column
-          id="bar"
-          align="right"
-          showDivider
-          allowsSorting
-          sortVisibility="always"
-        >
+        <Table.Column id="bar" align="right" showDivider allowsSorting>
           Bar
         </Table.Column>
         <Table.Column id="baz" align="right">
@@ -106,6 +98,57 @@ function RegularTable() {
           <Table.Cell>Lvl 1 Foo 12</Table.Cell>
           <Table.Cell>Lvl 1 Bar 12</Table.Cell>
           <Table.Cell>Lvl 1 Baz 12</Table.Cell>
+        </Table.Row>
+      </Table.Body>
+    </Table>
+  );
+}
+
+function NestedColumnsTable() {
+  return (
+    <Table aria-label="Table with nested columns" striped="even">
+      <Table.Header>
+        <Table.Column title="Name" showDivider>
+          <Table.Column id="firstName" isRowHeader showDivider>
+            First Name
+          </Table.Column>
+          <Table.Column id="lastName" showDivider>
+            Last Name
+          </Table.Column>
+        </Table.Column>
+        <Table.Column title="Contact" showDivider>
+          <Table.Column id="email" showDivider>
+            Email
+          </Table.Column>
+          <Table.Column id="phone" showDivider>
+            Phone
+          </Table.Column>
+        </Table.Column>
+        <Table.Column id="age" align="right">
+          Age
+        </Table.Column>
+      </Table.Header>
+      <Table.Body>
+        <Table.Row id="row 1">
+          <Table.Cell>Jane</Table.Cell>
+          <Table.Cell>Doe</Table.Cell>
+          <Table.Cell>jane.doe@example.com</Table.Cell>
+          <Table.Cell>555-0100</Table.Cell>
+          <Table.Cell>34</Table.Cell>
+        </Table.Row>
+        <Table.Row id="row 2">
+          <Table.Cell>John</Table.Cell>
+          <Table.Cell>Smith</Table.Cell>
+          <Table.Cell>john.smith@example.com</Table.Cell>
+          <Table.Cell>555-0101</Table.Cell>
+          <Table.Cell>28</Table.Cell>
+        </Table.Row>
+        <Table.Row id="row 3">
+          <Table.Cell>Alex</Table.Cell>
+          <Table.Cell>Chen</Table.Cell>
+          <Table.Cell>alex.chen@example.com</Table.Cell>
+          <Table.Cell>555-0102</Table.Cell>
+          <Table.Cell>41</Table.Cell>
         </Table.Row>
       </Table.Body>
     </Table>

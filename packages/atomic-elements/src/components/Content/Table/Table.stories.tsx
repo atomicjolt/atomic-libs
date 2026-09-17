@@ -109,6 +109,62 @@ export const Primary: Story = {
   },
 };
 
+export const NestedColumns: Story = {
+  args: {
+    children: [
+      <Table.Header key="header">
+        <Table.Column title="Basic Info" showDivider>
+          <Table.Column id="name" isRowHeader>
+            Name
+          </Table.Column>
+          <Table.Column id="type" showDivider>
+            Type
+          </Table.Column>
+        </Table.Column>
+        <Table.Column title="Stats">
+          <Table.Column id="hp" showDivider>
+            HP
+          </Table.Column>
+          <Table.Column id="attack" showDivider>
+            Attack
+          </Table.Column>
+          <Table.Column id="defense">Defense</Table.Column>
+        </Table.Column>
+      </Table.Header>,
+      <Table.Body key="body">
+        <Table.Row key="1">
+          <Table.Cell>Charizard</Table.Cell>
+          <Table.Cell>Fire, Flying</Table.Cell>
+          <Table.Cell>78</Table.Cell>
+          <Table.Cell>84</Table.Cell>
+          <Table.Cell>78</Table.Cell>
+        </Table.Row>
+        <Table.Row key="2">
+          <Table.Cell>Blastoise</Table.Cell>
+          <Table.Cell>Water</Table.Cell>
+          <Table.Cell>79</Table.Cell>
+          <Table.Cell>83</Table.Cell>
+          <Table.Cell>100</Table.Cell>
+        </Table.Row>
+        <Table.Row key="3">
+          <Table.Cell>Venusaur</Table.Cell>
+          <Table.Cell>Grass, Poison</Table.Cell>
+          <Table.Cell>80</Table.Cell>
+          <Table.Cell>82</Table.Cell>
+          <Table.Cell>83</Table.Cell>
+        </Table.Row>
+        <Table.Row key="4">
+          <Table.Cell>Pikachu</Table.Cell>
+          <Table.Cell>Electric</Table.Cell>
+          <Table.Cell>35</Table.Cell>
+          <Table.Cell>55</Table.Cell>
+          <Table.Cell>40</Table.Cell>
+        </Table.Row>
+      </Table.Body>,
+    ],
+  },
+};
+
 export const MultipleSelection: Story = {
   args: {
     ...Primary.args,
