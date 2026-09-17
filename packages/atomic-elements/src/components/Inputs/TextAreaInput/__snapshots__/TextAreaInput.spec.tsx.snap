@@ -8,6 +8,7 @@ exports[`TextAreaInput > matches snapshot 1`] = `
   >
     <label
       class="sc-bdDsCe bLPJOA"
+      for="react-aria-:r0:"
       id="react-aria-:r1:"
     >
       label

@@ -10,6 +10,7 @@ exports[`MultiSelect > matches default variant 1`] = `
   >
     <label
       class="sc-dkXsAU bCsPXP"
+      for="react-aria-:r2:"
       id="react-aria-:r3:"
     >
       label
@@ -70,6 +71,7 @@ exports[`MultiSelect > matches floating variant 1`] = `
       </button>
       <label
         class="sc-dkXsAU bCsPXP"
+        for="react-aria-:ra:"
         id="react-aria-:rb:"
       >
         label

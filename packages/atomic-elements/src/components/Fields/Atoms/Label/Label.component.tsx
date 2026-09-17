@@ -38,6 +38,7 @@ export const Label = React.forwardRef(function Label(
     size,
   });
 
+  return (
     <StyledLabel
       as={as}
       ref={ref}
@@ -47,4 +48,5 @@ export const Label = React.forwardRef(function Label(
     >
       {children}
     </StyledLabel>
+  );
 });

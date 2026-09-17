@@ -10,6 +10,7 @@ exports[`matches snapshots > matches default variant 1`] = `
   >
     <label
       class="sc-crPgjm gzYIYu"
+      for="react-aria-:r3:"
       id="react-aria-:r4:"
     >
       Text Label
@@ -111,6 +112,7 @@ exports[`matches snapshots > matches floating variant 1`] = `
       </div>
       <label
         class="sc-crPgjm gzYIYu"
+        for="react-aria-:rd:"
         id="react-aria-:re:"
       >
         Text Label

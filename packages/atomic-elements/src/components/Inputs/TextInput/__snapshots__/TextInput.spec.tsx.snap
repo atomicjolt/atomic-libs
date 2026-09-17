@@ -8,6 +8,7 @@ exports[`matches snapshot > default variant 1`] = `
   >
     <label
       class="sc-bdDsCe bLPJOA"
+      for="react-aria-:r0:"
       id="react-aria-:r1:"
     >
       Text Label
@@ -53,6 +54,7 @@ exports[`matches snapshot > floating variant 1`] = `
       />
       <label
         class="sc-bdDsCe bLPJOA"
+        for="react-aria-:r5:"
         id="react-aria-:r6:"
       >
         Text Label
