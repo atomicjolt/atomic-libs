@@ -124,6 +124,9 @@ function ComboBoxFieldInner<T extends object>(
           [
             PopoverContext.Provider,
             {
+              // useComboBox hides everything but the input and popoverRef from
+              // assistive tech while open, so popoverRef must be the popover.
+              ref: popoverRef,
               triggerRef: inputWrapperRef.current ? inputWrapperRef : inputRef,
               isOpen: state.isOpen,
               variant: "listbox",

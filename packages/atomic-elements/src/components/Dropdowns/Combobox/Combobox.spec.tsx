@@ -49,11 +49,26 @@ describe("the open listbox", () => {
     await user.click(input);
     await user.keyboard("Fa");
 
-    // `hidden: true` because `ariaHideOutside` marks the surrounding nodes
-    // aria-hidden, which the accessible queries otherwise filter out.
-    expect(screen.getByRole("listbox", { hidden: true })).toBeInTheDocument();
+    expect(screen.getByRole("listbox")).toBeInTheDocument();
     expect(input.closest("[inert]")).toBeNull();
     expect(document.activeElement).toBe(input);
     expect(input).toHaveValue("Fa");
+  });
+
+  // useComboBox aria-hides everything except the input and its popoverRef, so
+  // the listbox stays visible to assistive tech only if that ref is attached.
+  test("keeps the options visible to assistive tech", async () => {
+    const user = userEvent.setup();
+    render(
+      <ComboBox label="Terms" menuTrigger="focus">
+        <Item id="fall">Fall</Item>
+        <Item id="spring">Spring</Item>
+      </ComboBox>
+    );
+
+    await user.click(screen.getByRole("combobox"));
+
+    expect(screen.getByRole("listbox").closest("[aria-hidden]")).toBeNull();
+    expect(screen.getByRole("option", { name: "Fall" })).toBeInTheDocument();
   });
 });
