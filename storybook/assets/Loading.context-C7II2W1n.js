@@ -1,0 +1,1 @@
+import{r as i}from"./index-BCtMShv3.js";const n=i.createContext(void 0);function s(o={}){const a=i.useContext(n);return{isLoading:o.isLoading??(a==null?void 0:a.isLoading),loadingLabel:o.loadingLabel??(a==null?void 0:a.loadingLabel)}}export{n as L,s as u};
