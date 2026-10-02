@@ -74,3 +74,11 @@ export const Floating: Story = {
     variant: "floating",
   },
 };
+
+export const Loading: Story = {
+  args: {
+    ...Default.args,
+    isLoading: true,
+    loadingLabel: "Loading",
+  },
+};

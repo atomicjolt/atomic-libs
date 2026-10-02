@@ -3,6 +3,7 @@ import { ThreeDotLoader } from "../ThreeDotLoader";
 import { ErrorBanner } from "../../Banners/DismissableBanner";
 import { ErrorStateProps, LoaderPlacement } from "../Loader/Loader.types";
 import { LoaderProps } from "../Loader";
+import { useLoading } from "../Loading";
 
 export interface LoadingStatusProps<T> {
   readonly children?: React.ReactNode | ((data: T) => React.ReactNode);
@@ -53,7 +54,6 @@ export function LoadingStatus<T>(
   props: LoadingStatusProps<T>
 ): React.ReactNode | null {
   const {
-    isLoading = false,
     renderLoading: Loading = ThreeDotLoader,
     loadingMessage = null,
     loadingPlacement = "center",
@@ -64,6 +64,8 @@ export function LoadingStatus<T>(
     data,
     fallback,
   } = props;
+
+  const { isLoading = false } = useLoading(props);
 
   if (error) {
     return typeof ErrorComp === "function" ? (

@@ -40,3 +40,11 @@ export const Floating: Story = {
     variant: "floating",
   },
 };
+
+export const Loading: Story = {
+  args: {
+    ...Primary.args,
+    isLoading: true,
+    loadingLabel: "Loading",
+  },
+};

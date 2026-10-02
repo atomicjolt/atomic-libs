@@ -1,10 +1,11 @@
-import { ElementWrapper, RenderBaseProps } from "../../../types";
+import { ElementWrapper, LoadingProps, RenderBaseProps } from "../../../types";
 
 export type PaddingSide = "left" | "right" | "both";
 
 export interface ComboInputProps
   extends RenderBaseProps<never>,
-    ElementWrapper<HTMLDivElement> {
+    ElementWrapper<HTMLDivElement>,
+    LoadingProps {
   /** ref to the input element that this virtual input should focus when clicked
    * When `ComboInput` is used within a `Field` component, this prop is automatically
    * provided

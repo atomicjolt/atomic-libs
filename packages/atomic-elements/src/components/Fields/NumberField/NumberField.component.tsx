@@ -5,7 +5,7 @@ import { useNumberFieldState } from "react-stately";
 import { useRenderProps } from "@hooks/useRenderProps";
 import { ButtonContext } from "@components/Buttons/Button/Button.context";
 import { FieldProps } from "../Field";
-import { AriaProps } from "../../../types";
+import { AriaProps, LoadingProps } from "../../../types";
 import { StyledField } from "../Field.styles";
 import { Provider } from "../../Internal/Provider";
 import {
@@ -19,11 +19,13 @@ import { ComboInputContext } from "../ComboInput";
 
 export interface NumberFieldProps
   extends FieldProps,
-    Omit<AriaProps<AriaNumberFieldProps>, "placeholder"> {}
+    Omit<AriaProps<AriaNumberFieldProps>, "placeholder">,
+    LoadingProps {}
 
 /** Provides the accessbility implementation for a number field and its associated label, error message, and description. */
 export function NumberField(props: NumberFieldProps) {
-  const { isDisabled, isRequired, isReadOnly, name } = props;
+  const { isDisabled, isRequired, isReadOnly, name, isLoading, loadingLabel } =
+    props;
 
   const inputRef = useRef<HTMLInputElement | null>(null);
 
@@ -75,7 +77,10 @@ export function NumberField(props: NumberFieldProps) {
               },
             },
           ],
-          [ComboInputContext.Provider, { inputRef }],
+          [
+            ComboInputContext.Provider,
+            { inputRef, isLoading, loadingLabel },
+          ],
           [
             FieldInputContext.Provider,
             {

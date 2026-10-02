@@ -1,12 +1,13 @@
 import { BaseCollection } from "@react-aria/collections";
 import { SingleSelection } from "@react-types/shared";
 import { MenuTriggerAction } from "@react-types/combobox";
-import { Key } from "../../../types";
+import { Key, LoadingProps } from "../../../types";
 import { FieldProps } from "../Field";
 
 export interface ComboBoxFieldProps<T>
   extends Omit<SingleSelection, "disallowEmptySelection" | "onSelectionChange">,
-    Omit<FieldProps, "children"> {
+    Omit<FieldProps, "children">,
+    LoadingProps {
   children?: React.ReactNode;
 
   /** Hangler called when the selection changes */

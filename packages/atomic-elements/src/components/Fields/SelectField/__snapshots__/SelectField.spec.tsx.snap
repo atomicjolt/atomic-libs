@@ -6,7 +6,7 @@ exports[`SelectField > matches snapshots > when closed 1`] = `
     data-react-aria-hidden="true"
   />
   <div
-    class="sc-bCgoVd iZtvlV aje-select"
+    class="sc-ezjgic klbIcq aje-select"
   >
     <div
       aria-hidden="true"
@@ -42,13 +42,13 @@ exports[`SelectField > matches snapshots > when closed 1`] = `
       aria-expanded="false"
       aria-haspopup="listbox"
       aria-labelledby="react-aria-:r7: react-aria-:r3:"
-      class="sc-jrIDTr hLlmew aje-btn aje-btn--dropdown is-medium"
+      class="sc-krVzYl ecatrr aje-btn aje-btn--dropdown is-medium"
       id="react-aria-:r2:"
       tabindex="0"
       type="button"
     >
       <span
-        class="sc-ivKqQM gCaYRv"
+        class="sc-bYgEKt eEAwxI"
         id="react-aria-:r7:"
       />
     </button>
@@ -62,7 +62,7 @@ exports[`SelectField > matches snapshots > when open 1`] = `
     data-react-aria-hidden="true"
   />
   <div
-    class="sc-bCgoVd iZtvlV aje-select"
+    class="sc-ezjgic klbIcq aje-select"
   >
     <div
       aria-hidden="true"
@@ -99,14 +99,14 @@ exports[`SelectField > matches snapshots > when open 1`] = `
       aria-expanded="true"
       aria-haspopup="listbox"
       aria-labelledby="react-aria-:rf: react-aria-:rb:"
-      class="sc-jrIDTr hLlmew aje-btn aje-btn--dropdown is-medium"
+      class="sc-krVzYl ecatrr aje-btn aje-btn--dropdown is-medium"
       data-pressed="true"
       id="react-aria-:ra:"
       tabindex="0"
       type="button"
     >
       <span
-        class="sc-ivKqQM gCaYRv"
+        class="sc-bYgEKt eEAwxI"
         id="react-aria-:rf:"
       />
     </button>

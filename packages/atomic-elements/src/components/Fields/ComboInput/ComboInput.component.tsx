@@ -3,7 +3,11 @@ import { useContextProps } from "@hooks/useContextProps";
 import { useRenderProps } from "@hooks/useRenderProps";
 import { ComboInputContext } from "./ComboInput.context";
 import { ComboInputProps } from "./ComboInput.types";
-import { StyledComboInput } from "./ComboInput.styles";
+import {
+  StyledComboInput,
+  StyledLoadingComboInput,
+} from "./ComboInput.styles";
+import { useLoading } from "@components/Feedback/Loading";
 
 /**
  * ComboInput is a wrapper component designed to provide an input-like interface
@@ -17,7 +21,17 @@ export const ComboInput = React.forwardRef(function ComboInput(
 ) {
   [props, ref] = useContextProps(ComboInputContext, props, ref);
 
-  const { className, style, padding, children, inputRef, ...rest } = props;
+  const { isLoading, loadingLabel } = useLoading(props);
+  const {
+    className,
+    style,
+    padding,
+    children,
+    inputRef,
+    isLoading: _isLoading,
+    loadingLabel: _loadingLabel,
+    ...rest
+  } = props;
 
   const renderProps = useRenderProps({
     componentClassName: "aje-combo-input",
@@ -26,6 +40,25 @@ export const ComboInput = React.forwardRef(function ComboInput(
     children,
     ...rest,
   });
+
+  if (isLoading) {
+    return (
+      <StyledLoadingComboInput
+        className={renderProps.className}
+        style={renderProps.style}
+        title={loadingLabel}
+      >
+        <rect
+          x="0"
+          y="0"
+          width="100%"
+          height="100%"
+          rx="var(--input-border-radius)"
+          ry="var(--input-border-radius)"
+        />
+      </StyledLoadingComboInput>
+    );
+  }
 
   return (
     <StyledComboInput

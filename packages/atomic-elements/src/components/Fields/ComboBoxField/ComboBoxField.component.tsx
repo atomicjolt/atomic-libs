@@ -61,6 +61,8 @@ function ComboBoxFieldInner<T extends object>(
     isDisabled,
     isRequired,
     isReadOnly,
+    isLoading,
+    loadingLabel,
     size = "medium",
   } = props;
   const { contains } = useFilter({ sensitivity: "base" });
@@ -119,7 +121,10 @@ function ComboBoxFieldInner<T extends object>(
           [FieldMessageContext.Provider, descriptionProps],
           [FieldErrorContext.Provider, { ...errorMessageProps, isInvalid }],
           [FieldInputContext.Provider, { ...inputProps, ref: inputRef }],
-          [ComboInputContext.Provider, { inputRef, ref: inputWrapperRef }],
+          [
+            ComboInputContext.Provider,
+            { inputRef, ref: inputWrapperRef, isLoading, loadingLabel },
+          ],
           [OverlayTriggerStateContext.Provider, state],
           [
             PopoverContext.Provider,

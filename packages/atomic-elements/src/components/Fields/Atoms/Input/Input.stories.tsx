@@ -7,7 +7,20 @@ export default {
   parameters: {
     layout: "centered",
   },
-  argTypes: {},
+  argTypes: {
+    isLoading: {
+      control: "boolean",
+      table: {
+        category: "Field State",
+      },
+    },
+    loadingLabel: {
+      control: "text",
+      table: {
+        category: "Field State",
+      },
+    },
+  },
 } as Meta<typeof Input>;
 
 type Story = StoryObj<typeof Input>;
@@ -16,5 +29,13 @@ export const Primary: Story = {
   args: {
     placeholder: "Type something...",
     type: "text",
+  },
+};
+
+export const Loading: Story = {
+  args: {
+    ...Primary.args,
+    isLoading: true,
+    loadingLabel: "Loading",
   },
 };

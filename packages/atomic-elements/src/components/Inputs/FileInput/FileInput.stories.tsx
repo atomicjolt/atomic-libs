@@ -32,3 +32,11 @@ export const WithFile: Story = {
     file: new File(["test"], "test.txt"),
   },
 };
+
+export const Loading: Story = {
+  args: {
+    ...Primary.args,
+    isLoading: true,
+    loadingLabel: "Loading",
+  },
+};

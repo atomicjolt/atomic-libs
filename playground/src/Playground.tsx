@@ -9,7 +9,7 @@ import Aria from "./tabs/Aria";
 import Localization from "./tabs/Localization";
 import Overlays from "./tabs/Overlays";
 import Fields from "./tabs/Fields";
-import Loading from "./tabs/Loading";
+import LoadingStates from "./tabs/LoadingStates";
 import Links from "./tabs/Links";
 import { DateAndTime } from "./tabs/DateAndTime";
 import { Home } from "./tabs/Home";
@@ -28,8 +28,8 @@ function Playground() {
           <Tabs.Tab id="localization">Localization</Tabs.Tab>
           <Tabs.Tab id="overlays">Overlays</Tabs.Tab>
           <Tabs.Tab id="fields">Fields</Tabs.Tab>
+          <Tabs.Tab id="loadingstates">Loading States</Tabs.Tab>
           <Tabs.Tab id="dateandtime">Date and Time</Tabs.Tab>
-          <Tabs.Tab id="loading">Loading</Tabs.Tab>
           <Tabs.Tab id="links">Links</Tabs.Tab>
           <Tabs.Tab id="aria">Aria</Tabs.Tab>
         </Tabs.List>
@@ -62,12 +62,12 @@ function Playground() {
           <Fields />
         </Tabs.Panel>
 
-        <Tabs.Panel id="dateandtime">
-          <DateAndTime />
+        <Tabs.Panel id="loadingstates">
+          <LoadingStates />
         </Tabs.Panel>
 
-        <Tabs.Panel id="loading">
-          <Loading />
+        <Tabs.Panel id="dateandtime">
+          <DateAndTime />
         </Tabs.Panel>
 
         <Tabs.Panel id="links">

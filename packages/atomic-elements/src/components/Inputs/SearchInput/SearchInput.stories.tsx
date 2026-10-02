@@ -30,3 +30,11 @@ export const Primary: Story = {
     onSubmit: fn(),
   },
 };
+
+export const Loading: Story = {
+  args: {
+    ...Primary.args,
+    isLoading: true,
+    loadingLabel: "Loading",
+  },
+};

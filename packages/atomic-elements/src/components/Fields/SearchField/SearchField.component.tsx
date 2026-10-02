@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { AriaSearchFieldProps, useSearchField } from "@react-aria/searchfield";
 import { useSearchFieldState } from "react-stately";
-import { AriaProps } from "../../../types";
+import { AriaProps, LoadingProps } from "../../../types";
 import { FieldProps } from "../Field";
 import { StyledField } from "../Field.styles";
 import { Provider } from "../../Internal/Provider";
@@ -18,16 +18,19 @@ import { useTranslations } from "@hooks/useTranslations";
 import { DEFAULT_SLOT } from "@hooks/useSlottedContext";
 import { useContextProps } from "@hooks/useContextProps";
 import { SearchFieldContext } from "./SearchField.context";
+import { ComboInputContext } from "../ComboInput";
 
 export interface SearchFieldProps
   extends FieldProps,
-    Omit<AriaProps<AriaSearchFieldProps>, "placeholder"> {}
+    Omit<AriaProps<AriaSearchFieldProps>, "placeholder">,
+    LoadingProps {}
 
 /** SearchField component - provides the foundation for search functionality */
 export const SearchField = React.forwardRef<HTMLDivElement, SearchFieldProps>(
   function SearchField(props, ref) {
     [props, ref] = useContextProps(SearchFieldContext, props, ref);
-    const { isDisabled, isRequired, isReadOnly, name } = props;
+    const { isDisabled, isRequired, isReadOnly, name, isLoading, loadingLabel } =
+      props;
 
     const inputRef = useRef<HTMLInputElement>(null);
     const state = useSearchFieldState(props);
@@ -76,6 +79,10 @@ export const SearchField = React.forwardRef<HTMLDivElement, SearchFieldProps>(
             [FieldInputContext.Provider, inputCtx],
             [FieldMessageContext.Provider, descriptionProps],
             [FieldErrorContext.Provider, { ...errorMessageProps, isInvalid }],
+            [
+              ComboInputContext.Provider,
+              { inputRef, isLoading, loadingLabel },
+            ],
             [
               ButtonContext.Provider,
               {

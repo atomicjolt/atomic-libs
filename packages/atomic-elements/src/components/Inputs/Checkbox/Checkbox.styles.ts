@@ -2,6 +2,15 @@ import styled from "styled-components";
 import { DirectionProps } from "../../../types";
 import mixins from "@styles/mixins";
 import { direction } from "@styles/utils";
+import { SkeletonLoader } from "@components/Feedback/SkeletonLoader";
+
+export const StyledLoadingCheckbox = styled(SkeletonLoader)<DirectionProps>`
+  position: absolute;
+  top: 2px;
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
+  ${direction({ ltr: "left: 2px;", rtl: "right: 2px;" })}
+`;
 
 export const CheckBoxLabel = styled.span<DirectionProps>`
   ${mixins.Regular}
@@ -80,5 +89,14 @@ export const CheckboxWrapper = styled.div<DirectionProps>`
   &[data-disabled] ${CheckBoxLabel}, &[data-disabled] ${CheckBoxLabel}:before {
     cursor: auto;
     opacity: 0.5;
+  }
+
+  &[data-loading] ${CheckBoxLabel} {
+    cursor: auto;
+
+    &:before,
+    &:after {
+      visibility: hidden;
+    }
   }
 `;
