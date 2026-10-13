@@ -1,5 +1,30 @@
 # @atomicjolt/atomic-elements
 
+## 3.11.0
+
+### Minor Changes
+
+- 6401d5b: Add `Loading` component and `isLoading` support across form components
+
+  - New `<Loading>` provider sets a loading state for every component inside it.
+    A component's own `isLoading` / `loadingLabel` props override it.
+  - `isLoading` is now supported on `Input`, `TextArea`, `TextField`, `NumberField`,
+    `SearchField`, `ComboInput`, `ComboBox`, `CustomSelect`, `MultiSelect`,
+    `Checkbox`, `RadioGroup`, `ToggleSwitch` and `FileInput`.
+  - Fix `Label` not passing `htmlFor` through to the rendered element.
+
+### Patch Changes
+
+- cfde616: Keep an open ComboBox's listbox visible to assistive tech
+
+  `ComboBoxField` gave `useComboBox` a `popoverRef` but never attached it to the
+  `Popover`. While the menu is open, `useComboBox` calls `ariaHideOutside` on
+  everything except the input and `popoverRef.current`; with the ref left null,
+  that hid the popover itself, so screen readers (and `getByRole` queries) saw no
+  options. Passing the ref through `PopoverContext` attaches it.
+
+- 87c8d93: Fix Table grouped header alignment and duplicate React key warnings
+
 ## 3.10.0
 
 ### Minor Changes
