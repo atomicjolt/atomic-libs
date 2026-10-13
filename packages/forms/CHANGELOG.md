@@ -1,8 +1,8 @@
 # @atomicjolt/forms
 
-## 7.0.0
+## 6.1.0
 
-### Patch Changes
+### Minor Changes
 
 - Updated dependencies [cfde616]
 - Updated dependencies [87c8d93]
