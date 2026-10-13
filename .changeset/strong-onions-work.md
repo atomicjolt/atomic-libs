@@ -2,4 +2,4 @@
 "@atomicjolt/atomic-elements": patch
 ---
 
-fix grouped header alignment and duplication
+Fix Table grouped header alignment and duplicate React key warnings
