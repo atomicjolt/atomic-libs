@@ -1,7 +1,8 @@
 import { createTheme } from "./theme";
 import { palette, PaletteColor } from "./palette";
 import * as foundations from "./foundations";
-import { semanticColors, SemanticColor } from "./semantic";
+import { semanticColors, deprecatedColors, effects } from "./semantic";
+import type { SemanticColor } from "./semantic";
 import * as component from "./component";
 
 export { createTheme, variableAlias } from "./theme";
@@ -20,6 +21,8 @@ export const variables = {
   ...foundations.lineHeight,
   ...palette,
   ...semanticColors,
+  ...deprecatedColors,
+  ...effects,
   ...foundations.sizes,
   ...foundations.spacing,
   ...foundations.iconSizes,
