@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useSyncExternalStore } from "react";
 import { Preview } from "@storybook/react";
 import {
+  DocsContainer,
+  DocsContainerProps,
   Title,
   Subtitle,
   Description,
@@ -9,9 +11,38 @@ import {
   Stories,
 } from "@storybook/blocks";
 import { CssPropsBlock } from "@ljcl/storybook-addon-cssprops";
+import { themes } from "@storybook/theming";
 
 import { defaultTheme } from "../packages/atomic-elements/src/styles";
 import { ElementsProvider } from "../packages/atomic-elements/src/components/ElementsProvider";
+
+/** The scheme ElementsProvider applied to this iframe's <html>, tracked live. */
+function useDocumentColorScheme(): string | undefined {
+  return useSyncExternalStore(
+    (onChange) => {
+      const observer = new MutationObserver(onChange);
+      observer.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["data-color-scheme"],
+      });
+      return () => observer.disconnect();
+    },
+    () => document.documentElement.dataset.colorScheme
+  );
+}
+
+/** Docs (overview) pages use Storybook's dark theme when the stories are dark. */
+function ColorSchemeDocsContainer(props: DocsContainerProps) {
+  const scheme = useDocumentColorScheme();
+  const mode = scheme ? defaultTheme.colorSchemes[scheme]?.mode : undefined;
+
+  return (
+    <DocsContainer
+      {...props}
+      theme={mode === "dark" ? themes.dark : themes.light}
+    />
+  );
+}
 
 const preview: Preview = {
   globalTypes: {
@@ -71,6 +102,7 @@ const preview: Preview = {
       },
     },
     docs: {
+      container: ColorSchemeDocsContainer,
       page: () => (
         <>
           <Title />
