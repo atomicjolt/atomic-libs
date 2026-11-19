@@ -41,27 +41,27 @@ export const ChipWrapper = styled.div`
   cursor: default;
 
   &.aje-chip--success {
-    --chip-bg-clr: var(--success100);
-    --chip-border: 1px solid #aee1b6;
-    --chip-hover-bg-clr: var(--success200);
-    --chip-btn-hover-bg-clr: var(--success200);
-    --chip-text-clr: var(--success800);
+    --chip-bg-clr: var(--success-clr-subtle);
+    --chip-border: 1px solid var(--success-clr-subtle-border);
+    --chip-hover-bg-clr: var(--success-clr-subtle-hover);
+    --chip-btn-hover-bg-clr: var(--success-clr-subtle-hover);
+    --chip-text-clr: var(--success-clr-subtle-text);
   }
 
   &.aje-chip--warning {
-    --chip-bg-clr: var(--warning100);
-    --chip-text-clr: var(--warning700);
-    --chip-hover-bg-clr: var(--warning200);
-    --chip-btn-hover-bg-clr: var(--warning200);
-    --chip-border: 1px solid #e3d488;
+    --chip-bg-clr: var(--warning-clr-subtle);
+    --chip-text-clr: var(--warning-clr-subtle-text);
+    --chip-hover-bg-clr: var(--warning-clr-subtle-hover);
+    --chip-btn-hover-bg-clr: var(--warning-clr-subtle-hover);
+    --chip-border: 1px solid var(--warning-clr-subtle-border);
   }
 
   &.aje-chip--danger {
-    --chip-bg-clr: var(--error100);
-    --chip-text-clr: var(--error800);
-    --chip-hover-bg-clr: var(--error200);
-    --chip-btn-hover-bg-clr: var(--error200);
-    --chip-border: 1px solid #f1b6b6;
+    --chip-bg-clr: var(--error-clr-subtle);
+    --chip-text-clr: var(--error-clr-subtle-text);
+    --chip-hover-bg-clr: var(--error-clr-subtle-hover);
+    --chip-btn-hover-bg-clr: var(--error-clr-subtle-hover);
+    --chip-border: 1px solid var(--error-clr-subtle-border);
   }
 
   &[role="button"]:hover,
@@ -104,7 +104,7 @@ export const ChipWrapper = styled.div`
 
     ${ChipContent} button::hover {
       &::before {
-        background-color: var(--neutral100);
+        background-color: var(--background-clr-subtle);
       }
     }
   }

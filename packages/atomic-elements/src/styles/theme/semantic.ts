@@ -43,12 +43,16 @@ export const semanticColors = {
   // Status: solid
   "error-clr": "{error600}",
   "error-clr-hover": "{error-clr-alt}",
+  "error-clr-active": "{error800}",
   "warning-clr": "{warning600}",
   "warning-clr-hover": "{warning-clr-alt}",
+  "warning-clr-active": "{warning800}",
   "success-clr": "{success600}",
   "success-clr-hover": "{success-clr-alt}",
+  "success-clr-active": "{success800}",
   "info-clr-solid": "{primary600}",
   "info-clr-solid-hover": "{primary700}",
+  "info-clr-solid-active": "{primary800}",
 
   // Status: subtle
   "error-clr-subtle": "{error100}",

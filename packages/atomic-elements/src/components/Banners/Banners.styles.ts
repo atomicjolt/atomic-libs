@@ -26,35 +26,35 @@ export const StyledBanner = styled.div`
 
   &.aje-banner {
     &--error {
-      --banner-bg-clr: var(--error700);
-      --banner-text-clr: var(--text-clr-inverted);
-      --banner-icon-clr: var(--text-clr-inverted);
-      --banner-btn-hover-clr: var(--error800);
-      --banner-btn-active-clr: var(--error900);
+      --banner-bg-clr: var(--error-clr-hover);
+      --banner-text-clr: var(--text-clr-on-accent);
+      --banner-icon-clr: var(--text-clr-on-accent);
+      --banner-btn-hover-clr: var(--error-clr-active);
+      --banner-btn-active-clr: var(--error-clr-active);
     }
 
     &--warning {
-      --banner-bg-clr: var(--warning100);
+      --banner-bg-clr: var(--warning-clr-subtle);
       --banner-text-clr: var(--text-clr);
-      --banner-icon-clr: var(--warning600);
-      --banner-btn-hover-clr: var(--warning200);
-      --banner-btn-active-clr: var(--warning300);
+      --banner-icon-clr: var(--warning-clr);
+      --banner-btn-hover-clr: var(--warning-clr-subtle-hover);
+      --banner-btn-active-clr: var(--warning-clr-subtle-active);
     }
 
     &--info {
-      --banner-bg-clr: var(--primary100);
+      --banner-bg-clr: var(--info-clr-subtle);
       --banner-text-clr: var(--text-clr);
-      --banner-icon-clr: var(--primary700);
-      --banner-btn-hover-clr: var(--primary200);
-      --banner-btn-active-clr: var(--primary300);
+      --banner-icon-clr: var(--info-clr-solid-hover);
+      --banner-btn-hover-clr: var(--info-clr-subtle-hover);
+      --banner-btn-active-clr: var(--info-clr-subtle-active);
     }
 
     &--success {
-      --banner-bg-clr: var(--success100);
+      --banner-bg-clr: var(--success-clr-subtle);
       --banner-text-clr: var(--text-clr);
-      --banner-icon-clr: var(--success600);
-      --banner-btn-hover-clr: var(--success200);
-      --banner-btn-active-clr: var(--success300);
+      --banner-icon-clr: var(--success-clr);
+      --banner-btn-hover-clr: var(--success-clr-subtle-hover);
+      --banner-btn-active-clr: var(--success-clr-subtle-active);
     }
   }
 
