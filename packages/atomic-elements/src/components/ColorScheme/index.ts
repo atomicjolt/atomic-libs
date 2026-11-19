@@ -1,6 +1,7 @@
-export { ColorSchemeProvider, useColorScheme } from "./ColorSchemeProvider";
+export { ColorSchemeProvider } from "./ColorSchemeProvider";
+export { useColorScheme } from "./ColorScheme.context";
 export type {
   ColorSchemeOptions,
   ColorSchemeProviderProps,
-  ColorSchemeState,
 } from "./ColorSchemeProvider";
+export type { ColorSchemeState } from "./ColorScheme.context";

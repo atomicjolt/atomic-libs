@@ -1,11 +1,4 @@
-import {
-  createContext,
-  useCallback,
-  useContext,
-  useMemo,
-  useState,
-  useSyncExternalStore,
-} from "react";
+import { useCallback, useContext, useMemo, useState } from "react";
 import type { Theme } from "@styles/theme";
 import { useIsomorphicLayoutEffect } from "../../hooks/useIsomorphicLayoutEffect";
 import {
@@ -15,6 +8,11 @@ import {
   setDocumentColorScheme,
   SYSTEM_COLOR_SCHEME,
 } from "./colorScheme";
+import {
+  ColorSchemeContext,
+  ColorSchemeState,
+} from "./ColorScheme.context";
+import { usePrefersDark } from "./usePrefersDark";
 
 export interface ColorSchemeOptions {
   /** The color scheme to show: a scheme name from the theme (e.g. `"light"`,
@@ -30,58 +28,9 @@ export interface ColorSchemeOptions {
   onColorSchemeChange?: (scheme: string) => void;
 }
 
-export interface ColorSchemeState {
-  /** The requested scheme: a name or `"system"`. */
-  colorScheme: string;
-  /** The scheme actually shown. */
-  resolvedColorScheme: string;
-  setColorScheme: (scheme: string) => void;
-  /** Scheme names available in the theme. */
-  colorSchemes: string[];
-}
-
 export interface ColorSchemeProviderProps extends ColorSchemeOptions {
   theme: Theme;
   children?: React.ReactNode;
-}
-
-const ColorSchemeContext = createContext<ColorSchemeState | null>(null);
-
-/** The active color scheme, and a way to change it. */
-export function useColorScheme(): ColorSchemeState {
-  const context = useContext(ColorSchemeContext);
-
-  if (!context) {
-    throw new Error("useColorScheme must be used within an ElementsProvider");
-  }
-
-  return context;
-}
-
-const DARK_QUERY = "(prefers-color-scheme: dark)";
-
-/** Whether the OS prefers dark, tracked live. Always false when `enabled` is false. */
-function usePrefersDark(enabled: boolean): boolean {
-  const supported =
-    enabled &&
-    typeof window !== "undefined" &&
-    typeof window.matchMedia === "function";
-
-  const subscribe = useCallback(
-    (onChange: () => void) => {
-      if (!supported) return () => {};
-      const query = window.matchMedia(DARK_QUERY);
-      query.addEventListener("change", onChange);
-      return () => query.removeEventListener("change", onChange);
-    },
-    [supported]
-  );
-
-  return useSyncExternalStore(
-    subscribe,
-    () => supported && window.matchMedia(DARK_QUERY).matches,
-    () => false
-  );
 }
 
 /**
