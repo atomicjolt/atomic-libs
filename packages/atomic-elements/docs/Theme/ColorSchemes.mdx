@@ -1,0 +1,159 @@
+# Color Schemes
+
+Atomic Elements ships two color schemes, `light` and `dark`. A color scheme swaps the
+[semantic color tokens](./Intro.mdx#color-tokens) (surfaces, text, borders, accent and
+status colors) while components stay the same.
+
+Apps render in `light` unless they choose otherwise, even when the user's operating system
+is set to dark mode. Following the OS is opt-in.
+
+## Choosing a scheme
+
+Pass `colorScheme` to `ElementsProvider`. Use a scheme name, or `"system"` to follow the
+operating system's light/dark setting (and update live when it changes).
+
+```tsx
+import { ElementsProvider } from "@atomicjolt/atomic-elements";
+
+function App() {
+  return (
+    <ElementsProvider colorScheme="dark">
+      {/* ... */}
+    </ElementsProvider>
+  );
+}
+```
+
+The provider sets `data-color-scheme="<name>"` on the `<html>` element, and the theme's CSS
+variables switch to that scheme. Popovers, modals and tooltips follow automatically.
+
+## Letting users switch
+
+`useColorScheme()` reads the current scheme and changes it from anywhere inside the provider:
+
+```tsx
+import { Button, useColorScheme } from "@atomicjolt/atomic-elements";
+
+function ColorSchemeToggle() {
+  const { resolvedColorScheme, setColorScheme } = useColorScheme();
+  const next = resolvedColorScheme === "dark" ? "light" : "dark";
+
+  return (
+    <Button onPress={() => setColorScheme(next)}>
+      Switch to {next} mode
+    </Button>
+  );
+}
+```
+
+| Field | Meaning |
+| --- | --- |
+| `colorScheme` | What was requested: a scheme name or `"system"` |
+| `resolvedColorScheme` | The scheme actually shown (`"system"` resolves to `light` or `dark`) |
+| `setColorScheme(name)` | Request a different scheme |
+| `colorSchemes` | The scheme names the theme defines |
+
+## Remembering the choice
+
+Atomic Elements doesn't store the user's choice; your app decides where it lives (local
+storage, your server, a per-user LTI setting). There are two ways to wire it up:
+
+- **The app owns the value:** pass `colorScheme` and `onColorSchemeChange`. `setColorScheme`
+  calls `onColorSchemeChange`; save the value and pass it back in.
+
+  ```tsx
+  const [scheme, setScheme] = useState(savedPreference ?? "light");
+
+  <ElementsProvider
+    colorScheme={scheme}
+    onColorSchemeChange={(next) => {
+      setScheme(next);
+      savePreference(next);
+    }}
+  >
+  ```
+
+- **The provider owns the value:** pass `defaultColorScheme` as the starting value. The
+  provider tracks changes itself and still calls `onColorSchemeChange` so you can save them.
+
+## The page background
+
+Components get their colors from the theme, but the page around them is styled by your app.
+
+- With `applyDefaultStyles`, the provider sets the `<body>` background and text color for
+  every scheme except `light`, so dark pages get a dark background. Light pages look exactly
+  as they did before color schemes existed.
+- Without `applyDefaultStyles`, add this to your own styles:
+
+  ```css
+  body {
+    background-color: var(--background-clr);
+    color: var(--text-clr);
+  }
+  ```
+
+## Server-rendered pages
+
+To avoid a flash of the light scheme before JavaScript runs, render the attribute into your
+HTML when you already know the user's choice:
+
+```html
+<html data-color-scheme="dark">
+```
+
+## One provider per page
+
+The color scheme belongs to the whole page, so mount a single `ElementsProvider` at the root
+of your app. Nested providers follow the outer one and ignore their own color scheme props.
+If two providers are mounted side by side, a warning is logged and they share the page's
+scheme.
+
+## Custom schemes
+
+Themes define schemes with `colorSchemes`. Each scheme lists only the tokens it overrides,
+and needs a `mode` (`"light"` or `"dark"`) unless it's named `light` or `dark`. The mode sets
+the CSS `color-scheme` property so native controls and scrollbars match, and tells
+`"system"` which scheme to pick.
+
+```ts
+import { createTheme, defaultTheme } from "@atomicjolt/atomic-elements";
+
+const theme = createTheme({
+  base: defaultTheme,
+  colorSchemes: {
+    dim: {
+      mode: "dark",
+      variables: {
+        "background-clr": "hsl(220, 15%, 20%)",
+        "text-clr": "hsl(220, 15%, 90%)",
+      },
+    },
+  },
+});
+```
+
+The `light` scheme (or the first scheme, if there's no `light`) is the base: it applies when
+no scheme is selected, and every other scheme layers its overrides on top of it.
+
+### Brand colors in both schemes
+
+Values in a theme's shared `variables` apply in every scheme. If you override accent or
+status colors, give each scheme its own value, because dark mode needs lighter text colors
+and the library's dark scheme sets its own fills:
+
+```ts
+const theme = createTheme({
+  base: defaultTheme,
+  colorSchemes: {
+    light: {
+      variables: { "accent-clr": "hsl(262, 60%, 45%)", "accent-clr-fill": "hsl(262, 60%, 45%)" },
+    },
+    dark: {
+      variables: { "accent-clr": "hsl(262, 80%, 75%)", "accent-clr-fill": "hsl(262, 60%, 45%)" },
+    },
+  },
+});
+```
+
+`accent-clr` is for accent text, links and icons; `accent-clr-fill` is for solid backgrounds
+behind white text, such as primary buttons and selected items.
