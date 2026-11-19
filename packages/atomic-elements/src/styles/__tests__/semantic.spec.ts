@@ -49,6 +49,16 @@ describe("semantic tokens", () => {
     }
   });
 
+  it("semantic tokens live in the light scheme", () => {
+    expect(defaultTheme.colorSchemes.light.variables["text-clr"]).toBe(
+      "{neutral800}"
+    );
+    expect(defaultTheme.sharedVariables).not.toHaveProperty("text-clr");
+    expect(resolveToLiteral(defaultTheme, "text-clr", "light")).toBe(
+      resolveToLiteral(defaultTheme, "text-clr")
+    );
+  });
+
   it("color props accept palette, semantic and deprecated names", () => {
     for (const name of ["neutral100", "text-clr-secondary", "text-clr-alt"]) {
       expect(textColor({ $color: name, theme: defaultTheme })).toEqual({

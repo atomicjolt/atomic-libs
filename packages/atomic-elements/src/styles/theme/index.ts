@@ -18,16 +18,14 @@ export type { SemanticColor } from "./semantic";
 /** Any color token name: a palette shade or a semantic color. */
 export type Color = PaletteColor | SemanticColor;
 
-export const variables = {
+/** Tokens shared by every color scheme. */
+const sharedVariables = {
   ...foundations.border,
   ...foundations.font,
   ...foundations.fontSize,
   ...foundations.letterSpacing,
   ...foundations.lineHeight,
   ...palette,
-  ...semanticColors,
-  ...deprecatedColors,
-  ...effects,
   ...foundations.sizes,
   ...foundations.spacing,
   ...foundations.iconSizes,
@@ -59,4 +57,19 @@ export const variables = {
   ...component.scrollArea,
 } as const;
 
-export const defaultTheme = createTheme({ variables });
+/** The light scheme: semantic colors and effects as they've always been. */
+const lightScheme = {
+  ...semanticColors,
+  ...deprecatedColors,
+  ...effects,
+};
+
+/** Every token name in the default theme. */
+export const variables = { ...sharedVariables, ...lightScheme } as const;
+
+export const defaultTheme = createTheme({
+  variables: sharedVariables,
+  colorSchemes: {
+    light: { mode: "light", variables: lightScheme },
+  },
+});
