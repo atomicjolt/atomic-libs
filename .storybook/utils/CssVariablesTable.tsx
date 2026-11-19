@@ -47,7 +47,6 @@ export function CssVariablesTable() {
 
   return (
     <>
-      <Heading>CSS Variables</Heading>
       <PureArgsTable rows={rows} />
     </>
   );
