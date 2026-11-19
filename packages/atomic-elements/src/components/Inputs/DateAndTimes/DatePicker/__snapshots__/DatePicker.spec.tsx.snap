@@ -162,7 +162,7 @@ exports[`DatePicker > matches snapshots > 24 hour cycle 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
+            class="sc-bdDsCe fQirDl aje-icon material-icons is-medium"
           >
             today
           </i>
@@ -296,7 +296,7 @@ exports[`DatePicker > matches snapshots > day granularity 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
+            class="sc-bdDsCe fQirDl aje-icon material-icons is-medium"
           >
             today
           </i>
@@ -430,7 +430,7 @@ exports[`DatePicker > matches snapshots > default variant 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
+            class="sc-bdDsCe fQirDl aje-icon material-icons is-medium"
           >
             today
           </i>
@@ -554,7 +554,7 @@ exports[`DatePicker > matches snapshots > disabled state 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
+            class="sc-bdDsCe fQirDl aje-icon material-icons is-medium"
           >
             today
           </i>
@@ -753,7 +753,7 @@ exports[`DatePicker > matches snapshots > hour granularity 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
+            class="sc-bdDsCe fQirDl aje-icon material-icons is-medium"
           >
             today
           </i>
@@ -894,7 +894,7 @@ exports[`DatePicker > matches snapshots > invalid state 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
+            class="sc-bdDsCe fQirDl aje-icon material-icons is-medium"
           >
             today
           </i>
@@ -1034,7 +1034,7 @@ exports[`DatePicker > matches snapshots > large calendar size 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
+            class="sc-bdDsCe fQirDl aje-icon material-icons is-medium"
           >
             today
           </i>
@@ -1168,7 +1168,7 @@ exports[`DatePicker > matches snapshots > large size 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
+            class="sc-bdDsCe fQirDl aje-icon material-icons is-medium"
           >
             today
           </i>
@@ -1302,7 +1302,7 @@ exports[`DatePicker > matches snapshots > medium calendar size 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
+            class="sc-bdDsCe fQirDl aje-icon material-icons is-medium"
           >
             today
           </i>
@@ -1436,7 +1436,7 @@ exports[`DatePicker > matches snapshots > medium size 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
+            class="sc-bdDsCe fQirDl aje-icon material-icons is-medium"
           >
             today
           </i>
@@ -1560,7 +1560,7 @@ exports[`DatePicker > matches snapshots > minimal props 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
+            class="sc-bdDsCe fQirDl aje-icon material-icons is-medium"
           >
             today
           </i>
@@ -1786,7 +1786,7 @@ exports[`DatePicker > matches snapshots > minute granularity 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
+            class="sc-bdDsCe fQirDl aje-icon material-icons is-medium"
           >
             today
           </i>
@@ -1913,7 +1913,7 @@ exports[`DatePicker > matches snapshots > readonly state 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
+            class="sc-bdDsCe fQirDl aje-icon material-icons is-medium"
           >
             today
           </i>
@@ -2052,7 +2052,7 @@ exports[`DatePicker > matches snapshots > required state 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
+            class="sc-bdDsCe fQirDl aje-icon material-icons is-medium"
           >
             today
           </i>
@@ -2305,7 +2305,7 @@ exports[`DatePicker > matches snapshots > second granularity 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
+            class="sc-bdDsCe fQirDl aje-icon material-icons is-medium"
           >
             today
           </i>
@@ -2439,7 +2439,7 @@ exports[`DatePicker > matches snapshots > small calendar size 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
+            class="sc-bdDsCe fQirDl aje-icon material-icons is-medium"
           >
             today
           </i>
@@ -2573,7 +2573,7 @@ exports[`DatePicker > matches snapshots > small size 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
+            class="sc-bdDsCe fQirDl aje-icon material-icons is-medium"
           >
             today
           </i>
@@ -2704,7 +2704,7 @@ exports[`DatePicker > matches snapshots > with default value 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
+            class="sc-bdDsCe fQirDl aje-icon material-icons is-medium"
           >
             today
           </i>
@@ -2838,7 +2838,7 @@ exports[`DatePicker > matches snapshots > with leading zeros 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
+            class="sc-bdDsCe fQirDl aje-icon material-icons is-medium"
           >
             today
           </i>
@@ -2972,7 +2972,7 @@ exports[`DatePicker > matches snapshots > with min and max values 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
+            class="sc-bdDsCe fQirDl aje-icon material-icons is-medium"
           >
             today
           </i>
@@ -3103,7 +3103,7 @@ exports[`DatePicker > matches snapshots > with value 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
+            class="sc-bdDsCe fQirDl aje-icon material-icons is-medium"
           >
             today
           </i>
@@ -3237,7 +3237,7 @@ exports[`DatePicker > matches snapshots > without error 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
+            class="sc-bdDsCe fQirDl aje-icon material-icons is-medium"
           >
             today
           </i>
@@ -3369,7 +3369,7 @@ exports[`DatePicker > matches snapshots > without label 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
+            class="sc-bdDsCe fQirDl aje-icon material-icons is-medium"
           >
             today
           </i>
@@ -3495,7 +3495,7 @@ exports[`DatePicker > matches snapshots > without message 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
+            class="sc-bdDsCe fQirDl aje-icon material-icons is-medium"
           >
             today
           </i>

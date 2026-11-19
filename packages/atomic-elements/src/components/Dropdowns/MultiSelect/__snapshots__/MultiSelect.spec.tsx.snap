@@ -31,7 +31,7 @@ exports[`MultiSelect > matches default variant 1`] = `
       </span>
       <i
         aria-hidden="true"
-        class="sc-bqqMSY cFveTB aje-icon material-icons is-medium"
+        class="sc-bqqMSY ixgIyT aje-icon material-icons is-medium"
         style="margin-left: auto;"
       >
         arrow_drop_down
@@ -63,7 +63,7 @@ exports[`MultiSelect > matches floating variant 1`] = `
       >
         <i
           aria-hidden="true"
-          class="sc-bqqMSY cFveTB aje-icon material-icons is-medium"
+          class="sc-bqqMSY ixgIyT aje-icon material-icons is-medium"
           style="margin-left: auto;"
         >
           arrow_drop_down

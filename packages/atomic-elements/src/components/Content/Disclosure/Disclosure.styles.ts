@@ -13,10 +13,10 @@ export const DisclosureButton = styled(Button)`
 
   &.aje-btn--disclosure-trigger {
     width: 100%;
-    --btn-text-clr: var(--text-clr-alt);
-    --btn-bg-clr: var(--neutral200);
+    --btn-text-clr: var(--text-clr-secondary);
+    --btn-bg-clr: var(--background-clr-subtle-hover);
     --btn-hover-text-clr: var(--text-clr);
-    --btn-hover-bg-clr: var(--neutral300);
+    --btn-hover-bg-clr: var(--background-clr-active);
     --btn-border: var(--border);
     --btn-pressed-transform: "";
   }

@@ -32,7 +32,7 @@ exports[`matches snapshot > displays with search button 1`] = `
       >
         <i
           aria-hidden="true"
-          class="sc-crPgjm bIBcHh aje-icon material-icons is-medium"
+          class="sc-crPgjm kJVxbL aje-icon material-icons is-medium"
         >
           search
         </i>
@@ -74,7 +74,7 @@ exports[`matches snapshot > displays without button 1`] = `
       >
         <i
           aria-hidden="true"
-          class="sc-crPgjm bIBcHh aje-icon material-icons is-medium"
+          class="sc-crPgjm kJVxbL aje-icon material-icons is-medium"
         >
           search
         </i>

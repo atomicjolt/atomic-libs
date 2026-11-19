@@ -11,7 +11,7 @@ exports[`IconButton > matches snapshot 1`] = `
   >
     <i
       aria-hidden="true"
-      class="sc-bdDsCe czzecf aje-icon material-icons is-medium"
+      class="sc-bdDsCe fQirDl aje-icon material-icons is-medium"
     >
       more_vert
     </i>

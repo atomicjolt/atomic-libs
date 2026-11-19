@@ -163,7 +163,7 @@ exports[`Banner > Banner.IconButton > should match snapshot 1`] = `
       >
         <i
           aria-hidden="true"
-          class="sc-eCQgVK cbqYKN aje-icon material-icons is-medium"
+          class="sc-eCQgVK kLdtLr aje-icon material-icons is-medium"
         >
           more_vert
         </i>
@@ -179,7 +179,7 @@ exports[`Banner > Banner.IconButton > should match snapshot 1`] = `
     >
       <i
         aria-hidden="true"
-        class="sc-eCQgVK cbqYKN aje-icon material-icons is-medium"
+        class="sc-eCQgVK kLdtLr aje-icon material-icons is-medium"
       >
         more_vert
       </i>

@@ -26,7 +26,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
           >
             <th
               aria-colindex="1"
-              class="sc-hiunUN dJuUyV aje-table__column"
+              class="sc-hiunUN gWUBMK aje-table__column"
               data-collection="react-aria-:re:"
               data-key="a"
               data-searchable="true"
@@ -60,7 +60,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
                   >
                     <i
                       aria-hidden="true"
-                      class="sc-crPgjm bIBcHh aje-icon material-icons is-small"
+                      class="sc-crPgjm kJVxbL aje-icon material-icons is-small"
                     >
                       close
                     </i>
@@ -70,7 +70,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
             </th>
             <th
               aria-colindex="2"
-              class="sc-hiunUN dJuUyV aje-table__column"
+              class="sc-hiunUN gWUBMK aje-table__column"
               data-collection="react-aria-:re:"
               data-key="b"
               data-sort-visibility="selected"
@@ -93,7 +93,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
         >
           <tr
             aria-labelledby="react-aria-:rd:-react-aria-6-a"
-            class="sc-ezjgic bZStHI aje-table__row"
+            class="sc-ezjgic gEvHJC aje-table__row"
             data-collection="react-aria-:re:"
             data-key="react-aria-6"
             role="row"
@@ -122,7 +122,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
           </tr>
           <tr
             aria-labelledby="react-aria-:rd:-react-aria-9-a"
-            class="sc-ezjgic bZStHI aje-table__row"
+            class="sc-ezjgic gEvHJC aje-table__row"
             data-collection="react-aria-:re:"
             data-key="react-aria-9"
             role="row"
@@ -175,7 +175,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
         >
           <th
             aria-colindex="1"
-            class="sc-hiunUN dJuUyV aje-table__column"
+            class="sc-hiunUN gWUBMK aje-table__column"
             data-collection="react-aria-:re:"
             data-key="a"
             data-searchable="true"
@@ -209,7 +209,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
                 >
                   <i
                     aria-hidden="true"
-                    class="sc-crPgjm bIBcHh aje-icon material-icons is-small"
+                    class="sc-crPgjm kJVxbL aje-icon material-icons is-small"
                   >
                     close
                   </i>
@@ -219,7 +219,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
           </th>
           <th
             aria-colindex="2"
-            class="sc-hiunUN dJuUyV aje-table__column"
+            class="sc-hiunUN gWUBMK aje-table__column"
             data-collection="react-aria-:re:"
             data-key="b"
             data-sort-visibility="selected"
@@ -242,7 +242,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
       >
         <tr
           aria-labelledby="react-aria-:rd:-react-aria-6-a"
-          class="sc-ezjgic bZStHI aje-table__row"
+          class="sc-ezjgic gEvHJC aje-table__row"
           data-collection="react-aria-:re:"
           data-key="react-aria-6"
           role="row"
@@ -271,7 +271,7 @@ exports[`Table > Snapshots > Should match the snapshot when searchable 1`] = `
         </tr>
         <tr
           aria-labelledby="react-aria-:rd:-react-aria-9-a"
-          class="sc-ezjgic bZStHI aje-table__row"
+          class="sc-ezjgic gEvHJC aje-table__row"
           data-collection="react-aria-:re:"
           data-key="react-aria-9"
           role="row"
@@ -381,7 +381,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
           >
             <th
               aria-colindex="1"
-              class="sc-hiunUN dJuUyV aje-table__column"
+              class="sc-hiunUN gWUBMK aje-table__column"
               data-collection="react-aria-:r1:"
               data-key="a"
               data-searchable="true"
@@ -415,7 +415,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
                   >
                     <i
                       aria-hidden="true"
-                      class="sc-crPgjm bIBcHh aje-icon material-icons is-small"
+                      class="sc-crPgjm kJVxbL aje-icon material-icons is-small"
                     >
                       close
                     </i>
@@ -429,7 +429,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
                 >
                   <i
                     aria-hidden="true"
-                    class="sc-crPgjm bIBcHh aje-icon material-icons is-small"
+                    class="sc-crPgjm kJVxbL aje-icon material-icons is-small"
                   >
                     search
                   </i>
@@ -438,7 +438,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
             </th>
             <th
               aria-colindex="2"
-              class="sc-hiunUN dJuUyV aje-table__column"
+              class="sc-hiunUN gWUBMK aje-table__column"
               data-collection="react-aria-:r1:"
               data-key="b"
               data-sort-visibility="selected"
@@ -461,7 +461,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
         >
           <tr
             aria-labelledby="react-aria-:r0:-react-aria-6-a"
-            class="sc-ezjgic bZStHI aje-table__row"
+            class="sc-ezjgic gEvHJC aje-table__row"
             data-collection="react-aria-:r1:"
             data-key="react-aria-6"
             role="row"
@@ -490,7 +490,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
           </tr>
           <tr
             aria-labelledby="react-aria-:r0:-react-aria-9-a"
-            class="sc-ezjgic bZStHI aje-table__row"
+            class="sc-ezjgic gEvHJC aje-table__row"
             data-collection="react-aria-:r1:"
             data-key="react-aria-9"
             role="row"
@@ -543,7 +543,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
         >
           <th
             aria-colindex="1"
-            class="sc-hiunUN dJuUyV aje-table__column"
+            class="sc-hiunUN gWUBMK aje-table__column"
             data-collection="react-aria-:r1:"
             data-key="a"
             data-searchable="true"
@@ -577,7 +577,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
                 >
                   <i
                     aria-hidden="true"
-                    class="sc-crPgjm bIBcHh aje-icon material-icons is-small"
+                    class="sc-crPgjm kJVxbL aje-icon material-icons is-small"
                   >
                     close
                   </i>
@@ -591,7 +591,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
               >
                 <i
                   aria-hidden="true"
-                  class="sc-crPgjm bIBcHh aje-icon material-icons is-small"
+                  class="sc-crPgjm kJVxbL aje-icon material-icons is-small"
                 >
                   search
                 </i>
@@ -600,7 +600,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
           </th>
           <th
             aria-colindex="2"
-            class="sc-hiunUN dJuUyV aje-table__column"
+            class="sc-hiunUN gWUBMK aje-table__column"
             data-collection="react-aria-:r1:"
             data-key="b"
             data-sort-visibility="selected"
@@ -623,7 +623,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
       >
         <tr
           aria-labelledby="react-aria-:r0:-react-aria-6-a"
-          class="sc-ezjgic bZStHI aje-table__row"
+          class="sc-ezjgic gEvHJC aje-table__row"
           data-collection="react-aria-:r1:"
           data-key="react-aria-6"
           role="row"
@@ -652,7 +652,7 @@ exports[`Table > Snapshots > should match the snapshot 1`] = `
         </tr>
         <tr
           aria-labelledby="react-aria-:r0:-react-aria-9-a"
-          class="sc-ezjgic bZStHI aje-table__row"
+          class="sc-ezjgic gEvHJC aje-table__row"
           data-collection="react-aria-:r1:"
           data-key="react-aria-9"
           role="row"
@@ -762,7 +762,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
           >
             <th
               aria-colindex="1"
-              class="sc-hiunUN dJuUyV aje-table__column"
+              class="sc-hiunUN gWUBMK aje-table__column"
               data-collection="react-aria-:rr:"
               data-key="a"
               data-searchable="true"
@@ -796,7 +796,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                   >
                     <i
                       aria-hidden="true"
-                      class="sc-crPgjm bIBcHh aje-icon material-icons is-small"
+                      class="sc-crPgjm kJVxbL aje-icon material-icons is-small"
                     >
                       close
                     </i>
@@ -810,7 +810,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                 >
                   <i
                     aria-hidden="true"
-                    class="sc-crPgjm bIBcHh aje-icon material-icons is-small"
+                    class="sc-crPgjm kJVxbL aje-icon material-icons is-small"
                   >
                     search
                   </i>
@@ -819,7 +819,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </th>
             <th
               aria-colindex="2"
-              class="sc-hiunUN dJuUyV aje-table__column"
+              class="sc-hiunUN gWUBMK aje-table__column"
               data-collection="react-aria-:rr:"
               data-key="b"
               data-sort-visibility="selected"
@@ -842,7 +842,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
           role="rowgroup"
         >
           <tr
-            class="sc-ezjgic bZStHI"
+            class="sc-ezjgic gEvHJC"
           >
             <td
               class="sc-iUlCMS iIkvIm"
@@ -960,7 +960,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </td>
           </tr>
           <tr
-            class="sc-ezjgic bZStHI"
+            class="sc-ezjgic gEvHJC"
           >
             <td
               class="sc-iUlCMS iIkvIm"
@@ -1078,7 +1078,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </td>
           </tr>
           <tr
-            class="sc-ezjgic bZStHI"
+            class="sc-ezjgic gEvHJC"
           >
             <td
               class="sc-iUlCMS iIkvIm"
@@ -1196,7 +1196,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </td>
           </tr>
           <tr
-            class="sc-ezjgic bZStHI"
+            class="sc-ezjgic gEvHJC"
           >
             <td
               class="sc-iUlCMS iIkvIm"
@@ -1314,7 +1314,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </td>
           </tr>
           <tr
-            class="sc-ezjgic bZStHI"
+            class="sc-ezjgic gEvHJC"
           >
             <td
               class="sc-iUlCMS iIkvIm"
@@ -1432,7 +1432,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </td>
           </tr>
           <tr
-            class="sc-ezjgic bZStHI"
+            class="sc-ezjgic gEvHJC"
           >
             <td
               class="sc-iUlCMS iIkvIm"
@@ -1550,7 +1550,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </td>
           </tr>
           <tr
-            class="sc-ezjgic bZStHI"
+            class="sc-ezjgic gEvHJC"
           >
             <td
               class="sc-iUlCMS iIkvIm"
@@ -1668,7 +1668,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </td>
           </tr>
           <tr
-            class="sc-ezjgic bZStHI"
+            class="sc-ezjgic gEvHJC"
           >
             <td
               class="sc-iUlCMS iIkvIm"
@@ -1786,7 +1786,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </td>
           </tr>
           <tr
-            class="sc-ezjgic bZStHI"
+            class="sc-ezjgic gEvHJC"
           >
             <td
               class="sc-iUlCMS iIkvIm"
@@ -1904,7 +1904,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
             </td>
           </tr>
           <tr
-            class="sc-ezjgic bZStHI"
+            class="sc-ezjgic gEvHJC"
           >
             <td
               class="sc-iUlCMS iIkvIm"
@@ -2047,7 +2047,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
         >
           <th
             aria-colindex="1"
-            class="sc-hiunUN dJuUyV aje-table__column"
+            class="sc-hiunUN gWUBMK aje-table__column"
             data-collection="react-aria-:rr:"
             data-key="a"
             data-searchable="true"
@@ -2081,7 +2081,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
                 >
                   <i
                     aria-hidden="true"
-                    class="sc-crPgjm bIBcHh aje-icon material-icons is-small"
+                    class="sc-crPgjm kJVxbL aje-icon material-icons is-small"
                   >
                     close
                   </i>
@@ -2095,7 +2095,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
               >
                 <i
                   aria-hidden="true"
-                  class="sc-crPgjm bIBcHh aje-icon material-icons is-small"
+                  class="sc-crPgjm kJVxbL aje-icon material-icons is-small"
                 >
                   search
                 </i>
@@ -2104,7 +2104,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
           </th>
           <th
             aria-colindex="2"
-            class="sc-hiunUN dJuUyV aje-table__column"
+            class="sc-hiunUN gWUBMK aje-table__column"
             data-collection="react-aria-:rr:"
             data-key="b"
             data-sort-visibility="selected"
@@ -2127,7 +2127,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
         role="rowgroup"
       >
         <tr
-          class="sc-ezjgic bZStHI"
+          class="sc-ezjgic gEvHJC"
         >
           <td
             class="sc-iUlCMS iIkvIm"
@@ -2245,7 +2245,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
           </td>
         </tr>
         <tr
-          class="sc-ezjgic bZStHI"
+          class="sc-ezjgic gEvHJC"
         >
           <td
             class="sc-iUlCMS iIkvIm"
@@ -2363,7 +2363,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
           </td>
         </tr>
         <tr
-          class="sc-ezjgic bZStHI"
+          class="sc-ezjgic gEvHJC"
         >
           <td
             class="sc-iUlCMS iIkvIm"
@@ -2481,7 +2481,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
           </td>
         </tr>
         <tr
-          class="sc-ezjgic bZStHI"
+          class="sc-ezjgic gEvHJC"
         >
           <td
             class="sc-iUlCMS iIkvIm"
@@ -2599,7 +2599,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
           </td>
         </tr>
         <tr
-          class="sc-ezjgic bZStHI"
+          class="sc-ezjgic gEvHJC"
         >
           <td
             class="sc-iUlCMS iIkvIm"
@@ -2717,7 +2717,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
           </td>
         </tr>
         <tr
-          class="sc-ezjgic bZStHI"
+          class="sc-ezjgic gEvHJC"
         >
           <td
             class="sc-iUlCMS iIkvIm"
@@ -2835,7 +2835,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
           </td>
         </tr>
         <tr
-          class="sc-ezjgic bZStHI"
+          class="sc-ezjgic gEvHJC"
         >
           <td
             class="sc-iUlCMS iIkvIm"
@@ -2953,7 +2953,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
           </td>
         </tr>
         <tr
-          class="sc-ezjgic bZStHI"
+          class="sc-ezjgic gEvHJC"
         >
           <td
             class="sc-iUlCMS iIkvIm"
@@ -3071,7 +3071,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
           </td>
         </tr>
         <tr
-          class="sc-ezjgic bZStHI"
+          class="sc-ezjgic gEvHJC"
         >
           <td
             class="sc-iUlCMS iIkvIm"
@@ -3189,7 +3189,7 @@ exports[`Table > Snapshots > should match the snapshot when in a loading state 1
           </td>
         </tr>
         <tr
-          class="sc-ezjgic bZStHI"
+          class="sc-ezjgic gEvHJC"
         >
           <td
             class="sc-iUlCMS iIkvIm"

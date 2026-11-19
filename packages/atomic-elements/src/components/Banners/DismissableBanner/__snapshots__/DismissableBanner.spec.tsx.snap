@@ -97,7 +97,7 @@ exports[`DismissableBanner > Snapshots > should match snapshot with dismiss butt
         >
           <i
             aria-hidden="true"
-            class="sc-eCQgVK cbqYKN aje-icon material-icons is-medium"
+            class="sc-eCQgVK kLdtLr aje-icon material-icons is-medium"
           >
             close
           </i>
@@ -121,7 +121,7 @@ exports[`DismissableBanner > Snapshots > should match snapshot with dismiss butt
       >
         <i
           aria-hidden="true"
-          class="sc-eCQgVK cbqYKN aje-icon material-icons is-medium"
+          class="sc-eCQgVK kLdtLr aje-icon material-icons is-medium"
         >
           close
         </i>
@@ -195,7 +195,7 @@ exports[`DismissableBanner > Snapshots > should match snapshot with icon 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-eCQgVK cbqYKN aje-icon material-icons is-medium"
+            class="sc-eCQgVK kLdtLr aje-icon material-icons is-medium"
           >
             info
           </i>
@@ -215,7 +215,7 @@ exports[`DismissableBanner > Snapshots > should match snapshot with icon 1`] = `
       >
         <i
           aria-hidden="true"
-          class="sc-eCQgVK cbqYKN aje-icon material-icons is-medium"
+          class="sc-eCQgVK kLdtLr aje-icon material-icons is-medium"
         >
           info
         </i>
@@ -292,7 +292,7 @@ exports[`ErrorBanner > Snapshots > should match snapshot 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-eCQgVK cbqYKN aje-icon material-icons is-medium"
+            class="sc-eCQgVK kLdtLr aje-icon material-icons is-medium"
           >
             error
           </i>
@@ -312,7 +312,7 @@ exports[`ErrorBanner > Snapshots > should match snapshot 1`] = `
       >
         <i
           aria-hidden="true"
-          class="sc-eCQgVK cbqYKN aje-icon material-icons is-medium"
+          class="sc-eCQgVK kLdtLr aje-icon material-icons is-medium"
         >
           error
         </i>
@@ -389,7 +389,7 @@ exports[`WarningBanner > Snapshots > should match snapshot 1`] = `
         >
           <i
             aria-hidden="true"
-            class="sc-eCQgVK cbqYKN aje-icon material-icons is-medium"
+            class="sc-eCQgVK kLdtLr aje-icon material-icons is-medium"
           >
             warning
           </i>
@@ -409,7 +409,7 @@ exports[`WarningBanner > Snapshots > should match snapshot 1`] = `
       >
         <i
           aria-hidden="true"
-          class="sc-eCQgVK cbqYKN aje-icon material-icons is-medium"
+          class="sc-eCQgVK kLdtLr aje-icon material-icons is-medium"
         >
           warning
         </i>

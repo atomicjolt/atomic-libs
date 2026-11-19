@@ -25,7 +25,7 @@ export const TabInfo = styled.div`
 
 export const TabLink = styled.div`
   ${mixins.Regular}
-  --tab-bg-clr: var(--neutral100);
+  --tab-bg-clr: var(--background-clr-subtle);
 
   display: inline-block;
   padding: var(--tab-padding-vert) var(--tab-padding-hori);
@@ -40,8 +40,8 @@ export const TabLink = styled.div`
 
   &:hover {
     --tab-text-clr: var(--text-clr);
-    --tab-border-clr: var(--border-clr-primary);
-    --tab-bg-clr: var(--neutral200);
+    --tab-border-clr: var(--border-clr);
+    --tab-bg-clr: var(--background-clr-subtle-hover);
     cursor: pointer;
   }
 
@@ -51,7 +51,7 @@ export const TabLink = styled.div`
   }
 
   &[aria-disabled="true"] {
-    --tab-bg-clr: var(--neutral300);
+    --tab-bg-clr: var(--background-clr-active);
     --tab-border-clr: transparent;
 
     &:hover {
@@ -79,7 +79,7 @@ export const TabContentWrapper = styled.div`
 export const TabsWrapper = styled.div`
   &.aje-tabs--default {
     ${TabLink}[aria-selected="true"] {
-      --tab-bg-clr: var(--neutral50);
+      --tab-bg-clr: var(--background-clr);
       --tab-text-clr: var(--text-clr);
 
       border: var(--border);
@@ -125,11 +125,11 @@ export const TabsWrapper = styled.div`
       transition: background-color 100ms ease;
 
       &[aria-selected="true"] {
-        background-color: var(--neutral100);
+        background-color: var(--background-clr-subtle);
         color: $text;
 
         &:hover {
-          background-color: var(--neutral100);
+          background-color: var(--background-clr-subtle);
         }
 
         &::after {
@@ -138,13 +138,13 @@ export const TabsWrapper = styled.div`
       }
 
       &:hover {
-        background-color: var(--neutral100);
+        background-color: var(--background-clr-hover);
         color: $text;
         cursor: pointer;
       }
 
       &[aria-disabled="true"] {
-        color: var(--neutral300);
+        color: var(--text-clr-disabled);
         cursor: not-allowed;
 
         &:hover {
@@ -159,7 +159,7 @@ export const TabsWrapper = styled.div`
       display: flex;
       align-items: center;
       border: 1px solid var(--tab-border-clr);
-      background-color: var(--neutral50);
+      background-color: var(--background-clr);
       border-radius: var(--tab-radius);
       padding: 0.4rem;
     }
@@ -185,16 +185,16 @@ export const TabsWrapper = styled.div`
       transition: background-color 100ms ease;
 
       &[aria-selected="true"] {
-        background-color: var(--neutral100);
+        background-color: var(--background-clr-subtle);
         color: var(--text-clr);
 
         &:hover {
-          background-color: var(--neutral100);
+          background-color: var(--background-clr-subtle);
         }
       }
 
       &:hover {
-        background-color: var(--neutral100);
+        background-color: var(--background-clr-hover);
         color: var(--text-clr);
         cursor: pointer;
       }
@@ -203,7 +203,7 @@ export const TabsWrapper = styled.div`
     ${TabInfo} {
       padding: 0.6rem 1.6rem;
       border-radius: 0.5rem;
-      background-color: var(--neutral50);
+      background-color: var(--background-clr);
       min-height: 4rem;
       display: flex;
       align-items: center;

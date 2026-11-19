@@ -136,7 +136,7 @@ const NavbarSubtitle = forwardRef<HTMLHeadingElement, NavbarSubtitleProps>(
       className,
       as = "h2",
       $weight = "light",
-      $color = "text-clr-alt",
+      $color = "text-clr-secondary",
       $size = "2",
       ...rest
     } = props;

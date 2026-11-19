@@ -70,7 +70,7 @@ export const StyledRow = styled.tr`
   background-color: var(--table-bg-clr);
 
   &[data-selected] {
-    --table-bg-clr: var(--neutral100);
+    --table-bg-clr: var(--background-clr-subtle);
   }
 
   &[data-focus-visible] {
@@ -119,7 +119,7 @@ export const StyledTh = styled.th`
   border-width: var(--table-border-width) 0 0 0;
   text-align: left;
   font-size: var(--table-header-font-size);
-  color: var(--text-clr-alt);
+  color: var(--text-clr-secondary);
   padding: calc(var(--table-padding-vert) + 0.25em) var(--table-padding-horz);
 
   ${ShowVerticalDividerMixin}
@@ -138,7 +138,7 @@ export const StyledTh = styled.th`
     }
 
     &:hover {
-      background-color: var(--neutral100);
+      background-color: var(--background-clr-hover);
       cursor: pointer;
 
       .swap-icon {
@@ -148,7 +148,7 @@ export const StyledTh = styled.th`
   }
 
   &[data-draggable]:hover {
-    background-color: var(--neutral100);
+    background-color: var(--background-clr-hover);
     cursor: pointer;
   }
 
