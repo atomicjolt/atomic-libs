@@ -81,12 +81,13 @@ export const StyledCalendarCell = styled.td`
   }
 
   &[aria-invalid="true"] {
-    background-color: var(--error-clr);
+    background-color: var(--error-clr-fill);
+    color: var(--text-clr-on-accent);
 
     &:hover {
       cursor: pointer;
       border-radius: 3px;
-      background-color: var(--error-clr);
+      background-color: var(--error-clr-fill);
     }
   }
 

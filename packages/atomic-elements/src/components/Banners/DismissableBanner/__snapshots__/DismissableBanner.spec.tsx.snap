@@ -6,7 +6,7 @@ exports[`DismissableBanner > Snapshots > should match snapshot 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="sc-bdDsCe gzvHbq aje-banner aje-banner--info"
+        class="sc-bdDsCe gsZohp aje-banner aje-banner--info"
       >
         <div
           class="sc-dkXsAU kprRKQ"
@@ -16,7 +16,7 @@ exports[`DismissableBanner > Snapshots > should match snapshot 1`] = `
   </body>,
   "container": <div>
     <div
-      class="sc-bdDsCe gzvHbq aje-banner aje-banner--info"
+      class="sc-bdDsCe gsZohp aje-banner aje-banner--info"
     >
       <div
         class="sc-dkXsAU kprRKQ"
@@ -83,7 +83,7 @@ exports[`DismissableBanner > Snapshots > should match snapshot with dismiss butt
   "baseElement": <body>
     <div>
       <div
-        class="sc-bdDsCe gzvHbq aje-banner aje-banner--info"
+        class="sc-bdDsCe gsZohp aje-banner aje-banner--info"
       >
         <div
           class="sc-dkXsAU kprRKQ"
@@ -107,7 +107,7 @@ exports[`DismissableBanner > Snapshots > should match snapshot with dismiss butt
   </body>,
   "container": <div>
     <div
-      class="sc-bdDsCe gzvHbq aje-banner aje-banner--info"
+      class="sc-bdDsCe gsZohp aje-banner aje-banner--info"
     >
       <div
         class="sc-dkXsAU kprRKQ"
@@ -188,7 +188,7 @@ exports[`DismissableBanner > Snapshots > should match snapshot with icon 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="sc-bdDsCe gzvHbq aje-banner aje-banner--info"
+        class="sc-bdDsCe gsZohp aje-banner aje-banner--info"
       >
         <div
           class="sc-gtcBCx djlmnx aje-banner__icon"
@@ -208,7 +208,7 @@ exports[`DismissableBanner > Snapshots > should match snapshot with icon 1`] = `
   </body>,
   "container": <div>
     <div
-      class="sc-bdDsCe gzvHbq aje-banner aje-banner--info"
+      class="sc-bdDsCe gsZohp aje-banner aje-banner--info"
     >
       <div
         class="sc-gtcBCx djlmnx aje-banner__icon"
@@ -285,7 +285,7 @@ exports[`ErrorBanner > Snapshots > should match snapshot 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="sc-bdDsCe gzvHbq aje-banner aje-banner--error"
+        class="sc-bdDsCe gsZohp aje-banner aje-banner--error"
       >
         <div
           class="sc-gtcBCx djlmnx aje-banner__icon"
@@ -305,7 +305,7 @@ exports[`ErrorBanner > Snapshots > should match snapshot 1`] = `
   </body>,
   "container": <div>
     <div
-      class="sc-bdDsCe gzvHbq aje-banner aje-banner--error"
+      class="sc-bdDsCe gsZohp aje-banner aje-banner--error"
     >
       <div
         class="sc-gtcBCx djlmnx aje-banner__icon"
@@ -382,7 +382,7 @@ exports[`WarningBanner > Snapshots > should match snapshot 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="sc-bdDsCe gzvHbq aje-banner aje-banner--warning"
+        class="sc-bdDsCe gsZohp aje-banner aje-banner--warning"
       >
         <div
           class="sc-gtcBCx djlmnx aje-banner__icon"
@@ -402,7 +402,7 @@ exports[`WarningBanner > Snapshots > should match snapshot 1`] = `
   </body>,
   "container": <div>
     <div
-      class="sc-bdDsCe gzvHbq aje-banner aje-banner--warning"
+      class="sc-bdDsCe gsZohp aje-banner aje-banner--warning"
     >
       <div
         class="sc-gtcBCx djlmnx aje-banner__icon"

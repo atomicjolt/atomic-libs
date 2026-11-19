@@ -31,7 +31,11 @@ describe("contrastRatio", () => {
  * docs/superpowers/plans/2026-11-19-color-schemes-visual-changes.md; fixing
  * them changes the light look, so it's out of scope here.
  */
-const LIGHT_KNOWN_FAILURES: string[] = [];
+const LIGHT_KNOWN_FAILURES: string[] = [
+  // Banner icons (warning600 on warning100, success600 on success100): 2.79 and 2.87
+  "warning-clr/warning-clr-subtle",
+  "success-clr/success-clr-subtle",
+];
 
 const pairKey = (pair: { fg: string; bg: string }) => `${pair.fg}/${pair.bg}`;
 

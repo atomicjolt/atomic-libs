@@ -69,7 +69,7 @@ export const menu = {
 
 export const listbox = {
   "listbox-bg-clr": "{dropdown-bg-clr}",
-  "listbox-selected-clr": "{text-clr-inverted}",
+  "listbox-selected-clr": "{text-clr-on-accent}",
   "listbox-box-shadow": "{dropdown-box-shadow}",
   "listbox-font-size": "{dropdown-text-size}",
   "listbox-icon-clr": "{dropdown-icon-clr}",
@@ -208,7 +208,7 @@ export const chip = {
   "chip-hover-bg-clr": "{background-clr-subtle-hover}",
   "chip-selected-bg-clr": "{accent-clr-fill}",
   "chip-selected-hover-bg-clr": "{accent-clr-fill-hover}",
-  "chip-selected-text-clr": "{text-clr-inverted}",
+  "chip-selected-text-clr": "{text-clr-on-accent}",
   "chip-btn-hover-bg-clr": "{background-clr-subtle-hover}",
   "chip-border-clr": "{border-clr}",
   "chip-border": "1px solid {chip-border-clr}",

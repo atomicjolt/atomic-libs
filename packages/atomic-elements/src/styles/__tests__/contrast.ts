@@ -74,4 +74,17 @@ export const CONTRAST_PAIRS: { fg: string; bg: string; min: 4.5 | 3 }[] = [
   { fg: "icon-clr-secondary", bg: "background-clr", min: 3 },
   { fg: "border-clr-strong", bg: "background-clr", min: 3 },
   { fg: "border-clr-focus", bg: "background-clr", min: 3 },
+
+  // Component tokens components render on top of each other
+  { fg: "chip-selected-text-clr", bg: "chip-selected-bg-clr", min: 4.5 },
+  { fg: "chip-selected-text-clr", bg: "chip-selected-hover-bg-clr", min: 4.5 },
+  { fg: "checkbox-icon-clr", bg: "checkbox-checked", min: 3 },
+  { fg: "calendar-selected-text-clr", bg: "calendar-selected-bg-clr", min: 4.5 },
+  { fg: "time-selected-text-clr", bg: "time-selected-back-clr", min: 4.5 },
+  { fg: "tooltip-text-clr", bg: "tooltip-bg-clr", min: 4.5 },
+
+  // Banner icons on their banner backgrounds (Banners.styles.ts)
+  { fg: "info-clr-icon", bg: "info-clr-subtle", min: 3 },
+  { fg: "warning-clr", bg: "warning-clr-subtle", min: 3 },
+  { fg: "success-clr", bg: "success-clr-subtle", min: 3 },
 ];

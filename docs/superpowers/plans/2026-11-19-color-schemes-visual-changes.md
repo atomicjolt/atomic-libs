@@ -7,16 +7,21 @@ Light-scheme changes from this work, plus the dark scheme values for review in S
 - `accent-clr-fill`, `accent-clr-fill-hover`, `{error,warning,success}-clr-fill`, `-fill-hover`: solid fills behind `text-clr-on-accent` (buttons, selected items, checked controls, error banner). Light values equal today's shades.
 - `text-clr-tertiary` (`neutral400`): muted labels such as menu section titles.
 - `background-clr-disabled` (`neutral300`): disabled tab background.
+- `info-clr-icon` (`primary700`; dark `primary400`): info banner icon. Light shade unchanged.
 
 ## Light scheme changes
 
 | Component | State | Before | After (token → shade) |
 |---|---|---|---|
 | Floating-label inputs | Invalid label | `error800` | `error-clr` → `error600` |
+| Calendar | Invalid date cell | bg `error600`, dark text (3.05:1) | `error-clr-fill` → `error700` with white `text-clr-on-accent` (6.41:1) |
 
 ## Known light contrast failures
 
-None — every pair in `CONTRAST_PAIRS` already meets WCAG AA in the light scheme.
+- Warning banner icon (`warning600` on `warning100`): 2.79 (needs 3).
+- Success banner icon (`success600` on `success100`): 2.87 (needs 3).
+
+Both ship today; fixing them changes the light look, so they're listed in `LIGHT_KNOWN_FAILURES` instead. Dark passes.
 
 ## Dark scheme
 

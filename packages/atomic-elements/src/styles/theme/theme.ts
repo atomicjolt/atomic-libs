@@ -45,8 +45,9 @@ export interface Theme {
   /** The scheme applied when none is selected. */
   baseColorScheme: string;
   colorSchemes: Record<string, ResolvedColorScheme>;
-  /** @internal Values shared by all schemes, used when extending a theme. */
-  sharedVariables: Record<string, string>;
+  /** @internal Values shared by all schemes, used when extending a theme.
+   * Optional so themes built by hand still type-check. */
+  sharedVariables?: Record<string, string>;
   _Component: React.ComponentType;
 }
 
@@ -67,11 +68,36 @@ function withoutKeys(
   );
 }
 
-/** The selector that applies a scheme's overrides. */
+/** Splits a selector list on top-level commas (not those inside `:is(...)` etc.). */
+function splitSelectorList(selector: string): string[] {
+  const parts: string[] = [];
+  let depth = 0;
+  let current = "";
+  for (const char of selector) {
+    if (char === "(" || char === "[") depth++;
+    if (char === ")" || char === "]") depth--;
+    if (char === "," && depth === 0) {
+      parts.push(current.trim());
+      current = "";
+    } else {
+      current += char;
+    }
+  }
+  parts.push(current.trim());
+  return parts.filter(Boolean);
+}
+
+/** The selector that applies a scheme's overrides. Every part of a selector
+ * list is scoped, so no part receives scheme values unconditionally. */
 function schemeSelector(cssVarsSelector: string, name: string) {
   const attribute = `[data-color-scheme="${name}"]`;
-  if (cssVarsSelector === ":root") return attribute;
-  return `${attribute} ${cssVarsSelector}, ${cssVarsSelector}${attribute}`;
+  if (cssVarsSelector.trim() === ":root") return attribute;
+
+  const parts = splitSelectorList(cssVarsSelector);
+  return [
+    ...parts.map((part) => `${attribute} ${part}`),
+    ...parts.map((part) => `${part}${attribute}`),
+  ].join(", ");
 }
 
 export function createTheme(props: CreateThemeProps): Theme {
@@ -83,8 +109,13 @@ export function createTheme(props: CreateThemeProps): Theme {
     base,
   } = props;
 
+  // Themes built before color schemes (or spread by hand) have no
+  // `sharedVariables` / `colorSchemes`; treat all their variables as shared.
+  const baseShared = base?.sharedVariables ?? base?.variables ?? {};
+  const baseSchemes = base?.colorSchemes ?? {};
+
   const shared: Record<string, string> = {
-    ...(base?.sharedVariables ?? {}),
+    ...baseShared,
     ...(variables as Record<string, string>),
   };
 
@@ -92,10 +123,8 @@ export function createTheme(props: CreateThemeProps): Theme {
   // theme's scheme values, so themes that only set `variables` still apply
   // in every scheme.
   const schemeNames = [
-    ...Object.keys(base?.colorSchemes ?? {}),
-    ...Object.keys(colorSchemes).filter(
-      (name) => !(base && name in base.colorSchemes)
-    ),
+    ...Object.keys(baseSchemes),
+    ...Object.keys(colorSchemes).filter((name) => !(name in baseSchemes)),
   ];
 
   const schemes: Record<
@@ -104,7 +133,7 @@ export function createTheme(props: CreateThemeProps): Theme {
   > = {};
 
   for (const name of schemeNames) {
-    const inherited = base?.colorSchemes[name];
+    const inherited = baseSchemes[name];
     const own = colorSchemes[name];
     schemes[name] = {
       mode: schemeMode(name, { mode: own?.mode ?? inherited?.mode }),

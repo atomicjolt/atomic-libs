@@ -245,13 +245,13 @@ exports[`Banner > Snapshots > should match snapshot 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="sc-bdDsCe gzvHbq aje-banner aje-banner--info"
+        class="sc-bdDsCe gsZohp aje-banner aje-banner--info"
       />
     </div>
   </body>,
   "container": <div>
     <div
-      class="sc-bdDsCe gzvHbq aje-banner aje-banner--info"
+      class="sc-bdDsCe gsZohp aje-banner aje-banner--info"
     />
   </div>,
   "debug": [Function],
@@ -314,13 +314,13 @@ exports[`Banner > Snapshots > should match snapshot with variant 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="sc-bdDsCe gzvHbq aje-banner aje-banner--success"
+        class="sc-bdDsCe gsZohp aje-banner aje-banner--success"
       />
     </div>
   </body>,
   "container": <div>
     <div
-      class="sc-bdDsCe gzvHbq aje-banner aje-banner--success"
+      class="sc-bdDsCe gsZohp aje-banner aje-banner--success"
     />
   </div>,
   "debug": [Function],

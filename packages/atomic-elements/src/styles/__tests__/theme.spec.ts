@@ -87,6 +87,23 @@ describe("createTheme color schemes", () => {
     ).toContain("--bg:black");
   });
 
+  it("selector lists scope every part to the scheme", () => {
+    const theme = createTheme({
+      cssVarsSelector: ":root, :host",
+      colorSchemes: {
+        light: { variables: { bg: "white" } },
+        dark: { variables: { bg: "black" } },
+      },
+    });
+    const css = cssOf(theme);
+    const darkSelector =
+      '[data-color-scheme="dark"]:root,[data-color-scheme="dark"]:host,' +
+      ':root[data-color-scheme="dark"],:host[data-color-scheme="dark"]';
+    expect(block(css, darkSelector)).toContain("--bg:black");
+    // No unscoped part may receive dark values
+    expect(css).not.toMatch(/(^|[},]):root,:host[,{][^}]*--bg:black/);
+  });
+
   it("child shared variables beat base scheme values", () => {
     const base = createTheme({
       variables: { "accent-clr": "teal" },
@@ -135,6 +152,22 @@ describe("createTheme color schemes", () => {
       "--bg": "black",
       "--fg": "black",
     });
+  });
+
+  it("accepts a base theme without color scheme fields", () => {
+    // Hand-built or spread themes (e.g. `{ ...theme, variables }`) predate schemes
+    const legacyBase = {
+      variables: { a: "1" },
+      resolvedVariables: { "--a": "1" },
+      cssVarPrefix: "",
+    } as unknown as Theme;
+    const theme = createTheme({
+      base: legacyBase,
+      variables: { b: "{a}" },
+      colorSchemes: { dark: { variables: { a: "2" } } },
+    });
+    expect(theme.resolvedVariables["--b"]).toBe("var(--a)");
+    expect(theme.colorSchemes.dark.resolvedVariables["--a"]).toBe("2");
   });
 
   it("resolves aliases across layers", () => {
