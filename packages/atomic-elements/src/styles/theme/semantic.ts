@@ -139,7 +139,8 @@ export const darkColors = {
   // Surfaces
   "background-clr": "{neutral900}",
   "background-clr-alt": "{neutral800}",
-  "background-clr-hover": "{neutral800}",
+  // One step above raised surfaces (menus, listboxes) so hover shows on them too
+  "background-clr-hover": "{neutral700}",
   "background-clr-subtle-hover": "{neutral700}",
   "background-clr-active": "{neutral600}",
   "background-clr-strong": "{neutral500}",

@@ -110,6 +110,25 @@ describe("semantic tokens", () => {
     expect(resolveToLiteral(theme, "text-clr-secondary", "dark")).toBe("red");
   });
 
+  it("hover and active surfaces differ from the surfaces they sit on", () => {
+    const pairs: [string, string][] = [
+      ["background-clr-hover", "background-clr"],
+      ["background-clr-hover", "background-clr-raised"],
+      ["background-clr-subtle-hover", "background-clr-subtle"],
+      ["background-clr-active", "background-clr-hover"],
+    ];
+    for (const scheme of Object.keys(defaultTheme.colorSchemes)) {
+      for (const [state, surface] of pairs) {
+        expect
+          .soft(
+            resolveToLiteral(defaultTheme, state, scheme),
+            `${scheme}: ${state} vs ${surface}`
+          )
+          .not.toBe(resolveToLiteral(defaultTheme, surface, scheme));
+      }
+    }
+  });
+
   it("color props accept palette, semantic and deprecated names", () => {
     for (const name of ["neutral100", "text-clr-secondary", "text-clr-alt"]) {
       expect(textColor({ $color: name, theme: defaultTheme })).toEqual({
