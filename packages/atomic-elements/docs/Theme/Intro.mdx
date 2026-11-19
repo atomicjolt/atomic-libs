@@ -12,7 +12,7 @@ import { createTheme, defaultTheme } from "@atomicjolt/atomic-elements";
 const myTheme = createTheme({
   variables: {
     "accent-clr": "#3498db",
-    "accent-clr-alt": "#2ecc71",
+    "accent-clr-hover": "#2ecc71",
   },
   base: defaultTheme,
 });
@@ -42,6 +42,45 @@ Each variable declared in the theme becomes accessible as a CSS variable. You ca
 ```css
 .my-component {
   background-color: var(--accent-clr);
-  color: var(--accent-clr-alt);
+  color: var(--text-clr-on-accent);
 }
 ```
+
+## Color Tokens
+
+Color tokens come in three layers. Each layer only references the one below it:
+
+1. **Palette** — raw color scales such as `neutral50`…`neutral900`, `primary100`…`primary900`, and the `error`, `warning` and `success` scales. These hold literal values.
+2. **Semantic** — what a color is _for_: `background-clr`, `text-clr-secondary`, `border-clr`, `accent-clr-hover`, `error-clr-subtle`, and so on. Semantic tokens reference palette shades.
+3. **Component** — per-component tokens such as `btn-bg-clr` or `chip-text-clr`. Component tokens and component styles only reference semantic tokens.
+
+To restyle the library, override **semantic** tokens. Overriding a palette shade still works, but a semantic override says exactly which role you are changing, and it is what future color schemes (such as dark mode) will build on.
+
+### Semantic tokens
+
+| Group | Tokens |
+| --- | --- |
+| Surfaces | `background-clr`, `background-clr-subtle`, `background-clr-hover`, `background-clr-subtle-hover`, `background-clr-active`, `background-clr-strong`, `background-clr-raised`, `background-clr-inverted`, `backdrop-clr` |
+| Text & icons | `text-clr`, `text-clr-secondary`, `text-clr-disabled`, `text-clr-inverted`, `text-clr-on-accent`, `icon-clr`, `indicator-clr` |
+| Borders | `border-clr`, `border-clr-strong`, `border-clr-focus`, `outline-clr` |
+| Accent | `accent-clr`, `accent-clr-hover`, `accent-clr-subtle`, `accent-clr-subtle-hover` |
+| Status (solid) | `error-clr`, `warning-clr`, `success-clr`, `info-clr-solid`, each with `-hover` and `-active` |
+| Status (subtle) | `error-`, `warning-`, `success-`, `info-` `clr-subtle`, plus `-subtle-hover`, `-subtle-active`, `-subtle-border`, `-subtle-text` |
+| Effects | `shadow-sm`, `shadow-md`, `shadow-lg` |
+
+`text-clr-on-accent` is for text and icons on accent or solid status fills (buttons, selected items). `text-clr-inverted` is only for content on `background-clr-inverted` (tooltips).
+
+### Deprecated names
+
+These still work, and overriding them still reaches components, but they will be removed in the next major version:
+
+| Deprecated | Use instead |
+| --- | --- |
+| `background-clr-alt` | `background-clr-subtle` |
+| `text-clr-alt` | `text-clr-secondary` |
+| `border-clr-primary` | `border-clr` |
+| `outline-clr-primary` | `outline-clr` |
+| `accent-clr-alt` | `accent-clr-hover` |
+| `error-clr-alt`, `warning-clr-alt`, `success-clr-alt` | `error-clr-hover`, `warning-clr-hover`, `success-clr-hover` |
+| `info-clr` | `info-clr-subtle` (or `info-clr-solid` for a solid fill) |
+| `info-clr-alt` | `info-clr-subtle-hover` |
