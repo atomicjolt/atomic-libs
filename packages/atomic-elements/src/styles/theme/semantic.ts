@@ -14,6 +14,7 @@ export const semanticColors = {
   "background-clr-hover": "{neutral100}",
   "background-clr-subtle-hover": "{neutral200}",
   "background-clr-active": "{neutral300}",
+  "background-clr-strong": "{neutral400}",
   "background-clr-raised": "{neutral50}",
   "background-clr-inverted": "{neutral800}",
   "backdrop-clr": "hsla(0, 0%, 100%, 0.75)",
@@ -25,6 +26,7 @@ export const semanticColors = {
   "text-clr-inverted": "{neutral50}",
   "text-clr-on-accent": "{text-clr-inverted}",
   "icon-clr": "{neutral600}",
+  "indicator-clr": "{neutral500}",
 
   // Borders & outlines
   "border-clr": "{border-clr-primary}",
