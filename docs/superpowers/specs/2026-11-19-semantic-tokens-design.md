@@ -146,8 +146,8 @@ Light values reproduce today's usage. `{s}` ∈ `error`, `warning`, `success`, `
 | `accent-clr-subtle-hover` | `{primary200}` | |
 | `{s}-clr` (error/warning/success) | `{s600}` | solid fill / strong text |
 | `{s}-clr-hover` (error/warning/success) | `{s700}` | was `{s}-clr-alt` |
-| `info-clr-solid` | `{primary600}` | solid info fill. Named differently because `info-clr` keeps its existing (tint) meaning until a future major |
-| `info-clr-solid-hover` | `{primary700}` | |
+| `info-clr-fill` | `{primary600}` | solid info fill. Named differently because `info-clr` keeps its existing (tint) meaning until a future major |
+| `info-clr-fill-hover` | `{primary700}` | |
 | `{s}-clr-subtle` | `{s100}` (info: `{primary100}`) | chip / banner background |
 | `{s}-clr-subtle-hover` | `{s200}` (info: `{primary200}`) | |
 | `{s}-clr-subtle-active` | `{s300}` (info: `{primary300}`) | banner button pressed |

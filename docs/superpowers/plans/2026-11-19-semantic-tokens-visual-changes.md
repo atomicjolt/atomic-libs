@@ -5,7 +5,7 @@ Every place where migrating to semantic tokens changed a rendered shade. Review 
 ## Added tokens
 
 - `background-clr-strong` (`neutral400`): strongest neutral fill (unchecked toggle track, hovered scroll thumb).
-- `{error,warning,success}-clr-active` (`{s}800`), `info-clr-solid-active` (`primary800`): pressed/hover state of solid status fills (keeps danger/success buttons on 700/800 — 600 fails WCAG AA for white text on success).
+- `{error,warning,success}-clr-active` (`{s}800`), `info-clr-fill-active` (`primary800`): pressed/hover state of solid status fills (keeps danger/success buttons on 700/800 — 600 fails WCAG AA for white text on success).
 - `indicator-clr` (`neutral500`): loaders, animations, scroll-area buttons.
 
 ## Changes
