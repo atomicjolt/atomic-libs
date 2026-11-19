@@ -23,9 +23,6 @@ const ALLOWED_LITERALS: Record<string, string[]> = {
 
 /** Not migrated yet. Each migration task removes its files from this list. */
 const PENDING: string[] = [
-  "src/components/Banners/Banners.styles.ts",
-  "src/components/Buttons/Button/Button.styles.ts",
-  "src/components/Chips/Chip/Chip.styles.ts",
   "src/components/Content/Disclosure/Disclosure.styles.ts",
   "src/components/Content/Table/Table.styles.ts",
   "src/components/Content/Tabs/Tabs.Styles.ts",

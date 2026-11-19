@@ -51,48 +51,48 @@ export const StyledButton = styled.button`
   }
 
   &.aje-btn--primary {
-    --btn-text-clr: var(--text-clr-inverted);
+    --btn-text-clr: var(--text-clr-on-accent);
     --btn-bg-clr: var(--accent-clr);
     --btn-hover-text-clr: var(--btn-text-clr);
-    --btn-hover-bg-clr: var(--accent-clr-alt);
+    --btn-hover-bg-clr: var(--accent-clr-hover);
   }
 
   &.aje-btn--secondary {
-    --btn-text-clr: var(--text-clr-alt);
-    --btn-bg-clr: var(--neutral100);
+    --btn-text-clr: var(--text-clr-secondary);
+    --btn-bg-clr: var(--background-clr-subtle);
     --btn-hover-text-clr: var(--text-clr);
-    --btn-hover-bg-clr: var(--neutral200);
+    --btn-hover-bg-clr: var(--background-clr-subtle-hover);
     --btn-border: var(--border);
   }
 
   &.aje-btn--link {
     --btn-text-clr: var(--accent-clr);
-    --btn-bg-clr: var(--neutral50);
+    --btn-bg-clr: var(--background-clr);
     --btn-hover-text-clr: var(--text-clr);
-    --btn-hover-bg-clr: var(--neutral100);
+    --btn-hover-bg-clr: var(--background-clr-hover);
     text-decoration: underline;
   }
 
   &.aje-btn--error {
-    --btn-text-clr: var(--text-clr-inverted);
-    --btn-bg-clr: var(--error700);
+    --btn-text-clr: var(--text-clr-on-accent);
+    --btn-bg-clr: var(--error-clr-hover);
     --btn-hover-text-clr: var(--btn-text-clr);
-    --btn-hover-bg-clr: var(--error800);
+    --btn-hover-bg-clr: var(--error-clr-active);
   }
 
   &.aje-btn--success {
-    --btn-text-clr: var(--text-clr-inverted);
-    --btn-bg-clr: var(--success700);
+    --btn-text-clr: var(--text-clr-on-accent);
+    --btn-bg-clr: var(--success-clr-hover);
     --btn-hover-text-clr: var(--btn-text-clr);
-    --btn-hover-bg-clr: var(--success800);
+    --btn-hover-bg-clr: var(--success-clr-active);
   }
 
   &.aje-btn--inverted {
     --btn-text-clr: var(--text-clr);
-    --btn-bg-clr: var(--neutral50);
+    --btn-bg-clr: var(--background-clr);
     --btn-hover-text-clr: var(--btn-text-clr);
     --btn-hover-bg-clr: var(--btn-bg-clr);
-    --btn-hover-shadow: 0 1px 3px hsla(221, 39%, 11%, 0.5);
+    --btn-hover-shadow: var(--shadow-sm);
   }
 
   &.aje-btn--content {
@@ -107,18 +107,18 @@ export const StyledButton = styled.button`
   }
 
   &.aje-btn--border {
-    --btn-text-clr: var(--text-clr-alt);
-    --btn-bg-clr: var(--neutral50);
+    --btn-text-clr: var(--text-clr-secondary);
+    --btn-bg-clr: var(--background-clr);
     --btn-hover-text-clr: var(--text-clr);
-    --btn-hover-bg-clr: var(--neutral100);
+    --btn-hover-bg-clr: var(--background-clr-hover);
     --btn-border: var(--border);
   }
 
   &.aje-btn--ghost {
-    --btn-text-clr: var(--text-clr-alt);
+    --btn-text-clr: var(--text-clr-secondary);
     --btn-bg-clr: transparent;
     --btn-hover-text-clr: var(--text-clr);
-    --btn-hover-bg-clr: var(--neutral100);
+    --btn-hover-bg-clr: var(--background-clr-hover);
     --btn-border: transparent;
   }
 
@@ -127,10 +127,10 @@ export const StyledButton = styled.button`
     justify-content: flex-start;
     padding-right: 0.8rem;
 
-    --btn-text-clr: var(--text-clr-alt);
-    --btn-bg-clr: var(--neutral50);
+    --btn-text-clr: var(--text-clr-secondary);
+    --btn-bg-clr: var(--background-clr);
     --btn-hover-text-clr: var(--text-clr);
-    --btn-hover-bg-clr: var(--neutral100);
+    --btn-hover-bg-clr: var(--background-clr-hover);
     // To match the actual select element
     --btn-border: 1px solid var(--input-border-clr);
     --btn-pressed-transform: translateY(0px);
@@ -141,10 +141,10 @@ export const StyledButton = styled.button`
     justify-content: flex-start;
     padding-right: 0.8rem;
 
-    --btn-text-clr: var(--text-clr-alt);
+    --btn-text-clr: var(--text-clr-secondary);
     --btn-bg-clr: transparent;
     --btn-hover-text-clr: var(--text-clr);
-    --btn-hover-bg-clr: var(--neutral100);
+    --btn-hover-bg-clr: var(--background-clr-hover);
     --btn-border: none;
     --btn-pressed-transform: translateY(0px);
   }

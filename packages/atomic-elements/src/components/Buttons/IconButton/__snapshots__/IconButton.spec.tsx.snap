@@ -4,7 +4,7 @@ exports[`IconButton > matches snapshot 1`] = `
 <DocumentFragment>
   <button
     aria-label="More Button"
-    class="sc-gtcBCx sc-dkXsAU inNouS foOSKo aje-btn aje-icon-btn aje-btn--border is-medium"
+    class="sc-gtcBCx sc-dkXsAU frsNYy foOSKo aje-btn aje-icon-btn aje-btn--border is-medium"
     data-icon-button="true"
     tabindex="0"
     type="button"
