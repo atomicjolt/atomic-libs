@@ -8,10 +8,10 @@ import {
   Controls,
   Stories,
 } from "@storybook/blocks";
-import { CssPropsBlock } from "@ljcl/storybook-addon-cssprops";
 
 import { defaultTheme } from "../packages/atomic-elements/src/styles";
 import { ElementsProvider } from "../packages/atomic-elements/src/components/ElementsProvider";
+import { CssVariablesTable } from "./utils/CssVariablesTable";
 
 const preview: Preview = {
   globalTypes: {
@@ -55,7 +55,6 @@ const preview: Preview = {
         text: /className/,
       },
     },
-    // cssprops: props,
     options: {
       storySort: {
         order: [
@@ -78,8 +77,7 @@ const preview: Preview = {
           <Description />
           <Primary />
           <Controls />
-          {/* @ts-expect-error */}
-          <CssPropsBlock />
+          <CssVariablesTable />
           <Stories />
         </>
       ),

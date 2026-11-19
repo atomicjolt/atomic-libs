@@ -8,7 +8,6 @@ export default defineConfig({
     exclude: [
       "storybook",
       "sb-vite",
-      "@ljcl/storybook-addon-cssprops",
       "@storybook/blocks",
       "@storybook/theming",
       "@stoybook/components",
