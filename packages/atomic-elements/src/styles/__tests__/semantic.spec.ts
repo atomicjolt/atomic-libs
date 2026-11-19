@@ -42,6 +42,26 @@ describe("semantic tokens", () => {
     expect(resolveToLiteral(theme, "info-clr-subtle")).toBe("pink");
   });
 
+  it("background-clr overrides still reach dropdown surfaces", () => {
+    const theme = createTheme({
+      base: defaultTheme,
+      variables: { "background-clr": "beige" },
+    });
+    for (const name of ["dropdown-bg-clr", "menu-bg-clr", "listbox-bg-clr"]) {
+      expect(resolveToLiteral(theme, name), name).toBe("beige");
+    }
+  });
+
+  it("outline color overrides still reach focused input borders", () => {
+    for (const name of ["outline-clr-primary", "outline-clr"]) {
+      const theme = createTheme({
+        base: defaultTheme,
+        variables: { [name]: "purple" },
+      });
+      expect(resolveToLiteral(theme, "border-clr-focus"), name).toBe("purple");
+    }
+  });
+
   it("color props accept palette, semantic and deprecated names", () => {
     for (const name of ["neutral100", "text-clr-secondary", "text-clr-alt"]) {
       expect(textColor({ $color: name, theme: defaultTheme })).toEqual({

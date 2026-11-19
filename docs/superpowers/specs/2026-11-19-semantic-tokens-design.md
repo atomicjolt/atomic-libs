@@ -127,7 +127,7 @@ Light values reproduce today's usage. `{s}` ∈ `error`, `warning`, `success`, `
 | `background-clr-hover` | `{neutral100}` | hover on default surface |
 | `background-clr-subtle-hover` | `{neutral200}` | hover on subtle surface |
 | `background-clr-active` | `{neutral300}` | pressed / selected-strong |
-| `background-clr-raised` | `{neutral50}` | modals, dropdowns, popovers, menus |
+| `background-clr-raised` | `{background-clr}` | modals, dropdowns, popovers, menus |
 | `background-clr-inverted` | `{neutral800}` | tooltips |
 | `backdrop-clr` | `hsla(0, 0%, 100%, 0.75)` | modal overlay (was hardcoded) |
 | `text-clr` | `{neutral800}` | |
@@ -138,7 +138,7 @@ Light values reproduce today's usage. `{s}` ∈ `error`, `warning`, `success`, `
 | `icon-clr` | `{neutral600}` | default icon color |
 | `border-clr` | `{neutral300}` | was `border-clr-primary` |
 | `border-clr-strong` | `{neutral600}` | checkbox / radio borders |
-| `border-clr-focus` | `{neutral600}` | focused input border, all input variants (grey, matching today's default) |
+| `border-clr-focus` | `{outline-clr}` (neutral600) | focused input border, all input variants (grey, matching today's default) |
 | `outline-clr` | `{neutral600}` | was `outline-clr-primary` |
 | `accent-clr` | `{primary700}` | |
 | `accent-clr-hover` | `{primary800}` | was `accent-clr-alt` |
