@@ -27,13 +27,6 @@ const ALLOWED_LITERALS: Record<string, string[]> = {
 
 /** Not migrated yet. Each migration task removes its files from this list. */
 const PENDING: string[] = [
-  "src/components/Content/Disclosure/Disclosure.styles.ts",
-  "src/components/Content/Table/Table.styles.ts",
-  "src/components/Content/Tabs/Tabs.Styles.ts",
-  "src/components/Icons/Icons.styles.ts",
-  "src/components/Layout/Navbar/Navbar.component.tsx",
-  "src/components/Overlays/Modal/Modal.styles.ts",
-  "src/components/Overlays/Popover/Popover.styles.ts",
 ];
 
 /** Matches a whole token name, bare, quoted, in `{name}` or in `var(--name)`. */

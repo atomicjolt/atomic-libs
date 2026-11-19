@@ -411,7 +411,7 @@ exports[`ScrollArea > Snapshots > should match snapshot with scrollbar props 1`]
           >
             <i
               aria-hidden="true"
-              class="sc-jSppWd gsVrle aje-icon material-icons is-medium"
+              class="sc-jSppWd fGslMA aje-icon material-icons is-medium"
             >
               arrow_drop_up
             </i>
@@ -443,7 +443,7 @@ exports[`ScrollArea > Snapshots > should match snapshot with scrollbar props 1`]
           >
             <i
               aria-hidden="true"
-              class="sc-jSppWd gsVrle aje-icon material-icons is-medium"
+              class="sc-jSppWd fGslMA aje-icon material-icons is-medium"
             >
               arrow_drop_down
             </i>
@@ -481,7 +481,7 @@ exports[`ScrollArea > Snapshots > should match snapshot with scrollbar props 1`]
         >
           <i
             aria-hidden="true"
-            class="sc-jSppWd gsVrle aje-icon material-icons is-medium"
+            class="sc-jSppWd fGslMA aje-icon material-icons is-medium"
           >
             arrow_drop_up
           </i>
@@ -513,7 +513,7 @@ exports[`ScrollArea > Snapshots > should match snapshot with scrollbar props 1`]
         >
           <i
             aria-hidden="true"
-            class="sc-jSppWd gsVrle aje-icon material-icons is-medium"
+            class="sc-jSppWd fGslMA aje-icon material-icons is-medium"
           >
             arrow_drop_down
           </i>

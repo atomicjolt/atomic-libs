@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 export const ModalWrapper = styled.div<LayoutProps>`
   border-radius: calc(var(--radius) * 2);
-  background-color: var(--neutral50);
-  box-shadow: 0 10px 40px hsla(0, 0%, 0%, 0.25);
+  background-color: var(--background-clr-raised);
+  box-shadow: var(--shadow-lg);
 
   &[data-placement="top"] {
     margin-top: 58px;
@@ -17,7 +17,7 @@ export const ModalBackground = styled.div`
   position: fixed;
   min-height: 300px;
   inset: 0;
-  background-color: hsla(0, 0%, 100%, 0.75);
+  background-color: var(--backdrop-clr);
   overflow: auto;
   display: flex;
   justify-content: center;

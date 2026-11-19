@@ -4,7 +4,7 @@ exports[`MaterialSymbol > renders correctly 1`] = `
 <div>
   <i
     aria-hidden="true"
-    class="sc-bdDsCe czzecf aje-icon material-symbols-outlined is-medium"
+    class="sc-bdDsCe fQirDl aje-icon material-symbols-outlined is-medium"
   >
     home
   </i>

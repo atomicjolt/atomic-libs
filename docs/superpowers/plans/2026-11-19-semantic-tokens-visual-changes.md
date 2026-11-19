@@ -22,3 +22,5 @@ Every place where migrating to semantic tokens changed a rendered shade. Review 
 | Chip `warning` | Default | text `warning700` | `warning-clr-subtle-text` → `warning800` (darker) |
 | Banner `error` | Close button pressed | bg `error900` | `error-clr-active` → `error800` (same as hover) |
 | Floating-label inputs | Focus | border `primary700` (teal) | `border-clr-focus` → `neutral600` (grey) — intentional, matches all other inputs |
+| Tabs (`underline` variant) | Disabled tab | text `neutral300` | `text-clr-disabled` → `neutral400` (slightly darker) |
+| Icon | `is-disabled` | `rgba(0, 0, 0, 0.3)` | `text-clr-disabled` → `neutral400` (cool grey instead of translucent black) |
