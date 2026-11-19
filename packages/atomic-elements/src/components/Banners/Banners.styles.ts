@@ -44,7 +44,7 @@ export const StyledBanner = styled.div`
     &--info {
       --banner-bg-clr: var(--info-clr-subtle);
       --banner-text-clr: var(--text-clr);
-      --banner-icon-clr: var(--info-clr-solid-hover);
+      --banner-icon-clr: var(--info-clr-fill-hover);
       --banner-btn-hover-clr: var(--info-clr-subtle-hover);
       --banner-btn-active-clr: var(--info-clr-subtle-active);
     }

@@ -50,9 +50,9 @@ export const semanticColors = {
   "success-clr": "{success600}",
   "success-clr-hover": "{success-clr-alt}",
   "success-clr-active": "{success800}",
-  "info-clr-solid": "{primary600}",
-  "info-clr-solid-hover": "{primary700}",
-  "info-clr-solid-active": "{primary800}",
+  "info-clr-fill": "{primary600}",
+  "info-clr-fill-hover": "{primary700}",
+  "info-clr-fill-active": "{primary800}",
 
   // Status: subtle
   "error-clr-subtle": "{error100}",
@@ -99,7 +99,7 @@ export const deprecatedColors = {
   "warning-clr-alt": "{warning700}",
   /** @deprecated use `success-clr-hover` */
   "success-clr-alt": "{success700}",
-  /** @deprecated use `info-clr-subtle` (or `info-clr-solid` for a solid fill) */
+  /** @deprecated use `info-clr-subtle` (or `info-clr-fill` for a solid fill) */
   "info-clr": "{primary100}",
   /** @deprecated use `info-clr-subtle-hover` */
   "info-clr-alt": "{primary200}",

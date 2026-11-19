@@ -11,7 +11,7 @@ describe("semantic tokens", () => {
     expect(resolve("text-clr-secondary")).toBe(resolve("neutral600"));
     expect(resolve("background-clr-raised")).toBe(resolve("neutral50"));
     expect(resolve("border-clr-focus")).toBe(resolve("neutral600"));
-    expect(resolve("info-clr-solid")).toBe(resolve("primary600"));
+    expect(resolve("info-clr-fill")).toBe(resolve("primary600"));
     expect(resolve("info-clr-subtle")).toBe(resolve("primary100"));
     expect(resolve("error-clr-subtle-text")).toBe(resolve("error800"));
     expect(resolve("warning-clr-subtle-border")).toBe(resolve("warning300"));

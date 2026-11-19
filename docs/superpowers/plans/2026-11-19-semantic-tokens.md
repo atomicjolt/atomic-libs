@@ -17,7 +17,7 @@ All paths below are relative to `packages/atomic-elements/` unless they start wi
 - Release is **minor** (`@atomicjolt/atomic-elements` 3.11.0 → 3.12.0). No other package gets a changeset.
 - No existing token name may change the value it resolves to, except the entries recorded in the visual change log.
 - Overriding an existing (now deprecated) token name in a consumer theme must still reach components. **Direction of deprecated names:** the *new* token references the *old* one (`"text-clr-secondary": "{text-clr-alt}"`, `"text-clr-alt": "{neutral600}"`), so overrides of either name work. *(This refines the spec, which said aliases are `{new-name}`; that direction would silently drop consumer overrides of old names, e.g. `accent-clr-alt` in `docs/Theme/Intro.mdx`.)*
-- `text-clr-on-accent` = `{text-clr-inverted}`; `border-clr-focus` = `{neutral600}`; solid info is `info-clr-solid` (`{primary600}`) / `info-clr-solid-hover` (`{primary700}`); `info-clr` keeps `{primary100}`.
+- `text-clr-on-accent` = `{text-clr-inverted}`; `border-clr-focus` = `{neutral600}`; solid info is `info-clr-fill` (`{primary600}`) / `info-clr-fill-hover` (`{primary700}`); `info-clr` keeps `{primary100}`.
 - `@styles/theme` import path and `src/styles/index.ts` exports (`createTheme`, `defaultTheme`, `variableAlias`) unchanged.
 - Component code (non-story, non-spec) and `component.ts` never reference palette tokens, deprecated token names, or color literals. Stories and specs are exempt.
 - Every shade change is appended to `docs/superpowers/plans/2026-11-19-semantic-tokens-visual-changes.md` as a row: `| Component | State | Before | After (token → shade) |`.
@@ -125,7 +125,7 @@ git commit -m "refactor(elements): split theme tokens into palette, foundations,
 
 **Interfaces:**
 - Produces (`semantic.ts`):
-  - `semanticColors` — exactly the spec's table names (`background-clr`, `background-clr-subtle`, `background-clr-hover`, `background-clr-subtle-hover`, `background-clr-active`, `background-clr-raised`, `background-clr-inverted`, `backdrop-clr`, `text-clr`, `text-clr-secondary`, `text-clr-disabled`, `text-clr-inverted`, `text-clr-on-accent`, `icon-clr`, `border-clr`, `border-clr-strong`, `border-clr-focus`, `outline-clr`, `accent-clr`, `accent-clr-hover`, `accent-clr-subtle`, `accent-clr-subtle-hover`, `{error,warning,success}-clr`, `{error,warning,success}-clr-hover`, `info-clr-solid`, `info-clr-solid-hover`, `{error,warning,success,info}-clr-subtle`, `-subtle-hover`, `-subtle-active`, `-subtle-border`, `-subtle-text`).
+  - `semanticColors` — exactly the spec's table names (`background-clr`, `background-clr-subtle`, `background-clr-hover`, `background-clr-subtle-hover`, `background-clr-active`, `background-clr-raised`, `background-clr-inverted`, `backdrop-clr`, `text-clr`, `text-clr-secondary`, `text-clr-disabled`, `text-clr-inverted`, `text-clr-on-accent`, `icon-clr`, `border-clr`, `border-clr-strong`, `border-clr-focus`, `outline-clr`, `accent-clr`, `accent-clr-hover`, `accent-clr-subtle`, `accent-clr-subtle-hover`, `{error,warning,success}-clr`, `{error,warning,success}-clr-hover`, `info-clr-fill`, `info-clr-fill-hover`, `{error,warning,success,info}-clr-subtle`, `-subtle-hover`, `-subtle-active`, `-subtle-border`, `-subtle-text`).
   - `deprecatedColors` — `background-clr-alt: {neutral100}`, `text-clr-alt: {neutral600}`, `border-clr-primary: {neutral300}`, `outline-clr-primary: {neutral600}`, `accent-clr-alt: {primary800}`, `error-clr-alt: {error700}`, `warning-clr-alt: {warning700}`, `success-clr-alt: {success700}`, `info-clr: {primary100}`, `info-clr-alt: {primary200}`. Each with a `/** @deprecated use X */` comment.
   - Renamed tokens point **at** the deprecated name: `background-clr-subtle: {background-clr-alt}`, `text-clr-secondary: {text-clr-alt}`, `border-clr: {border-clr-primary}`, `outline-clr: {outline-clr-primary}`, `accent-clr-hover: {accent-clr-alt}`, `{s}-clr-hover: {{s}-clr-alt}`, `info-clr-subtle: {info-clr}`, `info-clr-subtle-hover: {info-clr-alt}`.
   - `effects` — `shadow-sm: 0 1px 3px hsla(0, 0%, 0%, 0.5)`, `shadow-md: 0 2px 4px 0 hsla(0, 0%, 0%, 0.1)`, `shadow-lg: 0 10px 40px hsla(0, 0%, 0%, 0.25)`.
@@ -140,7 +140,7 @@ it("new tokens resolve to today's shades", () => {
   expect(resolveToLiteral(defaultTheme, "text-clr-secondary")).toBe(resolveToLiteral(defaultTheme, "neutral600"));
   expect(resolveToLiteral(defaultTheme, "background-clr-raised")).toBe(resolveToLiteral(defaultTheme, "neutral50"));
   expect(resolveToLiteral(defaultTheme, "border-clr-focus")).toBe(resolveToLiteral(defaultTheme, "neutral600"));
-  expect(resolveToLiteral(defaultTheme, "info-clr-solid")).toBe(resolveToLiteral(defaultTheme, "primary600"));
+  expect(resolveToLiteral(defaultTheme, "info-clr-fill")).toBe(resolveToLiteral(defaultTheme, "primary600"));
   expect(resolveToLiteral(defaultTheme, "error-clr-subtle-text")).toBe(resolveToLiteral(defaultTheme, "error800"));
   expect(resolveToLiteral(defaultTheme, "text-clr-on-accent")).toBe(resolveToLiteral(defaultTheme, "neutral50"));
 });
