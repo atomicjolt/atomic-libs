@@ -56,6 +56,27 @@ function scannedFiles(): string[] {
     .filter((file) => !EXCLUDED.has(file));
 }
 
+/**
+ * `var(--name, fallback)` where `--name` is a semantic token: the theme always
+ * defines it, so the fallback never applies. This means a global semantic
+ * token has taken over a component's optional local hook (e.g. an icon that
+ * reads `var(--icon-clr, inherit)` would stop inheriting its parent's color).
+ */
+const FALLBACK_READ = /var\(--([\w-]+)\s*,/g;
+const SEMANTIC_TOKENS = new Set([
+  ...Object.keys(semanticColors),
+  ...Object.keys(effects),
+]);
+
+function shadowedFallbacks(file: string, line: string, i: number): string[] {
+  return [...line.matchAll(FALLBACK_READ)]
+    .filter((match) => SEMANTIC_TOKENS.has(match[1]))
+    .map(
+      (match) =>
+        `${file}:${i + 1} reads semantic token "${match[1]}" with a fallback that can never apply`
+    );
+}
+
 function violations(file: string): string[] {
   const allowed = ALLOWED_LITERALS[file] ?? [];
   const lines = fs.readFileSync(path.join(PACKAGE_ROOT, file), "utf8").split("\n");
@@ -72,7 +93,10 @@ function violations(file: string): string[] {
       found.push(`color literal "${literal[0]}"`);
     }
     if (redefinition) found.push(`redefines semantic token "${redefinition[1]}"`);
-    return found.map((what) => `${file}:${i + 1} ${what}`);
+    return [
+      ...found.map((what) => `${file}:${i + 1} ${what}`),
+      ...shadowedFallbacks(file, line, i),
+    ];
   });
 }
 
