@@ -23,6 +23,7 @@ type Story = StoryObj<typeof View>;
 
 export const Primary: Story = {
   args: {
+    style: { fontSize: "25px" },
     children: "Hello, World!",
   },
 };
