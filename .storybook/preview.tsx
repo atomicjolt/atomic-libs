@@ -14,10 +14,34 @@ import { defaultTheme } from "../packages/atomic-elements/src/styles";
 import { ElementsProvider } from "../packages/atomic-elements/src/components/ElementsProvider";
 
 const preview: Preview = {
+  globalTypes: {
+    colorScheme: {
+      description: "Color scheme for all stories",
+      toolbar: {
+        title: "Color scheme",
+        icon: "mirror",
+        items: [
+          { value: "light", title: "Light" },
+          { value: "dark", title: "Dark" },
+          { value: "system", title: "System" },
+        ],
+        dynamicTitle: true,
+      },
+    },
+  },
+
+  initialGlobals: {
+    colorScheme: "light",
+  },
+
   decorators: [
-    (Story) => (
+    (Story, context) => (
       <>
-        <ElementsProvider theme={defaultTheme} applyDefaultStyles>
+        <ElementsProvider
+          theme={defaultTheme}
+          applyDefaultStyles
+          colorScheme={context.globals.colorScheme ?? "light"}
+        >
           <Story />
         </ElementsProvider>
       </>
