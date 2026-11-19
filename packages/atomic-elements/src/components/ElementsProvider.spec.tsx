@@ -2,7 +2,8 @@ import { act, render, renderHook } from "@testing-library/react";
 import { renderToString } from "react-dom/server";
 import { ServerStyleSheet } from "styled-components";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { ElementsProvider, useColorScheme } from "./ElementsProvider";
+import { ElementsProvider } from "./ElementsProvider";
+import { useColorScheme } from "./ColorScheme";
 
 /** A matchMedia stand-in whose dark-mode preference can be flipped. */
 function mockPrefersDark(initial: boolean) {
