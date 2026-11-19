@@ -6,6 +6,11 @@ import type { SemanticColor } from "./semantic";
 import * as component from "./component";
 
 export { createTheme, variableAlias } from "./theme";
+export type {
+  ColorSchemeConfig,
+  ColorSchemeMode,
+  ResolvedColorScheme,
+} from "./theme";
 export type { Theme } from "./theme";
 export type { PaletteColor } from "./palette";
 export type { SemanticColor } from "./semantic";
