@@ -4,10 +4,10 @@ export const border = {
   "border-width": "1px",
   "border-style": "solid",
   "radius": "5px",
-  "border": "{border-width} {border-style} {border-clr-primary}",
+  "border": "{border-width} {border-style} {border-clr}",
   "outline-width": "2px",
   "outline-style": "solid",
-  "outline": "{outline-width} {outline-style} {outline-clr-primary}",
+  "outline": "{outline-width} {outline-style} {outline-clr}",
 };
 
 export const font = {

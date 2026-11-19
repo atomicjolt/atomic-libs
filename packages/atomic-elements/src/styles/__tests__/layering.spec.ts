@@ -44,8 +44,6 @@ const PENDING: string[] = [
   "src/components/Overlays/Modal/Modal.styles.ts",
   "src/components/Overlays/Popover/Popover.styles.ts",
   "src/styles/mixins.ts",
-  "src/styles/theme/component.ts",
-  "src/styles/theme/foundations.ts",
 ];
 
 /** Matches a whole token name, bare, quoted, in `{name}` or in `var(--name)`. */
