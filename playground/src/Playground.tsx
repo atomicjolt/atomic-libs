@@ -13,12 +13,16 @@ import LoadingStates from "./tabs/LoadingStates";
 import Links from "./tabs/Links";
 import { DateAndTime } from "./tabs/DateAndTime";
 import { Home } from "./tabs/Home";
+import { ColorSchemeToggle } from "./ColorSchemeToggle";
 
 function Playground() {
   const [currentTab, setCurrentTab] = useState<Key>("aria");
 
   return (
     <div className="padder" style={{ height: "100%" }}>
+      <div className="playground-toolbar">
+        <ColorSchemeToggle />
+      </div>
       <Tabs selectedKey={currentTab} onSelectionChange={setCurrentTab}>
         <Tabs.List>
           <Tabs.Tab id="home">Home</Tabs.Tab>
