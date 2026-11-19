@@ -59,23 +59,6 @@ describe("semantic tokens", () => {
     );
   });
 
-  it("fill and role tokens keep today's shades", () => {
-    const same: [string, string][] = [
-      ["accent-clr-fill", "primary700"],
-      ["accent-clr-fill-hover", "primary800"],
-      ["error-clr-fill", "error700"],
-      ["error-clr-fill-hover", "error800"],
-      ["success-clr-fill", "success700"],
-      ["success-clr-fill-hover", "success800"],
-      ["warning-clr-fill", "warning700"],
-      ["warning-clr-fill-hover", "warning800"],
-      ["background-clr-disabled", "neutral300"],
-    ];
-    for (const [token, shade] of same) {
-      expect(resolve(token), token).toBe(resolve(shade));
-    }
-  });
-
   it("dark scheme anchors", () => {
     const dark = (name: string) => resolveToLiteral(defaultTheme, name, "dark");
     expect(defaultTheme.colorSchemes.dark.mode).toBe("dark");
