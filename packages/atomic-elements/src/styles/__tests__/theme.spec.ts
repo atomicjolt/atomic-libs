@@ -154,22 +154,6 @@ describe("createTheme color schemes", () => {
     });
   });
 
-  it("accepts a base theme without color scheme fields", () => {
-    // Hand-built or spread themes (e.g. `{ ...theme, variables }`) predate schemes
-    const legacyBase = {
-      variables: { a: "1" },
-      resolvedVariables: { "--a": "1" },
-      cssVarPrefix: "",
-    } as unknown as Theme;
-    const theme = createTheme({
-      base: legacyBase,
-      variables: { b: "{a}" },
-      colorSchemes: { dark: { variables: { a: "2" } } },
-    });
-    expect(theme.resolvedVariables["--b"]).toBe("var(--a)");
-    expect(theme.colorSchemes.dark.resolvedVariables["--a"]).toBe("2");
-  });
-
   it("resolves aliases across layers", () => {
     const theme = createTheme({
       variables: { y: "blue" },

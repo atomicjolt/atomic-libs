@@ -45,9 +45,8 @@ export interface Theme {
   /** The scheme applied when none is selected. */
   baseColorScheme: string;
   colorSchemes: Record<string, ResolvedColorScheme>;
-  /** @internal Values shared by all schemes, used when extending a theme.
-   * Optional so themes built by hand still type-check. */
-  sharedVariables?: Record<string, string>;
+  /** @internal Values shared by all schemes, used when extending a theme. */
+  sharedVariables: Record<string, string>;
   _Component: React.ComponentType;
 }
 
@@ -109,13 +108,10 @@ export function createTheme(props: CreateThemeProps): Theme {
     base,
   } = props;
 
-  // Themes built before color schemes (or spread by hand) have no
-  // `sharedVariables` / `colorSchemes`; treat all their variables as shared.
-  const baseShared = base?.sharedVariables ?? base?.variables ?? {};
   const baseSchemes = base?.colorSchemes ?? {};
 
   const shared: Record<string, string> = {
-    ...baseShared,
+    ...(base?.sharedVariables ?? {}),
     ...(variables as Record<string, string>),
   };
 
