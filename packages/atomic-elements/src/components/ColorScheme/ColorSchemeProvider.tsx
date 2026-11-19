@@ -1,4 +1,4 @@
-import { useCallback, useContext, useMemo, useState } from "react";
+import { useContext, useMemo } from "react";
 import type { Theme } from "@styles/theme";
 import { useIsomorphicLayoutEffect } from "../../hooks/useIsomorphicLayoutEffect";
 import {
@@ -8,11 +8,9 @@ import {
   setDocumentColorScheme,
   SYSTEM_COLOR_SCHEME,
 } from "./colorScheme";
-import {
-  ColorSchemeContext,
-  ColorSchemeState,
-} from "./ColorScheme.context";
+import { ColorSchemeContext, ColorSchemeState } from "./ColorScheme.context";
 import { usePrefersDark } from "./usePrefersDark";
+import { useControlledState } from "@react-stately/utils";
 
 export interface ColorSchemeOptions {
   /** The color scheme to show: a scheme name from the theme (e.g. `"light"`,
@@ -24,7 +22,8 @@ export interface ColorSchemeOptions {
   /** Starting color scheme when `colorScheme` isn't set; the provider then
    * keeps track of changes itself. Defaults to the theme's base scheme. */
   defaultColorScheme?: string;
-  /** Called when `setColorScheme` is used. Store the choice here. */
+  /** Called when `setColorScheme` changes the scheme (not when it's set to
+   * the current value). Store the choice here. */
   onColorSchemeChange?: (scheme: string) => void;
 }
 
@@ -51,22 +50,18 @@ export function ColorSchemeProvider(props: ColorSchemeProviderProps) {
   const parent = useContext(ColorSchemeContext);
   const nested = parent !== null;
 
-  const [uncontrolledScheme, setUncontrolledScheme] = useState(
-    defaultColorScheme ?? theme.baseColorScheme
+  // Controlled when `colorScheme` is passed; otherwise tracks its own value,
+  // starting at `defaultColorScheme`. Either way changes call onColorSchemeChange.
+  const [requested, setColorScheme] = useControlledState(
+    colorScheme,
+    defaultColorScheme ?? theme.baseColorScheme,
+    onColorSchemeChange
   );
-  const requested = colorScheme ?? uncontrolledScheme;
+
   const prefersDark = usePrefersDark(
     !nested && requested === SYSTEM_COLOR_SCHEME
   );
   const resolved = resolveColorScheme(theme, requested, prefersDark);
-
-  const setColorScheme = useCallback(
-    (next: string) => {
-      if (colorScheme === undefined) setUncontrolledScheme(next);
-      onColorSchemeChange?.(next);
-    },
-    [colorScheme, onColorSchemeChange]
-  );
 
   const ownState = useMemo<ColorSchemeState>(
     () => ({
