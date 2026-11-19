@@ -6,7 +6,7 @@ exports[`SelectField > matches snapshots > when closed 1`] = `
     data-react-aria-hidden="true"
   />
   <div
-    class="sc-ezjgic klbIcq aje-select"
+    class="sc-ezjgic gpbumi aje-select"
   >
     <div
       aria-hidden="true"
@@ -62,7 +62,7 @@ exports[`SelectField > matches snapshots > when open 1`] = `
     data-react-aria-hidden="true"
   />
   <div
-    class="sc-ezjgic klbIcq aje-select"
+    class="sc-ezjgic gpbumi aje-select"
   >
     <div
       aria-hidden="true"

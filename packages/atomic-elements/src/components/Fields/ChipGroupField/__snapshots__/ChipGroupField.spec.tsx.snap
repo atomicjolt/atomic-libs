@@ -6,7 +6,7 @@ exports[`ChipGroupField > matches snapshot 1`] = `
     data-react-aria-hidden="true"
   />
   <div
-    class="sc-fKwzVe fdNiPE aje-chip-group"
+    class="sc-fKwzVe fNDAJw aje-chip-group"
   >
     <div
       aria-atomic="false"

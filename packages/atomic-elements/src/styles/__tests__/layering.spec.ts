@@ -2,7 +2,11 @@ import fs from "fs";
 import path from "path";
 import { describe, expect, it } from "vitest";
 import { palette } from "../theme/palette";
-import { DEPRECATED_TOKEN_NAMES } from "../theme/semantic";
+import {
+  DEPRECATED_TOKEN_NAMES,
+  effects,
+  semanticColors,
+} from "../theme/semantic";
 
 const PACKAGE_ROOT = path.resolve(__dirname, "../../..");
 const SCAN_DIRS = ["src/components", "src/styles"];
@@ -30,17 +34,10 @@ const PENDING: string[] = [
   "src/components/Dropdowns/ListBox/ListBox.styles.ts",
   "src/components/Dropdowns/Menu/Menu.styles.ts",
   "src/components/Dropdowns/Select/Select.styles.ts",
-  "src/components/Fields/Atoms/Message/Message.component.tsx",
-  "src/components/Fields/Atoms/TextArea/TextArea.styles.ts",
   "src/components/Icons/Icons.styles.ts",
-  "src/components/Inputs/DateAndTimes/Calendar/Calendar.styles.ts",
-  "src/components/Inputs/FileInput/FileInput.styles.ts",
-  "src/components/Inputs/Inputs.styles.ts",
-  "src/components/Inputs/ToggleSwitch/ToggleSwitch.styles.ts",
   "src/components/Layout/Navbar/Navbar.component.tsx",
   "src/components/Overlays/Modal/Modal.styles.ts",
   "src/components/Overlays/Popover/Popover.styles.ts",
-  "src/styles/mixins.ts",
 ];
 
 /** Matches a whole token name, bare, quoted, in `{name}` or in `var(--name)`. */
@@ -48,7 +45,12 @@ const tokenPattern = (names: string[]) =>
   new RegExp(`(?:^|[^\\w-]|--)(${names.join("|")})(?![\\w-])`);
 const PALETTE_NAME = tokenPattern(Object.keys(palette));
 const DEPRECATED_NAME = tokenPattern(DEPRECATED_TOKEN_NAMES);
-const COLOR_LITERAL = /#[0-9a-fA-F]{3,8}\b|\brgba?\([^)]*\)|\bhsla?\([^)]*\)/;
+const COLOR_LITERAL =
+  /#[0-9a-fA-F]{3,8}\b|\brgba?\([^)]*\)|\bhsla?\([^)]*\)|:\s*(?:white|black)\b/;
+/** A component declaring a semantic token locally would shadow the theme's value. */
+const SEMANTIC_REDEFINITION = new RegExp(
+  `--(${[...Object.keys(semanticColors), ...Object.keys(effects)].join("|")}):`
+);
 
 function listFiles(dir: string): string[] {
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
@@ -78,11 +80,13 @@ function violations(file: string): string[] {
     const palette = line.match(PALETTE_NAME);
     const deprecated = line.match(DEPRECATED_NAME);
     const literal = line.match(COLOR_LITERAL);
+    const redefinition = line.match(SEMANTIC_REDEFINITION);
     if (palette) found.push(`palette token "${palette[1]}"`);
     if (deprecated) found.push(`deprecated token "${deprecated[1]}"`);
     if (literal && !allowed.includes(literal[0])) {
       found.push(`color literal "${literal[0]}"`);
     }
+    if (redefinition) found.push(`redefines semantic token "${redefinition[1]}"`);
     return found.map((what) => `${file}:${i + 1} ${what}`);
   });
 }

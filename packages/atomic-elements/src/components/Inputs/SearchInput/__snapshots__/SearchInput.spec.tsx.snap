@@ -3,7 +3,7 @@
 exports[`matches snapshot > displays with search button 1`] = `
 <DocumentFragment>
   <div
-    class="sc-iqkkDd kdRpNH aje-field__search is-medium"
+    class="sc-iqkkDd igZiBH aje-field__search is-medium"
   >
     <label
       class="sc-bdDsCe bLPJOA"
@@ -13,11 +13,11 @@ exports[`matches snapshot > displays with search button 1`] = `
       search
     </label>
     <div
-      class="sc-qdQOe kPUMiD aje-combo-input"
+      class="sc-qdQOe gGqPEP aje-combo-input"
     >
       <input
         aria-labelledby="react-aria-:r6:"
-        class="sc-gKkgUA bzpolP"
+        class="sc-gKkgUA ibNGff"
         id="react-aria-:r5:"
         tabindex="0"
         type="search"
@@ -45,7 +45,7 @@ exports[`matches snapshot > displays with search button 1`] = `
 exports[`matches snapshot > displays without button 1`] = `
 <DocumentFragment>
   <div
-    class="sc-iqkkDd kdRpNH aje-field__search is-medium"
+    class="sc-iqkkDd igZiBH aje-field__search is-medium"
   >
     <label
       class="sc-bdDsCe bLPJOA"
@@ -55,11 +55,11 @@ exports[`matches snapshot > displays without button 1`] = `
       search
     </label>
     <div
-      class="sc-qdQOe kPUMiD aje-combo-input"
+      class="sc-qdQOe gGqPEP aje-combo-input"
     >
       <input
         aria-labelledby="react-aria-:r1:"
-        class="sc-gKkgUA bzpolP"
+        class="sc-gKkgUA ibNGff"
         id="react-aria-:r0:"
         tabindex="0"
         type="search"

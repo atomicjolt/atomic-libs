@@ -27,8 +27,8 @@ const InputVariants = css`
     }
 
     input:focus {
-      --input-border-clr: var(--primary700);
-      --input-bg-clr: var(--neutral50);
+      --input-border-clr: var(--border-clr-focus);
+      --input-bg-clr: var(--background-clr);
       box-shadow: 0 0 0 1px var(--input-border-clr);
       outline: none;
     }
@@ -39,7 +39,7 @@ const InputVariants = css`
       top: 0px;
       left: 1em;
       --floating-font-size: 1.3rem;
-      --input-bg-clr: var(--neutral50);
+      --input-bg-clr: var(--background-clr);
       --floating-label-clr: var(--text-clr);
     }
 
@@ -52,12 +52,12 @@ const InputVariants = css`
     }
 
     &[data-invalid] {
-      --input-border-clr: var(--error700);
+      --input-border-clr: var(--error-clr-hover);
 
       input:not(:placeholder-shown) ~ label,
       input:focus ~ label,
       ${StyledComboInput}:focus-within ~ label {
-        --floating-label-clr: var(--error800);
+        --floating-label-clr: var(--error-clr-subtle-text);
       }
     }
   }

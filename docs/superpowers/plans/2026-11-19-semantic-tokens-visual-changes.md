@@ -21,3 +21,4 @@ Every place where migrating to semantic tokens changed a rendered shade. Review 
 | Chip `danger` | Default | border `#f1b6b6` | `error-clr-subtle-border` → `error300` |
 | Chip `warning` | Default | text `warning700` | `warning-clr-subtle-text` → `warning800` (darker) |
 | Banner `error` | Close button pressed | bg `error900` | `error-clr-active` → `error800` (same as hover) |
+| Floating-label inputs | Focus | border `primary700` (teal) | `border-clr-focus` → `neutral600` (grey) — intentional, matches all other inputs |

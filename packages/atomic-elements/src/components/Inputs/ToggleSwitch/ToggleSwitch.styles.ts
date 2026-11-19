@@ -114,7 +114,7 @@ export const ToggleSwitchLabel = styled.span`
 
       &::before {
         animation: ${squishyIconBack} 200ms linear forwards;
-        color: var(--text-clr-alt);
+        color: var(--text-clr-secondary);
       }
     }
   }
@@ -147,7 +147,7 @@ export const ToggleSwitchIcon = styled.i`
   height: var(--toggle-size);
   border-radius: 50%;
   box-sizing: border-box;
-  background-color: var(--neutral50);
+  background-color: var(--background-clr);
   border: 3px solid var(--toggle-unchecked);
   transform-origin: left center;
   transition: border-color 200ms linear;
@@ -162,7 +162,7 @@ export const ToggleSwitchIcon = styled.i`
     font-family: "Material Icons";
     font-style: normal;
     line-height: 1;
-    color: var(--text-clr-alt);
+    color: var(--text-clr-secondary);
     z-index: 2;
   }
 `;

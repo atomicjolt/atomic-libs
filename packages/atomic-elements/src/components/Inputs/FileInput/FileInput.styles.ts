@@ -20,20 +20,20 @@ export const FileInputSpan = styled.span`
 
 export const FileInputStrong = styled.strong`
   ${mixins.Bold}
-  background-color: var(--neutral100);
-  color: var(--text-clr-alt);
+  background-color: var(--background-clr-subtle);
+  color: var(--text-clr-secondary);
   min-height: 38px;
   padding: 8px 16px;
   display: flex;
   align-items: center;
-  border-left: 1px solid var(--border-clr);
+  border-left: 1px solid var(--file-input-border-clr);
 `;
 
 export const StyledFileInputButton = styled.button`
   ${mixins.Regular}
   ${mixins.FocusVisible(2)}
   text-align: left;
-  background-color: white;
+  background-color: var(--background-clr);
   padding: 0;
   font-size: 1.6rem;
   line-height: 1;
@@ -43,7 +43,7 @@ export const StyledFileInputButton = styled.button`
   display: inline-flex;
   align-items: center;
   overflow: hidden;
-  border: 1px solid var(--border-clr);
+  border: 1px solid var(--file-input-border-clr);
   border-radius: 5px;
   overflow: hidden;
   background-color: none;
@@ -53,13 +53,13 @@ export const StyledFileInputButton = styled.button`
   &:hover {
     ${FileInputStrong} {
       color: var(--text-clr);
-      background-color: var(--neutral200);
+      background-color: var(--background-clr-subtle-hover);
     }
   }
 `;
 
 export const FileInputWrapper = styled.div`
-  --border-clr: var(--input-border-clr);
+  --file-input-border-clr: var(--input-border-clr);
 
   &[data-disabled] {
     ${StyledFileInputButton} {
