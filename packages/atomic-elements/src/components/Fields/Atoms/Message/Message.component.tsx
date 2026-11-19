@@ -12,7 +12,7 @@ export const StyledMessage = styled.p`
   font-size: 1.3rem;
   padding-bottom: 5px;
   margin: 2px 0 0;
-  color: var(--text-clr-alt);
+  color: var(--text-clr-secondary);
 `;
 
 export interface MessageProps

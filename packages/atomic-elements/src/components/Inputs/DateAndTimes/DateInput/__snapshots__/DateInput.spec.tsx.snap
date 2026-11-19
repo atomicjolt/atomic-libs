@@ -3,7 +3,7 @@
 exports[`DateInput > matches snapshots > 24 hour cycle 1`] = `
 <DocumentFragment>
   <div
-    class="sc-iqkkDd kdRpNH aje-datefield aje-input__date is-medium"
+    class="sc-iqkkDd igZiBH aje-datefield aje-input__date is-medium"
     style="min-width: var(--size-x);"
   >
     <label
@@ -13,13 +13,13 @@ exports[`DateInput > matches snapshots > 24 hour cycle 1`] = `
       Date Input
     </label>
     <p
-      class="sc-gtcBCx kLsxUZ is-auto"
+      class="sc-gtcBCx eqCUEa is-auto"
       id="react-aria-:r77:"
     >
       Select a date
     </p>
     <div
-      class="sc-qdQOe kPUMiD aje-combo-input"
+      class="sc-qdQOe gGqPEP aje-combo-input"
     >
       <div
         aria-describedby="react-aria-:r77:"
@@ -153,7 +153,7 @@ exports[`DateInput > matches snapshots > 24 hour cycle 1`] = `
 exports[`DateInput > matches snapshots > day granularity 1`] = `
 <DocumentFragment>
   <div
-    class="sc-iqkkDd kdRpNH aje-datefield aje-input__date is-medium"
+    class="sc-iqkkDd igZiBH aje-datefield aje-input__date is-medium"
     style="min-width: var(--size-x);"
   >
     <label
@@ -163,13 +163,13 @@ exports[`DateInput > matches snapshots > day granularity 1`] = `
       Date Input
     </label>
     <p
-      class="sc-gtcBCx kLsxUZ is-auto"
+      class="sc-gtcBCx eqCUEa is-auto"
       id="react-aria-:r1g:"
     >
       Select a date
     </p>
     <div
-      class="sc-qdQOe kPUMiD aje-combo-input"
+      class="sc-qdQOe gGqPEP aje-combo-input"
     >
       <div
         aria-describedby="react-aria-:r1g:"
@@ -264,7 +264,7 @@ exports[`DateInput > matches snapshots > day granularity 1`] = `
 exports[`DateInput > matches snapshots > default variant 1`] = `
 <DocumentFragment>
   <div
-    class="sc-iqkkDd kdRpNH aje-datefield aje-input__date is-medium"
+    class="sc-iqkkDd igZiBH aje-datefield aje-input__date is-medium"
     style="min-width: var(--size-x);"
   >
     <label
@@ -274,13 +274,13 @@ exports[`DateInput > matches snapshots > default variant 1`] = `
       Date Input
     </label>
     <p
-      class="sc-gtcBCx kLsxUZ is-auto"
+      class="sc-gtcBCx eqCUEa is-auto"
       id="react-aria-:r3:"
     >
       Select a date
     </p>
     <div
-      class="sc-qdQOe kPUMiD aje-combo-input"
+      class="sc-qdQOe gGqPEP aje-combo-input"
     >
       <div
         aria-describedby="react-aria-:r3:"
@@ -375,7 +375,7 @@ exports[`DateInput > matches snapshots > default variant 1`] = `
 exports[`DateInput > matches snapshots > disabled state 1`] = `
 <DocumentFragment>
   <div
-    class="sc-iqkkDd kdRpNH aje-datefield aje-input__date is-medium"
+    class="sc-iqkkDd igZiBH aje-datefield aje-input__date is-medium"
     data-disabled="true"
     style="min-width: var(--size-x);"
   >
@@ -386,13 +386,13 @@ exports[`DateInput > matches snapshots > disabled state 1`] = `
       Date Input
     </label>
     <p
-      class="sc-gtcBCx kLsxUZ is-auto"
+      class="sc-gtcBCx eqCUEa is-auto"
       id="react-aria-:r4s:"
     >
       Select a date
     </p>
     <div
-      class="sc-qdQOe kPUMiD aje-combo-input"
+      class="sc-qdQOe gGqPEP aje-combo-input"
     >
       <div
         aria-describedby="react-aria-:r4s:"
@@ -477,7 +477,7 @@ exports[`DateInput > matches snapshots > disabled state 1`] = `
 exports[`DateInput > matches snapshots > hour granularity 1`] = `
 <DocumentFragment>
   <div
-    class="sc-iqkkDd kdRpNH aje-datefield aje-input__date is-medium"
+    class="sc-iqkkDd igZiBH aje-datefield aje-input__date is-medium"
     style="min-width: var(--size-x);"
   >
     <label
@@ -487,13 +487,13 @@ exports[`DateInput > matches snapshots > hour granularity 1`] = `
       Date Input
     </label>
     <p
-      class="sc-gtcBCx kLsxUZ is-auto"
+      class="sc-gtcBCx eqCUEa is-auto"
       id="react-aria-:r1v:"
     >
       Select a date
     </p>
     <div
-      class="sc-qdQOe kPUMiD aje-combo-input"
+      class="sc-qdQOe gGqPEP aje-combo-input"
     >
       <div
         aria-describedby="react-aria-:r1v:"
@@ -653,7 +653,7 @@ exports[`DateInput > matches snapshots > hour granularity 1`] = `
 exports[`DateInput > matches snapshots > invalid state 1`] = `
 <DocumentFragment>
   <div
-    class="sc-iqkkDd kdRpNH aje-datefield aje-input__date is-medium"
+    class="sc-iqkkDd igZiBH aje-datefield aje-input__date is-medium"
     data-invalid="true"
     style="min-width: var(--size-x);"
   >
@@ -664,13 +664,13 @@ exports[`DateInput > matches snapshots > invalid state 1`] = `
       Date Input
     </label>
     <p
-      class="sc-gtcBCx kLsxUZ is-auto"
+      class="sc-gtcBCx eqCUEa is-auto"
       id="react-aria-:r69:"
     >
       Select a date
     </p>
     <div
-      class="sc-qdQOe kPUMiD aje-combo-input"
+      class="sc-qdQOe gGqPEP aje-combo-input"
     >
       <div
         aria-describedby="react-aria-:r69: react-aria-:r6a:"
@@ -777,7 +777,7 @@ exports[`DateInput > matches snapshots > invalid state 1`] = `
 exports[`DateInput > matches snapshots > large size 1`] = `
 <DocumentFragment>
   <div
-    class="sc-iqkkDd kdRpNH aje-datefield aje-input__date is-large"
+    class="sc-iqkkDd igZiBH aje-datefield aje-input__date is-large"
     style="min-width: var(--size-x);"
   >
     <label
@@ -787,13 +787,13 @@ exports[`DateInput > matches snapshots > large size 1`] = `
       Date Input
     </label>
     <p
-      class="sc-gtcBCx kLsxUZ is-auto"
+      class="sc-gtcBCx eqCUEa is-auto"
       id="react-aria-:r8s:"
     >
       Select a date
     </p>
     <div
-      class="sc-qdQOe kPUMiD aje-combo-input"
+      class="sc-qdQOe gGqPEP aje-combo-input"
     >
       <div
         aria-describedby="react-aria-:r8s:"
@@ -888,7 +888,7 @@ exports[`DateInput > matches snapshots > large size 1`] = `
 exports[`DateInput > matches snapshots > medium size 1`] = `
 <DocumentFragment>
   <div
-    class="sc-iqkkDd kdRpNH aje-datefield aje-input__date is-medium"
+    class="sc-iqkkDd igZiBH aje-datefield aje-input__date is-medium"
     style="min-width: var(--size-x);"
   >
     <label
@@ -898,13 +898,13 @@ exports[`DateInput > matches snapshots > medium size 1`] = `
       Date Input
     </label>
     <p
-      class="sc-gtcBCx kLsxUZ is-auto"
+      class="sc-gtcBCx eqCUEa is-auto"
       id="react-aria-:r8d:"
     >
       Select a date
     </p>
     <div
-      class="sc-qdQOe kPUMiD aje-combo-input"
+      class="sc-qdQOe gGqPEP aje-combo-input"
     >
       <div
         aria-describedby="react-aria-:r8d:"
@@ -999,11 +999,11 @@ exports[`DateInput > matches snapshots > medium size 1`] = `
 exports[`DateInput > matches snapshots > minimal props 1`] = `
 <DocumentFragment>
   <div
-    class="sc-iqkkDd kdRpNH aje-datefield aje-input__date is-medium"
+    class="sc-iqkkDd igZiBH aje-datefield aje-input__date is-medium"
     style="min-width: var(--size-x);"
   >
     <div
-      class="sc-qdQOe kPUMiD aje-combo-input"
+      class="sc-qdQOe gGqPEP aje-combo-input"
     >
       <div
         aria-labelledby="react-aria-:rb5:"
@@ -1096,7 +1096,7 @@ exports[`DateInput > matches snapshots > minimal props 1`] = `
 exports[`DateInput > matches snapshots > minute granularity 1`] = `
 <DocumentFragment>
   <div
-    class="sc-iqkkDd kdRpNH aje-datefield aje-input__date is-medium"
+    class="sc-iqkkDd igZiBH aje-datefield aje-input__date is-medium"
     style="min-width: var(--size-x);"
   >
     <label
@@ -1106,13 +1106,13 @@ exports[`DateInput > matches snapshots > minute granularity 1`] = `
       Date Input
     </label>
     <p
-      class="sc-gtcBCx kLsxUZ is-auto"
+      class="sc-gtcBCx eqCUEa is-auto"
       id="react-aria-:r2q:"
     >
       Select a date
     </p>
     <div
-      class="sc-qdQOe kPUMiD aje-combo-input"
+      class="sc-qdQOe gGqPEP aje-combo-input"
     >
       <div
         aria-describedby="react-aria-:r2q:"
@@ -1299,7 +1299,7 @@ exports[`DateInput > matches snapshots > minute granularity 1`] = `
 exports[`DateInput > matches snapshots > readonly state 1`] = `
 <DocumentFragment>
   <div
-    class="sc-iqkkDd kdRpNH aje-datefield aje-input__date is-medium"
+    class="sc-iqkkDd igZiBH aje-datefield aje-input__date is-medium"
     data-readonly="true"
     style="min-width: var(--size-x);"
   >
@@ -1310,13 +1310,13 @@ exports[`DateInput > matches snapshots > readonly state 1`] = `
       Date Input
     </label>
     <p
-      class="sc-gtcBCx kLsxUZ is-auto"
+      class="sc-gtcBCx eqCUEa is-auto"
       id="react-aria-:r5q:"
     >
       Select a date
     </p>
     <div
-      class="sc-qdQOe kPUMiD aje-combo-input"
+      class="sc-qdQOe gGqPEP aje-combo-input"
     >
       <div
         aria-describedby="react-aria-:r5q:"
@@ -1403,7 +1403,7 @@ exports[`DateInput > matches snapshots > readonly state 1`] = `
 exports[`DateInput > matches snapshots > required state 1`] = `
 <DocumentFragment>
   <div
-    class="sc-iqkkDd kdRpNH aje-datefield aje-input__date is-medium"
+    class="sc-iqkkDd igZiBH aje-datefield aje-input__date is-medium"
     data-required="true"
     style="min-width: var(--size-x);"
   >
@@ -1414,13 +1414,13 @@ exports[`DateInput > matches snapshots > required state 1`] = `
       Date Input
     </label>
     <p
-      class="sc-gtcBCx kLsxUZ is-auto"
+      class="sc-gtcBCx eqCUEa is-auto"
       id="react-aria-:r5b:"
     >
       Select a date
     </p>
     <div
-      class="sc-qdQOe kPUMiD aje-combo-input"
+      class="sc-qdQOe gGqPEP aje-combo-input"
     >
       <div
         aria-describedby="react-aria-:r5b:"
@@ -1519,7 +1519,7 @@ exports[`DateInput > matches snapshots > required state 1`] = `
 exports[`DateInput > matches snapshots > second granularity 1`] = `
 <DocumentFragment>
   <div
-    class="sc-iqkkDd kdRpNH aje-datefield aje-input__date is-medium"
+    class="sc-iqkkDd igZiBH aje-datefield aje-input__date is-medium"
     style="min-width: var(--size-x);"
   >
     <label
@@ -1529,13 +1529,13 @@ exports[`DateInput > matches snapshots > second granularity 1`] = `
       Date Input
     </label>
     <p
-      class="sc-gtcBCx kLsxUZ is-auto"
+      class="sc-gtcBCx eqCUEa is-auto"
       id="react-aria-:r3p:"
     >
       Select a date
     </p>
     <div
-      class="sc-qdQOe kPUMiD aje-combo-input"
+      class="sc-qdQOe gGqPEP aje-combo-input"
     >
       <div
         aria-describedby="react-aria-:r3p:"
@@ -1749,7 +1749,7 @@ exports[`DateInput > matches snapshots > second granularity 1`] = `
 exports[`DateInput > matches snapshots > small size 1`] = `
 <DocumentFragment>
   <div
-    class="sc-iqkkDd kdRpNH aje-datefield aje-input__date is-small"
+    class="sc-iqkkDd igZiBH aje-datefield aje-input__date is-small"
     style="min-width: var(--size-x);"
   >
     <label
@@ -1759,13 +1759,13 @@ exports[`DateInput > matches snapshots > small size 1`] = `
       Date Input
     </label>
     <p
-      class="sc-gtcBCx kLsxUZ is-auto"
+      class="sc-gtcBCx eqCUEa is-auto"
       id="react-aria-:r7u:"
     >
       Select a date
     </p>
     <div
-      class="sc-qdQOe kPUMiD aje-combo-input"
+      class="sc-qdQOe gGqPEP aje-combo-input"
     >
       <div
         aria-describedby="react-aria-:r7u:"
@@ -1860,7 +1860,7 @@ exports[`DateInput > matches snapshots > small size 1`] = `
 exports[`DateInput > matches snapshots > with default value 1`] = `
 <DocumentFragment>
   <div
-    class="sc-iqkkDd kdRpNH aje-datefield aje-input__date is-medium"
+    class="sc-iqkkDd igZiBH aje-datefield aje-input__date is-medium"
     style="min-width: var(--size-x);"
   >
     <label
@@ -1870,13 +1870,13 @@ exports[`DateInput > matches snapshots > with default value 1`] = `
       Date Input
     </label>
     <p
-      class="sc-gtcBCx kLsxUZ is-auto"
+      class="sc-gtcBCx eqCUEa is-auto"
       id="react-aria-:r11:"
     >
       Select a date
     </p>
     <div
-      class="sc-qdQOe kPUMiD aje-combo-input"
+      class="sc-qdQOe gGqPEP aje-combo-input"
     >
       <div
         aria-describedby="react-aria-description-1 react-aria-:r11:"
@@ -1968,7 +1968,7 @@ exports[`DateInput > matches snapshots > with default value 1`] = `
 exports[`DateInput > matches snapshots > with leading zeros 1`] = `
 <DocumentFragment>
   <div
-    class="sc-iqkkDd kdRpNH aje-datefield aje-input__date is-medium"
+    class="sc-iqkkDd igZiBH aje-datefield aje-input__date is-medium"
     style="min-width: var(--size-x);"
   >
     <label
@@ -1978,13 +1978,13 @@ exports[`DateInput > matches snapshots > with leading zeros 1`] = `
       Date Input
     </label>
     <p
-      class="sc-gtcBCx kLsxUZ is-auto"
+      class="sc-gtcBCx eqCUEa is-auto"
       id="react-aria-:r6o:"
     >
       Select a date
     </p>
     <div
-      class="sc-qdQOe kPUMiD aje-combo-input"
+      class="sc-qdQOe gGqPEP aje-combo-input"
     >
       <div
         aria-describedby="react-aria-:r6o:"
@@ -2079,7 +2079,7 @@ exports[`DateInput > matches snapshots > with leading zeros 1`] = `
 exports[`DateInput > matches snapshots > with min and max values 1`] = `
 <DocumentFragment>
   <div
-    class="sc-iqkkDd kdRpNH aje-datefield aje-input__date is-medium"
+    class="sc-iqkkDd igZiBH aje-datefield aje-input__date is-medium"
     style="min-width: var(--size-x);"
   >
     <label
@@ -2089,13 +2089,13 @@ exports[`DateInput > matches snapshots > with min and max values 1`] = `
       Date Input
     </label>
     <p
-      class="sc-gtcBCx kLsxUZ is-auto"
+      class="sc-gtcBCx eqCUEa is-auto"
       id="react-aria-:r9b:"
     >
       Select a date
     </p>
     <div
-      class="sc-qdQOe kPUMiD aje-combo-input"
+      class="sc-qdQOe gGqPEP aje-combo-input"
     >
       <div
         aria-describedby="react-aria-:r9b:"
@@ -2190,7 +2190,7 @@ exports[`DateInput > matches snapshots > with min and max values 1`] = `
 exports[`DateInput > matches snapshots > with value 1`] = `
 <DocumentFragment>
   <div
-    class="sc-iqkkDd kdRpNH aje-datefield aje-input__date is-medium"
+    class="sc-iqkkDd igZiBH aje-datefield aje-input__date is-medium"
     style="min-width: var(--size-x);"
   >
     <label
@@ -2200,13 +2200,13 @@ exports[`DateInput > matches snapshots > with value 1`] = `
       Date Input
     </label>
     <p
-      class="sc-gtcBCx kLsxUZ is-auto"
+      class="sc-gtcBCx eqCUEa is-auto"
       id="react-aria-:ri:"
     >
       Select a date
     </p>
     <div
-      class="sc-qdQOe kPUMiD aje-combo-input"
+      class="sc-qdQOe gGqPEP aje-combo-input"
     >
       <div
         aria-describedby="react-aria-description-0 react-aria-:ri:"
@@ -2298,7 +2298,7 @@ exports[`DateInput > matches snapshots > with value 1`] = `
 exports[`DateInput > matches snapshots > without error 1`] = `
 <DocumentFragment>
   <div
-    class="sc-iqkkDd kdRpNH aje-datefield aje-input__date is-medium"
+    class="sc-iqkkDd igZiBH aje-datefield aje-input__date is-medium"
     style="min-width: var(--size-x);"
   >
     <label
@@ -2308,13 +2308,13 @@ exports[`DateInput > matches snapshots > without error 1`] = `
       Date Input
     </label>
     <p
-      class="sc-gtcBCx kLsxUZ is-auto"
+      class="sc-gtcBCx eqCUEa is-auto"
       id="react-aria-:rao:"
     >
       Select a date
     </p>
     <div
-      class="sc-qdQOe kPUMiD aje-combo-input"
+      class="sc-qdQOe gGqPEP aje-combo-input"
     >
       <div
         aria-describedby="react-aria-:rao:"
@@ -2409,17 +2409,17 @@ exports[`DateInput > matches snapshots > without error 1`] = `
 exports[`DateInput > matches snapshots > without label 1`] = `
 <DocumentFragment>
   <div
-    class="sc-iqkkDd kdRpNH aje-datefield aje-input__date is-medium"
+    class="sc-iqkkDd igZiBH aje-datefield aje-input__date is-medium"
     style="min-width: var(--size-x);"
   >
     <p
-      class="sc-gtcBCx kLsxUZ is-auto"
+      class="sc-gtcBCx eqCUEa is-auto"
       id="react-aria-:r9q:"
     >
       Select a date
     </p>
     <div
-      class="sc-qdQOe kPUMiD aje-combo-input"
+      class="sc-qdQOe gGqPEP aje-combo-input"
     >
       <div
         aria-describedby="react-aria-:r9q:"
@@ -2514,7 +2514,7 @@ exports[`DateInput > matches snapshots > without label 1`] = `
 exports[`DateInput > matches snapshots > without message 1`] = `
 <DocumentFragment>
   <div
-    class="sc-iqkkDd kdRpNH aje-datefield aje-input__date is-medium"
+    class="sc-iqkkDd igZiBH aje-datefield aje-input__date is-medium"
     style="min-width: var(--size-x);"
   >
     <label
@@ -2524,7 +2524,7 @@ exports[`DateInput > matches snapshots > without message 1`] = `
       Date Input
     </label>
     <div
-      class="sc-qdQOe kPUMiD aje-combo-input"
+      class="sc-qdQOe gGqPEP aje-combo-input"
     >
       <div
         aria-labelledby="react-aria-:ra7:"

@@ -53,8 +53,8 @@ export const FieldStatus = css`
   }
 
   &[data-readonly] {
-    --input-border-clr: var(--neutral100);
-    --input-bg-clr: var(--neutral100);
+    --input-border-clr: var(--background-clr-subtle);
+    --input-bg-clr: var(--background-clr-subtle);
   }
 `;
 
@@ -76,7 +76,7 @@ export const InputLike = css`
 
   &:focus,
   &:focus-within {
-    --input-border-clr: var(--outline-clr-primary);
+    --input-border-clr: var(--border-clr-focus);
     outline: var(--input-outline);
   }
 `;
@@ -116,7 +116,7 @@ export const ToggleInputLike = (element: Interpolation<any>) => {
     }
 
     &[data-invalid] span::before {
-      border-color: var(--error700);
+      border-color: var(--error-clr-hover);
     }
   `;
 };

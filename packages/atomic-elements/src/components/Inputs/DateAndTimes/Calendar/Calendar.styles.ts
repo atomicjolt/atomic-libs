@@ -5,7 +5,7 @@ export const CalendarWrapper = styled.div`
   ${mixins.Regular}
   padding: 10px;
   border-radius: 6px;
-  background-color: white;
+  background-color: var(--background-clr);
 
   &.is-small {
     --calendar-cell-size: 32px;
@@ -46,7 +46,7 @@ export const CalendarWrapper = styled.div`
 export const CalendarHeaderTitle = styled.h2`
   ${mixins.Bold}
   font-size: var(--font-size);
-  color: var(--neutral600);
+  color: var(--text-clr-secondary);
 `;
 
 export const CalendarContent = styled.table`
@@ -59,7 +59,7 @@ export const CalendarWeekDay = styled.th`
   ${mixins.Bold}
   user-select: none;
   font-size: var(--font-size);
-  color: var(--neutral600);
+  color: var(--text-clr-secondary);
 `;
 
 export const StyledCalendarCell = styled.td`
@@ -93,11 +93,11 @@ export const StyledCalendarCell = styled.td`
   &:hover {
     cursor: pointer;
     border-radius: 3px;
-    background-color: var(--neutral200);
+    background-color: var(--background-clr-subtle-hover);
   }
 
   &[data-disabled] {
-    color: var(--neutral400);
+    color: var(--text-clr-disabled);
 
     &:hover {
       cursor: auto;

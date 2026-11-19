@@ -38,6 +38,6 @@ export const StyledTextArea = styled.textarea`
   &:focus {
     box-shadow: 0 0 0 1px var(--input-border-clr);
     outline: var(--input-outline);
-    --input-border-clr: var(--outline-clr-primary);
+    --input-border-clr: var(--border-clr-focus);
   }
 `;

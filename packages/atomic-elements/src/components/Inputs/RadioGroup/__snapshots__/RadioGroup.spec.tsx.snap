@@ -17,7 +17,7 @@ exports[`matches snapshot 1`] = `
       Label
     </legend>
     <div
-      class="sc-gKkgUA fWPtmk aje-radio"
+      class="sc-gKkgUA jZDuSw aje-radio"
       data-selected="true"
     >
       <input
@@ -35,7 +35,7 @@ exports[`matches snapshot 1`] = `
       </span>
     </div>
     <div
-      class="sc-gKkgUA fWPtmk aje-radio"
+      class="sc-gKkgUA jZDuSw aje-radio"
     >
       <input
         class="sc-ezjgic bKLnNL"
@@ -51,7 +51,7 @@ exports[`matches snapshot 1`] = `
       </span>
     </div>
     <div
-      class="sc-gKkgUA fWPtmk aje-radio"
+      class="sc-gKkgUA jZDuSw aje-radio"
     >
       <input
         class="sc-ezjgic bKLnNL"

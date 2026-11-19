@@ -3,7 +3,7 @@
 exports[`DateField > matches snapshots > basic composition 1`] = `
 <DocumentFragment>
   <div
-    class="sc-bdDsCe disTus aje-datefield"
+    class="sc-bdDsCe ihCTRg aje-datefield"
   >
     <label
       class="sc-fuztkK dZgNGq"
@@ -12,7 +12,7 @@ exports[`DateField > matches snapshots > basic composition 1`] = `
       Date
     </label>
     <div
-      class="sc-dYjPD ffUWuX aje-combo-input"
+      class="sc-dYjPD trAVH aje-combo-input"
     >
       <div
         aria-labelledby="react-aria-:r1:"
@@ -105,7 +105,7 @@ exports[`DateField > matches snapshots > basic composition 1`] = `
 exports[`DateField > matches snapshots > disabled state 1`] = `
 <DocumentFragment>
   <div
-    class="sc-bdDsCe disTus aje-datefield"
+    class="sc-bdDsCe ihCTRg aje-datefield"
     data-disabled="true"
   >
     <label
@@ -115,7 +115,7 @@ exports[`DateField > matches snapshots > disabled state 1`] = `
       Date
     </label>
     <div
-      class="sc-dYjPD ffUWuX aje-combo-input"
+      class="sc-dYjPD trAVH aje-combo-input"
     >
       <div
         aria-disabled="true"
@@ -197,7 +197,7 @@ exports[`DateField > matches snapshots > disabled state 1`] = `
 exports[`DateField > matches snapshots > required state 1`] = `
 <DocumentFragment>
   <div
-    class="sc-bdDsCe disTus aje-datefield"
+    class="sc-bdDsCe ihCTRg aje-datefield"
     data-required="true"
   >
     <label
@@ -207,7 +207,7 @@ exports[`DateField > matches snapshots > required state 1`] = `
       Date
     </label>
     <div
-      class="sc-dYjPD ffUWuX aje-combo-input"
+      class="sc-dYjPD trAVH aje-combo-input"
     >
       <div
         aria-labelledby="react-aria-:r1t:"
@@ -303,7 +303,7 @@ exports[`DateField > matches snapshots > required state 1`] = `
 exports[`DateField > matches snapshots > with granularity hour 1`] = `
 <DocumentFragment>
   <div
-    class="sc-bdDsCe disTus aje-datefield"
+    class="sc-bdDsCe ihCTRg aje-datefield"
   >
     <label
       class="sc-fuztkK dZgNGq"
@@ -312,7 +312,7 @@ exports[`DateField > matches snapshots > with granularity hour 1`] = `
       Date and Time
     </label>
     <div
-      class="sc-dYjPD ffUWuX aje-combo-input"
+      class="sc-dYjPD trAVH aje-combo-input"
     >
       <div
         aria-labelledby="react-aria-:r2c:"
@@ -470,7 +470,7 @@ exports[`DateField > matches snapshots > with granularity hour 1`] = `
 exports[`DateField > matches snapshots > with message and error 1`] = `
 <DocumentFragment>
   <div
-    class="sc-bdDsCe disTus aje-datefield"
+    class="sc-bdDsCe ihCTRg aje-datefield"
     data-invalid="true"
   >
     <label
@@ -480,13 +480,13 @@ exports[`DateField > matches snapshots > with message and error 1`] = `
       Date
     </label>
     <p
-      class="sc-jrIDTr coCtLn is-auto"
+      class="sc-jrIDTr jhdZKc is-auto"
       id="react-aria-:r11:"
     >
       Enter your birth date
     </p>
     <div
-      class="sc-dYjPD ffUWuX aje-combo-input"
+      class="sc-dYjPD trAVH aje-combo-input"
     >
       <div
         aria-describedby="react-aria-:r11: react-aria-:r12:"
@@ -592,7 +592,7 @@ exports[`DateField > matches snapshots > with message and error 1`] = `
 exports[`DateField > matches snapshots > with value 1`] = `
 <DocumentFragment>
   <div
-    class="sc-bdDsCe disTus aje-datefield"
+    class="sc-bdDsCe ihCTRg aje-datefield"
   >
     <label
       class="sc-fuztkK dZgNGq"
@@ -601,7 +601,7 @@ exports[`DateField > matches snapshots > with value 1`] = `
       Date
     </label>
     <div
-      class="sc-dYjPD ffUWuX aje-combo-input"
+      class="sc-dYjPD trAVH aje-combo-input"
     >
       <div
         aria-describedby="react-aria-description-0"
