@@ -25,7 +25,7 @@ export const semanticColors = {
   "text-clr-disabled": "{neutral400}",
   "text-clr-inverted": "{neutral50}",
   "text-clr-on-accent": "{text-clr-inverted}",
-  "icon-clr": "{neutral600}",
+  "icon-clr-secondary": "{neutral600}",
   "indicator-clr": "{neutral500}",
 
   // Borders & outlines

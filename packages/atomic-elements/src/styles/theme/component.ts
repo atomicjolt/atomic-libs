@@ -12,7 +12,7 @@ export const input = {
   "input-gap": "12px",
   "input-font-size": "1.6rem",
   "input-icon-size": "2.4rem",
-  "input-icon-clr": "{icon-clr}",
+  "input-icon-clr": "{icon-clr-secondary}",
   "input-text-clr": "{text-clr}",
   "input-bg-clr": "none",
   "input-transition": "none",
@@ -51,7 +51,7 @@ export const dropdown = {
   "dropdown-text-clr": "{text-clr}",
   "dropdown-text-size": "1.6rem",
   "dropdown-icon-size": "2.4rem",
-  "dropdown-icon-clr": "{icon-clr}",
+  "dropdown-icon-clr": "{icon-clr-secondary}",
   "dropdown-box-shadow": "{shadow-sm}",
   "dropdown-border-radius": "{radius}",
 };

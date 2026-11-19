@@ -13,7 +13,7 @@ export const SelectWrapper = styled.div`
     bottom: 8px;
     font-size: 2.4rem;
     line-height: 1;
-    color: var(--icon-clr);
+    color: var(--icon-clr-secondary);
     pointer-events: none;
   }
 `;

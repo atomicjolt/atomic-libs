@@ -43,7 +43,7 @@ export const MenuOption = styled.li`
   background-color: var(--menu-item-bg-clr);
   text-decoration: none;
 
-  --menu-item-icon-clr: var(--icon-clr);
+  --menu-item-icon-clr: var(--icon-clr-secondary);
   i {
     font-size: 2rem;
     color: var(--menu-item-icon-clr);

@@ -135,7 +135,7 @@ Light values reproduce today's usage. `{s}` ∈ `error`, `warning`, `success`, `
 | `text-clr-disabled` | `{neutral400}` | disabled text, placeholder-ish icons |
 | `text-clr-inverted` | `{neutral50}` | text on `background-clr-inverted` only |
 | `text-clr-on-accent` | `{text-clr-inverted}` | text/icons on accent and solid status fills. Defaults to `text-clr-inverted` so existing overrides of that token still reach buttons etc.; dark mode can set it independently later |
-| `icon-clr` | `{neutral600}` | default icon color |
+| `icon-clr-secondary` | `{neutral600}` | muted icons (input adornments, dropdown chevrons, menu icons). Not `icon-clr`: `MaterialIcon` reads `var(--icon-clr, inherit)` as an optional local hook |
 | `border-clr` | `{neutral300}` | was `border-clr-primary` |
 | `border-clr-strong` | `{neutral600}` | checkbox / radio borders |
 | `border-clr-focus` | `{outline-clr}` (neutral600) | focused input border, all input variants (grey, matching today's default) |
@@ -199,7 +199,7 @@ shade → new token (new shade). Known in advance:
 - Time selected bg `primary600` → `accent-clr` (primary700); time/calendar selected
   text `neutral100` → `text-clr-on-accent` (neutral50).
 - Menu/ListBox disabled text `neutral400` stays (`text-clr-disabled`); Select/Calendar
-  `neutral600` icon/text → `icon-clr` / `text-clr-secondary` (same shade).
+  `neutral600` icon/text → `icon-clr-secondary` / `text-clr-secondary` (same shade).
 - Tabs inactive text `neutral300` → closest token (`text-clr-disabled`, neutral400).
 - Floating-label input focus border `primary700` (teal) → `border-clr-focus` (grey,
   neutral600). Intentional: all inputs now share the same grey focus border.
