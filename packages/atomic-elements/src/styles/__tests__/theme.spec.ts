@@ -124,6 +124,19 @@ describe("createTheme color schemes", () => {
     expect(child.variables).toHaveProperty("bg", "white");
   });
 
+  it("non-base schemes resolve on top of the base scheme", () => {
+    const theme = createTheme({
+      colorSchemes: {
+        light: { variables: { bg: "white", fg: "black" } },
+        dark: { variables: { bg: "black" } },
+      },
+    });
+    expect(theme.colorSchemes.dark.resolvedVariables).toMatchObject({
+      "--bg": "black",
+      "--fg": "black",
+    });
+  });
+
   it("resolves aliases across layers", () => {
     const theme = createTheme({
       variables: { y: "blue" },

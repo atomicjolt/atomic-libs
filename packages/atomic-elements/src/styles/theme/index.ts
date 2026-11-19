@@ -1,7 +1,13 @@
 import { createTheme } from "./theme";
 import { palette, PaletteColor } from "./palette";
 import * as foundations from "./foundations";
-import { semanticColors, deprecatedColors, effects } from "./semantic";
+import {
+  semanticColors,
+  deprecatedColors,
+  effects,
+  darkColors,
+  darkEffects,
+} from "./semantic";
 import type { SemanticColor } from "./semantic";
 import * as component from "./component";
 
@@ -71,5 +77,6 @@ export const defaultTheme = createTheme({
   variables: sharedVariables,
   colorSchemes: {
     light: { mode: "light", variables: lightScheme },
+    dark: { mode: "dark", variables: { ...darkColors, ...darkEffects } },
   },
 });

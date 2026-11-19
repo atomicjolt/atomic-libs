@@ -77,6 +77,39 @@ describe("semantic tokens", () => {
     }
   });
 
+  it("dark scheme anchors", () => {
+    const dark = (name: string) => resolveToLiteral(defaultTheme, name, "dark");
+    expect(defaultTheme.colorSchemes.dark.mode).toBe("dark");
+    expect(dark("background-clr")).toBe(resolve("neutral900"));
+    expect(dark("background-clr-raised")).toBe(resolve("neutral800"));
+    expect(dark("text-clr")).toBe(resolve("neutral100"));
+    expect(dark("text-clr-secondary")).toBe(resolve("neutral300"));
+    expect(dark("border-clr")).toBe(resolve("neutral700"));
+    expect(dark("accent-clr")).toBe(resolve("primary400"));
+  });
+
+  it("dark scheme overrides deprecated source names", () => {
+    const darkVariables = defaultTheme.colorSchemes.dark.variables;
+    for (const [source, replacement] of [
+      ["text-clr-alt", "text-clr-secondary"],
+      ["background-clr-alt", "background-clr-subtle"],
+      ["border-clr-primary", "border-clr"],
+      ["accent-clr-alt", "accent-clr-hover"],
+      ["info-clr", "info-clr-subtle"],
+    ]) {
+      expect(darkVariables, source).toHaveProperty(source);
+      expect(darkVariables, replacement).not.toHaveProperty(replacement);
+    }
+  });
+
+  it("consumer override of a deprecated name reaches dark", () => {
+    const theme = createTheme({
+      base: defaultTheme,
+      variables: { "text-clr-alt": "red" },
+    });
+    expect(resolveToLiteral(theme, "text-clr-secondary", "dark")).toBe("red");
+  });
+
   it("color props accept palette, semantic and deprecated names", () => {
     for (const name of ["neutral100", "text-clr-secondary", "text-clr-alt"]) {
       expect(textColor({ $color: name, theme: defaultTheme })).toEqual({

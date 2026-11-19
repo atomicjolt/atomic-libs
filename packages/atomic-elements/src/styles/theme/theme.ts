@@ -160,7 +160,8 @@ export function createTheme(props: CreateThemeProps): Theme {
     resolvedSchemes[name] = {
       mode: scheme.mode,
       variables: scheme.variables,
-      resolvedVariables: resolveAll({ ...shared, ...scheme.variables }),
+      // Scheme blocks layer on top of the base block in CSS, so do the same here.
+      resolvedVariables: resolveAll({ ...baseValues, ...scheme.variables }),
     };
   }
 
