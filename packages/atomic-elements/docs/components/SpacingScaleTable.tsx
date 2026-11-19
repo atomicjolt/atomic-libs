@@ -1,4 +1,4 @@
-import { spacing } from "../../src/styles/variables";
+import { spacing } from "../../src/styles/theme/foundations";
 
 export function SpacingScaleTable() {
   const scale = Object.values(spacing).map((value, idx) => ({

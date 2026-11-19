@@ -1,7 +1,16 @@
 import fs from "fs";
 import path from "path";
-import * as variables from "../packages/atomic-elements/src/styles/variables";
+import * as palette from "../packages/atomic-elements/src/styles/theme/palette";
+import * as foundations from "../packages/atomic-elements/src/styles/theme/foundations";
+import * as semantic from "../packages/atomic-elements/src/styles/theme/semantic";
+import * as component from "../packages/atomic-elements/src/styles/theme/component";
 import { defaultTheme } from "../packages/atomic-elements/src/styles/theme";
+
+/** Exports whose Storybook group name isn't just the capitalized export name. */
+const GROUP_NAMES: Record<string, string> = {
+  palette: "Colors",
+  semanticColors: "Colors",
+};
 
 function main() {
   const props = getCssProps();
@@ -23,20 +32,26 @@ function main() {
 
 function getCssProps() {
   const cssProps: Record<string, any> = {};
-  Object.entries(variables).forEach(([group, value]) => {
-    if (group === "variables") return;
-    const groupName = `${group.charAt(0).toUpperCase()}${group.slice(1)}`;
+  const modules = [palette, foundations, semantic, component];
 
-    cssProps[groupName] = {};
+  modules.forEach((module) => {
+    Object.entries(module).forEach(([group, value]) => {
+      if (!value || typeof value !== "object") return;
+      const groupName =
+        GROUP_NAMES[group] ??
+        `${group.charAt(0).toUpperCase()}${group.slice(1)}`;
 
-    Object.entries(value).forEach(([name, value]) => {
-      const cssVarValue = defaultTheme.getVarValue(name);
+      cssProps[groupName] ??= {};
 
-      cssProps[groupName][name] = {
-        value: cssVarValue,
-        control: guessControlType(name, cssVarValue),
-        category: groupName,
-      };
+      Object.entries(value).forEach(([name]) => {
+        const cssVarValue = defaultTheme.getVarValue(name);
+
+        cssProps[groupName][name] = {
+          value: cssVarValue,
+          control: guessControlType(name, cssVarValue),
+          category: groupName,
+        };
+      });
     });
   });
 

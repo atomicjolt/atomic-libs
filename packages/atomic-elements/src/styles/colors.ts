@@ -1,6 +1,6 @@
 import { DefaultTheme } from "styled-components";
 import { SuggestStrings } from "../types";
-import { Color } from "./variables";
+import { Color } from "./theme";
 
 function colorProperty<T extends object>(cssProperty: string, prop: string) {
   const func = (props: T & { theme: DefaultTheme }) => {
