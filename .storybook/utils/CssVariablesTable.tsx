@@ -1,5 +1,4 @@
-import React from "react";
-import { PureArgsTable, useOf } from "@storybook/blocks";
+import { PureArgsTable, Subheading, useOf } from "@storybook/blocks";
 
 interface CssPropItem {
   value: string;
@@ -15,8 +14,10 @@ interface CssPropItem {
  * scheme always applies.
  */
 export function CssVariablesTable() {
-  const { preparedMeta } = useOf("meta");
-  const cssprops = (preparedMeta.parameters?.cssprops ?? {}) as Record<
+  const resolved = useOf("meta");
+  // useOf's return type is a union of component/meta/story; narrow to meta.
+  const parameters = resolved.type === "meta" ? resolved.preparedMeta.parameters : {};
+  const cssprops = (parameters?.cssprops ?? {}) as Record<
     string,
     unknown
   >;
@@ -47,7 +48,7 @@ export function CssVariablesTable() {
 
   return (
     <>
-      <Heading>CSS Variables</Heading>
+      <Subheading>CSS Variables</Subheading>
       <PureArgsTable rows={rows} />
     </>
   );
