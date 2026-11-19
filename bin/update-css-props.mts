@@ -37,7 +37,7 @@ function getCssProps() {
 
   modules.forEach((module) => {
     Object.entries(module).forEach(([group, value]) => {
-      if (!value || typeof value !== "object") return;
+      if (!value || typeof value !== "object" || Array.isArray(value)) return;
       const groupName =
         GROUP_NAMES[group] ??
         `${group.charAt(0).toUpperCase()}${group.slice(1)}`;
