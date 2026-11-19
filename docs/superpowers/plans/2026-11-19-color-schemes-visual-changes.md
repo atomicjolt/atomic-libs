@@ -13,3 +13,7 @@ Light-scheme changes from this work, plus the dark scheme values for review in S
 | Component | State | Before | After (token → shade) |
 |---|---|---|---|
 | Floating-label inputs | Invalid label | `error800` | `error-clr` → `error600` |
+
+## Known light contrast failures
+
+None — every pair in `CONTRAST_PAIRS` already meets WCAG AA in the light scheme.
