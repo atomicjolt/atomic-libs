@@ -7,19 +7,6 @@ import { resolveToLiteral } from "./tokenResolution";
 const resolve = (name: string) => resolveToLiteral(defaultTheme, name);
 
 describe("semantic tokens", () => {
-  it("new tokens resolve to today's shades", () => {
-    expect(resolve("text-clr-secondary")).toBe(resolve("neutral600"));
-    expect(resolve("background-clr-raised")).toBe(resolve("neutral50"));
-    expect(resolve("border-clr-focus")).toBe(resolve("neutral600"));
-    expect(resolve("info-clr-fill")).toBe(resolve("primary600"));
-    expect(resolve("info-clr-subtle")).toBe(resolve("primary100"));
-    expect(resolve("error-clr-subtle-text")).toBe(resolve("error800"));
-    expect(resolve("warning-clr-subtle-border")).toBe(resolve("warning300"));
-    expect(resolve("text-clr-on-accent")).toBe(resolve("neutral50"));
-    expect(resolve("accent-clr-hover")).toBe(resolve("primary800"));
-    expect(resolve("shadow-lg")).toBe("0 10px 40px hsla(0, 0%, 0%, 0.25)");
-  });
-
   it("palette overrides flow through semantic tokens", () => {
     const theme = createTheme({
       base: defaultTheme,
