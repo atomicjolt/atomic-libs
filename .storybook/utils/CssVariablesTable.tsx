@@ -1,5 +1,5 @@
 import React from "react";
-import { Heading, PureArgsTable, useOf } from "@storybook/blocks";
+import { PureArgsTable, useOf } from "@storybook/blocks";
 
 interface CssPropItem {
   value: string;
@@ -47,6 +47,7 @@ export function CssVariablesTable() {
 
   return (
     <>
+      <Heading>CSS Variables</Heading>
       <PureArgsTable rows={rows} />
     </>
   );
