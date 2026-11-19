@@ -69,7 +69,6 @@ describe("semantic tokens", () => {
       ["success-clr-fill-hover", "success800"],
       ["warning-clr-fill", "warning700"],
       ["warning-clr-fill-hover", "warning800"],
-      ["text-clr-tertiary", "neutral400"],
       ["background-clr-disabled", "neutral300"],
     ];
     for (const [token, shade] of same) {

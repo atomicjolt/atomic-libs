@@ -217,7 +217,7 @@ change in light) and repoint:
   text, icons, links and borders. Needed because in dark, accent text must be light
   (`primary400`) while a fill under white text must stay dark enough.
 - Invalid floating label: `error-clr-subtle-text` → `error-clr`.
-- Menu section title: `text-clr-disabled` → new `text-clr-tertiary` (`neutral400`).
+- Menu section title: `text-clr-disabled` → `text-clr-secondary`, restyled as a small uppercase heading matching ListBox section titles (changed after review; no `text-clr-tertiary` token).
 - Disabled tab background: `background-clr-active` → new `background-clr-disabled`
   (`neutral300`).
 - Disclosure trigger base: `background-clr-subtle-hover` stays (it is a pressed-looking

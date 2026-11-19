@@ -23,7 +23,6 @@ export const semanticColors = {
   // Text & icons
   "text-clr": "{neutral800}",
   "text-clr-secondary": "{text-clr-alt}",
-  "text-clr-tertiary": "{neutral400}",
   "text-clr-disabled": "{neutral400}",
   "text-clr-inverted": "{neutral50}",
   "text-clr-on-accent": "{text-clr-inverted}",
@@ -152,7 +151,6 @@ export const darkColors = {
   // Text & icons
   "text-clr": "{neutral100}",
   "text-clr-alt": "{neutral300}",
-  "text-clr-tertiary": "{neutral500}",
   "text-clr-disabled": "{neutral500}",
   "text-clr-inverted": "{neutral900}",
   "text-clr-on-accent": "{neutral50}",

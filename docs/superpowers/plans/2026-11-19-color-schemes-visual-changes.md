@@ -5,7 +5,6 @@ Light-scheme changes from this work, plus the dark scheme values for review in S
 ## Added tokens
 
 - `accent-clr-fill`, `accent-clr-fill-hover`, `{error,warning,success}-clr-fill`, `-fill-hover`: solid fills behind `text-clr-on-accent` (buttons, selected items, checked controls, error banner). Light values equal today's shades.
-- `text-clr-tertiary` (`neutral400`): muted labels such as menu section titles.
 - `background-clr-disabled` (`neutral300`): disabled tab background.
 - `info-clr-icon` (`primary700`; dark `primary400`): info banner icon. Light shade unchanged.
 
@@ -14,6 +13,7 @@ Light-scheme changes from this work, plus the dark scheme values for review in S
 | Component | State | Before | After (token → shade) |
 |---|---|---|---|
 | Floating-label inputs | Invalid label | `error800` | `error-clr` → `error600` |
+| Menu | Section title | 14px regular, `neutral400`, inline (no vertical spacing) | 12px bold uppercase, `text-clr-secondary` (`neutral600`), block with padding — matches ListBox section titles |
 | Calendar | Invalid date cell | bg `error600`, dark text (3.05:1) | `error-clr-fill` → `error700` with white `text-clr-on-accent` (6.41:1) |
 
 ## Known light contrast failures

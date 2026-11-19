@@ -10,5 +10,6 @@ Add light and dark color schemes.
 - New `useColorScheme()` hook to read and change the scheme. The library doesn't store the choice; apps do.
 - With `applyDefaultStyles`, the page background and text color follow non-light schemes.
 - Fixes found in review: selected chip text stays white in dark; info banner icon uses a new `info-clr-icon` token; the invalid calendar date cell uses `error-clr-fill` with white text (was `error600` with dark text); `cssVarsSelector` lists (e.g. `":root, :host"`) are scoped per part; `createTheme` accepts base themes without the new fields.
-- New semantic tokens: `accent-clr-fill`, `accent-clr-fill-hover`, `{error,warning,success}-clr-fill`, `-fill-hover` (solid backgrounds behind white text), `text-clr-tertiary`, `background-clr-disabled`. Buttons, selected items and checked controls now use the fill tokens (same shades in light).
+- New semantic tokens: `accent-clr-fill`, `accent-clr-fill-hover`, `{error,warning,success}-clr-fill`, `-fill-hover` (solid backgrounds behind white text), `background-clr-disabled`. Buttons, selected items and checked controls now use the fill tokens (same shades in light).
 - The invalid floating-label text uses `error-clr` (`error600`, was `error800`).
+- Menu section titles are restyled as small uppercase headings (bold, `text-clr-secondary`), matching ListBox section titles.
