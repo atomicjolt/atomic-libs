@@ -1,6 +1,6 @@
 import { createGlobalStyle, css } from "styled-components";
-import { SuggestStrings } from "../types";
-import { variables } from "./variables";
+import { SuggestStrings } from "../../types";
+import type { variables } from "./index";
 
 type VariableName = SuggestStrings<keyof typeof variables>;
 
@@ -52,7 +52,6 @@ export function createTheme(props: CreateThemeProps): Theme {
             return `var(--${cssVarPrefix}${name})`;
           }
         } else {
-          debugger;
           throw new Error(
             `Variable ${name} not found in theme, make sure you have defined it, or provide a default value ({variable-name:default-valu})`
           );
@@ -90,8 +89,6 @@ export function variableAlias(name: VariableName, defaultValue?: string) {
 
   return `{${name}}`;
 }
-
-export const defaultTheme = createTheme({ variables });
 
 declare module "styled-components" {
   export interface DefaultTheme extends Theme {}

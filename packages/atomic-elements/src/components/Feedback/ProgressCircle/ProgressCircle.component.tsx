@@ -1,7 +1,7 @@
 import { forwardRef, useMemo } from "react";
 import { useProgressBar, AriaProgressBarProps } from "@react-aria/progress";
 import { RenderStyleProps, SuggestStrings } from "../../../types";
-import { Color } from "@styles/variables";
+import { Color } from "@styles/theme";
 import { useContextProps } from "@hooks/useContextProps";
 import { useRenderProps } from "@hooks/useRenderProps";
 import { ProgressCircleContext } from "./ProgressCircle.context";

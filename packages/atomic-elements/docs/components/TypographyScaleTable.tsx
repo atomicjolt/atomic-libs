@@ -2,7 +2,7 @@ import {
   fontSize,
   letterSpacing,
   lineHeight,
-} from "../../src/styles/variables";
+} from "../../src/styles/theme/foundations";
 
 export function TypographyScaleTable() {
   const scale = Array.from({ length: 9 }, (_, i) => ({
