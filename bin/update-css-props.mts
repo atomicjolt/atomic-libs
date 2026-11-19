@@ -10,6 +10,7 @@ import { defaultTheme } from "../packages/atomic-elements/src/styles/theme";
 const GROUP_NAMES: Record<string, string> = {
   palette: "Colors",
   semanticColors: "Colors",
+  deprecatedColors: "Colors",
 };
 
 function main() {
