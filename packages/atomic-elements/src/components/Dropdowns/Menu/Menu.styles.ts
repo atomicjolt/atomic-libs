@@ -21,7 +21,7 @@ export const MenuSectionList = styled.ul`
 export const MenuSectionTitle = styled.span`
   ${mixins.Regular}
   margin: 8px 16px;
-  color: var(--neutral400);
+  color: var(--text-clr-disabled);
   font-size: 1.4rem;
   line-height: 1;
 `;
@@ -43,26 +43,26 @@ export const MenuOption = styled.li`
   background-color: var(--menu-item-bg-clr);
   text-decoration: none;
 
-  --menu-item-icon-clr: var(--neutral600);
+  --menu-item-icon-clr: var(--icon-clr);
   i {
     font-size: 2rem;
     color: var(--menu-item-icon-clr);
   }
 
   &:hover {
-    --menu-item-bg-clr: var(--neutral100);
+    --menu-item-bg-clr: var(--background-clr-hover);
     cursor: pointer;
   }
   &:active,
   &:focus-visible {
-    --menu-item-bg-clr: var(--neutral200);
+    --menu-item-bg-clr: var(--background-clr-subtle-hover);
     outline: none;
   }
   &.is-focused {
-    --menu-item-bg-clr: var(--primary700);
-    --menu-item-text-clr: var(--text-clr-inverted);
-    --menu-item-icon-clr: var(--text-clr-inverted);
-    --menu-item-selected-clr: var(--text-clr-inverted);
+    --menu-item-bg-clr: var(--accent-clr);
+    --menu-item-text-clr: var(--text-clr-on-accent);
+    --menu-item-icon-clr: var(--text-clr-on-accent);
+    --menu-item-selected-clr: var(--text-clr-on-accent);
   }
 
   &[aria-disabled] {

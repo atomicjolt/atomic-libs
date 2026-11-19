@@ -46,7 +46,7 @@ export const banner = {
 };
 
 export const dropdown = {
-  "dropdown-bg-clr": "{background-clr}",
+  "dropdown-bg-clr": "{background-clr-raised}",
   "dropdown-max-height": "300px",
   "dropdown-text-clr": "{text-clr}",
   "dropdown-text-size": "1.6rem",

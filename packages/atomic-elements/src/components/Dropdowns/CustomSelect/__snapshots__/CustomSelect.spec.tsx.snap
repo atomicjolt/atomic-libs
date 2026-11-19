@@ -6,7 +6,7 @@ exports[`matches snapshots > matches default variant 1`] = `
     data-react-aria-hidden="true"
   />
   <div
-    class="sc-ezjgic gpbumi aje-select sc-jJwPsw clWTja aje-select aje-select--default is-medium"
+    class="sc-ezjgic gpbumi aje-select sc-jJwPsw itReAH aje-select aje-select--default is-medium"
   >
     <div
       aria-hidden="true"
@@ -72,7 +72,7 @@ exports[`matches snapshots > matches floating variant 1`] = `
     data-react-aria-hidden="true"
   />
   <div
-    class="sc-ezjgic gpbumi aje-select sc-jJwPsw clWTja aje-select aje-select--floating is-medium aje-select--floating"
+    class="sc-ezjgic gpbumi aje-select sc-jJwPsw itReAH aje-select aje-select--floating is-medium aje-select--floating"
   >
     <div
       aria-hidden="true"
