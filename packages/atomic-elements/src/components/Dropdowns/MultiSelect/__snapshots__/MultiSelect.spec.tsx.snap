@@ -6,7 +6,7 @@ exports[`MultiSelect > matches default variant 1`] = `
     data-react-aria-hidden="true"
   />
   <div
-    class="sc-bYgEKt kBqHDs aje-multiselect sc-ikBzZv eKosIW aje-multiselect aje-multiselect--default is-medium"
+    class="sc-bYgEKt kBqHDs aje-multiselect sc-ikBzZv gKOcxP aje-multiselect aje-multiselect--default is-medium"
   >
     <label
       class="sc-dkXsAU bCsPXP"
@@ -47,7 +47,7 @@ exports[`MultiSelect > matches floating variant 1`] = `
     data-react-aria-hidden="true"
   />
   <div
-    class="sc-bYgEKt kBqHDs aje-multiselect sc-ikBzZv eKosIW aje-multiselect aje-multiselect--floating is-medium aje-multiselect--floating"
+    class="sc-bYgEKt kBqHDs aje-multiselect sc-ikBzZv gKOcxP aje-multiselect aje-multiselect--floating is-medium aje-multiselect--floating"
   >
     <div
       class="sc-ezjgic inJFVa"

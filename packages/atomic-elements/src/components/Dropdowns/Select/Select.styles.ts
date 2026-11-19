@@ -13,7 +13,7 @@ export const SelectWrapper = styled.div`
     bottom: 8px;
     font-size: 2.4rem;
     line-height: 1;
-    color: var(--neutral600);
+    color: var(--icon-clr);
     pointer-events: none;
   }
 `;
@@ -25,7 +25,7 @@ export const StyledSelect = styled.select`
   --input-width-lg: 360px;
 
   ${mixins.Border("input")}
-  background-color: var(--neutral50);
+  background-color: var(--background-clr);
   min-height: 40px;
   width: 100%;
   padding: 10px 40px 10px 12px;
@@ -39,7 +39,7 @@ export const StyledSelect = styled.select`
   }
 
   &:focus {
-    border-color: var(--outline-clr-primary);
+    border-color: var(--border-clr-focus);
     outline: var(--input-outline);
   }
 `;

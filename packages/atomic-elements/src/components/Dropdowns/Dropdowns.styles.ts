@@ -2,12 +2,12 @@ import { css } from "styled-components";
 import mixins from "../../styles/mixins";
 
 export const FloatingDropdown = css`
-  --floating-label-clr: var(--text-clr-alt);
+  --floating-label-clr: var(--text-clr-secondary);
 
   label {
     ${mixins.Regular}
     --floating-font-size: 1.5rem;
-    --dropdown-bg-clr: var(--neutral50);
+    --dropdown-bg-clr: var(--background-clr);
     --floating-label-clr: var(--text-clr);
 
     z-index: 2;

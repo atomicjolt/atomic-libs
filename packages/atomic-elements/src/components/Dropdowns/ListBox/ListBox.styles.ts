@@ -21,7 +21,7 @@ export const SubList = styled.ul`
 
 export const SectionTitle = styled.span`
   ${mixins.Regular}
-  color: var(--text-clr-alt);
+  color: var(--text-clr-secondary);
   line-height: 1;
   padding: 6px 24px 6px 16px;
   font-size: 1.2rem;
@@ -56,27 +56,27 @@ export const ListItem = styled.li`
   }
 
   &:hover {
-    --listbox-bg-clr: var(--neutral100);
+    --listbox-bg-clr: var(--background-clr-hover);
     cursor: pointer;
   }
 
   &[data-focus-visible="true"] {
-    --listbox-bg-clr: var(--background-clr-alt);
+    --listbox-bg-clr: var(--background-clr-subtle);
   }
 
   &[aria-selected="true"] {
-    --listbox-icon-clr: var(--text-clr-inverted);
+    --listbox-icon-clr: var(--text-clr-on-accent);
     --listbox-bg-clr: var(--accent-clr);
-    color: var(--text-clr-inverted);
+    color: var(--text-clr-on-accent);
   }
 
   &[aria-selected="true"][data-focus-visible="true"],
   &:hover[aria-selected="true"] {
-    --listbox-bg-clr: var(--accent-clr-alt);
-    color: var(--text-clr-inverted);
+    --listbox-bg-clr: var(--accent-clr-hover);
+    color: var(--text-clr-on-accent);
   }
 
   &[aria-disabled] {
-    color: var(--neutral400);
+    color: var(--text-clr-disabled);
   }
 `;
