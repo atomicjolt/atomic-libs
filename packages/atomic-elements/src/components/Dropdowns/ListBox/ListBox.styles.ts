@@ -66,13 +66,13 @@ export const ListItem = styled.li`
 
   &[aria-selected="true"] {
     --listbox-icon-clr: var(--text-clr-on-accent);
-    --listbox-bg-clr: var(--accent-clr);
+    --listbox-bg-clr: var(--accent-clr-fill);
     color: var(--text-clr-on-accent);
   }
 
   &[aria-selected="true"][data-focus-visible="true"],
   &:hover[aria-selected="true"] {
-    --listbox-bg-clr: var(--accent-clr-hover);
+    --listbox-bg-clr: var(--accent-clr-fill-hover);
     color: var(--text-clr-on-accent);
   }
 

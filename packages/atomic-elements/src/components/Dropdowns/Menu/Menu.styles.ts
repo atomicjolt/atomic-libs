@@ -21,7 +21,7 @@ export const MenuSectionList = styled.ul`
 export const MenuSectionTitle = styled.span`
   ${mixins.Regular}
   margin: 8px 16px;
-  color: var(--text-clr-disabled);
+  color: var(--text-clr-tertiary);
   font-size: 1.4rem;
   line-height: 1;
 `;
@@ -59,7 +59,7 @@ export const MenuOption = styled.li`
     outline: none;
   }
   &.is-focused {
-    --menu-item-bg-clr: var(--accent-clr);
+    --menu-item-bg-clr: var(--accent-clr-fill);
     --menu-item-text-clr: var(--text-clr-on-accent);
     --menu-item-icon-clr: var(--text-clr-on-accent);
     --menu-item-selected-clr: var(--text-clr-on-accent);

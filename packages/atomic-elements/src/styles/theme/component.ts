@@ -86,7 +86,7 @@ export const textarea = {
 
 export const toggle = {
   "toggle-unchecked": "{background-clr-strong}",
-  "toggle-checked": "{accent-clr}",
+  "toggle-checked": "{accent-clr-fill}",
   "toggle-error": "{error-clr}",
   "toggle-size": "2.4rem",
   "toggle-travel": "calc({toggle-size} * 0.666)",
@@ -139,7 +139,7 @@ export const popover = {
 
 export const checkbox = {
   "checkbox-border-radius": "{radius}",
-  "checkbox-checked": "{accent-clr}",
+  "checkbox-checked": "{accent-clr-fill}",
   "checkbox-border-clr": "{border-clr-strong}",
   "checkbox-border-width": "2px",
   "checkbox-icon-clr": "{text-clr-on-accent}",
@@ -153,7 +153,7 @@ export const checkbox = {
 
 export const radio = {
   "radio-border-radius": "50%",
-  "radio-checked": "{accent-clr}",
+  "radio-checked": "{accent-clr-fill}",
   "radio-border-clr": "{border-clr-strong}",
   "radio-border-width": "2px",
   "radio-bg-clr": "none",
@@ -167,13 +167,13 @@ export const radio = {
 
 export const time = {
   "time-clr": "{background-clr-subtle-hover}",
-  "time-selected-back-clr": "{accent-clr}",
+  "time-selected-back-clr": "{accent-clr-fill}",
   "time-selected-text-clr": "{text-clr-on-accent}",
 };
 
 export const calendar = {
   "calendar-clr": "{background-clr-subtle-hover}",
-  "calendar-selected-bg-clr": "{accent-clr}",
+  "calendar-selected-bg-clr": "{accent-clr-fill}",
   "calendar-selected-text-clr": "{text-clr-on-accent}",
 };
 
@@ -206,8 +206,8 @@ export const chip = {
   "chip-text-clr": "{text-clr-secondary}",
   "chip-radius": "{radius}",
   "chip-hover-bg-clr": "{background-clr-subtle-hover}",
-  "chip-selected-bg-clr": "{accent-clr}",
-  "chip-selected-hover-bg-clr": "{accent-clr-hover}",
+  "chip-selected-bg-clr": "{accent-clr-fill}",
+  "chip-selected-hover-bg-clr": "{accent-clr-fill-hover}",
   "chip-selected-text-clr": "{text-clr-inverted}",
   "chip-btn-hover-bg-clr": "{background-clr-subtle-hover}",
   "chip-border-clr": "{border-clr}",

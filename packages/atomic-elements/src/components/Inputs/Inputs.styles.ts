@@ -57,7 +57,7 @@ const InputVariants = css`
       input:not(:placeholder-shown) ~ label,
       input:focus ~ label,
       ${StyledComboInput}:focus-within ~ label {
-        --floating-label-clr: var(--error-clr-subtle-text);
+        --floating-label-clr: var(--error-clr);
       }
     }
   }

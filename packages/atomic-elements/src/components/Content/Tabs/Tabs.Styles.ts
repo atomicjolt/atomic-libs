@@ -51,7 +51,7 @@ export const TabLink = styled.div`
   }
 
   &[aria-disabled="true"] {
-    --tab-bg-clr: var(--background-clr-active);
+    --tab-bg-clr: var(--background-clr-disabled);
     --tab-border-clr: transparent;
 
     &:hover {
