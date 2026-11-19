@@ -25,10 +25,6 @@ const ALLOWED_LITERALS: Record<string, string[]> = {
   "src/styles/globals.ts": ["rgba(0, 0, 0, 0.004)"],
 };
 
-/** Not migrated yet. Each migration task removes its files from this list. */
-const PENDING: string[] = [
-];
-
 /** Matches a whole token name, bare, quoted, in `{name}` or in `var(--name)`. */
 const tokenPattern = (names: string[]) =>
   new RegExp(`(?:^|[^\\w-]|--)(${names.join("|")})(?![\\w-])`);
@@ -82,16 +78,7 @@ function violations(file: string): string[] {
 
 describe("token layering", () => {
   it("components reference only semantic and component tokens", () => {
-    const problems = scannedFiles()
-      .filter((file) => !PENDING.includes(file))
-      .flatMap(violations);
+    const problems = scannedFiles().flatMap(violations);
     expect(problems).toEqual([]);
-  });
-
-  it("pending files still exist and still need migrating", () => {
-    for (const file of PENDING) {
-      expect(fs.existsSync(path.join(PACKAGE_ROOT, file)), file).toBe(true);
-      expect(violations(file).length, file).toBeGreaterThan(0);
-    }
   });
 });
