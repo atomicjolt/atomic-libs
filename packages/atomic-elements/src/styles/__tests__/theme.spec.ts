@@ -3,6 +3,7 @@ import { renderToString } from "react-dom/server";
 import { ServerStyleSheet } from "styled-components";
 import { describe, expect, it } from "vitest";
 import { createTheme, Theme } from "../theme";
+import { resolveToLiteral } from "./tokenResolution";
 
 /** Renders a theme's global style and returns the CSS text, whitespace-stripped. */
 function cssOf(theme: Theme): string {
@@ -73,37 +74,6 @@ describe("createTheme color schemes", () => {
     expect(theme.resolvedVariables["--bg"]).toBe("black");
   });
 
-  it("custom selector scopes scheme blocks", () => {
-    const theme = createTheme({
-      cssVarsSelector: ".app",
-      colorSchemes: {
-        light: { variables: { bg: "white" } },
-        dark: { variables: { bg: "black" } },
-      },
-    });
-    const css = cssOf(theme);
-    expect(
-      block(css, '[data-color-scheme="dark"].app,.app[data-color-scheme="dark"]')
-    ).toContain("--bg:black");
-  });
-
-  it("selector lists scope every part to the scheme", () => {
-    const theme = createTheme({
-      cssVarsSelector: ":root, :host",
-      colorSchemes: {
-        light: { variables: { bg: "white" } },
-        dark: { variables: { bg: "black" } },
-      },
-    });
-    const css = cssOf(theme);
-    const darkSelector =
-      '[data-color-scheme="dark"]:root,[data-color-scheme="dark"]:host,' +
-      ':root[data-color-scheme="dark"],:host[data-color-scheme="dark"]';
-    expect(block(css, darkSelector)).toContain("--bg:black");
-    // No unscoped part may receive dark values
-    expect(css).not.toMatch(/(^|[},]):root,:host[,{][^}]*--bg:black/);
-  });
-
   it("child shared variables beat base scheme values", () => {
     const base = createTheme({
       variables: { "accent-clr": "teal" },
@@ -111,9 +81,7 @@ describe("createTheme color schemes", () => {
     });
     const child = createTheme({ base, variables: { "accent-clr": "red" } });
 
-    expect(child.colorSchemes.dark.resolvedVariables["--accent-clr"]).toBe(
-      "red"
-    );
+    expect(resolveToLiteral(child, "accent-clr", "dark")).toBe("red");
     expect(child.colorSchemes.dark.variables).not.toHaveProperty("accent-clr");
     expect(block(cssOf(child), '[data-color-scheme="dark"]')).not.toContain(
       "--accent-clr"
@@ -148,10 +116,8 @@ describe("createTheme color schemes", () => {
         dark: { variables: { bg: "black" } },
       },
     });
-    expect(theme.colorSchemes.dark.resolvedVariables).toMatchObject({
-      "--bg": "black",
-      "--fg": "black",
-    });
+    expect(resolveToLiteral(theme, "bg", "dark")).toBe("black");
+    expect(resolveToLiteral(theme, "fg", "dark")).toBe("black");
   });
 
   it("resolves aliases across layers", () => {
@@ -159,7 +125,8 @@ describe("createTheme color schemes", () => {
       variables: { y: "blue" },
       colorSchemes: { dark: { variables: { x: "{y}" } } },
     });
-    expect(theme.colorSchemes.dark.resolvedVariables["--x"]).toBe("var(--y)");
+    expect(theme.colorSchemes.dark.variables.x).toBe("{y}");
+    expect(resolveToLiteral(theme, "x", "dark")).toBe("blue");
   });
 
   it("requires a mode for schemes not named light or dark", () => {

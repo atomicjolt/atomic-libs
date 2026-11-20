@@ -9,7 +9,8 @@ Add light and dark color schemes.
 - `ElementsProvider` takes `colorScheme` (a scheme name or `"system"` to follow the OS), `defaultColorScheme` and `onColorSchemeChange`, and sets `data-color-scheme` on `<html>`. Apps stay `light` unless they opt in. Use one provider per page.
 - New `useColorScheme()` hook to read and change the scheme. The library doesn't store the choice; apps do.
 - With `applyDefaultStyles`, the page background and text color follow non-light schemes.
-- Fixes found in review: selected chip text stays white in dark; info banner icon uses a new `info-clr-icon` token; the invalid calendar date cell uses `error-clr-fill` with white text (was `error600` with dark text); `cssVarsSelector` lists (e.g. `":root, :host"`) are scoped per part; `createTheme` accepts base themes without the new fields.
+- Fixes found in review: selected chip text stays white in dark; info banner icon uses a new `info-clr-icon` token; the invalid calendar date cell uses `error-clr-fill` with white text (was `error600` with dark text).
 - New semantic tokens: `accent-clr-fill`, `accent-clr-fill-hover`, `{error,warning,success}-clr-fill`, `-fill-hover` (solid backgrounds behind white text), `background-clr-disabled`. Buttons, selected items and checked controls now use the fill tokens (same shades in light).
 - The invalid floating-label text uses `error-clr` (`error600`, was `error800`).
 - Menu section titles are restyled as small uppercase headings (bold, `text-clr-secondary`), matching ListBox section titles.
+- Removed the `cssVarsSelector` and `cssVarPrefix` options from `createTheme`, and `getVarName` from the theme. Variables are always defined on `:root`. A prefix never worked: components read the unprefixed variable names, so setting one left components unstyled.

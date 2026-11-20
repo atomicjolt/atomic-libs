@@ -18,13 +18,9 @@ export interface ResolvedColorScheme {
   mode: ColorSchemeMode;
   /** This scheme's own (merged) override values, unresolved. */
   variables: Record<string, string>;
-  /** The full `--name -> value` map with this scheme applied. */
-  resolvedVariables: Record<string, string>;
 }
 
 interface CreateThemeProps {
-  cssVarPrefix?: string;
-  cssVarsSelector?: string;
   base?: Theme;
   /** Values shared by every color scheme. */
   variables?: Partial<Record<VariableName, string>>;
@@ -38,9 +34,7 @@ export interface Theme {
   variables: Record<string, string>;
   /** Resolved CSS variables for the base scheme. */
   resolvedVariables: Record<string, string>;
-  cssVarPrefix: string;
   getVar: (name: string) => string;
-  getVarName: (name: string) => string;
   getVarValue: (name: string) => string;
   /** The scheme applied when none is selected. */
   baseColorScheme: string;
@@ -67,44 +61,19 @@ function withoutKeys(
   );
 }
 
-/** Splits a selector list on top-level commas (not those inside `:is(...)` etc.). */
-function splitSelectorList(selector: string): string[] {
-  const parts: string[] = [];
-  let depth = 0;
-  let current = "";
-  for (const char of selector) {
-    if (char === "(" || char === "[") depth++;
-    if (char === ")" || char === "]") depth--;
-    if (char === "," && depth === 0) {
-      parts.push(current.trim());
-      current = "";
-    } else {
-      current += char;
-    }
-  }
-  parts.push(current.trim());
-  return parts.filter(Boolean);
-}
-
-/** The selector that applies a scheme's overrides. Every part of a selector
- * list is scoped, so no part receives scheme values unconditionally. */
-function schemeSelector(cssVarsSelector: string, name: string) {
-  const attribute = `[data-color-scheme="${name}"]`;
-  if (cssVarsSelector.trim() === ":root") return attribute;
-
-  const parts = splitSelectorList(cssVarsSelector);
-  return [
-    ...parts.map((part) => `${attribute} ${part}`),
-    ...parts.map((part) => `${part}${attribute}`),
-  ].join(", ");
+/** Turns `{name}` / `{name:fallback}` aliases into `var(--name)` references. */
+export function toCssValue(value: string): string {
+  return value.replace(
+    /{([^}:]+)(?::([^}]+))?}/g,
+    (_, name: string, fallback?: string) =>
+      fallback ? `var(--${name}, ${fallback})` : `var(--${name})`
+  );
 }
 
 export function createTheme(props: CreateThemeProps): Theme {
   const {
     variables = {},
     colorSchemes = {},
-    cssVarPrefix = "",
-    cssVarsSelector = ":root",
     base,
   } = props;
 
@@ -151,50 +120,34 @@ export function createTheme(props: CreateThemeProps): Theme {
     ...Object.values(schemes).flatMap((scheme) => Object.keys(scheme.variables)),
   ]);
 
-  const resolveValue = (value: string) =>
-    value.replace(
-      /{([^}:]+)(?::([^}]+))?}/g,
-      (_, name: string, defaultValue: string) => {
-        if (allKeys.has(name) || defaultValue) {
-          if (defaultValue) {
-            return `var(--${cssVarPrefix}${name}, ${defaultValue})`;
-          } else {
-            return `var(--${cssVarPrefix}${name})`;
-          }
-        } else {
-          throw new Error(
-            `Variable ${name} not found in theme, make sure you have defined it, or provide a default value ({variable-name:default-valu})`
-          );
-        }
+  // Every alias must point at a token defined somewhere in the theme.
+  const checkAliases = (value: string) => {
+    for (const [, name, fallback] of value.matchAll(/{([^}:]+)(?::([^}]+))?}/g)) {
+      if (!allKeys.has(name) && !fallback) {
+        throw new Error(
+          `Variable ${name} not found in theme, make sure you have defined it, or provide a default value ({variable-name:default-valu})`
+        );
       }
-    );
+    }
+    return toCssValue(value);
+  };
 
   const resolveAll = (values: Record<string, string>) =>
     Object.fromEntries(
       Object.entries(values).map(([key, value]) => [
-        `--${cssVarPrefix}${key}`,
-        resolveValue(value),
+        `--${key}`,
+        checkAliases(value),
       ])
     );
 
   const baseValues = { ...shared, ...schemes[baseColorScheme].variables };
   const resolved = resolveAll(baseValues);
 
-  const resolvedSchemes: Record<string, ResolvedColorScheme> = {};
-  for (const [name, scheme] of Object.entries(schemes)) {
-    resolvedSchemes[name] = {
-      mode: scheme.mode,
-      variables: scheme.variables,
-      // Scheme blocks layer on top of the base block in CSS, so do the same here.
-      resolvedVariables: resolveAll({ ...baseValues, ...scheme.variables }),
-    };
-  }
-
   const schemeBlocks = Object.entries(schemes)
     .filter(([name]) => name !== baseColorScheme)
     .map(
       ([name, scheme]) => css`
-        ${schemeSelector(cssVarsSelector, name)} {
+        [data-color-scheme="${name}"] {
           ${css(resolveAll(scheme.variables))}
           color-scheme: ${scheme.mode};
         }
@@ -202,7 +155,7 @@ export function createTheme(props: CreateThemeProps): Theme {
     );
 
   const component = createGlobalStyle`
-    ${cssVarsSelector} {
+    :root {
       ${css(resolved)}
       color-scheme: ${schemes[baseColorScheme].mode};
     }
@@ -219,12 +172,10 @@ export function createTheme(props: CreateThemeProps): Theme {
   return {
     variables: allVariables,
     resolvedVariables: resolved,
-    cssVarPrefix,
-    getVar: (name) => `var(--${cssVarPrefix}${name})`,
-    getVarName: (name) => `--${cssVarPrefix}${name}`,
-    getVarValue: (name) => resolved[`--${cssVarPrefix}${name}`],
+    getVar: (name) => `var(--${name})`,
+    getVarValue: (name) => resolved[`--${name}`],
     baseColorScheme,
-    colorSchemes: resolvedSchemes,
+    colorSchemes: schemes,
     sharedVariables: shared,
     _Component: component,
   };

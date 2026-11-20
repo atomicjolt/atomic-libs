@@ -267,3 +267,9 @@ themes should set accent values per scheme.
 - Internal structure of the scheme-merging code and file placement for the provider
   logic and hook.
 - Storybook toolbar wiring details.
+
+## Later changes (during review)
+
+- `cssVarsSelector` and `cssVarPrefix` were removed; variables always live on `:root`, and scheme blocks use `[data-color-scheme="<name>"]`. The prefix never worked (components read unprefixed names).
+- `Theme.getVarName` and per-scheme `resolvedVariables` were removed (unused outside tests).
+- Themes always come from `createTheme`, so the fallback for hand-built base themes was dropped.

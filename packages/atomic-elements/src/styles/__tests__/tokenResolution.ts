@@ -1,4 +1,5 @@
 import type { Theme } from "../theme";
+import { toCssValue } from "../theme/theme";
 
 const VAR_PATTERN = /var\(--([\w-]+)(?:,\s*([^()]*(?:\([^()]*\))?[^()]*))?\)/;
 
@@ -13,11 +14,14 @@ export function resolveToLiteral(
   name: string,
   scheme?: string
 ): string {
-  const prefix = theme.cssVarPrefix;
-  const resolved = scheme
-    ? theme.colorSchemes[scheme].resolvedVariables
-    : theme.resolvedVariables;
-  let value = resolved[`--${prefix}${name}`];
+  // A scheme's block layers its overrides on top of the base block, as in CSS.
+  const resolved: Record<string, string> = { ...theme.resolvedVariables };
+  if (scheme) {
+    for (const [key, raw] of Object.entries(theme.colorSchemes[scheme].variables)) {
+      resolved[`--${key}`] = toCssValue(raw);
+    }
+  }
+  let value = resolved[`--${name}`];
 
   if (value === undefined) {
     throw new Error(`Token "${name}" is not defined in the theme`);
@@ -27,11 +31,10 @@ export function resolveToLiteral(
     if (depth > 50) throw new Error(`Alias cycle while resolving "${name}"`);
 
     value = value.replace(VAR_PATTERN, (_, ref: string, fallback?: string) => {
-      const refName = ref.startsWith(prefix) ? ref.slice(prefix.length) : ref;
-      const refValue = resolved[`--${prefix}${refName}`];
+      const refValue = resolved[`--${ref}`];
       if (refValue !== undefined) return refValue;
       if (fallback !== undefined) return fallback.trim();
-      throw new Error(`Token "${name}" references undefined "${refName}"`);
+      throw new Error(`Token "${name}" references undefined "${ref}"`);
     });
   }
 
