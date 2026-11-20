@@ -14,9 +14,11 @@ export interface ColorSchemeConfig {
   variables: Partial<Record<VariableName, string>>;
 }
 
-export interface ResolvedColorScheme {
+/** A scheme as stored on a theme: its mode and its (merged) token values. */
+export interface ColorScheme {
   mode: ColorSchemeMode;
-  /** This scheme's own (merged) override values, unresolved. */
+  /** This scheme's values, including any inherited from a base theme.
+   * Unresolved: may contain `{name}` aliases. */
   variables: Record<string, string>;
 }
 
@@ -32,14 +34,21 @@ interface CreateThemeProps {
 }
 
 export interface Theme {
-  /** Every token name, with base-scheme values. */
+  /** Every token name in the theme (shared and from every scheme), with its
+   * `light` value where it has one. Used to tell token names apart from raw
+   * CSS values, e.g. for the `$color` / `$bg` props. Unresolved. */
   variables: Record<string, string>;
-  /** Resolved CSS variables for the base scheme. */
+  /** The `:root` block as CSS: `--name` to its value with aliases turned into
+   * `var(--…)`, for shared tokens plus the `light` scheme. */
   resolvedVariables: Record<string, string>;
+  /** `var(--name)` for a token. */
   getVar: (name: string) => string;
+  /** A token's value in the `:root` block (see `resolvedVariables`). */
   getVarValue: (name: string) => string;
-  colorSchemes: Record<string, ResolvedColorScheme>;
-  /** @internal Values shared by all schemes, used when extending a theme. */
+  /** Every scheme, `light` included. */
+  colorSchemes: Record<string, ColorScheme>;
+  /** @internal Only the shared tokens (no scheme values). Used when another
+   * theme extends this one via `base`. */
   sharedVariables: Record<string, string>;
   _Component: React.ComponentType;
 }
@@ -52,21 +61,19 @@ function schemeMode(name: string, config: { mode?: ColorSchemeMode }) {
   );
 }
 
-/** Turns `{name}` / `{name:fallback}` aliases into `var(--name)` references. */
+/** Matches `{name}` and `{name:fallback}` token aliases. */
+const ALIAS_PATTERN = /{([^}:]+)(?::([^}]+))?}/g;
+
+/** @internal Turns `{name}` / `{name:fallback}` aliases into `var(--name)`
+ * references. Exported for tests; not part of the public API. */
 export function toCssValue(value: string): string {
-  return value.replace(
-    /{([^}:]+)(?::([^}]+))?}/g,
-    (_, name: string, fallback?: string) =>
-      fallback ? `var(--${name}, ${fallback})` : `var(--${name})`
+  return value.replace(ALIAS_PATTERN, (_, name: string, fallback?: string) =>
+    fallback ? `var(--${name}, ${fallback})` : `var(--${name})`
   );
 }
 
 export function createTheme(props: CreateThemeProps): Theme {
-  const {
-    variables = {},
-    colorSchemes = {},
-    base,
-  } = props;
+  const { variables = {}, colorSchemes = {}, base } = props;
 
   const baseSchemes = base?.colorSchemes ?? {};
 
@@ -77,13 +84,14 @@ export function createTheme(props: CreateThemeProps): Theme {
 
   // Merge schemes per name; `light` always exists and is the base.
   const schemeNames = [
-    ...new Set(["light", ...Object.keys(baseSchemes), ...Object.keys(colorSchemes)]),
+    ...new Set([
+      "light",
+      ...Object.keys(baseSchemes),
+      ...Object.keys(colorSchemes),
+    ]),
   ];
 
-  const schemes: Record<
-    string,
-    { mode: ColorSchemeMode; variables: Record<string, string> }
-  > = {};
+  const schemes: Record<string, ColorScheme> = {};
 
   for (const name of schemeNames) {
     const inherited = baseSchemes[name];
@@ -97,18 +105,19 @@ export function createTheme(props: CreateThemeProps): Theme {
     };
   }
 
-
   const allKeys = new Set([
     ...Object.keys(shared),
-    ...Object.values(schemes).flatMap((scheme) => Object.keys(scheme.variables)),
+    ...Object.values(schemes).flatMap((scheme) =>
+      Object.keys(scheme.variables)
+    ),
   ]);
 
   // Every alias must point at a token defined somewhere in the theme.
   const checkAliases = (value: string) => {
-    for (const [, name, fallback] of value.matchAll(/{([^}:]+)(?::([^}]+))?}/g)) {
+    for (const [, name, fallback] of value.matchAll(ALIAS_PATTERN)) {
       if (!allKeys.has(name) && !fallback) {
         throw new Error(
-          `Variable ${name} not found in theme, make sure you have defined it, or provide a default value ({variable-name:default-valu})`
+          `Variable ${name} not found in theme, make sure you have defined it, or provide a default value ({variable-name:default-value})`
         );
       }
     }
@@ -140,7 +149,7 @@ export function createTheme(props: CreateThemeProps): Theme {
   const component = createGlobalStyle`
     :root {
       ${css(resolved)}
-      color-scheme: ${schemes.light.mode};
+      color-scheme: light;
     }
 
     ${schemeBlocks}
