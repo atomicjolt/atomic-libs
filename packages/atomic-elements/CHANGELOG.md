@@ -1,5 +1,32 @@
 # @atomicjolt/atomic-elements
 
+## 3.12.0
+
+### Minor Changes
+
+- 54bf65a: Add light and dark color schemes.
+
+  - `createTheme` accepts `colorSchemes`: named schemes (each with a `mode` and the tokens it overrides). The `light` scheme is the base; others layer on top. Themes created with only `variables` work as before.
+  - `defaultTheme` ships `light` (unchanged) and a new `dark` scheme. Every text/background pair the components use meets WCAG AA in both.
+  - `ElementsProvider` takes `colorScheme` (a scheme name or `"system"` to follow the OS), `defaultColorScheme` and `onColorSchemeChange`, and sets `data-color-scheme` on `<html>`. Apps stay `light` unless they opt in. Use one provider per page.
+  - New `useColorScheme()` hook to read and change the scheme. The library doesn't store the choice; apps do.
+  - With `applyDefaultStyles`, the page background and text color follow non-light schemes.
+  - Fixes found in review: selected chip text stays white in dark; info banner icon uses a new `info-clr-icon` token; the invalid calendar date cell uses `error-clr-fill` with white text (was `error600` with dark text).
+  - New semantic tokens: `accent-clr-fill`, `accent-clr-fill-hover`, `{error,warning,success}-clr-fill`, `-fill-hover` (solid backgrounds behind white text), `background-clr-disabled`. Buttons, selected items and checked controls now use the fill tokens (same shades in light).
+  - The invalid floating-label text uses `error-clr` (`error600`, was `error800`).
+  - Menu section titles are restyled as small uppercase headings (bold, `text-clr-secondary`), matching ListBox section titles.
+  - **Breaking for custom themes:** semantic color tokens now live in the `light` and `dark` schemes, and scheme values win over a theme's shared `variables`. A theme that overrides a color token in `variables` (e.g. `accent-clr`) must move it under `colorSchemes.light` (and `colorSchemes.dark`). Palette shades, spacing, fonts and component tokens can stay in `variables`.
+  - `light` always exists and is the base scheme.
+  - Removed the `cssVarsSelector` and `cssVarPrefix` options from `createTheme`. The theme object is now `{ variables, colorSchemes, isToken, _Component }`: `variables` holds the shared tokens, and `getVar`, `getVarName`, `getVarValue` and `resolvedVariables` were removed (use `var(--name)` directly). Variables are always defined on `:root`. A prefix never worked: components read the unprefixed variable names, so setting one left components unstyled.
+
+- 2d96e22: Add semantic color tokens and move all components onto them.
+
+  - New semantic tokens describe what a color is for (`background-clr-subtle`, `text-clr-secondary`, `text-clr-on-accent`, `border-clr-focus`, `error-clr-subtle`, `shadow-md`, …). Components and component tokens now read only semantic tokens, never palette shades. This is groundwork for color schemes such as dark mode.
+  - Existing themes keep working: palette overrides still flow through semantic tokens, and overriding a renamed token's old name still reaches components.
+  - If your theme overrides semantic tokens, those overrides now reach more components, because components that used fixed shades follow the semantic tokens instead. For example, toggles, banner icons and focused menu items follow `accent-clr`; buttons, tables and tabs follow `background-clr`; banners, chips and skeletons follow `background-clr-alt` / `background-clr-subtle`; tables, dividers, chips and card dividers follow `border-clr-primary` / `border-clr`.
+  - Deprecated (removed in the next major): `background-clr-alt` → `background-clr-subtle`, `text-clr-alt` → `text-clr-secondary`, `border-clr-primary` → `border-clr`, `outline-clr-primary` → `outline-clr`, `accent-clr-alt` → `accent-clr-hover`, `{error,warning,success}-clr-alt` → `{error,warning,success}-clr-hover`, `info-clr` → `info-clr-subtle` (use `info-clr-fill` for a solid fill), `info-clr-alt` → `info-clr-subtle-hover`.
+  - Small visual adjustments from aligning components to shared tokens: floating-label inputs now use the same grey focus border as other inputs; status chip borders use the palette's 300 shades instead of hardcoded hex values; warning chip text is slightly darker; disabled icons and disabled underline tabs use `text-clr-disabled`; the inverted button hover shadow and the error banner's pressed close button use shared values.
+
 ## 3.11.0
 
 ### Minor Changes
