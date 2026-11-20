@@ -4,7 +4,7 @@ import { createGlobalStyle, DefaultTheme } from "styled-components";
 function schemeBodyRules(theme: DefaultTheme) {
   if (!theme?.colorSchemes) return "";
   return Object.keys(theme.colorSchemes)
-    .filter((name) => name !== theme.baseColorScheme)
+    .filter((name) => name !== "light")
     .map(
       (name) => `
 [data-color-scheme="${name}"] body {

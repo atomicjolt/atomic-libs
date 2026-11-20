@@ -273,3 +273,5 @@ themes should set accent values per scheme.
 - `cssVarsSelector` and `cssVarPrefix` were removed; variables always live on `:root`, and scheme blocks use `[data-color-scheme="<name>"]`. The prefix never worked (components read unprefixed names).
 - `Theme.getVarName` and per-scheme `resolvedVariables` were removed (unused outside tests).
 - Themes always come from `createTheme`, so the fallback for hand-built base themes was dropped.
+- `light` is always the base scheme (created empty if a theme doesn't define it); the "first scheme" fallback and `Theme.baseColorScheme` were removed.
+- Section 2's rule was dropped: a theme's shared `variables` no longer beat its base theme's scheme values. Scheme values always win, so apps move color overrides under `colorSchemes.light` / `.dark`. This is a breaking change for themes that override semantic colors in `variables`.

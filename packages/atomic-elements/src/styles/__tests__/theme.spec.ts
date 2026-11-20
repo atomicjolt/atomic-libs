@@ -31,7 +31,6 @@ describe("createTheme color schemes", () => {
   it("theme without schemes is unchanged", () => {
     const theme = createTheme({ variables: { a: "red" } });
     expect(theme.resolvedVariables["--a"]).toBe("red");
-    expect(theme.baseColorScheme).toBe("light");
     expect(Object.keys(theme.colorSchemes)).toEqual(["light"]);
 
     const css = cssOf(theme);
@@ -63,29 +62,28 @@ describe("createTheme color schemes", () => {
     );
   });
 
-  it("base scheme is the first scheme when there is no light scheme", () => {
+  it("light always exists and is the base scheme", () => {
     const theme = createTheme({
-      colorSchemes: {
-        dark: { variables: { bg: "black" } },
-        dim: { mode: "dark", variables: { bg: "gray" } },
-      },
+      variables: { bg: "white" },
+      colorSchemes: { dark: { variables: { bg: "black" } } },
     });
-    expect(theme.baseColorScheme).toBe("dark");
-    expect(theme.resolvedVariables["--bg"]).toBe("black");
+    expect(Object.keys(theme.colorSchemes)).toContain("light");
+    expect(theme.resolvedVariables["--bg"]).toBe("white");
+    expect(block(cssOf(theme), ":root")).toContain("color-scheme:light");
   });
 
-  it("child shared variables beat base scheme values", () => {
+  it("scheme values win over shared variables, including a base theme's", () => {
     const base = createTheme({
-      variables: { "accent-clr": "teal" },
-      colorSchemes: { dark: { variables: { "accent-clr": "aqua" } } },
+      colorSchemes: { light: { variables: { "accent-clr": "teal" } } },
     });
-    const child = createTheme({ base, variables: { "accent-clr": "red" } });
+    const sharedOnly = createTheme({ base, variables: { "accent-clr": "red" } });
+    expect(resolveToLiteral(sharedOnly, "accent-clr")).toBe("teal");
 
-    expect(resolveToLiteral(child, "accent-clr", "dark")).toBe("red");
-    expect(child.colorSchemes.dark.variables).not.toHaveProperty("accent-clr");
-    expect(block(cssOf(child), '[data-color-scheme="dark"]')).not.toContain(
-      "--accent-clr"
-    );
+    const perScheme = createTheme({
+      base,
+      colorSchemes: { light: { variables: { "accent-clr": "red" } } },
+    });
+    expect(resolveToLiteral(perScheme, "accent-clr")).toBe("red");
   });
 
   it("child scheme values merge per scheme", () => {

@@ -13,4 +13,6 @@ Add light and dark color schemes.
 - New semantic tokens: `accent-clr-fill`, `accent-clr-fill-hover`, `{error,warning,success}-clr-fill`, `-fill-hover` (solid backgrounds behind white text), `background-clr-disabled`. Buttons, selected items and checked controls now use the fill tokens (same shades in light).
 - The invalid floating-label text uses `error-clr` (`error600`, was `error800`).
 - Menu section titles are restyled as small uppercase headings (bold, `text-clr-secondary`), matching ListBox section titles.
+- **Breaking for custom themes:** semantic color tokens now live in the `light` and `dark` schemes, and scheme values win over a theme's shared `variables`. A theme that overrides a color token in `variables` (e.g. `accent-clr`) must move it under `colorSchemes.light` (and `colorSchemes.dark`). Palette shades, spacing, fonts and component tokens can stay in `variables`.
+- `light` always exists and is the base scheme; `Theme.baseColorScheme` was removed.
 - Removed the `cssVarsSelector` and `cssVarPrefix` options from `createTheme`, and `getVarName` from the theme. Variables are always defined on `:root`. A prefix never worked: components read the unprefixed variable names, so setting one left components unstyled.

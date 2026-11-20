@@ -132,14 +132,18 @@ const theme = createTheme({
 });
 ```
 
-The `light` scheme (or the first scheme, if there's no `light`) is the base: it applies when
-no scheme is selected, and every other scheme layers its overrides on top of it.
+`light` always exists and is the base: it applies when no scheme is selected, and every other
+scheme layers its overrides on top of it.
 
-### Brand colors in both schemes
+### Overriding colors
 
-Values in a theme's shared `variables` apply in every scheme. If you override accent or
-status colors, give each scheme its own value, because dark mode needs lighter text colors
-and the library's dark scheme sets its own fills:
+Color tokens are defined per scheme, and scheme values win over a theme's shared `variables`.
+So to change a color, set it under each scheme you want it in. Setting `accent-clr` in shared
+`variables` has no effect, because the `light` and `dark` schemes both define it. Shared
+`variables` are for tokens no scheme sets, such as spacing, fonts, sizes and component tokens.
+
+Give each scheme its own value: dark mode needs lighter text colors, and the library's dark
+scheme sets its own fills:
 
 ```ts
 const theme = createTheme({

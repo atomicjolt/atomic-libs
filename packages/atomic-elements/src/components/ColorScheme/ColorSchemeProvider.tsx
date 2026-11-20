@@ -54,7 +54,7 @@ export function ColorSchemeProvider(props: ColorSchemeProviderProps) {
   // starting at `defaultColorScheme`. Either way changes call onColorSchemeChange.
   const [requested, setColorScheme] = useControlledState(
     colorScheme,
-    defaultColorScheme ?? theme.baseColorScheme,
+    defaultColorScheme ?? "light",
     onColorSchemeChange
   );
 

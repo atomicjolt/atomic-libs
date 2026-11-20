@@ -24,8 +24,10 @@ interface CreateThemeProps {
   base?: Theme;
   /** Values shared by every color scheme. */
   variables?: Partial<Record<VariableName, string>>;
-  /** Named color schemes. `light` (or the first scheme) is the base scheme,
-   * applied when no scheme is selected. */
+  /** Named color schemes. `light` always exists and applies when no scheme
+   * is selected; other schemes layer their values on top of it. Scheme values
+   * win over shared `variables` (including a base theme's schemes), so to
+   * change a token a scheme sets, set it under that scheme. */
   colorSchemes?: Record<string, ColorSchemeConfig>;
 }
 
@@ -36,8 +38,6 @@ export interface Theme {
   resolvedVariables: Record<string, string>;
   getVar: (name: string) => string;
   getVarValue: (name: string) => string;
-  /** The scheme applied when none is selected. */
-  baseColorScheme: string;
   colorSchemes: Record<string, ResolvedColorScheme>;
   /** @internal Values shared by all schemes, used when extending a theme. */
   sharedVariables: Record<string, string>;
@@ -49,15 +49,6 @@ function schemeMode(name: string, config: { mode?: ColorSchemeMode }) {
   if (name === "light" || name === "dark") return name;
   throw new Error(
     `Color scheme "${name}" needs a mode ("light" or "dark") because its name isn't "light" or "dark"`
-  );
-}
-
-function withoutKeys(
-  values: Record<string, string>,
-  keys: Record<string, unknown>
-): Record<string, string> {
-  return Object.fromEntries(
-    Object.entries(values).filter(([key]) => !(key in keys))
   );
 }
 
@@ -84,12 +75,9 @@ export function createTheme(props: CreateThemeProps): Theme {
     ...(variables as Record<string, string>),
   };
 
-  // Merge schemes per name. The child's shared values win over the base
-  // theme's scheme values, so themes that only set `variables` still apply
-  // in every scheme.
+  // Merge schemes per name; `light` always exists and is the base.
   const schemeNames = [
-    ...Object.keys(baseSchemes),
-    ...Object.keys(colorSchemes).filter((name) => !(name in baseSchemes)),
+    ...new Set(["light", ...Object.keys(baseSchemes), ...Object.keys(colorSchemes)]),
   ];
 
   const schemes: Record<
@@ -103,17 +91,12 @@ export function createTheme(props: CreateThemeProps): Theme {
     schemes[name] = {
       mode: schemeMode(name, { mode: own?.mode ?? inherited?.mode }),
       variables: {
-        ...withoutKeys(inherited?.variables ?? {}, variables),
+        ...(inherited?.variables ?? {}),
         ...((own?.variables ?? {}) as Record<string, string>),
       },
     };
   }
 
-  if (schemeNames.length === 0) {
-    schemes.light = { mode: "light", variables: {} };
-  }
-
-  const baseColorScheme = "light" in schemes ? "light" : Object.keys(schemes)[0];
 
   const allKeys = new Set([
     ...Object.keys(shared),
@@ -140,11 +123,11 @@ export function createTheme(props: CreateThemeProps): Theme {
       ])
     );
 
-  const baseValues = { ...shared, ...schemes[baseColorScheme].variables };
+  const baseValues = { ...shared, ...schemes.light.variables };
   const resolved = resolveAll(baseValues);
 
   const schemeBlocks = Object.entries(schemes)
-    .filter(([name]) => name !== baseColorScheme)
+    .filter(([name]) => name !== "light")
     .map(
       ([name, scheme]) => css`
         [data-color-scheme="${name}"] {
@@ -157,7 +140,7 @@ export function createTheme(props: CreateThemeProps): Theme {
   const component = createGlobalStyle`
     :root {
       ${css(resolved)}
-      color-scheme: ${schemes[baseColorScheme].mode};
+      color-scheme: ${schemes.light.mode};
     }
 
     ${schemeBlocks}
@@ -174,7 +157,6 @@ export function createTheme(props: CreateThemeProps): Theme {
     resolvedVariables: resolved,
     getVar: (name) => `var(--${name})`,
     getVarValue: (name) => resolved[`--${name}`],
-    baseColorScheme,
     colorSchemes: schemes,
     sharedVariables: shared,
     _Component: component,

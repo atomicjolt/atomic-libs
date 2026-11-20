@@ -6,7 +6,7 @@ export const SYSTEM_COLOR_SCHEME = "system";
 /**
  * The scheme to apply for a requested name. `"system"` picks the scheme named
  * after the OS preference (`dark` / `light`), else the first scheme with that
- * mode. Unknown names, and no match, fall back to the theme's base scheme.
+ * mode. Unknown names, and no match, fall back to `light`.
  */
 export function resolveColorScheme(
   theme: Theme,
@@ -16,7 +16,7 @@ export function resolveColorScheme(
   const schemes = theme.colorSchemes;
 
   if (requested !== SYSTEM_COLOR_SCHEME) {
-    return requested in schemes ? requested : theme.baseColorScheme;
+    return requested in schemes ? requested : "light";
   }
 
   const mode: ColorSchemeMode = prefersDark ? "dark" : "light";
@@ -25,7 +25,7 @@ export function resolveColorScheme(
   const byMode = Object.entries(schemes).find(
     ([, scheme]) => scheme.mode === mode
   );
-  return byMode ? byMode[0] : theme.baseColorScheme;
+  return byMode ? byMode[0] : "light";
 }
 
 /** Whether a requested name is something a theme can show. */

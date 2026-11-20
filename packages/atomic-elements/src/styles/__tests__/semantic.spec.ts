@@ -18,10 +18,14 @@ describe("semantic tokens", () => {
   it("overriding a deprecated name reaches its replacement", () => {
     const theme = createTheme({
       base: defaultTheme,
-      variables: {
-        "accent-clr-alt": "red",
-        "text-clr-inverted": "white",
-        "info-clr": "pink",
+      colorSchemes: {
+        light: {
+          variables: {
+            "accent-clr-alt": "red",
+            "text-clr-inverted": "white",
+            "info-clr": "pink",
+          },
+        },
       },
     });
     expect(resolveToLiteral(theme, "accent-clr-hover")).toBe("red");
@@ -32,7 +36,7 @@ describe("semantic tokens", () => {
   it("background-clr overrides still reach dropdown surfaces", () => {
     const theme = createTheme({
       base: defaultTheme,
-      variables: { "background-clr": "beige" },
+      colorSchemes: { light: { variables: { "background-clr": "beige" } } },
     });
     for (const name of ["dropdown-bg-clr", "menu-bg-clr", "listbox-bg-clr"]) {
       expect(resolveToLiteral(theme, name), name).toBe("beige");
@@ -43,7 +47,7 @@ describe("semantic tokens", () => {
     for (const name of ["outline-clr-primary", "outline-clr"]) {
       const theme = createTheme({
         base: defaultTheme,
-        variables: { [name]: "purple" },
+        colorSchemes: { light: { variables: { [name]: "purple" } } },
       });
       expect(resolveToLiteral(theme, "border-clr-focus"), name).toBe("purple");
     }
@@ -87,7 +91,7 @@ describe("semantic tokens", () => {
   it("consumer override of a deprecated name reaches dark", () => {
     const theme = createTheme({
       base: defaultTheme,
-      variables: { "text-clr-alt": "red" },
+      colorSchemes: { dark: { variables: { "text-clr-alt": "red" } } },
     });
     expect(resolveToLiteral(theme, "text-clr-secondary", "dark")).toBe("red");
   });
