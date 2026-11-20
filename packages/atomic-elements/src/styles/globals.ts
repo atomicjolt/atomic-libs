@@ -8,8 +8,8 @@ function schemeBodyRules(theme: DefaultTheme) {
     .map(
       (name) => `
 [data-color-scheme="${name}"] body {
-  background-color: ${theme.getVar("background-clr")};
-  color: ${theme.getVar("text-clr")};
+  background-color: var(--background-clr);
+  color: var(--text-clr);
 }`
     )
     .join("\n");

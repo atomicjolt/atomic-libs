@@ -30,7 +30,7 @@ function block(css: string, selector: string): string {
 describe("createTheme color schemes", () => {
   it("theme without schemes is unchanged", () => {
     const theme = createTheme({ variables: { a: "red" } });
-    expect(theme.resolvedVariables["--a"]).toBe("red");
+    expect(theme.variables).toEqual({ a: "red" });
     expect(Object.keys(theme.colorSchemes)).toEqual(["light"]);
 
     const css = cssOf(theme);
@@ -68,7 +68,7 @@ describe("createTheme color schemes", () => {
       colorSchemes: { dark: { variables: { bg: "black" } } },
     });
     expect(Object.keys(theme.colorSchemes)).toContain("light");
-    expect(theme.resolvedVariables["--bg"]).toBe("white");
+    expect(resolveToLiteral(theme, "bg")).toBe("white");
     expect(block(cssOf(theme), ":root")).toContain("color-scheme:light");
   });
 
@@ -76,7 +76,10 @@ describe("createTheme color schemes", () => {
     const base = createTheme({
       colorSchemes: { light: { variables: { "accent-clr": "teal" } } },
     });
-    const sharedOnly = createTheme({ base, variables: { "accent-clr": "red" } });
+    const sharedOnly = createTheme({
+      base,
+      variables: { "accent-clr": "red" },
+    });
     expect(resolveToLiteral(sharedOnly, "accent-clr")).toBe("teal");
 
     const perScheme = createTheme({
@@ -103,8 +106,8 @@ describe("createTheme color schemes", () => {
       colorSchemes: { light: { variables: { bg: "white" } } },
     });
     const child = createTheme({ base });
-    expect(child.sharedVariables).toEqual({ gap: "4px" });
-    expect(child.variables).toHaveProperty("bg", "white");
+    expect(child.variables).toEqual({ gap: "4px" });
+    expect(child.colorSchemes.light.variables).toEqual({ bg: "white" });
   });
 
   it("non-base schemes resolve on top of the base scheme", () => {
@@ -139,13 +142,21 @@ describe("createTheme color schemes", () => {
     ).toThrow(/nope/);
   });
 
-  it("getVarValue uses the base scheme", () => {
-    const theme = createTheme({
+  it("isToken recognizes shared and scheme tokens", () => {
+    const base = createTheme({
+      variables: { gap: "4px" },
       colorSchemes: {
         light: { variables: { bg: "white" } },
-        dark: { variables: { bg: "black" } },
+        dark: { variables: { "dark-only": "black" } },
       },
     });
-    expect(theme.getVarValue("bg")).toBe("white");
+    const theme = createTheme({ base, variables: { extra: "1" } });
+
+    expect(theme.isToken("gap")).toBe(true);
+    expect(theme.isToken("bg")).toBe(true);
+    expect(theme.isToken("dark-only")).toBe(true);
+    expect(theme.isToken("extra")).toBe(true);
+    expect(theme.isToken("#ff0000")).toBe(false);
+    expect(theme.isToken("red")).toBe(false);
   });
 });

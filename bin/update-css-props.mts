@@ -5,6 +5,15 @@ import * as foundations from "../packages/atomic-elements/src/styles/theme/found
 import * as semantic from "../packages/atomic-elements/src/styles/theme/semantic";
 import * as component from "../packages/atomic-elements/src/styles/theme/component";
 import { defaultTheme } from "../packages/atomic-elements/src/styles/theme";
+import { toCssValue } from "../packages/atomic-elements/src/styles/theme/theme";
+
+/** A token's default value as it appears in the :root CSS block. */
+function defaultValue(name: string): string | undefined {
+  const raw =
+    defaultTheme.colorSchemes.light.variables[name] ??
+    defaultTheme.variables[name];
+  return raw === undefined ? undefined : toCssValue(raw);
+}
 
 /** Exports whose Storybook group name isn't just the capitalized export name. */
 const GROUP_NAMES: Record<string, string> = {
@@ -45,7 +54,7 @@ function getCssProps() {
       cssProps[groupName] ??= {};
 
       Object.entries(value).forEach(([name]) => {
-        const cssVarValue = defaultTheme.getVarValue(name);
+        const cssVarValue = defaultValue(name);
 
         cssProps[groupName][name] = {
           value: cssVarValue,

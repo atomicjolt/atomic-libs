@@ -34,22 +34,14 @@ interface CreateThemeProps {
 }
 
 export interface Theme {
-  /** Every token name in the theme (shared and from every scheme), with its
-   * `light` value where it has one. Used to tell token names apart from raw
-   * CSS values, e.g. for the `$color` / `$bg` props. Unresolved. */
+  /** Tokens shared by every scheme (merged with the base theme's).
+   * Unresolved: may contain `{name}` aliases. */
   variables: Record<string, string>;
-  /** The `:root` block as CSS: `--name` to its value with aliases turned into
-   * `var(--…)`, for shared tokens plus the `light` scheme. */
-  resolvedVariables: Record<string, string>;
-  /** `var(--name)` for a token. */
-  getVar: (name: string) => string;
-  /** A token's value in the `:root` block (see `resolvedVariables`). */
-  getVarValue: (name: string) => string;
-  /** Every scheme, `light` included. */
+  /** Every scheme, `light` included, merged with the base theme's. */
   colorSchemes: Record<string, ColorScheme>;
-  /** @internal Only the shared tokens (no scheme values). Used when another
-   * theme extends this one via `base`. */
-  sharedVariables: Record<string, string>;
+  /** Whether `name` is a token in this theme (shared or in any scheme), as
+   * opposed to a raw CSS value. Used by the `$color` / `$bg` props. */
+  isToken: (name: string) => boolean;
   _Component: React.ComponentType;
 }
 
@@ -78,7 +70,7 @@ export function createTheme(props: CreateThemeProps): Theme {
   const baseSchemes = base?.colorSchemes ?? {};
 
   const shared: Record<string, string> = {
-    ...(base?.sharedVariables ?? {}),
+    ...(base?.variables ?? {}),
     ...(variables as Record<string, string>),
   };
 
@@ -132,9 +124,6 @@ export function createTheme(props: CreateThemeProps): Theme {
       ])
     );
 
-  const baseValues = { ...shared, ...schemes.light.variables };
-  const resolved = resolveAll(baseValues);
-
   const schemeBlocks = Object.entries(schemes)
     .filter(([name]) => name !== "light")
     .map(
@@ -148,26 +137,17 @@ export function createTheme(props: CreateThemeProps): Theme {
 
   const component = createGlobalStyle`
     :root {
-      ${css(resolved)}
+      ${css(resolveAll({ ...shared, ...schemes.light.variables }))}
       color-scheme: light;
     }
 
     ${schemeBlocks}
   `;
 
-  const allVariables: Record<string, string> = {};
-  for (const scheme of Object.values(schemes)) {
-    Object.assign(allVariables, scheme.variables);
-  }
-  Object.assign(allVariables, baseValues);
-
   return {
-    variables: allVariables,
-    resolvedVariables: resolved,
-    getVar: (name) => `var(--${name})`,
-    getVarValue: (name) => resolved[`--${name}`],
+    variables: shared,
     colorSchemes: schemes,
-    sharedVariables: shared,
+    isToken: (name) => allKeys.has(name),
     _Component: component,
   };
 }

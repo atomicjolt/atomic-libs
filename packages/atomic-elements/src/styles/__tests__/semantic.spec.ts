@@ -57,7 +57,7 @@ describe("semantic tokens", () => {
     expect(defaultTheme.colorSchemes.light.variables["text-clr"]).toBe(
       "{neutral800}"
     );
-    expect(defaultTheme.sharedVariables).not.toHaveProperty("text-clr");
+    expect(defaultTheme.variables).not.toHaveProperty("text-clr");
     expect(resolveToLiteral(defaultTheme, "text-clr", "light")).toBe(
       resolveToLiteral(defaultTheme, "text-clr")
     );

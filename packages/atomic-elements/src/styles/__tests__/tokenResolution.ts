@@ -14,13 +14,15 @@ export function resolveToLiteral(
   name: string,
   scheme?: string
 ): string {
-  // A scheme's block layers its overrides on top of the base block, as in CSS.
-  const resolved: Record<string, string> = { ...theme.resolvedVariables };
-  if (scheme) {
-    for (const [key, raw] of Object.entries(theme.colorSchemes[scheme].variables)) {
-      resolved[`--${key}`] = toCssValue(raw);
-    }
-  }
+  // Same layering as the CSS: shared + light in :root, then the scheme's block.
+  const raw: Record<string, string> = {
+    ...theme.variables,
+    ...theme.colorSchemes.light.variables,
+    ...(scheme ? theme.colorSchemes[scheme].variables : {}),
+  };
+  const resolved: Record<string, string> = Object.fromEntries(
+    Object.entries(raw).map(([key, value]) => [`--${key}`, toCssValue(value)])
+  );
   let value = resolved[`--${name}`];
 
   if (value === undefined) {
