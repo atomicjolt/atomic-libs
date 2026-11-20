@@ -6,9 +6,9 @@ function colorProperty<T extends object>(cssProperty: string, prop: string) {
   const func = (props: T & { theme: DefaultTheme }) => {
     const { [prop as keyof T]: $color, theme } = props;
 
-    if (theme?.variables && $color && ($color as string) in theme.variables) {
+    if ($color && theme?.isToken?.($color as string)) {
       return {
-        [cssProperty]: theme.getVar($color as string),
+        [cssProperty]: `var(--${$color as string})`,
       };
     }
 

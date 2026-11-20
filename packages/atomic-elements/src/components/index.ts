@@ -1,5 +1,6 @@
 /* ---- Components ---- */
 export { ElementsProvider, useElementsConfig } from "./ElementsProvider";
+export { useColorScheme } from "./ColorScheme";
 export { Banner } from "./Banners/Banner";
 export { ActionBanner } from "./Banners/ActionBanner";
 export {
@@ -139,6 +140,7 @@ export { RouterProvider } from "@react-aria/utils";
 
 /* ---- Types ---- */
 export type { ElementsProviderProps, ElementsConfig } from "./ElementsProvider";
+export type { ColorSchemeState } from "./ColorScheme";
 export type { BannerProps, BannerVariants } from "./Banners/Banner";
 export type { ButtonProps } from "./Buttons/Button";
 export type { IconButtonProps } from "./Buttons/IconButton";

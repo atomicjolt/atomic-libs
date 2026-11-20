@@ -52,9 +52,9 @@ export const StyledButton = styled.button`
 
   &.aje-btn--primary {
     --btn-text-clr: var(--text-clr-on-accent);
-    --btn-bg-clr: var(--accent-clr);
+    --btn-bg-clr: var(--accent-clr-fill);
     --btn-hover-text-clr: var(--btn-text-clr);
-    --btn-hover-bg-clr: var(--accent-clr-hover);
+    --btn-hover-bg-clr: var(--accent-clr-fill-hover);
   }
 
   &.aje-btn--secondary {
@@ -75,16 +75,16 @@ export const StyledButton = styled.button`
 
   &.aje-btn--error {
     --btn-text-clr: var(--text-clr-on-accent);
-    --btn-bg-clr: var(--error-clr-hover);
+    --btn-bg-clr: var(--error-clr-fill);
     --btn-hover-text-clr: var(--btn-text-clr);
-    --btn-hover-bg-clr: var(--error-clr-active);
+    --btn-hover-bg-clr: var(--error-clr-fill-hover);
   }
 
   &.aje-btn--success {
     --btn-text-clr: var(--text-clr-on-accent);
-    --btn-bg-clr: var(--success-clr-hover);
+    --btn-bg-clr: var(--success-clr-fill);
     --btn-hover-text-clr: var(--btn-text-clr);
-    --btn-hover-bg-clr: var(--success-clr-active);
+    --btn-hover-bg-clr: var(--success-clr-fill-hover);
   }
 
   &.aje-btn--inverted {

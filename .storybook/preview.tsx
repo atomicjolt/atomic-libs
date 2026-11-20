@@ -8,16 +8,40 @@ import {
   Controls,
   Stories,
 } from "@storybook/blocks";
-import { CssPropsBlock } from "@ljcl/storybook-addon-cssprops";
 
 import { defaultTheme } from "../packages/atomic-elements/src/styles";
 import { ElementsProvider } from "../packages/atomic-elements/src/components/ElementsProvider";
+import { CssVariablesTable } from "./utils/CssVariablesTable";
 
 const preview: Preview = {
+  globalTypes: {
+    colorScheme: {
+      description: "Color scheme for all stories",
+      toolbar: {
+        title: "Color scheme",
+        icon: "mirror",
+        items: [
+          { value: "light", title: "Light" },
+          { value: "dark", title: "Dark" },
+          { value: "system", title: "System" },
+        ],
+        dynamicTitle: true,
+      },
+    },
+  },
+
+  initialGlobals: {
+    colorScheme: "light",
+  },
+
   decorators: [
-    (Story) => (
+    (Story, context) => (
       <>
-        <ElementsProvider theme={defaultTheme} applyDefaultStyles>
+        <ElementsProvider
+          theme={defaultTheme}
+          applyDefaultStyles
+          colorScheme={context.globals.colorScheme ?? "light"}
+        >
           <Story />
         </ElementsProvider>
       </>
@@ -31,7 +55,6 @@ const preview: Preview = {
         text: /className/,
       },
     },
-    // cssprops: props,
     options: {
       storySort: {
         order: [
@@ -54,8 +77,7 @@ const preview: Preview = {
           <Description />
           <Primary />
           <Controls />
-          {/* @ts-expect-error */}
-          <CssPropsBlock />
+          <CssVariablesTable />
           <Stories />
         </>
       ),

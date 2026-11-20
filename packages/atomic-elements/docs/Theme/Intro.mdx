@@ -10,11 +10,15 @@ To create a theme, you can use the `createTheme` function provided by the librar
 import { createTheme, defaultTheme } from "@atomicjolt/atomic-elements";
 
 const myTheme = createTheme({
-  variables: {
-    "accent-clr": "#3498db",
-    "accent-clr-hover": "#2ecc71",
-  },
   base: defaultTheme,
+  colorSchemes: {
+    light: {
+      variables: {
+        "accent-clr": "#3498db",
+        "accent-clr-hover": "#2ecc71",
+      },
+    },
+  },
 });
 ```
 
@@ -54,7 +58,7 @@ Color tokens come in three layers. Each layer only references the one below it:
 2. **Semantic** — what a color is _for_: `background-clr`, `text-clr-secondary`, `border-clr`, `accent-clr-hover`, `error-clr-subtle`, and so on. Semantic tokens reference palette shades.
 3. **Component** — per-component tokens such as `btn-bg-clr` or `chip-text-clr`. Component tokens and component styles only reference semantic tokens.
 
-To restyle the library, override **semantic** tokens. Overriding a palette shade still works, but a semantic override says exactly which role you are changing, and it is what future color schemes (such as dark mode) will build on.
+To restyle the library, override **semantic** tokens. Color tokens belong to a color scheme, so set them under `colorSchemes.light` (and `colorSchemes.dark` if you support it); see [Color Schemes](./ColorSchemes.mdx#overriding-colors). Overriding a palette shade in shared `variables` still works, since palette shades are shared.
 
 ### Semantic tokens
 

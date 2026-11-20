@@ -19,10 +19,13 @@ export const MenuSectionList = styled.ul`
 `;
 
 export const MenuSectionTitle = styled.span`
-  ${mixins.Regular}
-  margin: 8px 16px;
-  color: var(--text-clr-disabled);
-  font-size: 1.4rem;
+  ${mixins.Bold}
+  display: block;
+  padding: 8px 24px 4px 16px;
+  color: var(--text-clr-secondary);
+  font-size: 1.2rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   line-height: 1;
 `;
 
@@ -59,7 +62,7 @@ export const MenuOption = styled.li`
     outline: none;
   }
   &.is-focused {
-    --menu-item-bg-clr: var(--accent-clr);
+    --menu-item-bg-clr: var(--accent-clr-fill);
     --menu-item-text-clr: var(--text-clr-on-accent);
     --menu-item-icon-clr: var(--text-clr-on-accent);
     --menu-item-selected-clr: var(--text-clr-on-accent);

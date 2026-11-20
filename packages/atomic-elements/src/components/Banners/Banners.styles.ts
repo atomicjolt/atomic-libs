@@ -26,11 +26,11 @@ export const StyledBanner = styled.div`
 
   &.aje-banner {
     &--error {
-      --banner-bg-clr: var(--error-clr-hover);
+      --banner-bg-clr: var(--error-clr-fill);
       --banner-text-clr: var(--text-clr-on-accent);
       --banner-icon-clr: var(--text-clr-on-accent);
-      --banner-btn-hover-clr: var(--error-clr-active);
-      --banner-btn-active-clr: var(--error-clr-active);
+      --banner-btn-hover-clr: var(--error-clr-fill-hover);
+      --banner-btn-active-clr: var(--error-clr-fill-hover);
     }
 
     &--warning {
@@ -44,7 +44,7 @@ export const StyledBanner = styled.div`
     &--info {
       --banner-bg-clr: var(--info-clr-subtle);
       --banner-text-clr: var(--text-clr);
-      --banner-icon-clr: var(--info-clr-fill-hover);
+      --banner-icon-clr: var(--info-clr-icon);
       --banner-btn-hover-clr: var(--info-clr-subtle-hover);
       --banner-btn-active-clr: var(--info-clr-subtle-active);
     }

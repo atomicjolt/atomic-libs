@@ -3,8 +3,9 @@ import { StyleSheetManager, ThemeProvider } from "styled-components";
 import { CssGlobalDefaults } from "@styles/globals";
 import { defaultTheme, Theme } from "@styles/theme";
 import { layerPlugin } from "@styles/plugins";
+import { ColorSchemeOptions, ColorSchemeProvider } from "./ColorScheme";
 
-export interface ElementsConfig {
+export interface ElementsConfig extends ColorSchemeOptions {
   /** The theme to be used by the application. */
   theme?: Theme;
   /** Flag to determine if default styles should be applied.
@@ -36,7 +37,8 @@ export function useElementsConfig(): ElementsConfig {
 }
 
 /** The provider for an Elements Application. It is intended to
- * wrap the root of the application and provides the theme and global styles
+ * wrap the root of the application and provides the theme, global styles
+ * and color scheme.
  */
 export function ElementsProvider(props: ElementsProviderProps) {
   const {
@@ -44,6 +46,9 @@ export function ElementsProvider(props: ElementsProviderProps) {
     theme = defaultTheme,
     applyDefaultStyles = false,
     layerName = "elements",
+    colorScheme,
+    defaultColorScheme,
+    onColorSchemeChange,
   } = props;
 
   const CssVariables = theme._Component;
@@ -64,9 +69,16 @@ export function ElementsProvider(props: ElementsProviderProps) {
         value={{ theme, applyDefaultStyles, layerName }}
       >
         <ThemeProvider theme={theme}>
-          <CssVariables />
-          {applyDefaultStyles && <CssGlobalDefaults />}
-          {children}
+          <ColorSchemeProvider
+            theme={theme}
+            colorScheme={colorScheme}
+            defaultColorScheme={defaultColorScheme}
+            onColorSchemeChange={onColorSchemeChange}
+          >
+            <CssVariables />
+            {applyDefaultStyles && <CssGlobalDefaults />}
+            {children}
+          </ColorSchemeProvider>
         </ThemeProvider>
       </ElementsProviderContext.Provider>
     </StyleSheetManager>

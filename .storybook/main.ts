@@ -10,7 +10,6 @@ const config: StorybookConfig = {
   addons: [
     getAbsolutePath("@storybook/addon-links"),
     getAbsolutePath("@storybook/addon-essentials"),
-    getAbsolutePath("@ljcl/storybook-addon-cssprops"),
   ],
 
   staticDirs: ["../public"],

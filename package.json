@@ -36,7 +36,6 @@
     "@docusaurus/plugin-content-docs": "^3.9.2",
     "@docusaurus/preset-classic": "^3.9.2",
     "@docusaurus/theme-classic": "^3.9.2",
-    "@ljcl/storybook-addon-cssprops": "^4.0.0",
     "@storybook/addon-actions": "^8.6.11",
     "@storybook/addon-docs": "^8.6.11",
     "@storybook/addon-essentials": "^8.6.11",

@@ -1,6 +1,23 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, DefaultTheme } from "styled-components";
+
+/** Page colors for every scheme except the base one, so light pages stay as they are. */
+function schemeBodyRules(theme: DefaultTheme) {
+  if (!theme?.colorSchemes) return "";
+  return Object.keys(theme.colorSchemes)
+    .filter((name) => name !== "light")
+    .map(
+      (name) => `
+[data-color-scheme="${name}"] body {
+  background-color: var(--background-clr);
+  color: var(--text-clr);
+}`
+    )
+    .join("\n");
+}
 
 export const CssGlobalDefaults = createGlobalStyle`
+${({ theme }) => schemeBodyRules(theme)}
+
 html {
   font-size: 10px;
 }
