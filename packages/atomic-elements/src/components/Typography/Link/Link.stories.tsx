@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react-vite";
 import { Link } from ".";
-import { getCssProps } from "@sb/cssprops";
+import { link } from "@styles/theme/component";
 import {
   ColorArgTypes,
   MarginArgTypes,
@@ -13,7 +13,7 @@ export default {
   component: Link,
   parameters: {
     layout: "centered",
-    cssProps: getCssProps("Link"),
+    cssProps: { link },
   },
   argTypes: {
     ...MarginArgTypes,

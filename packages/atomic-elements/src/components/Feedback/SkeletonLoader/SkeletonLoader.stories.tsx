@@ -1,13 +1,13 @@
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react-vite";
 import { SkeletonLoader } from ".";
-import { getCssProps } from "@sb/cssprops";
+import { skeleton } from "@styles/theme/component";
 
 export default {
   title: "Feedback/SkeletonLoader",
   component: SkeletonLoader,
   parameters: {
-    cssprops: getCssProps("Skeleton"),
+    cssprops: { skeleton },
   },
 } as Meta<typeof SkeletonLoader>;
 

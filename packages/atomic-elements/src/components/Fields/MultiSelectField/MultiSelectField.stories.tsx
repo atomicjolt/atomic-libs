@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react-vite";
 import { InputControls } from "@sb/helpers";
 import { MultiSelectField } from ".";
-import { getCssProps } from "@sb/cssprops";
+import { dropdown, listbox } from "@styles/theme/component";
 import { FieldLabel } from "../Field/FieldLabel";
 import { FieldMessage } from "../Field/FieldMessage";
 import { Popover } from "@components/Overlays/Popover";
@@ -16,7 +16,7 @@ export default {
   component: MultiSelectField,
   parameters: {
     layout: "centered",
-    cssprops: getCssProps("Dropdown", "Listbox"),
+    cssprops: { dropdown, listbox },
   },
   argTypes: {
     ...InputControls,

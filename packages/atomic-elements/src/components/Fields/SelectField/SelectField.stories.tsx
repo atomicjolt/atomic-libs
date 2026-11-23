@@ -5,7 +5,7 @@ import {
   FocusEventsArgTypes,
   RenderPropsArgTypes,
 } from "@sb/helpers";
-import { getCssProps } from "@sb/cssprops";
+import { button, dropdown, listbox } from "@styles/theme/component";
 import { FieldLabel } from "../Field/FieldLabel";
 import { Popover } from "@components/Overlays/Popover";
 import { ListBox } from "@components/Dropdowns/ListBox";
@@ -21,7 +21,7 @@ export default {
   component: SelectField,
   parameters: {
     layout: "centered",
-    cssprops: getCssProps("Dropdown", "Listbox", "Button"),
+    cssprops: { dropdown, listbox, button },
   },
   argTypes: {
     ...FieldStateControls,

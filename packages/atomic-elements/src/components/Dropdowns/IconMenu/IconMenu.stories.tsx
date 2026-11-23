@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react-vite";
-import { getCssProps } from "@sb/cssprops";
+import { button, dropdown, menu } from "@styles/theme/component";
 import { IconMenu } from ".";
 import { Item, MaterialIcon, Section } from "../../";
 
@@ -8,7 +8,7 @@ const meta: Meta<typeof IconMenu> = {
   component: IconMenu,
   parameters: {
     layout: "centered",
-    cssprops: getCssProps("Dropdown", "Menu", "Button"),
+    cssprops: { dropdown, menu, button },
   },
   argTypes: {
     buttonVariant: {

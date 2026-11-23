@@ -2,14 +2,14 @@ import { Meta, StoryObj } from "@storybook/react-vite";
 import { fn } from "storybook/test";
 import { SearchInput } from ".";
 import { RenderPropsArgTypes, TextInputControls } from "@sb/helpers";
-import { getCssProps } from "@sb/cssprops";
+import { input } from "@styles/theme/component";
 
 const meta: Meta<typeof SearchInput> = {
   title: "Inputs/User Input/SearchInput",
   component: SearchInput,
   parameters: {
     layout: "centered",
-    cssprops: getCssProps("Input"),
+    cssprops: { input },
   },
   argTypes: {
     ...RenderPropsArgTypes,

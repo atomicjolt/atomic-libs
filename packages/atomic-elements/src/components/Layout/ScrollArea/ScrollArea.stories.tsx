@@ -1,14 +1,14 @@
 import { Meta, StoryObj } from "@storybook/react-vite";
 import { ScrollArea } from ".";
 import { Flex } from "../Flex";
-import { getCssProps } from "@sb/cssprops";
+import { scrollArea } from "@styles/theme/component";
 import { RenderPropsArgTypes } from "@sb/helpers";
 
 export default {
   title: "Layouts/ScrollArea",
   component: ScrollArea,
   parameters: {
-    cssprops: getCssProps("ScrollArea"),
+    cssprops: { scrollArea },
   },
   argTypes: {
     ...RenderPropsArgTypes,

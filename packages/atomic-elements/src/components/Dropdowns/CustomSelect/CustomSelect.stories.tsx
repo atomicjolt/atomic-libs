@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/react-vite";
 import { InputControls } from "@sb/helpers";
 import { CustomSelect } from ".";
 import { Item, Section } from "../../Collection";
-import { getCssProps } from "@sb/cssprops";
+import { button, dropdown, listbox } from "@styles/theme/component";
 import { MaterialIcon } from "@components/Icons/MaterialIcon";
 import { Flex } from "@components/Layout/Flex";
 
@@ -11,7 +11,7 @@ const meta: Meta<typeof CustomSelect> = {
   component: CustomSelect,
   parameters: {
     layout: "centered",
-    cssprops: getCssProps("Dropdown", "Listbox", "Button"),
+    cssprops: { dropdown, listbox, button },
   },
   argTypes: {
     ...InputControls,

@@ -3,7 +3,7 @@ import { Meta, StoryObj } from "@storybook/react-vite";
 import { fn } from "storybook/test";
 import { Table } from ".";
 import { SearchDescriptor } from "../../../types";
-import { getCssProps } from "@sb/cssprops";
+import { table } from "@styles/theme/component";
 import { Flex } from "../../Layout/Flex";
 import { Button } from "@components/Buttons/Button";
 import { MaterialIcon, Pagination, Text } from "@components/index";
@@ -13,7 +13,7 @@ const meta: Meta<typeof Table> = {
   title: "Content/Table",
   component: Table,
   parameters: {
-    cssprops: getCssProps("Table"),
+    cssprops: { table },
   },
   argTypes: {
     ...RenderPropsArgTypes,

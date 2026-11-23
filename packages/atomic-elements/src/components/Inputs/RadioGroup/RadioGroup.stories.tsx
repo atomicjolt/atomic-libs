@@ -1,13 +1,13 @@
 import { Meta, StoryObj } from "@storybook/react-vite";
 import { FieldStateControls, RenderPropsArgTypes } from "@sb/helpers";
-import { getCssProps } from "@sb/cssprops";
+import { radio } from "@styles/theme/component";
 import { Radio, RadioGroup } from ".";
 
 const meta: Meta<typeof RadioGroup> = {
   title: "Inputs/Choose State/RadioGroup",
   parameters: {
     layout: "centered",
-    cssprops: getCssProps("Radio"),
+    cssprops: { radio },
   },
   component: RadioGroup,
   argTypes: {

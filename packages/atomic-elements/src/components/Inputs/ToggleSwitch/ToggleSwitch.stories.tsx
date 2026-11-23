@@ -1,13 +1,13 @@
 import { Meta, StoryObj } from "@storybook/react-vite";
 import { ToggleSwitch } from ".";
-import { getCssProps } from "@sb/cssprops";
+import { toggle } from "@styles/theme/component";
 
 const meta: Meta<typeof ToggleSwitch> = {
   title: "Inputs/Choose State/ToggleSwitch",
   component: ToggleSwitch,
   parameters: {
     layout: "centered",
-    cssprops: getCssProps("Toggle"),
+    cssprops: { toggle },
   },
   argTypes: {
     isLoading: {

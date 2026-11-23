@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react-vite";
-import { getCssProps } from "@sb/cssprops";
+import { tab } from "@styles/theme/component";
 import { fn } from "storybook/test";
 import { RenderPropsArgTypes } from "@sb/helpers";
 import { Tabs } from ".";
@@ -8,7 +8,7 @@ const meta: Meta<typeof Tabs> = {
   title: "Content/Tabs",
   component: Tabs,
   parameters: {
-    cssprops: getCssProps("Tab"),
+    cssprops: { tab },
   },
   argTypes: {
     ...RenderPropsArgTypes,

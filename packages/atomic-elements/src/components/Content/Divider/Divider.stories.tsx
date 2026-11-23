@@ -1,12 +1,12 @@
 import { Meta, StoryObj } from "@storybook/react-vite";
 import { Divider } from ".";
-import { getCssProps } from "@sb/cssprops";
+import { divider } from "@styles/theme/component";
 
 export default {
   title: "Content/Divider",
   component: Divider,
   parameters: {
-    cssprops: getCssProps("Divider"),
+    cssprops: { divider },
   },
   argTypes: {
     spacing: {

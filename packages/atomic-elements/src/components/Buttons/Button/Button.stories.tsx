@@ -2,14 +2,14 @@ import { Meta, StoryObj } from "@storybook/react-vite";
 import { Button } from ".";
 import { PressableArgTypes, RenderPropsArgTypes } from "@sb/helpers";
 import { MaterialIcon } from "@components/Icons/MaterialIcon";
-import { getCssProps } from "@sb/cssprops";
+import { button } from "@styles/theme/component";
 
 const meta: Meta<typeof Button> = {
   title: "Buttons/Button",
   component: Button,
   parameters: {
     layout: "centered",
-    cssprops: getCssProps("Button"),
+    cssprops: { button },
   },
   argTypes: {
     ...PressableArgTypes,

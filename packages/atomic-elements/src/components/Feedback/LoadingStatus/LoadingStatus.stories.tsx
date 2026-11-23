@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react-vite";
-import { getCssProps } from "@sb/cssprops";
+import { loader } from "@styles/theme/component";
 import { SpinnerLoader } from "../SpinnerLoader";
 import { LoadingStatus } from ".";
 import { Text } from "@components/Typography/Text";
@@ -9,7 +9,7 @@ const meta: Meta<typeof LoadingStatus> = {
   component: LoadingStatus,
   tags: ["!autodocs"],
   parameters: {
-    cssprops: getCssProps("Loader"),
+    cssprops: { loader },
   },
   argTypes: {
     loadingMessage: {
