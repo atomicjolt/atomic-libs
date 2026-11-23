@@ -5,6 +5,7 @@
     "packages/atomic-elements",
     "packages/atomic-fuel",
     "packages/hooks",
+    "packages/jsonforms",
     "packages/forms",
     "packages/lti-types",
     "packages/lti-client",
