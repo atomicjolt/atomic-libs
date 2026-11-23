@@ -1,9 +1,9 @@
 import React from "react";
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { DismissableBanner, ErrorBanner, WarningBanner } from ".";
 import { getCssProps } from "@sb/cssprops";
 import { RenderPropsArgTypes } from "@sb/helpers";
-import { fn } from "@storybook/test";
+import { fn } from "storybook/test";
 
 export default {
   title: "Banners/DismissableBanner",

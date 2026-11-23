@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { List } from ".";
 import { MarginArgTypes, RenderPropsArgTypes } from "@sb/helpers";
 import { Text } from "../../Typography/Text";

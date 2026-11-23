@@ -1,5 +1,5 @@
 import React from "react";
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { InputControls } from "@sb/helpers";
 import { MultiSelect } from ".";
 import { Item } from "../../Collection";

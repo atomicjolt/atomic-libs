@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { Button } from ".";
 import { PressableArgTypes, RenderPropsArgTypes } from "@sb/helpers";
 import { MaterialIcon } from "@components/Icons/MaterialIcon";

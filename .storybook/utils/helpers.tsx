@@ -1,4 +1,4 @@
-import { ArgTypes } from "@storybook/react";
+import { ArgTypes } from "@storybook/react-vite";
 import { createGlobalStyle } from "styled-components";
 import { PressEvents } from "@react-aria/interactions";
 import { OverlayTriggerProps } from "react-stately";

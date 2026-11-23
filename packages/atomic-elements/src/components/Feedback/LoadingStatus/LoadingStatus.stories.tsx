@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { getCssProps } from "@sb/cssprops";
 import { SpinnerLoader } from "../SpinnerLoader";
 import { LoadingStatus } from ".";

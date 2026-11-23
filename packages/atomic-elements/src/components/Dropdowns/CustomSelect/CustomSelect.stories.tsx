@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { InputControls } from "@sb/helpers";
 import { CustomSelect } from ".";
 import { Item, Section } from "../../Collection";

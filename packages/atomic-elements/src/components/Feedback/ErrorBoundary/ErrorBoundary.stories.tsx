@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { ErrorBoundary } from "./ErrorBoundary.component";
 import { Button } from "../../Buttons/Button";
 import { ErrorBanner } from "@components/Banners/DismissableBanner";

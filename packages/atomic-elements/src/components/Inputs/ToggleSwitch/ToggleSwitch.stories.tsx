@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { ToggleSwitch } from ".";
 import { getCssProps } from "@sb/cssprops";
 

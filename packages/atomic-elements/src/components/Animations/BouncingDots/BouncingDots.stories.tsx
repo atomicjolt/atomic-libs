@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { BouncingDots } from ".";
 import { RenderPropsArgTypes, AriaLabelArgTypes } from "@sb/helpers";
 import { getCssProps } from "@sb/cssprops";

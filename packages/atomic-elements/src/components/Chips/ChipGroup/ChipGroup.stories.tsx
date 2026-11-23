@@ -1,9 +1,9 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { ChipGroup } from ".";
 import { InputControls, MultiSelectionArgTypes } from "@sb/helpers";
 import { getCssProps } from "@sb/cssprops";
 import { Chip } from "../Chip";
-import { fn } from "@storybook/test";
+import { fn } from "storybook/test";
 
 export default {
   title: "Chips/ChipGroup",

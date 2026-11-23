@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { Flex } from ".";
 import { View } from "@components/Layout/View";
 import { FlexArgTypes, LayoutArgTypes, RenderPropsArgTypes } from "@sb/helpers";

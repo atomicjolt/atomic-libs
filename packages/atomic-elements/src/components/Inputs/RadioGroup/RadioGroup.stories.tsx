@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { FieldStateControls, RenderPropsArgTypes } from "@sb/helpers";
 import { getCssProps } from "@sb/cssprops";
 import { Radio, RadioGroup } from ".";

@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { today, getLocalTimeZone } from "@internationalized/date";
 import { Calendar } from ".";
 import { IconButton } from "@components/Buttons/IconButton";

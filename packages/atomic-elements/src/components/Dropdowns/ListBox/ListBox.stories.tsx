@@ -1,6 +1,6 @@
-import { StoryObj, Meta } from "@storybook/react";
+import { StoryObj, Meta } from "@storybook/react-vite";
 import { MultiSelectItemChildren, MultiSelectionArgTypes } from "@sb/helpers";
-import { fn } from "@storybook/test";
+import { fn } from "storybook/test";
 import { getCssProps } from "@sb/cssprops";
 import { ListBox } from ".";
 import { Section, Item } from "@components/Collection";

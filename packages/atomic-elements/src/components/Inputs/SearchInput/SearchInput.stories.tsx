@@ -1,5 +1,5 @@
-import { Meta, StoryObj } from "@storybook/react";
-import { fn } from "@storybook/test";
+import { Meta, StoryObj } from "@storybook/react-vite";
+import { fn } from "storybook/test";
 import { SearchInput } from ".";
 import { RenderPropsArgTypes, TextInputControls } from "@sb/helpers";
 import { getCssProps } from "@sb/cssprops";

@@ -5,13 +5,7 @@ import path from "path";
 export default defineConfig({
   plugins: [react()],
   optimizeDeps: {
-    exclude: [
-      "storybook",
-      "sb-vite",
-      "@storybook/blocks",
-      "@storybook/theming",
-      "@stoybook/components",
-    ],
+    exclude: ["storybook", "@storybook/addon-docs"],
     noDiscovery: false,
   },
 

@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { Loader } from ".";
 import { AriaLabelArgTypes, RenderPropsArgTypes } from "@sb/helpers";
 import { Spinner } from "@components/Animations/Spinner";

@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { OverlayTrigger } from ".";
 import { Pressable } from "./Pressable";
 import { Popover } from "../Popover";

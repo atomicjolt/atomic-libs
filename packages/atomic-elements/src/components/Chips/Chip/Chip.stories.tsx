@@ -1,6 +1,6 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { Chip } from ".";
-import { fn } from "@storybook/test";
+import { fn } from "storybook/test";
 import { PressableArgTypes } from "@sb/helpers";
 
 export default {

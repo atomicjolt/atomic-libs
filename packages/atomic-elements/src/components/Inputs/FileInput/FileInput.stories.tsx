@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { FileInput } from ".";
 import { InputControls } from "@sb/helpers";
 

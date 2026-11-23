@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Meta, StoryObj } from "@storybook/react";
-import { fn } from "@storybook/test";
+import { Meta, StoryObj } from "@storybook/react-vite";
+import { fn } from "storybook/test";
 import { Table } from ".";
 import { SearchDescriptor } from "../../../types";
 import { getCssProps } from "@sb/cssprops";

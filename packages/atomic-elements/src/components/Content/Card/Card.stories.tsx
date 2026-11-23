@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { getCssProps } from "@sb/cssprops";
 import { Divider } from "../Divider";
 import { Text } from "../../Typography/Text";

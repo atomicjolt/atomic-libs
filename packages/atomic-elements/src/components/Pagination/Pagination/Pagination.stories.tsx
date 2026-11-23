@@ -1,6 +1,6 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { Pagination } from ".";
-import { fn } from "@storybook/test";
+import { fn } from "storybook/test";
 import { AriaLabelArgTypes } from "@sb/helpers";
 import { Flex } from "@components/Layout/Flex";
 import { Item } from "@components/Collection";

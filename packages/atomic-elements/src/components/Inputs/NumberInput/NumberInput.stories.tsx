@@ -1,8 +1,8 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { NumberInput } from ".";
 import { TextInputControls } from "@sb/helpers";
 import { getCssProps } from "@sb/cssprops";
-import { fn } from "@storybook/test";
+import { fn } from "storybook/test";
 
 const meta: Meta<typeof NumberInput> = {
   title: "Inputs/User Input/NumberInput",

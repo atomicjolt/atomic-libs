@@ -1,4 +1,4 @@
-import { PureArgsTable, Subheading, useOf } from "@storybook/blocks";
+import { PureArgsTable, Subheading, useOf } from "@storybook/addon-docs/blocks";
 
 interface CssPropItem {
   value: string;

@@ -1,8 +1,8 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { Disclosure, DisclosureGroup } from ".";
 import { Flex } from "../../Layout/Flex";
 import { RenderPropsArgTypes } from "@sb/helpers";
-import { fn } from "@storybook/test";
+import { fn } from "storybook/test";
 
 export default {
   title: "Content/Disclosure/DisclosureGroup",
