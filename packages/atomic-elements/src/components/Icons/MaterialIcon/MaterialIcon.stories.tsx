@@ -1,13 +1,11 @@
 import { Meta, StoryObj } from "@storybook/react-vite";
 import { MaterialIcon } from ".";
-import { getCssProps } from "@sb/cssprops";
 
 const meta: Meta<typeof MaterialIcon> = {
   title: "Icons/MaterialIcon",
   component: MaterialIcon,
   parameters: {
     layout: "centered",
-    cssprops: getCssProps("Icon"),
   },
 };
 

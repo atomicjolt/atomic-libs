@@ -8,7 +8,7 @@ export default {
   component: BouncingDots,
   parameters: {
     layout: "centered",
-    cssprops: getCssProps("Animations"),
+    cssprops: getCssProps("Animation"),
   },
   argTypes: {
     ...RenderPropsArgTypes,

@@ -7,7 +7,7 @@ export default {
   title: "Feedback/SkeletonLoader",
   component: SkeletonLoader,
   parameters: {
-    cssprops: getCssProps("SkeletonLoader"),
+    cssprops: getCssProps("Skeleton"),
   },
 } as Meta<typeof SkeletonLoader>;
 

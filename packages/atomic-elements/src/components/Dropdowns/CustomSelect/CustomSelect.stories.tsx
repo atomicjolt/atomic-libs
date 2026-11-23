@@ -113,19 +113,19 @@ export const WithCustomContent: Story = {
     ...Primary.args,
     children: [
       <Item key="1" textValue="Home">
-        <Flex gap={4} alignItems="center">
+        <Flex $gap="4px" $align="center">
           <MaterialIcon icon="home" />
           Home
         </Flex>
       </Item>,
       <Item key="2" textValue="Settings">
-        <Flex gap={4} alignItems="center">
+        <Flex $gap="4px" $align="center">
           <MaterialIcon icon="settings" />
           Settings
         </Flex>
       </Item>,
       <Item key="3" textValue="Profile">
-        <Flex gap={4} alignItems="center">
+        <Flex $gap="4px" $align="center">
           <MaterialIcon icon="account_circle" />
           Profile
         </Flex>

@@ -10,7 +10,7 @@ export default {
   component: ChipGroup,
   parameters: {
     layout: "centered",
-    cssprops: getCssProps("ChipGroup"),
+    cssprops: getCssProps("Chip"),
   },
   argTypes: {
     ...InputControls,

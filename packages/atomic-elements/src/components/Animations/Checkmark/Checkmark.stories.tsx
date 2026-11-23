@@ -8,7 +8,7 @@ export default {
   component: Checkmark,
   parameters: {
     layout: "centered",
-    cssprops: getCssProps("Animations"),
+    cssprops: getCssProps("Animation"),
   },
   argTypes: {
     ...RenderPropsArgTypes,

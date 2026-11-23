@@ -11,7 +11,7 @@ export default {
   },
   decorators: [
     (Story) => (
-      <Flex alignItems="center" gap={12}>
+      <Flex $align="center" $gap="12px">
         <div
           draggable
           style={{
