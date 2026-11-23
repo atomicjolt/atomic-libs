@@ -84,22 +84,22 @@ export const Primary: Story = {
         <Table.Column>Level</Table.Column>
       </Table.Header>,
       <Table.Body>
-        <Table.Row key="1">
+        <Table.Row>
           <Table.Cell>Charizard</Table.Cell>
           <Table.Cell>Fire, Flying</Table.Cell>
           <Table.Cell>67</Table.Cell>
         </Table.Row>
-        <Table.Row key="2">
+        <Table.Row>
           <Table.Cell>Blastoise</Table.Cell>
           <Table.Cell>Water</Table.Cell>
           <Table.Cell>56</Table.Cell>
         </Table.Row>
-        <Table.Row key="3">
+        <Table.Row>
           <Table.Cell>Venusaur</Table.Cell>
           <Table.Cell>Grass, Poison</Table.Cell>
           <Table.Cell>83</Table.Cell>
         </Table.Row>
-        <Table.Row key="4">
+        <Table.Row>
           <Table.Cell>Pikachu</Table.Cell>
           <Table.Cell>Electric</Table.Cell>
           <Table.Cell>100</Table.Cell>

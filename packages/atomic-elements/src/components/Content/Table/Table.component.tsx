@@ -97,6 +97,8 @@ export function Table<T extends object>(props: TableProps<T>) {
   );
 }
 
+Table.displayName = "Table";
+
 Table.Header = TableHeaderWrapper;
 Table.Column = TableColumnWrapper;
 Table.Body = TableBody;

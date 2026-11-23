@@ -118,3 +118,6 @@ export const TableCell = createLeafComponent("cell", function TableCell<
     </Element>
   );
 });
+
+// @ts-expect-error Setting displayName on a generic component causes a TypeScript error
+TableCell.displayName = "Table.Cell";
