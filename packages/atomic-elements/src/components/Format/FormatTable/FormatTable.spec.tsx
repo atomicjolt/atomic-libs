@@ -33,3 +33,19 @@ describe("FormatTable", () => {
     expect(screen.queryByRole("grid")).toBeNull();
   });
 });
+
+describe("FormatTable aria-details", () => {
+  test("passes aria-details to the table", () => {
+    render(
+      <FormatTable
+        aria-label="People"
+        aria-details="people-notes"
+        columns={columns}
+        value={[{ key: 1, name: "Ada", age: 36 }]}
+      />
+    );
+    expect(
+      screen.getByRole("grid", { name: "People" }).getAttribute("aria-details")
+    ).toBe("people-notes");
+  });
+});
