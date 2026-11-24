@@ -1,3 +1,4 @@
+import { filterDOMProps } from "@react-aria/utils";
 import { forwardRef, useMemo } from "react";
 import { useProgressBar, AriaProgressBarProps } from "@react-aria/progress";
 import { RenderStyleProps, SuggestStrings } from "../../../types";
@@ -94,7 +95,9 @@ export const ProgressCircle = forwardRef<HTMLElement, ProgressCircleProps>(
         viewBox="0 0 44 44"
         {...progressBarProps}
         {...renderProps}
-        {...rest}
+        // The rest are react-aria progress props, already handled by
+        // useProgressBar; only pass on valid DOM props (id, data-*).
+        {...filterDOMProps(rest)}
       >
         <ProgressCircleBackground cx="22" cy="22" r={radius} $fill={$bg} />
         <ProgressCircleTrack
