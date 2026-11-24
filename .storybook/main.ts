@@ -30,6 +30,10 @@ const config: StorybookConfig = {
       tsconfigPath: fileURLToPath(
         new URL("../packages/atomic-elements/tsconfig.json", import.meta.url)
       ),
+      // Only document the library's components. Storybook's own config
+      // files (.storybook/, the story helpers) are outside that tsconfig,
+      // so docgen would skip them anyway, with a warning for each.
+      include: ["**/packages/atomic-elements/src/**/*.tsx"],
       // Report `boolean | undefined` as `boolean`, so optional props get a
       // matching control instead of a JSON object editor.
       shouldRemoveUndefinedFromOptional: true,
