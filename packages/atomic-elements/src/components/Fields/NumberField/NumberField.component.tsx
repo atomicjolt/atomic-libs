@@ -78,10 +78,7 @@ export function NumberField(props: NumberFieldProps) {
               },
             },
           ],
-          [
-            ComboInputContext.Provider,
-            { inputRef, isLoading, loadingLabel },
-          ],
+          [ComboInputContext.Provider, { inputRef, isLoading, loadingLabel }],
           [
             FieldInputContext.Provider,
             {
@@ -90,6 +87,8 @@ export function NumberField(props: NumberFieldProps) {
               readOnly: isReadOnly,
               name,
               ref: inputRef,
+              isLoading,
+              loadingLabel,
             },
           ],
         ]}
