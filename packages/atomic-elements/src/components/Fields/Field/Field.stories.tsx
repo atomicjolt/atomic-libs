@@ -1,9 +1,9 @@
 import { Meta, StoryObj } from "@storybook/react-vite";
 import { Field } from ".";
-import { FieldLabel } from "./FieldLabel";
-import { FieldInput } from "./FieldInput";
-import { FieldErrorMessage } from "./FieldError";
-import { FieldMessage } from "./FieldMessage";
+import { Label } from "../Atoms/Label";
+import { Input } from "../Atoms/Input";
+import { ErrorMessage } from "../Atoms/ErrorMessage";
+import { Message } from "../Atoms/Message";
 import { FieldStateControls } from "@sb/helpers";
 
 export default {
@@ -19,10 +19,10 @@ type Story = StoryObj<typeof Field>;
 export const Default: Story = {
   args: {
     children: [
-      <FieldLabel key="label">Label</FieldLabel>,
-      <FieldMessage key="message">Message</FieldMessage>,
-      <FieldInput key="input" />,
-      <FieldErrorMessage key="error">Error Message</FieldErrorMessage>,
+      <Label key="label">Label</Label>,
+      <Message key="message">Message</Message>,
+      <Input key="input" />,
+      <ErrorMessage key="error">Error Message</ErrorMessage>,
     ],
   },
 };

@@ -18,7 +18,7 @@ import {
   FieldMessageContext,
 } from "../contexts";
 import { StyledField } from "../Field.styles";
-import { FieldLabel } from "./FieldLabel";
+import { Label } from "../Atoms/Label";
 import { ComboInputContext } from "../ComboInput";
 
 export interface FieldRenderProps extends FieldStatusProps {}
@@ -57,7 +57,7 @@ export function Field(props: FieldProps) {
   const label = React.Children.toArray(renderProps.children).find(
     (child) =>
       typeof child === "object" &&
-      (child as React.ReactElement<any>)?.type === FieldLabel
+      (child as React.ReactElement<any>)?.type === Label
   );
 
   const { labelProps, descriptionProps, errorMessageProps, fieldProps } =

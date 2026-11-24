@@ -6,11 +6,11 @@ import {
   RenderPropsArgTypes,
 } from "@sb/helpers";
 import { button, dropdown, listbox } from "@styles/theme/component";
-import { FieldLabel } from "../Field/FieldLabel";
+import { Label } from "../Atoms/Label";
 import { Popover } from "@components/Overlays/Popover";
 import { ListBox } from "@components/Dropdowns/ListBox";
-import { FieldErrorMessage } from "../Field/FieldError";
-import { FieldMessage } from "../Field/FieldMessage";
+import { ErrorMessage } from "../Atoms/ErrorMessage";
+import { Message } from "../Atoms/Message";
 import { Button } from "@components/Buttons/Button";
 import { Item, Section } from "@components/Collection";
 import { MaterialIcon } from "@components/Icons/MaterialIcon";
@@ -78,8 +78,8 @@ export const Primary: Story = {
     onSelectionChange: fn(),
     onOpenChange: fn(),
     children: [
-      <FieldLabel key="label">Select an item</FieldLabel>,
-      <FieldMessage key="message">Choose an item from the list</FieldMessage>,
+      <Label key="label">Select an item</Label>,
+      <Message key="message">Choose an item from the list</Message>,
       <Button key="button" variant="dropdown">
         <SelectField.Value placeholder="Select an option" />
         <MaterialIcon icon="arrow_drop_down" style={{ marginLeft: "auto" }} />
@@ -91,7 +91,7 @@ export const Primary: Story = {
           <Item id="3">Item 3</Item>
         </ListBox>
       </Popover>,
-      <FieldErrorMessage key="error">Something went wrong</FieldErrorMessage>,
+      <ErrorMessage key="error">Something went wrong</ErrorMessage>,
     ],
   },
 };
@@ -100,9 +100,9 @@ export const WithSections: Story = {
   args: {
     ...Primary.args,
     children: [
-      <FieldLabel key="label">Select an item</FieldLabel>,
+      <Label key="label">Select an item</Label>,
 
-      <FieldMessage key="message">Choose an item from the list</FieldMessage>,
+      <Message key="message">Choose an item from the list</Message>,
       <Button key="button" variant="dropdown">
         <SelectField.Value placeholder="Select an option" />
         <MaterialIcon icon="arrow_drop_down" style={{ marginLeft: "auto" }} />
