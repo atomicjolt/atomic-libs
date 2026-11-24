@@ -1,4 +1,6 @@
-import { PureArgsTable, Subheading, useOf } from "@storybook/addon-docs/blocks";
+import React from "react";
+import { PureArgsTable, useOf } from "@storybook/addon-docs/blocks";
+import { CollapsibleSection } from "./CollapsibleSection";
 import { toCssValue } from "../../packages/atomic-elements/src/styles/theme/theme";
 
 /** Token groups keyed by category, e.g. `{ dropdown, listbox }`. */
@@ -37,9 +39,17 @@ export function CssVariablesTable() {
   if (Object.keys(rows).length === 0) return null;
 
   return (
-    <>
-      <Subheading>CSS Variables</Subheading>
+    <CollapsibleSection
+      title="CSS variables"
+      count={Object.keys(rows).length}
+      description={
+        <>
+          The theme variables this component reads, with their default values.
+          Set them in CSS on the component or any parent to restyle it.
+        </>
+      }
+    >
       <PureArgsTable rows={rows} />
-    </>
+    </CollapsibleSection>
   );
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import { Controls, useOf } from "@storybook/addon-docs/blocks";
+import { CollapsibleSection } from "./CollapsibleSection";
 
 /** Style-system props are the ones prefixed with `$` (e.g. `$p`, `$gap`). */
 const isStyleProp = (name: string) => name.startsWith("$");
@@ -42,16 +43,18 @@ export function StylePropsControls() {
   if (styleProps.length === 0) return null;
 
   return (
-    <details style={{ margin: "24px 0" }}>
-      <summary style={{ cursor: "pointer", fontSize: 16, fontWeight: 700 }}>
-        Style props ({styleProps.length})
-      </summary>
-      <p>
-        Props prefixed with <code>$</code> set CSS directly on the component,
-        for example padding, margin or size. Values can be a theme token or any
-        valid CSS value.
-      </p>
+    <CollapsibleSection
+      title="Style props"
+      count={styleProps.length}
+      description={
+        <>
+          Props prefixed with <code>$</code> set CSS directly on the component,
+          for example padding, margin or size. Values can be a theme token or
+          any valid CSS value.
+        </>
+      }
+    >
       <Controls include={styleProps} />
-    </details>
+    </CollapsibleSection>
   );
 }
