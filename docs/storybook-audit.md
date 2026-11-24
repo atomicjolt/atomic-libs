@@ -1036,8 +1036,10 @@ already hidden from the props table, so the docs are accurate in the meantime.
 ### Naming
 1. **Checkbox or CheckBox.** The export is `CheckBox`, but the docs title, files and folder say
    `Checkbox`. Pick one; the other could stay as a deprecated alias.
+   > **Status:** ✅ Done: folder, files, story title and internals renamed to CheckBox to match the export.
 2. **`RadioGroupsProps`** should be `RadioGroupProps`. Add the new name and keep the old one as a
    deprecated alias.
+   > **Status:** ✅ Done: `RadioGroupProps`, with `RadioGroupsProps` kept as a deprecated alias (`@atomicjolt/forms` still uses the alias, since it supports older atomic-elements releases).
 
 ### Props in public types that the component ignores
 Removing these from the types is the clean fix, but it's a breaking change for anyone passing them
@@ -1045,10 +1047,13 @@ today (even though they have no effect). They are hidden from the docs for now.
 
 3. **`isLoading` / `loadingLabel`**, inherited through `FieldInputProps`, are ignored by Select,
    DateInput, DatePicker, TimeInput, Field, DateField, SelectField, MultiSelectField and ChipGroup.
+   > **Status:** Under review: each component is on the playground's Loading States tab, in the "Accept isLoading but don't implement it" section.
 4. **`size`** is ignored by Divider, Table and ToggleSwitch. Calendar's `size` type also allows
    `"auto"`, which has no styles.
+   > **Status:** ✅ Done: `size` removed from Divider, Table and ToggleSwitch; Calendar's `size` no longer allows `"auto"`. Breaking for TypeScript callers.
 5. **Other ignored props:** FormatTable's `children` and `aria-details`; DisclosureGroup's
    `className` / `style`; Loading's `id` and `size`.
+   > **Status:** ✅ Done: Loading supports `id` and drops `size`; FormatTable passes `aria-details` to its table and drops `children`. DisclosureGroup's `className` / `style` were never in its type, only its docs (already fixed).
 
 ### Docs gaps that need structural changes
 6. **Subcomponents of cast components get no docs.** react-docgen-typescript only documents static
@@ -1056,17 +1061,25 @@ today (even though they have no effect). They are hidden from the docs for now.
    (`List.Item`) are cast (`as typeof X & {…}`), and Banner's and Pagination's subcomponents
    aren't exported, so their subcomponent tabs would be empty. Options: one file per subcomponent
    (as ScrollArea does), or exporting them.
+   > **Status:** Deferred.
 7. **Defaults on subcomponents' inherited props** (Card.Panel, Navbar.Title, Disclosure.Trigger
    and similar) need the subcomponents to have their own props interfaces.
+   > **Status:** Deferred.
 8. **ListBox has no docgen.** `InternalListBox` is public API (exported as `UnmanagedListBox`),
    and docgen documents it instead of `ListBox`. Story argTypes stand in for now.
+   > **Status:** Deferred.
 
 ### Possible component bugs (not changed)
 9. **FileInput** puts `aria-*` props on its wrapper div rather than on the button.
+   > **Status:** ✅ Fixed: aria props go on the button, which is also described by the message and error. Also found and fixed: FileInput and Select never rendered their error message.
 10. **`DisclosurePanelProps` extends `ButtonProps`**, so the panel's type lists button props.
+   > **Status:** Deferred (docs gap).
 11. **Table** hard-codes `allowsExpandableRows: false`, so the documented row-nesting feature may
     not work; and `Table.Skeleton` can't take an `aria-label`, which logs a warning.
+   > **Status:** ✅ Fixed: row nesting removed from the docs (setting it throws); Table.Skeleton accepts aria labels and defaults to "Loading".
 12. **ProgressCircle** never renders `label`, so passing it makes `aria-labelledby` point at an
     element that doesn't exist.
+   > **Status:** Open: recommendation is to remove `label` and rely on `aria-label` / `aria-labelledby`.
 13. **Modal's MDX page** still says "the controls in this page are not working". This couldn't be
     checked without running Storybook interactively.
+   > **Status:** Left alone for now.
