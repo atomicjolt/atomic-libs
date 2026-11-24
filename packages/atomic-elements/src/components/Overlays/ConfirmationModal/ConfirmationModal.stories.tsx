@@ -25,6 +25,6 @@ export const Primary: Story = {
     children:
       "Are you sure you want to delete this post? This action cannot be undone.",
     confirmText: "Delete",
-    centered: true,
+    isCentered: true,
   },
 };

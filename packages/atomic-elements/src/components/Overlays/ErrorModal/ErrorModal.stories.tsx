@@ -24,6 +24,6 @@ export const Primary: Story = {
     title: "Error",
     children: "An error has occurred",
     buttonText: "Close",
-    centered: true,
+    isCentered: true,
   },
 };
