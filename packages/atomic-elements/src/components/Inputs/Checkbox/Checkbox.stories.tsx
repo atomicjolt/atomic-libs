@@ -22,9 +22,9 @@ const meta: Meta<typeof CheckBox> = {
     ...FocusEventsArgTypes,
     error: {
       control: "text",
+      description: "Error message, shown when the checkbox is invalid.",
       table: {
         category: "Helper Text",
-        defaultValue: { summary: '"error"' },
       },
     },
     message: {

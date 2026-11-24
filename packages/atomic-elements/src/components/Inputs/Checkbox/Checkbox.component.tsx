@@ -48,7 +48,7 @@ export const CheckBox = React.forwardRef<HTMLInputElement, CheckBoxProps>(
     [props, ref] = useContextProps(CheckBoxContext, props, ref);
 
     const {
-      error = "error",
+      error,
       message,
       isRequired = false,
       isInvalid = false,
@@ -120,7 +120,7 @@ export const CheckBox = React.forwardRef<HTMLInputElement, CheckBoxProps>(
           {renderProps.children}
           {isRequired && <RequiredMarker />}
           {message && <Message>{message}</Message>}
-          {isInvalid && <ErrorMessage isInvalid>{error}</ErrorMessage>}
+          {isInvalid && error && <ErrorMessage isInvalid>{error}</ErrorMessage>}
         </CheckBoxLabel>
       </CheckboxWrapper>
     );
