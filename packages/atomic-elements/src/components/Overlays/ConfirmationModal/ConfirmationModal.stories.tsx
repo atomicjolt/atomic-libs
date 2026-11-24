@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react-vite";
+import { OverlayTriggerArgTypes, RenderStylePropsArgTypes } from "@sb/helpers";
 import { ConfirmationModal } from ".";
 
 const meta: Meta<typeof ConfirmationModal> = {
@@ -13,6 +14,8 @@ const meta: Meta<typeof ConfirmationModal> = {
     },
   },
   argTypes: {
+    ...OverlayTriggerArgTypes,
+    ...RenderStylePropsArgTypes,
     $width: {
       table: { defaultValue: { summary: '"400px"' } },
     },

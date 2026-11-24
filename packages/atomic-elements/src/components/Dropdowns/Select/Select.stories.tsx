@@ -2,6 +2,14 @@ import { Meta, StoryObj } from "@storybook/react-vite";
 import { InputControls } from "@sb/helpers";
 import { Select } from ".";
 
+// placeholder and isReadOnly are omitted from SelectProps: the native
+// <select> has no placeholder or read-only state.
+const {
+  placeholder: _placeholder,
+  isReadOnly: _isReadOnly,
+  ...SelectInputControls
+} = InputControls;
+
 const meta: Meta<typeof Select> = {
   title: "Dropdowns/Selection/Select",
   component: Select,
@@ -12,8 +20,10 @@ const meta: Meta<typeof Select> = {
     value: {
       control: "select",
       options: ["value1", "value2", "value3"],
+      description:
+        "Value of the selected option (controlled). Passed to the native `<select>`.",
     },
-    ...InputControls,
+    ...SelectInputControls,
     size: {
       table: { defaultValue: { summary: '"medium"' } },
     },
@@ -62,5 +72,13 @@ export const Primary: Story = {
         Option 3
       </option>,
     ],
+  },
+};
+
+export const Invalid: Story = {
+  args: {
+    ...Primary.args,
+    isInvalid: true,
+    error: "Please select an option",
   },
 };

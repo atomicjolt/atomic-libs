@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react-vite";
-import { InputControls } from "@sb/helpers";
+import { FieldStateControls } from "@sb/helpers";
 import { MultiSelectField } from ".";
 import { dropdown, listbox } from "@styles/theme/component";
 import { FieldLabel } from "../Field/FieldLabel";
@@ -19,7 +19,9 @@ export default {
     cssprops: { dropdown, listbox },
   },
   argTypes: {
-    ...InputControls,
+    // Not InputControls: MultiSelectField has no label / error / message props
+    // (they're child components) and doesn't use placeholder.
+    ...FieldStateControls,
     size: {
       table: { defaultValue: { summary: '"medium"' } },
     },
@@ -27,7 +29,7 @@ export default {
       control: "multi-select",
       description:
         "Control the value of the selected keys in a controlled component",
-      options: ["val1", "val2", "val3"],
+      options: ["1", "2", "3"],
     },
     defaultSelectedKeys: {
       control: false,

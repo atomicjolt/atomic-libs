@@ -19,10 +19,8 @@ export interface ConfirmationModalProps extends BaseModalProps {
 
   /** Called when the user clicks on the button with `confirmText` */
   onConfirm?: () => void;
-  /** Called when the user clicks on the button with
-   * `rejectText` or when they attempt to close the modal by clicking
-   * on the background
-   * */
+  /** Called when the user presses the reject (`rejectText`) button.
+   * Not called when the modal is dismissed with Escape. */
   onReject?: () => void;
 }
 

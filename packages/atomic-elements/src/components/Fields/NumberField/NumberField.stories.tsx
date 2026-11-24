@@ -7,7 +7,6 @@ import { FieldInput } from "../Field/FieldInput";
 import { FieldErrorMessage } from "../Field/FieldError";
 import { Group } from "../../Layout/Group";
 import { FieldStateControls, LoadingArgTypes } from "@sb/helpers";
-import { IconButton } from "@components/Buttons/IconButton";
 
 export default {
   title: "Fields/NumberField",
@@ -18,7 +17,15 @@ export default {
   argTypes: {
     ...FieldStateControls,
     ...LoadingArgTypes,
-    onChange: { action: "onChange", table: { category: "Events" } },
+    onChange: {
+      action: "onChange",
+      description: "Handler called when the numeric value changes",
+      table: { category: "Events" },
+    },
+    step: {
+      control: "number",
+      description: "Amount to increment or decrement by",
+    },
     formatOptions: {
       control: "object",
       description: "Options for formatting the number",
@@ -39,16 +46,6 @@ export default {
       control: "number",
       description: "Value of the input when controlled",
     },
-    "data-float": {
-      table: {
-        disable: true,
-      },
-    },
-    "data-resize": {
-      table: {
-        disable: true,
-      },
-    },
   },
 } as Meta<typeof NumberField>;
 
@@ -61,9 +58,9 @@ export const Primary: Story = {
       <FieldLabel key="label">Label</FieldLabel>,
       <FieldMessage key="message">Message</FieldMessage>,
       <Group isMerged key="group">
-        <IconButton slot="decrement" icon="remove" />
+        <NumberField.DecrementButton icon="remove" />
         <FieldInput key="input" />
-        <IconButton slot="increment" icon="add" />
+        <NumberField.IncrementButton icon="add" />
       </Group>,
       <FieldErrorMessage key="error">Error Message</FieldErrorMessage>,
     ],

@@ -36,6 +36,7 @@ export interface PopoverProps
     HasVariant<"listbox" | "menu" | "datepicker"> {
   /** A ref to the element that triggers the popover to appear. Not necessary when used with trigger wrapper */
   triggerRef?: React.RefObject<HTMLElement | null>;
+  /** Id applied to the popover element */
   id?: string;
 }
 

@@ -15,6 +15,7 @@ export type SelectValue = string | number | readonly string[] | undefined;
 export interface SelectProps<T extends SelectValue>
   extends Omit<FieldInputProps, "placeholder" | "isReadOnly">,
     LimitedSelectProps {
+  /** Called with the newly selected option's value when the selection changes */
   onChange?: (value: T) => void;
 }
 

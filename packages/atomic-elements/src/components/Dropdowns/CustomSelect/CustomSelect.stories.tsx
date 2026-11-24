@@ -18,7 +18,7 @@ const meta: Meta<typeof CustomSelect> = {
     ...LoadingArgTypes,
     variant: {
       control: "select",
-      options: ["default", "floating"],
+      options: ["default", "floating", "ghost"],
       table: { defaultValue: { summary: '"default"' } },
     },
     size: {
@@ -111,8 +111,14 @@ export const WithSections: Story = {
 export const Floating: Story = {
   args: {
     ...Primary.args,
-    defaultSelectedKey: "undefined",
     variant: "floating",
+  },
+};
+
+export const Ghost: Story = {
+  args: {
+    ...Primary.args,
+    variant: "ghost",
   },
 };
 

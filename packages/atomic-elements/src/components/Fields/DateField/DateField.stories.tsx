@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react-vite";
-import { now, getLocalTimeZone } from "@internationalized/date";
+import { now, today, getLocalTimeZone } from "@internationalized/date";
 import { DateField } from ".";
 import { Label } from "../Atoms/Label";
 import { Message } from "../Atoms/Message";
@@ -7,11 +7,42 @@ import { ErrorMessage } from "../Atoms/ErrorMessage";
 import { ComboInput } from "../ComboInput";
 import { FieldStateControls } from "@sb/helpers";
 
+// The generated snippet can't show the segments' render function, and prints
+// date values as raw strings. Patch both so the snippet is copyable. Each
+// story lists the source of its date props in `parameters.dateSource`.
+const SEGMENTS_SOURCE = [
+  "<DateField.Segments>",
+  "  {(_, index) => <DateField.Segment key={index} index={index} />}",
+  "</DateField.Segments>",
+];
+
+function transformSource(
+  code: string,
+  context: { parameters: { dateSource?: Record<string, string> } }
+) {
+  const dateSource = context.parameters.dateSource ?? {};
+  return code
+    .replace(
+      /^([ \t]*)<DateField\.?Segments(?:\s[^>]*)?(?:\/>|>[\s\S]*?<\/DateField\.?Segments>)/gm,
+      (_match, indent: string) =>
+        SEGMENTS_SOURCE.map((line) => indent + line).join("\n")
+    )
+    .replace(
+      /(defaultValue|minValue|maxValue)=\{[^}]*\}/g,
+      (match, prop: string) =>
+        dateSource[prop] ? `${prop}={${dateSource[prop]}}` : match
+    );
+}
+
 export default {
   title: "Fields/DateField",
   component: DateField,
   parameters: {
     layout: "centered",
+    docs: {
+      source: { transform: transformSource },
+    },
+    dateSource: { defaultValue: "now(getLocalTimeZone())" },
   },
   argTypes: {
     ...FieldStateControls,
@@ -91,21 +122,6 @@ export const Primary: Story = {
   },
 };
 
-export const DayGranularity: Story = {
-  args: {
-    ...Primary.args,
-    granularity: "day",
-    children: [
-      <Label key="label">Birth Date</Label>,
-      <ComboInput key="input" padding="both">
-        <DateField.Segments>
-          {(_, index) => <DateField.Segment key={index} index={index} />}
-        </DateField.Segments>
-      </ComboInput>,
-    ],
-  },
-};
-
 export const HourGranularity: Story = {
   args: {
     ...Primary.args,
@@ -175,6 +191,50 @@ export const Required: Story = {
     children: [
       <Label key="label">Due Date</Label>,
       <Message key="message">This field is required</Message>,
+      <ComboInput key="input" padding="both">
+        <DateField.Segments>
+          {(_, index) => <DateField.Segment key={index} index={index} />}
+        </DateField.Segments>
+      </ComboInput>,
+    ],
+  },
+};
+
+export const MinAndMaxValue: Story = {
+  args: {
+    ...Primary.args,
+    granularity: "day",
+    minValue: today(getLocalTimeZone()),
+    maxValue: today(getLocalTimeZone()).add({ days: 30 }),
+    defaultValue: today(getLocalTimeZone()).subtract({ days: 1 }),
+    children: [
+      <Label key="label">Start Date</Label>,
+      <Message key="message">Pick a date in the next 30 days</Message>,
+      <ComboInput key="input" padding="both">
+        <DateField.Segments>
+          {(_, index) => <DateField.Segment key={index} index={index} />}
+        </DateField.Segments>
+      </ComboInput>,
+      <ErrorMessage key="error">
+        The date must be within the next 30 days
+      </ErrorMessage>,
+    ],
+  },
+  parameters: {
+    dateSource: {
+      defaultValue: "today(getLocalTimeZone()).subtract({ days: 1 })",
+      minValue: "today(getLocalTimeZone())",
+      maxValue: "today(getLocalTimeZone()).add({ days: 30 })",
+    },
+  },
+};
+
+export const ReadOnly: Story = {
+  args: {
+    ...Primary.args,
+    isReadOnly: true,
+    children: [
+      <Label key="label">Created On</Label>,
       <ComboInput key="input" padding="both">
         <DateField.Segments>
           {(_, index) => <DateField.Segment key={index} index={index} />}

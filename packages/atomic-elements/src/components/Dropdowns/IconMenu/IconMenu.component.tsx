@@ -16,14 +16,18 @@ export type IconMenuProps<T extends object> = AriaMenuProps<T> &
   BaseProps &
   CanHaveIcon &
   LoadingProps & {
+    /** Whether the trigger button is disabled, so the menu can't be opened. */
     isDisabled?: boolean;
     /** Variant of the trigger button. */
     buttonVariant?: ButtonVariants;
-    /** @default "bottom right" */
+    /** Placement of the menu relative to the trigger button.
+     * @default "bottom right"
+     */
     menuPlacement?: Placement;
     children: CollectionChildren<ItemProps>;
   };
 
+/** An icon-only button that opens a menu of actions when pressed. */
 export function IconMenu<T extends {}>(props: IconMenuProps<T>) {
   const {
     trigger,

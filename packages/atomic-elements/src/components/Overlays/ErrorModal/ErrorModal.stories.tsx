@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react-vite";
+import { OverlayTriggerArgTypes, RenderStylePropsArgTypes } from "@sb/helpers";
 import { ErrorModal } from ".";
 
 const meta: Meta<typeof ErrorModal> = {
@@ -13,6 +14,8 @@ const meta: Meta<typeof ErrorModal> = {
     },
   },
   argTypes: {
+    ...OverlayTriggerArgTypes,
+    ...RenderStylePropsArgTypes,
     $width: {
       table: { defaultValue: { summary: '"400px"' } },
     },

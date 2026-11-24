@@ -1,5 +1,10 @@
 import { StoryObj, Meta } from "@storybook/react-vite";
-import { MultiSelectItemChildren, MultiSelectionArgTypes } from "@sb/helpers";
+import {
+  AriaLabelArgTypes,
+  MultiSelectItemChildren,
+  MultiSelectionArgTypes,
+  RenderStylePropsArgTypes,
+} from "@sb/helpers";
 import { fn } from "storybook/test";
 import { listbox } from "@styles/theme/component";
 import { ListBox } from ".";
@@ -11,8 +16,23 @@ const meta: Meta<typeof ListBox> = {
   parameters: {
     cssprops: { listbox },
   },
+  // ListBox's own props don't reach docgen (the forwardRef is cast to a
+  // generic component type), so they are documented here.
   argTypes: {
     ...MultiSelectionArgTypes,
+    ...AriaLabelArgTypes,
+    ...RenderStylePropsArgTypes,
+    size: {
+      control: "select",
+      options: ["small", "medium", "large", "auto", "full"],
+      description: "The size of the listbox",
+      table: { defaultValue: { summary: '"medium"' } },
+    },
+    label: {
+      control: "text",
+      description:
+        "Visible label rendered above the listbox. Without one, set `aria-label`.",
+    },
     children: {
       control: false,
     },
@@ -25,6 +45,7 @@ type Story = StoryObj<typeof ListBox>;
 
 export const Primary: Story = {
   args: {
+    "aria-label": "Categories",
     selectionMode: "single",
     defaultSelectedKeys: ["news"],
     selectionBehavior: "toggle",

@@ -15,11 +15,13 @@ export default {
     ...OverlayTriggerArgTypes,
     children: {
       control: false,
+      description:
+        "The trigger element followed by the overlay element (e.g. `Popover` or `Modal`).",
     },
     type: {
       control: "select",
       description: "The type of overlay you want to create",
-      options: ["dialog", "menu", "listbox", "tree", "grid", "composite"],
+      options: ["dialog", "menu", "listbox", "tree", "grid"],
     },
   },
 } as Meta<typeof OverlayTrigger>;

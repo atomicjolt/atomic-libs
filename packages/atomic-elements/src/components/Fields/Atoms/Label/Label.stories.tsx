@@ -7,6 +7,9 @@ export default {
   parameters: {
     layout: "centered",
   },
+  argTypes: {
+    as: { control: false },
+  },
 } as Meta<typeof Label>;
 
 type Story = StoryObj<typeof Label>;
