@@ -1,5 +1,7 @@
 import { setDisplayName } from "@utils/displayName";
 import { useMemo } from "react";
+import { useTranslations } from "@hooks/useTranslations";
+import { AriaLabelProps } from "../../../types";
 import { Collection, CollectionBuilder } from "@react-aria/collections";
 import { TableColumnIcons, TableOptions, TableProps } from "./Table.types";
 import { TableRowWrapper } from "./components/TableRow";
@@ -29,7 +31,6 @@ const defaultIcons: TableColumnIcons = {
  * - Column Searching
  * - Row & Cell Actions
  * - Row Selection
- * - Row Nesting
  *
  * @example
  * ```jsx
@@ -107,7 +108,7 @@ Table.Row = TableRowWrapper;
 Table.Cell = TableCell;
 Table.Bottom = TableBottom;
 
-interface TableSkeletonProps {
+interface TableSkeletonProps extends AriaLabelProps {
   /** Number of columns in the table */
   columns: number;
   /** Number of rows in the table
@@ -116,8 +117,12 @@ interface TableSkeletonProps {
   rows?: number;
 }
 
+/** A placeholder table shown while data loads. Labelled "Loading" unless
+ * given an aria-label or aria-labelledby. */
 function TableSkeleton(props: TableSkeletonProps) {
-  const { columns, rows = 10 } = props;
+  const { columns, rows = 10, ...ariaProps } = props;
+  const t = useTranslations();
+  const hasLabel = ariaProps["aria-label"] || ariaProps["aria-labelledby"];
 
   const cols = Array.from({ length: columns }).map((_, index) => ({
     isRowHeader: index === 0,
@@ -125,7 +130,7 @@ function TableSkeleton(props: TableSkeletonProps) {
   }));
 
   return (
-    <Table>
+    <Table aria-label={hasLabel ? undefined : t("loading")} {...ariaProps}>
       <Table.Header columns={cols}>
         {(col) => (
           <Table.Column isRowHeader={col.isRowHeader}>

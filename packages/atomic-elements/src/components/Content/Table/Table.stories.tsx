@@ -26,6 +26,8 @@ const meta: Meta<typeof Table> = {
     cssprops: { table },
   },
   argTypes: {
+    // Row nesting isn't implemented yet (setting it throws).
+    allowsExpandableRows: { table: { disable: true } },
     ...RenderPropsArgTypes,
     ...MultiSelectionArgTypes,
     defaultSelectedKeys: {
