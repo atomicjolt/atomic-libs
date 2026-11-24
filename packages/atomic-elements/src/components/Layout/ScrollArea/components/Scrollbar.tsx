@@ -19,8 +19,11 @@ export interface ScrollbarProps
   extends RenderStyleProps<never>,
     ElementWrapper<HTMLDivElement> {
   orientation: "horizontal" | "vertical";
+  /** @default "viewport" */
   size?: SuggestStrings<"viewport" | "auto">;
+  /** @default "auto" */
   show?: "always" | "auto";
+  /** @default false */
   reserveSpace?: boolean;
 }
 

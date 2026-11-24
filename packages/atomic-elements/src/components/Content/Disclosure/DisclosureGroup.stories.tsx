@@ -12,6 +12,7 @@ export default {
     allowsMultipleExpanded: {
       type: "boolean",
       description: "Allow multiple panels to be expanded at once",
+      table: { defaultValue: { summary: "false" } },
     },
     defaultExpandedKeys: {
       description:
@@ -36,7 +37,6 @@ type Story = StoryObj<typeof DisclosureGroup>;
 
 export const Primary: Story = {
   args: {
-    allowsMultipleExpanded: false,
     onExpandedChange: fn(),
     children: [
       <Flex key="flex" $direction="column" $gap="10px">

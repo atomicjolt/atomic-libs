@@ -34,6 +34,13 @@ export default {
     ...TypographyArgTypes,
     ...ColorArgTypes,
     ...DimensionsArgTypes,
+    $color: {
+      ...ColorArgTypes.$color,
+      table: {
+        ...ColorArgTypes.$color?.table,
+        defaultValue: { summary: '"text-clr"' },
+      },
+    },
     as: {
       control: "select",
       options: ["div", "span", "p", "label"],

@@ -12,6 +12,9 @@ const meta: Meta<typeof Tabs> = {
   },
   argTypes: {
     ...RenderPropsArgTypes,
+    variant: {
+      table: { defaultValue: { summary: '"default"' } },
+    },
     selectedKey: {
       control: "select",
       options: ["tab1", "tab2"],

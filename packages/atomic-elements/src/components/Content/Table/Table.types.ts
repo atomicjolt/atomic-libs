@@ -84,7 +84,9 @@ export interface TableProps<T>
   id?: string;
 
   /** Table makes use of <Table.Bottom> to attach
-   * additional content to the bottom of the table */
+   * additional content to the bottom of the table
+   * @default false
+   */
   hasBottom?: boolean;
 
   /** Whether the table rows have alternating background colors
@@ -92,12 +94,16 @@ export interface TableProps<T>
    */
   striped?: "even" | "odd";
 
-  /** Icon set used for sorting and searching */
+  /** Icon set used for sorting and searching. Icons you pass are merged
+   * over the defaults.
+   * @default { sortAscending: "arrow_drop_down", sortDescending: "arrow_drop_up", sortNeutral: "swap_vert", searchOpen: "search", searchClose: "close" }
+   */
   icons?: Partial<TableColumnIcons>;
 
   /** Determines the visibility of the column's sort controls
    * - "always" shows sort controls regardless of sorting state
    * - "selected" shows sort controls only when the column is currently sorted
+   * @default "selected"
    */
   sortVisibility?: "always" | "selected";
 }

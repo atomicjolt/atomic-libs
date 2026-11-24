@@ -16,6 +16,13 @@ export default {
     ...RenderPropsArgTypes,
     ...LayoutArgTypes,
     ...FlexArgTypes,
+    $direction: {
+      ...FlexArgTypes.$direction,
+      table: {
+        ...FlexArgTypes.$direction?.table,
+        defaultValue: { summary: '"row"' },
+      },
+    },
   },
 } as Meta<typeof Group>;
 

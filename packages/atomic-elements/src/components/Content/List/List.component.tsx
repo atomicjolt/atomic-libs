@@ -11,6 +11,7 @@ export interface ListProps
   extends RenderBaseProps<never>,
     ElementWrapper<HTMLUListElement>,
     MarginProps {
+  /** @default "ul" */
   as?: "ul" | "ol";
 }
 
@@ -48,6 +49,7 @@ export interface ListItemProps
   extends RenderBaseProps<never>,
     ElementWrapper<HTMLLIElement>,
     PaddingProps {
+  /** @default true */
   showDivider?: boolean;
 }
 

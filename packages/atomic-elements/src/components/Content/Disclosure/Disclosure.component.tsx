@@ -37,6 +37,7 @@ export interface DisclosureProps
   extends StatelyDisclosureProps,
     RenderBaseProps<DisclosureRenderProps> {
   id?: string;
+  /** @default false */
   isDisabled?: boolean;
 }
 
@@ -160,6 +161,7 @@ const DefaultDisclosureTriggerIcons: DisclosureTriggerIcons = {
 
 interface DisclosureTriggerProps extends Omit<ButtonProps, "children"> {
   children?: React.ReactNode;
+  /** @default { expanded: "expand_less", collapsed: "expand_more" } */
   icons?: Partial<DisclosureTriggerIcons>;
 }
 
