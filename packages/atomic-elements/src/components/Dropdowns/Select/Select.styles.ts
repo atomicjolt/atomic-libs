@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import mixins from "../../../styles/mixins";
+import { SkeletonLoader } from "../../Feedback/SkeletonLoader";
 
 export const SelectWrapper = styled.div`
   position: relative;
@@ -42,4 +43,12 @@ export const StyledSelect = styled.select`
     border-color: var(--border-clr-focus);
     outline: var(--input-outline);
   }
+`;
+
+/** Placeholder shown instead of the select while loading. */
+export const StyledLoadingSelect = styled(SkeletonLoader)`
+  ${mixins.SizingX}
+  display: block;
+  max-width: 100%;
+  height: var(--input-height, 40px);
 `;

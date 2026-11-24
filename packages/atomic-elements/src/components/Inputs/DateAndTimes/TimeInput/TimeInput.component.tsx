@@ -23,7 +23,15 @@ export interface TimeInputProps<T extends TimeValue>
  * (or a date-time) from the `@internationalized/date` library.
  */
 export function TimeInput<T extends TimeValue>(props: TimeInputProps<T>) {
-  const { label, error, message, size = "medium", isInvalid } = props;
+  const {
+    label,
+    error,
+    message,
+    size = "medium",
+    isInvalid,
+    isLoading,
+    loadingLabel,
+  } = props;
   const { locale } = useLocale();
   const state = useTimeFieldState({
     ...props,
@@ -52,6 +60,8 @@ export function TimeInput<T extends TimeValue>(props: TimeInputProps<T>) {
         ref={ref}
         className={"aje-input__date-segments"}
         padding="both"
+        isLoading={isLoading}
+        loadingLabel={loadingLabel}
       >
         {state.segments.map((segment, i) => (
           <TimeSegment key={i} segment={segment} state={state} />

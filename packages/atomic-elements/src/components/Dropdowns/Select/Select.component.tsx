@@ -1,7 +1,12 @@
 import React, { DetailedHTMLProps, SelectHTMLAttributes } from "react";
 import { FieldInputProps } from "../../../types";
 import { useIds } from "../../../hooks/util";
-import { SelectWrapper, StyledSelect } from "./Select.styles";
+import {
+  SelectWrapper,
+  StyledLoadingSelect,
+  StyledSelect,
+} from "./Select.styles";
+import { useLoading } from "../../Feedback/Loading";
 import { ErrorMessage, Label, Message } from "../../Fields";
 import { useRenderProps } from "@hooks/useRenderProps";
 
@@ -42,12 +47,13 @@ export const Select = React.forwardRef<
     isInvalid = false,
     className,
     id = inputId,
-    // Accepted through FieldInputProps but not supported by Select. Keep
-    // them off the native <select>.
+    // Handled below; keep them off the native <select>.
     isLoading: _isLoading,
     loadingLabel: _loadingLabel,
     ...selectProps
   } = props;
+
+  const { isLoading, loadingLabel } = useLoading(props);
 
   const renderProps = useRenderProps({
     componentClassName: "aje-input__select",
@@ -64,22 +70,35 @@ export const Select = React.forwardRef<
       {label && <Label htmlFor={id}>{label}</Label>}
       {message && <Message id={messageId}>{message}</Message>}
 
-      <SelectWrapper>
-        <StyledSelect
-          id={id}
-          disabled={isDisabled}
-          required={isRequired}
-          aria-invalid={isInvalid || undefined}
-          aria-describedby={isInvalid && error ? errorId : messageId}
-          onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-            onChange?.(e.target.value)
-          }
-          ref={ref}
-          {...selectProps}
-        >
-          {renderProps.children}
-        </StyledSelect>
-      </SelectWrapper>
+      {isLoading ? (
+        <StyledLoadingSelect className={`is-${size}`} title={loadingLabel}>
+          <rect
+            x="0"
+            y="0"
+            width="100%"
+            height="100%"
+            rx="var(--input-border-radius)"
+            ry="var(--input-border-radius)"
+          />
+        </StyledLoadingSelect>
+      ) : (
+        <SelectWrapper>
+          <StyledSelect
+            id={id}
+            disabled={isDisabled}
+            required={isRequired}
+            aria-invalid={isInvalid || undefined}
+            aria-describedby={isInvalid && error ? errorId : messageId}
+            onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+              onChange?.(e.target.value)
+            }
+            ref={ref}
+            {...selectProps}
+          >
+            {renderProps.children}
+          </StyledSelect>
+        </SelectWrapper>
+      )}
       {isInvalid && error && (
         <ErrorMessage id={errorId} isInvalid>
           {error}
