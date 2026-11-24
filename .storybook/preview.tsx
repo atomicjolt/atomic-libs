@@ -68,6 +68,13 @@ const preview: Preview = {
           applyDefaultStyles
           colorScheme={colorScheme}
         >
+          {/* Story view: the canvas is the components' page, so give it their
+              background, whatever Storybook's UI theme is. */}
+          <style>
+            {
+              "body { background-color: var(--background-clr); color: var(--text-clr); }"
+            }
+          </style>
           <Story />
         </ElementsProvider>
       );
