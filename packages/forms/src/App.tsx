@@ -75,9 +75,9 @@ function App() {
             message: "Name must contain a lowercase letter",
           }}
         >
-          <Form.FieldLabel>Name</Form.FieldLabel>
-          <Form.FieldMessage>Enter your name</Form.FieldMessage>
-          <Form.FieldInput />
+          <Form.Label>Name</Form.Label>
+          <Form.Message>Enter your name</Form.Message>
+          <Form.Input />
         </Form.TextField>
 
         <br />

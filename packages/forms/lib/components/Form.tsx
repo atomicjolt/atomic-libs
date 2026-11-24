@@ -85,3 +85,11 @@ Form.Input = Input;
 Form.Label = Label;
 Form.Message = Message;
 Form.ErrorMessage = ErrorMessage;
+/** @deprecated Use `Form.Input`. */
+Form.FieldInput = Input;
+/** @deprecated Use `Form.Label`. */
+Form.FieldLabel = Label;
+/** @deprecated Use `Form.Message`. */
+Form.FieldMessage = Message;
+/** @deprecated Use `Form.ErrorMessage`. */
+Form.FieldErrorMessage = ErrorMessage;
