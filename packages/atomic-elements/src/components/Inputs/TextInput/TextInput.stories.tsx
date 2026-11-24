@@ -16,6 +16,19 @@ const meta: Meta<typeof TextInput> = {
     type: {
       control: "select",
       options: ["text", "password", "email", "tel", "number", "search"],
+      table: {
+        defaultValue: { summary: '"text"' },
+      },
+    },
+    size: {
+      table: {
+        defaultValue: { summary: '"medium"' },
+      },
+    },
+    variant: {
+      table: {
+        defaultValue: { summary: '"default"' },
+      },
     },
     minLength: { control: "number" },
     maxLength: { control: "number" },
@@ -28,8 +41,6 @@ type Story = StoryObj<typeof TextInput>;
 
 export const Primary: Story = {
   args: {
-    type: "text",
-    variant: "default",
     label: "Text input label",
   },
 };

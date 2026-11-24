@@ -24,6 +24,7 @@ const meta: Meta<typeof CheckBox> = {
       control: "text",
       table: {
         category: "Helper Text",
+        defaultValue: { summary: '"error"' },
       },
     },
     message: {
@@ -35,6 +36,28 @@ const meta: Meta<typeof CheckBox> = {
     isReadOnly: {
       table: {
         category: "State",
+        defaultValue: { summary: "false" },
+      },
+    },
+    isRequired: {
+      ...FieldStateControls.isRequired,
+      table: {
+        ...FieldStateControls.isRequired?.table,
+        defaultValue: { summary: "false" },
+      },
+    },
+    isInvalid: {
+      ...FieldStateControls.isInvalid,
+      table: {
+        ...FieldStateControls.isInvalid?.table,
+        defaultValue: { summary: "false" },
+      },
+    },
+    isDisabled: {
+      ...FieldStateControls.isDisabled,
+      table: {
+        ...FieldStateControls.isDisabled?.table,
+        defaultValue: { summary: "false" },
       },
     },
     defaultSelected: {
@@ -50,6 +73,9 @@ const meta: Meta<typeof CheckBox> = {
       type: "boolean",
       description:
         "Indeterminate state of the checkbox. When true, the checkbox will always be displayed in an indeterminate state, regardless of the selected state.",
+      table: {
+        defaultValue: { summary: "false" },
+      },
     },
     onChange: {
       action: "onChange",

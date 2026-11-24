@@ -24,6 +24,7 @@ export interface FileInputProps
     AriaLabelProps {
   file?: File | null;
   onChange?: (f: File | null) => void;
+  /** @default "No file selected" */
   placeholder?: string;
 
   /** Array of accepted file types

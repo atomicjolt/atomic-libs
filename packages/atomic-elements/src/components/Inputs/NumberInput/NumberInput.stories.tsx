@@ -17,6 +17,14 @@ const meta: Meta<typeof NumberInput> = {
     variant: {
       options: ["default", "floating"],
       description: "Variant of the input",
+      table: {
+        defaultValue: { summary: '"default"' },
+      },
+    },
+    size: {
+      table: {
+        defaultValue: { summary: '"medium"' },
+      },
     },
     formatOptions: {
       control: "object",
@@ -44,7 +52,6 @@ type Story = StoryObj<typeof NumberInput>;
 export const Primary: Story = {
   args: {
     onChange: fn(),
-    size: "medium",
     label: "Number input",
   },
 };

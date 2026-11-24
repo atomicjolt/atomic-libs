@@ -29,6 +29,7 @@ import {
 export interface CalendarProps<T extends DateValue>
   extends AriaProps<AriaCalendarProps<T>>,
     RenderBaseProps<never> {
+  /** @default "medium" */
   size?: ExtendedSize;
   isDisabled?: boolean;
   isInvalid?: boolean;
