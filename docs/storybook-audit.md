@@ -1079,7 +1079,7 @@ today (even though they have no effect). They are hidden from the docs for now.
    > **Status:** ✅ Fixed: row nesting removed from the docs (setting it throws); Table.Skeleton accepts aria labels and defaults to "Loading".
 12. **ProgressCircle** never renders `label`, so passing it makes `aria-labelledby` point at an
     element that doesn't exist.
-   > **Status:** Open: recommendation is to remove `label` and rely on `aria-label` / `aria-labelledby`.
+   > **Status:** ✅ Done: `label` removed; name the circle with `aria-label` or `aria-labelledby`.
 13. **Modal's MDX page** still says "the controls in this page are not working". This couldn't be
     checked without running Storybook interactively.
    > **Status:** Left alone for now.

@@ -69,7 +69,6 @@ const meta: Meta<typeof Spinner> = {
     showValueLabel: { table: { disable: true } },
     valueLabel: { table: { disable: true } },
     formatOptions: { table: { disable: true } },
-    label: { table: { disable: true } },
   },
 };
 

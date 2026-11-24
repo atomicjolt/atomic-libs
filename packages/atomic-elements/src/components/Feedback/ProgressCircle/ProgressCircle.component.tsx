@@ -15,7 +15,9 @@ import {
 
 export interface ProgressCircleProps
   extends RenderStyleProps<never>,
-    AriaProgressBarProps {
+    // No visible label is rendered, so name the circle with aria-label or
+    // aria-labelledby instead.
+    Omit<AriaProgressBarProps, "label"> {
   /** Whether or not to display a label in the center of the circle representing the value */
   showValueLabel?: boolean;
   /** The width and height of the progress circle
@@ -62,7 +64,9 @@ export const ProgressCircle = forwardRef<HTMLElement, ProgressCircleProps>(
       ...rest
     } = props;
 
-    const { progressBarProps } = useProgressBar(props);
+    // Strip any label from untyped callers: useProgressBar would point
+    // aria-labelledby at a label element this component never renders.
+    const { progressBarProps } = useProgressBar({ ...props, label: undefined });
 
     const radius = 16;
 
