@@ -15,7 +15,9 @@ const meta: Meta<typeof TextInput> = {
     ...LoadingArgTypes,
     type: {
       control: "select",
-      options: ["text", "password", "email", "tel", "number", "search"],
+      options: ["text", "password", "email", "tel", "url", "search"],
+      description:
+        "Type of the input element. For numbers, use `NumberInput` instead.",
       table: {
         defaultValue: { summary: '"text"' },
       },
@@ -26,12 +28,22 @@ const meta: Meta<typeof TextInput> = {
       },
     },
     variant: {
+      control: "select",
+      options: ["default", "floating"],
+      description:
+        "Visual style of the input. `floating` shows the label inside the input, and moves it onto the top border once the input has a value or focus.",
       table: {
         defaultValue: { summary: '"default"' },
       },
     },
-    minLength: { control: "number" },
-    maxLength: { control: "number" },
+    minLength: {
+      control: "number",
+      description: "Minimum number of characters the value must have",
+    },
+    maxLength: {
+      control: "number",
+      description: "Maximum number of characters that can be entered",
+    },
   },
 };
 

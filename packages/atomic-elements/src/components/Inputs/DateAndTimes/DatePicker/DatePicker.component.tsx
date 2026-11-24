@@ -25,7 +25,10 @@ import { Flex } from "@components/Layout/Flex";
 export interface DatePickerProps<T extends DateValue>
   extends AriaProps<AriaDatePickerProps<T>>,
     FieldInputProps {
-  /** @default "small" */
+  /**
+   * Size of the popup calendar
+   * @default "small"
+   */
   calendarSize?: Size;
 }
 

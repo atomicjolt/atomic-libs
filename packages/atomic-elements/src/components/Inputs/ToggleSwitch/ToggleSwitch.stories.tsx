@@ -22,8 +22,18 @@ const meta: Meta<typeof ToggleSwitch> = {
         category: "State",
       },
     },
+    children: {
+      control: "text",
+      description: "Label rendered next to the switch",
+    },
+    size: {
+      // The switch has a fixed size; `size` has no visible effect.
+      table: { disable: true },
+    },
     onChange: {
       control: false,
+      description:
+        "Called with the new selected state when the switch is toggled",
       table: {
         category: "Events",
       },
@@ -47,6 +57,27 @@ type Story = StoryObj<typeof ToggleSwitch>;
 export const Primary: Story = {
   args: {
     children: "Toggle switch",
+  },
+};
+
+export const Selected: Story = {
+  args: {
+    ...Primary.args,
+    defaultSelected: true,
+  },
+};
+
+export const Disabled: Story = {
+  args: {
+    ...Primary.args,
+    isDisabled: true,
+  },
+};
+
+export const ChildrenOnRight: Story = {
+  args: {
+    ...Primary.args,
+    childrenPosition: "right",
   },
 };
 

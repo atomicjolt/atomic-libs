@@ -25,6 +25,7 @@ export interface RadioGroupsProps
     FieldStatusProps,
     RenderBaseProps<FieldStatusProps>,
     LoadingProps {
+  /** Name of the radio inputs, submitted with form data */
   name?: string;
 }
 
@@ -36,7 +37,7 @@ const LOADING_OPTION_COUNT = 3;
  * these for more than 5, but it isn't common.
  *
  * - For 2 choices, use a [CheckBox](/docs/inputs-choose-state-checkbox--overview) or [ToggleSwitch](/docs/inputs-choose-state-toggleswitch--overview) instead.
- * - For more than 5 options, use a [select](/docs/dropdowns-customselect--overview).
+ * - For more than 5 options, use a [Select](/docs/dropdowns-selection-select--overview) or [CustomSelect](/docs/dropdowns-selection-customselect--overview).
  * */
 export function RadioGroup(props: RadioGroupsProps) {
   const { label, message, error } = props;

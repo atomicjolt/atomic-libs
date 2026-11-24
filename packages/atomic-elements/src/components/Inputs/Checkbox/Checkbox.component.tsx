@@ -39,6 +39,7 @@ export interface CheckBoxProps
     RenderBaseProps<CheckBoxRenderProps>,
     LoadingProps,
     SlotProps {
+  /** Name of the input, submitted with form data */
   name?: string;
 }
 

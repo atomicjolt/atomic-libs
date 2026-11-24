@@ -14,7 +14,11 @@ export interface DateInputProps<T extends DateValue>
   extends AriaProps<AriaDateFieldProps<T>>,
     FieldInputProps {}
 
-/** DateInput Component */
+/**
+ * A field for typing a date, or a date and time, one segment at a time.
+ * Accepts values from the `@internationalized/date` library. To pick the date
+ * from a calendar popup as well, use `DatePicker`.
+ */
 export function DateInput<T extends DateValue>(props: DateInputProps<T>) {
   const { label, size = "medium", error, message, ...dateFieldProps } = props;
 

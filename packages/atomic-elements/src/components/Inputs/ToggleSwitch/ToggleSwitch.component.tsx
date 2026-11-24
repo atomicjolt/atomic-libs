@@ -9,6 +9,7 @@ import {
   AriaProps,
   BaseProps,
   FieldDomProps,
+  FieldStatusProps,
   LoadingProps,
 } from "../../../types";
 import {
@@ -29,14 +30,13 @@ export interface ToggleSwitchProps
     AriaLabelingProps,
     FieldDomProps,
     BaseProps,
+    Pick<FieldStatusProps, "isDisabled" | "isInvalid">,
     LoadingProps {
   /**
    * The position of the children relative to the switch
    * @default "left"
    */
   childrenPosition?: "left" | "right";
-  isDisabled?: boolean;
-  isInvalid?: boolean;
 }
 
 /** A Toggle Switch is similar to a checkbox, but represents on/off values as opposed to selection. */

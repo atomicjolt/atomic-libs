@@ -19,7 +19,9 @@ export interface TextAreaInputProps
    * @default "both"
    */
   resize?: "none" | "both" | "horizontal" | "vertical";
+  /** Number of visible text lines (the `rows` attribute of the textarea) */
   rows?: number;
+  /** Visible width in average character widths (the `cols` attribute of the textarea) */
   cols?: number;
 }
 

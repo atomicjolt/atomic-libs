@@ -18,6 +18,10 @@ export interface TimeInputProps<T extends TimeValue>
   extends AriaProps<AriaTimeFieldProps<T>>,
     FieldInputProps {}
 
+/**
+ * A field for typing a time of day, one segment at a time. Accepts a `Time`
+ * (or a date-time) from the `@internationalized/date` library.
+ */
 export function TimeInput<T extends TimeValue>(props: TimeInputProps<T>) {
   const { label, error, message, size = "medium", isInvalid } = props;
   const { locale } = useLocale();

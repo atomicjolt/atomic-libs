@@ -13,7 +13,11 @@ export interface TextInputProps
     FieldInputProps,
     HasVariant<Variants> {}
 
-/** TextInput component. */
+/**
+ * A single-line text input with a label, help text and error message.
+ * Forwards a `ref` to the input element. Use `TextAreaInput` for multi-line
+ * text and `NumberInput` for numbers.
+ */
 export const TextInput = React.forwardRef(function TextInput(
   props: TextInputProps,
   ref: React.Ref<HTMLInputElement>

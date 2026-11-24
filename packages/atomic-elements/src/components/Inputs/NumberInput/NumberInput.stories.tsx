@@ -42,6 +42,17 @@ const meta: Meta<typeof NumberInput> = {
       control: "number",
       description: "Initial value of the input when uncontrolled",
     },
+    step: {
+      control: "number",
+      description:
+        "Amount the value changes by when using the increment and decrement buttons or arrow keys",
+    },
+    onChange: {
+      description: "Called with the new number when the value changes",
+      table: {
+        category: "Events",
+      },
+    },
   },
 };
 
@@ -93,6 +104,21 @@ export const FormatAsUnit: Story = {
       style: "unit",
       unit: "mile-per-hour",
     },
+  },
+};
+
+export const Floating: Story = {
+  args: {
+    ...Primary.args,
+    variant: "floating",
+  },
+};
+
+export const WithError: Story = {
+  args: {
+    ...Primary.args,
+    isInvalid: true,
+    error: "Please enter a valid number",
   },
 };
 

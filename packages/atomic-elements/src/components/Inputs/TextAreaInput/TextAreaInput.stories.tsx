@@ -17,7 +17,11 @@ const meta: Meta<typeof TextAreaInput> = {
         defaultValue: { summary: '"medium"' },
       },
     },
-    onChange: { action: "changed", table: { category: "Events" } },
+    onChange: {
+      action: "changed",
+      description: "Called with the new value when the text changes",
+      table: { category: "Events" },
+    },
   },
 };
 

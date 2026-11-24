@@ -14,6 +14,7 @@ const meta: Meta<typeof RadioGroup> = {
     cssprops: { radio },
   },
   component: RadioGroup,
+  subcomponents: { Radio },
   argTypes: {
     ...FieldStateControls,
     ...LoadingArgTypes,
@@ -37,7 +38,8 @@ const meta: Meta<typeof RadioGroup> = {
       },
     },
     children: {
-      control: false,
+      ...RenderPropsArgTypes.children,
+      description: "The `Radio` options in the group",
     },
     isReadOnly: {
       table: {
@@ -54,6 +56,22 @@ const meta: Meta<typeof RadioGroup> = {
         "The value of the selected radio in an uncontrolled component",
       control: "select",
       options: ["opt1", "opt2", "opt3"],
+    },
+    orientation: {
+      control: "select",
+      options: ["vertical", "horizontal"],
+      description:
+        "Sets `aria-orientation` (and, in right-to-left locales, which way the left and right arrow keys move). It doesn't change the visual layout: the radios always stack vertically.",
+      table: {
+        defaultValue: { summary: '"vertical"' },
+      },
+    },
+    onChange: {
+      action: "onChange",
+      description: "Called with the selected radio's value when it changes",
+      table: {
+        category: "Events",
+      },
     },
   },
 };
@@ -93,6 +111,21 @@ export const WithDisabledOptions: Story = {
         Option 3
       </Radio>,
     ],
+  },
+};
+
+export const WithDefaultValue: Story = {
+  args: {
+    ...Primary.args,
+    defaultValue: "opt2",
+  },
+};
+
+export const WithError: Story = {
+  args: {
+    ...Primary.args,
+    isInvalid: true,
+    error: "Please choose an option",
   },
 };
 
