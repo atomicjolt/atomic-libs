@@ -46,9 +46,42 @@ export const fixInferredArgTypes: ArgTypesEnhancer = ({ argTypes }) => {
     } else if (isInferredObject && NON_EDITABLE_TYPE.test(summary)) {
       result[name] = { ...argType, control: false };
     }
+
+    const defaultSummary = unquoteDefault(
+      result[name].table?.defaultValue?.summary
+    );
+    if (defaultSummary !== undefined) {
+      result[name] = {
+        ...result[name],
+        table: {
+          ...result[name].table,
+          defaultValue: {
+            ...result[name].table?.defaultValue,
+            summary: defaultSummary,
+          },
+        },
+      };
+    }
   }
 
   return result;
 };
+
+/**
+ * For string-typed props, Storybook JSON-stringifies the docgen default, so
+ * a JSDoc `@default "medium"` shows as `"\"medium\""`. Undo the extra layer,
+ * so `@default "medium"` always displays as `"medium"`. Returns undefined
+ * when the summary doesn't need changing.
+ */
+function unquoteDefault(summary: unknown): string | undefined {
+  if (typeof summary !== "string" || !/^"\\".*\\""$/.test(summary)) {
+    return undefined;
+  }
+  try {
+    return JSON.parse(summary);
+  } catch {
+    return undefined;
+  }
+}
 
 fixInferredArgTypes.secondPass = true;
