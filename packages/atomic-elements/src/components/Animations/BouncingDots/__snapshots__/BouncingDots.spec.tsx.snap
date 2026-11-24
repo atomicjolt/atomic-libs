@@ -3,7 +3,9 @@
 exports[`BouncingDots > snapshots > matches props snapshot 1`] = `
 <div>
   <div
+    aria-label="Loading"
     class="sc-bdDsCe iCuTFz aje-bouncing-dots custom-class is-small"
+    role="img"
     style="color: red;"
   >
     <span

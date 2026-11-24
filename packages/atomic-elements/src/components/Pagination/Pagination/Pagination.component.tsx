@@ -1,3 +1,4 @@
+import { filterDOMProps } from "@react-aria/utils";
 import React, { useContext, useRef, type JSX } from "react";
 import { useControlledState } from "@react-stately/utils";
 import { AriaLabelProps, ExtendedSize, RenderBaseProps } from "../../../types";
@@ -69,7 +70,11 @@ export function Pagination(props: PaginationProps) {
   });
 
   return (
-    <div {...renderProps}>
+    <div
+      {...renderProps}
+      {...filterDOMProps(props, { labelable: true })}
+      role="navigation"
+    >
       <ButtonContext.Provider value={{ variant, size }}>
         <PaginationStateContext.Provider
           value={{
