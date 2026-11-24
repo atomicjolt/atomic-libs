@@ -13,6 +13,11 @@ import { ElementsProvider } from "../packages/atomic-elements/src/components/Ele
 import { CssVariablesTable } from "./utils/CssVariablesTable";
 import { fixInferredArgTypes } from "./utils/argTypes";
 import { MainControls, StylePropsControls } from "./utils/StylePropsControls";
+import {
+  DocsStoryColorScheme,
+  ElementsDocsContainer,
+  PublishDocsColorScheme,
+} from "./utils/ElementsDocsContainer";
 
 const preview: Preview = {
   argTypesEnhancers: [fixInferredArgTypes],
@@ -38,17 +43,35 @@ const preview: Preview = {
   },
 
   decorators: [
-    (Story, context) => (
-      <>
+    (Story, context) => {
+      const colorScheme = context.globals.colorScheme ?? "light";
+
+      // Docs pages render many stories, so the root provider lives in the
+      // docs container (see ElementsDocsContainer) and each story gets a
+      // nested provider that inherits its color scheme.
+      if (context.viewMode === "docs") {
+        return (
+          <>
+            <PublishDocsColorScheme value={colorScheme} />
+            <DocsStoryColorScheme>
+              <ElementsProvider theme={defaultTheme}>
+                <Story />
+              </ElementsProvider>
+            </DocsStoryColorScheme>
+          </>
+        );
+      }
+
+      return (
         <ElementsProvider
           theme={defaultTheme}
           applyDefaultStyles
-          colorScheme={context.globals.colorScheme ?? "light"}
+          colorScheme={colorScheme}
         >
           <Story />
         </ElementsProvider>
-      </>
-    ),
+      );
+    },
   ],
 
   parameters: {
@@ -81,6 +104,7 @@ const preview: Preview = {
       },
     },
     docs: {
+      container: ElementsDocsContainer,
       page: () => (
         <>
           <Title />
