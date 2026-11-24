@@ -101,6 +101,8 @@ export const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
           }}
         >
           <FileTrigger
+            ref={ref}
+            id={id}
             acceptedFileTypes={acceptedFileTypes}
             onSelect={(files) => onChange?.(files[0] || null)}
             name={name}

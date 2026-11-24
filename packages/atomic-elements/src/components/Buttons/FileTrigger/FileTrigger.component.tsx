@@ -6,6 +6,9 @@ import React from "react";
 export interface FileTriggerProps extends FieldDomProps {
   children?: React.ReactNode;
 
+  /** Id applied to the underlying file input. */
+  id?: string;
+
   /** Configure if the input should accept files or directories
    *
    * [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/webkitdirectory)
@@ -50,6 +53,7 @@ export const FileTrigger = React.forwardRef(function FileTrigger(
     captureMode,
     accept,
     name,
+    id,
   } = props;
   const inputRef = useForwardedRef(ref);
 
@@ -66,6 +70,7 @@ export const FileTrigger = React.forwardRef(function FileTrigger(
         {children}
       </PressResponder>
       <input
+        id={id}
         name={name}
         type="file"
         ref={inputRef}
