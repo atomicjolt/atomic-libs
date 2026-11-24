@@ -1,3 +1,4 @@
+import { setDisplayName } from "@utils/displayName";
 import React, { forwardRef, useContext, useRef } from "react";
 import { useDisclosure } from "@react-aria/disclosure";
 import { useId } from "@react-aria/utils";
@@ -144,7 +145,7 @@ const DisclosurePanel = forwardRef<HTMLDivElement, DisclosurePanelProps>(
   }
 );
 
-DisclosurePanel.displayName = "Disclosure.Panel";
+setDisplayName(DisclosurePanel, "Disclosure.Panel");
 Disclosure.Panel = DisclosurePanel;
 
 interface DisclosureTriggerIcons {
@@ -183,7 +184,7 @@ const DisclosureTrigger = forwardRef<HTMLButtonElement, DisclosureTriggerProps>(
   }
 );
 
-DisclosureTrigger.displayName = "Disclosure.Trigger";
+setDisplayName(DisclosureTrigger, "Disclosure.Trigger");
 Disclosure.Trigger = DisclosureTrigger;
 
 export interface DisclosureGroupProps extends StatelyDisclosureGroupProps {

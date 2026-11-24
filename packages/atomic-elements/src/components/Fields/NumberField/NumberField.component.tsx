@@ -1,3 +1,4 @@
+import { setDisplayName } from "@utils/displayName";
 import { useRef } from "react";
 import { AriaNumberFieldProps, useNumberField } from "@react-aria/numberfield";
 import { useLocale } from "@react-aria/i18n";
@@ -108,9 +109,9 @@ function NumberFieldDecrementButton(props: IconButtonProps) {
 }
 
 NumberField.IncrementButton = NumberFieldIncrementButton;
-NumberFieldIncrementButton.displayName = "NumberField.IncrementButton";
+setDisplayName(NumberFieldIncrementButton, "NumberField.IncrementButton");
 
 NumberField.DecrementButton = NumberFieldDecrementButton;
-NumberFieldDecrementButton.displayName = "NumberField.DecrementButton";
+setDisplayName(NumberFieldDecrementButton, "NumberField.DecrementButton");
 
-NumberField.displayName = "NumberField";
+setDisplayName(NumberField, "NumberField");

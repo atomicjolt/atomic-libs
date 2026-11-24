@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from "react";
+import React from "react";
 import { Meta, StoryObj } from "@storybook/react-vite";
 import { NumberField } from ".";
 import { FieldLabel } from "../Field/FieldLabel";
@@ -8,11 +8,6 @@ import { FieldErrorMessage } from "../Field/FieldError";
 import { Group } from "../../Layout/Group";
 import { FieldStateControls } from "@sb/helpers";
 import { IconButton } from "@components/Buttons/IconButton";
-
-// For some reason, without this line NumberField has the
-// incorrect display name in the storybook docs
-// @ts-ignore
-NumberField.displayName = "NumberField";
 
 export default {
   title: "Fields/NumberField",
