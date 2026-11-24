@@ -13,6 +13,21 @@ import { View } from "../../Layout/View";
 export default {
   title: "Typography/Text",
   component: Text,
+  parameters: {
+    primaryStyleProps: [
+      "$size",
+      "$weight",
+      "$color",
+      "$align",
+      "$lineHeight",
+      "$letterSpacing",
+      "$wrap",
+      "$truncate",
+      "$clamp",
+      "$decoration",
+      "$transform",
+    ],
+  },
   argTypes: {
     ...MarginArgTypes,
     ...RenderPropsArgTypes,

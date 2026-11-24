@@ -7,6 +7,20 @@ import { View } from "../View";
 export default {
   title: "Layouts/Grid",
   component: Grid,
+  parameters: {
+    primaryStyleProps: [
+      "$columns",
+      "$rows",
+      "$areas",
+      "$flow",
+      "$gap",
+      "$gapX",
+      "$gapY",
+      "$align",
+      "$justify",
+      "$display",
+    ],
+  },
 
   argTypes: {
     ...RenderPropsArgTypes,

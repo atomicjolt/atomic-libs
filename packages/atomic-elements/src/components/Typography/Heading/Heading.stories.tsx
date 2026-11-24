@@ -11,6 +11,21 @@ import {
 export default {
   title: "Typography/Heading",
   component: Heading,
+  parameters: {
+    primaryStyleProps: [
+      "$size",
+      "$weight",
+      "$color",
+      "$align",
+      "$lineHeight",
+      "$letterSpacing",
+      "$wrap",
+      "$truncate",
+      "$clamp",
+      "$decoration",
+      "$transform",
+    ],
+  },
   argTypes: {
     ...RenderPropsArgTypes,
     ...MarginArgTypes,

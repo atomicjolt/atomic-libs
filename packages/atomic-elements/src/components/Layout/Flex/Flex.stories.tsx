@@ -6,6 +6,18 @@ import { FlexArgTypes, LayoutArgTypes, RenderPropsArgTypes } from "@sb/helpers";
 export default {
   title: "Layouts/Flex",
   component: Flex,
+  parameters: {
+    primaryStyleProps: [
+      "$direction",
+      "$gap",
+      "$gapX",
+      "$gapY",
+      "$align",
+      "$justify",
+      "$wrap",
+      "$display",
+    ],
+  },
   argTypes: {
     ...RenderPropsArgTypes,
     ...LayoutArgTypes,
