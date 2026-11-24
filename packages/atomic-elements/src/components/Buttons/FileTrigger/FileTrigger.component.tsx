@@ -78,7 +78,7 @@ export const FileTrigger = React.forwardRef(function FileTrigger(
         onChange={(e) => props.onSelect?.(e.target.files!)}
         // @ts-expect-error - webkitdirectory is not a standard attribute
         // But it is supported by most modern browsers
-        webkitdirectory={accept === "directory" ? "true" : undefined}
+        webkitdirectory={accept === "directories" ? "true" : undefined}
       />
     </>
   );
