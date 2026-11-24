@@ -12,11 +12,36 @@ the story file and the component source. Line numbers refer to the tree at the t
 
 **How to read it:**
 - Part 1 covers problems with one cause that affect many pages. Fixing them first removes a large
-  share of the per-component noise.
-- Part 2 lists findings per component. Where a component finding is just a symptom of a Part 1
-  issue, it's left out of Part 2.
+  share of the per-component noise. Where a component finding is just a symptom of a Part 1 issue,
+  it's left out of Part 2.
+- Part 2 lists findings per component.
+- Part 3 lists component bugs found along the way.
+- Part 4 lists the open decisions.
 
-**Status:** all **[Typo]** findings are fixed (marked ✅) except the `RadioGroupsProps` type rename, which changes the public API and needs a decision. Two typo fixes renamed stories, so their URLs changed: `dropdowns-selection-combobox--scrolling-dropdown` and `chips-chip--pressable`. Everything else is open for discussion.
+**Status:** Parts 1, 2 and 3 are worked through on the `docs/storybook-audit-fixes` branch. Each
+part and each Part 1 item has a status note saying what was fixed and what is left. Everything
+left needs a decision and is collected in Part 4.
+
+### Results
+
+Measured by rendering all 89 docs pages in the built Storybook, before and after the fixes:
+
+| Measure | Before | After |
+|---|---|---|
+| Props-table rows with an object editor (excluding `style`) | 182 | 18 |
+| Boolean / number props with a text box | 12 | 0 |
+| Pages whose snippets show action handlers | 34 | 1 |
+| Pages showing the classnames `className` type | 23 | 0 |
+| Props-table rows with a documented default | 20 | 166 |
+| Pages with the "only one ElementsProvider" warning | 86 | 0 |
+| Pages with other console warnings | 12 | 1 |
+| Snippets with wrong component names | 9 names | 0 |
+
+The 18 remaining object editors are mostly genuine objects or arrays (Table `icons`,
+`formatOptions`, `acceptedFileTypes`, LoadingStatus `data`). A few small ones are left: the Format
+components' render-function `children`, `slot` on Checkbox and Input, Chip's `id`, and two flex
+props on Modal's MDX page. The remaining console warning is the Table Skeleton one in Part 4
+(item 11).
 
 Finding categories: **Misnamed**, **Bad control**, **Missing control**, **Unnecessary control**,
 **Deprecated**, **Description**, **Defaults**, **Typo**, **Console**, **Stories**, **Snippet**.
@@ -137,7 +162,7 @@ Finding categories: **Misnamed**, **Bad control**, **Missing control**, **Unnece
 
 ### G7. Prop grouping is inconsistent
 
-> **Status:** Partly done. The category set is defined and documented in `helpers.tsx`, and the retired names (Field State, Presentation, Common) are gone. Not every story is categorised yet.
+> **Status:** ✅ Done. The category set is defined and documented in `helpers.tsx`, the retired names (Field State, Presentation, Common) are gone, and the Part 2 work used the standard categories throughout.
 
 - **Symptom:** the docs use 16 different category names: Render Props, Events, Field State, Helper
   Text, Common, Margin, Dimensions, Padding, Position, Overflow, Flex Item, Grid, Presentation,
@@ -172,7 +197,7 @@ Finding categories: **Misnamed**, **Bad control**, **Missing control**, **Unnece
 
 ### G9. Docgen gives parent components a subcomponent's name, or no docs at all
 
-> **Status:** ✅ Fixed. Cause: react-docgen-typescript applies the first `X.displayName = "literal"` in a file to every component in it. The new `setDisplayName()` helper (`src/utils/displayName.ts`) is used in all multi-component files. SelectField's internal components are no longer exported. Not fixed: Button and IconButton still have no docgen (cause unknown).
+> **Status:** ✅ Fixed. Cause: react-docgen-typescript applies the first `X.displayName = "literal"` in a file to every component in it. The new `setDisplayName()` helper (`src/utils/displayName.ts`) is used in all multi-component files, and internal components (SelectFieldInner, MultiSelectFieldInner) are no longer exported. Button and IconButton had a different cause: `.storybook/main.ts` passed `compilerOptions`, so the docgen plugin ignored the package tsconfig and couldn't resolve the `@components` / `@hooks` / `@styles` aliases. It now uses `packages/atomic-elements/tsconfig.json`. Still open: see Part 4 (items 6 and 8).
 
 - **Symptom:** snippets and headings show the wrong component name:
   - Card snippets render `<Card.Header>`
@@ -268,6 +293,11 @@ These show up on many pages:
 ---
 
 ## Part 2: Findings by component
+
+> **Status:** ✅ Worked through on the `docs/storybook-audit-fixes` branch. Every bullet below is
+> fixed except those listed in Part 4 (they need a decision) and a few that turned out to be
+> already fixed by a Part 1 change. The bullets are kept as written, as a record of what was
+> wrong.
 
 Paths are relative to `packages/atomic-elements/` unless they start with `.storybook/`. Unless a
 line says otherwise, a bare file name refers to the component's own folder.
@@ -994,3 +1024,49 @@ component.
 | SearchField | The "clear" button in the story has no slot to hook into | `Fields/SearchField/SearchField.component.tsx:89-95` |
 
 Paths are relative to `packages/atomic-elements/src/components/` unless they start with `src/`.
+
+---
+
+## Part 4: Open decisions
+
+Everything here was left alone on purpose: each item changes public API or behaviour, or needs a
+structural change, so it needs a decision before anyone acts on it. Where a prop is ignored, it is
+already hidden from the props table, so the docs are accurate in the meantime.
+
+### Naming
+1. **Checkbox or CheckBox.** The export is `CheckBox`, but the docs title, files and folder say
+   `Checkbox`. Pick one; the other could stay as a deprecated alias.
+2. **`RadioGroupsProps`** should be `RadioGroupProps`. Add the new name and keep the old one as a
+   deprecated alias.
+
+### Props in public types that the component ignores
+Removing these from the types is the clean fix, but it's a breaking change for anyone passing them
+today (even though they have no effect). They are hidden from the docs for now.
+
+3. **`isLoading` / `loadingLabel`**, inherited through `FieldInputProps`, are ignored by Select,
+   DateInput, DatePicker, TimeInput, Field, DateField, SelectField, MultiSelectField and ChipGroup.
+4. **`size`** is ignored by Divider, Table and ToggleSwitch. Calendar's `size` type also allows
+   `"auto"`, which has no styles.
+5. **Other ignored props:** FormatTable's `children` and `aria-details`; DisclosureGroup's
+   `className` / `style`; Loading's `id` and `size`.
+
+### Docs gaps that need structural changes
+6. **Subcomponents of cast components get no docs.** react-docgen-typescript only documents static
+   subcomponents when the parent is a plain function. Navbar, Disclosure, Tabs and List
+   (`List.Item`) are cast (`as typeof X & {…}`), and Banner's and Pagination's subcomponents
+   aren't exported, so their subcomponent tabs would be empty. Options: one file per subcomponent
+   (as ScrollArea does), or exporting them.
+7. **Defaults on subcomponents' inherited props** (Card.Panel, Navbar.Title, Disclosure.Trigger
+   and similar) need the subcomponents to have their own props interfaces.
+8. **ListBox has no docgen.** `InternalListBox` is public API (exported as `UnmanagedListBox`),
+   and docgen documents it instead of `ListBox`. Story argTypes stand in for now.
+
+### Possible component bugs (not changed)
+9. **FileInput** puts `aria-*` props on its wrapper div rather than on the button.
+10. **`DisclosurePanelProps` extends `ButtonProps`**, so the panel's type lists button props.
+11. **Table** hard-codes `allowsExpandableRows: false`, so the documented row-nesting feature may
+    not work; and `Table.Skeleton` can't take an `aria-label`, which logs a warning.
+12. **ProgressCircle** never renders `label`, so passing it makes `aria-labelledby` point at an
+    element that doesn't exist.
+13. **Modal's MDX page** still says "the controls in this page are not working". This couldn't be
+    checked without running Storybook interactively.
