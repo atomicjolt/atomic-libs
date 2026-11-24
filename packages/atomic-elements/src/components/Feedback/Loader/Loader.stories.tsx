@@ -18,7 +18,6 @@ export const Primary: Story = {
   args: {
     isLoading: true,
     message: "Loading...",
-    placement: "center",
     children: (
       <svg
         xmlns="http://www.w3.org/2000/svg"

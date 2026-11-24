@@ -22,6 +22,7 @@ export type BannerVariants = SuggestStrings<
 export interface BannerProps
   extends RenderBaseProps<never>,
     ElementWrapper<HTMLDivElement> {
+  /** @default "info" */
   readonly variant?: BannerVariants;
 }
 
@@ -88,11 +89,11 @@ setDisplayName(BannerContent, "Banner.Content");
 _Banner.Icon = BannerIcon;
 setDisplayName(BannerIcon, "Banner.Icon");
 
-/** IconButton for Banners */
+/** IconButton for Banners. Its `variant` defaults to `"banner"`. */
 _Banner.IconButton = BannerIconButton;
 setDisplayName(BannerIconButton, "Banner.IconButton");
 
-/** Button for Banners */
+/** Button for Banners. Its `variant` defaults to `"inverted"`. */
 _Banner.Button = BannerButton;
 setDisplayName(BannerButton, "Banner.Button");
 

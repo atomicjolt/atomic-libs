@@ -11,10 +11,13 @@ export interface LoaderProps
     AriaLabelProps {
   /** Whether the loader is in a loading state, when true,
    * children is rendered, when false, a checkmark animation
-   * is displayed */
+   * is displayed
+   * @default true
+   */
   isLoading?: boolean;
   /** An optional message to display with the loader */
   message?: React.ReactNode;
+  /** @default "medium" */
   size?: Size;
   /** Placement of the loader
    * - `inline` - Loader is displayed inline with the content
@@ -27,7 +30,9 @@ export interface LoaderProps
    */
   placement?: LoaderPlacement;
 
-  /** The orientation of the loader and the message relative to each other */
+  /** The orientation of the loader and the message relative to each other
+   * @default "vertical"
+   */
   orientation?: "horizontal" | "vertical";
 }
 

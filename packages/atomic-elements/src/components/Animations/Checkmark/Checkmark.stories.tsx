@@ -18,7 +18,5 @@ export default {
 type Story = StoryObj<typeof Checkmark>;
 
 export const Primary: Story = {
-  args: {
-    size: "medium",
-  },
+  args: {},
 };

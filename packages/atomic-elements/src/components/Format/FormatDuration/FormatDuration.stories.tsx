@@ -32,6 +32,7 @@ export default {
     style: {
       control: "select",
       options: ["long", "short", "narrow"],
+      table: { defaultValue: { summary: '"long"' } },
     },
   },
 } as Meta<typeof FormatDuration>;

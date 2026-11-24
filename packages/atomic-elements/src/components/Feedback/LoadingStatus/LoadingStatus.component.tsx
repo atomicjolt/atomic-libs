@@ -6,6 +6,7 @@ import { LoaderProps } from "../Loader";
 import { useLoading } from "../Loading";
 
 export interface LoadingStatusProps<T> {
+  /** @default null */
   readonly children?: React.ReactNode | ((data: T) => React.ReactNode);
 
   /**
@@ -18,25 +19,37 @@ export interface LoadingStatusProps<T> {
   /** Fallback if data is null */
   readonly fallback?: React.ReactNode;
 
-  /** Loading status, when true, a loading state will be rendered */
+  /** Loading status, when true, a loading state will be rendered
+   * @default the ambient `Loading` state, or `false` if there is none
+   */
   readonly isLoading?: boolean;
 
-  /** Optional message to display beneath the loading animation */
+  /** Optional message to display beneath the loading animation
+   * @default null
+   */
   readonly loadingMessage?: React.ReactNode;
 
-  /** Placement of the loader */
+  /** Placement of the loader
+   * @default "center"
+   */
   readonly loadingPlacement?: LoaderPlacement;
 
   /** Direction of the loader and message placement */
   readonly loadingOrientation?: "horizontal" | "vertical";
 
-  /** Customize what is rendered when in a loading state */
+  /** Customize what is rendered when in a loading state
+   * @default ThreeDotLoader
+   */
   readonly renderLoading?: React.ReactNode | React.ComponentType<LoaderProps>;
 
-  /** An error. When present, an error state will be rendered */
+  /** An error. When present, an error state will be rendered
+   * @default null
+   */
   readonly error?: React.ReactNode;
 
-  /** Customize what is rendered when in an error state */
+  /** Customize what is rendered when in an error state
+   * @default an `ErrorBanner` containing the `error`
+   */
   readonly renderError?: React.ReactNode | React.ComponentType<ErrorStateProps>;
 }
 

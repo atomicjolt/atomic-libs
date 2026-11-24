@@ -11,6 +11,7 @@ import { Dot, DotsContainer } from "./BouncingDots.styles";
 export interface BouncingDotsProps extends AriaLabelProps {
   className?: RenderClassName<never>;
   style?: RenderStyle<never>;
+  /** @default "medium" */
   size?: Size;
 
   /** Duration of the animation in milliseconds
@@ -18,6 +19,7 @@ export interface BouncingDotsProps extends AriaLabelProps {
    */
   duration?: number;
 
+  /** @default 3 */
   count?: number;
 }
 

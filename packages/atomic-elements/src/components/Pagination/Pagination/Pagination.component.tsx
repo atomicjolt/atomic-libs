@@ -27,7 +27,9 @@ export interface PaginationProps
     AriaLabelProps {
   /** The size of the pagination buttons */
   size?: ExtendedSize;
-  /** Variants for the pagination buttons */
+  /** Variants for the pagination buttons
+   * @default "ghost"
+   */
   variant?: ButtonVariants;
 }
 

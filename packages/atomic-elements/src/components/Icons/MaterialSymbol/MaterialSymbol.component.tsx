@@ -17,7 +17,9 @@ export interface MaterialSymbolProps
   symbol: MaterialSymbols;
   /** The type of material symbol to
    * render. Note that the font for that style needs to
-   * be in scope for it to render properly */
+   * be in scope for it to render properly
+   * @default "outlined"
+   */
   variant?: MaterialSymbolVariants;
 }
 
