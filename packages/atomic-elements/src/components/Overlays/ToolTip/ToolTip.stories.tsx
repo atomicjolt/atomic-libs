@@ -46,10 +46,12 @@ const meta: Meta<ToolTipProps & ToolTipTriggerProps> = {
     delay: {
       control: "number",
       description: "Delay in milliseconds before the tooltip appears",
+      table: { defaultValue: { summary: "0" } },
     },
     closeDelay: {
       control: "number",
       description: "Delay in milliseconds before the tooltip disappears",
+      table: { defaultValue: { summary: "0" } },
     },
     defaultOpen: {
       control: "boolean",
@@ -73,6 +75,7 @@ const meta: Meta<ToolTipProps & ToolTipTriggerProps> = {
     offset: {
       control: "number",
       description: "The offset of the tooltip from the trigger",
+      table: { defaultValue: { summary: "2" } },
     },
   },
 };
@@ -116,7 +119,6 @@ export const Primary: Story = {
     target: <Button>Hover Me</Button>,
     // @ts-ignore
     children: "This is the tooltip content",
-    delay: 0,
   },
 };
 

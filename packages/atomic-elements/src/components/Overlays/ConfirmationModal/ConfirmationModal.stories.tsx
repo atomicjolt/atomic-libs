@@ -12,6 +12,11 @@ const meta: Meta<typeof ConfirmationModal> = {
       },
     },
   },
+  argTypes: {
+    $width: {
+      table: { defaultValue: { summary: '"400px"' } },
+    },
+  },
 };
 
 export default meta;

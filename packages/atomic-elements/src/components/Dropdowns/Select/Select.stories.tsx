@@ -14,6 +14,33 @@ const meta: Meta<typeof Select> = {
       options: ["value1", "value2", "value3"],
     },
     ...InputControls,
+    size: {
+      table: { defaultValue: { summary: '"medium"' } },
+    },
+    isDisabled: {
+      ...InputControls.isDisabled,
+      table: {
+        ...InputControls.isDisabled.table,
+        defaultValue: { summary: "false" },
+      },
+    },
+    isRequired: {
+      ...InputControls.isRequired,
+      table: {
+        ...InputControls.isRequired.table,
+        defaultValue: { summary: "false" },
+      },
+    },
+    isInvalid: {
+      ...InputControls.isInvalid,
+      table: {
+        ...InputControls.isInvalid.table,
+        defaultValue: { summary: "false" },
+      },
+    },
+    id: {
+      table: { defaultValue: { summary: "auto-generated" } },
+    },
   },
 };
 
@@ -24,7 +51,6 @@ type Story = StoryObj<typeof Select>;
 export const Primary: Story = {
   args: {
     label: "Select label",
-    size: "medium",
     children: [
       <option value="value1" key="1">
         Option 1

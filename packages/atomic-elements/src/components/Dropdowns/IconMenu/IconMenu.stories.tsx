@@ -22,6 +22,12 @@ const meta: Meta<typeof IconMenu> = {
         "content",
       ],
     },
+    icon: {
+      table: { defaultValue: { summary: '"more_vert"' } },
+    },
+    size: {
+      table: { defaultValue: { summary: '"medium"' } },
+    },
     iconVariant: {
       control: "select",
       options: ["default", "outlined", "round", "sharp", "two-tone"],
@@ -63,7 +69,6 @@ type Story = StoryObj<typeof IconMenu>;
 
 export const Primary: Story = {
   args: {
-    icon: "more_vert",
     children: [
       <Item id="item1" key="item1" onAction={() => alert("Item 1")}>
         Item 1

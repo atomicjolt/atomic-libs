@@ -13,10 +13,13 @@ export interface BaseModalProps
     LayoutProps {
   /** Centers the modal within the viewport
    * @deprecated Use `isCentered` instead
+   * @default false
    */
   centered?: boolean;
 
-  /** Centers the modal within the viewport */
+  /** Centers the modal within the viewport
+   * @default false
+   */
   isCentered?: boolean;
 
   /** Ensures the modal is visible by scrolling it into view.

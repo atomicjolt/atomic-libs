@@ -19,6 +19,9 @@ export default {
   argTypes: {
     ...FieldStateControls,
     ...LoadingArgTypes,
+    type: {
+      table: { defaultValue: { summary: '"text"' } },
+    },
     defaultValue: {
       control: "text",
     },

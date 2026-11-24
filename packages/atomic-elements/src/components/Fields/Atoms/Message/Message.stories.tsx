@@ -7,6 +7,11 @@ export default {
   parameters: {
     layout: "centered",
   },
+  argTypes: {
+    size: {
+      table: { defaultValue: { summary: '"auto"' } },
+    },
+  },
 } as Meta<typeof Message>;
 
 type Story = StoryObj<typeof Message>;

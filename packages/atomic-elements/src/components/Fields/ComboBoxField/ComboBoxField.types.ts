@@ -19,6 +19,7 @@ export interface ComboBoxFieldProps<T>
   onInputChange?: (value: string) => void;
 
   onOpenChange?: (isOpen: boolean, menuTrigger?: MenuTriggerAction) => void;
+  /** @default "input" */
   menuTrigger?: MenuTriggerAction;
 }
 

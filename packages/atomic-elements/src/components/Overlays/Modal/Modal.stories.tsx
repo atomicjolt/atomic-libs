@@ -32,6 +32,27 @@ const meta: Meta<typeof Modal> = {
     ...PositionArgTypes,
     ...OverflowArgTypes,
     ...OverlayTriggerArgTypes,
+    $width: {
+      ...DimensionsArgTypes.$width,
+      table: {
+        ...DimensionsArgTypes.$width.table,
+        defaultValue: { summary: '"100%"' },
+      },
+    },
+    $maxWidth: {
+      ...DimensionsArgTypes.$maxWidth,
+      table: {
+        ...DimensionsArgTypes.$maxWidth.table,
+        defaultValue: { summary: '"800px"' },
+      },
+    },
+    $p: {
+      ...SpacingArgTypes.$p,
+      table: {
+        ...SpacingArgTypes.$p.table,
+        defaultValue: { summary: '"5"' },
+      },
+    },
   },
 };
 

@@ -51,6 +51,21 @@ const meta: Meta<typeof ComboBox> = {
       description:
         "Controls when the dropdown menu is shown. `manual` will only show the dropdown when the user clicks the button. `input` will show the dropdown when the input is focused & the user enters input. `focus` will show the dropdown when the input is focused",
     },
+    icon: {
+      table: { defaultValue: { summary: '"search"' } },
+    },
+    variant: {
+      table: { defaultValue: { summary: '"default"' } },
+    },
+    size: {
+      table: { defaultValue: { summary: '"medium"' } },
+    },
+    maxHeight: {
+      table: { defaultValue: { summary: "300" } },
+    },
+    dropdownPlacement: {
+      table: { defaultValue: { summary: '"bottom start"' } },
+    },
   },
 };
 
