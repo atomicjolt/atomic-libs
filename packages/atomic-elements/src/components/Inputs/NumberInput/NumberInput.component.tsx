@@ -42,7 +42,7 @@ export const NumberInput = React.forwardRef(
           error={error}
         >
           <ComboInput padding="both">
-            <FieldInput />
+            <FieldInput ref={ref} />
             <Group
               $direction="column"
               isMerged
