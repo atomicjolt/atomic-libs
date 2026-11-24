@@ -7,11 +7,14 @@ export interface TypographyProps {
   $lineHeight?: SuggestStrings<NumericScaleValue>;
   $weight?: "light" | "regular" | "medium" | "bold";
   $align?: "left" | "center" | "right" | "justify";
+  /** How text wraps: `nowrap` keeps it on one line; `pretty` and `balanced` set CSS text-wrap. */
   $wrap?: "nowrap" | "pretty" | "balanced";
   $truncate?: boolean;
   $decoration?: SuggestStrings<"none" | "underline">;
   /** Clamp the text content after this number of lines */
-  $clamp?: SuggestStrings<"1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10">;
+  $clamp?: SuggestStrings<
+    "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10"
+  >;
   $transform?:
     | "uppercase"
     | "lowercase"
@@ -22,20 +25,29 @@ export interface TypographyProps {
 }
 
 export function typography(props: TypographyProps) {
-  const { $weight, $align, $wrap, $truncate, $decoration, $transform, $clamp } = props;
+  const { $weight, $align, $wrap, $truncate, $decoration, $transform, $clamp } =
+    props;
 
   return {
     ...resolveSize(props),
     fontFamily: "var(--font-family)",
     fontWeight: $weight && `var(--font-weight-${$weight})`,
     textAlign: $align,
-    whiteSpace: $truncate ? "nowrap" : $wrap,
+    whiteSpace: $truncate || $wrap === "nowrap" ? "nowrap" : undefined,
+    textWrap: textWrapValue($wrap),
     textOverflow: $truncate ? "ellipsis" : undefined,
     overflow: $truncate ? "hidden" : undefined,
     textDecoration: $decoration,
     textTransform: $transform,
     ...clampLines($clamp),
   };
+}
+
+/** `pretty` and `balanced` set text-wrap; `nowrap` is handled by white-space. */
+function textWrapValue(wrap: TypographyProps["$wrap"]) {
+  if (wrap === "pretty") return "pretty";
+  if (wrap === "balanced") return "balance";
+  return undefined;
 }
 
 typography.defaults = (defaults: TypographyProps) => (props: TypographyProps) =>
@@ -71,7 +83,6 @@ function resolveSize(props: TypographyProps) {
 
   return styles;
 }
-
 
 function clampLines(lines?: string) {
   if (!lines) {
