@@ -972,6 +972,8 @@ These are behaviour bugs, not documentation problems, but each one makes a contr
 They're listed here so they don't get lost among the docs fixes. Details are in Part 2 under each
 component.
 
+> **Status:** ✅ All fixed, each in its own commit with tests. Two fixes went slightly further than listed: ButtonGroup also routes `aria-label` / `aria-labelledby` to the group (they were naming every button), and FileTrigger gains an optional `id` prop so FileInput can put its `id` on the file input. Still open: FormatTable inherits a `children` prop it ignores. Removing it changes the public type.
+
 | Component | Bug | Where |
 |---|---|---|
 | FileTrigger | `accept="directories"` never works: the code compares against `"directory"` | `Buttons/FileTrigger/FileTrigger.component.tsx:80` |
