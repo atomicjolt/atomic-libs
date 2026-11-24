@@ -73,3 +73,19 @@ describe("CheckBox", () => {
     });
   });
 });
+
+describe("CheckBox error message", () => {
+  it("shows the error message when invalid", () => {
+    render(
+      <CheckBox isInvalid error="You must accept the terms">
+        Accept
+      </CheckBox>
+    );
+    expect(screen.getByText("You must accept the terms")).toBeTruthy();
+  });
+
+  it("shows no placeholder text when invalid without an error message", () => {
+    render(<CheckBox isInvalid>Accept</CheckBox>);
+    expect(screen.queryByText("error")).toBeNull();
+  });
+});
