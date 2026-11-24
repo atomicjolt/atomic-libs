@@ -33,7 +33,14 @@ export const Label = React.forwardRef(function Label(
 ) {
   [props, ref] = useContextProps(LabelContext, props, ref);
 
-  const { className, size, as = "label", children, ...rest } = props;
+  const {
+    className,
+    size,
+    as = "label",
+    $paddingBottom,
+    children,
+    ...rest
+  } = props;
 
   const renderProps = useRenderProps({
     componentClassName: className,
@@ -44,6 +51,7 @@ export const Label = React.forwardRef(function Label(
     <StyledLabel
       as={as}
       ref={ref}
+      $paddingBottom={$paddingBottom}
       {...renderProps}
       {...filterDOMProps(rest)}
       htmlFor={rest.htmlFor}
