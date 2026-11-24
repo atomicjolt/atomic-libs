@@ -1046,8 +1046,12 @@ Removing these from the types is the clean fix, but it's a breaking change for a
 today (even though they have no effect). They are hidden from the docs for now.
 
 3. **`isLoading` / `loadingLabel`**, inherited through `FieldInputProps`, are ignored by Select,
-   DateInput, DatePicker, TimeInput, Field, DateField, SelectField, MultiSelectField and ChipGroup.
-   > **Status:** Under review: each component is on the playground's Loading States tab, in the "Accept isLoading but don't implement it" section.
+   DateInput, DatePicker, TimeInput and ChipGroup.
+   > **Correction:** an earlier version of this item also listed Field, DateField, SelectField and
+   > MultiSelectField. Their types don't accept `isLoading`; they only showed loading controls in
+   > Storybook, which is fixed (G11).
+   >
+   > **Status:** In progress: adding loading support to the five components.
 4. **`size`** is ignored by Divider, Table and ToggleSwitch. Calendar's `size` type also allows
    `"auto"`, which has no styles.
    > **Status:** ✅ Done: `size` removed from Divider, Table and ToggleSwitch; Calendar's `size` no longer allows `"auto"`. Breaking for TypeScript callers.

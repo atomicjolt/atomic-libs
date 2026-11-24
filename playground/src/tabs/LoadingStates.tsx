@@ -1,39 +1,27 @@
 import React, { useState } from "react";
-import { getLocalTimeZone, now } from "@internationalized/date";
 import {
   Button,
   CheckBox,
   Chip,
   ChipGroup,
   ComboBox,
-  ComboInput,
   CustomSelect,
-  DateField,
   DateInput,
   DatePicker,
   ExtendedSize,
-  Field,
-  FieldInput,
-  FieldLabel,
-  FieldMessage,
   FileInput,
   Flex,
   Heading,
   IconButton,
   Item,
   Loading,
-  ListBox,
   LoadingStatus,
-  MaterialIcon,
   MultiSelect,
-  MultiSelectField,
   NumberInput,
   Radio,
   RadioGroup,
-  Popover,
   SearchInput,
   Select,
-  SelectField,
   Strong,
   Table,
   Text,
@@ -293,63 +281,6 @@ export default function LoadingStates() {
         isLoading={isLoading}
         loadingLabel="Loading"
       />
-      <hr />
-      <Heading as="h3" $size="5">
-        Field
-      </Heading>
-      <Field isLoading={isLoading} loadingLabel="Loading">
-        <FieldLabel>Field</FieldLabel>
-        <FieldMessage>A plain field with an input</FieldMessage>
-        <FieldInput />
-      </Field>
-      <hr />
-      <Heading as="h3" $size="5">
-        DateField
-      </Heading>
-      <DateField
-        defaultValue={now(getLocalTimeZone())}
-        granularity="day"
-        isLoading={isLoading}
-        loadingLabel="Loading"
-      >
-        <FieldLabel>Date field</FieldLabel>
-        <ComboInput padding="both">
-          <DateField.Segments>
-            {(_, index) => <DateField.Segment key={index} index={index} />}
-          </DateField.Segments>
-        </ComboInput>
-      </DateField>
-      <hr />
-      <Heading as="h3" $size="5">
-        SelectField / MultiSelectField
-      </Heading>
-      <SelectField isLoading={isLoading} loadingLabel="Loading">
-        <FieldLabel>Select field</FieldLabel>
-        <Button variant="dropdown">
-          <SelectField.Value placeholder="Select an option" />
-          <MaterialIcon icon="arrow_drop_down" style={{ marginLeft: "auto" }} />
-        </Button>
-        <Popover>
-          <ListBox>
-            <Item id="1">Item 1</Item>
-            <Item id="2">Item 2</Item>
-          </ListBox>
-        </Popover>
-      </SelectField>
-      <br />
-      <MultiSelectField isLoading={isLoading} loadingLabel="Loading">
-        <FieldLabel>Multi select field</FieldLabel>
-        <Button variant="dropdown">
-          Select items
-          <MaterialIcon icon="arrow_drop_down" style={{ marginLeft: "auto" }} />
-        </Button>
-        <Popover>
-          <ListBox>
-            <Item id="1">Item 1</Item>
-            <Item id="2">Item 2</Item>
-          </ListBox>
-        </Popover>
-      </MultiSelectField>
       <hr />
       <Heading as="h3" $size="5">
         ChipGroup
