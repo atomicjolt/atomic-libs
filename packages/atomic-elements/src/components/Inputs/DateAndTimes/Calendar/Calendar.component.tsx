@@ -30,11 +30,10 @@ export interface CalendarProps<T extends DateValue>
   extends AriaProps<AriaCalendarProps<T>>,
     RenderBaseProps<never> {
   /**
-   * Size of the calendar. `auto` has no styles of its own, so use `small`,
-   * `medium`, `large` or `full`.
+   * Size of the calendar.
    * @default "medium"
    */
-  size?: ExtendedSize;
+  size?: Exclude<ExtendedSize, "auto">;
   isDisabled?: boolean;
   isInvalid?: boolean;
 }

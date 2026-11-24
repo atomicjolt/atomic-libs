@@ -50,9 +50,6 @@ const meta: Meta<typeof Table> = {
       control: "boolean",
     },
     // Accepted by the type, but Table doesn't use it.
-    size: {
-      table: { disable: true },
-    },
     hasBottom: {
       description: "Whether the table has a bottom content",
       control: "boolean",

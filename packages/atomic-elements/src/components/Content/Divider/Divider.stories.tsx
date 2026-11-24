@@ -15,10 +15,6 @@ export default {
     as: {
       control: false,
     },
-    // Inherited from BaseProps, but Divider doesn't use it.
-    size: {
-      table: { disable: true },
-    },
   },
   decorators: [
     (Story, { args }) => (
