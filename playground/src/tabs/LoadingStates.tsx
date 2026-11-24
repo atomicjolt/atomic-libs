@@ -1,22 +1,22 @@
 import React, { useState } from "react";
 import { getLocalTimeZone, now } from "@internationalized/date";
-// Not exported from the package; imported from source for this review.
-import { Field } from "@components/Fields/Field";
-import { FieldLabel } from "@components/Fields/Field/FieldLabel";
-import { FieldMessage } from "@components/Fields/Field/FieldMessage";
-import { FieldInput } from "@components/Fields/Field/FieldInput";
+// DateField isn't exported from the package, so import it from source.
 import { DateField } from "@components/Fields/DateField";
-import { ComboInput } from "@components/Fields/ComboInput";
 import {
   Button,
   CheckBox,
   Chip,
   ChipGroup,
   ComboBox,
+  ComboInput,
   CustomSelect,
   DateInput,
   DatePicker,
   ExtendedSize,
+  Field,
+  FieldInput,
+  FieldLabel,
+  FieldMessage,
   FileInput,
   Flex,
   Heading,
