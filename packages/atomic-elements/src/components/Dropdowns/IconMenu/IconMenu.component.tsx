@@ -1,3 +1,4 @@
+import { setDisplayName } from "@utils/displayName";
 import { MenuTriggerProps } from "react-stately";
 import { AriaMenuProps } from "@react-aria/menu";
 import { Placement } from "@react-aria/overlays";
@@ -81,10 +82,10 @@ export function IconMenu<T extends {}>(props: IconMenuProps<T>) {
   );
 }
 
-IconMenu.displayName = "IconMenu";
+setDisplayName(IconMenu, "IconMenu");
 
 const IconMenuItem = (props: ItemProps) => <Menu.Item {...props} />;
-IconMenuItem.displayName = "IconMenu.Item";
+setDisplayName(IconMenuItem, "IconMenu.Item");
 /**
  * @deprecated use `Item` instead
  */
@@ -93,7 +94,7 @@ IconMenu.Item = IconMenuItem;
 const IconMenuSection = <T extends object>(props: MenuSectionProps<T>) => (
   <Menu.Section {...props} />
 );
-IconMenuSection.displayName = "IconMenu.Section";
+setDisplayName(IconMenuSection, "IconMenu.Section");
 /**
  * @deprecated use `Section` instead
  */

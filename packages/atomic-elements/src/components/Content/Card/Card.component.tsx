@@ -1,3 +1,4 @@
+import { setDisplayName } from "@utils/displayName";
 import { useRenderProps } from "@hooks/useRenderProps";
 import { Text, TextProps } from "@components/Typography/Text";
 import { ViewProps } from "@components/Layout/View";
@@ -75,19 +76,19 @@ function CardGrid(props: GridProps) {
 
 /** Card Header. Wraps Card.Title and optionally some actions. Handles padding */
 Card.Header = CardHeader;
-CardHeader.displayName = "Card.Header";
+setDisplayName(CardHeader, "Card.Header");
 /** Card Title */
 Card.Title = CardTitle;
-CardTitle.displayName = "Card.Title";
+setDisplayName(CardTitle, "Card.Title");
 /** Card Panel. Wraps some content within a card */
 Card.Panel = CardPanel;
-CardPanel.displayName = "Card.Panel";
+setDisplayName(CardPanel, "Card.Panel");
 /** Card Columns. Wraps a set of Card.Panel components in a flex container */
 Card.Columns = CardColumns;
-CardColumns.displayName = "Card.Columns";
+setDisplayName(CardColumns, "Card.Columns");
 /** Card Stack. Wraps a set of Card.Panel components in a flex container with column direction */
 Card.Stack = CardStack;
-CardStack.displayName = "Card.Stack";
+setDisplayName(CardStack, "Card.Stack");
 /** Card Grid. Wraps a set of Card.Panel components in a grid container */
 Card.Grid = CardGrid;
-CardGrid.displayName = "Card.Grid";
+setDisplayName(CardGrid, "Card.Grid");

@@ -1,3 +1,4 @@
+import { setDisplayName } from "@utils/displayName";
 import React, { forwardRef, RefAttributes, type JSX } from "react";
 import { useRenderProps } from "@hooks/useRenderProps";
 import {
@@ -80,19 +81,19 @@ _Banner.displayName = "Banner";
 
 /** Wrapper around the textual content of a Banner */
 _Banner.Content = BannerContent;
-BannerContent.displayName = "Banner.Content";
+setDisplayName(BannerContent, "Banner.Content");
 
 /** Icon for Banners. Renders a `MaterialIcon` inside a wrapper that keeps it
  * aligned with the Banner's buttons */
 _Banner.Icon = BannerIcon;
-BannerIcon.displayName = "Banner.Icon";
+setDisplayName(BannerIcon, "Banner.Icon");
 
 /** IconButton for Banners */
 _Banner.IconButton = BannerIconButton;
-BannerIconButton.displayName = "Banner.IconButton";
+setDisplayName(BannerIconButton, "Banner.IconButton");
 
 /** Button for Banners */
 _Banner.Button = BannerButton;
-BannerButton.displayName = "Banner.Button";
+setDisplayName(BannerButton, "Banner.Button");
 
 export { _Banner as Banner };

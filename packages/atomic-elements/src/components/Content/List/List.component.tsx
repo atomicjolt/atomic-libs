@@ -1,3 +1,4 @@
+import { setDisplayName } from "@utils/displayName";
 import { forwardRef, type JSX } from "react";
 import { ElementWrapper, RenderBaseProps } from "../../../types";
 import { useContextProps } from "@hooks/useContextProps";
@@ -41,7 +42,7 @@ export const List = forwardRef<HTMLUListElement, ListProps>(function List(
   );
 }) as unknown as ListComponent;
 
-List.displayName = "List";
+setDisplayName(List, "List");
 
 export interface ListItemProps
   extends RenderBaseProps<never>,
@@ -74,4 +75,4 @@ const ListItem = forwardRef<HTMLLIElement, ListItemProps>(function ListItem(
 });
 
 List.Item = ListItem;
-List.Item.displayName = "List.Item";
+setDisplayName(List.Item, "List.Item");

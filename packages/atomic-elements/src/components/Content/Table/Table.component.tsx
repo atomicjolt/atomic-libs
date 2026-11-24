@@ -1,3 +1,4 @@
+import { setDisplayName } from "@utils/displayName";
 import { useMemo } from "react";
 import { Collection, CollectionBuilder } from "@react-aria/collections";
 import { TableColumnIcons, TableOptions, TableProps } from "./Table.types";
@@ -97,7 +98,7 @@ export function Table<T extends object>(props: TableProps<T>) {
   );
 }
 
-Table.displayName = "Table";
+setDisplayName(Table, "Table");
 
 Table.Header = TableHeaderWrapper;
 Table.Column = TableColumnWrapper;
@@ -137,6 +138,6 @@ function TableSkeleton(props: TableSkeletonProps) {
   );
 }
 
-TableSkeleton.displayName = "Table.Skeleton";
+setDisplayName(TableSkeleton, "Table.Skeleton");
 
 Table.Skeleton = TableSkeleton;

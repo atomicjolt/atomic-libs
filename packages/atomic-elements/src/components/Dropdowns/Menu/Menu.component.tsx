@@ -1,3 +1,4 @@
+import { setDisplayName } from "@utils/displayName";
 import React, { forwardRef, RefAttributes, useContext, type JSX } from "react";
 import classNames from "classnames";
 import { useTreeState } from "react-stately";
@@ -71,7 +72,7 @@ export const Menu = forwardRef(function Menu<T extends object>(
   );
 }) as unknown as ForwardedMenu;
 
-Menu.displayName = "Menu";
+setDisplayName(Menu, "Menu");
 
 interface MenuInnerProps<T> extends MenuProps<T> {
   collection: BaseCollection<T>;
@@ -154,8 +155,7 @@ function MenuSection<T extends object>(
 }
 
 const MenuSectionWrapper = createBranchComponent("section", MenuSection);
-// @ts-expect-error
-MenuSectionWrapper.displayName = "Menu.Section";
+setDisplayName(MenuSectionWrapper, "Menu.Section");
 Menu.Section = MenuSectionWrapper;
 
 const MenuItem = (
@@ -198,6 +198,5 @@ const MenuItem = (
 };
 
 const MenuItemWrapper = createLeafComponent("item", MenuItem);
-// @ts-expect-error
-MenuItemWrapper.displayName = "Menu.Item";
+setDisplayName(MenuItemWrapper, "Menu.Item");
 Menu.Item = MenuItemWrapper;
