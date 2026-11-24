@@ -33,7 +33,7 @@ export { ConfirmationModal } from "./Overlays/ConfirmationModal";
 export { ErrorModal } from "./Overlays/ErrorModal";
 export { Popover } from "./Overlays/Popover";
 
-export { CheckBox } from "./Inputs/Checkbox";
+export { CheckBox } from "./Inputs/CheckBox";
 export { NumberInput } from "./Inputs/NumberInput";
 export { RadioGroup, Radio } from "./Inputs/RadioGroup";
 export { SearchInput } from "./Inputs/SearchInput";
@@ -151,7 +151,7 @@ export type { SelectProps, SelectValue } from "./Dropdowns/Select";
 export type { IconMenuProps } from "./Dropdowns/IconMenu";
 export type { MenuProps } from "./Dropdowns/Menu";
 export type { MenuTriggerProps } from "./Dropdowns/Menu/MenuTrigger";
-export type { CheckBoxProps } from "./Inputs/Checkbox";
+export type { CheckBoxProps } from "./Inputs/CheckBox";
 export type { FileInputProps } from "./Inputs/FileInput";
 export type { NumberInputProps } from "./Inputs/NumberInput";
 export type { RadioGroupsProps } from "./Inputs/RadioGroup";

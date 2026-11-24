@@ -9,7 +9,7 @@ import { checkbox } from "@styles/theme/component";
 import { CheckBox } from ".";
 
 const meta: Meta<typeof CheckBox> = {
-  title: "Inputs/Choose State/Checkbox",
+  title: "Inputs/Choose State/CheckBox",
   component: CheckBox,
   parameters: {
     layout: "centered",

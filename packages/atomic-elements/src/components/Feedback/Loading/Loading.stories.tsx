@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react-vite";
 import { Loading } from ".";
 import { Button } from "@components/Buttons/Button";
-import { CheckBox } from "@components/Inputs/Checkbox";
+import { CheckBox } from "@components/Inputs/CheckBox";
 import { NumberInput } from "@components/Inputs/NumberInput";
 import { SearchInput } from "@components/Inputs/SearchInput";
 import { TextInput } from "@components/Inputs/TextInput";
