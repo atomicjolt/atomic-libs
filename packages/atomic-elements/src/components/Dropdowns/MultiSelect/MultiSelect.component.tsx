@@ -10,6 +10,7 @@ import { MultiSelectStateContext } from "@components/Fields/MultiSelectField";
 import {
   ButtonText,
   StyledLoadingMultiSelect,
+  StyledLoadingMultiSelectField,
   StyledMultiSelectField,
 } from "./MultiSelect.styles";
 import { AriaMultiSelectProps } from "../../Fields/MultiSelectField";
@@ -59,7 +60,7 @@ export function MultiSelect<T extends object>(props: MultiSelectProps<T>) {
 
   if (isLoading) {
     return (
-      <StyledMultiSelectField {...props} {...renderProps} ref={ref}>
+      <StyledLoadingMultiSelectField {...renderProps}>
         <FloatingFieldInputWrapper
           label={label}
           message={message}
@@ -77,7 +78,7 @@ export function MultiSelect<T extends object>(props: MultiSelectProps<T>) {
             />
           </StyledLoadingMultiSelect>
         </FloatingFieldInputWrapper>
-      </StyledMultiSelectField>
+      </StyledLoadingMultiSelectField>
     );
   }
 
