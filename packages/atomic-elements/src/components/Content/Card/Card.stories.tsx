@@ -1,5 +1,5 @@
-import { Meta, StoryObj } from "@storybook/react";
-import { getCssProps } from "@sb/cssprops";
+import { Meta, StoryObj } from "@storybook/react-vite";
+import { card } from "@styles/theme/component";
 import { Divider } from "../Divider";
 import { Text } from "../../Typography/Text";
 import { IconButton } from "@components/Buttons/IconButton";
@@ -10,7 +10,7 @@ export default {
   title: "Content/Card",
   component: Card,
   parameters: {
-    cssprops: getCssProps("Card"),
+    cssprops: { card },
   },
   subcomponents: {
     "Card.Header": Card.Header,

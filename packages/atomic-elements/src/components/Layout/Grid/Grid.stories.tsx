@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { Grid } from ".";
 import { LayoutArgTypes, RenderPropsArgTypes } from "@sb/helpers";
 import { SpacingSteps } from "@styles/spacing";

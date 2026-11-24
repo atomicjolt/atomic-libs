@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { PlacementArgType } from "@sb/helpers";
 import { MenuTrigger } from "../../Dropdowns/Menu/MenuTrigger";
 import { Popover } from ".";

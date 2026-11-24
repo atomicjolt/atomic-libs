@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { Menu } from ".";
 import { MenuTrigger } from "./MenuTrigger";
 import { Button } from "../../Buttons/Button";

@@ -1,5 +1,5 @@
 import React from "react";
-import { Preview } from "@storybook/react";
+import { Preview } from "@storybook/react-vite";
 import {
   Title,
   Subtitle,
@@ -7,7 +7,7 @@ import {
   Primary,
   Controls,
   Stories,
-} from "@storybook/blocks";
+} from "@storybook/addon-docs/blocks";
 
 import { defaultTheme } from "../packages/atomic-elements/src/styles";
 import { ElementsProvider } from "../packages/atomic-elements/src/components/ElementsProvider";

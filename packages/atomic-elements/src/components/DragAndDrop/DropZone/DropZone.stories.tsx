@@ -1,5 +1,5 @@
-import { Meta, StoryObj } from "@storybook/react";
-import { fn } from "@storybook/test";
+import { Meta, StoryObj } from "@storybook/react-vite";
+import { fn } from "storybook/test";
 import { DropZone } from ".";
 import { Flex } from "@components/Layout/Flex";
 
@@ -11,7 +11,7 @@ export default {
   },
   decorators: [
     (Story) => (
-      <Flex alignItems="center" gap={12}>
+      <Flex $align="center" $gap="12px">
         <div
           draggable
           style={{

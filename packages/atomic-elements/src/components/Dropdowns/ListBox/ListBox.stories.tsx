@@ -1,7 +1,7 @@
-import { StoryObj, Meta } from "@storybook/react";
+import { StoryObj, Meta } from "@storybook/react-vite";
 import { MultiSelectItemChildren, MultiSelectionArgTypes } from "@sb/helpers";
-import { fn } from "@storybook/test";
-import { getCssProps } from "@sb/cssprops";
+import { fn } from "storybook/test";
+import { listbox } from "@styles/theme/component";
 import { ListBox } from ".";
 import { Section, Item } from "@components/Collection";
 
@@ -9,7 +9,7 @@ const meta: Meta<typeof ListBox> = {
   title: "Dropdowns/Selection/ListBox",
   component: ListBox,
   parameters: {
-    cssprops: getCssProps("Listbox"),
+    cssprops: { listbox },
   },
   argTypes: {
     ...MultiSelectionArgTypes,

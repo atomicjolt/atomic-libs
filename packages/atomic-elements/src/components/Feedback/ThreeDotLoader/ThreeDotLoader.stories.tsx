@@ -1,5 +1,5 @@
-import { Meta, StoryObj } from "@storybook/react";
-import { getCssProps } from "@sb/cssprops";
+import { Meta, StoryObj } from "@storybook/react-vite";
+import { loader } from "@styles/theme/component";
 import { AriaLabelArgTypes } from "@sb/helpers";
 import { ThreeDotLoader } from ".";
 
@@ -7,7 +7,7 @@ const meta: Meta<typeof ThreeDotLoader> = {
   title: "Feedback/ThreeDotLoader",
   component: ThreeDotLoader,
   parameters: {
-    cssprops: getCssProps("Loader"),
+    cssprops: { loader },
   },
   argTypes: {
     ...AriaLabelArgTypes,

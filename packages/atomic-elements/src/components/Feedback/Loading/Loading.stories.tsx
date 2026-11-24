@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { Loading } from ".";
 import { Button } from "@components/Buttons/Button";
 import { CheckBox } from "@components/Inputs/Checkbox";

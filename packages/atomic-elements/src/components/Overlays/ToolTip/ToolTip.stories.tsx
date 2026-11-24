@@ -1,5 +1,5 @@
 import React from "react";
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import {
   ToolTip,
   ToolTipProps,
@@ -10,7 +10,7 @@ import {
 import { Button } from "../../Buttons/Button";
 import { TextInput } from "../../Inputs/TextInput";
 import { MaterialIcon } from "../../Icons/MaterialIcon";
-import { getCssProps } from "@sb/cssprops";
+import { tooltip } from "@styles/theme/component";
 
 const meta: Meta<ToolTipProps & ToolTipTriggerProps> = {
   title: "Overlays/ToolTip",
@@ -18,7 +18,7 @@ const meta: Meta<ToolTipProps & ToolTipTriggerProps> = {
   tags: ["!autodocs"],
   parameters: {
     layout: "centered",
-    cssprops: getCssProps("Tooltip"),
+    cssprops: { tooltip },
   },
   argTypes: {
     // @ts-ignore

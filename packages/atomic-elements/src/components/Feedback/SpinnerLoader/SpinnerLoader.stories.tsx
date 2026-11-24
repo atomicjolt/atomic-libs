@@ -1,5 +1,5 @@
-import { Meta, StoryObj } from "@storybook/react";
-import { getCssProps } from "@sb/cssprops";
+import { Meta, StoryObj } from "@storybook/react-vite";
+import { loader } from "@styles/theme/component";
 import { SpinnerLoader } from ".";
 import { RenderStylePropsArgTypes } from "@sb/helpers";
 
@@ -8,7 +8,7 @@ const meta: Meta<typeof SpinnerLoader> = {
   component: SpinnerLoader,
   parameters: {
     layout: "centered",
-    cssprops: getCssProps("Loader"),
+    cssprops: { loader },
   },
   argTypes: {
     ...RenderStylePropsArgTypes,

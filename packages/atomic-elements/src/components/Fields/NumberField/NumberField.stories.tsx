@@ -1,5 +1,5 @@
 import React, { useLayoutEffect } from "react";
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { NumberField } from ".";
 import { FieldLabel } from "../Field/FieldLabel";
 import { FieldMessage } from "../Field/FieldMessage";

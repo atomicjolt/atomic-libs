@@ -1,14 +1,14 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { ProgressCircle } from ".";
 import { RenderStylePropsArgTypes } from "@sb/helpers";
-import { getCssProps } from "@sb/cssprops";
+import { progressCircle } from "@styles/theme/component";
 
 export default {
   title: "Feedback/ProgressCircle",
   component: ProgressCircle,
   parameters: {
     layout: "centered",
-    cssprops: getCssProps("ProgressCircle"),
+    cssprops: { progressCircle },
   },
   argTypes: {
     ...RenderStylePropsArgTypes,

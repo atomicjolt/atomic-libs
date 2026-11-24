@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { ChipGroupField } from ".";
 import { Label } from "../Atoms/Label";
 import { Chip } from "@components/Chips/Chip";

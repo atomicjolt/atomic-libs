@@ -11,7 +11,7 @@
       "@hooks": ["./src/hooks"],
       "@styles/*": ["./src/styles/*"],
       "@utils/*": ["./src/utils/*"],
-      "@sb/*": ["../../.storybook/utils/*"],
+      "@sb/*": ["./storybook/*"],
       "@components/*": ["./src/components/*"],
       "@hooks/*": ["./src/hooks/*"]
     }

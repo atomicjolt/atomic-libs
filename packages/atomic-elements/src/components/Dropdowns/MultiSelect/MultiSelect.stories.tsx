@@ -1,16 +1,16 @@
 import React from "react";
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { InputControls } from "@sb/helpers";
 import { MultiSelect } from ".";
 import { Item } from "../../Collection";
-import { getCssProps } from "@sb/cssprops";
+import { dropdown, listbox } from "@styles/theme/component";
 
 export default {
   title: "Dropdowns/Selection/MultiSelect",
   component: MultiSelect,
   parameters: {
     layout: "centered",
-    cssprops: getCssProps("Dropdown", "Listbox"),
+    cssprops: { dropdown, listbox },
   },
   argTypes: {
     ...InputControls,

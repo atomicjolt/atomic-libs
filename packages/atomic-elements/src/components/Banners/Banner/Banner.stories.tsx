@@ -1,13 +1,13 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { Banner } from ".";
-import { getCssProps } from "@sb/cssprops";
+import { banner } from "@styles/theme/component";
 import { RenderPropsArgTypes } from "@sb/helpers";
 
 export default {
   title: "Banners/Banner",
   component: Banner,
   parameters: {
-    cssprops: getCssProps("Banner"),
+    cssprops: { banner },
   },
   argTypes: {
     ...RenderPropsArgTypes,

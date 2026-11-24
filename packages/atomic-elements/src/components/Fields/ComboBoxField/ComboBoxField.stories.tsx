@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { ComboBoxField } from ".";
 import { Label } from "../Atoms/Label";
 import { Input } from "../Atoms/Input";
@@ -8,7 +8,7 @@ import { Item } from "@components/Collection";
 import { Message } from "../Atoms/Message";
 import { ErrorMessage } from "../Atoms/ErrorMessage";
 import { FieldStateControls, RenderPropsArgTypes } from "@sb/helpers";
-import { fn } from "@storybook/test";
+import { fn } from "storybook/test";
 
 export default {
   title: "Fields/ComboBoxField",

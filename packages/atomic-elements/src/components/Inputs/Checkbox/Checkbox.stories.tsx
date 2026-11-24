@@ -1,10 +1,10 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import {
   FieldStateControls,
   FocusEventsArgTypes,
   RenderPropsArgTypes,
 } from "@sb/helpers";
-import { getCssProps } from "@sb/cssprops";
+import { checkbox } from "@styles/theme/component";
 import { CheckBox } from ".";
 
 const meta: Meta<typeof CheckBox> = {
@@ -12,7 +12,7 @@ const meta: Meta<typeof CheckBox> = {
   component: CheckBox,
   parameters: {
     layout: "centered",
-    cssprops: getCssProps("CheckBox"),
+    cssprops: { checkbox },
   },
   argTypes: {
     ...FieldStateControls,

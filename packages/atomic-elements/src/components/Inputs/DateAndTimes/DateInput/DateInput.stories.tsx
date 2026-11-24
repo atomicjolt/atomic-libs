@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { now, getLocalTimeZone } from "@internationalized/date";
 import { TextInputControls } from "@sb/helpers";
 import { DateInput } from ".";

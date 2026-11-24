@@ -1,4 +1,4 @@
-import { addons } from "@storybook/manager-api";
+import { addons } from "storybook/manager-api";
 import atomicTheme from "./atomicTheme";
 
 addons.setConfig({

@@ -1,5 +1,5 @@
-import { Meta, StoryObj } from "@storybook/react";
-import { fn } from "@storybook/test";
+import { Meta, StoryObj } from "@storybook/react-vite";
+import { fn } from "storybook/test";
 import { SearchField } from ".";
 import { Label } from "../Atoms/Label";
 import { Message } from "../Atoms/Message";

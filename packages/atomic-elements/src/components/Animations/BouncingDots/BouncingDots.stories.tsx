@@ -1,14 +1,14 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { BouncingDots } from ".";
 import { RenderPropsArgTypes, AriaLabelArgTypes } from "@sb/helpers";
-import { getCssProps } from "@sb/cssprops";
+import { animation } from "@styles/theme/component";
 
 export default {
   title: "Animations/BouncingDots",
   component: BouncingDots,
   parameters: {
     layout: "centered",
-    cssprops: getCssProps("Animations"),
+    cssprops: { animation },
   },
   argTypes: {
     ...RenderPropsArgTypes,

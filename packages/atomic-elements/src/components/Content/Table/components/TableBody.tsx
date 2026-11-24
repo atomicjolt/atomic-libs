@@ -59,3 +59,6 @@ export const TableBody = createBranchComponent(
   },
   (props) => <Collection items={props.items}>{props.children}</Collection>
 );
+
+// @ts-expect-error Setting displayName on a generic component causes a TypeScript error
+TableBody.displayName = "Table.Body";

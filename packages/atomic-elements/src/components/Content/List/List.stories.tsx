@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { List } from ".";
 import { MarginArgTypes, RenderPropsArgTypes } from "@sb/helpers";
 import { Text } from "../../Typography/Text";
@@ -6,14 +6,14 @@ import { Flex } from "../../Layout/Flex";
 import { View } from "@components/Layout/View";
 import { IconButton } from "@components/Buttons/IconButton";
 import { CheckBox } from "@components/Inputs/Checkbox";
-import { getCssProps } from "@sb/cssprops";
+import { list } from "@styles/theme/component";
 
 export default {
   title: "Content/List",
   component: List,
   subcomponents: { "List.Item": List.Item },
   parameters: {
-    cssprops: getCssProps("List"),
+    cssprops: { list },
   },
   argTypes: {
     ...RenderPropsArgTypes,

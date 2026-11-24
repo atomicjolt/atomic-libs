@@ -1,14 +1,14 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { IconButton } from ".";
 import buttonMeta from "../Button/Button.stories";
-import { getCssProps } from "@sb/cssprops";
+import { button } from "@styles/theme/component";
 
 const meta: Meta<typeof IconButton> = {
   title: "Buttons/IconButton",
   component: IconButton,
   parameters: {
     layout: "centered",
-    cssprops: getCssProps("Button"),
+    cssprops: { button },
   },
   argTypes: {
     ...buttonMeta.argTypes,

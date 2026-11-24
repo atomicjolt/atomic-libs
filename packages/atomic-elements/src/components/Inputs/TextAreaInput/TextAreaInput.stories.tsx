@@ -1,13 +1,13 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { TextAreaInput } from ".";
 import { TextInputControls } from "@sb/helpers";
-import { getCssProps } from "@sb/cssprops";
+import { input, textarea } from "@styles/theme/component";
 
 const meta: Meta<typeof TextAreaInput> = {
   title: "Inputs/User Input/TextAreaInput",
   component: TextAreaInput,
   parameters: {
-    cssprops: getCssProps("Input", "Textarea"),
+    cssprops: { input, textarea },
   },
   argTypes: {
     ...TextInputControls,
