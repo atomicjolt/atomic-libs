@@ -50,7 +50,7 @@ interface MultiSelectFieldInnerProps<T extends object>
 }
 
 /** MultiSelect is a dropdown that allows the user to select multiple options from a list */
-export function MultiSelectFieldInner<T extends object>(
+function MultiSelectFieldInner<T extends object>(
   props: MultiSelectFieldInnerProps<T>
 ) {
   const state = useMultiSelectState<T>({
