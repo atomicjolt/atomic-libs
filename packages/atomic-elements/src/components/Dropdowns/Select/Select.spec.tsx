@@ -13,3 +13,32 @@ test("matches snapshot", () => {
   );
   expect(result.asFragment()).toMatchSnapshot();
 });
+
+describe("native select state", () => {
+  const renderSelect = (props: Partial<React.ComponentProps<typeof Select>>) =>
+    render(
+      <Select label="Label" {...props}>
+        <option value="1">One</option>
+      </Select>
+    ).container.querySelector("select")!;
+
+  test("disables the native select", () => {
+    expect(renderSelect({ isDisabled: true }).disabled).toBe(true);
+  });
+
+  test("marks the native select as required", () => {
+    expect(renderSelect({ isRequired: true }).required).toBe(true);
+  });
+
+  test("marks the native select as invalid", () => {
+    expect(renderSelect({ isInvalid: true }).getAttribute("aria-invalid")).toBe(
+      "true"
+    );
+  });
+
+  test("doesn't put loading props on the native select", () => {
+    const select = renderSelect({ isLoading: true, loadingLabel: "Loading" });
+    expect(select.hasAttribute("isloading")).toBe(false);
+    expect(select.hasAttribute("loadinglabel")).toBe(false);
+  });
+});
