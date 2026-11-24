@@ -1,9 +1,21 @@
 import React, { useState } from "react";
+import { getLocalTimeZone, now } from "@internationalized/date";
+// Not exported from the package; imported from source for this review.
+import { Field } from "@components/Fields/Field";
+import { FieldLabel } from "@components/Fields/Field/FieldLabel";
+import { FieldMessage } from "@components/Fields/Field/FieldMessage";
+import { FieldInput } from "@components/Fields/Field/FieldInput";
+import { DateField } from "@components/Fields/DateField";
+import { ComboInput } from "@components/Fields/ComboInput";
 import {
   Button,
   CheckBox,
+  Chip,
+  ChipGroup,
   ComboBox,
   CustomSelect,
+  DateInput,
+  DatePicker,
   ExtendedSize,
   FileInput,
   Flex,
@@ -11,17 +23,24 @@ import {
   IconButton,
   Item,
   Loading,
+  ListBox,
   LoadingStatus,
+  MaterialIcon,
   MultiSelect,
+  MultiSelectField,
   NumberInput,
   Radio,
   RadioGroup,
+  Popover,
   SearchInput,
+  Select,
+  SelectField,
   Strong,
   Table,
   Text,
   TextAreaInput,
   TextInput,
+  TimeInput,
   ToggleSwitch,
 } from "@atomicjolt/atomic-elements";
 
@@ -238,6 +257,112 @@ export default function LoadingStates() {
           </Text>
         )}
       </LoadingStatus>
+      <hr />
+      <Heading as="h2" $size="7">
+        Accept isLoading but don't implement it
+      </Heading>
+      <Text as="p" $size="3">
+        These components accept isLoading and loadingLabel (through
+        FieldInputProps) but ignore them. Each is passed isLoading directly;
+        toggle Loading above to compare. See docs/storybook-audit.md, Part 4.
+      </Text>
+      <Heading as="h3" $size="5">
+        Select
+      </Heading>
+      <Select label="Select" isLoading={isLoading} loadingLabel="Loading">
+        <option value="1">Option 1</option>
+        <option value="2">Option 2</option>
+      </Select>
+      <hr />
+      <Heading as="h3" $size="5">
+        DateInput / DatePicker / TimeInput
+      </Heading>
+      <DateInput
+        label="Date input"
+        isLoading={isLoading}
+        loadingLabel="Loading"
+      />
+      <br />
+      <DatePicker
+        label="Date picker"
+        isLoading={isLoading}
+        loadingLabel="Loading"
+      />
+      <br />
+      <TimeInput
+        label="Time input"
+        isLoading={isLoading}
+        loadingLabel="Loading"
+      />
+      <hr />
+      <Heading as="h3" $size="5">
+        Field
+      </Heading>
+      <Field isLoading={isLoading} loadingLabel="Loading">
+        <FieldLabel>Field</FieldLabel>
+        <FieldMessage>A plain field with an input</FieldMessage>
+        <FieldInput />
+      </Field>
+      <hr />
+      <Heading as="h3" $size="5">
+        DateField
+      </Heading>
+      <DateField
+        defaultValue={now(getLocalTimeZone())}
+        granularity="day"
+        isLoading={isLoading}
+        loadingLabel="Loading"
+      >
+        <FieldLabel>Date field</FieldLabel>
+        <ComboInput padding="both">
+          <DateField.Segments>
+            {(_, index) => <DateField.Segment key={index} index={index} />}
+          </DateField.Segments>
+        </ComboInput>
+      </DateField>
+      <hr />
+      <Heading as="h3" $size="5">
+        SelectField / MultiSelectField
+      </Heading>
+      <SelectField isLoading={isLoading} loadingLabel="Loading">
+        <FieldLabel>Select field</FieldLabel>
+        <Button variant="dropdown">
+          <SelectField.Value placeholder="Select an option" />
+          <MaterialIcon icon="arrow_drop_down" style={{ marginLeft: "auto" }} />
+        </Button>
+        <Popover>
+          <ListBox>
+            <Item id="1">Item 1</Item>
+            <Item id="2">Item 2</Item>
+          </ListBox>
+        </Popover>
+      </SelectField>
+      <br />
+      <MultiSelectField isLoading={isLoading} loadingLabel="Loading">
+        <FieldLabel>Multi select field</FieldLabel>
+        <Button variant="dropdown">
+          Select items
+          <MaterialIcon icon="arrow_drop_down" style={{ marginLeft: "auto" }} />
+        </Button>
+        <Popover>
+          <ListBox>
+            <Item id="1">Item 1</Item>
+            <Item id="2">Item 2</Item>
+          </ListBox>
+        </Popover>
+      </MultiSelectField>
+      <hr />
+      <Heading as="h3" $size="5">
+        ChipGroup
+      </Heading>
+      <ChipGroup
+        label="Chip group"
+        isLoading={isLoading}
+        loadingLabel="Loading"
+      >
+        <Chip id="news">News</Chip>
+        <Chip id="travel">Travel</Chip>
+      </ChipGroup>
       <hr />
       <Heading as="h2" $size="7">
         Ambient Loading provider
