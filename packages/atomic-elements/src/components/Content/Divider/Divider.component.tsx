@@ -4,7 +4,7 @@ import { AriaLabelProps, BaseProps } from "../../../types";
 import { useRenderProps } from "@hooks/useRenderProps";
 import { StyledDivider } from "./Divider.styles";
 
-export interface DividerProps extends BaseProps, AriaLabelProps {
+export interface DividerProps extends Omit<BaseProps, "size">, AriaLabelProps {
   /** The orientation of the divider
    * @default "horizontal"
    */

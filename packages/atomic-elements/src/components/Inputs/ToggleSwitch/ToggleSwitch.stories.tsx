@@ -26,10 +26,6 @@ const meta: Meta<typeof ToggleSwitch> = {
       control: "text",
       description: "Label rendered next to the switch",
     },
-    size: {
-      // The switch has a fixed size; `size` has no visible effect.
-      table: { disable: true },
-    },
     onChange: {
       control: false,
       description:

@@ -29,7 +29,7 @@ export interface ToggleSwitchProps
   extends AriaProps<AriaSwitchProps>,
     AriaLabelingProps,
     FieldDomProps,
-    BaseProps,
+    Omit<BaseProps, "size">,
     Pick<FieldStatusProps, "isDisabled" | "isInvalid">,
     LoadingProps {
   /**

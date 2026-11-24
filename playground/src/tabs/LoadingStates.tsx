@@ -109,7 +109,7 @@ export default function LoadingStates() {
         Subscribe to newsletter
       </CheckBox>
       <br />
-      <ToggleSwitch size={size} isLoading={isLoading} loadingLabel="Loading">
+      <ToggleSwitch isLoading={isLoading} loadingLabel="Loading">
         Enable notifications
       </ToggleSwitch>
       <br />
@@ -208,7 +208,7 @@ export default function LoadingStates() {
       <Heading as="h3" $size="5">
         Table
       </Heading>
-      <Table aria-label="Table" size={size}>
+      <Table aria-label="Table">
         <Table.Header>
           <Table.Column id="foo">Foo</Table.Column>
           <Table.Column id="bar">Bar</Table.Column>
@@ -381,7 +381,7 @@ export default function LoadingStates() {
         <br />
         <CheckBox>Subscribe to newsletter</CheckBox>
         <br />
-        <ToggleSwitch size={size}>Enable notifications</ToggleSwitch>
+        <ToggleSwitch>Enable notifications</ToggleSwitch>
         <br />
         <RadioGroup label="Favorite color">
           <Radio value="red">Red</Radio>

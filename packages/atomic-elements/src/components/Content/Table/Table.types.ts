@@ -11,7 +11,6 @@ import {
 } from "@react-types/shared";
 
 import {
-  ExtendedSize,
   Key,
   MaterialIcons,
   RenderBaseProps,
@@ -82,8 +81,6 @@ export interface TableProps<T>
    * @selector [data-sticky]
    */
   isSticky?: boolean;
-
-  size?: ExtendedSize;
 
   id?: string;
 
