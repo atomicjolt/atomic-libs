@@ -9,8 +9,9 @@ export interface TabsProps<T>
     RenderStyleProps<never>,
     DomProps,
     HasVariant<TabVariant> {
+  /** A `Tabs.List` followed by one `Tabs.Panel` per tab, matched by `id`. */
   children: React.ReactNode;
-  /** Disabled tabs */
+  /** Keys of the tabs that are disabled and can't be selected. */
   disabledKeys?: Iterable<Key>;
 }
 

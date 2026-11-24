@@ -3,6 +3,10 @@ import { FlexProps } from "../Flex";
 import { useRenderProps } from "@hooks";
 
 export interface GroupProps extends FlexProps {
+  /**
+   * Visually joins the children into one control: removes the gap between
+   * them and the borders and corner radii where they meet.
+   */
   isMerged?: boolean;
 }
 

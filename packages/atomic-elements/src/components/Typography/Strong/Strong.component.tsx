@@ -13,6 +13,7 @@ export interface StrongProps
     MarginProps,
     TextColorProps {}
 
+/** Strongly important inline text. Renders a `<strong>` element. */
 export const Strong = forwardRef<HTMLElement, StrongProps>(function Strong(
   props,
   ref

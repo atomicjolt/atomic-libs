@@ -124,14 +124,14 @@ export const WithActions: Story = {
   args: {
     ...Primary.args,
     children: [
-      <Card.Header $justify="space-between">
+      <Card.Header key="header" $justify="space-between">
         <Card.Title>Card Title</Card.Title>
         <Flex $gap="2">
-          <IconButton icon="add" />
-          <IconButton icon="delete" />
+          <IconButton icon="add" aria-label="Add" />
+          <IconButton icon="delete" aria-label="Delete" />
         </Flex>
       </Card.Header>,
-      <Card.Panel>
+      <Card.Panel key="panel">
         <Text $size="3">Here is some content within a panel</Text>
       </Card.Panel>,
     ],

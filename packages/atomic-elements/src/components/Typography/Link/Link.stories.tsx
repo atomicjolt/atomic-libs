@@ -38,9 +38,21 @@ export default {
       control: "select",
       options: ["a", "span"],
     },
+    href: {
+      control: "text",
+      description: "URL the link points to.",
+    },
     target: {
       control: "select",
       options: ["_blank", "_self", "_parent", "_top"],
+      description:
+        "Where to open the linked URL, e.g. `_blank` for a new tab or window.",
+    },
+    isDisabled: {
+      control: "boolean",
+      description:
+        "Whether the link is disabled. A disabled link can't be pressed and is marked `aria-disabled`.",
+      table: { category: "State" },
     },
   },
 } as Meta<typeof Link>;

@@ -41,6 +41,10 @@ export default {
         defaultValue: { summary: '"text-clr"' },
       },
     },
+    $align: {
+      ...TypographyArgTypes.$align,
+      description: "Horizontal text alignment.",
+    },
     as: {
       control: "select",
       options: ["div", "span", "p", "label"],
@@ -64,10 +68,7 @@ export const WithLink: Story = {
     $size: "3",
     children: [
       "The quick brown fox jumps over the ",
-      <Link
-        target="_blank"
-        href="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdogsbestlife.com%2Fwp-content%2Fuploads%2F2022%2F08%2Flazy-dog-breeds-frenchie-scaled.jpeg&f=1&nofb=1&ipt=7ecf8e2e9cb633f95d3d2d92dbfced090b1fa02ea58f4c53fd5a0bf72036b9dd&ipo=images"
-      >
+      <Link target="_blank" href="https://example.com">
         lazy dog
       </Link>,
     ],

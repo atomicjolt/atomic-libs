@@ -16,6 +16,7 @@ export default {
     ...RenderPropsArgTypes,
     ...LayoutArgTypes,
     ...FlexArgTypes,
+    isMerged: { control: "boolean" },
     $direction: {
       ...FlexArgTypes.$direction,
       table: {
@@ -49,10 +50,28 @@ export const InputsAndButton: Story = {
   args: {
     isMerged: true,
     children: [
-      <TextInput key="1" aria-label="Password" placeholder="Username" />,
+      <TextInput key="1" aria-label="Username" placeholder="Username" />,
       <TextInput key="2" aria-label="Password" placeholder="Password" />,
-      <Button key="2" variant="primary">
+      <Button key="3" variant="primary">
         Login
+      </Button>,
+    ],
+  },
+};
+
+export const Vertical: Story = {
+  args: {
+    isMerged: true,
+    $direction: "column",
+    children: [
+      <Button key="1" variant="secondary">
+        Button 1
+      </Button>,
+      <Button key="2" variant="secondary">
+        Button 2
+      </Button>,
+      <Button key="3" variant="secondary">
+        Button 3
       </Button>,
     ],
   },

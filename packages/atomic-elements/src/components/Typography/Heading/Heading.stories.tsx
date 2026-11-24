@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react-vite";
 import { Heading } from ".";
+import { Flex } from "@components/Layout/Flex";
 import {
   ColorArgTypes,
   DimensionsArgTypes,
@@ -53,6 +54,10 @@ export default {
         defaultValue: { summary: '"text-clr"' },
       },
     },
+    $align: {
+      ...TypographyArgTypes.$align,
+      description: "Horizontal text alignment.",
+    },
     as: {
       control: "select",
       options: ["h1", "h2", "h3", "h4", "h5", "h6"],
@@ -68,4 +73,28 @@ export const Primary: Story = {
   args: {
     children: "Heading",
   },
+};
+
+export const Sizes: Story = {
+  render: (args) => (
+    <Flex $direction="column" $gap="2">
+      {(["9", "8", "7", "6", "5", "4", "3", "2", "1"] as const).map((size) => (
+        <Heading key={size} {...args} $size={size}>
+          Size {size}
+        </Heading>
+      ))}
+    </Flex>
+  ),
+};
+
+export const Levels: Story = {
+  render: (args) => (
+    <Flex $direction="column" $gap="2">
+      {(["h1", "h2", "h3", "h4", "h5", "h6"] as const).map((level) => (
+        <Heading key={level} {...args} as={level}>
+          Heading {level}
+        </Heading>
+      ))}
+    </Flex>
+  ),
 };
