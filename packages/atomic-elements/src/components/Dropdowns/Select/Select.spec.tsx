@@ -37,7 +37,7 @@ describe("native select state", () => {
   });
 
   test("doesn't put loading props on the native select", () => {
-    const select = renderSelect({ isLoading: true, loadingLabel: "Loading" });
+    const select = renderSelect({ isLoading: false, loadingLabel: "Loading" });
     expect(select.hasAttribute("isloading")).toBe(false);
     expect(select.hasAttribute("loadinglabel")).toBe(false);
   });

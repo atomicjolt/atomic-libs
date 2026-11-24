@@ -245,14 +245,6 @@ export default function LoadingStates() {
         )}
       </LoadingStatus>
       <hr />
-      <Heading as="h2" $size="7">
-        Accept isLoading but don't implement it
-      </Heading>
-      <Text as="p" $size="3">
-        These components accept isLoading and loadingLabel (through
-        FieldInputProps) but ignore them. Each is passed isLoading directly;
-        toggle Loading above to compare. See docs/storybook-audit.md, Part 4.
-      </Text>
       <Heading as="h3" $size="5">
         Select
       </Heading>
@@ -354,6 +346,22 @@ export default function LoadingStates() {
         <TextInput label="Text" size={size} />
         <br />
         <TextAreaInput label="Text Area" size={size} />
+        <hr />
+        <Select label="Select">
+          <option value="1">Option 1</option>
+          <option value="2">Option 2</option>
+        </Select>
+        <br />
+        <DateInput label="Date input" />
+        <br />
+        <DatePicker label="Date picker" />
+        <br />
+        <TimeInput label="Time input" />
+        <br />
+        <ChipGroup label="Chip group">
+          <Chip id="news">News</Chip>
+          <Chip id="travel">Travel</Chip>
+        </ChipGroup>
         <hr />
         <ToggleSwitch
           isSelected={maybeData != null}
