@@ -6,7 +6,10 @@ import { LoaderProps } from "../Loader";
 import { useLoading } from "../Loading";
 
 export interface LoadingStatusProps<T> {
-  /** @default null */
+  /** Content rendered when not loading and there's no error.
+   * Must be a function `(data) => node` when `data` is provided.
+   * @default null
+   */
   readonly children?: React.ReactNode | ((data: T) => React.ReactNode);
 
   /**
@@ -19,12 +22,14 @@ export interface LoadingStatusProps<T> {
   /** Fallback if data is null */
   readonly fallback?: React.ReactNode;
 
-  /** Loading status, when true, a loading state will be rendered
+  /** Loading status, when true, a loading state will be rendered.
+   * When omitted, falls back to the loading state of the nearest `<Loading>` ancestor.
    * @default the ambient `Loading` state, or `false` if there is none
    */
   readonly isLoading?: boolean;
 
-  /** Optional message to display beneath the loading animation
+  /** Optional message to display beneath the loading animation.
+   * Only used when `renderLoading` is a component, not an element.
    * @default null
    */
   readonly loadingMessage?: React.ReactNode;

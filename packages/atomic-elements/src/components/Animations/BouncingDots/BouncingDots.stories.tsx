@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react-vite";
 import { BouncingDots } from ".";
-import { RenderPropsArgTypes, AriaLabelArgTypes } from "@sb/helpers";
+import { RenderStylePropsArgTypes, AriaLabelArgTypes } from "@sb/helpers";
 import { animation } from "@styles/theme/component";
 
 export default {
@@ -11,7 +11,7 @@ export default {
     cssprops: { animation },
   },
   argTypes: {
-    ...RenderPropsArgTypes,
+    ...RenderStylePropsArgTypes,
     ...AriaLabelArgTypes,
   },
 } as Meta<typeof BouncingDots>;

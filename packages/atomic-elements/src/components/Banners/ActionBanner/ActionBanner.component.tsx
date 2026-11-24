@@ -12,19 +12,27 @@ import { useRenderProps } from "@hooks";
 export interface ActionBannerProps
   extends RenderBaseProps<never>,
     ElementWrapper<HTMLDivElement> {
-  /** @default "info" */
+  /** Colour variant: `info`, `error`, `success` or `warning`
+   * @default "info"
+   */
   readonly variant?: BannerVariants;
+  /** Material icon shown before the content. No icon is shown when omitted. */
   readonly icon?: MaterialIcons;
-  /** @default "default" */
+  /** Icon set for `icon`
+   * @default "default"
+   */
   readonly iconVariant?: MaterialIconVariants;
-  /** @default "inverted" */
+  /** Variant of the action button
+   * @default "inverted"
+   */
   readonly buttonVariant?: ButtonVariants;
+  /** Text of the action button */
   readonly buttonText: string;
+  /** Called when the action button is pressed */
   readonly onPress: () => void;
 }
 
 /** A view-spanning Banner with an associated `onPress` action */
-
 export const ActionBanner = forwardRef<HTMLDivElement, ActionBannerProps>(
   (props, ref) => {
     const {

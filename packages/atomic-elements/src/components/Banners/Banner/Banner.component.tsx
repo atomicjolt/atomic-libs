@@ -22,22 +22,10 @@ export type BannerVariants = SuggestStrings<
 export interface BannerProps
   extends RenderBaseProps<never>,
     ElementWrapper<HTMLDivElement> {
-  /** @default "info" */
+  /** Colour variant: `info`, `error`, `success` or `warning`
+   * @default "info"
+   */
   readonly variant?: BannerVariants;
-}
-
-function Banner(props: BannerProps, ref: React.Ref<HTMLDivElement>) {
-  const { variant = "info", children, className, style, ...rest } = props;
-
-  const renderProps = useRenderProps({
-    componentClassName: "aje-banner",
-    variant,
-    children,
-    className,
-    style,
-  });
-
-  return <StyledBanner ref={ref} {...renderProps} {...rest} />;
 }
 
 export type BannerIconProps = MaterialIconProps;
@@ -77,24 +65,37 @@ interface ForwardedBanner {
  * with no associated actions / buttons. Useful building block when constructing
  * your own banners.
  */
-const _Banner = forwardRef(Banner) as unknown as ForwardedBanner;
-_Banner.displayName = "Banner";
+export const Banner = forwardRef(function Banner(
+  props: BannerProps,
+  ref: React.Ref<HTMLDivElement>
+) {
+  const { variant = "info", children, className, style, ...rest } = props;
+
+  const renderProps = useRenderProps({
+    componentClassName: "aje-banner",
+    variant,
+    children,
+    className,
+    style,
+  });
+
+  return <StyledBanner ref={ref} {...renderProps} {...rest} />;
+}) as unknown as ForwardedBanner;
+setDisplayName(Banner, "Banner");
 
 /** Wrapper around the textual content of a Banner */
-_Banner.Content = BannerContent;
+Banner.Content = BannerContent;
 setDisplayName(BannerContent, "Banner.Content");
 
 /** Icon for Banners. Renders a `MaterialIcon` inside a wrapper that keeps it
  * aligned with the Banner's buttons */
-_Banner.Icon = BannerIcon;
+Banner.Icon = BannerIcon;
 setDisplayName(BannerIcon, "Banner.Icon");
 
 /** IconButton for Banners. Its `variant` defaults to `"banner"`. */
-_Banner.IconButton = BannerIconButton;
+Banner.IconButton = BannerIconButton;
 setDisplayName(BannerIconButton, "Banner.IconButton");
 
 /** Button for Banners. Its `variant` defaults to `"inverted"`. */
-_Banner.Button = BannerButton;
+Banner.Button = BannerButton;
 setDisplayName(BannerButton, "Banner.Button");
-
-export { _Banner as Banner };

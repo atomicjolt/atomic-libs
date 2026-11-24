@@ -9,6 +9,15 @@ export default {
   argTypes: {
     ...AriaLabelArgTypes,
     ...RenderPropsArgTypes,
+    isLoading: {
+      control: "boolean",
+      table: { category: "State" },
+    },
+    children: {
+      ...RenderPropsArgTypes.children,
+      description:
+        "The loading animation, shown while `isLoading` is true. When loading finishes a `Checkmark` replaces it, unless `children` is a function: it's called with `{ isLoading }` and its result is rendered in both states.",
+    },
   },
 } as Meta<typeof Loader>;
 
@@ -16,7 +25,6 @@ type Story = StoryObj<typeof Loader>;
 
 export const Primary: Story = {
   args: {
-    isLoading: true,
     message: "Loading...",
     children: (
       <svg
@@ -28,8 +36,8 @@ export const Primary: Story = {
         <rect
           fill="#3298FF"
           stroke="#3298FF"
-          stroke-width="30"
-          stroke-linejoin="round"
+          strokeWidth="30"
+          strokeLinejoin="round"
           width="30"
           height="30"
           x="85"
@@ -79,6 +87,13 @@ export const SpinnerLoaderExample: Story = {
   args: {
     ...Primary.args,
     orientation: "horizontal",
-    children: <Spinner $size="2em" />,
+    children: <Spinner $size="2em" aria-label="Loading" />,
+  },
+};
+
+/** When `isLoading` is false, the loading animation is replaced with a checkmark. */
+export const Complete: Story = {
+  args: {
+    isLoading: false,
   },
 };

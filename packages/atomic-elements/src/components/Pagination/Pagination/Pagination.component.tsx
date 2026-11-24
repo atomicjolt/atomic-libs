@@ -92,6 +92,7 @@ export function Pagination(props: PaginationProps) {
   );
 }
 
+/** IconButton that goes to the first page. Disabled on the first page. */
 Pagination.FirstPage = function PaginationFirstPage(
   props: Partial<IconButtonProps>
 ) {
@@ -112,6 +113,7 @@ Pagination.FirstPage = function PaginationFirstPage(
   );
 };
 
+/** IconButton that goes to the previous page. Disabled on the first page. */
 Pagination.PrevPage = function PaginationPrevPage(
   props: Partial<IconButtonProps>
 ) {
@@ -132,6 +134,8 @@ Pagination.PrevPage = function PaginationPrevPage(
   );
 };
 
+/** IconButton that goes to the next page. Disabled on the last page
+ * (when `totalPages` is known). */
 Pagination.NextPage = function PaginationNextPage(
   props: Partial<IconButtonProps>
 ) {
@@ -156,6 +160,8 @@ Pagination.NextPage = function PaginationNextPage(
   );
 };
 
+/** IconButton that goes to the last page. Needs `totalPages`. Disabled on
+ * the last page. */
 Pagination.LastPage = function PaginationLastPage(
   props: Partial<IconButtonProps>
 ) {
@@ -185,6 +191,7 @@ type PaginationPageProps = ButtonProps & {
   page: number;
 };
 
+/** Button that goes to the given `page`. */
 Pagination.Page = function PaginationPage(props: PaginationPageProps) {
   const { page, onPress, ...rest } = props;
   const { onPageChange: onChange } = useContext(PaginationStateContext);
@@ -205,6 +212,8 @@ interface PaginationPagesProps {
   totalPages?: number;
 }
 
+/** Renders its render-function child once for each page, from 1 to
+ * `totalPages`. Renders nothing if `totalPages` isn't known. */
 Pagination.PageList = function PaginationPages(props: PaginationPagesProps) {
   const state = useContext(PaginationStateContext);
   const { children, totalPages = state.totalPages } = props;
@@ -227,6 +236,8 @@ interface PaginationCurrentPageProps {
   children?: (page: number, state: PageState) => JSX.Element;
 }
 
+/** Shows the current page number in a Button, or calls its render-function
+ * child with the current page and the pagination state. */
 Pagination.CurrentPage = function PaginationCurrentPage(
   props: PaginationCurrentPageProps
 ) {
@@ -240,6 +251,8 @@ Pagination.CurrentPage = function PaginationCurrentPage(
   return <Button>{state.page}</Button>;
 };
 
+/** CustomSelect for the page size. Its options' ids are the page sizes;
+ * the selected one is kept in sync with the pagination state. */
 Pagination.PageSize = function PaginationPageSize<T extends object>(
   props: CustomSelectProps<T>
 ) {

@@ -1,6 +1,7 @@
 import { Component, ErrorInfo, ReactNode } from "react";
 
 export interface ErrorBoundaryProps {
+  /** Content to render. If it throws while rendering, `fallback` is shown instead. */
   children: ReactNode;
   /** Fallback UI to display when an error is caught. Can be a ReactNode or a function that receives the error and a reset function. */
   fallback: ReactNode | ((error: Error, reset: () => void) => ReactNode);
@@ -17,6 +18,9 @@ interface ErrorBoundaryState {
   error: Error | null;
 }
 
+/** Catches errors thrown while rendering its children and shows a
+ * `fallback` instead. Changing a value in `resetKeys`, or calling the
+ * `reset` function passed to a function `fallback`, renders the children again. */
 export class ErrorBoundary extends Component<
   ErrorBoundaryProps,
   ErrorBoundaryState

@@ -12,11 +12,23 @@ const meta: Meta<typeof LoadingStatus> = {
     cssprops: { loader },
   },
   argTypes: {
+    isLoading: {
+      control: "boolean",
+    },
     loadingMessage: {
       type: "string",
     },
     error: {
       type: "string",
+    },
+    children: {
+      control: false,
+    },
+    renderLoading: {
+      control: false,
+    },
+    renderError: {
+      control: false,
     },
   },
 };
@@ -29,15 +41,12 @@ export const Primary: Story = {
   args: {
     isLoading: true,
     loadingMessage: "Loading...",
-    error: "",
     children: "This is the content",
   },
 };
 
 export const Error: Story = {
   args: {
-    isLoading: false,
-    loadingMessage: "",
     error: "An error occurred",
     children: "This is the content",
   },
@@ -46,17 +55,13 @@ export const Error: Story = {
 export const CustomizeLoadingState: Story = {
   args: {
     isLoading: true,
-    loadingMessage: "Loading...",
-    error: "",
     children: "This is the content",
-    renderLoading: <SpinnerLoader />,
+    renderLoading: <SpinnerLoader aria-label="Loading" />,
   },
 };
 
 export const CustomizeErrorState: Story = {
   args: {
-    isLoading: false,
-    loadingMessage: "",
     error: "An error occurred",
     children: "This is the content",
     renderError: (
@@ -99,10 +104,17 @@ export const NoDataFallback: Story = {
     docs: {
       source: {
         code: `
-<LoadingStatus data={null} fallback={<Banner variant="warning">No data available</Banner>}>
-  {(data) => <Banner variant="info">{data}</Banner>}
+<LoadingStatus
+  data={null}
+  fallback={
+    <Text $size="4" $color="error-clr">
+      No data available
+    </Text>
+  }
+>
+  {(data) => <Text $size="4">{data}</Text>}
 </LoadingStatus>
-        `,
+`,
       },
     },
   },

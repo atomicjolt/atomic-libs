@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react-vite";
 import { loader } from "@styles/theme/component";
-import { AriaLabelArgTypes } from "@sb/helpers";
+import { AriaLabelArgTypes, RenderStylePropsArgTypes } from "@sb/helpers";
 import { ThreeDotLoader } from ".";
 
 const meta: Meta<typeof ThreeDotLoader> = {
@@ -11,6 +11,11 @@ const meta: Meta<typeof ThreeDotLoader> = {
   },
   argTypes: {
     ...AriaLabelArgTypes,
+    ...RenderStylePropsArgTypes,
+    isLoading: {
+      control: "boolean",
+      table: { category: "State" },
+    },
     message: {
       control: "text",
     },
@@ -23,7 +28,6 @@ type Story = StoryObj<typeof ThreeDotLoader>;
 
 export const Primary: Story = {
   args: {
-    isLoading: true,
     message: "Spinning up the engines...",
   },
 };

@@ -10,6 +10,8 @@ export interface FormatTableProps
     AriaLabelProps {
   /** Column definitions: `key` matches a field in each row, `title` is the header. */
   columns: { key: Key; title: string }[];
+  /** Rows to render; each needs a unique `key`. When `null` or `undefined`, `fallback` is rendered instead. */
+  value?: ValueRow[] | null;
 }
 
 /** Renders rows of data as a table. */

@@ -18,7 +18,9 @@ interface SharedProps
 }
 
 export interface DismissableBannerProps extends SharedProps {
-  /** @default "info" */
+  /** Colour variant: `info`, `error`, `success` or `warning`
+   * @default "info"
+   */
   readonly variant?: BannerVariants;
   /** Name of material icon to be displayed */
   readonly icon?: MaterialIcons;

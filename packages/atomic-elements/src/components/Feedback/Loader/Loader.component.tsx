@@ -17,7 +17,10 @@ export interface LoaderProps
   isLoading?: boolean;
   /** An optional message to display with the loader */
   message?: React.ReactNode;
-  /** @default "medium" */
+  /** Size of the loader. Also sets the size of the checkmark shown when
+   * loading finishes
+   * @default "medium"
+   */
   size?: Size;
   /** Placement of the loader
    * - `inline` - Loader is displayed inline with the content

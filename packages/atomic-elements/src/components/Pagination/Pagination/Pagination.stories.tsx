@@ -8,10 +8,27 @@ import { Item } from "@components/Collection";
 export default {
   title: "Pagination/Pagination",
   component: Pagination,
+  subcomponents: {
+    "Pagination.FirstPage": Pagination.FirstPage,
+    "Pagination.PrevPage": Pagination.PrevPage,
+    "Pagination.NextPage": Pagination.NextPage,
+    "Pagination.LastPage": Pagination.LastPage,
+    "Pagination.Page": Pagination.Page,
+    "Pagination.PageList": Pagination.PageList,
+    "Pagination.CurrentPage": Pagination.CurrentPage,
+    "Pagination.PageSize": Pagination.PageSize,
+  },
   parameters: {
     layout: "centered",
   },
   argTypes: {
+    ...AriaLabelArgTypes,
+    defaultPage: {
+      control: "number",
+    },
+    totalPages: {
+      control: "number",
+    },
     children: {
       control: false,
     },
@@ -82,6 +99,32 @@ export const WithPageNumbers: Story = {
         <Pagination.LastPage />
       </Flex>
     ),
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `
+<Pagination defaultPage={2} totalPages={10}>
+  <Flex $align="center" $gap="1">
+    <Pagination.FirstPage />
+    <Pagination.PrevPage />
+    <Pagination.PageList>
+      {(page, state) => (
+        <Pagination.Page
+          page={page}
+          variant={page === state.page ? "primary" : "ghost"}
+        >
+          {page}
+        </Pagination.Page>
+      )}
+    </Pagination.PageList>
+    <Pagination.NextPage />
+    <Pagination.LastPage />
+  </Flex>
+</Pagination>
+`,
+      },
+    },
   },
 };
 
