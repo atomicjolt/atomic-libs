@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react-vite";
-import { InputControls } from "@sb/helpers";
+import { InputControls, LoadingArgTypes } from "@sb/helpers";
 import { CustomSelect } from ".";
 import { Item, Section } from "../../Collection";
 import { button, dropdown, listbox } from "@styles/theme/component";
@@ -15,6 +15,7 @@ const meta: Meta<typeof CustomSelect> = {
   },
   argTypes: {
     ...InputControls,
+    ...LoadingArgTypes,
     variant: {
       control: "select",
       options: ["default", "floating"],

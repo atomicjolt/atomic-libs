@@ -1,6 +1,6 @@
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react-vite";
-import { TextInputControls } from "@sb/helpers";
+import { TextInputControls, LoadingArgTypes } from "@sb/helpers";
 import { ComboBox } from ".";
 import { Item } from "../../Collection";
 import { dropdown, input, listbox } from "@styles/theme/component";
@@ -14,9 +14,7 @@ const meta: Meta<typeof ComboBox> = {
   },
   argTypes: {
     ...TextInputControls,
-    variant: {
-      table: { category: "Presentation" },
-    },
+    ...LoadingArgTypes,
     children: { control: false },
     allowsCustomValue: {
       control: "boolean",

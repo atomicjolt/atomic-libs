@@ -11,13 +11,13 @@ export default {
     isLoading: {
       control: "boolean",
       table: {
-        category: "Field State",
+        category: "State",
       },
     },
     loadingLabel: {
       control: "text",
       table: {
-        category: "Field State",
+        category: "State",
       },
     },
   },

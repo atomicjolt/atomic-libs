@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react-vite";
 import { TextAreaInput } from ".";
-import { TextInputControls } from "@sb/helpers";
+import { TextInputControls, LoadingArgTypes } from "@sb/helpers";
 import { input, textarea } from "@styles/theme/component";
 
 const meta: Meta<typeof TextAreaInput> = {
@@ -11,6 +11,7 @@ const meta: Meta<typeof TextAreaInput> = {
   },
   argTypes: {
     ...TextInputControls,
+    ...LoadingArgTypes,
     onChange: { action: "changed", table: { category: "Events" } },
   },
 };

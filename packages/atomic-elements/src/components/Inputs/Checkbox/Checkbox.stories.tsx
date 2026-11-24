@@ -3,6 +3,7 @@ import {
   FieldStateControls,
   FocusEventsArgTypes,
   RenderPropsArgTypes,
+  LoadingArgTypes,
 } from "@sb/helpers";
 import { checkbox } from "@styles/theme/component";
 import { CheckBox } from ".";
@@ -16,6 +17,7 @@ const meta: Meta<typeof CheckBox> = {
   },
   argTypes: {
     ...FieldStateControls,
+    ...LoadingArgTypes,
     ...RenderPropsArgTypes,
     ...FocusEventsArgTypes,
     error: {
@@ -32,7 +34,7 @@ const meta: Meta<typeof CheckBox> = {
     },
     isReadOnly: {
       table: {
-        category: "Field State",
+        category: "State",
       },
     },
     defaultSelected: {

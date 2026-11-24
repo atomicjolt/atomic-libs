@@ -7,7 +7,11 @@ import { ListBox } from "@components/Dropdowns/ListBox";
 import { Item } from "@components/Collection";
 import { Message } from "../Atoms/Message";
 import { ErrorMessage } from "../Atoms/ErrorMessage";
-import { FieldStateControls, RenderPropsArgTypes } from "@sb/helpers";
+import {
+  FieldStateControls,
+  RenderPropsArgTypes,
+  LoadingArgTypes,
+} from "@sb/helpers";
 import { fn } from "storybook/test";
 
 export default {
@@ -18,6 +22,7 @@ export default {
   },
   argTypes: {
     ...FieldStateControls,
+    ...LoadingArgTypes,
     ...RenderPropsArgTypes,
   },
 } as Meta<typeof ComboBoxField>;

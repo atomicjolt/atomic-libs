@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react-vite";
 import { TextInput } from ".";
-import { TextInputControls } from "@sb/helpers";
+import { TextInputControls, LoadingArgTypes } from "@sb/helpers";
 import { input } from "@styles/theme/component";
 
 const meta: Meta<typeof TextInput> = {
@@ -12,7 +12,7 @@ const meta: Meta<typeof TextInput> = {
   },
   argTypes: {
     ...TextInputControls,
-    variant: { table: { category: "Presentation" } },
+    ...LoadingArgTypes,
     type: {
       control: "select",
       options: ["text", "password", "email", "tel", "number", "search"],
