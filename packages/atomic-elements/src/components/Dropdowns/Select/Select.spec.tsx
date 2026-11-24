@@ -42,3 +42,14 @@ describe("native select state", () => {
     expect(select.hasAttribute("loadinglabel")).toBe(false);
   });
 });
+
+describe("Select error message", () => {
+  test("shows the error when invalid", () => {
+    const { getByText } = render(
+      <Select label="Label" isInvalid error="Pick an option">
+        <option value="1">One</option>
+      </Select>
+    );
+    expect(getByText("Pick an option")).toBeTruthy();
+  });
+});

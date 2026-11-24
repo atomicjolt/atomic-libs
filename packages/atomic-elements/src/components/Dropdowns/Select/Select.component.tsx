@@ -80,7 +80,11 @@ export const Select = React.forwardRef<
           {renderProps.children}
         </StyledSelect>
       </SelectWrapper>
-      {isInvalid && error && <ErrorMessage id={errorId}>{error}</ErrorMessage>}
+      {isInvalid && error && (
+        <ErrorMessage id={errorId} isInvalid>
+          {error}
+        </ErrorMessage>
+      )}
     </div>
   );
 });
