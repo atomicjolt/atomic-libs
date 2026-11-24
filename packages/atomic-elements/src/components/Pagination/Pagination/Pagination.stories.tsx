@@ -89,7 +89,6 @@ export const WithPageSize: Story = {
   args: {
     ...Primary.args,
     onPageSizeChange: fn(),
-    defaultPageSize: 10,
     children: (
       <Flex $align="center" $gap="1">
         <Pagination.FirstPage />

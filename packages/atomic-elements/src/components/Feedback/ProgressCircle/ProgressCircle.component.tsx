@@ -17,15 +17,25 @@ export interface ProgressCircleProps
     AriaProgressBarProps {
   /** Whether or not to display a label in the center of the circle representing the value */
   showValueLabel?: boolean;
-  /** The width and height of the progress circle */
+  /** The width and height of the progress circle
+   * @default "60"
+   */
   $size?: string;
-  /** The width of the track */
+  /** The width of the track
+   * @default "10"
+   */
   $trackWidth?: "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10";
-  /** The color of the background */
+  /** The color of the background
+   * @default "var(--progress-circle-bg-clr)"
+   */
   $bg?: SuggestStrings<Color>;
-  /** The color of the track */
+  /** The color of the track
+   * @default "var(--progress-circle-track-clr)"
+   */
   $trackColor?: SuggestStrings<Color>;
-  /** The color indicating the amount of progress */
+  /** The color indicating the amount of progress
+   * @default "var(--progress-circle-indicator-clr)"
+   */
   $indicatorColor?: SuggestStrings<Color>;
   /** The linecap of the progress indicator */
   $linecap?: "round" | "butt";

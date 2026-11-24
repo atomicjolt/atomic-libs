@@ -13,13 +13,21 @@ import { HasClassName } from "../../../types";
 export interface SkeletonLoaderProps
   extends Omit<React.SVGAttributes<SVGElement>, "className">,
     HasClassName {
-  /** Whether or not to animate the skeleton */
+  /** Whether or not to animate the skeleton
+   * @default true
+   */
   isAnimated?: boolean;
-  /** Width of the animated gradient with respect to the viewBox width */
+  /** Width of the animated gradient with respect to the viewBox width
+   * @default 2
+   */
   gradientRatio?: number;
-  /** Length in seconds that the animation should take */
+  /** Length in seconds that the animation should take
+   * @default 1.2
+   */
   duration?: number;
-  /** Used to describe the element for accessibility */
+  /** Used to describe the element for accessibility
+   * @default ""
+   */
   title?: string;
 }
 

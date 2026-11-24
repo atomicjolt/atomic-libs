@@ -16,14 +16,17 @@ export default {
       control: "number",
       description:
         "The value of the progress circle. Must be between maxValue and minValue.",
+      table: { defaultValue: { summary: "0" } },
     },
     maxValue: {
       control: "number",
       description: "The maximum value of the progress circle.",
+      table: { defaultValue: { summary: "100" } },
     },
     minValue: {
       control: "number",
       description: "The minimum value of the progress circle.",
+      table: { defaultValue: { summary: "0" } },
     },
     isIndeterminate: {
       control: "boolean",
@@ -58,16 +61,13 @@ type Story = StoryObj<typeof ProgressCircle>;
 export const Primary: Story = {
   args: {
     value: 35,
-    isIndeterminate: false,
     $size: "100",
-    showValueLabel: false,
   },
 };
 
 export const ValueLabel: Story = {
   args: {
     ...Primary.args,
-    isIndeterminate: false,
     $trackWidth: "5",
     showValueLabel: true,
   },
@@ -76,7 +76,6 @@ export const ValueLabel: Story = {
 export const ValueLabelFormatOptions: Story = {
   args: {
     ...Primary.args,
-    isIndeterminate: false,
     $trackWidth: "5",
     showValueLabel: true,
     formatOptions: {

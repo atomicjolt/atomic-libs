@@ -13,10 +13,14 @@ export interface MaterialIconProps extends IconComponentBase<never> {
   icon: MaterialIcons;
   /** The type of material icon to
    * render. Note that the font for that
-   * style needs to be in scope for it to render properly */
+   * style needs to be in scope for it to render properly
+   * @default "default"
+   */
   variant?: MaterialIconVariants;
 
-  /** @deprecated - use isDisabled */
+  /** @deprecated - use isDisabled
+   * @default false
+   */
   disabled?: boolean;
 }
 

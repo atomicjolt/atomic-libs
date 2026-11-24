@@ -12,9 +12,12 @@ import { useRenderProps } from "@hooks";
 export interface ActionBannerProps
   extends RenderBaseProps<never>,
     ElementWrapper<HTMLDivElement> {
+  /** @default "info" */
   readonly variant?: BannerVariants;
   readonly icon?: MaterialIcons;
+  /** @default "default" */
   readonly iconVariant?: MaterialIconVariants;
+  /** @default "inverted" */
   readonly buttonVariant?: ButtonVariants;
   readonly buttonText: string;
   readonly onPress: () => void;

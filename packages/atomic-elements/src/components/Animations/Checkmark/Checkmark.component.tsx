@@ -4,6 +4,7 @@ import { StyledCheckmark } from "./Checkmark.styles";
 
 export interface CheckmarkProps
   extends Omit<RenderBaseProps<never>, "children"> {
+  /** @default "medium" */
   size?: Size;
 }
 

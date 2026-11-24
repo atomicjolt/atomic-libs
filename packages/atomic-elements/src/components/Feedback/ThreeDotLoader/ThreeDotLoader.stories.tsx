@@ -24,7 +24,6 @@ type Story = StoryObj<typeof ThreeDotLoader>;
 export const Primary: Story = {
   args: {
     isLoading: true,
-    placement: "center",
     message: "Spinning up the engines...",
   },
 };

@@ -7,6 +7,17 @@ const meta: Meta<typeof MaterialIcon> = {
   parameters: {
     layout: "centered",
   },
+  argTypes: {
+    size: {
+      table: { defaultValue: { summary: '"medium"' } },
+    },
+    isDisabled: {
+      table: { defaultValue: { summary: "false" } },
+    },
+    isFocusable: {
+      table: { defaultValue: { summary: "false" } },
+    },
+  },
 };
 
 export default meta;

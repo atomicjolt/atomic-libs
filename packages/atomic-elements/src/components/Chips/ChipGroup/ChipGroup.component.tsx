@@ -7,7 +7,9 @@ export interface ChipGroupProps<T extends object>
   extends AriaProps<AriaTagGroupProps<T>>,
     Omit<FieldInputProps, "isReadOnly"> {
   /** Whether the label is placed above the
-   * group, or inline with the chips */
+   * group, or inline with the chips
+   * @default "above"
+   */
   labelPlacement?: "above" | "inline";
 }
 

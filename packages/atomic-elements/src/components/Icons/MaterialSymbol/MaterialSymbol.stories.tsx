@@ -7,6 +7,17 @@ const meta: Meta<typeof MaterialSymbol> = {
   parameters: {
     layout: "centered",
   },
+  argTypes: {
+    size: {
+      table: { defaultValue: { summary: '"medium"' } },
+    },
+    isDisabled: {
+      table: { defaultValue: { summary: "false" } },
+    },
+    isFocusable: {
+      table: { defaultValue: { summary: "false" } },
+    },
+  },
 };
 
 export default meta;
@@ -17,6 +28,5 @@ export const Primary: Story = {
   args: {
     symbol: "label",
     size: "large",
-    variant: "outlined",
   },
 };
