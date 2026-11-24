@@ -66,8 +66,25 @@ export const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
       name,
       isLoading: _isLoading,
       loadingLabel: _loadingLabel,
+      // Labelling props belong on the button people interact with, not the
+      // wrapper div.
+      "aria-label": ariaLabel,
+      "aria-labelledby": ariaLabelledby,
+      "aria-describedby": ariaDescribedby,
+      "aria-details": ariaDetails,
       ...rest
     } = props;
+
+    // Describe the button with the message and error, as well as anything
+    // passed in, so screen readers announce them.
+    const describedBy =
+      [
+        ariaDescribedby,
+        message ? messageId : undefined,
+        isInvalid && error ? errorId : undefined,
+      ]
+        .filter(Boolean)
+        .join(" ") || undefined;
 
     const { isLoading, loadingLabel } = useLoading(props);
 
@@ -118,10 +135,16 @@ export const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
               placeholder={placeholder}
               isRequired={isRequired}
               isDisabled={isDisabled}
+              aria-label={ariaLabel}
+              aria-labelledby={ariaLabelledby}
+              aria-describedby={describedBy}
+              aria-details={ariaDetails}
             />
             {message && <Message id={messageId}>{message}</Message>}
             {isInvalid && error && (
-              <ErrorMessage id={errorId}>{error}</ErrorMessage>
+              <ErrorMessage id={errorId} isInvalid>
+                {error}
+              </ErrorMessage>
             )}
           </FileTrigger>
         </DropZone>
@@ -130,7 +153,7 @@ export const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
   }
 );
 
-interface FileInputButtonProps {
+interface FileInputButtonProps extends AriaLabelProps {
   file?: File | null;
   label?: React.ReactNode;
   placeholder: string;
@@ -139,10 +162,11 @@ interface FileInputButtonProps {
 }
 
 function FileInputButton(props: FileInputButtonProps) {
-  const { file, label, placeholder, isRequired, isDisabled } = props;
+  const { file, label, placeholder, isRequired, isDisabled, ...ariaProps } =
+    props;
 
   const buttonRef = useRef<HTMLButtonElement | null>(null);
-  const { buttonProps } = useButton({ isDisabled }, buttonRef);
+  const { buttonProps } = useButton({ isDisabled, ...ariaProps }, buttonRef);
   const { focusProps } = useFocusRing();
 
   return (
