@@ -8,7 +8,7 @@ import { FieldErrorMessage } from "../Field/FieldError";
 import { FieldTextArea } from "../Field/FieldTextArea";
 import { Group } from "../../Layout/Group";
 import { IconButton } from "../../Buttons/IconButton";
-import { FieldStateControls } from "@sb/helpers";
+import { FieldStateControls, LoadingArgTypes } from "@sb/helpers";
 
 export default {
   title: "Fields/TextField",
@@ -18,6 +18,7 @@ export default {
   },
   argTypes: {
     ...FieldStateControls,
+    ...LoadingArgTypes,
     defaultValue: {
       control: "text",
     },

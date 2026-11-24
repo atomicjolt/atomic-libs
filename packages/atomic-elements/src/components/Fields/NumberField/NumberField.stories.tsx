@@ -6,7 +6,7 @@ import { FieldMessage } from "../Field/FieldMessage";
 import { FieldInput } from "../Field/FieldInput";
 import { FieldErrorMessage } from "../Field/FieldError";
 import { Group } from "../../Layout/Group";
-import { FieldStateControls } from "@sb/helpers";
+import { FieldStateControls, LoadingArgTypes } from "@sb/helpers";
 import { IconButton } from "@components/Buttons/IconButton";
 
 export default {
@@ -17,6 +17,7 @@ export default {
   },
   argTypes: {
     ...FieldStateControls,
+    ...LoadingArgTypes,
     onChange: { action: "onChange", table: { category: "Events" } },
     formatOptions: {
       control: "object",

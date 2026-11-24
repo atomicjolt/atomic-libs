@@ -1,5 +1,9 @@
 import { Meta, StoryObj } from "@storybook/react-vite";
-import { FieldStateControls, RenderPropsArgTypes } from "@sb/helpers";
+import {
+  FieldStateControls,
+  RenderPropsArgTypes,
+  LoadingArgTypes,
+} from "@sb/helpers";
 import { radio } from "@styles/theme/component";
 import { Radio, RadioGroup } from ".";
 
@@ -12,6 +16,7 @@ const meta: Meta<typeof RadioGroup> = {
   component: RadioGroup,
   argTypes: {
     ...FieldStateControls,
+    ...LoadingArgTypes,
     ...RenderPropsArgTypes,
     label: {
       control: "text",
@@ -36,7 +41,7 @@ const meta: Meta<typeof RadioGroup> = {
     },
     isReadOnly: {
       table: {
-        category: "Field State",
+        category: "State",
       },
     },
     value: {

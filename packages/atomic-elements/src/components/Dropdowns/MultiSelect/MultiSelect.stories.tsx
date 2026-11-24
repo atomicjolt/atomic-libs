@@ -1,6 +1,6 @@
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react-vite";
-import { InputControls } from "@sb/helpers";
+import { InputControls, LoadingArgTypes } from "@sb/helpers";
 import { MultiSelect } from ".";
 import { Item } from "../../Collection";
 import { dropdown, listbox } from "@styles/theme/component";
@@ -14,6 +14,7 @@ export default {
   },
   argTypes: {
     ...InputControls,
+    ...LoadingArgTypes,
     selectedKeys: {
       control: "multi-select",
       description:

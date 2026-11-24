@@ -1,7 +1,11 @@
 import { Meta, StoryObj } from "@storybook/react-vite";
 import { fn } from "storybook/test";
 import { SearchInput } from ".";
-import { RenderPropsArgTypes, TextInputControls } from "@sb/helpers";
+import {
+  RenderPropsArgTypes,
+  TextInputControls,
+  LoadingArgTypes,
+} from "@sb/helpers";
 import { input } from "@styles/theme/component";
 
 const meta: Meta<typeof SearchInput> = {
@@ -14,6 +18,7 @@ const meta: Meta<typeof SearchInput> = {
   argTypes: {
     ...RenderPropsArgTypes,
     ...TextInputControls,
+    ...LoadingArgTypes,
     onSubmit: { control: false, table: { category: "Events" } },
     onChange: { control: false, table: { category: "Events" } },
   },

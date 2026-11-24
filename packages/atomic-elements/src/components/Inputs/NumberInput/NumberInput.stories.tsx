@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react-vite";
 import { NumberInput } from ".";
-import { TextInputControls } from "@sb/helpers";
+import { TextInputControls, LoadingArgTypes } from "@sb/helpers";
 import { input } from "@styles/theme/component";
 import { fn } from "storybook/test";
 
@@ -13,6 +13,7 @@ const meta: Meta<typeof NumberInput> = {
   },
   argTypes: {
     ...TextInputControls,
+    ...LoadingArgTypes,
     variant: {
       options: ["default", "floating"],
       description: "Variant of the input",
@@ -32,9 +33,6 @@ const meta: Meta<typeof NumberInput> = {
     defaultValue: {
       control: "number",
       description: "Initial value of the input when uncontrolled",
-      table: {
-        category: "Common",
-      },
     },
   },
 };

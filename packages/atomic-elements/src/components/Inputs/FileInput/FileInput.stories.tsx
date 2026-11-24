@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react-vite";
 import { FileInput } from ".";
-import { InputControls } from "@sb/helpers";
+import { InputControls, LoadingArgTypes } from "@sb/helpers";
 
 const meta: Meta<typeof FileInput> = {
   title: "Inputs/Choose State/FileInput",
@@ -10,6 +10,7 @@ const meta: Meta<typeof FileInput> = {
   },
   argTypes: {
     ...InputControls,
+    ...LoadingArgTypes,
     file: {
       control: false,
     },

@@ -7,7 +7,11 @@ import { Input } from "../Atoms/Input";
 import { ErrorMessage } from "../Atoms/ErrorMessage";
 import { ComboInput } from "../ComboInput";
 import { IconButton } from "../../Buttons/IconButton";
-import { FieldStateControls, RenderPropsArgTypes } from "@sb/helpers";
+import {
+  FieldStateControls,
+  RenderPropsArgTypes,
+  LoadingArgTypes,
+} from "@sb/helpers";
 
 export default {
   title: "Fields/SearchField",
@@ -17,6 +21,7 @@ export default {
   },
   argTypes: {
     ...FieldStateControls,
+    ...LoadingArgTypes,
     ...RenderPropsArgTypes,
     defaultValue: {
       control: "text",
