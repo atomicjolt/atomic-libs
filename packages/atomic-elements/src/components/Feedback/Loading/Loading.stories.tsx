@@ -26,9 +26,6 @@ const meta: Meta<typeof Loading> = {
       control: false,
       description: "Content that shares the loading state.",
     },
-    // Accepted through BaseProps but not applied by Loading.
-    id: { table: { disable: true } },
-    size: { table: { disable: true } },
   },
 };
 

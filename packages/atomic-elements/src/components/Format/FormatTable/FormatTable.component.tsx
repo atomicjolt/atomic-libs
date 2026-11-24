@@ -6,7 +6,8 @@ import { AriaLabelProps } from "../../../types";
 type ValueRow = Record<Key, React.ReactNode> & { key: Key };
 
 export interface FormatTableProps
-  extends FormatterProps<ValueRow[]>,
+  // A render-function `children` doesn't make sense for a table.
+  extends Omit<FormatterProps<ValueRow[]>, "children">,
     AriaLabelProps {
   /** Column definitions: `key` matches a field in each row, `title` is the header. */
   columns: { key: Key; title: string }[];
@@ -23,6 +24,7 @@ export function FormatTable(props: FormatTableProps) {
     "aria-label": ariaLabel,
     "aria-labelledby": ariaLabelledby,
     "aria-describedby": ariaDescribedby,
+    "aria-details": ariaDetails,
   } = props;
 
   if (value === null || value === undefined) return <>{fallback}</>;
@@ -32,6 +34,7 @@ export function FormatTable(props: FormatTableProps) {
       aria-label={ariaLabel}
       aria-labelledby={ariaLabelledby}
       aria-describedby={ariaDescribedby}
+      aria-details={ariaDetails}
     >
       <Table.Header columns={columns}>
         {(column) => (

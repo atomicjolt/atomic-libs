@@ -10,14 +10,6 @@ export default {
     fallback: {
       control: "text",
     },
-    // FormatTable doesn't pass aria-details on to the table.
-    "aria-details": {
-      table: { disable: true },
-    },
-    // Inherited from FormatterProps, but FormatTable doesn't use it.
-    children: {
-      table: { disable: true },
-    },
   },
 } as Meta<typeof FormatTable>;
 

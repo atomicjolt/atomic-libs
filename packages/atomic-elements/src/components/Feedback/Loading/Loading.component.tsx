@@ -5,7 +5,9 @@ import { LoadingContext } from "./Loading.context";
 import { useRenderProps } from "@hooks";
 import { useTranslations } from "@hooks/useTranslations";
 
-export interface LoadingProviderProps extends BaseProps, LoadingProps {
+export interface LoadingProviderProps
+  extends Omit<BaseProps, "size">,
+    LoadingProps {
   children?: React.ReactNode;
 }
 
@@ -31,7 +33,11 @@ export function Loading(props: LoadingProviderProps) {
 
   return (
     <LoadingContext.Provider value={value}>
-      <div {...renderProps} aria-busy={isLoading ? "true" : undefined}>
+      <div
+        {...renderProps}
+        id={props.id}
+        aria-busy={isLoading ? "true" : undefined}
+      >
         <VisuallyHidden role="status" aria-live="polite">
           {isLoading ? loadingLabel : ""}
         </VisuallyHidden>
