@@ -50,7 +50,7 @@ export type LoadingProps = {
   /** When loading is true, the content will be replaced with a spinner.
    * When it is false, the content will be shown normally */
   isLoading?: boolean;
-  /** aria accessiblity label to inform screen-readers that it is loading */
+  /** aria accessibility label to inform screen-readers that it is loading */
   loadingLabel?: string;
 };
 

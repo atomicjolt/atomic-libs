@@ -33,7 +33,7 @@ export const Primary: Story = {
       <Popover>
         <div
           style={{
-            backgroundColor: "var(--background-clr-inverted",
+            backgroundColor: "var(--background-clr-inverted)",
             color: "var(--text-clr-inverted)",
             width: "var(--trigger-width)",
             fontSize: "20px",
@@ -55,7 +55,7 @@ export const CustomTriggerTarget: Story = {
       <Popover>
         <div
           style={{
-            backgroundColor: "var(--background-clr-inverted",
+            backgroundColor: "var(--background-clr-inverted)",
             color: "var(--text-clr-inverted)",
             width: "var(--trigger-width)",
             fontSize: "20px",

@@ -84,7 +84,7 @@ export const WithButton: Story = {
     children: [
       <FieldLabel key="label">Username</FieldLabel>,
       <Group isMerged key="group">
-        <FieldInput key="input" placeholder="Jon@then" />
+        <FieldInput key="input" placeholder="Enter a username" />
         <IconButton key="button" icon="add" aria-label="add user" />
       </Group>,
       <FieldErrorMessage key="error">Error Message</FieldErrorMessage>,

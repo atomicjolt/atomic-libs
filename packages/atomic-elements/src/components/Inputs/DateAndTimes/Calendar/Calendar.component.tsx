@@ -38,7 +38,7 @@ export interface CalendarProps<T extends DateValue>
  * Calendar component
  *
  * The Calendar component is used to select a date from a calendar. It is built on top of the `react-aria` and `react-stately` libraries.
- * The Calendar component accespts a date object from the `@internationalized/date` library.
+ * The Calendar component accepts a date object from the `@internationalized/date` library.
  *
  * @example
  * import React, { useState } from "react";

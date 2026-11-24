@@ -15,7 +15,7 @@ export interface SkeletonLoaderProps
     HasClassName {
   /** Whether or not to animate the skeleton */
   isAnimated?: boolean;
-  /** Width of the animated gradient with repsect to the viewbox witdth */
+  /** Width of the animated gradient with respect to the viewBox width */
   gradientRatio?: number;
   /** Length in seconds that the animation should take */
   duration?: number;

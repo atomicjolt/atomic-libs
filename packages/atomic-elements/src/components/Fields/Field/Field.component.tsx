@@ -32,11 +32,11 @@ export interface FieldProps<R extends FieldRenderProps = FieldRenderProps>
   size?: ExtendedSize;
 }
 
-/** Provides the accessbility implementation for a
+/** Provides the accessibility implementation for a
  * form field and its associated label, error message, and description.
  *
  * Note that when using `Field` you manage the state of the input directly.
- * You may opt to use one of the other more specific field components if they suite your needs.
+ * You may opt to use one of the other more specific field components if they suit your needs.
  */
 export function Field(props: FieldProps) {
   const { isInvalid, isDisabled, isReadOnly, isRequired, name } = props;

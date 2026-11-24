@@ -2236,7 +2236,7 @@ export type MaterialSymbolVariants = "outlined" | "rounded" | "sharp";
 
 export interface MaterialSymbolFontSettingsOptions {
   /** Fill gives you the ability to modify the default icon style. A single icon can render both unfilled and filled states.
-   * Fill accepts values between 0 & 1 where 0 is outlined and 1 is completly filled.
+   * Fill accepts values between 0 & 1 where 0 is outlined and 1 is completely filled.
    */
   fill?: number;
   /** Weight defines the symbol's stroke weight and ranges between 100 (thin) and 700 (bold) */

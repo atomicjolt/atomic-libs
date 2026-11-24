@@ -14,7 +14,7 @@ export default {
     $columns: {
       control: "text",
       description:
-        "The number of columns in the grid. Can be a scale step ( 1 - 9) or any valid CSS value.",
+        "The number of columns in the grid. Can be a scale step (1 - 9) or any valid CSS value.",
     },
     $rows: {
       control: "text",
@@ -38,7 +38,7 @@ export default {
         type: "select",
         options: ["start", "end", "center", "stretch", "baseline"],
       },
-      description: "The alignment of the grid. ",
+      description: "The alignment of the grid.",
     },
     $justify: {
       control: {

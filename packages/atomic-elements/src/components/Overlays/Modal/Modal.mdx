@@ -27,7 +27,7 @@ Modals are used to display content on top of other content. They are often used 
 
 ## Composing Modals
 
-The presentation of Modals is meant to be composable. Elements provides a set of utility component to help you build your own Modals such as
+The presentation of Modals is meant to be composable. Elements provides a set of utility components to help you build your own Modals such as
 `Modal.Header`, `Modal.Body`, and `Modal.Footer`.
 
 <Canvas of={ModalStories.Primary} />
@@ -44,10 +44,10 @@ Note that these components are optional and you can use them as you see fit.
 
 ## Managing Modal State
 
-When using the Modal by itself, you can manage it's state using the `isOpen` prop. This prop is a boolean that determines if the Modal is open or not.
+When using the Modal by itself, you can manage its state using the `isOpen` prop. This prop is a boolean that determines if the Modal is open or not.
 
 You're also able to employ the [OverlayTrigger](?path=/docs/overlays-overlaytrigger--overview) component to manage the state of the Modal.
-This component is a wrapper that manages the state of the Modal for you. Make note thatn when you do this, the children of the modal should
+This component is a wrapper that manages the state of the Modal for you. Make note that when you do this, the children of the modal should
 be a function that takes a `close` function as an argument. Call this function to close the Modal.
 
 <Canvas of={ModalStories.WithOverlayTrigger} />

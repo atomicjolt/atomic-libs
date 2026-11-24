@@ -22,7 +22,7 @@ export interface ButtonGroupProps
     MinimalGroupProps,
     CanHaveIcon {}
 
-/** Group a set of buttoons together & provide a common context to all buttons in the group
+/** Group a set of buttons together & provide a common context to all buttons in the group
  *
  * @example
  * <ButtonGroup variant="border" isDisabled>

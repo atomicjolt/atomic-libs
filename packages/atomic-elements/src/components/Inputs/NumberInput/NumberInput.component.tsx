@@ -14,7 +14,7 @@ export interface NumberInputProps
     FieldInputProps,
     HasVariant<"default" | "floating"> {}
 
-/** Input for number values. Fowards a `ref` to the internal input element */
+/** Input for number values. Forwards a `ref` to the internal input element */
 export const NumberInput = React.forwardRef(
   (props: NumberInputProps, ref: React.Ref<HTMLInputElement>) => {
     const {

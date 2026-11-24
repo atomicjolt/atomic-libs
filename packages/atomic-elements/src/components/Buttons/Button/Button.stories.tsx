@@ -37,7 +37,7 @@ const meta: Meta<typeof Button> = {
     },
     isDisabled: {
       control: "boolean",
-      description: "If true, the button will be not be clickable.",
+      description: "If true, the button will not be clickable.",
     },
     type: {
       control: "select",
