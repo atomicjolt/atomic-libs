@@ -41,6 +41,10 @@ export const Select = React.forwardRef<
     isInvalid = false,
     className,
     id = inputId,
+    // Accepted through FieldInputProps but not supported by Select. Keep
+    // them off the native <select>.
+    isLoading: _isLoading,
+    loadingLabel: _loadingLabel,
     ...selectProps
   } = props;
 
@@ -62,6 +66,9 @@ export const Select = React.forwardRef<
       <SelectWrapper>
         <StyledSelect
           id={id}
+          disabled={isDisabled}
+          required={isRequired}
+          aria-invalid={isInvalid || undefined}
           aria-describedby={isInvalid && error ? errorId : messageId}
           onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
             onChange?.(e.target.value)
