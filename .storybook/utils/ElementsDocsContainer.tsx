@@ -5,6 +5,7 @@ import {
 } from "@storybook/addon-docs/blocks";
 import { defaultTheme } from "../../packages/atomic-elements/src/styles";
 import { atomicDarkTheme, atomicLightTheme } from "../atomicTheme";
+import { isUiDark, subscribeUiTheme } from "./uiTheme";
 import { ElementsProvider } from "../../packages/atomic-elements/src/components/ElementsProvider";
 import {
   ColorSchemeContext,
@@ -86,16 +87,9 @@ export function DocsStoryColorScheme({
   );
 }
 
-/** Whether the OS prefers a dark color scheme, kept up to date. */
-function usePrefersDark() {
-  return useSyncExternalStore(
-    (onChange) => {
-      const query = window.matchMedia("(prefers-color-scheme: dark)");
-      query.addEventListener("change", onChange);
-      return () => query.removeEventListener("change", onChange);
-    },
-    () => window.matchMedia("(prefers-color-scheme: dark)").matches
-  );
+/** Whether Storybook's UI theme is dark: the toolbar setting, or the OS. */
+function useUiDark() {
+  return useSyncExternalStore(subscribeUiTheme, () => isUiDark());
 }
 
 /**
@@ -124,12 +118,12 @@ function DocsColorSchemeStyles({ uiMode }: { uiMode: "light" | "dark" }) {
  * Docs container that provides the single root ElementsProvider.
  *
  * The docs page itself (text, props tables) uses Storybook's light or dark
- * theme to match the OS, like the rest of Storybook's UI. The toolbar's color
+ * theme, like the rest of Storybook's UI (the "Storybook theme" setting). The toolbar's color
  * scheme only applies to the components in the story previews.
  */
 export function ElementsDocsContainer(props: DocsContainerProps) {
   const colorScheme = useStore(requestedScheme);
-  const uiDark = usePrefersDark();
+  const uiDark = useUiDark();
 
   return (
     <DocsContainer
