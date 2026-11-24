@@ -32,10 +32,16 @@ const config: StorybookConfig = {
         esModuleInterop: false,
       },
       shouldExtractLiteralValuesFromEnum: true,
-      // Leave deprecated props out of the docs. They stay in the types,
-      // where the @deprecated tag points people at the replacement.
-      propFilter: (prop) =>
-        !(prop as { tags?: Record<string, string> }).tags?.deprecated,
+      propFilter: (prop) => {
+        // Leave deprecated props out of the docs. They stay in the types,
+        // where the @deprecated tag points people at the replacement.
+        if ((prop as { tags?: Record<string, string> }).tags?.deprecated) {
+          return false;
+        }
+        // Storybook's default filter, which this option replaces: skip
+        // props inherited from node_modules types (HTML attributes etc.).
+        return prop.parent ? !/node_modules/.test(prop.parent.fileName) : true;
+      },
     },
   },
 
