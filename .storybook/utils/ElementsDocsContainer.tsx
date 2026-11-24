@@ -99,13 +99,24 @@ function useUiDark() {
  * components' scheme only inside the story previews. These rules are
  * unlayered, so they win over the library's layered styles.
  */
+/** Scrollbar thumb and track colors for the docs page, per UI theme. */
+const SCROLLBAR = {
+  light: `rgba(0, 0, 0, 0.3) ${atomicLightTheme.appContentBg}`,
+  dark: `rgba(255, 255, 255, 0.3) ${atomicDarkTheme.appContentBg}`,
+};
+
 function DocsColorSchemeStyles({ uiMode }: { uiMode: "light" | "dark" }) {
   const state = useStore(rootSchemeState);
   const name = state?.resolvedColorScheme ?? "light";
   const storyMode = defaultTheme.colorSchemes[name]?.mode ?? "light";
   return (
     <style>{`
-      :root { color-scheme: ${uiMode}; }
+      :root {
+        color-scheme: ${uiMode};
+        /* Set explicitly: some browsers (e.g. Firefox) draw the page scrollbar
+           from the OS appearance rather than color-scheme. */
+        scrollbar-color: ${SCROLLBAR[uiMode]};
+      }
       .docs-story { color-scheme: ${storyMode}; }
       /* The library's default styles give the body the components'
          background in dark schemes; on docs pages the page is Storybook's. */
