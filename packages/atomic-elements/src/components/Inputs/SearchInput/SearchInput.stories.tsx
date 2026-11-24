@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/react-vite";
 import { fn } from "storybook/test";
 import { SearchInput } from ".";
 import {
-  RenderPropsArgTypes,
+  RenderStylePropsArgTypes,
   TextInputControls,
   LoadingArgTypes,
 } from "@sb/helpers";
@@ -16,7 +16,8 @@ const meta: Meta<typeof SearchInput> = {
     cssprops: { input },
   },
   argTypes: {
-    ...RenderPropsArgTypes,
+    // SearchInput renders its own children and has no `style` prop.
+    className: RenderStylePropsArgTypes.className,
     ...TextInputControls,
     ...LoadingArgTypes,
     size: {
@@ -24,8 +25,17 @@ const meta: Meta<typeof SearchInput> = {
         defaultValue: { summary: '"medium"' },
       },
     },
-    onSubmit: { control: false, table: { category: "Events" } },
-    onChange: { control: false, table: { category: "Events" } },
+    onSubmit: {
+      control: false,
+      description:
+        "Called with the current value when the user presses Enter or the search button",
+      table: { category: "Events" },
+    },
+    onChange: {
+      control: false,
+      description: "Called with the new value when the text changes",
+      table: { category: "Events" },
+    },
   },
 };
 

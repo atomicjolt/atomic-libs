@@ -4,6 +4,7 @@ import { PressResponder } from "@react-aria/interactions";
 import React from "react";
 
 export interface FileTriggerProps extends FieldDomProps {
+  /** Pressable element (e.g. `<Button>`) that opens the file picker */
   children?: React.ReactNode;
 
   /** Id applied to the underlying file input. */

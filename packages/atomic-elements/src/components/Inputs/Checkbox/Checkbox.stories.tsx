@@ -20,6 +20,11 @@ const meta: Meta<typeof CheckBox> = {
     ...LoadingArgTypes,
     ...RenderPropsArgTypes,
     ...FocusEventsArgTypes,
+    children: {
+      ...RenderPropsArgTypes.children,
+      control: "text",
+      description: "Label rendered next to the checkbox",
+    },
     error: {
       control: "text",
       description: "Error message, shown when the checkbox is invalid.",
@@ -103,5 +108,20 @@ export const Loading: Story = {
     ...Primary.args,
     isLoading: true,
     loadingLabel: "Loading",
+  },
+};
+
+export const Indeterminate: Story = {
+  args: {
+    ...Primary.args,
+    isIndeterminate: true,
+  },
+};
+
+export const WithError: Story = {
+  args: {
+    ...Primary.args,
+    isInvalid: true,
+    error: "You must accept the terms",
   },
 };

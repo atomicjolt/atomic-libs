@@ -22,9 +22,14 @@ import { useLoading } from "@components/Feedback/Loading";
 export interface FileInputProps
   extends Omit<FieldInputProps, "isReadOnly">,
     AriaLabelProps {
+  /** The currently selected file (controlled) */
   file?: File | null;
+  /** Called with the selected or dropped file, or null */
   onChange?: (f: File | null) => void;
-  /** @default "No file selected" */
+  /**
+   * Text shown when no file is selected
+   * @default "No file selected"
+   */
   placeholder?: string;
 
   /** Array of accepted file types
