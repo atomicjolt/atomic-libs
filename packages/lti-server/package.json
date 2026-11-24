@@ -16,7 +16,7 @@
   ],
   "dependencies": {
     "@atomicjolt/lti-client": "@atomicjolt/lti-client",
-    "i18next": "^24.2",
+    "i18next": "^26.3.4",
     "i18next-browser-languagedetector": "^8.0",
     "jose": "^6.0"
   },
