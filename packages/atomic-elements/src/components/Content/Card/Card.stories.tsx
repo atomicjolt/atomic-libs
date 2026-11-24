@@ -12,6 +12,14 @@ export default {
   parameters: {
     cssprops: { card },
   },
+  argTypes: {
+    $bg: {
+      table: { defaultValue: { summary: '"var(--card-bg-clr)"' } },
+    },
+    $p: {
+      table: { defaultValue: { summary: '"var(--card-padding)"' } },
+    },
+  },
   subcomponents: {
     "Card.Header": Card.Header,
     "Card.Title": Card.Title,

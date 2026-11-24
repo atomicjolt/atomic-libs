@@ -22,6 +22,13 @@ export default {
     ...RenderPropsArgTypes,
     ...LayoutArgTypes,
     ...FlexArgTypes,
+    $display: {
+      ...FlexArgTypes.$display,
+      table: {
+        ...FlexArgTypes.$display?.table,
+        defaultValue: { summary: '"flex"' },
+      },
+    },
   },
 } as Meta<typeof Flex>;
 

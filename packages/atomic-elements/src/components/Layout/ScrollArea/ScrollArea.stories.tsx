@@ -31,7 +31,7 @@ export const Vertical: Story = {
           <PrettyGradient height="4000px" width="1000px" />
         </ScrollArea.Viewport>
 
-        <ScrollArea.Bar orientation="vertical" size="viewport" />
+        <ScrollArea.Bar orientation="vertical" />
       </Flex>,
     ],
   },
@@ -51,7 +51,7 @@ export const Horizontal: Story = {
           <PrettyGradient width="4000px" height="100%" />
         </ScrollArea.Viewport>
 
-        <ScrollArea.Bar orientation="horizontal" size="viewport" />
+        <ScrollArea.Bar orientation="horizontal" />
       </Flex>,
     ],
   },

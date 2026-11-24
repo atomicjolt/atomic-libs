@@ -15,6 +15,7 @@ export interface TextProps
     MarginProps,
     TextColorProps,
     DimensionsProps {
+  /** @default "span" */
   as?: "div" | "span" | "p" | "label";
 }
 

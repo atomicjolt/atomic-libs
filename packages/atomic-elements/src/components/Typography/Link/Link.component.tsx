@@ -11,6 +11,7 @@ export interface LinkProps
     RenderBaseProps<never>,
     StyleProps,
     DomProps {
+  /** @default "a" */
   as?: "a" | "span";
 }
 

@@ -5,14 +5,20 @@ import { useRenderProps } from "@hooks/useRenderProps";
 import { StyledDivider } from "./Divider.styles";
 
 export interface DividerProps extends BaseProps, AriaLabelProps {
-  /** The orientation of the divider */
+  /** The orientation of the divider
+   * @default "horizontal"
+   */
   orientation?: "horizontal" | "vertical";
   /** The margins along the primary axis of the divider.
    * When "horizontal" it's the top & bottom margin and when
-   * "vertical" it's the left & right margin */
+   * "vertical" it's the left & right margin
+   * @default the `--divider-margin-main` theme variable
+   */
   spacing?: number | string;
 
-  /** The HTML element type that will be used to render the divider. */
+  /** The HTML element type that will be used to render the divider.
+   * @default "div"
+   */
   as?: React.ElementType;
 }
 

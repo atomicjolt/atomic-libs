@@ -20,6 +20,20 @@ export default {
     ...RenderPropsArgTypes,
     ...TypographyArgTypes,
     ...ColorArgTypes,
+    $decoration: {
+      ...TypographyArgTypes.$decoration,
+      table: {
+        ...TypographyArgTypes.$decoration?.table,
+        defaultValue: { summary: '"var(--link-text-decoration)"' },
+      },
+    },
+    $color: {
+      ...ColorArgTypes.$color,
+      table: {
+        ...ColorArgTypes.$color?.table,
+        defaultValue: { summary: '"var(--link-text-clr)"' },
+      },
+    },
     as: {
       control: "select",
       options: ["a", "span"],

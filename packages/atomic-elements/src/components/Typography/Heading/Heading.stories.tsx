@@ -32,6 +32,27 @@ export default {
     ...TypographyArgTypes,
     ...ColorArgTypes,
     ...DimensionsArgTypes,
+    $size: {
+      ...TypographyArgTypes.$size,
+      table: {
+        ...TypographyArgTypes.$size?.table,
+        defaultValue: { summary: '"6"' },
+      },
+    },
+    $m: {
+      ...MarginArgTypes.$m,
+      table: {
+        ...MarginArgTypes.$m?.table,
+        defaultValue: { summary: '"0"' },
+      },
+    },
+    $color: {
+      ...ColorArgTypes.$color,
+      table: {
+        ...ColorArgTypes.$color?.table,
+        defaultValue: { summary: '"text-clr"' },
+      },
+    },
     as: {
       control: "select",
       options: ["h1", "h2", "h3", "h4", "h5", "h6"],

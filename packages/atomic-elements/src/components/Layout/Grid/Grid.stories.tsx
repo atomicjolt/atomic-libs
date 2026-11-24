@@ -25,6 +25,9 @@ export default {
   argTypes: {
     ...RenderPropsArgTypes,
     ...LayoutArgTypes,
+    $display: {
+      table: { defaultValue: { summary: '"grid"' } },
+    },
     $columns: {
       control: "text",
       description:

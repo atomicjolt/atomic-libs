@@ -50,6 +50,7 @@ export const Navbar = NavbarRoot as typeof NavbarRoot & {
 };
 
 interface NavbarBackButtonProps extends Omit<IconButtonProps, "icon"> {
+  /** @default "arrow_back" */
   icon?: IconButtonProps["icon"];
 }
 
@@ -79,6 +80,7 @@ setDisplayName(NavbarBackButton, "Navbar.BackButton");
 Navbar.BackButton = NavbarBackButton;
 
 interface NavbarSectionProps extends FlexProps {
+  /** @default "left" */
   side?: "left" | "right" | "center";
 }
 

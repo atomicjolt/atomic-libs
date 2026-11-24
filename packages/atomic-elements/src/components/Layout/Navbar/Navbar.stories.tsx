@@ -11,6 +11,9 @@ export default {
   argTypes: {
     ...RenderPropsArgTypes,
     ...LayoutArgTypes,
+    $gap: {
+      table: { defaultValue: { summary: '"1"' } },
+    },
   },
 } as Meta<typeof Navbar>;
 
