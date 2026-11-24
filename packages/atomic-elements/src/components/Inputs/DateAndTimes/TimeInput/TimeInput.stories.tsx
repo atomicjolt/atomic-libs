@@ -13,10 +13,18 @@ export default {
       description:
         "The value of the time input. Accepts a `Time` from `@internationalized/date` library",
     },
+    size: {
+      table: {
+        defaultValue: { summary: '"medium"' },
+      },
+    },
     granularity: {
       control: "select",
       options: ["hour", "minute", "second"],
       description: "The granularity of the time input",
+      table: {
+        defaultValue: { summary: '"minute"' },
+      },
     },
     hideTimeZone: {
       description: "Hides the timezone",
@@ -39,8 +47,10 @@ export default {
     hourCycle: {
       control: "select",
       options: [12, 24],
-      defaultValue: "12",
       description: "Use a 12 or 24 hour cycle",
+      table: {
+        defaultValue: { summary: "the hour cycle of the user's locale" },
+      },
     },
   },
 } as Meta<typeof TimeInput>;
@@ -53,10 +63,7 @@ export const Primary: Story = {
   args: {
     defaultValue: date,
     label: "Time input",
-    size: "medium",
     hideTimeZone: true,
-    shouldForceLeadingZeros: false,
-    isInvalid: false,
   },
 };
 

@@ -12,6 +12,25 @@ const meta: Meta<typeof IconButton> = {
   },
   argTypes: {
     ...buttonMeta.argTypes,
+    variant: {
+      ...buttonMeta.argTypes?.variant,
+      table: {
+        ...buttonMeta.argTypes?.variant?.table,
+        defaultValue: { summary: '"border"' },
+      },
+    },
+    size: {
+      ...buttonMeta.argTypes?.size,
+      table: {
+        ...buttonMeta.argTypes?.size?.table,
+        defaultValue: { summary: '"medium"' },
+      },
+    },
+    iconVariant: {
+      table: {
+        defaultValue: { summary: '"default"' },
+      },
+    },
   },
 };
 
@@ -21,12 +40,8 @@ type Story = StoryObj<typeof IconButton>;
 
 export const Primary: Story = {
   args: {
-    isDisabled: false,
     icon: "more_vert",
     "aria-label": "More options",
-    isLoading: false,
-    iconVariant: "default",
-    variant: "border",
   },
 };
 

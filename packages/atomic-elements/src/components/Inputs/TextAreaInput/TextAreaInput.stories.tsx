@@ -12,6 +12,11 @@ const meta: Meta<typeof TextAreaInput> = {
   argTypes: {
     ...TextInputControls,
     ...LoadingArgTypes,
+    size: {
+      table: {
+        defaultValue: { summary: '"medium"' },
+      },
+    },
     onChange: { action: "changed", table: { category: "Events" } },
   },
 };
@@ -23,7 +28,6 @@ type Story = StoryObj<typeof TextAreaInput>;
 export const Primary: Story = {
   args: {
     defaultValue: "Textarea content",
-    resize: "both",
     size: "full",
     label: "Textarea label",
     message: "1000 characters",

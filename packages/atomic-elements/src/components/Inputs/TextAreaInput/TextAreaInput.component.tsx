@@ -14,7 +14,10 @@ import {
 export interface TextAreaInputProps
   extends FieldInputProps,
     AriaProps<AriaTextFieldProps> {
-  /** The user is given the ability to resize the input */
+  /**
+   * The user is given the ability to resize the input
+   * @default "both"
+   */
   resize?: "none" | "both" | "horizontal" | "vertical";
   rows?: number;
   cols?: number;

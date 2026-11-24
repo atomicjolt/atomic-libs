@@ -5,7 +5,12 @@ import type { AriaLabelingProps } from "@react-types/shared";
 import { useSwitch, AriaSwitchProps } from "@react-aria/switch";
 import { VisuallyHidden } from "@react-aria/visually-hidden";
 
-import { AriaProps, BaseProps, FieldDomProps, LoadingProps } from "../../../types";
+import {
+  AriaProps,
+  BaseProps,
+  FieldDomProps,
+  LoadingProps,
+} from "../../../types";
 import {
   ToggleSwitchIcon,
   ToggleSwitchContainer,
@@ -25,7 +30,10 @@ export interface ToggleSwitchProps
     FieldDomProps,
     BaseProps,
     LoadingProps {
-  /** The position of the children relative to the switch */
+  /**
+   * The position of the children relative to the switch
+   * @default "left"
+   */
   childrenPosition?: "left" | "right";
   isDisabled?: boolean;
   isInvalid?: boolean;

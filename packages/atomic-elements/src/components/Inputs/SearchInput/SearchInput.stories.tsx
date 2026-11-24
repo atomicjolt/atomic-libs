@@ -19,6 +19,11 @@ const meta: Meta<typeof SearchInput> = {
     ...RenderPropsArgTypes,
     ...TextInputControls,
     ...LoadingArgTypes,
+    size: {
+      table: {
+        defaultValue: { summary: '"medium"' },
+      },
+    },
     onSubmit: { control: false, table: { category: "Events" } },
     onChange: { control: false, table: { category: "Events" } },
   },

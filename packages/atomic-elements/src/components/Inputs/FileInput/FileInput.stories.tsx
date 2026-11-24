@@ -11,6 +11,32 @@ const meta: Meta<typeof FileInput> = {
   argTypes: {
     ...InputControls,
     ...LoadingArgTypes,
+    size: {
+      table: {
+        defaultValue: { summary: '"medium"' },
+      },
+    },
+    isDisabled: {
+      ...InputControls.isDisabled,
+      table: {
+        ...InputControls.isDisabled?.table,
+        defaultValue: { summary: "false" },
+      },
+    },
+    isRequired: {
+      ...InputControls.isRequired,
+      table: {
+        ...InputControls.isRequired?.table,
+        defaultValue: { summary: "false" },
+      },
+    },
+    isInvalid: {
+      ...InputControls.isInvalid,
+      table: {
+        ...InputControls.isInvalid?.table,
+        defaultValue: { summary: "false" },
+      },
+    },
     file: {
       control: false,
     },

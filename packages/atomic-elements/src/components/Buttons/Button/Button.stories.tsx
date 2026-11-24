@@ -31,6 +31,29 @@ const meta: Meta<typeof Button> = {
         "border",
         "ghost",
       ],
+      table: {
+        defaultValue: { summary: '"primary"' },
+      },
+    },
+    size: {
+      table: {
+        defaultValue: { summary: '"auto"' },
+      },
+    },
+    as: {
+      table: {
+        defaultValue: { summary: '"a" when `href` is set, otherwise "button"' },
+      },
+    },
+    isLoading: {
+      table: {
+        defaultValue: { summary: "false" },
+      },
+    },
+    loadingComplete: {
+      table: {
+        defaultValue: { summary: "false" },
+      },
     },
     isDisabled: {
       control: "boolean",
@@ -40,6 +63,9 @@ const meta: Meta<typeof Button> = {
       control: "select",
       description: "The type of button.",
       options: ["button", "submit", "reset"],
+      table: {
+        defaultValue: { summary: '"button"' },
+      },
     },
     excludeFromTabOrder: {
       control: "boolean",
@@ -57,9 +83,6 @@ export const Primary: Story = {
   args: {
     children: "Primary",
     variant: "primary",
-    type: "button",
-    isDisabled: false,
-    isLoading: false,
   },
 };
 

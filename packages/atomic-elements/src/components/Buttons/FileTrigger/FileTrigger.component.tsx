@@ -21,6 +21,7 @@ export interface FileTriggerProps extends FieldDomProps {
   /** Array of accepted file types
    *
    * [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept)
+   * @default []
    */
   acceptedFileTypes?: string[];
 

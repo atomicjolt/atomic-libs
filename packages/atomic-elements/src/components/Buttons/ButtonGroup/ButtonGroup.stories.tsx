@@ -21,6 +21,13 @@ const meta: Meta<typeof ButtonGroup> = {
     ...RenderPropsArgTypes,
     ...LayoutArgTypes,
     ...FlexArgTypes,
+    $direction: {
+      ...FlexArgTypes.$direction,
+      table: {
+        ...FlexArgTypes.$direction?.table,
+        defaultValue: { summary: '"row"' },
+      },
+    },
     isDisabled: {
       control: "boolean",
       description:
@@ -57,9 +64,6 @@ export const Primary: Story = {
   ),
   args: {
     $gap: "5",
-    $direction: "row",
-    isMerged: false,
-    isDisabled: false,
   },
 };
 
