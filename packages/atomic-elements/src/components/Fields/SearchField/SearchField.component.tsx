@@ -29,8 +29,14 @@ export interface SearchFieldProps
 export const SearchField = React.forwardRef<HTMLDivElement, SearchFieldProps>(
   function SearchField(props, ref) {
     [props, ref] = useContextProps(SearchFieldContext, props, ref);
-    const { isDisabled, isRequired, isReadOnly, name, isLoading, loadingLabel } =
-      props;
+    const {
+      isDisabled,
+      isRequired,
+      isReadOnly,
+      name,
+      isLoading,
+      loadingLabel,
+    } = props;
 
     const inputRef = useRef<HTMLInputElement>(null);
     const state = useSearchFieldState(props);
@@ -69,6 +75,8 @@ export const SearchField = React.forwardRef<HTMLDivElement, SearchFieldProps>(
       readOnly: isReadOnly,
       name,
       ref: inputRef,
+      isLoading,
+      loadingLabel,
     };
 
     return (
@@ -79,10 +87,7 @@ export const SearchField = React.forwardRef<HTMLDivElement, SearchFieldProps>(
             [FieldInputContext.Provider, inputCtx],
             [FieldMessageContext.Provider, descriptionProps],
             [FieldErrorContext.Provider, { ...errorMessageProps, isInvalid }],
-            [
-              ComboInputContext.Provider,
-              { inputRef, isLoading, loadingLabel },
-            ],
+            [ComboInputContext.Provider, { inputRef, isLoading, loadingLabel }],
             [
               ButtonContext.Provider,
               {

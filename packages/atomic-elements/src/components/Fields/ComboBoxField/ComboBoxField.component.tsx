@@ -120,7 +120,10 @@ function ComboBoxFieldInner<T extends object>(
           [FieldLabelContext.Provider, labelProps],
           [FieldMessageContext.Provider, descriptionProps],
           [FieldErrorContext.Provider, { ...errorMessageProps, isInvalid }],
-          [FieldInputContext.Provider, { ...inputProps, ref: inputRef }],
+          [
+            FieldInputContext.Provider,
+            { ...inputProps, ref: inputRef, isLoading, loadingLabel },
+          ],
           [
             ComboInputContext.Provider,
             { inputRef, ref: inputWrapperRef, isLoading, loadingLabel },
