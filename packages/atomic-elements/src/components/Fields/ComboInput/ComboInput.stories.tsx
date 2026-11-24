@@ -4,7 +4,6 @@ import { MaterialIcon } from "../../Icons/MaterialIcon";
 import { IconButton } from "../../Buttons/IconButton";
 import { Input } from "../Atoms/Input";
 import { NumberField } from "../NumberField";
-import { FieldInput } from "../Field/FieldInput";
 import { Group } from "@components/Layout/Group";
 import { Text } from "@components/Typography/Text";
 import { RenderPropsArgTypes } from "@sb/helpers";
@@ -74,7 +73,7 @@ export const NumberFieldWithButtons: Story = {
   render: (args) => (
     <NumberField>
       <ComboInput {...args}>
-        <FieldInput />
+        <Input />
         <Group>
           <IconButton slot="decrement" icon="remove" variant="ghost" />
           <IconButton slot="increment" icon="add" variant="ghost" />

@@ -18,10 +18,10 @@ import {
   Radio as AtomicElementsRadio,
   Item as AtomicElementsItem,
   Section as AtomicElementsSection,
-  FieldInput,
-  FieldLabel,
-  FieldMessage,
-  FieldErrorMessage,
+  Input,
+  Label,
+  Message,
+  ErrorMessage,
 } from "@atomicjolt/atomic-elements";
 import { SubmitButton } from "./SubmitButton";
 
@@ -81,7 +81,7 @@ Form.Radio = AtomicElementsRadio;
 Form.ComboBox = FormComboBox;
 Form.MultiSelect = FormMultiSelect;
 Form.SubmitButton = SubmitButton;
-Form.FieldInput = FieldInput;
-Form.FieldLabel = FieldLabel;
-Form.FieldMessage = FieldMessage;
-Form.FieldErrorMessage = FieldErrorMessage;
+Form.Input = Input;
+Form.Label = Label;
+Form.Message = Message;
+Form.ErrorMessage = ErrorMessage;

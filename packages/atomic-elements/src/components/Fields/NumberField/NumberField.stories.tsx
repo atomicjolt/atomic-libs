@@ -1,10 +1,10 @@
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react-vite";
 import { NumberField } from ".";
-import { FieldLabel } from "../Field/FieldLabel";
-import { FieldMessage } from "../Field/FieldMessage";
-import { FieldInput } from "../Field/FieldInput";
-import { FieldErrorMessage } from "../Field/FieldError";
+import { Label } from "../Atoms/Label";
+import { Message } from "../Atoms/Message";
+import { Input } from "../Atoms/Input";
+import { ErrorMessage } from "../Atoms/ErrorMessage";
 import { Group } from "../../Layout/Group";
 import { FieldStateControls, LoadingArgTypes } from "@sb/helpers";
 
@@ -55,14 +55,14 @@ export const Primary: Story = {
   args: {
     size: "large",
     children: [
-      <FieldLabel key="label">Label</FieldLabel>,
-      <FieldMessage key="message">Message</FieldMessage>,
+      <Label key="label">Label</Label>,
+      <Message key="message">Message</Message>,
       <Group isMerged key="group">
         <NumberField.DecrementButton icon="remove" />
-        <FieldInput key="input" />
+        <Input key="input" />
         <NumberField.IncrementButton icon="add" />
       </Group>,
-      <FieldErrorMessage key="error">Error Message</FieldErrorMessage>,
+      <ErrorMessage key="error">Error Message</ErrorMessage>,
     ],
   },
 };

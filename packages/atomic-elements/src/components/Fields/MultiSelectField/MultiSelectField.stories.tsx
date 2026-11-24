@@ -2,11 +2,11 @@ import { Meta, StoryObj } from "@storybook/react-vite";
 import { FieldStateControls } from "@sb/helpers";
 import { MultiSelectField } from ".";
 import { dropdown, listbox } from "@styles/theme/component";
-import { FieldLabel } from "../Field/FieldLabel";
-import { FieldMessage } from "../Field/FieldMessage";
+import { Label } from "../Atoms/Label";
+import { Message } from "../Atoms/Message";
 import { Popover } from "@components/Overlays/Popover";
 import { ListBox } from "@components/Dropdowns/ListBox";
-import { FieldErrorMessage } from "../Field/FieldError";
+import { ErrorMessage } from "../Atoms/ErrorMessage";
 import { Item } from "@components/Collection";
 import { Button } from "@components/Buttons/Button";
 import { MaterialIcon } from "@components/Icons/MaterialIcon";
@@ -71,8 +71,8 @@ type Story = StoryObj<typeof MultiSelectField>;
 export const Default: Story = {
   args: {
     children: [
-      <FieldLabel key="label">Select an item</FieldLabel>,
-      <FieldMessage key="message">Choose an item from the list</FieldMessage>,
+      <Label key="label">Select an item</Label>,
+      <Message key="message">Choose an item from the list</Message>,
       <Button key="button" variant="dropdown">
         Select Items
         <MaterialIcon icon="arrow_drop_down" style={{ marginLeft: "auto" }} />
@@ -84,7 +84,7 @@ export const Default: Story = {
           <Item id="3">Item 3</Item>
         </ListBox>
       </Popover>,
-      <FieldErrorMessage key="error">Something went wrong</FieldErrorMessage>,
+      <ErrorMessage key="error">Something went wrong</ErrorMessage>,
     ],
   },
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import { FieldErrorMessage, FieldLabel, FieldMessage } from "../Fields";
+import { ErrorMessage, Label, Message } from "../Fields";
 import { HelpTextProps } from "../../types";
 import styled from "styled-components";
 
@@ -22,20 +22,20 @@ export function FloatingFieldInputWrapper(
       <>
         <FloatingLabelWrapper>
           {children}
-          <FieldLabel>{label}</FieldLabel>
+          <Label>{label}</Label>
         </FloatingLabelWrapper>
-        {message && <FieldMessage>{message}</FieldMessage>}
-        {error && <FieldErrorMessage>{error}</FieldErrorMessage>}
+        {message && <Message>{message}</Message>}
+        {error && <ErrorMessage>{error}</ErrorMessage>}
       </>
     );
   }
 
   return (
     <>
-      {label && <FieldLabel>{label}</FieldLabel>}
-      {message && <FieldMessage>{message}</FieldMessage>}
+      {label && <Label>{label}</Label>}
+      {message && <Message>{message}</Message>}
       {children}
-      {error && <FieldErrorMessage>{error}</FieldErrorMessage>}
+      {error && <ErrorMessage>{error}</ErrorMessage>}
     </>
   );
 }
