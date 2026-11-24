@@ -25,7 +25,10 @@ export interface SearchFieldProps
     Omit<AriaProps<AriaSearchFieldProps>, "placeholder">,
     LoadingProps {}
 
-/** SearchField component - provides the foundation for search functionality */
+/** SearchField component - provides the foundation for search functionality.
+ * Buttons inside it can use `slot="submit"` to submit the search, or
+ * `slot="clear"` to clear it.
+ */
 export const SearchField = React.forwardRef<HTMLDivElement, SearchFieldProps>(
   function SearchField(props, ref) {
     [props, ref] = useContextProps(SearchFieldContext, props, ref);
@@ -45,6 +48,7 @@ export const SearchField = React.forwardRef<HTMLDivElement, SearchFieldProps>(
       labelProps,
       descriptionProps,
       errorMessageProps,
+      clearButtonProps,
       isInvalid,
     } = useSearchField(
       {
@@ -97,6 +101,8 @@ export const SearchField = React.forwardRef<HTMLDivElement, SearchFieldProps>(
                     onPress: () => props.onSubmit?.(state.value),
                     "aria-label": t("search"),
                   },
+                  // Clears the field and calls onClear, like Escape does.
+                  clear: clearButtonProps,
                 },
               },
             ],
