@@ -21,7 +21,12 @@ const config: StorybookConfig = {
   typescript: {
     check: false,
     reactDocgen: "react-docgen-typescript",
+    // These options replace Storybook's defaults rather than extending them,
+    // so restate the defaults we rely on.
     reactDocgenTypescriptOptions: {
+      // Report `boolean | undefined` as `boolean`, so optional props get a
+      // matching control instead of a JSON object editor.
+      shouldRemoveUndefinedFromOptional: true,
       compilerOptions: {
         allowSyntheticDefaultImports: true,
         esModuleInterop: false,
