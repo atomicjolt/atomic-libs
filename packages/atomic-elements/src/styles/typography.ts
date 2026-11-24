@@ -2,19 +2,27 @@ import { SuggestStrings } from "../types";
 import { inScale, NumericScaleValue } from "./scale";
 
 export interface TypographyProps {
+  /** Font size: a scale step, which also sets line height and letter spacing, or any CSS size. */
   $size?: SuggestStrings<NumericScaleValue>;
+  /** Letter spacing: a scale step or CSS value. Overrides the one set by `$size`. */
   $letterSpacing?: SuggestStrings<NumericScaleValue>;
+  /** Line height: a scale step or CSS value. Overrides the one set by `$size`. */
   $lineHeight?: SuggestStrings<NumericScaleValue>;
+  /** Font weight, from the theme's font weights. */
   $weight?: "light" | "regular" | "medium" | "bold";
+  /** Horizontal text alignment (text-align). */
   $align?: "left" | "center" | "right" | "justify";
   /** How text wraps: `nowrap` keeps it on one line; `pretty` and `balanced` set CSS text-wrap. */
   $wrap?: "nowrap" | "pretty" | "balanced";
+  /** Keep the text on one line and cut it off with an ellipsis. */
   $truncate?: boolean;
+  /** Text decoration (text-decoration). */
   $decoration?: SuggestStrings<"none" | "underline">;
   /** Clamp the text content after this number of lines */
   $clamp?: SuggestStrings<
     "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10"
   >;
+  /** Text transform (text-transform). */
   $transform?:
     | "uppercase"
     | "lowercase"
