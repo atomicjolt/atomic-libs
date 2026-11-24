@@ -10,6 +10,7 @@ type Story = StoryObj<typeof FormatTable>;
 
 export const Primary: Story = {
   args: {
+    "aria-label": "People",
     columns: [
       { key: "name", title: "Name" },
       { key: "age", title: "Age" },
