@@ -41,6 +41,7 @@ export interface HasChildren {
 }
 
 export interface HasVariant<Variants> {
+  /** Visual style of the component. */
   variant?: SuggestStrings<Variants>;
 }
 
@@ -92,9 +93,9 @@ export interface PaginationDescriptor {
 }
 
 export interface DropdownProps {
-  /** The maximum height of the the dropdown.
-   * @default height of the viewport */
+  /** The maximum height of the dropdown, in pixels. */
   maxHeight?: number;
 
+  /** Where the dropdown opens relative to the field. */
   dropdownPlacement?: Placement;
 }
