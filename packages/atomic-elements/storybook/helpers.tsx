@@ -2,9 +2,9 @@ import { ArgTypes } from "@storybook/react-vite";
 import { createGlobalStyle } from "styled-components";
 import { PressEvents } from "@react-aria/interactions";
 import { OverlayTriggerProps } from "react-stately";
-import { Item, View } from "../../packages/atomic-elements/src/components";
-import { SpacingSteps } from "../../packages/atomic-elements/src/styles/spacing";
-import { ScaleSteps } from "../../packages/atomic-elements/src/styles/scale";
+import { Item, View } from "../src/components";
+import { SpacingSteps } from "../src/styles/spacing";
+import { ScaleSteps } from "../src/styles/scale";
 
 export const FieldStateControls: ArgTypes = {
   isDisabled: {
