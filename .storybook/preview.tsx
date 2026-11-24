@@ -49,6 +49,14 @@ const preview: Preview = {
   ],
 
   parameters: {
+    jsx: {
+      // Keep code snippets copyable: drop the spy handlers that `action`
+      // argTypes inject (they print as `onPress={() => {}}`). Render-prop
+      // functions such as `children` are kept.
+      filterProps: (value: unknown, key: string) =>
+        value !== undefined &&
+        !(typeof value === "function" && /^on[A-Z]/.test(key)),
+    },
     controls: {
       matchers: {
         date: /date/,
