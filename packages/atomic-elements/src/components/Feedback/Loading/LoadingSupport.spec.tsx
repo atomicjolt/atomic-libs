@@ -240,9 +240,6 @@ const cases: Case[] = [
   {
     name: "Table",
     keeps: "Name",
-    // Skeleton rows replace the data. (Table.Body ignores loadingLabel.)
-    indicator: (container) =>
-      container.querySelector("tbody .aje-skeleton-loader"),
     render: (l) => (
       <Table aria-label="People">
         <Table.Header>
@@ -258,8 +255,6 @@ const cases: Case[] = [
   },
   {
     name: "LoadingStatus",
-    // Its loader replaces the content. (It has loadingMessage, not loadingLabel.)
-    indicator: (container) => container.querySelector(".aje-loader"),
     render: (l) => <LoadingStatus {...l}>Loaded content</LoadingStatus>,
   },
 ];
@@ -271,6 +266,34 @@ function findLoadingIndicator(container: HTMLElement, name: string) {
     within(container).queryByRole("status", { name })
   );
 }
+
+describe("loading indicators announce once", () => {
+  test("Table.Body labels one skeleton and marks the body busy", () => {
+    const { container } = render(
+      <Table aria-label="People">
+        <Table.Header>
+          <Table.Column isRowHeader>Name</Table.Column>
+        </Table.Header>
+        <Table.Body isLoading loadingLabel="Loading people" loadingRows={3} />
+      </Table>
+    );
+    expect(container.querySelector("tbody")).toHaveAttribute(
+      "aria-busy",
+      "true"
+    );
+    expect(within(container).getAllByRole("img")).toHaveLength(1);
+  });
+
+  test("Button's spinner is hidden behind the button's own name", () => {
+    const { container } = render(
+      <Button isLoading loadingLabel="Saving">
+        Save
+      </Button>
+    );
+    expect(within(container).queryByRole("status")).toBeNull();
+    expect(container.querySelector('[aria-label="loading"]')).toBeNull();
+  });
+});
 
 describe.each(cases)("$name loading state", (c) => {
   const indicator = c.indicator ?? findLoadingIndicator;
@@ -292,13 +315,14 @@ describe.each(cases)("$name loading state", (c) => {
 
   test("picks up an ambient Loading provider", () => {
     const { container } = render(<Loading isLoading>{c.render()}</Loading>);
-    // The ambient provider uses its own translated label ("Loading").
+    // The ambient provider uses its own translated label ("Loading"). Its own
+    // live region is skipped.
     const found = c.indicator
       ? c.indicator(container, "Loading")
       : [
           ...within(container).queryAllByRole("img"),
           ...within(container).queryAllByRole("status"),
-        ].find((el) => !el.closest(".aje-loading > [role=status]"));
+        ].find((el) => !el.hasAttribute("aria-live"));
     expect(found).toBeTruthy();
   });
 

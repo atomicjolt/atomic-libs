@@ -8,6 +8,7 @@ import {
   FlexArgTypes,
   FlexItemArgTypes,
   LayoutArgTypes,
+  LoadingArgTypes,
   RenderPropsArgTypes,
 } from "@sb/helpers";
 
@@ -21,6 +22,7 @@ const meta: Meta<typeof ButtonGroup> = {
     ...RenderPropsArgTypes,
     ...LayoutArgTypes,
     ...FlexArgTypes,
+    ...LoadingArgTypes,
     $direction: {
       ...FlexArgTypes.$direction,
       table: {

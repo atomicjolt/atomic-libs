@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react-vite";
-import { InputControls } from "@sb/helpers";
+import { InputControls, LoadingArgTypes } from "@sb/helpers";
 import { Select } from ".";
 
 // placeholder and isReadOnly are omitted from SelectProps: the native
@@ -24,6 +24,7 @@ const meta: Meta<typeof Select> = {
         "Value of the selected option (controlled). Passed to the native `<select>`.",
     },
     ...SelectInputControls,
+    ...LoadingArgTypes,
     size: {
       table: { defaultValue: { summary: '"medium"' } },
     },

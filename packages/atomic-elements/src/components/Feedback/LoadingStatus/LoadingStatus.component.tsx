@@ -4,6 +4,7 @@ import { ErrorBanner } from "../../Banners/DismissableBanner";
 import { ErrorStateProps, LoaderPlacement } from "../Loader/Loader.types";
 import { LoaderProps } from "../Loader";
 import { useLoading } from "../Loading";
+import { useTranslations } from "@hooks/useTranslations";
 
 export interface LoadingStatusProps<T> {
   /** Content rendered when not loading and there's no error.
@@ -27,6 +28,12 @@ export interface LoadingStatusProps<T> {
    * @default the ambient `Loading` state, or `false` if there is none
    */
   readonly isLoading?: boolean;
+
+  /** Label announced to screen readers while loading.
+   * Only used when `renderLoading` is a component, not an element.
+   * @default the ambient `Loading` label, or "Loading" (translated)
+   */
+  readonly loadingLabel?: string;
 
   /** Optional message to display beneath the loading animation.
    * Only used when `renderLoading` is a component, not an element.
@@ -83,7 +90,8 @@ export function LoadingStatus<T>(
     fallback,
   } = props;
 
-  const { isLoading = false } = useLoading(props);
+  const { isLoading = false, loadingLabel } = useLoading(props);
+  const t = useTranslations();
 
   if (error) {
     return typeof ErrorComp === "function" ? (
@@ -97,6 +105,7 @@ export function LoadingStatus<T>(
     return typeof Loading === "function" ? (
       <Loading
         isLoading={isLoading}
+        aria-label={loadingLabel ?? t("loading")}
         message={loadingMessage}
         placement={loadingPlacement}
         orientation={loadingOrientation}
