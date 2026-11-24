@@ -4,6 +4,7 @@ import {
   DocsContainerProps,
 } from "@storybook/addon-docs/blocks";
 import { defaultTheme } from "../../packages/atomic-elements/src/styles";
+import { atomicDarkTheme, atomicLightTheme } from "../atomicTheme";
 import { ElementsProvider } from "../../packages/atomic-elements/src/components/ElementsProvider";
 import {
   ColorSchemeContext,
@@ -85,18 +86,63 @@ export function DocsStoryColorScheme({
   );
 }
 
-/** Docs container that provides the single root ElementsProvider. */
+/** Whether the OS prefers a dark color scheme, kept up to date. */
+function usePrefersDark() {
+  return useSyncExternalStore(
+    (onChange) => {
+      const query = window.matchMedia("(prefers-color-scheme: dark)");
+      query.addEventListener("change", onChange);
+      return () => query.removeEventListener("change", onChange);
+    },
+    () => window.matchMedia("(prefers-color-scheme: dark)").matches
+  );
+}
+
+/**
+ * Native controls (scrollbars, form fields) follow the CSS color-scheme
+ * property. The library sets it on the page root for the components' scheme;
+ * on docs pages, put the page back on the UI's scheme and apply the
+ * components' scheme only inside the story previews. These rules are
+ * unlayered, so they win over the library's layered styles.
+ */
+function DocsColorSchemeStyles({ uiMode }: { uiMode: "light" | "dark" }) {
+  const state = useStore(rootSchemeState);
+  const name = state?.resolvedColorScheme ?? "light";
+  const storyMode = defaultTheme.colorSchemes[name]?.mode ?? "light";
+  return (
+    <style>{`
+      :root { color-scheme: ${uiMode}; }
+      .docs-story { color-scheme: ${storyMode}; }
+      /* The library's default styles give the body the components'
+         background in dark schemes; on docs pages the page is Storybook's. */
+      body { background-color: transparent; }
+    `}</style>
+  );
+}
+
+/**
+ * Docs container that provides the single root ElementsProvider.
+ *
+ * The docs page itself (text, props tables) uses Storybook's light or dark
+ * theme to match the OS, like the rest of Storybook's UI. The toolbar's color
+ * scheme only applies to the components in the story previews.
+ */
 export function ElementsDocsContainer(props: DocsContainerProps) {
   const colorScheme = useStore(requestedScheme);
+  const uiDark = usePrefersDark();
 
   return (
-    <DocsContainer {...props}>
+    <DocsContainer
+      {...props}
+      theme={uiDark ? atomicDarkTheme : atomicLightTheme}
+    >
       <ElementsProvider
         theme={defaultTheme}
         applyDefaultStyles
         colorScheme={colorScheme}
       >
         <ShareRootColorScheme />
+        <DocsColorSchemeStyles uiMode={uiDark ? "dark" : "light"} />
         {props.children}
       </ElementsProvider>
     </DocsContainer>
