@@ -66,8 +66,8 @@ export interface TableProps<T>
     SearchProps,
     RenderBaseProps<never>,
     Expandable {
-  /** Whether the table allows expandable rows.
-   * When it's `false`, rows cannot have nested rows.
+  /** Not implemented yet: setting it to `true` throws. Kept for a future
+   * row-nesting feature.
    */
   allowsExpandableRows?: boolean;
 
@@ -139,8 +139,8 @@ export interface TableColumnIcons {
 }
 
 export interface TableOptions {
-  /** Whether the table allows expandable rows.
-   * When it's `false`, rows cannot have nested rows.
+  /** Not implemented yet: setting it to `true` throws. Kept for a future
+   * row-nesting feature.
    */
   allowsExpandableRows?: boolean;
 
