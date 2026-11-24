@@ -12,8 +12,11 @@ import {
 import { defaultTheme } from "../packages/atomic-elements/src/styles";
 import { ElementsProvider } from "../packages/atomic-elements/src/components/ElementsProvider";
 import { CssVariablesTable } from "./utils/CssVariablesTable";
+import { fixInferredArgTypes } from "./utils/argTypes";
 
 const preview: Preview = {
+  argTypesEnhancers: [fixInferredArgTypes],
+
   globalTypes: {
     colorScheme: {
       description: "Color scheme for all stories",
