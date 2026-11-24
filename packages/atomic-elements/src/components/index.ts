@@ -154,7 +154,7 @@ export type { MenuTriggerProps } from "./Dropdowns/Menu/MenuTrigger";
 export type { CheckBoxProps } from "./Inputs/CheckBox";
 export type { FileInputProps } from "./Inputs/FileInput";
 export type { NumberInputProps } from "./Inputs/NumberInput";
-export type { RadioGroupsProps } from "./Inputs/RadioGroup";
+export type { RadioGroupProps, RadioGroupsProps } from "./Inputs/RadioGroup";
 export type { RadioProps } from "./Inputs/RadioGroup/Radio.component";
 export type { SearchInputProps } from "./Inputs/SearchInput";
 export type { TextInputProps } from "./Inputs/TextInput";
