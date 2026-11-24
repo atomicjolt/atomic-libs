@@ -57,7 +57,7 @@ export const WrappingMultipleComponents: Story = {
 /**
  * A more realistic example: a form with several different field types, all wrapped
  * in a single `Loading` provider. None of the fields are passed `isLoading` directly -
- * they all pick up the ambient state from context. Toggle the switch to see every
+ * they all pick up the ambient state from context. Toggle the `isLoading` control to see every
  * field switch to its loading skeleton at once.
  */
 export const ExampleForm: Story = {

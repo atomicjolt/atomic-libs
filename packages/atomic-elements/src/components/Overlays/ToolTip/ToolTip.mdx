@@ -26,15 +26,15 @@ import { ToolTip } from ".";
 
 There are three things that compose a tooltip:
 
-1. The `Tooltip` component itself. This is the element that will be displayed when the target element is hovered over.
+1. The `ToolTip` component itself. This is the element that will be displayed when the target element is hovered over.
 2. The `ToolTipTrigger` component. This component handles the logic of displaying the tooltip when the target element is hovered over.
-3. The target component. This is a focusable element that will trigger the tooltip to be displayed when hovered over or foucsed on via keyboard navigation.
+3. The target component. This is a focusable element that will trigger the tooltip to be displayed when hovered over or focused on via keyboard navigation.
 
 In the following example, the `Button` component is the target element:
 
 <Canvas of={ToolTipStories.Primary} />
 
-Note than when using `ToolTipTrigger`, it handles setting up the refs and event listeners for you. Any components in this library
+Note that when using `ToolTipTrigger`, it handles setting up the refs and event listeners for you. Any components in this library
 that are "focusable" can be used out of the box as the target of a tooltip. So you can use `Button`, `TextInput`, etc. as the target.
 
 <Canvas of={ToolTipStories.InputTarget} />

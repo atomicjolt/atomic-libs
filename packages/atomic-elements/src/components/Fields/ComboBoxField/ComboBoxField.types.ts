@@ -10,7 +10,7 @@ export interface ComboBoxFieldProps<T>
     LoadingProps {
   children?: React.ReactNode;
 
-  /** Hangler called when the selection changes */
+  /** Handler called when the selection changes */
   onSelectionChange?: (key: Key | null) => void;
 
   allowsCustomValue?: boolean;

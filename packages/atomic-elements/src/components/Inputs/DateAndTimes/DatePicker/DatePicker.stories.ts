@@ -43,7 +43,7 @@ export default {
     minValue: {
       control: false,
       description:
-        "The minmum value of the date input. Accepts a value from `@internationalized/date` library",
+        "The minimum value of the date input. Accepts a value from `@internationalized/date` library",
     },
     hourCycle: {
       control: "select",

@@ -20,7 +20,7 @@ export interface TextFieldProps
     Omit<AriaProps<AriaTextFieldProps>, "placeholder">,
     LoadingProps {}
 
-/** Provides the accessbility implementation for a
+/** Provides the accessibility implementation for a
  * text field and its associated label, error message, and description.
  * */
 export function TextField(props: TextFieldProps) {

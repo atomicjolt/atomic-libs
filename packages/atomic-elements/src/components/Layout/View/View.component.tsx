@@ -16,7 +16,7 @@ export interface ViewProps
   as?: "div" | "span";
 }
 
-/** View is the fundemental layout building block.  */
+/** View is the fundamental layout building block. */
 export const View = forwardRef<HTMLDivElement, ViewProps>(function View(
   props,
   ref

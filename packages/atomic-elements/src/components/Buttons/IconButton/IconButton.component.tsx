@@ -12,7 +12,7 @@ export interface IconButtonProps
     HasIcon {}
 
 /** A button designed for displaying a single icon. The button has no text content,
- * so you should provide an aria-label for accessiblity
+ * so you should provide an aria-label for accessibility
  *
  * @example <IconButton icon="add" aria-label="Add" onPress={() => alert("Hello, world!")} />
  * */

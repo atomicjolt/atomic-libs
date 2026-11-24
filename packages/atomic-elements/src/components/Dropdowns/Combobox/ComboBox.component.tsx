@@ -28,7 +28,7 @@ export interface ComboBoxProps<T>
   prefixIcon?: MaterialIcons;
 }
 
-/** Combox combinds a text input field with a dropdown list of options for the user to select from */
+/** ComboBox combines a text input field with a dropdown list of options for the user to select from */
 export const ComboBox = forwardRef(function ComboBox<T extends object>(
   props: ComboBoxProps<T>,
   ref: React.Ref<HTMLInputElement>

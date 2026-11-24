@@ -46,7 +46,7 @@ export const Removable: Story = {
   },
 };
 
-export const Pressasble: Story = {
+export const Pressable: Story = {
   args: {
     ...Primary.args,
     onPress: fn(),

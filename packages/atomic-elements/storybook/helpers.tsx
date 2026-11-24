@@ -129,7 +129,7 @@ export const MultiSelectionArgTypes: ArgTypes = {
     control: "select",
     options: ["replace", "toggle"],
     description:
-      "Controls how the selection changes in `selectionMode` is `multiple`. `replace` will replace the current selection with the new selection. `toggle` will add or remove the new selection from the current selection.",
+      "Controls how the selection changes when `selectionMode` is `multiple`. `replace` will replace the current selection with the new selection. `toggle` will add or remove the new selection from the current selection.",
     table: {
       category: "Selection",
     },
@@ -602,7 +602,7 @@ export const FlexItemArgTypes: ArgTypes = {
       category: "Flex Item",
     },
   },
-  $flexAlgin: {
+  $flexAlign: {
     control: "select",
     options: ["auto", "start", "end", "center", "baseline", "stretch"],
     description: "Align Self",

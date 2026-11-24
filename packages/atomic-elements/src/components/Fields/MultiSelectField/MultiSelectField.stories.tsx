@@ -40,7 +40,7 @@ export default {
     },
     defaultOpen: {
       control: "boolean",
-      description: "Control the inital state of the menu",
+      description: "Control the initial state of the menu",
     },
     onOpenChange: {
       control: false,

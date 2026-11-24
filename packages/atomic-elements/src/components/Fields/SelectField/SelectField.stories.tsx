@@ -47,7 +47,7 @@ export default {
     },
     defaultOpen: {
       control: "boolean",
-      description: "Control the inital state of the menu",
+      description: "Control the initial state of the menu",
     },
     onOpenChange: {
       control: false,
@@ -111,7 +111,7 @@ export const WithSections: Story = {
             <Item id="2">Item 2</Item>
           </Section>
 
-          <Section title="Section 1">
+          <Section title="Section 2">
             <Item id="3">Item 3</Item>
             <Item id="4">Item 4</Item>
           </Section>

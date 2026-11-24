@@ -26,7 +26,7 @@ const meta: Meta<typeof ComboBox> = {
     defaultInputValue: {
       control: "text",
       description:
-        "The default value of the input field for an uncontrolled comobox",
+        "The default value of the input field for an uncontrolled combobox",
     },
     inputValue: {
       control: "text",
@@ -102,7 +102,7 @@ export const PrefixIcon: Story = {
   },
 };
 
-export const ScollingDropdown: Story = {
+export const ScrollingDropdown: Story = {
   args: {
     ...Primary.args,
     children: [
@@ -179,7 +179,7 @@ export const DynamicCollection: Story = {
     ];
 
     return (
-      <ComboBox label="Pick a engineering major" items={options}>
+      <ComboBox label="Pick an engineering major" items={options}>
         {(item) => <Item>{item.name}</Item>}
       </ComboBox>
     );

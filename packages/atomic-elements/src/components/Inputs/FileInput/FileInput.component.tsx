@@ -35,7 +35,7 @@ export interface FileInputProps
 
 /** FileInput component. Used to select singular files
  *
- * Checkout [FileTrigger](?path=/docs/buttons-filetrigger--overview) For a more general file selection component
+ * Check out [FileTrigger](?path=/docs/buttons-filetrigger--overview) for a more general file selection component
  */
 export const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
   function FileInput(props, ref) {

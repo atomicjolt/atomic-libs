@@ -24,17 +24,17 @@ export default {
     shouldForceLeadingZeros: {
       control: "boolean",
       description:
-        "Forces leading zeros on the date input. If this is not set it is determined by the user's locale",
+        "Forces leading zeros on the time input. If this is not set it is determined by the user's locale",
     },
     maxValue: {
       control: false,
       description:
-        "The maximum value of the date input. Accepts a value from `@internationalized/date` library",
+        "The maximum value of the time input. Accepts a value from `@internationalized/date` library",
     },
     minValue: {
       control: false,
       description:
-        "The minmum value of the date input. Accepts a value from `@internationalized/date` library",
+        "The minimum value of the time input. Accepts a value from `@internationalized/date` library",
     },
     hourCycle: {
       control: "select",

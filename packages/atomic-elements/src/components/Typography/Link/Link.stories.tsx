@@ -13,7 +13,7 @@ export default {
   component: Link,
   parameters: {
     layout: "centered",
-    cssProps: { link },
+    cssprops: { link },
   },
   argTypes: {
     ...MarginArgTypes,

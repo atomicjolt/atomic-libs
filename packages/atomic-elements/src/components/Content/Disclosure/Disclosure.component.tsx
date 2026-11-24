@@ -46,7 +46,7 @@ type ForwardedDisclosure = {
   Trigger: typeof DisclosureTrigger;
 };
 
-/** A disclosure is a collapisble section of content. It is composed of a trigger
+/** A disclosure is a collapsible section of content. It is composed of a trigger
  * and a panel. The trigger is a button that controls the visibility of the panel.
  */
 export const Disclosure = forwardRef<HTMLDivElement, DisclosureProps>(

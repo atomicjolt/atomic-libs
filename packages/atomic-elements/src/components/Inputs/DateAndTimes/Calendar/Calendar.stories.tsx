@@ -23,22 +23,22 @@ const meta: Meta<typeof Calendar> = {
     value: {
       control: false,
       description:
-        "The current value of the calendar. Accepts a object from the `@internationalized/date` library.",
+        "The current value of the calendar. Accepts an object from the `@internationalized/date` library.",
     },
     defaultValue: {
       control: false,
       description:
-        "Set the initial value of an uncontrolled calendar. Accepts a object from the `@internationalized/date` library.",
+        "Set the initial value of an uncontrolled calendar. Accepts an object from the `@internationalized/date` library.",
     },
     defaultFocusedValue: {
       control: false,
       description:
-        "Set the initial focused value of an uncontrolled calendar. Accepts a object from the `@internationalized/date` library.",
+        "Set the initial focused value of an uncontrolled calendar. Accepts an object from the `@internationalized/date` library.",
     },
     focusedValue: {
       control: false,
       description:
-        "The current focused value of the calendary. Accepts a object from the `@internationalized/date` library.",
+        "The current focused value of the calendar. Accepts an object from the `@internationalized/date` library.",
     },
     isDateUnavailable: {
       control: false,
@@ -48,12 +48,12 @@ const meta: Meta<typeof Calendar> = {
     maxValue: {
       control: false,
       description:
-        "The maximum date that can be selected. Accepts a object from the `@internationalized/date` library.",
+        "The maximum date that can be selected. Accepts an object from the `@internationalized/date` library.",
     },
     minValue: {
       control: false,
       description:
-        "The minimum date that can be selected. Accepts a object from the `@internationalized/date` library.",
+        "The minimum date that can be selected. Accepts an object from the `@internationalized/date` library.",
     },
     isDisabled: {
       control: "boolean",
