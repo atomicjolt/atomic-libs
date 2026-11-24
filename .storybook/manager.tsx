@@ -23,9 +23,16 @@ import {
  */
 const uiTheme = () => (isUiDark() ? atomicDarkTheme : atomicLightTheme);
 
+/** Declare the UI theme's color scheme on the manager page too, so its native
+ * controls (scrollbars, inputs) match. */
+const applyColorScheme = () => {
+  document.documentElement.style.colorScheme = isUiDark() ? "dark" : "light";
+};
+
 addons.setConfig({
   theme: uiTheme(),
 });
+applyColorScheme();
 
 const OPTIONS: { id: UiThemeSetting; title: string }[] = [
   { id: "system", title: "Match system" },
@@ -71,7 +78,10 @@ function UiThemeTool() {
 
 addons.register("atomic/ui-theme", (api) => {
   // Re-theme the UI when the setting or the OS preference changes.
-  subscribeUiTheme(() => api.setOptions({ theme: uiTheme() }));
+  subscribeUiTheme(() => {
+    api.setOptions({ theme: uiTheme() });
+    applyColorScheme();
+  });
 
   addons.add("atomic/ui-theme/tool", {
     type: types.TOOLEXTRA,
