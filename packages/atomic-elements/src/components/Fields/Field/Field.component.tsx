@@ -29,6 +29,7 @@ export interface FieldProps<R extends FieldRenderProps = FieldRenderProps>
     DomProps,
     AriaProps<AriaFieldProps>,
     FieldDomProps {
+  /** Size of the field and its input. */
   size?: ExtendedSize;
 }
 
