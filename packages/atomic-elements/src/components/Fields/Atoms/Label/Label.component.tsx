@@ -20,7 +20,9 @@ const StyledLabel = styled.label<{ $paddingBottom: string }>`
 
 export interface LabelProps
   extends ElementWrapperProps<React.LabelHTMLAttributes<HTMLLabelElement>> {
-  /** @default "label" */
+  /** Element or component to render as.
+   * @default "label"
+   */
   as?: React.ElementType;
   /** @default "5px" */
   $paddingBottom?: string;

@@ -169,6 +169,32 @@ export const PopupModal: Story = {
       </>
     ),
   },
+  parameters: {
+    docs: {
+      source: {
+        language: "jsx",
+        code: `
+<Modal isOpen $width="400px">
+  <Modal.Header>
+    <MaterialIcon icon="check" />
+    <Modal.Title>Your Download is Ready!</Modal.Title>
+  </Modal.Header>
+  <Modal.Body>
+    <Text $size="3">
+      Your download is ready! Click the button below to download your file.
+    </Text>
+  </Modal.Body>
+  <Modal.Footer>
+    <Button variant="success">
+      <MaterialIcon icon="download" />
+      Download
+    </Button>
+  </Modal.Footer>
+</Modal>
+        `,
+      },
+    },
+  },
 };
 
 export const WithCustomContent: Story = {
@@ -180,5 +206,49 @@ export const WithCustomContent: Story = {
         helper components are there for the common use cases.
       </Text>
     ),
+  },
+  parameters: {
+    docs: {
+      source: {
+        language: "jsx",
+        code: `
+<Modal isOpen>
+  <Text $size="20px">
+    You are able to put whatever content you'd like into the modal, the
+    helper components are there for the common use cases.
+  </Text>
+</Modal>
+        `,
+      },
+    },
+  },
+};
+
+export const Centered: Story = {
+  args: {
+    ...Primary.args,
+    isCentered: true,
+  },
+  parameters: {
+    docs: {
+      source: {
+        language: "jsx",
+        code: `
+<Modal isOpen isCentered>
+  <Modal.Header>
+    <Modal.Title>Title</Modal.Title>
+    <IconButton icon="close" variant="ghost" />
+  </Modal.Header>
+  <Modal.Body>
+    <Text $size="3">This is the content of the modal</Text>
+  </Modal.Body>
+  <Modal.Footer>
+    <Button variant="secondary">Cancel</Button>
+    <Button variant="primary">Save</Button>
+  </Modal.Footer>
+</Modal>
+        `,
+      },
+    },
   },
 };

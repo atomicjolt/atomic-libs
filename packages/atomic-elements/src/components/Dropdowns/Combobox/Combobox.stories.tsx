@@ -1,19 +1,22 @@
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react-vite";
-import { TextInputControls, LoadingArgTypes } from "@sb/helpers";
+import { InputControls, TextInputControls, LoadingArgTypes } from "@sb/helpers";
 import { ComboBox } from ".";
 import { Item } from "../../Collection";
 import { dropdown, input, listbox } from "@styles/theme/component";
 
 const meta: Meta<typeof ComboBox> = {
-  title: "Dropdowns/Selection/Combobox",
+  title: "Dropdowns/Selection/ComboBox",
   component: ComboBox,
   parameters: {
     layout: "centered",
     cssprops: { dropdown, input, listbox },
   },
   argTypes: {
-    ...TextInputControls,
+    // Not TextInputControls: ComboBox has no defaultValue (it uses
+    // defaultInputValue / defaultSelectedKey).
+    ...InputControls,
+    autoFocus: TextInputControls.autoFocus,
     ...LoadingArgTypes,
     children: { control: false },
     allowsCustomValue: {
@@ -32,12 +35,12 @@ const meta: Meta<typeof ComboBox> = {
     },
     defaultSelectedKey: {
       control: "select",
-      options: ["1", "2"],
+      options: ["1", "2", "3"],
       description: "Key of the selected item for an uncontrolled component.",
     },
     selectedKey: {
       control: "select",
-      options: ["1", "2"],
+      options: ["1", "2", "3"],
       description: "Key of the selected item for a controlled component.",
     },
     disabledKeys: {
@@ -55,6 +58,8 @@ const meta: Meta<typeof ComboBox> = {
       table: { defaultValue: { summary: '"search"' } },
     },
     variant: {
+      control: "select",
+      options: ["default", "floating"],
       table: { defaultValue: { summary: '"default"' } },
     },
     size: {
@@ -183,21 +188,56 @@ export const ScrollingDropdown: Story = {
   },
 };
 
-export const DynamicCollection: Story = {
-  render: () => {
-    let options = [
-      { id: 1, name: "Aerospace" },
-      { id: 2, name: "Mechanical" },
-      { id: 3, name: "Civil" },
-    ];
+const engineeringMajors = [
+  { id: 1, name: "Aerospace" },
+  { id: 2, name: "Mechanical" },
+  { id: 3, name: "Civil" },
+];
 
-    return (
-      <ComboBox label="Pick an engineering major" items={options}>
-        {(item) => <Item>{item.name}</Item>}
-      </ComboBox>
-    );
+export const DynamicCollection: Story = {
+  render: (args) => (
+    <ComboBox {...args} items={engineeringMajors}>
+      {(item) => (
+        <Item>{(item as (typeof engineeringMajors)[number]).name}</Item>
+      )}
+    </ComboBox>
+  ),
+  args: {
+    label: "Pick an engineering major",
+    menuTrigger: "focus",
   },
+  parameters: {
+    docs: {
+      source: {
+        language: "jsx",
+        code: `
+const options = [
+  { id: 1, name: "Aerospace" },
+  { id: 2, name: "Mechanical" },
+  { id: 3, name: "Civil" },
+];
+
+<ComboBox label="Pick an engineering major" menuTrigger="focus" items={options}>
+  {(item) => <Item>{item.name}</Item>}
+</ComboBox>
+        `,
+      },
+    },
+  },
+};
+
+export const AllowsCustomValue: Story = {
   args: {
     ...Primary.args,
+    allowsCustomValue: true,
+    message: "Pick an option or type your own",
+  },
+};
+
+export const Invalid: Story = {
+  args: {
+    ...Primary.args,
+    isInvalid: true,
+    error: "Please select an option",
   },
 };

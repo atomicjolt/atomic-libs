@@ -20,29 +20,24 @@ export default {
     ...FieldStateControls,
     ...LoadingArgTypes,
     type: {
+      control: "select",
+      options: ["text", "email", "password", "search", "tel", "url"],
+      description: "Type of the input element",
       table: { defaultValue: { summary: '"text"' } },
     },
     defaultValue: {
       control: "text",
+      description: "Initial value (uncontrolled)",
     },
     value: {
       control: "text",
+      description: "Value (controlled)",
     },
     onChange: {
       action: "onChange",
       description: "Handler that is called when the input value changes",
       table: {
         category: "Events",
-      },
-    },
-    "data-float": {
-      table: {
-        disable: true,
-      },
-    },
-    "data-resize": {
-      table: {
-        disable: true,
       },
     },
   },

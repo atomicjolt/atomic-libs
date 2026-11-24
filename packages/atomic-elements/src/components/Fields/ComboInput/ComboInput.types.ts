@@ -16,6 +16,8 @@ export interface ComboInputProps
    * - `left` - padding on the left side
    * - `right` - padding on the right side
    * - `both` - padding on both sides
-   * */
+   *
+   * When unset, no side padding is added.
+   */
   padding?: PaddingSide;
 }

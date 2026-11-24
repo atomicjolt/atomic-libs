@@ -25,9 +25,11 @@ export default {
     ...RenderPropsArgTypes,
     defaultValue: {
       control: "text",
+      description: "Initial search text (uncontrolled)",
     },
     value: {
       control: "text",
+      description: "Search text (controlled)",
     },
     onChange: {
       action: "onChange",

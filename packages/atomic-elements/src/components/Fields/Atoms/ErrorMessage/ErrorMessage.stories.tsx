@@ -8,6 +8,7 @@ export default {
     layout: "centered",
   },
   argTypes: {
+    as: { control: false },
     size: {
       table: { defaultValue: { summary: '"medium"' } },
     },

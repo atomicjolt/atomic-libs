@@ -20,9 +20,13 @@ export interface MultiSelectProps<T extends object>
   extends AriaProps<AriaMultiSelectProps<T>>,
     FieldInputProps,
     DropdownProps {
-  /** @default "default" */
+  /** Visual style of the field.
+   * @default "default"
+   */
   variant?: "default" | "floating";
-  /** @default "Items selected" */
+  /** Text shown in the trigger once one or more items are selected.
+   * @default "Items selected"
+   */
   selectionPlaceholder?: string;
 }
 

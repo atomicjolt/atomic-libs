@@ -16,6 +16,11 @@ export default {
   },
   argTypes: {
     ...OverlayTriggerArgTypes,
+    children: {
+      control: false,
+      description:
+        "The trigger element followed by a Popover containing a Menu",
+    },
     trigger: {
       control: "select",
       options: ["press", "longPress"],
@@ -48,7 +53,7 @@ export const Primary: Story = {
 export const IconButtonTrigger: Story = {
   args: {
     children: [
-      <IconButton icon="arrow_drop_down" />,
+      <IconButton key="button" icon="arrow_drop_down" aria-label="Open menu" />,
       <Popover placement="bottom left" key="popover">
         <Menu>
           <Item onAction={() => alert("Item 1")}>Item 1</Item>

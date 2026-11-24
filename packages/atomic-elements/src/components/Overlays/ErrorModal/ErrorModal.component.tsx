@@ -12,6 +12,8 @@ export interface ErrorModalProps extends BaseModalProps {
    * @default "Close"
    */
   buttonText?: string;
+  /** Called when the user presses the close button.
+   * Not called when the modal is dismissed with Escape. */
   onClose?: () => void;
 }
 
