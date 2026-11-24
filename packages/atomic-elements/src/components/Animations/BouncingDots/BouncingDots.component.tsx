@@ -35,7 +35,9 @@ export function BouncingDots(props: BouncingDotsProps) {
   return (
     <DotsContainer
       {...renderProps}
-      {...filterDOMProps(props)}
+      {...filterDOMProps(props, { labelable: true })}
+      // Decorative unless labelled; a label makes it an image to assistive tech.
+      role={props["aria-label"] || props["aria-labelledby"] ? "img" : undefined}
       $duration={duration}
     >
       {[...Array(count)].map((_, i) => (

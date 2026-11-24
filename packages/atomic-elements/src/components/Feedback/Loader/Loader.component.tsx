@@ -61,10 +61,18 @@ export function Loader(props: LoaderProps) {
 
   const direction = orientation === "horizontal" ? "row" : "column";
 
-  const rest = filterDOMProps(props);
+  const rest = filterDOMProps(props, { labelable: true });
+  // A labelled loader is announced as a status; unlabelled it is decorative.
+  const role =
+    props["aria-label"] || props["aria-labelledby"] ? "status" : undefined;
 
   return (
-    <LoaderWrapper {...renderProps} {...rest} data-placement={placement}>
+    <LoaderWrapper
+      {...renderProps}
+      {...rest}
+      role={role}
+      data-placement={placement}
+    >
       {isLoading ? (
         <Flex
           $display={placementType === "inline" ? "inline-flex" : "flex"}
