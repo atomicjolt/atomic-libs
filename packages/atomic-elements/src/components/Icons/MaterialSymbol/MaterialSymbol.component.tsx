@@ -14,6 +14,7 @@ import { StyledIcon } from "../Icons.styles";
 export interface MaterialSymbolProps
   extends IconComponentBase<never>,
     MaterialSymbolFontSettingsOptions {
+  /** Name of the Material symbol */
   symbol: MaterialSymbols;
   /** The type of material symbol to
    * render. Note that the font for that style needs to

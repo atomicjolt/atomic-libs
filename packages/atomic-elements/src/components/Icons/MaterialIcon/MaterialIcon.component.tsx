@@ -10,6 +10,7 @@ import { filterDOMProps, mergeProps, useObjectRef } from "@react-aria/utils";
 import { useFocusable } from "@react-aria/focus";
 
 export interface MaterialIconProps extends IconComponentBase<never> {
+  /** Name of the Material icon */
   icon: MaterialIcons;
   /** The type of material icon to
    * render. Note that the font for that
@@ -27,7 +28,7 @@ export interface MaterialIconProps extends IconComponentBase<never> {
 /** Small Utility component for rendering out
  * material-icons with some sensible defaults */
 export const MaterialIcon = React.forwardRef<HTMLElement, MaterialIconProps>(
-  function MaterialProps(props, forwardedRef) {
+  function MaterialIcon(props, forwardedRef) {
     const {
       icon,
       className,

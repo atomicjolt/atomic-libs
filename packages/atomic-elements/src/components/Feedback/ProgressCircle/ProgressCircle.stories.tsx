@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react-vite";
 import { ProgressCircle } from ".";
-import { RenderStylePropsArgTypes } from "@sb/helpers";
+import { AriaLabelArgTypes, RenderStylePropsArgTypes } from "@sb/helpers";
 import { progressCircle } from "@styles/theme/component";
 
 export default {
@@ -11,6 +11,7 @@ export default {
     cssprops: { progressCircle },
   },
   argTypes: {
+    ...AriaLabelArgTypes,
     ...RenderStylePropsArgTypes,
     value: {
       control: "number",
@@ -60,6 +61,7 @@ type Story = StoryObj<typeof ProgressCircle>;
 
 export const Primary: Story = {
   args: {
+    "aria-label": "Upload progress",
     value: 35,
     $size: "100",
   },
@@ -87,6 +89,7 @@ export const ValueLabelFormatOptions: Story = {
 
 export const Indeterminate: Story = {
   args: {
+    "aria-label": "Loading",
     isIndeterminate: true,
     $trackColor: "transparent",
     $linecap: "round",
@@ -97,6 +100,7 @@ export const Indeterminate: Story = {
 
 export const CustomRange: Story = {
   args: {
+    "aria-label": "Progress",
     value: 50,
     minValue: 20,
     maxValue: 80,

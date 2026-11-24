@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react-vite";
 import { Checkmark } from ".";
-import { RenderPropsArgTypes } from "@sb/helpers";
+import { RenderStylePropsArgTypes } from "@sb/helpers";
 import { animation } from "@styles/theme/component";
 
 export default {
@@ -11,7 +11,7 @@ export default {
     cssprops: { animation },
   },
   argTypes: {
-    ...RenderPropsArgTypes,
+    ...RenderStylePropsArgTypes,
   },
 } as Meta<typeof Checkmark>;
 

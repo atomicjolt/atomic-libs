@@ -7,9 +7,10 @@ export interface PageState {
    * for Pagination.PageList and Pagination.LastPage */
   totalPages?: number;
 
-  /** The size of each page */
+  /** The size of each page (controlled) */
   pageSize: number;
 
+  /** Callback when the page size changes */
   onPageSizeChange: (pageSize: number) => void;
 }
 

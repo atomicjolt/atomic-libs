@@ -46,6 +46,34 @@ export const Removable: Story = {
   },
 };
 
+export const Warning: Story = {
+  args: {
+    ...Primary.args,
+    variant: "warning",
+  },
+};
+
+export const Success: Story = {
+  args: {
+    ...Primary.args,
+    variant: "success",
+  },
+};
+
+export const Danger: Story = {
+  args: {
+    ...Primary.args,
+    variant: "danger",
+  },
+};
+
+export const Disabled: Story = {
+  args: {
+    ...Removable.args,
+    isDisabled: true,
+  },
+};
+
 export const Pressable: Story = {
   args: {
     ...Primary.args,

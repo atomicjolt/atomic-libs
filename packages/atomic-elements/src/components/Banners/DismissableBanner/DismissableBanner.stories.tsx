@@ -19,7 +19,7 @@ export default {
     },
     iconVariant: {
       control: "select",
-      options: ["default", "outlined", "rounded", "two-tone", "sharp"],
+      options: ["default", "outlined", "round", "sharp", "two-tone"],
     },
   },
 } as Meta<typeof DismissableBanner>;

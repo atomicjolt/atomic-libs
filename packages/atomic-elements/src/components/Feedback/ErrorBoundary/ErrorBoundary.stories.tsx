@@ -12,6 +12,13 @@ const meta: Meta<typeof ErrorBoundary> = {
     layout: "centered",
   },
   argTypes: {
+    children: {
+      control: false,
+      description:
+        "Content to render. If it throws while rendering, `fallback` is shown instead.",
+      type: { name: "other", value: "ReactNode", required: true },
+      table: { type: { summary: "ReactNode" } },
+    },
     fallback: {
       control: "text",
       description: `The fallback UI to display when an error is caught. This can be a React node or a function that receives the error and a reset function as arguments.`,
@@ -61,7 +68,7 @@ const BuggyCounter = () => {
 };
 
 export const WithStaticFallback: Story = {
-  render: () => {
+  render: function Render(args) {
     const [shouldThrow, setShouldThrow] = useState(false);
 
     return (
@@ -75,10 +82,14 @@ export const WithStaticFallback: Story = {
 
         <ErrorBoundary
           resetKeys={[shouldThrow]}
+          onError={args.onError}
+          onReset={args.onReset}
           fallback={
-            <ErrorBanner>
-              Oops! Something went wrong. Please try refreshing the page.
-            </ErrorBanner>
+            args.fallback ?? (
+              <ErrorBanner>
+                Oops! Something went wrong. Please try refreshing the page.
+              </ErrorBanner>
+            )
           }
         >
           <BuggyComponent shouldThrow={shouldThrow} />
@@ -86,10 +97,31 @@ export const WithStaticFallback: Story = {
       </div>
     );
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `
+<ErrorBoundary
+  resetKeys={[shouldThrow]}
+  fallback={
+    <ErrorBanner>
+      Oops! Something went wrong. Please try refreshing the page.
+    </ErrorBanner>
+  }
+>
+  <BuggyComponent shouldThrow={shouldThrow} />
+</ErrorBoundary>
+`,
+      },
+    },
+  },
 };
 
 export const WithFunctionFallback: Story = {
-  render: () => {
+  argTypes: {
+    fallback: { control: false },
+  },
+  render: function Render(args) {
     const [shouldThrow, setShouldThrow] = useState(false);
 
     return (
@@ -119,23 +151,46 @@ export const WithFunctionFallback: Story = {
             </ErrorBanner>
           )}
           resetKeys={[shouldThrow]}
-          onError={(error, errorInfo) => {
-            console.log("Error caught:", error);
-            console.log("Error info:", errorInfo);
-          }}
-          onReset={() => {
-            console.log("Error boundary reset");
-          }}
+          onError={args.onError}
+          onReset={args.onReset}
         >
           <BuggyComponent shouldThrow={shouldThrow} />
         </ErrorBoundary>
       </div>
     );
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `
+<ErrorBoundary
+  resetKeys={[shouldThrow]}
+  onError={(error, errorInfo) => logError(error, errorInfo)}
+  fallback={(error, reset) => (
+    <ErrorBanner>
+      <strong>Error:</strong> {error.message}
+      <Button
+        variant="inverted"
+        onPress={() => {
+          setShouldThrow(false);
+          reset();
+        }}
+      >
+        Try Again
+      </Button>
+    </ErrorBanner>
+  )}
+>
+  <BuggyComponent shouldThrow={shouldThrow} />
+</ErrorBoundary>
+`,
+      },
+    },
+  },
 };
 
 export const WithResetKeys: Story = {
-  render: () => {
+  render: function Render(args) {
     const [resetKey, setResetKey] = useState(0);
     const [userId, setUserId] = useState("user1");
 
@@ -162,25 +217,47 @@ export const WithResetKeys: Story = {
 
         <ErrorBoundary
           fallback={
-            <ErrorBanner>
-              Component crashed! Change the reset key or user ID above to
-              recover.
-            </ErrorBanner>
+            args.fallback ?? (
+              <ErrorBanner>
+                Component crashed! Change the reset key or user ID above to
+                recover.
+              </ErrorBanner>
+            )
           }
           resetKeys={[resetKey, userId]}
-          onReset={() => {
-            console.log("Error boundary reset due to resetKeys change");
-          }}
+          onError={args.onError}
+          onReset={args.onReset}
         >
           <BuggyCounter />
         </ErrorBoundary>
       </div>
     );
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `
+<ErrorBoundary
+  resetKeys={[resetKey, userId]}
+  fallback={
+    <ErrorBanner>
+      Component crashed! Change the reset key or user ID above to recover.
+    </ErrorBanner>
+  }
+>
+  <BuggyCounter />
+</ErrorBoundary>
+`,
+      },
+    },
+  },
 };
 
 export const NestedErrorBoundaries: Story = {
-  render: () => {
+  argTypes: {
+    fallback: { control: false },
+  },
+  render: function Render(args) {
     const [outerError, setOuterError] = useState(false);
     const [innerError, setInnerError] = useState(false);
 
@@ -203,6 +280,8 @@ export const NestedErrorBoundaries: Story = {
 
         <ErrorBoundary
           resetKeys={[outerError]}
+          onError={args.onError}
+          onReset={args.onReset}
           fallback={
             <ErrorBanner>Outer error boundary caught an error!</ErrorBanner>
           }
@@ -210,7 +289,9 @@ export const NestedErrorBoundaries: Story = {
           <div
             style={{ padding: "16px", border: "2px solid blue", margin: "8px" }}
           >
-            <h3>Outer Component</h3>
+            <Text as="div" $weight="bold">
+              Outer Component
+            </Text>
             <BuggyComponent shouldThrow={outerError} />
 
             <ErrorBoundary
@@ -226,7 +307,9 @@ export const NestedErrorBoundaries: Story = {
                   margin: "8px",
                 }}
               >
-                <h4>Inner Component</h4>
+                <Text as="div" $weight="bold">
+                  Inner Component
+                </Text>
                 <BuggyComponent shouldThrow={innerError} />
               </div>
             </ErrorBoundary>
@@ -234,5 +317,26 @@ export const NestedErrorBoundaries: Story = {
         </ErrorBoundary>
       </div>
     );
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `
+<ErrorBoundary
+  resetKeys={[outerError]}
+  fallback={<ErrorBanner>Outer error boundary caught an error!</ErrorBanner>}
+>
+  <BuggyComponent shouldThrow={outerError} />
+
+  <ErrorBoundary
+    resetKeys={[innerError]}
+    fallback={<ErrorBanner>Inner error boundary caught an error!</ErrorBanner>}
+  >
+    <BuggyComponent shouldThrow={innerError} />
+  </ErrorBoundary>
+</ErrorBoundary>
+`,
+      },
+    },
   },
 };

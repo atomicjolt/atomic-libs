@@ -55,14 +55,14 @@ export const NoDuration: Story = {
 export const CustomizeRender: Story = {
   args: {
     ...Primary.args,
-    children: (value) => <h1>Duration: {value}</h1>,
+    children: (value) => <strong>Duration: {value}</strong>,
   },
   parameters: {
     docs: {
       source: {
         code: `
-<FormatDuration value={3600} fallback="No duration">
-  {(value) => <h1>Duration: {value}</h1>}
+<FormatDuration value={3892}>
+  {(value) => <strong>Duration: {value}</strong>}
 </FormatDuration>
 `,
       },

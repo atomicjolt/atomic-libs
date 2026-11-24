@@ -9,12 +9,15 @@ const meta: Meta<typeof MaterialIcon> = {
   },
   argTypes: {
     size: {
+      description: "Size of the icon",
       table: { defaultValue: { summary: '"medium"' } },
     },
     isDisabled: {
+      description: "Applies disabled styling (`data-disabled`)",
       table: { defaultValue: { summary: "false" } },
     },
     isFocusable: {
+      description: "Makes the icon focusable",
       table: { defaultValue: { summary: "false" } },
     },
   },

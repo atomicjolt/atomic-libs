@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react-vite";
 import { loader } from "@styles/theme/component";
 import { SpinnerLoader } from ".";
-import { RenderStylePropsArgTypes } from "@sb/helpers";
+import { AriaLabelArgTypes, RenderStylePropsArgTypes } from "@sb/helpers";
 
 const meta: Meta<typeof SpinnerLoader> = {
   title: "Feedback/SpinnerLoader",
@@ -11,7 +11,12 @@ const meta: Meta<typeof SpinnerLoader> = {
     cssprops: { loader },
   },
   argTypes: {
+    ...AriaLabelArgTypes,
     ...RenderStylePropsArgTypes,
+    isLoading: {
+      control: "boolean",
+      table: { category: "State" },
+    },
     message: {
       control: "text",
     },
@@ -24,7 +29,7 @@ type Story = StoryObj<typeof SpinnerLoader>;
 
 export const Primary: Story = {
   args: {
-    isLoading: true,
+    "aria-label": "Loading",
     message: "Getting ducks in a row...",
     orientation: "horizontal",
   },

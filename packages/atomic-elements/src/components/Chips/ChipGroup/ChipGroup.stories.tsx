@@ -17,7 +17,15 @@ export default {
     ...MultiSelectionArgTypes,
     children: {
       control: false,
+      description: "`Chip` elements to render",
     },
+    // Not supported by ChipGroup: isReadOnly and placeholder aren't in its
+    // props, and name / isLoading / loadingLabel are accepted but ignored.
+    isReadOnly: { table: { disable: true } },
+    placeholder: { table: { disable: true } },
+    name: { table: { disable: true } },
+    isLoading: { table: { disable: true } },
+    loadingLabel: { table: { disable: true } },
     onRemove: {
       description: "Function to call when a chip is removed",
       table: {
@@ -33,10 +41,18 @@ export const Primary: Story = {
   args: {
     label: "Chip Group",
     children: [
-      <Chip id="news">News</Chip>,
-      <Chip id="travel">Travel</Chip>,
-      <Chip id="gaming">Gaming</Chip>,
-      <Chip id="shopping">Shopping</Chip>,
+      <Chip key="news" id="news">
+        News
+      </Chip>,
+      <Chip key="travel" id="travel">
+        Travel
+      </Chip>,
+      <Chip key="gaming" id="gaming">
+        Gaming
+      </Chip>,
+      <Chip key="shopping" id="shopping">
+        Shopping
+      </Chip>,
     ],
   },
 };
@@ -60,5 +76,27 @@ export const DisabledChips: Story = {
   args: {
     ...Primary.args,
     disabledKeys: ["shopping"],
+  },
+};
+
+export const InlineLabel: Story = {
+  args: {
+    ...Primary.args,
+    labelPlacement: "inline",
+  },
+};
+
+export const WithMessage: Story = {
+  args: {
+    ...Primary.args,
+    message: "Pick the topics you're interested in",
+  },
+};
+
+export const WithError: Story = {
+  args: {
+    ...Primary.args,
+    isInvalid: true,
+    error: "Pick at least one topic",
   },
 };

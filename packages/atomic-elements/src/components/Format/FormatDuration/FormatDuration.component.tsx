@@ -7,7 +7,10 @@ import {
 
 export interface FormatDurationProps
   extends FormatterProps<number, string>,
-    FormatDurationOptions {}
+    FormatDurationOptions {
+  /** The duration to format, in seconds. When `null` or `undefined`, `fallback` is rendered instead. */
+  value?: number | null;
+}
 
 /** Formats a given duration in seconds into a human-readable string.*/
 export function FormatDuration(props: FormatDurationProps) {
