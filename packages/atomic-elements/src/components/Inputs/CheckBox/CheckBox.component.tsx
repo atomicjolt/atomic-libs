@@ -12,12 +12,12 @@ import {
 import { HiddenInput } from "../Inputs.styles";
 import {
   CheckBoxLabel,
-  CheckboxWrapper,
+  CheckBoxWrapper,
   StyledLoadingCheckbox,
-} from "./Checkbox.styles";
+} from "./CheckBox.styles";
 import { ErrorMessage, Message } from "../../Fields";
 import { useContextProps } from "@hooks/useContextProps";
-import { CheckBoxContext } from "./Checkbox.context";
+import { CheckBoxContext } from "./CheckBox.context";
 import { SlotProps } from "@hooks/useSlottedContext";
 import { useRenderProps } from "@hooks";
 import { RequiredMarker } from "@components/Internal/RequiredMarker";
@@ -43,7 +43,7 @@ export interface CheckBoxProps
   name?: string;
 }
 
-/** Checkbox Component. Accepts a `ref` */
+/** CheckBox Component. Accepts a `ref` */
 export const CheckBox = React.forwardRef<HTMLInputElement, CheckBoxProps>(
   (props, ref) => {
     [props, ref] = useContextProps(CheckBoxContext, props, ref);
@@ -94,7 +94,7 @@ export const CheckBox = React.forwardRef<HTMLInputElement, CheckBoxProps>(
     const ariaChecked = isIndeterminate ? "mixed" : undefined;
 
     return (
-      <CheckboxWrapper $rtl={direction === "rtl"} {...renderProps}>
+      <CheckBoxWrapper $rtl={direction === "rtl"} {...renderProps}>
         <HiddenInput
           {...inputProps}
           ref={ref}
@@ -123,7 +123,7 @@ export const CheckBox = React.forwardRef<HTMLInputElement, CheckBoxProps>(
           {message && <Message>{message}</Message>}
           {isInvalid && error && <ErrorMessage isInvalid>{error}</ErrorMessage>}
         </CheckBoxLabel>
-      </CheckboxWrapper>
+      </CheckBoxWrapper>
     );
   }
 );

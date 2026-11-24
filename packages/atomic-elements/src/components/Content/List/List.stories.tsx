@@ -5,7 +5,7 @@ import { Text } from "../../Typography/Text";
 import { Flex } from "../../Layout/Flex";
 import { View } from "@components/Layout/View";
 import { IconButton } from "@components/Buttons/IconButton";
-import { CheckBox } from "@components/Inputs/Checkbox";
+import { CheckBox } from "@components/Inputs/CheckBox";
 import { list } from "@styles/theme/component";
 
 export default {
