@@ -1,6 +1,10 @@
 import { Meta, StoryObj } from "@storybook/react-vite";
 import { ChipGroup } from ".";
-import { InputControls, MultiSelectionArgTypes } from "@sb/helpers";
+import {
+  InputControls,
+  LoadingArgTypes,
+  MultiSelectionArgTypes,
+} from "@sb/helpers";
 import { chip } from "@styles/theme/component";
 import { Chip } from "../Chip";
 import { fn } from "storybook/test";
@@ -15,17 +19,16 @@ export default {
   argTypes: {
     ...InputControls,
     ...MultiSelectionArgTypes,
+    ...LoadingArgTypes,
     children: {
       control: false,
       description: "`Chip` elements to render",
     },
     // Not supported by ChipGroup: isReadOnly and placeholder aren't in its
-    // props, and name / isLoading / loadingLabel are accepted but ignored.
+    // props, and name is accepted but ignored.
     isReadOnly: { table: { disable: true } },
     placeholder: { table: { disable: true } },
     name: { table: { disable: true } },
-    isLoading: { table: { disable: true } },
-    loadingLabel: { table: { disable: true } },
     onRemove: {
       description: "Function to call when a chip is removed",
       table: {

@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react-vite";
+import { LoadingArgTypes } from "@sb/helpers";
 import { TextArea } from ".";
 
 export default {
@@ -8,18 +9,7 @@ export default {
     layout: "centered",
   },
   argTypes: {
-    isLoading: {
-      control: "boolean",
-      table: {
-        category: "State",
-      },
-    },
-    loadingLabel: {
-      control: "text",
-      table: {
-        category: "State",
-      },
-    },
+    ...LoadingArgTypes,
   },
 } as Meta<typeof TextArea>;
 

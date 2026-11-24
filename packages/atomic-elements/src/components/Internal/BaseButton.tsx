@@ -98,8 +98,9 @@ export const BaseButton = forwardRef<HTMLButtonElement, BaseButtonProps>(
         {isLoading && (
           <SpinnerLoader
             isLoading={!loadingComplete}
+            // Unlabelled, so decorative: the button itself is renamed to
+            // loadingLabel while loading.
             placement="absolute center"
-            aria-label="loading"
           />
         )}
         {renderProps.children}

@@ -27,8 +27,10 @@ exports[`LoadingStatus > matches error snapshot 1`] = `
 exports[`LoadingStatus > matches loading snapshot 1`] = `
 <DocumentFragment>
   <div
+    aria-label="Loading"
     class="sc-dkXsAU fCBAjc aje-loader aje-loader--bouncing-dots is-medium"
     data-placement="center"
+    role="status"
   >
     <div
       class="sc-bdDsCe iSrrdl aje-flex"

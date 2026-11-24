@@ -6,7 +6,7 @@ import { Input } from "../Atoms/Input";
 import { NumberField } from "../NumberField";
 import { Group } from "@components/Layout/Group";
 import { Text } from "@components/Typography/Text";
-import { RenderPropsArgTypes } from "@sb/helpers";
+import { LoadingArgTypes, RenderPropsArgTypes } from "@sb/helpers";
 
 export default {
   title: "Fields/ComboInput",
@@ -20,18 +20,7 @@ export default {
       control: "select",
       options: ["left", "right", "both"],
     },
-    isLoading: {
-      control: "boolean",
-      table: {
-        category: "State",
-      },
-    },
-    loadingLabel: {
-      control: "text",
-      table: {
-        category: "State",
-      },
-    },
+    ...LoadingArgTypes,
   },
 } as Meta<typeof ComboInput>;
 

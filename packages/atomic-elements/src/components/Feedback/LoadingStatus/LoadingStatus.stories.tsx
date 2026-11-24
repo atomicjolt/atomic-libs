@@ -3,6 +3,7 @@ import { loader } from "@styles/theme/component";
 import { SpinnerLoader } from "../SpinnerLoader";
 import { LoadingStatus } from ".";
 import { Text } from "@components/Typography/Text";
+import { LoadingArgTypes } from "@sb/helpers";
 
 const meta: Meta<typeof LoadingStatus> = {
   title: "Feedback/LoadingStatus",
@@ -12,9 +13,7 @@ const meta: Meta<typeof LoadingStatus> = {
     cssprops: { loader },
   },
   argTypes: {
-    isLoading: {
-      control: "boolean",
-    },
+    ...LoadingArgTypes,
     loadingMessage: {
       type: "string",
     },

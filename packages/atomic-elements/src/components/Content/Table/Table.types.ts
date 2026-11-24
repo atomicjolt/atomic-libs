@@ -24,6 +24,10 @@ export interface LoadingProps {
    * @selector [data-loading]
    */
   isLoading?: boolean;
+  /** Label announced to screen readers while loading
+   * @default "Loading" (translated)
+   */
+  loadingLabel?: string;
   /** The number of rows to render when loading
    * @default 10
    */

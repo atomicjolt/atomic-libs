@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react-vite";
 import { now, getLocalTimeZone } from "@internationalized/date";
-import { TextInputControls } from "@sb/helpers";
+import { LoadingArgTypes, TextInputControls } from "@sb/helpers";
 import { DateInput } from ".";
 
 // Snippets print @internationalized/date values with toString(), which isn't
@@ -44,6 +44,7 @@ export default {
     },
   },
   argTypes: {
+    ...LoadingArgTypes,
     ...TextInputControls,
     placeholder: {
       table: { disable: true },

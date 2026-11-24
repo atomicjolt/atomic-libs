@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react-vite";
+import { LoadingArgTypes } from "@sb/helpers";
 import { ToggleSwitch } from ".";
 import { toggle } from "@styles/theme/component";
 
@@ -10,18 +11,7 @@ const meta: Meta<typeof ToggleSwitch> = {
     cssprops: { toggle },
   },
   argTypes: {
-    isLoading: {
-      control: "boolean",
-      table: {
-        category: "State",
-      },
-    },
-    loadingLabel: {
-      control: "text",
-      table: {
-        category: "State",
-      },
-    },
+    ...LoadingArgTypes,
     children: {
       control: "text",
       description: "Label rendered next to the switch",
