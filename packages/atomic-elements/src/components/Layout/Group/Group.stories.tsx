@@ -9,6 +9,7 @@ export default {
   component: Group,
   parameters: {
     layout: "centered",
+    primaryStyleProps: ["$direction"],
   },
 
   argTypes: {

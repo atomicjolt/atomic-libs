@@ -5,7 +5,6 @@ import {
   Subtitle,
   Description,
   Primary,
-  Controls,
   Stories,
 } from "@storybook/addon-docs/blocks";
 
@@ -13,6 +12,7 @@ import { defaultTheme } from "../packages/atomic-elements/src/styles";
 import { ElementsProvider } from "../packages/atomic-elements/src/components/ElementsProvider";
 import { CssVariablesTable } from "./utils/CssVariablesTable";
 import { fixInferredArgTypes } from "./utils/argTypes";
+import { MainControls, StylePropsControls } from "./utils/StylePropsControls";
 
 const preview: Preview = {
   argTypesEnhancers: [fixInferredArgTypes],
@@ -87,7 +87,8 @@ const preview: Preview = {
           <Subtitle />
           <Description />
           <Primary />
-          <Controls />
+          <MainControls />
+          <StylePropsControls />
           <CssVariablesTable />
           <Stories />
         </>

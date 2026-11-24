@@ -13,7 +13,10 @@
  * function keeps the runtime name without confusing docgen, which then names
  * components from their exports instead.
  */
-export function setDisplayName<T extends object>(component: T, name: string): T {
+export function setDisplayName<T extends object>(
+  component: T,
+  name: string
+): T {
   (component as { displayName?: string }).displayName = name;
   return component;
 }
