@@ -27,6 +27,8 @@ Finding categories: **Misnamed**, **Bad control**, **Missing control**, **Unnece
 
 ### G1. Docgen config drops Storybook's defaults, so simple props get object editors
 
+> **Status:** ✅ Fixed. Added `shouldRemoveUndefinedFromOptional` to `.storybook/main.ts`. Correction to the cause above: Storybook does merge its default docgen options with ours. The option was still needed, but the `node_modules` `propFilter` was not missing before G8 replaced it (see G8).
+
 - **Symptom:** 75 props-table rows across the docs render a JSON "Set object" editor for plain
   `string`, `boolean` or `number` props. Examples: `id`, `name`, `isDisabled`, `rows`, `aria-label`,
   and Modal's `centered`, `isCentered` and `ensureVisible`.
@@ -57,6 +59,8 @@ Finding categories: **Misnamed**, **Bad control**, **Missing control**, **Unnece
 
 ### G2. `className` shows the classnames library's type
 
+> **Status:** ✅ Fixed with a global argTypes enhancer (`.storybook/utils/argTypes.ts`) rather than per story. It also hides ref props and removes object editors from React-node and function props.
+
 - **Symptom:** on 23 pages, `className` is typed `Argument | Argument[]` and gets an object control.
 - **Cause:** `Argument` comes from the classnames package:
   - `packages/atomic-elements/src/types/render.ts:5`
@@ -66,6 +70,8 @@ Finding categories: **Misnamed**, **Bad control**, **Missing control**, **Unnece
   `string | string[] | Record<string, boolean>`. The real type can stay as it is.
 
 ### G3. Action handlers clutter every code snippet
+
+> **Status:** ✅ Fixed (`jsx.filterProps` in `.storybook/preview.tsx`).
 
 - **Symptom:** 33 pages' "Show code" snippets include lines like `onPress={function YEe(){}}`. They
   come from `action: "…"` argTypes in the shared helpers (e.g. `PressableArgTypes`), which inject
@@ -87,6 +93,8 @@ Finding categories: **Misnamed**, **Bad control**, **Missing control**, **Unnece
 
 ### G4. Almost no defaults are documented
 
+> **Status:** ✅ Fixed for every component's own props. Defaults use `@default` JSDoc where the prop is declared in the component's folder, and the story's `table.defaultValue` where it's inherited. The argTypes enhancer also stops JSDoc string defaults showing double-quoted. Not covered: defaults on subcomponents' inherited props (Card.Panel, Navbar.Title, Disclosure.Trigger and similar). Those need their own props interfaces first.
+
 - **Symptom:** 20 of 1,398 props-table rows show a default, on 9 of 89 pages.
 - **Cause:** components mostly set defaults by destructuring inside the `forwardRef` body, e.g.
   `const { variant = "primary" } = props`. react-docgen-typescript can't see defaults there.
@@ -95,6 +103,8 @@ Finding categories: **Misnamed**, **Bad control**, **Missing control**, **Unnece
 - Part 2 lists each component's actual default values with source lines under **Defaults**.
 
 ### G5. Style props: keep them, but collapse them
+
+> **Status:** ✅ Fixed (`.storybook/utils/StylePropsControls.tsx`). Components can keep their key style props in the main table with `parameters.primaryStyleProps`; Flex, Grid, Group, Text and Heading do. MDX docs pages (Modal, ToolTip, LoadingStatus) use their own blocks and still list style props inline.
 
 - **Symptom:** 16 pages list `$`-prefixed style props (389 rows in total). On Modal they outnumber
   the real props roughly 4 to 1.
@@ -106,6 +116,8 @@ Finding categories: **Misnamed**, **Bad control**, **Missing control**, **Unnece
   style props stay documented but out of the way.
 
 ### G6. "Only one ElementsProvider" warning on 86 pages
+
+> **Status:** ✅ Fixed (`.storybook/utils/ElementsDocsContainer.tsx`). Storybook mounts each docs story in its own React root, so the color scheme is bridged through two small stores rather than context. Docs pages now also follow the toolbar's dark scheme, which they didn't before.
 
 - **Symptom:** almost every docs page logs `ElementsProvider: only one ElementsProvider should be
   mounted per page`.
@@ -124,6 +136,8 @@ Finding categories: **Misnamed**, **Bad control**, **Missing control**, **Unnece
   global.
 
 ### G7. Prop grouping is inconsistent
+
+> **Status:** Partly done. The category set is defined and documented in `helpers.tsx`, and the retired names (Field State, Presentation, Common) are gone. Not every story is categorised yet.
 
 - **Symptom:** the docs use 16 different category names: Render Props, Events, Field State, Helper
   Text, Common, Margin, Dimensions, Padding, Position, Overflow, Flex Item, Grid, Presentation,
@@ -147,6 +161,8 @@ Finding categories: **Misnamed**, **Bad control**, **Missing control**, **Unnece
 
 ### G8. Deprecated props
 
+> **Status:** ✅ Fixed with a docgen `propFilter` that drops `@deprecated` props. That filter replaces Storybook's default one, so it also restates the default `node_modules` rule. Without that, inherited HTML and aria props flooded the tables (fixed in a follow-up commit).
+
 - **Policy:** mark deprecated props `@deprecated` in the type, with the replacement named, and hide
   them from the docs table (`table: { disable: true }` on the argType).
 - **Possible automation:** check whether react-docgen-typescript passes JSDoc tags through to
@@ -155,6 +171,8 @@ Finding categories: **Misnamed**, **Bad control**, **Missing control**, **Unnece
 - Part 2 lists each deprecated prop under **Deprecated**.
 
 ### G9. Docgen gives parent components a subcomponent's name, or no docs at all
+
+> **Status:** ✅ Fixed. Cause: react-docgen-typescript applies the first `X.displayName = "literal"` in a file to every component in it. The new `setDisplayName()` helper (`src/utils/displayName.ts`) is used in all multi-component files. SelectField's internal components are no longer exported. Not fixed: Button and IconButton still have no docgen (cause unknown).
 
 - **Symptom:** snippets and headings show the wrong component name:
   - Card snippets render `<Card.Header>`
@@ -186,12 +204,16 @@ Finding categories: **Misnamed**, **Bad control**, **Missing control**, **Unnece
 
 ### G10. Format components get no docgen
 
+> **Status:** ✅ Fixed.
+
 - **Cause:** FormatDate, FormatDuration, FormatList and FormatNumber are defined in `index.ts`, and
   the docgen plugin only processes `**/*.tsx` (its default `include`). So their snippets show
   minified names (`<a>`, `<z>`, `<b>`, `<P>`) and their props tables have no types or descriptions.
 - **Fix:** move each into `X.component.tsx`, as FormatOptional and FormatTable already are.
 
 ### G11. Bugs in the shared argTypes (`packages/atomic-elements/storybook/helpers.tsx`)
+
+> **Status:** ✅ Fixed. Also: `PlacementArgType` offered four invalid placements, `onSelectionChange` was never logged, and the aria argTypes used the ignored `defaultValue` key. Not fixed: components that accept `isLoading` through `FieldInputProps` but ignore it still list it, because the row comes from their types. Removing it changes the public types, so it needs a decision.
 
 These show up on many pages:
 - ✅ **Fixed:** **`$flexAlgin`** (line 605) should be `$flexAlign`. The control currently sets a prop nothing reads,
@@ -213,6 +235,8 @@ These show up on many pages:
 
 ### G12. Default values hard-coded in story args, so they show up in snippets
 
+> **Status:** ✅ Fixed for every case listed in Part 2. A few stories still set a value equal to the default where it's the point of the story (e.g. `variant: "info"` in an "Info" story).
+
 - **Symptom:** many stories put a prop's default value in `args`, e.g. `size: "medium"`,
   `isDisabled: false`, `variant: "default"`, `placement: "center"`. Every snippet then shows those
   props, which makes the copied code noisier than real usage. Per-component instances are listed
@@ -229,6 +253,8 @@ These show up on many pages:
 - **Fix:** these are component bugs, not docs issues. Fix them in the components; see Part 3.
 
 ### G14. Fields and Format components share undocumented base types
+
+> **Status:** Partly done: `variant` and `dropdownPlacement` are described, and `maxHeight`'s wrong `@default` is removed.
 
 - **Symptom:** many descriptions are missing because shared base types have no JSDoc. Each one
   fixed in one place fixes many pages:
