@@ -17,6 +17,7 @@ export type IconMenuProps<T extends object> = AriaMenuProps<T> &
   CanHaveIcon &
   LoadingProps & {
     isDisabled?: boolean;
+    /** Variant of the trigger button. */
     buttonVariant?: ButtonVariants;
     /** @default "bottom right" */
     menuPlacement?: Placement;
@@ -48,6 +49,7 @@ export function IconMenu<T extends {}>(props: IconMenuProps<T>) {
     children,
     menuPlacement = "bottom right",
     icon = "more_vert",
+    buttonVariant,
     ...buttonProps
   } = props;
 
@@ -58,7 +60,13 @@ export function IconMenu<T extends {}>(props: IconMenuProps<T>) {
       defaultOpen={defaultOpen}
       onOpenChange={onOpenChange}
     >
-      <IconButton {...buttonProps} icon={icon} aria-label={ariaLabel} id={id} />
+      <IconButton
+        {...buttonProps}
+        variant={buttonVariant}
+        icon={icon}
+        aria-label={ariaLabel}
+        id={id}
+      />
       <Popover placement={menuPlacement}>
         <Menu
           defaultSelectedKeys={defaultSelectedKeys}

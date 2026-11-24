@@ -14,13 +14,18 @@ const meta: Meta<typeof IconMenu> = {
     buttonVariant: {
       control: "select",
       options: [
+        "border",
+        "ghost",
         "primary",
         "secondary",
+        "link",
         "error",
         "success",
         "inverted",
         "content",
       ],
+      description: "Variant of the trigger button.",
+      table: { defaultValue: { summary: '"border"' } },
     },
     icon: {
       table: { defaultValue: { summary: '"more_vert"' } },
