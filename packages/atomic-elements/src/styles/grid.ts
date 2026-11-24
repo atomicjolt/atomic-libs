@@ -40,7 +40,8 @@ export function grid(props: GridStyleProps) {
     gridTemplateColumns: $columns && resolveColumnsOrRows($columns),
     gridTemplateRows: $rows && resolveColumnsOrRows($rows),
     gridTemplateAreas: $areas,
-    gridAutoFlow: $flow,
+    // CSS separates the keywords with a space: "row dense".
+    gridAutoFlow: $flow?.replace("-", " "),
     alignItems: $align,
     justifyContent: $justify,
     gap: getSpacing($gap),
