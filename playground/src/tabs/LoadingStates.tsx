@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { getLocalTimeZone, now } from "@internationalized/date";
-// DateField isn't exported from the package, so import it from source.
-import { DateField } from "@components/Fields/DateField";
 import {
   Button,
   CheckBox,
@@ -10,6 +8,7 @@ import {
   ComboBox,
   ComboInput,
   CustomSelect,
+  DateField,
   DateInput,
   DatePicker,
   ExtendedSize,
