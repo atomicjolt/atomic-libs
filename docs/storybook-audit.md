@@ -1051,7 +1051,7 @@ today (even though they have no effect). They are hidden from the docs for now.
    > MultiSelectField. Their types don't accept `isLoading`; they only showed loading controls in
    > Storybook, which is fixed (G11).
    >
-   > **Status:** In progress: adding loading support to the five components.
+   > **Status:** ✅ Done: all five show a loading placeholder, from their own props or an ambient `<Loading>` provider.
 4. **`size`** is ignored by Divider, Table and ToggleSwitch. Calendar's `size` type also allows
    `"auto"`, which has no styles.
    > **Status:** ✅ Done: `size` removed from Divider, Table and ToggleSwitch; Calendar's `size` no longer allows `"auto"`. Breaking for TypeScript callers.
