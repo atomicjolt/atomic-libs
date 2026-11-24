@@ -49,7 +49,10 @@ export interface ListItemProps
   extends RenderBaseProps<never>,
     ElementWrapper<HTMLLIElement>,
     PaddingProps {
-  /** @default true */
+  /**
+   * Draw a divider below this item.
+   * @default true
+   */
   showDivider?: boolean;
 }
 

@@ -33,3 +33,5 @@ export const View = forwardRef<HTMLDivElement, ViewProps>(function View(
 
   return <ViewWrapper ref={ref} {...renderProps} {...rest} />;
 });
+
+View.displayName = "View";

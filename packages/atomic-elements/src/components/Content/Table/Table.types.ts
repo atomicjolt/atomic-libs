@@ -77,6 +77,10 @@ export interface TableProps<T>
 
   children?: React.ReactNode;
 
+  /** Keeps the first column (the row header) fixed in place while the
+   * table scrolls horizontally.
+   * @selector [data-sticky]
+   */
   isSticky?: boolean;
 
   size?: ExtendedSize;
@@ -146,7 +150,7 @@ export interface TableOptions {
   /** The selection behavior for the table. */
   selectionBehavior?: SelectionBehavior;
 
-  /**  */
+  /** Whether rows can be selected, and how many at once. */
   selectionMode?: SelectionMode;
 
   /** Whether the table is in a sticky state */

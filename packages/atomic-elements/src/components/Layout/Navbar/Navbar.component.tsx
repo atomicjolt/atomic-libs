@@ -42,6 +42,11 @@ const NavbarRoot = forwardRef<HTMLDivElement, NavbarProps>(function Navbar(
 
 setDisplayName(NavbarRoot, "Navbar");
 
+/**
+ * A horizontal bar for page-level navigation. Lay it out with
+ * `Navbar.Section`s, and use `Navbar.BackButton`, `Navbar.Title` and
+ * `Navbar.Subtitle` inside them.
+ */
 export const Navbar = NavbarRoot as typeof NavbarRoot & {
   BackButton: typeof NavbarBackButton;
   Section: typeof NavbarSection;
@@ -80,7 +85,11 @@ setDisplayName(NavbarBackButton, "Navbar.BackButton");
 Navbar.BackButton = NavbarBackButton;
 
 interface NavbarSectionProps extends FlexProps {
-  /** @default "left" */
+  /**
+   * Aligns the section's content: `left` to the start, `right` to the end,
+   * `center` to the center.
+   * @default "left"
+   */
   side?: "left" | "right" | "center";
 }
 

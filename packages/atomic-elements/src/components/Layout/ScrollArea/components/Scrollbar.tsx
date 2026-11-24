@@ -18,12 +18,25 @@ import { useRenderProps } from "@hooks/useRenderProps";
 export interface ScrollbarProps
   extends RenderStyleProps<never>,
     ElementWrapper<HTMLDivElement> {
+  /** Which axis of the viewport the scrollbar controls. */
   orientation: "horizontal" | "vertical";
-  /** @default "viewport" */
+  /**
+   * Length of the scrollbar: `viewport` matches the viewport, `auto` sizes to
+   * its content, or pass a CSS length.
+   * @default "viewport"
+   */
   size?: SuggestStrings<"viewport" | "auto">;
-  /** @default "auto" */
+  /**
+   * `auto` hides the scrollbar when the viewport can't scroll; `always` keeps
+   * it visible.
+   * @default "auto"
+   */
   show?: "always" | "auto";
-  /** @default false */
+  /**
+   * Keep the space of a hidden scrollbar, so the layout doesn't shift when it
+   * appears.
+   * @default false
+   */
   reserveSpace?: boolean;
 }
 

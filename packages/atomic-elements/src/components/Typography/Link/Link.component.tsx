@@ -11,7 +11,11 @@ export interface LinkProps
     RenderBaseProps<never>,
     StyleProps,
     DomProps {
-  /** @default "a" */
+  /**
+   * Element to render. Use `span` for client-side navigation handled with
+   * `onPress` instead of `href`.
+   * @default "a"
+   */
   as?: "a" | "span";
 }
 

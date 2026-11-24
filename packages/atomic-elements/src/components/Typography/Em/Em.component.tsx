@@ -13,6 +13,7 @@ export interface EmProps
     MarginProps,
     TextColorProps {}
 
+/** Emphasized inline text. Renders an `<em>` element. */
 export const Em = forwardRef<HTMLElement, EmProps>(function Em(props, ref) {
   [props, ref] = useContextProps(EmContext, props, ref);
 

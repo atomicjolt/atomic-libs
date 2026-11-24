@@ -26,6 +26,9 @@ export default {
     ...RenderPropsArgTypes,
     ...LayoutArgTypes,
     $display: {
+      control: "select",
+      options: ["grid", "inline-grid", "none"],
+      description: "CSS display value of the grid container.",
       table: { defaultValue: { summary: '"grid"' } },
     },
     $columns: {
@@ -44,32 +47,29 @@ export default {
         "The names of the grid areas. Each name is separated by a space.",
     },
     $flow: {
-      control: {
-        type: "select",
-        options: ["row", "column", "dense", "row-dense", "column-dense"],
-      },
-      description: "The direction of the grid",
+      control: "select",
+      options: ["row", "column", "dense", "row-dense", "column-dense"],
+      description:
+        "How auto-placed items flow into the grid (grid-auto-flow). The `-dense` values also back-fill earlier gaps.",
     },
     $align: {
-      control: {
-        type: "select",
-        options: ["start", "end", "center", "stretch", "baseline"],
-      },
-      description: "The alignment of the grid.",
+      control: "select",
+      options: ["start", "end", "center", "stretch", "baseline"],
+      description:
+        "How items are aligned within their grid areas (align-items).",
     },
     $justify: {
-      control: {
-        type: "select",
-        options: [
-          "start",
-          "end",
-          "center",
-          "space-between",
-          "space-around",
-          "space-evenly",
-        ],
-      },
-      description: "The justification of the grid.",
+      control: "select",
+      options: [
+        "start",
+        "end",
+        "center",
+        "space-between",
+        "space-around",
+        "space-evenly",
+      ],
+      description:
+        "How the grid's tracks are distributed along the inline axis (justify-content).",
     },
     $gap: {
       control: "select",

@@ -71,8 +71,8 @@ export const WithActions: Story = {
               adipiscing elit.
             </Text>
           </View>
-          <IconButton icon="edit" variant="ghost" />
-          <IconButton icon="close" variant="ghost" />
+          <IconButton icon="edit" variant="ghost" aria-label="Edit" />
+          <IconButton icon="close" variant="ghost" aria-label="Remove" />
         </Flex>
       </List.Item>,
       <List.Item key="5">
@@ -86,8 +86,8 @@ export const WithActions: Story = {
               consectetur adipiscing elit.
             </Text>
           </View>
-          <IconButton icon="edit" variant="ghost" />
-          <IconButton icon="close" variant="ghost" />
+          <IconButton icon="edit" variant="ghost" aria-label="Edit" />
+          <IconButton icon="close" variant="ghost" aria-label="Remove" />
         </Flex>
       </List.Item>,
       <List.Item key="6">
@@ -101,8 +101,8 @@ export const WithActions: Story = {
               adipiscing elit.
             </Text>
           </View>
-          <IconButton icon="edit" variant="ghost" />
-          <IconButton icon="close" variant="ghost" />
+          <IconButton icon="edit" variant="ghost" aria-label="Edit" />
+          <IconButton icon="close" variant="ghost" aria-label="Remove" />
         </Flex>
       </List.Item>,
     ],

@@ -36,8 +36,16 @@ interface DisclosureRenderProps {
 export interface DisclosureProps
   extends StatelyDisclosureProps,
     RenderBaseProps<DisclosureRenderProps> {
+  /**
+   * Identifies the disclosure. Inside a DisclosureGroup, this is the key used
+   * in `expandedKeys` / `defaultExpandedKeys`. Generated when omitted.
+   */
   id?: string;
-  /** @default false */
+  /**
+   * Whether the disclosure is disabled: its trigger can't be pressed, so the
+   * panel can't be expanded or collapsed.
+   * @default false
+   */
   isDisabled?: boolean;
 }
 
