@@ -44,6 +44,14 @@ export default {
         category: "Events",
       },
     },
+    onClear: {
+      action: "onClear",
+      description:
+        "Handler that is called when the field is cleared, with Escape or a clear-slot button.",
+      table: {
+        category: "Events",
+      },
+    },
   },
 } as Meta<typeof SearchField>;
 
@@ -93,10 +101,10 @@ export const WithAdditionalAction: Story = {
       <ComboInput key="combo" padding="both">
         <Input key="input" />
         <IconButton
+          slot="clear"
           key="clear-button"
           icon="close"
           variant="content"
-          aria-label="clear search"
         />
         <IconButton
           slot="submit"
