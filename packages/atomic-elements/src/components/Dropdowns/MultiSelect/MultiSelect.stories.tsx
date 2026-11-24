@@ -15,6 +15,22 @@ export default {
   argTypes: {
     ...InputControls,
     ...LoadingArgTypes,
+    placeholder: {
+      ...InputControls.placeholder,
+      table: {
+        ...InputControls.placeholder.table,
+        defaultValue: { summary: '"Select an option"' },
+      },
+    },
+    size: {
+      table: { defaultValue: { summary: '"medium"' } },
+    },
+    maxHeight: {
+      table: { defaultValue: { summary: "300" } },
+    },
+    dropdownPlacement: {
+      table: { defaultValue: { summary: '"bottom start"' } },
+    },
     selectedKeys: {
       control: "multi-select",
       description:

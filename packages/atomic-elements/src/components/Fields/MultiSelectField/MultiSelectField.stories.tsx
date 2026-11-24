@@ -20,6 +20,9 @@ export default {
   },
   argTypes: {
     ...InputControls,
+    size: {
+      table: { defaultValue: { summary: '"medium"' } },
+    },
     selectedKeys: {
       control: "multi-select",
       description:

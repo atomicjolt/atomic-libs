@@ -18,6 +18,7 @@ export type IconMenuProps<T extends object> = AriaMenuProps<T> &
   LoadingProps & {
     isDisabled?: boolean;
     buttonVariant?: ButtonVariants;
+    /** @default "bottom right" */
     menuPlacement?: Placement;
     children: CollectionChildren<ItemProps>;
   };

@@ -12,7 +12,9 @@ export interface ConfirmationModalProps extends BaseModalProps {
    * Delete is an appropriate string to use. */
   confirmText: string;
   /** This will replace 'Cancel' as the negative action.
-   * Sometimes you might need it to say 'Close' or something instead. */
+   * Sometimes you might need it to say 'Close' or something instead.
+   * @default "Cancel"
+   */
   rejectText?: string;
 
   /** Called when the user clicks on the button with `confirmText` */

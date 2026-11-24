@@ -20,6 +20,7 @@ export default {
       control: "select",
       options: ["press", "longPress"],
       description: "The trigger type for opening the menu.",
+      table: { defaultValue: { summary: '"press"' } },
     },
   },
 } as Meta<typeof MenuTrigger>;

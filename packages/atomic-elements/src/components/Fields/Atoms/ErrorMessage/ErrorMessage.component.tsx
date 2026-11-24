@@ -17,6 +17,7 @@ export const StyledErrorMessage = styled.p`
 
 export interface ErrorMessageProps
   extends ElementWrapperProps<React.HTMLAttributes<HTMLParagraphElement>> {
+  /** @default "p" */
   as?: React.ElementType;
   isInvalid?: boolean;
 }

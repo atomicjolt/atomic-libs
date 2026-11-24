@@ -19,6 +19,23 @@ const meta: Meta<typeof CustomSelect> = {
     variant: {
       control: "select",
       options: ["default", "floating"],
+      table: { defaultValue: { summary: '"default"' } },
+    },
+    size: {
+      table: { defaultValue: { summary: '"medium"' } },
+    },
+    maxHeight: {
+      table: { defaultValue: { summary: "300" } },
+    },
+    dropdownPlacement: {
+      table: { defaultValue: { summary: '"bottom start"' } },
+    },
+    placeholder: {
+      ...InputControls.placeholder,
+      table: {
+        ...InputControls.placeholder.table,
+        defaultValue: { summary: '"Select an option" (localized)' },
+      },
     },
     selectedKey: {
       control: "select",
@@ -67,8 +84,6 @@ type Story = StoryObj<typeof CustomSelect>;
 
 export const Primary: Story = {
   args: {
-    size: "medium",
-    variant: "default",
     label: "Custom Select Label",
     children: [
       <Item id="val1">Item 1</Item>,

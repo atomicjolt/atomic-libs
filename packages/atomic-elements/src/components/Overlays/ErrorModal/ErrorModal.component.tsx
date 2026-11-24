@@ -8,7 +8,9 @@ export interface ErrorModalProps extends BaseModalProps {
   children: React.ReactNode;
   /** Must include a title. Titles are always in Title case. */
   title: string;
-  /** Text of the button to close the modal. */
+  /** Text of the button to close the modal.
+   * @default "Close"
+   */
   buttonText?: string;
   onClose?: () => void;
 }

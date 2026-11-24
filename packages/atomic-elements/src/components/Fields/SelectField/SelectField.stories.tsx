@@ -27,6 +27,9 @@ export default {
     ...FieldStateControls,
     ...RenderPropsArgTypes,
     ...FocusEventsArgTypes,
+    size: {
+      table: { defaultValue: { summary: '"medium"' } },
+    },
     selectedKey: {
       control: "select",
       description:

@@ -17,21 +17,23 @@ export default {
       control: "number",
       description:
         "The distance in pixels between the popover and the target element.",
-      defaultValue: 4,
+      table: { defaultValue: { summary: "8" } },
     },
     isOpen: {
       control: "boolean",
       description:
         "Whether the popover is open or not. Not needed when paired with a Trigger Wrapper",
-      defaultValue: false,
     },
     defaultOpen: {
       control: "boolean",
       description:
         "Whether the popover is open by default. Not needed when paired with a Trigger Wrapper",
-      defaultValue: false,
+      table: { defaultValue: { summary: "false" } },
     },
-    ...PlacementArgType,
+    placement: {
+      ...PlacementArgType.placement,
+      table: { defaultValue: { summary: '"bottom"' } },
+    },
   },
 } as Meta<typeof Popover>;
 

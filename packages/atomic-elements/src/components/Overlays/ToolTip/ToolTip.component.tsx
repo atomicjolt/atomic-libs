@@ -27,10 +27,14 @@ export interface ToolTipProps
    */
   triggerRef?: React.RefObject<Element | null>;
 
-  /* Placement of the tooltip relative to the target element */
+  /** Placement of the tooltip relative to the target element
+   * @default "top"
+   */
   placement?: "right" | "left" | "top" | "bottom";
 
-  /* Time in milliseconds for the tooltip to fade in and out */
+  /** Time in milliseconds for the tooltip to fade in and out
+   * @default 300
+   */
   transitionDuration?: number;
 }
 

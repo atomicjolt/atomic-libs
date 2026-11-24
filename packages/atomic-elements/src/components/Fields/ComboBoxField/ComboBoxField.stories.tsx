@@ -24,6 +24,9 @@ export default {
     ...FieldStateControls,
     ...LoadingArgTypes,
     ...RenderPropsArgTypes,
+    size: {
+      table: { defaultValue: { summary: '"medium"' } },
+    },
   },
 } as Meta<typeof ComboBoxField>;
 
