@@ -12,7 +12,11 @@ import { Popover } from "../../Overlays/Popover";
 import { ListBox } from "../ListBox";
 import { SelectField } from "@components/Fields/SelectField";
 import { FloatingFieldInputWrapper } from "@components/Internal/FloatingFieldInputWrapper";
-import { StyledLoadingSelect, StyledSelectField } from "./CustomSelect.styles";
+import {
+  StyledLoadingSelect,
+  StyledLoadingSelectField,
+  StyledSelectField,
+} from "./CustomSelect.styles";
 import { Button } from "@components/Buttons/Button";
 import { MaterialIcon } from "@components/Icons/MaterialIcon";
 import { useLoading } from "@components/Feedback/Loading";
@@ -63,7 +67,7 @@ export const CustomSelect = forwardRef(function CustomSelect<T extends object>(
 
   if (isLoading) {
     return (
-      <StyledSelectField {...props} {...renderProps} ref={ref}>
+      <StyledLoadingSelectField {...renderProps}>
         <FloatingFieldInputWrapper
           floating={variant === "floating"}
           label={label}
@@ -81,7 +85,7 @@ export const CustomSelect = forwardRef(function CustomSelect<T extends object>(
             />
           </StyledLoadingSelect>
         </FloatingFieldInputWrapper>
-      </StyledSelectField>
+      </StyledLoadingSelectField>
     );
   }
 

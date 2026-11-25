@@ -1,3 +1,4 @@
+import { setDisplayName } from "@utils/displayName";
 import { useRef } from "react";
 import { AriaNumberFieldProps, useNumberField } from "@react-aria/numberfield";
 import { useLocale } from "@react-aria/i18n";
@@ -22,7 +23,7 @@ export interface NumberFieldProps
     Omit<AriaProps<AriaNumberFieldProps>, "placeholder">,
     LoadingProps {}
 
-/** Provides the accessbility implementation for a number field and its associated label, error message, and description. */
+/** Provides the accessibility implementation for a number field and its associated label, error message, and description. */
 export function NumberField(props: NumberFieldProps) {
   const { isDisabled, isRequired, isReadOnly, name, isLoading, loadingLabel } =
     props;
@@ -77,10 +78,7 @@ export function NumberField(props: NumberFieldProps) {
               },
             },
           ],
-          [
-            ComboInputContext.Provider,
-            { inputRef, isLoading, loadingLabel },
-          ],
+          [ComboInputContext.Provider, { inputRef, isLoading, loadingLabel }],
           [
             FieldInputContext.Provider,
             {
@@ -89,6 +87,8 @@ export function NumberField(props: NumberFieldProps) {
               readOnly: isReadOnly,
               name,
               ref: inputRef,
+              isLoading,
+              loadingLabel,
             },
           ],
         ]}
@@ -108,9 +108,9 @@ function NumberFieldDecrementButton(props: IconButtonProps) {
 }
 
 NumberField.IncrementButton = NumberFieldIncrementButton;
-NumberFieldIncrementButton.displayName = "NumberField.IncrementButton";
+setDisplayName(NumberFieldIncrementButton, "NumberField.IncrementButton");
 
 NumberField.DecrementButton = NumberFieldDecrementButton;
-NumberFieldDecrementButton.displayName = "NumberField.DecrementButton";
+setDisplayName(NumberFieldDecrementButton, "NumberField.DecrementButton");
 
-NumberField.displayName = "NumberField";
+setDisplayName(NumberField, "NumberField");

@@ -8,10 +8,12 @@ type ChipVariants = SuggestStrings<
 >;
 
 export interface ChipProps<T> extends ItemProps, PressProps {
+  /** Colour variant: `default`, `warning`, `success` or `danger` */
   variant?: ChipVariants;
   /** Handler that is called when the user
    * clicks the remove button for the chip */
   onRemove?: (e: PressEvent) => void;
+  /** Marks the chip as disabled (`aria-disabled`) and disables its remove button */
   isDisabled?: boolean;
 }
 

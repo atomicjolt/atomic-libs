@@ -1,4 +1,5 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
+import { OverlayTriggerArgTypes, RenderStylePropsArgTypes } from "@sb/helpers";
 import { ErrorModal } from ".";
 
 const meta: Meta<typeof ErrorModal> = {
@@ -10,6 +11,13 @@ const meta: Meta<typeof ErrorModal> = {
         inline: false,
         height: "400px",
       },
+    },
+  },
+  argTypes: {
+    ...OverlayTriggerArgTypes,
+    ...RenderStylePropsArgTypes,
+    $width: {
+      table: { defaultValue: { summary: '"400px"' } },
     },
   },
 };
@@ -24,6 +32,6 @@ export const Primary: Story = {
     title: "Error",
     children: "An error has occurred",
     buttonText: "Close",
-    centered: true,
+    isCentered: true,
   },
 };

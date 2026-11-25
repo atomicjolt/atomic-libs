@@ -1,5 +1,5 @@
 import { createComponentContext } from '@utils/index';
-import { CheckBoxProps } from './Checkbox.component';
+import { CheckBoxProps } from './CheckBox.component';
 
 
 export const CheckBoxContext = createComponentContext<CheckBoxProps>();

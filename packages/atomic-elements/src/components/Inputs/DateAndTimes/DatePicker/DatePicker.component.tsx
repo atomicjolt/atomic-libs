@@ -25,6 +25,10 @@ import { Flex } from "@components/Layout/Flex";
 export interface DatePickerProps<T extends DateValue>
   extends AriaProps<AriaDatePickerProps<T>>,
     FieldInputProps {
+  /**
+   * Size of the popup calendar
+   * @default "small"
+   */
   calendarSize?: Size;
 }
 
@@ -48,6 +52,8 @@ export function DatePicker<T extends DateValue>(props: DatePickerProps<T>) {
     isInvalid,
     label,
     message,
+    isLoading,
+    loadingLabel,
   } = props;
 
   const renderProps = useRenderProps({
@@ -72,7 +78,11 @@ export function DatePicker<T extends DateValue>(props: DatePickerProps<T>) {
         >
           <Label {...labelProps}>{label}</Label>
           {message && <Message {...descriptionProps}>{message}</Message>}
-          <ComboInput padding="both">
+          <ComboInput
+            padding="both"
+            isLoading={isLoading}
+            loadingLabel={loadingLabel}
+          >
             <DateField.Segments>
               {(_, index) => <DateField.Segment key={index} index={index} />}
             </DateField.Segments>

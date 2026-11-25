@@ -17,6 +17,7 @@ export const StyledMessage = styled.p`
 
 export interface MessageProps
   extends ElementWrapperProps<React.HTMLAttributes<HTMLParagraphElement>> {
+  /** Element or component to render as. Renders a `<p>` when unset. */
   as?: React.ElementType;
 }
 

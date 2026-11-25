@@ -17,6 +17,7 @@ export interface ToolTipTriggerProps<P extends DOMAttributes = DOMAttributes>
   children: [React.ReactElement<P>, React.ReactElement<ToolTipProps>];
 }
 
+/** Wraps a target element and a `ToolTip`, and shows the tooltip when the target is hovered or focused. */
 export function ToolTipTrigger<P extends DOMAttributes>(
   props: ToolTipTriggerProps<P>
 ) {

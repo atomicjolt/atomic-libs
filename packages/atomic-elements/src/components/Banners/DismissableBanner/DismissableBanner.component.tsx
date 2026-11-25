@@ -18,10 +18,15 @@ interface SharedProps
 }
 
 export interface DismissableBannerProps extends SharedProps {
+  /** Colour variant: `info`, `error`, `success` or `warning`
+   * @default "info"
+   */
   readonly variant?: BannerVariants;
   /** Name of material icon to be displayed */
   readonly icon?: MaterialIcons;
-  /** Variant of material icon to be displayed */
+  /** Variant of material icon to be displayed
+   * @default "default"
+   */
   readonly iconVariant?: MaterialIconVariants;
 }
 
@@ -67,7 +72,8 @@ export const DismissableBanner = forwardRef<
 
 export type BannerWrapperProps = SharedProps;
 
-/** Convenience Wrapper around `DismissableBanner` */
+/** Convenience Wrapper around `DismissableBanner`,
+ * with `variant="error"` and `icon="error"` */
 export const ErrorBanner = forwardRef<HTMLDivElement, BannerWrapperProps>(
   (props, ref) => {
     return (
@@ -76,6 +82,8 @@ export const ErrorBanner = forwardRef<HTMLDivElement, BannerWrapperProps>(
   }
 );
 
+/** Convenience Wrapper around `DismissableBanner`,
+ * with `variant="warning"` and `icon="warning"` */
 export const WarningBanner = forwardRef<HTMLDivElement, BannerWrapperProps>(
   (props, ref) => {
     return (

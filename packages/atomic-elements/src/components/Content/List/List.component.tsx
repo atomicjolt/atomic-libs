@@ -1,3 +1,4 @@
+import { setDisplayName } from "@utils/displayName";
 import { forwardRef, type JSX } from "react";
 import { ElementWrapper, RenderBaseProps } from "../../../types";
 import { useContextProps } from "@hooks/useContextProps";
@@ -10,6 +11,7 @@ export interface ListProps
   extends RenderBaseProps<never>,
     ElementWrapper<HTMLUListElement>,
     MarginProps {
+  /** @default "ul" */
   as?: "ul" | "ol";
 }
 
@@ -41,12 +43,16 @@ export const List = forwardRef<HTMLUListElement, ListProps>(function List(
   );
 }) as unknown as ListComponent;
 
-List.displayName = "List";
+setDisplayName(List, "List");
 
 export interface ListItemProps
   extends RenderBaseProps<never>,
     ElementWrapper<HTMLLIElement>,
     PaddingProps {
+  /**
+   * Draw a divider below this item.
+   * @default true
+   */
   showDivider?: boolean;
 }
 
@@ -74,4 +80,4 @@ const ListItem = forwardRef<HTMLLIElement, ListItemProps>(function ListItem(
 });
 
 List.Item = ListItem;
-List.Item.displayName = "List.Item";
+setDisplayName(List.Item, "List.Item");

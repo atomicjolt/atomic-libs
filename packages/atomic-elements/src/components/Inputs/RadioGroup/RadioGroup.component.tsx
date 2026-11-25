@@ -19,16 +19,20 @@ import { useRenderProps } from "@hooks/useRenderProps";
 import { RequiredMarker } from "@components/Internal/RequiredMarker";
 import { useLoading } from "@components/Feedback/Loading";
 
-export interface RadioGroupsProps
+export interface RadioGroupProps
   extends AriaProps<AriaRadioGroupProps>,
     HelpTextProps,
     FieldStatusProps,
     RenderBaseProps<FieldStatusProps>,
     LoadingProps {
+  /** Name of the radio inputs, submitted with form data */
   name?: string;
 }
 
 const LOADING_OPTION_COUNT = 3;
+
+/** @deprecated Use `RadioGroupProps`. */
+export type RadioGroupsProps = RadioGroupProps;
 
 /**
  *
@@ -36,9 +40,9 @@ const LOADING_OPTION_COUNT = 3;
  * these for more than 5, but it isn't common.
  *
  * - For 2 choices, use a [CheckBox](/docs/inputs-choose-state-checkbox--overview) or [ToggleSwitch](/docs/inputs-choose-state-toggleswitch--overview) instead.
- * - For more than 5 options, use a [select](/docs/dropdowns-customselect--overview).
+ * - For more than 5 options, use a [Select](/docs/dropdowns-selection-select--overview) or [CustomSelect](/docs/dropdowns-selection-customselect--overview).
  * */
-export function RadioGroup(props: RadioGroupsProps) {
+export function RadioGroup(props: RadioGroupProps) {
   const { label, message, error } = props;
 
   const state = useRadioGroupState(props);

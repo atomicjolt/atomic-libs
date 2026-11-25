@@ -10,15 +10,23 @@ export interface ComboBoxFieldProps<T>
     LoadingProps {
   children?: React.ReactNode;
 
-  /** Hangler called when the selection changes */
+  /** Handler called when the selection changes */
   onSelectionChange?: (key: Key | null) => void;
 
+  /** Allow a value that doesn't match an option */
   allowsCustomValue?: boolean;
+  /** Input text (controlled) */
   inputValue?: string;
+  /** Initial input text (uncontrolled) */
   defaultInputValue?: string;
+  /** Called when the input text changes */
   onInputChange?: (value: string) => void;
 
+  /** Called when the menu opens or closes */
   onOpenChange?: (isOpen: boolean, menuTrigger?: MenuTriggerAction) => void;
+  /** What opens the menu: `input` (typing), `focus`, or `manual`
+   * @default "input"
+   */
   menuTrigger?: MenuTriggerAction;
 }
 

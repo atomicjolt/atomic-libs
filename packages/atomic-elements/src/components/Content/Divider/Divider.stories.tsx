@@ -1,12 +1,12 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { Divider } from ".";
-import { getCssProps } from "@sb/cssprops";
+import { divider } from "@styles/theme/component";
 
 export default {
   title: "Content/Divider",
   component: Divider,
   parameters: {
-    cssprops: getCssProps("Divider"),
+    cssprops: { divider },
   },
   argTypes: {
     spacing: {
@@ -16,19 +16,27 @@ export default {
       control: false,
     },
   },
+  decorators: [
+    (Story, { args }) => (
+      <div
+        style={{ display: args.orientation === "vertical" ? "flex" : "block" }}
+      >
+        <p>Here is some content</p>
+        <Story />
+        <p>Here is some below content</p>
+      </div>
+    ),
+  ],
 } as Meta<typeof Divider>;
 
 type Story = StoryObj<typeof Divider>;
 
 export const Default: Story = {
-  render: (args) => (
-    <div
-      style={{ display: args.orientation === "vertical" ? "flex" : "block" }}
-    >
-      <p>Here is some content</p>
-      <Divider {...args} />
-      <p>Here is some below content</p>
-    </div>
-  ),
   args: {},
+};
+
+export const Vertical: Story = {
+  args: {
+    orientation: "vertical",
+  },
 };

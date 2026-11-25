@@ -1,5 +1,5 @@
-import { Meta, StoryObj } from "@storybook/react";
-import { fn } from "@storybook/test";
+import { Meta, StoryObj } from "@storybook/react-vite";
+import { fn } from "storybook/test";
 import { RenderPropsArgTypes } from "@sb/helpers";
 import { Button } from "@components/Buttons/Button";
 import { Disclosure } from ".";
@@ -10,10 +10,12 @@ export default {
   argTypes: {
     ...RenderPropsArgTypes,
     isExpanded: {
-      type: "boolean",
+      control: "boolean",
+      description: "Whether the panel is expanded (controlled).",
     },
     defaultExpanded: {
-      type: "boolean",
+      control: "boolean",
+      description: "Whether the panel is expanded initially (uncontrolled).",
     },
     onExpandedChange: {
       table: {
@@ -94,5 +96,19 @@ export const TriggerIcons: Story = {
         </p>
       </Disclosure.Panel>,
     ],
+  },
+};
+
+export const DefaultExpanded: Story = {
+  args: {
+    ...Primary.args,
+    defaultExpanded: true,
+  },
+};
+
+export const Disabled: Story = {
+  args: {
+    ...Primary.args,
+    isDisabled: true,
   },
 };

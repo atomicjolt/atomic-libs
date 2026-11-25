@@ -1,6 +1,6 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { Chip } from ".";
-import { fn } from "@storybook/test";
+import { fn } from "storybook/test";
 import { PressableArgTypes } from "@sb/helpers";
 
 export default {
@@ -46,7 +46,35 @@ export const Removable: Story = {
   },
 };
 
-export const Pressasble: Story = {
+export const Warning: Story = {
+  args: {
+    ...Primary.args,
+    variant: "warning",
+  },
+};
+
+export const Success: Story = {
+  args: {
+    ...Primary.args,
+    variant: "success",
+  },
+};
+
+export const Danger: Story = {
+  args: {
+    ...Primary.args,
+    variant: "danger",
+  },
+};
+
+export const Disabled: Story = {
+  args: {
+    ...Removable.args,
+    isDisabled: true,
+  },
+};
+
+export const Pressable: Story = {
   args: {
     ...Primary.args,
     onPress: fn(),

@@ -15,9 +15,11 @@ export interface TextProps
     MarginProps,
     TextColorProps,
     DimensionsProps {
+  /** @default "span" */
   as?: "div" | "span" | "p" | "label";
 }
 
+/** Displays text with the typography styles. Renders a `span` by default. */
 export const Text = forwardRef<
   HTMLDivElement | HTMLSpanElement | HTMLParagraphElement | HTMLLabelElement,
   TextProps

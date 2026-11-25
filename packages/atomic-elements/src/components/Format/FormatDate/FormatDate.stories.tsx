@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { FormatDate } from ".";
 
 export default {
@@ -14,7 +14,17 @@ export default {
       </div>
     ),
   ],
+  // The date control gives a timestamp; turn it back into a Date.
+  render: ({ value, ...args }) => (
+    <FormatDate {...args} value={value == null ? value : new Date(value)} />
+  ),
   argTypes: {
+    value: {
+      control: "date",
+    },
+    fallback: {
+      control: "text",
+    },
     calendar: {
       control: "text",
     },

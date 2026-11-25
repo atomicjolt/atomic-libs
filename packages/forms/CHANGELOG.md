@@ -1,5 +1,11 @@
 # @atomicjolt/forms
 
+## 6.2.0
+
+### Minor Changes
+
+- 3e25d70: Add `Form.Input`, `Form.Label`, `Form.Message` and `Form.ErrorMessage`, matching atomic-elements' canonical names. `Form.FieldInput`, `Form.FieldLabel`, `Form.FieldMessage` and `Form.FieldErrorMessage` still work but are deprecated.
+
 ## 6.1.0
 
 ### Minor Changes

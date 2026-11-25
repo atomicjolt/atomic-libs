@@ -15,9 +15,10 @@
   rel="stylesheet" />
 
 <style>
-  /* Docs pages: only the story preview boxes follow the color scheme;
-     the rest of the page keeps Storybook's own theme. */
-  [data-color-scheme]:not([data-color-scheme="light"]) .docs-story {
+  /* Docs pages: the page follows Storybook's UI theme (the Storybook theme button), while
+     the story previews follow the toolbar's color scheme. Give the previews
+     the components' own background so they match what library users see. */
+  .docs-story {
     background-color: var(--background-clr);
     color: var(--text-clr);
   }

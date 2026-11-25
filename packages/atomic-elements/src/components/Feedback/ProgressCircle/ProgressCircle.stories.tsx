@@ -1,29 +1,33 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { ProgressCircle } from ".";
-import { RenderStylePropsArgTypes } from "@sb/helpers";
-import { getCssProps } from "@sb/cssprops";
+import { AriaLabelArgTypes, RenderStylePropsArgTypes } from "@sb/helpers";
+import { progressCircle } from "@styles/theme/component";
 
 export default {
   title: "Feedback/ProgressCircle",
   component: ProgressCircle,
   parameters: {
     layout: "centered",
-    cssprops: getCssProps("ProgressCircle"),
+    cssprops: { progressCircle },
   },
   argTypes: {
+    ...AriaLabelArgTypes,
     ...RenderStylePropsArgTypes,
     value: {
       control: "number",
       description:
         "The value of the progress circle. Must be between maxValue and minValue.",
+      table: { defaultValue: { summary: "0" } },
     },
     maxValue: {
       control: "number",
       description: "The maximum value of the progress circle.",
+      table: { defaultValue: { summary: "100" } },
     },
     minValue: {
       control: "number",
       description: "The minimum value of the progress circle.",
+      table: { defaultValue: { summary: "0" } },
     },
     isIndeterminate: {
       control: "boolean",
@@ -57,17 +61,15 @@ type Story = StoryObj<typeof ProgressCircle>;
 
 export const Primary: Story = {
   args: {
+    "aria-label": "Upload progress",
     value: 35,
-    isIndeterminate: false,
     $size: "100",
-    showValueLabel: false,
   },
 };
 
 export const ValueLabel: Story = {
   args: {
     ...Primary.args,
-    isIndeterminate: false,
     $trackWidth: "5",
     showValueLabel: true,
   },
@@ -76,7 +78,6 @@ export const ValueLabel: Story = {
 export const ValueLabelFormatOptions: Story = {
   args: {
     ...Primary.args,
-    isIndeterminate: false,
     $trackWidth: "5",
     showValueLabel: true,
     formatOptions: {
@@ -88,6 +89,7 @@ export const ValueLabelFormatOptions: Story = {
 
 export const Indeterminate: Story = {
   args: {
+    "aria-label": "Loading",
     isIndeterminate: true,
     $trackColor: "transparent",
     $linecap: "round",
@@ -98,6 +100,7 @@ export const Indeterminate: Story = {
 
 export const CustomRange: Story = {
   args: {
+    "aria-label": "Progress",
     value: 50,
     minValue: 20,
     maxValue: 80,

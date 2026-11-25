@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { FormatDuration } from ".";
 
 export default {
@@ -32,6 +32,7 @@ export default {
     style: {
       control: "select",
       options: ["long", "short", "narrow"],
+      table: { defaultValue: { summary: '"long"' } },
     },
   },
 } as Meta<typeof FormatDuration>;
@@ -54,14 +55,14 @@ export const NoDuration: Story = {
 export const CustomizeRender: Story = {
   args: {
     ...Primary.args,
-    children: (value) => <h1>Duration: {value}</h1>,
+    children: (value) => <strong>Duration: {value}</strong>,
   },
   parameters: {
     docs: {
       source: {
         code: `
-<FormatDuration value={3600} fallback="No duration">
-  {(value) => <h1>Duration: {value}</h1>}
+<FormatDuration value={3892}>
+  {(value) => <strong>Duration: {value}</strong>}
 </FormatDuration>
 `,
       },

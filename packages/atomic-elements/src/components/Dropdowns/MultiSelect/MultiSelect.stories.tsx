@@ -1,19 +1,36 @@
 import React from "react";
-import { Meta, StoryObj } from "@storybook/react";
-import { InputControls } from "@sb/helpers";
+import { Meta, StoryObj } from "@storybook/react-vite";
+import { InputControls, LoadingArgTypes } from "@sb/helpers";
 import { MultiSelect } from ".";
 import { Item } from "../../Collection";
-import { getCssProps } from "@sb/cssprops";
+import { dropdown, listbox } from "@styles/theme/component";
 
 export default {
   title: "Dropdowns/Selection/MultiSelect",
   component: MultiSelect,
   parameters: {
     layout: "centered",
-    cssprops: getCssProps("Dropdown", "Listbox"),
+    cssprops: { dropdown, listbox },
   },
   argTypes: {
     ...InputControls,
+    ...LoadingArgTypes,
+    placeholder: {
+      ...InputControls.placeholder,
+      table: {
+        ...InputControls.placeholder.table,
+        defaultValue: { summary: '"Select an option"' },
+      },
+    },
+    size: {
+      table: { defaultValue: { summary: '"medium"' } },
+    },
+    maxHeight: {
+      table: { defaultValue: { summary: "300" } },
+    },
+    dropdownPlacement: {
+      table: { defaultValue: { summary: '"bottom start"' } },
+    },
     selectedKeys: {
       control: "multi-select",
       description:
@@ -34,7 +51,7 @@ export default {
     },
     defaultOpen: {
       control: "boolean",
-      description: "Control the inital state of the menu",
+      description: "Control the initial state of the menu",
     },
     onOpenChange: {
       control: false,

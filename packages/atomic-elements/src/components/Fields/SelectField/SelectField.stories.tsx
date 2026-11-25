@@ -1,16 +1,16 @@
-import { Meta, StoryObj } from "@storybook/react";
-import { fn } from "@storybook/test";
+import { Meta, StoryObj } from "@storybook/react-vite";
+import { fn } from "storybook/test";
 import {
   FieldStateControls,
   FocusEventsArgTypes,
   RenderPropsArgTypes,
 } from "@sb/helpers";
-import { getCssProps } from "@sb/cssprops";
-import { FieldLabel } from "../Field/FieldLabel";
+import { button, dropdown, listbox } from "@styles/theme/component";
+import { Label } from "../Atoms/Label";
 import { Popover } from "@components/Overlays/Popover";
 import { ListBox } from "@components/Dropdowns/ListBox";
-import { FieldErrorMessage } from "../Field/FieldError";
-import { FieldMessage } from "../Field/FieldMessage";
+import { ErrorMessage } from "../Atoms/ErrorMessage";
+import { Message } from "../Atoms/Message";
 import { Button } from "@components/Buttons/Button";
 import { Item, Section } from "@components/Collection";
 import { MaterialIcon } from "@components/Icons/MaterialIcon";
@@ -21,12 +21,15 @@ export default {
   component: SelectField,
   parameters: {
     layout: "centered",
-    cssprops: getCssProps("Dropdown", "Listbox", "Button"),
+    cssprops: { dropdown, listbox, button },
   },
   argTypes: {
     ...FieldStateControls,
     ...RenderPropsArgTypes,
     ...FocusEventsArgTypes,
+    size: {
+      table: { defaultValue: { summary: '"medium"' } },
+    },
     selectedKey: {
       control: "select",
       description:
@@ -47,7 +50,7 @@ export default {
     },
     defaultOpen: {
       control: "boolean",
-      description: "Control the inital state of the menu",
+      description: "Control the initial state of the menu",
     },
     onOpenChange: {
       control: false,
@@ -75,8 +78,8 @@ export const Primary: Story = {
     onSelectionChange: fn(),
     onOpenChange: fn(),
     children: [
-      <FieldLabel key="label">Select an item</FieldLabel>,
-      <FieldMessage key="message">Choose an item from the list</FieldMessage>,
+      <Label key="label">Select an item</Label>,
+      <Message key="message">Choose an item from the list</Message>,
       <Button key="button" variant="dropdown">
         <SelectField.Value placeholder="Select an option" />
         <MaterialIcon icon="arrow_drop_down" style={{ marginLeft: "auto" }} />
@@ -88,7 +91,7 @@ export const Primary: Story = {
           <Item id="3">Item 3</Item>
         </ListBox>
       </Popover>,
-      <FieldErrorMessage key="error">Something went wrong</FieldErrorMessage>,
+      <ErrorMessage key="error">Something went wrong</ErrorMessage>,
     ],
   },
 };
@@ -97,9 +100,9 @@ export const WithSections: Story = {
   args: {
     ...Primary.args,
     children: [
-      <FieldLabel key="label">Select an item</FieldLabel>,
+      <Label key="label">Select an item</Label>,
 
-      <FieldMessage key="message">Choose an item from the list</FieldMessage>,
+      <Message key="message">Choose an item from the list</Message>,
       <Button key="button" variant="dropdown">
         <SelectField.Value placeholder="Select an option" />
         <MaterialIcon icon="arrow_drop_down" style={{ marginLeft: "auto" }} />
@@ -111,7 +114,7 @@ export const WithSections: Story = {
             <Item id="2">Item 2</Item>
           </Section>
 
-          <Section title="Section 1">
+          <Section title="Section 2">
             <Item id="3">Item 3</Item>
             <Item id="4">Item 4</Item>
           </Section>

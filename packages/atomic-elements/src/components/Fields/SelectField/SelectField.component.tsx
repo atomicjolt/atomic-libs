@@ -1,3 +1,4 @@
+import { setDisplayName } from "@utils/displayName";
 import React, { forwardRef, RefAttributes, useContext, type JSX } from "react";
 import { useSelectState } from "react-stately";
 import { HiddenSelect, useSelect } from "@react-aria/select";
@@ -58,9 +59,9 @@ export const SelectField = forwardRef(function SelectField<T extends object>(
   );
 }) as unknown as ForwardedSelectField;
 
-SelectField.displayName = "SelectField";
+setDisplayName(SelectField, "SelectField");
 
-export function SelectFieldInner<T extends object>(
+function SelectFieldInner<T extends object>(
   props: SelectFieldInnerProps<T>
 ) {
   const state = useSelectState<T>({ ...props, children: undefined });
@@ -136,7 +137,7 @@ export function SelectFieldInner<T extends object>(
   );
 }
 
-export function SelectFieldValue(props: SelectValueProps) {
+function SelectFieldValue(props: SelectValueProps) {
   const { placeholder } = props;
 
   const valueProps = useContext(SelectFieldValueContext);
@@ -151,5 +152,5 @@ export function SelectFieldValue(props: SelectValueProps) {
   );
 }
 
-SelectFieldValue.displayName = "SelectField.Value";
+setDisplayName(SelectFieldValue, "SelectField.Value");
 SelectField.Value = SelectFieldValue;

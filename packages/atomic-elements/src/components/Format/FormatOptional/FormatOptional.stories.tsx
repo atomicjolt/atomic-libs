@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { FormatOptional } from ".";
 
 export default {
@@ -14,6 +14,11 @@ export default {
       </div>
     ),
   ],
+  argTypes: {
+    fallback: {
+      control: "text",
+    },
+  },
 } as Meta<typeof FormatOptional>;
 
 type Story = StoryObj<typeof FormatOptional>;
@@ -41,7 +46,7 @@ export const CustomizeRender: Story = {
       source: {
         code: `
 <FormatOptional value="Hello World">
-  {(value) => (v) => <strong>{v}</strong>}
+  {(value) => <strong>{value}</strong>}
 </FormatOptional>
 `,
       },

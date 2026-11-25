@@ -6,8 +6,7 @@ import {
   Description,
   Primary,
   Controls,
-  Stories,
-} from "@storybook/blocks";
+} from "@storybook/addon-docs/blocks";
 
 import * as LoadingStatusStories from "./LoadingStatus.stories";
 
@@ -33,4 +32,16 @@ If `data` is `null` then the `fallback` prop will be rendered instead of the chi
 
 <Canvas of={LoadingStatusStories.NoDataFallback} />
 
-<Stories />
+### Error state
+
+When `error` is set, an `ErrorBanner` containing it is rendered instead of the children.
+
+<Canvas of={LoadingStatusStories.Error} />
+
+### Customize the loading state
+
+<Canvas of={LoadingStatusStories.CustomizeLoadingState} />
+
+### Customize the error state
+
+<Canvas of={LoadingStatusStories.CustomizeErrorState} />

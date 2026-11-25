@@ -5,6 +5,7 @@ export type ToolTipTargetProps = {
   children: React.ReactElement<any>;
 };
 
+/** Makes a custom element focusable so it can be the target of a `ToolTipTrigger`. */
 export function ToolTipTarget(props: ToolTipTargetProps) {
   const { children } = props;
   const child = React.Children.only(children);

@@ -2,8 +2,12 @@ import React, { useState } from "react";
 import {
   Button,
   CheckBox,
+  Chip,
+  ChipGroup,
   ComboBox,
   CustomSelect,
+  DateInput,
+  DatePicker,
   ExtendedSize,
   FileInput,
   Flex,
@@ -17,11 +21,13 @@ import {
   Radio,
   RadioGroup,
   SearchInput,
+  Select,
   Strong,
   Table,
   Text,
   TextAreaInput,
   TextInput,
+  TimeInput,
   ToggleSwitch,
 } from "@atomicjolt/atomic-elements";
 
@@ -90,7 +96,7 @@ export default function LoadingStates() {
         Subscribe to newsletter
       </CheckBox>
       <br />
-      <ToggleSwitch size={size} isLoading={isLoading} loadingLabel="Loading">
+      <ToggleSwitch isLoading={isLoading} loadingLabel="Loading">
         Enable notifications
       </ToggleSwitch>
       <br />
@@ -189,7 +195,7 @@ export default function LoadingStates() {
       <Heading as="h3" $size="5">
         Table
       </Heading>
-      <Table aria-label="Table" size={size}>
+      <Table aria-label="Table">
         <Table.Header>
           <Table.Column id="foo">Foo</Table.Column>
           <Table.Column id="bar">Bar</Table.Column>
@@ -239,6 +245,47 @@ export default function LoadingStates() {
         )}
       </LoadingStatus>
       <hr />
+      <Heading as="h3" $size="5">
+        Select
+      </Heading>
+      <Select label="Select" isLoading={isLoading} loadingLabel="Loading">
+        <option value="1">Option 1</option>
+        <option value="2">Option 2</option>
+      </Select>
+      <hr />
+      <Heading as="h3" $size="5">
+        DateInput / DatePicker / TimeInput
+      </Heading>
+      <DateInput
+        label="Date input"
+        isLoading={isLoading}
+        loadingLabel="Loading"
+      />
+      <br />
+      <DatePicker
+        label="Date picker"
+        isLoading={isLoading}
+        loadingLabel="Loading"
+      />
+      <br />
+      <TimeInput
+        label="Time input"
+        isLoading={isLoading}
+        loadingLabel="Loading"
+      />
+      <hr />
+      <Heading as="h3" $size="5">
+        ChipGroup
+      </Heading>
+      <ChipGroup
+        label="Chip group"
+        isLoading={isLoading}
+        loadingLabel="Loading"
+      >
+        <Chip id="news">News</Chip>
+        <Chip id="travel">Travel</Chip>
+      </ChipGroup>
+      <hr />
       <Heading as="h2" $size="7">
         Ambient Loading provider
       </Heading>
@@ -256,7 +303,7 @@ export default function LoadingStates() {
         <br />
         <CheckBox>Subscribe to newsletter</CheckBox>
         <br />
-        <ToggleSwitch size={size}>Enable notifications</ToggleSwitch>
+        <ToggleSwitch>Enable notifications</ToggleSwitch>
         <br />
         <RadioGroup label="Favorite color">
           <Radio value="red">Red</Radio>
@@ -299,6 +346,22 @@ export default function LoadingStates() {
         <TextInput label="Text" size={size} />
         <br />
         <TextAreaInput label="Text Area" size={size} />
+        <hr />
+        <Select label="Select">
+          <option value="1">Option 1</option>
+          <option value="2">Option 2</option>
+        </Select>
+        <br />
+        <DateInput label="Date input" />
+        <br />
+        <DatePicker label="Date picker" />
+        <br />
+        <TimeInput label="Time input" />
+        <br />
+        <ChipGroup label="Chip group">
+          <Chip id="news">News</Chip>
+          <Chip id="travel">Travel</Chip>
+        </ChipGroup>
         <hr />
         <ToggleSwitch
           isSelected={maybeData != null}

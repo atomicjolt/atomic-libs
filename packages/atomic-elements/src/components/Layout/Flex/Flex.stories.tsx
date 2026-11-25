@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { Flex } from ".";
 import { View } from "@components/Layout/View";
 import { FlexArgTypes, LayoutArgTypes, RenderPropsArgTypes } from "@sb/helpers";
@@ -6,10 +6,60 @@ import { FlexArgTypes, LayoutArgTypes, RenderPropsArgTypes } from "@sb/helpers";
 export default {
   title: "Layouts/Flex",
   component: Flex,
+  parameters: {
+    primaryStyleProps: [
+      "$direction",
+      "$gap",
+      "$gapX",
+      "$gapY",
+      "$align",
+      "$justify",
+      "$wrap",
+      "$display",
+    ],
+  },
   argTypes: {
     ...RenderPropsArgTypes,
     ...LayoutArgTypes,
     ...FlexArgTypes,
+    $display: {
+      ...FlexArgTypes.$display,
+      description: "CSS display value of the container.",
+      table: {
+        ...FlexArgTypes.$display?.table,
+        defaultValue: { summary: '"flex"' },
+      },
+    },
+    $direction: {
+      ...FlexArgTypes.$direction,
+      description: "Main axis direction (flex-direction).",
+    },
+    $wrap: {
+      ...FlexArgTypes.$wrap,
+      description: "Whether children wrap onto new lines (flex-wrap).",
+    },
+    $justify: {
+      ...FlexArgTypes.$justify,
+      description: "Main-axis alignment of the children (justify-content).",
+    },
+    $align: {
+      ...FlexArgTypes.$align,
+      description: "Cross-axis alignment of the children (align-items).",
+    },
+    $gap: {
+      ...FlexArgTypes.$gap,
+      description: "Gap between children. A spacing step or a CSS length.",
+    },
+    $gapX: {
+      ...FlexArgTypes.$gapX,
+      description:
+        "Horizontal gap between children (column-gap). A spacing step or a CSS length.",
+    },
+    $gapY: {
+      ...FlexArgTypes.$gapY,
+      description:
+        "Vertical gap between children (row-gap). A spacing step or a CSS length.",
+    },
   },
 } as Meta<typeof Flex>;
 

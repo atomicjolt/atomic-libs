@@ -1,28 +1,37 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { Button } from ".";
-import { PressableArgTypes, RenderPropsArgTypes } from "@sb/helpers";
+import {
+  AriaLabelArgTypes,
+  LoadingArgTypes,
+  PressableArgTypes,
+  RenderPropsArgTypes,
+} from "@sb/helpers";
 import { MaterialIcon } from "@components/Icons/MaterialIcon";
-import { getCssProps } from "@sb/cssprops";
+import { Flex } from "@components/Layout/Flex";
+import { button } from "@styles/theme/component";
 
 const meta: Meta<typeof Button> = {
   title: "Buttons/Button",
   component: Button,
   parameters: {
     layout: "centered",
-    cssprops: getCssProps("Button"),
+    cssprops: { button },
   },
+  // Button gets no docgen (see docs/storybook-audit.md, G9), so every prop
+  // the table should show needs an explicit argType here.
   argTypes: {
     ...PressableArgTypes,
     ...RenderPropsArgTypes,
+    ...AriaLabelArgTypes,
     children: {
+      ...RenderPropsArgTypes.children,
       control: "text",
+      description:
+        "Content of the button. Can also be a function that receives the button's render state.",
     },
     variant: {
       control: "select",
       description: "Button variant controls the presentation of the button.",
-      table: {
-        category: "Presentation",
-      },
       options: [
         "primary",
         "secondary",
@@ -34,15 +43,74 @@ const meta: Meta<typeof Button> = {
         "border",
         "ghost",
       ],
+      table: {
+        defaultValue: { summary: '"primary"' },
+      },
+    },
+    size: {
+      control: "select",
+      options: ["small", "medium", "large", "full", "auto"],
+      description:
+        "Width of the button. `auto` fits the content and `full` fills the container.",
+      table: {
+        defaultValue: { summary: '"auto"' },
+      },
+    },
+    as: {
+      control: "select",
+      options: ["button", "a"],
+      description: "The element to render the button as.",
+      table: {
+        defaultValue: { summary: '"a" when `href` is set, otherwise "button"' },
+      },
+    },
+    href: {
+      control: "text",
+      description:
+        "URL to link to. When set, the button renders as an `<a>` element.",
+    },
+    slot: {
+      control: "text",
+      description:
+        "Slot name, used to pick up props from a parent component (for example `previous-month` inside a Calendar).",
     },
     isDisabled: {
       control: "boolean",
-      description: "If true, the button will be not be clickable.",
+      description: "If true, the button will not be clickable.",
+      table: {
+        category: "State",
+      },
+    },
+    isLoading: {
+      ...LoadingArgTypes.isLoading,
+      description:
+        "Shows a loading spinner in place of the content. The button stays pressable.",
+      table: {
+        ...LoadingArgTypes.isLoading?.table,
+        defaultValue: { summary: "false" },
+      },
+    },
+    loadingLabel: {
+      ...LoadingArgTypes.loadingLabel,
+      description:
+        "Label announced to screen readers while loading. Replaces the button's `aria-label` while `isLoading` is true.",
+    },
+    loadingComplete: {
+      control: "boolean",
+      description:
+        "Transitions the loading spinner to a checkmark. Use with `isLoading`.",
+      table: {
+        category: "State",
+        defaultValue: { summary: "false" },
+      },
     },
     type: {
       control: "select",
       description: "The type of button.",
       options: ["button", "submit", "reset"],
+      table: {
+        defaultValue: { summary: '"button"' },
+      },
     },
     excludeFromTabOrder: {
       control: "boolean",
@@ -60,9 +128,6 @@ export const Primary: Story = {
   args: {
     children: "Primary",
     variant: "primary",
-    type: "button",
-    isDisabled: false,
-    isLoading: false,
   },
 };
 
@@ -105,7 +170,59 @@ export const Inverted: Story = {
     variant: "inverted",
   },
 };
-export const LoadingButton: Story = {
+
+export const Content: Story = {
+  args: {
+    ...Primary.args,
+    children: "Content",
+    variant: "content",
+  },
+};
+
+export const Border: Story = {
+  args: {
+    ...Primary.args,
+    children: "Border",
+    variant: "border",
+  },
+};
+
+export const Ghost: Story = {
+  args: {
+    ...Primary.args,
+    children: "Ghost",
+    variant: "ghost",
+  },
+};
+
+export const Disabled: Story = {
+  args: {
+    ...Primary.args,
+    children: "Disabled",
+    isDisabled: true,
+  },
+};
+
+export const Sizes: Story = {
+  render: (args) => (
+    <Flex $gap="8px" $align="center">
+      <Button {...args} size="small">
+        Small
+      </Button>
+      <Button {...args} size="medium">
+        Medium
+      </Button>
+      <Button {...args} size="large">
+        Large
+      </Button>
+    </Flex>
+  ),
+  args: {
+    ...Primary.args,
+  },
+};
+
+export const Loading: Story = {
   args: {
     ...Primary.args,
     children: "Primary",
@@ -115,7 +232,7 @@ export const LoadingButton: Story = {
   },
 };
 
-export const LoadingCompleteButton: Story = {
+export const LoadingComplete: Story = {
   args: {
     ...Primary.args,
     children: "Primary",

@@ -1,18 +1,20 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { ActionBanner } from ".";
-import { getCssProps } from "@sb/cssprops";
+import { banner } from "@styles/theme/component";
 import { RenderPropsArgTypes } from "@sb/helpers";
+import { fn } from "storybook/test";
 
 export default {
   title: "Banners/ActionBanner",
   component: ActionBanner,
   parameters: {
-    cssprops: getCssProps("Banner"),
+    cssprops: { banner },
   },
   argTypes: {
     ...RenderPropsArgTypes,
     onPress: {
       control: false,
+      description: "Called when the action button is pressed",
       table: {
         category: "Events",
       },
@@ -26,11 +28,20 @@ export default {
       options: [
         "primary",
         "secondary",
-        "error",
+        "link",
         "success",
+        "error",
         "inverted",
         "content",
+        "border",
+        "ghost",
       ],
+      table: {
+        type: {
+          summary:
+            '"primary" | "secondary" | "link" | "success" | "error" | "inverted" | "content" | "border" | "ghost"',
+        },
+      },
     },
   },
 } as Meta<typeof ActionBanner>;
@@ -44,7 +55,7 @@ export const Info: Story = {
       "Article Posted! Now just wait for the comments to start rolling in",
     icon: "info",
     buttonText: "Go to Post",
-    className: "",
+    onPress: fn(),
   },
 };
 
@@ -55,6 +66,6 @@ export const Upgrade: Story = {
       "Your trial expires in 30 Days. Upgrade now to re-enable Atomic Assessments",
     icon: "new_releases",
     buttonText: "Upgrade Now",
-    className: "",
+    onPress: fn(),
   },
 };

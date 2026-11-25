@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { Message } from ".";
 
 export default {
@@ -6,6 +6,12 @@ export default {
   component: Message,
   parameters: {
     layout: "centered",
+  },
+  argTypes: {
+    as: { control: false },
+    size: {
+      table: { defaultValue: { summary: '"auto"' } },
+    },
   },
 } as Meta<typeof Message>;
 

@@ -11,23 +11,31 @@ export interface LoaderProps
     AriaLabelProps {
   /** Whether the loader is in a loading state, when true,
    * children is rendered, when false, a checkmark animation
-   * is displayed */
+   * is displayed
+   * @default true
+   */
   isLoading?: boolean;
   /** An optional message to display with the loader */
   message?: React.ReactNode;
+  /** Size of the loader. Also sets the size of the checkmark shown when
+   * loading finishes
+   * @default "medium"
+   */
   size?: Size;
   /** Placement of the loader
    * - `inline` - Loader is displayed inline with the content
    * - `block` - Loader is displayed as a block element
    * - `center` - Loader spans the full width of the parent container.
-   *    If the parent is a flex conatiner, the loader will take up available space on the main axis
-   * - `absolute center` - Loader is absolutely positioned of it's nearest relative parent
+   *    If the parent is a flex container, the loader will take up available space on the main axis
+   * - `absolute center` - Loader is absolutely positioned of its nearest relative parent
    *
    * @default "center"
    */
   placement?: LoaderPlacement;
 
-  /** The orientation of the loader and the message relative to each other */
+  /** The orientation of the loader and the message relative to each other
+   * @default "vertical"
+   */
   orientation?: "horizontal" | "vertical";
 }
 
@@ -56,10 +64,18 @@ export function Loader(props: LoaderProps) {
 
   const direction = orientation === "horizontal" ? "row" : "column";
 
-  const rest = filterDOMProps(props);
+  const rest = filterDOMProps(props, { labelable: true });
+  // A labelled loader is announced as a status; unlabelled it is decorative.
+  const role =
+    props["aria-label"] || props["aria-labelledby"] ? "status" : undefined;
 
   return (
-    <LoaderWrapper {...renderProps} {...rest} data-placement={placement}>
+    <LoaderWrapper
+      {...renderProps}
+      {...rest}
+      role={role}
+      data-placement={placement}
+    >
       {isLoading ? (
         <Flex
           $display={placementType === "inline" ? "inline-flex" : "flex"}

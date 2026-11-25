@@ -13,13 +13,14 @@ export interface EmProps
     MarginProps,
     TextColorProps {}
 
+/** Emphasized inline text. Renders an `<em>` element. */
 export const Em = forwardRef<HTMLElement, EmProps>(function Em(props, ref) {
   [props, ref] = useContextProps(EmContext, props, ref);
 
   const { className, style, children, ...rest } = props;
 
   const renderProps = useRenderProps({
-    componentClassName: "aje-strong",
+    componentClassName: "aje-em",
     className,
     style,
     children,

@@ -1,3 +1,4 @@
+import { setDisplayName } from "@utils/displayName";
 import { MenuTriggerProps } from "react-stately";
 import { AriaMenuProps } from "@react-aria/menu";
 import { Placement } from "@react-aria/overlays";
@@ -15,12 +16,18 @@ export type IconMenuProps<T extends object> = AriaMenuProps<T> &
   BaseProps &
   CanHaveIcon &
   LoadingProps & {
+    /** Whether the trigger button is disabled, so the menu can't be opened. */
     isDisabled?: boolean;
+    /** Variant of the trigger button. */
     buttonVariant?: ButtonVariants;
+    /** Placement of the menu relative to the trigger button.
+     * @default "bottom right"
+     */
     menuPlacement?: Placement;
     children: CollectionChildren<ItemProps>;
   };
 
+/** An icon-only button that opens a menu of actions when pressed. */
 export function IconMenu<T extends {}>(props: IconMenuProps<T>) {
   const {
     trigger,
@@ -46,6 +53,7 @@ export function IconMenu<T extends {}>(props: IconMenuProps<T>) {
     children,
     menuPlacement = "bottom right",
     icon = "more_vert",
+    buttonVariant,
     ...buttonProps
   } = props;
 
@@ -56,7 +64,13 @@ export function IconMenu<T extends {}>(props: IconMenuProps<T>) {
       defaultOpen={defaultOpen}
       onOpenChange={onOpenChange}
     >
-      <IconButton {...buttonProps} icon={icon} aria-label={ariaLabel} id={id} />
+      <IconButton
+        {...buttonProps}
+        variant={buttonVariant}
+        icon={icon}
+        aria-label={ariaLabel}
+        id={id}
+      />
       <Popover placement={menuPlacement}>
         <Menu
           defaultSelectedKeys={defaultSelectedKeys}
@@ -81,10 +95,10 @@ export function IconMenu<T extends {}>(props: IconMenuProps<T>) {
   );
 }
 
-IconMenu.displayName = "IconMenu";
+setDisplayName(IconMenu, "IconMenu");
 
 const IconMenuItem = (props: ItemProps) => <Menu.Item {...props} />;
-IconMenuItem.displayName = "IconMenu.Item";
+setDisplayName(IconMenuItem, "IconMenu.Item");
 /**
  * @deprecated use `Item` instead
  */
@@ -93,7 +107,7 @@ IconMenu.Item = IconMenuItem;
 const IconMenuSection = <T extends object>(props: MenuSectionProps<T>) => (
   <Menu.Section {...props} />
 );
-IconMenuSection.displayName = "IconMenu.Section";
+setDisplayName(IconMenuSection, "IconMenu.Section");
 /**
  * @deprecated use `Section` instead
  */

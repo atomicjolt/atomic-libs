@@ -22,7 +22,7 @@ export interface ButtonGroupProps
     MinimalGroupProps,
     CanHaveIcon {}
 
-/** Group a set of buttoons together & provide a common context to all buttons in the group
+/** Group a set of buttons together & provide a common context to all buttons in the group
  *
  * @example
  * <ButtonGroup variant="border" isDisabled>
@@ -31,12 +31,32 @@ export interface ButtonGroupProps
  * </ButtonGroup>
  */
 export function ButtonGroup(props: ButtonGroupProps) {
-  const { children, isMerged, className, id, ...rest } = props;
+  const {
+    children,
+    isMerged,
+    className,
+    id,
+    // These belong to the group itself, not to each button.
+    as,
+    style,
+    "aria-label": ariaLabel,
+    "aria-labelledby": ariaLabelledby,
+    ...rest
+  } = props;
   const { buttonProps, groupProps } = partitionProps(rest);
 
   return (
     <ButtonContext.Provider value={buttonProps}>
-      <Group isMerged={isMerged} className={className} id={id} {...groupProps}>
+      <Group
+        isMerged={isMerged}
+        className={className}
+        id={id}
+        as={as}
+        style={style}
+        aria-label={ariaLabel}
+        aria-labelledby={ariaLabelledby}
+        {...groupProps}
+      >
         {children}
       </Group>
     </ButtonContext.Provider>

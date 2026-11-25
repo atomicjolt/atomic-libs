@@ -1,17 +1,27 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { TextAreaInput } from ".";
-import { TextInputControls } from "@sb/helpers";
-import { getCssProps } from "@sb/cssprops";
+import { TextInputControls, LoadingArgTypes } from "@sb/helpers";
+import { input, textarea } from "@styles/theme/component";
 
 const meta: Meta<typeof TextAreaInput> = {
   title: "Inputs/User Input/TextAreaInput",
   component: TextAreaInput,
   parameters: {
-    cssprops: getCssProps("Input", "Textarea"),
+    cssprops: { input, textarea },
   },
   argTypes: {
     ...TextInputControls,
-    onChange: { action: "changed", table: { category: "Events" } },
+    ...LoadingArgTypes,
+    size: {
+      table: {
+        defaultValue: { summary: '"medium"' },
+      },
+    },
+    onChange: {
+      action: "changed",
+      description: "Called with the new value when the text changes",
+      table: { category: "Events" },
+    },
   },
 };
 
@@ -22,7 +32,6 @@ type Story = StoryObj<typeof TextAreaInput>;
 export const Primary: Story = {
   args: {
     defaultValue: "Textarea content",
-    resize: "both",
     size: "full",
     label: "Textarea label",
     message: "1000 characters",

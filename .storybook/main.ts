@@ -1,5 +1,5 @@
-import { dirname, join } from "path";
-import { StorybookConfig } from "@storybook/react-vite";
+import { fileURLToPath } from "node:url";
+import type { StorybookConfig } from "@storybook/react-vite";
 
 const config: StorybookConfig = {
   stories: [
@@ -7,15 +7,12 @@ const config: StorybookConfig = {
     "../packages/atomic-elements/src/**/*.mdx",
   ],
 
-  addons: [
-    getAbsolutePath("@storybook/addon-links"),
-    getAbsolutePath("@storybook/addon-essentials"),
-  ],
+  addons: ["@storybook/addon-links", "@storybook/addon-docs"],
 
   staticDirs: ["../public"],
 
   framework: {
-    name: getAbsolutePath("@storybook/react-vite"),
+    name: "@storybook/react-vite",
     options: {},
   },
   core: {
@@ -26,24 +23,38 @@ const config: StorybookConfig = {
     check: false,
     reactDocgen: "react-docgen-typescript",
     reactDocgenTypescriptOptions: {
-      compilerOptions: {
-        allowSyntheticDefaultImports: true,
-        esModuleInterop: false,
-      },
+      // Type-check components with the package's tsconfig, so docgen can
+      // resolve its path aliases (@components, @hooks, @styles). Without
+      // them, props imported through an alias resolve to nothing: Button,
+      // IconButton and ButtonGroup had no props at all.
+      tsconfigPath: fileURLToPath(
+        new URL("../packages/atomic-elements/tsconfig.json", import.meta.url)
+      ),
+      // Only document the library's components. Storybook's own config
+      // files (.storybook/, the story helpers) are outside that tsconfig,
+      // so docgen would skip them anyway, with a warning for each.
+      include: ["**/packages/atomic-elements/src/**/*.tsx"],
+      // Report `boolean | undefined` as `boolean`, so optional props get a
+      // matching control instead of a JSON object editor.
+      shouldRemoveUndefinedFromOptional: true,
       shouldExtractLiteralValuesFromEnum: true,
-      // propFilter: (prop) =>
-      //   prop.parent ? !/node_modules/.test(prop.parent.fileName) : true,
+      // Setting propFilter replaces Storybook's default filter.
+      propFilter: (prop) => {
+        // Leave deprecated props out of the docs. They stay in the types,
+        // where the @deprecated tag points people at the replacement.
+        if ((prop as { tags?: Record<string, string> }).tags?.deprecated) {
+          return false;
+        }
+        // Storybook's default rule: skip props inherited from node_modules
+        // types (HTML attributes etc.).
+        return prop.parent ? !/node_modules/.test(prop.parent.fileName) : true;
+      },
     },
   },
 
   docs: {
     defaultName: "Overview",
-    autodocs: true,
   },
 };
 
 export default config;
-
-function getAbsolutePath(value: string): any {
-  return dirname(require.resolve(join(value, "package.json")));
-}

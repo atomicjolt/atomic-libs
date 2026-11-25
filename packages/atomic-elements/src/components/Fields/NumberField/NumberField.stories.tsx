@@ -1,18 +1,12 @@
-import React, { useLayoutEffect } from "react";
-import { Meta, StoryObj } from "@storybook/react";
+import React from "react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { NumberField } from ".";
-import { FieldLabel } from "../Field/FieldLabel";
-import { FieldMessage } from "../Field/FieldMessage";
-import { FieldInput } from "../Field/FieldInput";
-import { FieldErrorMessage } from "../Field/FieldError";
+import { Label } from "../Atoms/Label";
+import { Message } from "../Atoms/Message";
+import { Input } from "../Atoms/Input";
+import { ErrorMessage } from "../Atoms/ErrorMessage";
 import { Group } from "../../Layout/Group";
-import { FieldStateControls } from "@sb/helpers";
-import { IconButton } from "@components/Buttons/IconButton";
-
-// For some reason, without this line NumberField has the
-// incorrect display name in the storybook docs
-// @ts-ignore
-NumberField.displayName = "NumberField";
+import { FieldStateControls, LoadingArgTypes } from "@sb/helpers";
 
 export default {
   title: "Fields/NumberField",
@@ -22,7 +16,16 @@ export default {
   },
   argTypes: {
     ...FieldStateControls,
-    onChange: { action: "onChange", table: { category: "Events" } },
+    ...LoadingArgTypes,
+    onChange: {
+      action: "onChange",
+      description: "Handler called when the numeric value changes",
+      table: { category: "Events" },
+    },
+    step: {
+      control: "number",
+      description: "Amount to increment or decrement by",
+    },
     formatOptions: {
       control: "object",
       description: "Options for formatting the number",
@@ -43,16 +46,6 @@ export default {
       control: "number",
       description: "Value of the input when controlled",
     },
-    "data-float": {
-      table: {
-        disable: true,
-      },
-    },
-    "data-resize": {
-      table: {
-        disable: true,
-      },
-    },
   },
 } as Meta<typeof NumberField>;
 
@@ -62,14 +55,14 @@ export const Primary: Story = {
   args: {
     size: "large",
     children: [
-      <FieldLabel key="label">Label</FieldLabel>,
-      <FieldMessage key="message">Message</FieldMessage>,
+      <Label key="label">Label</Label>,
+      <Message key="message">Message</Message>,
       <Group isMerged key="group">
-        <IconButton slot="decrement" icon="remove" />
-        <FieldInput key="input" />
-        <IconButton slot="increment" icon="add" />
+        <NumberField.DecrementButton icon="remove" />
+        <Input key="input" />
+        <NumberField.IncrementButton icon="add" />
       </Group>,
-      <FieldErrorMessage key="error">Error Message</FieldErrorMessage>,
+      <ErrorMessage key="error">Error Message</ErrorMessage>,
     ],
   },
 };

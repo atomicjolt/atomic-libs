@@ -18,7 +18,7 @@ import {
   FieldMessageContext,
 } from "../contexts";
 import { StyledField } from "../Field.styles";
-import { FieldLabel } from "./FieldLabel";
+import { Label } from "../Atoms/Label";
 import { ComboInputContext } from "../ComboInput";
 
 export interface FieldRenderProps extends FieldStatusProps {}
@@ -29,14 +29,15 @@ export interface FieldProps<R extends FieldRenderProps = FieldRenderProps>
     DomProps,
     AriaProps<AriaFieldProps>,
     FieldDomProps {
+  /** Size of the field and its input. */
   size?: ExtendedSize;
 }
 
-/** Provides the accessbility implementation for a
+/** Provides the accessibility implementation for a
  * form field and its associated label, error message, and description.
  *
  * Note that when using `Field` you manage the state of the input directly.
- * You may opt to use one of the other more specific field components if they suite your needs.
+ * You may opt to use one of the other more specific field components if they suit your needs.
  */
 export function Field(props: FieldProps) {
   const { isInvalid, isDisabled, isReadOnly, isRequired, name } = props;
@@ -56,7 +57,7 @@ export function Field(props: FieldProps) {
   const label = React.Children.toArray(renderProps.children).find(
     (child) =>
       typeof child === "object" &&
-      (child as React.ReactElement<any>)?.type === FieldLabel
+      (child as React.ReactElement<any>)?.type === Label
   );
 
   const { labelProps, descriptionProps, errorMessageProps, fieldProps } =

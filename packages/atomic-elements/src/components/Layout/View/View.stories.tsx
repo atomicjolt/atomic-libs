@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { View } from ".";
 import {
   BackgroundArgTypes,
@@ -16,6 +16,11 @@ export default {
     ...RenderPropsArgTypes,
     ...LayoutArgTypes,
     ...BackgroundArgTypes,
+    $display: {
+      control: "select",
+      options: ["block", "inline", "inline-block", "none"],
+      description: "CSS display value of the element.",
+    },
   },
 } as Meta<typeof View>;
 

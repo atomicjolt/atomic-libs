@@ -1,26 +1,57 @@
 import { useState } from "react";
-import { Meta, StoryObj } from "@storybook/react";
-import { fn } from "@storybook/test";
+import { Meta, StoryObj } from "@storybook/react-vite";
+import { fn } from "storybook/test";
 import { Table } from ".";
+import { SortDescriptor } from "react-stately";
 import { SearchDescriptor } from "../../../types";
-import { getCssProps } from "@sb/cssprops";
+import { table } from "@styles/theme/component";
 import { Flex } from "../../Layout/Flex";
 import { Button } from "@components/Buttons/Button";
 import { MaterialIcon, Pagination, Text } from "@components/index";
-import { RenderPropsArgTypes } from "@sb/helpers";
+import { MultiSelectionArgTypes, RenderPropsArgTypes } from "@sb/helpers";
+
+// Row ids used by the stories, so the selection controls have real keys.
+const rowKeys = ["charizard", "blastoise", "venusaur", "pikachu"];
 
 const meta: Meta<typeof Table> = {
   title: "Content/Table",
   component: Table,
+  subcomponents: {
+    "Table.Column": Table.Column,
+    "Table.Body": Table.Body,
+    "Table.Row": Table.Row,
+    "Table.Bottom": Table.Bottom,
+  },
   parameters: {
-    cssprops: getCssProps("Table"),
+    cssprops: { table },
   },
   argTypes: {
+    // Row nesting isn't implemented yet (setting it throws).
+    allowsExpandableRows: { table: { disable: true } },
     ...RenderPropsArgTypes,
+    ...MultiSelectionArgTypes,
+    defaultSelectedKeys: {
+      ...MultiSelectionArgTypes.defaultSelectedKeys,
+      options: rowKeys,
+    },
+    selectedKeys: {
+      ...MultiSelectionArgTypes.selectedKeys,
+      options: rowKeys,
+    },
+    disabledKeys: {
+      ...MultiSelectionArgTypes.disabledKeys,
+      options: rowKeys,
+    },
+    disallowEmptySelection: {
+      control: "boolean",
+      description:
+        "Whether the selection can be emptied once a row is selected.",
+      table: { category: "Selection" },
+    },
     isSticky: {
-      description: "Whether the bottom content should be sticky",
       control: "boolean",
     },
+    // Accepted by the type, but Table doesn't use it.
     hasBottom: {
       description: "Whether the table has a bottom content",
       control: "boolean",
@@ -73,33 +104,34 @@ type Story = StoryObj<typeof Table>;
 
 export const Primary: Story = {
   args: {
+    "aria-label": "Pokemon",
     onCellAction: fn(),
     onRowAction: fn(),
     onSortChange: fn(),
     onSearchChange: fn(),
     children: [
-      <Table.Header>
+      <Table.Header key="header">
         <Table.Column isRowHeader>Name</Table.Column>
         <Table.Column>Type</Table.Column>
         <Table.Column>Level</Table.Column>
       </Table.Header>,
-      <Table.Body>
-        <Table.Row key="1">
+      <Table.Body key="body">
+        <Table.Row id="charizard">
           <Table.Cell>Charizard</Table.Cell>
           <Table.Cell>Fire, Flying</Table.Cell>
           <Table.Cell>67</Table.Cell>
         </Table.Row>
-        <Table.Row key="2">
+        <Table.Row id="blastoise">
           <Table.Cell>Blastoise</Table.Cell>
           <Table.Cell>Water</Table.Cell>
           <Table.Cell>56</Table.Cell>
         </Table.Row>
-        <Table.Row key="3">
+        <Table.Row id="venusaur">
           <Table.Cell>Venusaur</Table.Cell>
           <Table.Cell>Grass, Poison</Table.Cell>
           <Table.Cell>83</Table.Cell>
         </Table.Row>
-        <Table.Row key="4">
+        <Table.Row id="pikachu">
           <Table.Cell>Pikachu</Table.Cell>
           <Table.Cell>Electric</Table.Cell>
           <Table.Cell>100</Table.Cell>
@@ -111,6 +143,7 @@ export const Primary: Story = {
 
 export const NestedColumns: Story = {
   args: {
+    "aria-label": "Pokemon stats",
     children: [
       <Table.Header key="header">
         <Table.Column title="Basic Info" showDivider>
@@ -180,46 +213,58 @@ export const SingleSelection: Story = {
 };
 
 export const SortableHeaders: Story = {
-  args: {
-    sortDescriptor: {
+  render: (args) => {
+    const [sortDescriptor, setSortDescriptor] = useState<SortDescriptor>({
       column: "name",
       direction: "descending",
-    },
-    children: [
-      <Table.Header key="header">
-        <Table.Column id="name" isRowHeader allowsSorting>
-          Name
-        </Table.Column>
-        <Table.Column id="type" allowsSorting>
-          Type
-        </Table.Column>
-        <Table.Column id="level" allowsSorting>
-          Level
-        </Table.Column>
-      </Table.Header>,
-      <Table.Body key="body">
-        <Table.Row>
-          <Table.Cell>Charizard</Table.Cell>
-          <Table.Cell>Fire, Flying</Table.Cell>
-          <Table.Cell>67</Table.Cell>
-        </Table.Row>
-        <Table.Row>
-          <Table.Cell>Blastoise</Table.Cell>
-          <Table.Cell>Water</Table.Cell>
-          <Table.Cell>56</Table.Cell>
-        </Table.Row>
-        <Table.Row>
-          <Table.Cell>Venusaur</Table.Cell>
-          <Table.Cell>Grass, Poison</Table.Cell>
-          <Table.Cell>83</Table.Cell>
-        </Table.Row>
-        <Table.Row>
-          <Table.Cell>Pikachu</Table.Cell>
-          <Table.Cell>Electric</Table.Cell>
-          <Table.Cell>100</Table.Cell>
-        </Table.Row>
-      </Table.Body>,
-    ],
+    });
+
+    const pokemons: Record<string, string>[] = [
+      { name: "Charizard", type: "Fire, Flying", level: "67" },
+      { name: "Blastoise", type: "Water", level: "56" },
+      { name: "Venusaur", type: "Grass, Poison", level: "83" },
+      { name: "Pikachu", type: "Electric", level: "100" },
+    ];
+
+    const sortedPokemon = [...pokemons].sort((a, b) => {
+      const column = sortDescriptor.column as string;
+      const order = a[column].localeCompare(b[column], undefined, {
+        numeric: true,
+      });
+      return sortDescriptor.direction === "descending" ? -order : order;
+    });
+
+    return (
+      <Table
+        {...args}
+        sortDescriptor={sortDescriptor}
+        onSortChange={setSortDescriptor}
+      >
+        <Table.Header>
+          <Table.Column id="name" isRowHeader allowsSorting>
+            Name
+          </Table.Column>
+          <Table.Column id="type" allowsSorting>
+            Type
+          </Table.Column>
+          <Table.Column id="level" allowsSorting>
+            Level
+          </Table.Column>
+        </Table.Header>
+        <Table.Body items={sortedPokemon}>
+          {(pokemon) => (
+            <Table.Row id={pokemon.name}>
+              <Table.Cell>{pokemon.name}</Table.Cell>
+              <Table.Cell>{pokemon.type}</Table.Cell>
+              <Table.Cell>{pokemon.level}</Table.Cell>
+            </Table.Row>
+          )}
+        </Table.Body>
+      </Table>
+    );
+  },
+  args: {
+    "aria-label": "Sortable Pokemon",
   },
 };
 
@@ -297,6 +342,7 @@ export const SearchableColumns: Story = {
 
 export const CustomizeIcons: Story = {
   args: {
+    "aria-label": "Pokemon",
     sortDescriptor: {
       column: "name",
       direction: "descending",
@@ -372,6 +418,7 @@ export const TableSkeleton: StoryObj<typeof Table.Skeleton> = {
 export const RenderEmptyTable: Story = {
   ...Primary,
   args: {
+    "aria-label": "Empty table",
     children: [
       <Table.Header key="header">
         <Table.Column isRowHeader>Name</Table.Column>
@@ -452,7 +499,7 @@ export const StickyRowHeader: Story = {
   args: {
     ...Primary.args,
     children: [
-      <Table.Header>
+      <Table.Header key="header">
         <Table.Column isRowHeader showDivider width={100}>
           Name
         </Table.Column>
@@ -462,7 +509,7 @@ export const StickyRowHeader: Story = {
         <Table.Column>Attack</Table.Column>
         <Table.Column>Defense</Table.Column>
       </Table.Header>,
-      <Table.Body>
+      <Table.Body key="body">
         <Table.Row key="1">
           <Table.Cell>Charizard</Table.Cell>
           <Table.Cell>Fire, Flying</Table.Cell>

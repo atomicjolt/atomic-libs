@@ -1,4 +1,5 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
+import { LoadingArgTypes } from "@sb/helpers";
 import { Input } from ".";
 
 export default {
@@ -8,18 +9,7 @@ export default {
     layout: "centered",
   },
   argTypes: {
-    isLoading: {
-      control: "boolean",
-      table: {
-        category: "Field State",
-      },
-    },
-    loadingLabel: {
-      control: "text",
-      table: {
-        category: "Field State",
-      },
-    },
+    ...LoadingArgTypes,
   },
 } as Meta<typeof Input>;
 

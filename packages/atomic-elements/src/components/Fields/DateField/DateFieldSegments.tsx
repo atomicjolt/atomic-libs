@@ -27,3 +27,5 @@ export function DateFieldSegments(props: DateFieldSegmentsProps) {
     </StyledDateSegments>
   );
 }
+
+DateFieldSegments.displayName = "DateField.Segments";

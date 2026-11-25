@@ -40,7 +40,7 @@ export interface DateFieldProps<T extends DateValue>
   extends FieldProps,
     Omit<AriaProps<AriaDateFieldProps<T>>, "label"> {}
 
-/** Provides the accessbility implementation for a
+/** Provides the accessibility implementation for a
  * date field and its associated label, error message, and description.
  * */
 export function DateField<T extends DateValue>(props: DateFieldProps<T>) {

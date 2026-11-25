@@ -22,8 +22,14 @@ import { useLoading } from "@components/Feedback/Loading";
 export interface FileInputProps
   extends Omit<FieldInputProps, "isReadOnly">,
     AriaLabelProps {
+  /** The currently selected file (controlled) */
   file?: File | null;
+  /** Called with the selected or dropped file, or null */
   onChange?: (f: File | null) => void;
+  /**
+   * Text shown when no file is selected
+   * @default "No file selected"
+   */
   placeholder?: string;
 
   /** Array of accepted file types
@@ -35,7 +41,7 @@ export interface FileInputProps
 
 /** FileInput component. Used to select singular files
  *
- * Checkout [FileTrigger](?path=/docs/buttons-filetrigger--overview) For a more general file selection component
+ * Check out [FileTrigger](?path=/docs/buttons-filetrigger--overview) for a more general file selection component
  */
 export const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
   function FileInput(props, ref) {
@@ -60,8 +66,25 @@ export const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
       name,
       isLoading: _isLoading,
       loadingLabel: _loadingLabel,
+      // Labelling props belong on the button people interact with, not the
+      // wrapper div.
+      "aria-label": ariaLabel,
+      "aria-labelledby": ariaLabelledby,
+      "aria-describedby": ariaDescribedby,
+      "aria-details": ariaDetails,
       ...rest
     } = props;
+
+    // Describe the button with the message and error, as well as anything
+    // passed in, so screen readers announce them.
+    const describedBy =
+      [
+        ariaDescribedby,
+        message ? messageId : undefined,
+        isInvalid && error ? errorId : undefined,
+      ]
+        .filter(Boolean)
+        .join(" ") || undefined;
 
     const { isLoading, loadingLabel } = useLoading(props);
 
@@ -100,6 +123,8 @@ export const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
           }}
         >
           <FileTrigger
+            ref={ref}
+            id={id}
             acceptedFileTypes={acceptedFileTypes}
             onSelect={(files) => onChange?.(files[0] || null)}
             name={name}
@@ -110,10 +135,16 @@ export const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
               placeholder={placeholder}
               isRequired={isRequired}
               isDisabled={isDisabled}
+              aria-label={ariaLabel}
+              aria-labelledby={ariaLabelledby}
+              aria-describedby={describedBy}
+              aria-details={ariaDetails}
             />
             {message && <Message id={messageId}>{message}</Message>}
             {isInvalid && error && (
-              <ErrorMessage id={errorId}>{error}</ErrorMessage>
+              <ErrorMessage id={errorId} isInvalid>
+                {error}
+              </ErrorMessage>
             )}
           </FileTrigger>
         </DropZone>
@@ -122,7 +153,7 @@ export const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
   }
 );
 
-interface FileInputButtonProps {
+interface FileInputButtonProps extends AriaLabelProps {
   file?: File | null;
   label?: React.ReactNode;
   placeholder: string;
@@ -131,10 +162,11 @@ interface FileInputButtonProps {
 }
 
 function FileInputButton(props: FileInputButtonProps) {
-  const { file, label, placeholder, isRequired, isDisabled } = props;
+  const { file, label, placeholder, isRequired, isDisabled, ...ariaProps } =
+    props;
 
   const buttonRef = useRef<HTMLButtonElement | null>(null);
-  const { buttonProps } = useButton({ isDisabled }, buttonRef);
+  const { buttonProps } = useButton({ isDisabled, ...ariaProps }, buttonRef);
   const { focusProps } = useFocusRing();
 
   return (

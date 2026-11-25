@@ -10,6 +10,7 @@ import { EmptyTable } from "./EmptyTable";
 import { TableStateContext } from "../Table.context";
 import { useCollectionRenderer } from "@hooks/useCollectionRenderer";
 import { useLoading } from "@components/Feedback/Loading";
+import { useTranslations } from "@hooks/useTranslations";
 
 export interface TableBodyProps<T> extends LoadingProps {
   renderEmpty?: (() => React.ReactNode) | React.ReactNode;
@@ -28,7 +29,8 @@ export const TableBody = createBranchComponent(
   ) {
     const state = useContext(TableStateContext)!;
     const { loadingRows = 10 } = props;
-    const { isLoading } = useLoading({ isLoading: props.isLoading });
+    const { isLoading, loadingLabel } = useLoading(props);
+    const t = useTranslations();
 
     const renderProps = useRenderProps({
       componentClassName: "aje-table__body",
@@ -41,12 +43,23 @@ export const TableBody = createBranchComponent(
     const { CollectionBranchRenderer } = useCollectionRenderer();
 
     return (
-      <TableRowGroup type={StyledTBody} ref={ref} {...renderProps}>
+      <TableRowGroup
+        type={StyledTBody}
+        ref={ref}
+        aria-busy={isLoading || undefined}
+        {...renderProps}
+      >
         {!body.hasChildNodes && !isLoading && (
           <EmptyTable state={state} renderEmpty={props.renderEmpty} />
         )}
 
-        {isLoading && <LoadingTableRows state={state} rows={loadingRows} />}
+        {isLoading && (
+          <LoadingTableRows
+            state={state}
+            rows={loadingRows}
+            label={loadingLabel ?? t("loading")}
+          />
+        )}
 
         {!isLoading && (
           <CollectionBranchRenderer
@@ -59,3 +72,6 @@ export const TableBody = createBranchComponent(
   },
   (props) => <Collection items={props.items}>{props.children}</Collection>
 );
+
+// @ts-expect-error Setting displayName on a generic component causes a TypeScript error
+TableBody.displayName = "Table.Body";

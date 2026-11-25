@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { Menu } from ".";
 import { MenuTrigger } from "./MenuTrigger";
 import { Button } from "../../Buttons/Button";
@@ -16,10 +16,16 @@ export default {
   },
   argTypes: {
     ...OverlayTriggerArgTypes,
+    children: {
+      control: false,
+      description:
+        "The trigger element followed by a Popover containing a Menu",
+    },
     trigger: {
       control: "select",
       options: ["press", "longPress"],
       description: "The trigger type for opening the menu.",
+      table: { defaultValue: { summary: '"press"' } },
     },
   },
 } as Meta<typeof MenuTrigger>;
@@ -47,7 +53,7 @@ export const Primary: Story = {
 export const IconButtonTrigger: Story = {
   args: {
     children: [
-      <IconButton icon="arrow_drop_down" />,
+      <IconButton key="button" icon="arrow_drop_down" aria-label="Open menu" />,
       <Popover placement="bottom left" key="popover">
         <Menu>
           <Item onAction={() => alert("Item 1")}>Item 1</Item>

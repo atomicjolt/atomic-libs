@@ -4,9 +4,13 @@ import { StyledCheckmark } from "./Checkmark.styles";
 
 export interface CheckmarkProps
   extends Omit<RenderBaseProps<never>, "children"> {
+  /** Size of the checkmark
+   * @default "medium"
+   */
   size?: Size;
 }
 
+/** A checkmark that pops in with a short animation when it first renders. */
 export function Checkmark(props: CheckmarkProps) {
   const { size = "medium" } = props;
 

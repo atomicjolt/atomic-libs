@@ -1,14 +1,14 @@
 import React from "react";
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { TextField } from ".";
-import { FieldLabel } from "../Field/FieldLabel";
-import { FieldMessage } from "../Field/FieldMessage";
-import { FieldInput } from "../Field/FieldInput";
-import { FieldErrorMessage } from "../Field/FieldError";
-import { FieldTextArea } from "../Field/FieldTextArea";
+import { Label } from "../Atoms/Label";
+import { Message } from "../Atoms/Message";
+import { Input } from "../Atoms/Input";
+import { ErrorMessage } from "../Atoms/ErrorMessage";
+import { TextArea } from "../Atoms/TextArea";
 import { Group } from "../../Layout/Group";
 import { IconButton } from "../../Buttons/IconButton";
-import { FieldStateControls } from "@sb/helpers";
+import { FieldStateControls, LoadingArgTypes } from "@sb/helpers";
 
 export default {
   title: "Fields/TextField",
@@ -18,27 +18,26 @@ export default {
   },
   argTypes: {
     ...FieldStateControls,
+    ...LoadingArgTypes,
+    type: {
+      control: "select",
+      options: ["text", "email", "password", "search", "tel", "url"],
+      description: "Type of the input element",
+      table: { defaultValue: { summary: '"text"' } },
+    },
     defaultValue: {
       control: "text",
+      description: "Initial value (uncontrolled)",
     },
     value: {
       control: "text",
+      description: "Value (controlled)",
     },
     onChange: {
       action: "onChange",
       description: "Handler that is called when the input value changes",
       table: {
         category: "Events",
-      },
-    },
-    "data-float": {
-      table: {
-        disable: true,
-      },
-    },
-    "data-resize": {
-      table: {
-        disable: true,
       },
     },
   },
@@ -50,10 +49,10 @@ export const Primary: Story = {
   args: {
     size: "large",
     children: [
-      <FieldLabel key="label">Label</FieldLabel>,
-      <FieldMessage key="message">Message</FieldMessage>,
-      <FieldInput key="input" />,
-      <FieldErrorMessage key="error">Error Message</FieldErrorMessage>,
+      <Label key="label">Label</Label>,
+      <Message key="message">Message</Message>,
+      <Input key="input" />,
+      <ErrorMessage key="error">Error Message</ErrorMessage>,
     ],
   },
 };
@@ -62,10 +61,10 @@ export const ForTextArea: Story = {
   args: {
     ...Primary.args,
     children: [
-      <FieldLabel key="label">Label</FieldLabel>,
-      <FieldMessage key="message">Message</FieldMessage>,
-      <FieldTextArea key="textarea" />,
-      <FieldErrorMessage key="error">Error Message</FieldErrorMessage>,
+      <Label key="label">Label</Label>,
+      <Message key="message">Message</Message>,
+      <TextArea key="textarea" />,
+      <ErrorMessage key="error">Error Message</ErrorMessage>,
     ],
   },
 };
@@ -82,12 +81,12 @@ export const WithButton: Story = {
   args: {
     ...Primary.args,
     children: [
-      <FieldLabel key="label">Username</FieldLabel>,
+      <Label key="label">Username</Label>,
       <Group isMerged key="group">
-        <FieldInput key="input" placeholder="Jon@then" />
+        <Input key="input" placeholder="Enter a username" />
         <IconButton key="button" icon="add" aria-label="add user" />
       </Group>,
-      <FieldErrorMessage key="error">Error Message</FieldErrorMessage>,
+      <ErrorMessage key="error">Error Message</ErrorMessage>,
     ],
   },
 };

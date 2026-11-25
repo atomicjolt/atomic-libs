@@ -7,12 +7,14 @@ exports[`Pagination > Snapshots > should match snapshot 1`] = `
     <div>
       <div
         class="aje-pagination"
+        role="navigation"
       />
     </div>
   </body>,
   "container": <div>
     <div
       class="aje-pagination"
+      role="navigation"
     />
   </div>,
   "debug": [Function],

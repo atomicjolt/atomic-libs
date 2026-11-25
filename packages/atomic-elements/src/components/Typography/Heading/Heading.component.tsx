@@ -8,8 +8,6 @@ import { TextColorProps } from "@styles/colors";
 import { HeadingContext } from "./Heading.context";
 import { HeadingWrapper } from "./Heading.styles";
 
-export interface HeadingProps extends RenderBaseProps<never> {}
-
 export interface HeadingProps
   extends RenderBaseProps<never>,
     ElementWrapper<HTMLSpanElement>,
@@ -17,9 +15,15 @@ export interface HeadingProps
     MarginProps,
     TextColorProps,
     DimensionsProps {
+  /**
+   * The heading element to render. Sets the semantic level only, not the
+   * visual size (use `$size` for that).
+   * @default "h1"
+   */
   as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 }
 
+/** A section heading. Renders an `h1`–`h6` element. */
 export const Heading = forwardRef<HTMLHeadingElement, HeadingProps>(
   function Heading(props, ref) {
     [props, ref] = useContextProps(HeadingContext, props, ref);

@@ -4,7 +4,11 @@ import { PressResponder } from "@react-aria/interactions";
 import React from "react";
 
 export interface FileTriggerProps extends FieldDomProps {
+  /** Pressable element (e.g. `<Button>`) that opens the file picker */
   children?: React.ReactNode;
+
+  /** Id applied to the underlying file input. */
+  id?: string;
 
   /** Configure if the input should accept files or directories
    *
@@ -21,6 +25,7 @@ export interface FileTriggerProps extends FieldDomProps {
   /** Array of accepted file types
    *
    * [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept)
+   * @default []
    */
   acceptedFileTypes?: string[];
 
@@ -49,6 +54,7 @@ export const FileTrigger = React.forwardRef(function FileTrigger(
     captureMode,
     accept,
     name,
+    id,
   } = props;
   const inputRef = useForwardedRef(ref);
 
@@ -65,6 +71,7 @@ export const FileTrigger = React.forwardRef(function FileTrigger(
         {children}
       </PressResponder>
       <input
+        id={id}
         name={name}
         type="file"
         ref={inputRef}
@@ -77,7 +84,7 @@ export const FileTrigger = React.forwardRef(function FileTrigger(
         onChange={(e) => props.onSelect?.(e.target.files!)}
         // @ts-expect-error - webkitdirectory is not a standard attribute
         // But it is supported by most modern browsers
-        webkitdirectory={accept === "directory" ? "true" : undefined}
+        webkitdirectory={accept === "directories" ? "true" : undefined}
       />
     </>
   );

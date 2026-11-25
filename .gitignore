@@ -7,7 +7,6 @@ yarn-debug.log*
 
 # Docs
 **/storybook-static
-**/.storybook/__generated__
 docs/.docusaurus
 docs/build
 

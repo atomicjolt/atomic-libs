@@ -15,6 +15,9 @@ import { ModalContext } from "../Modal/Modal.context";
 export interface OverlayTriggerProps
   extends RSOverlayTriggerProps,
     HasChildren {
+  /** The type of overlay you want to create
+   * @default "dialog"
+   */
   type?: "dialog" | "menu" | "listbox" | "tree" | "grid";
 }
 

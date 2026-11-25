@@ -41,6 +41,7 @@ export interface HasChildren {
 }
 
 export interface HasVariant<Variants> {
+  /** Visual style of the component. */
   variant?: SuggestStrings<Variants>;
 }
 
@@ -50,7 +51,7 @@ export type LoadingProps = {
   /** When loading is true, the content will be replaced with a spinner.
    * When it is false, the content will be shown normally */
   isLoading?: boolean;
-  /** aria accessiblity label to inform screen-readers that it is loading */
+  /** aria accessibility label to inform screen-readers that it is loading */
   loadingLabel?: string;
 };
 
@@ -92,9 +93,9 @@ export interface PaginationDescriptor {
 }
 
 export interface DropdownProps {
-  /** The maximum height of the the dropdown.
-   * @default height of the viewport */
+  /** The maximum height of the dropdown, in pixels. */
   maxHeight?: number;
 
+  /** Where the dropdown opens relative to the field. */
   dropdownPlacement?: Placement;
 }

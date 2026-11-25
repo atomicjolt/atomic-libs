@@ -1,21 +1,41 @@
-import { Meta, StoryObj } from "@storybook/react";
-import { fn } from "@storybook/test";
+import { Meta, StoryObj } from "@storybook/react-vite";
+import { fn } from "storybook/test";
 import { SearchInput } from ".";
-import { RenderPropsArgTypes, TextInputControls } from "@sb/helpers";
-import { getCssProps } from "@sb/cssprops";
+import {
+  RenderStylePropsArgTypes,
+  TextInputControls,
+  LoadingArgTypes,
+} from "@sb/helpers";
+import { input } from "@styles/theme/component";
 
 const meta: Meta<typeof SearchInput> = {
   title: "Inputs/User Input/SearchInput",
   component: SearchInput,
   parameters: {
     layout: "centered",
-    cssprops: getCssProps("Input"),
+    cssprops: { input },
   },
   argTypes: {
-    ...RenderPropsArgTypes,
+    // SearchInput renders its own children and has no `style` prop.
+    className: RenderStylePropsArgTypes.className,
     ...TextInputControls,
-    onSubmit: { control: false, table: { category: "Events" } },
-    onChange: { control: false, table: { category: "Events" } },
+    ...LoadingArgTypes,
+    size: {
+      table: {
+        defaultValue: { summary: '"medium"' },
+      },
+    },
+    onSubmit: {
+      control: false,
+      description:
+        "Called with the current value when the user presses Enter or the search button",
+      table: { category: "Events" },
+    },
+    onChange: {
+      control: false,
+      description: "Called with the new value when the text changes",
+      table: { category: "Events" },
+    },
   },
 };
 

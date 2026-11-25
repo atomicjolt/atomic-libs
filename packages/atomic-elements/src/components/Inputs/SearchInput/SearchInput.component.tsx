@@ -16,7 +16,11 @@ export interface SearchInputProps
   extends AriaProps<AriaSearchFieldProps>,
     FieldInputProps {}
 
-/** SearchInput component. */
+/**
+ * A text input for search queries, with a search button that submits the
+ * query. Forwards a `ref` to the input element. For a field you compose
+ * yourself, see `SearchField`.
+ */
 export const SearchInput = React.forwardRef(function SearchInput(
   props: SearchInputProps,
   ref: React.Ref<HTMLInputElement>

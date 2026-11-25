@@ -4,19 +4,19 @@ import { AriaTextFieldProps } from "@react-aria/textfield";
 
 import { AriaProps, FieldInputProps } from "../../../types";
 import { TextAreaWrapper } from "./TextAreaInput.styles";
-import {
-  FieldLabel,
-  FieldMessage,
-  FieldTextArea,
-  FieldErrorMessage,
-} from "../../Fields";
+import { Label, Message, TextArea, ErrorMessage } from "../../Fields";
 
 export interface TextAreaInputProps
   extends FieldInputProps,
     AriaProps<AriaTextFieldProps> {
-  /** The user is given the ability to resize the input */
+  /**
+   * The user is given the ability to resize the input
+   * @default "both"
+   */
   resize?: "none" | "both" | "horizontal" | "vertical";
+  /** Number of visible text lines (the `rows` attribute of the textarea) */
   rows?: number;
+  /** Visible width in average character widths (the `cols` attribute of the textarea) */
   cols?: number;
 }
 
@@ -52,10 +52,10 @@ export const TextAreaInput = React.forwardRef(function TextAreaInput(
       data-resize={resize === "none" ? undefined : resize}
       {...rest}
     >
-      {label && <FieldLabel>{label}</FieldLabel>}
-      {message && <FieldMessage>{message}</FieldMessage>}
-      <FieldTextArea ref={ref} rows={rows} cols={cols} />
-      <FieldErrorMessage>{error}</FieldErrorMessage>
+      {label && <Label>{label}</Label>}
+      {message && <Message>{message}</Message>}
+      <TextArea ref={ref} rows={rows} cols={cols} />
+      <ErrorMessage>{error}</ErrorMessage>
     </TextAreaWrapper>
   );
 });

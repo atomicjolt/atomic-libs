@@ -1,22 +1,23 @@
 import React from "react";
-import { Meta, StoryObj } from "@storybook/react";
-import { TextInputControls } from "@sb/helpers";
+import { Meta, StoryObj } from "@storybook/react-vite";
+import { InputControls, TextInputControls, LoadingArgTypes } from "@sb/helpers";
 import { ComboBox } from ".";
 import { Item } from "../../Collection";
-import { getCssProps } from "@sb/cssprops";
+import { dropdown, input, listbox } from "@styles/theme/component";
 
 const meta: Meta<typeof ComboBox> = {
-  title: "Dropdowns/Selection/Combobox",
+  title: "Dropdowns/Selection/ComboBox",
   component: ComboBox,
   parameters: {
     layout: "centered",
-    cssprops: getCssProps("Dropdown", "Input", "Listbox"),
+    cssprops: { dropdown, input, listbox },
   },
   argTypes: {
-    ...TextInputControls,
-    variant: {
-      table: { category: "Presentation" },
-    },
+    // Not TextInputControls: ComboBox has no defaultValue (it uses
+    // defaultInputValue / defaultSelectedKey).
+    ...InputControls,
+    autoFocus: TextInputControls.autoFocus,
+    ...LoadingArgTypes,
     children: { control: false },
     allowsCustomValue: {
       control: "boolean",
@@ -26,7 +27,7 @@ const meta: Meta<typeof ComboBox> = {
     defaultInputValue: {
       control: "text",
       description:
-        "The default value of the input field for an uncontrolled comobox",
+        "The default value of the input field for an uncontrolled combobox",
     },
     inputValue: {
       control: "text",
@@ -34,12 +35,12 @@ const meta: Meta<typeof ComboBox> = {
     },
     defaultSelectedKey: {
       control: "select",
-      options: ["1", "2"],
+      options: ["1", "2", "3"],
       description: "Key of the selected item for an uncontrolled component.",
     },
     selectedKey: {
       control: "select",
-      options: ["1", "2"],
+      options: ["1", "2", "3"],
       description: "Key of the selected item for a controlled component.",
     },
     disabledKeys: {
@@ -52,6 +53,23 @@ const meta: Meta<typeof ComboBox> = {
       options: ["manual", "input", "focus"],
       description:
         "Controls when the dropdown menu is shown. `manual` will only show the dropdown when the user clicks the button. `input` will show the dropdown when the input is focused & the user enters input. `focus` will show the dropdown when the input is focused",
+    },
+    icon: {
+      table: { defaultValue: { summary: '"search"' } },
+    },
+    variant: {
+      control: "select",
+      options: ["default", "floating"],
+      table: { defaultValue: { summary: '"default"' } },
+    },
+    size: {
+      table: { defaultValue: { summary: '"medium"' } },
+    },
+    maxHeight: {
+      table: { defaultValue: { summary: "300" } },
+    },
+    dropdownPlacement: {
+      table: { defaultValue: { summary: '"bottom start"' } },
     },
   },
 };
@@ -102,7 +120,7 @@ export const PrefixIcon: Story = {
   },
 };
 
-export const ScollingDropdown: Story = {
+export const ScrollingDropdown: Story = {
   args: {
     ...Primary.args,
     children: [
@@ -170,21 +188,56 @@ export const ScollingDropdown: Story = {
   },
 };
 
-export const DynamicCollection: Story = {
-  render: () => {
-    let options = [
-      { id: 1, name: "Aerospace" },
-      { id: 2, name: "Mechanical" },
-      { id: 3, name: "Civil" },
-    ];
+const engineeringMajors = [
+  { id: 1, name: "Aerospace" },
+  { id: 2, name: "Mechanical" },
+  { id: 3, name: "Civil" },
+];
 
-    return (
-      <ComboBox label="Pick a engineering major" items={options}>
-        {(item) => <Item>{item.name}</Item>}
-      </ComboBox>
-    );
+export const DynamicCollection: Story = {
+  render: (args) => (
+    <ComboBox {...args} items={engineeringMajors}>
+      {(item) => (
+        <Item>{(item as (typeof engineeringMajors)[number]).name}</Item>
+      )}
+    </ComboBox>
+  ),
+  args: {
+    label: "Pick an engineering major",
+    menuTrigger: "focus",
   },
+  parameters: {
+    docs: {
+      source: {
+        language: "jsx",
+        code: `
+const options = [
+  { id: 1, name: "Aerospace" },
+  { id: 2, name: "Mechanical" },
+  { id: 3, name: "Civil" },
+];
+
+<ComboBox label="Pick an engineering major" menuTrigger="focus" items={options}>
+  {(item) => <Item>{item.name}</Item>}
+</ComboBox>
+        `,
+      },
+    },
+  },
+};
+
+export const AllowsCustomValue: Story = {
   args: {
     ...Primary.args,
+    allowsCustomValue: true,
+    message: "Pick an option or type your own",
+  },
+};
+
+export const Invalid: Story = {
+  args: {
+    ...Primary.args,
+    isInvalid: true,
+    error: "Please select an option",
   },
 };

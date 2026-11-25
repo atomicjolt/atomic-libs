@@ -1,3 +1,4 @@
+import { setDisplayName } from "@utils/displayName";
 import React, { DOMAttributes, forwardRef, RefAttributes, useContext, type JSX } from "react";
 import { useTagGroup } from "@react-aria/tag";
 import { useListState } from "react-stately";
@@ -83,7 +84,7 @@ export const ChipGroupField = forwardRef(function ChipGroupField<
   );
 }) as unknown as ForwardedChipGroupField;
 
-ChipGroupField.displayName = "ChipFieldGroup";
+setDisplayName(ChipGroupField, "ChipGroupField");
 
 interface ChipGroupFieldInnerProps<T extends object>
   extends ChipGroupFieldProps {
@@ -158,7 +159,7 @@ const ChipGroupFieldList = forwardRef(function ChipGroupFieldList<
   return <ChipGroupFieldListInner {...props} ref={ref} />;
 }) as ForwardedChipGroupFieldList;
 
-ChipGroupFieldList.displayName = "ChipGroupField.List";
+setDisplayName(ChipGroupFieldList, "ChipGroupField.List");
 ChipGroupField.List = ChipGroupFieldList;
 
 const ChipGroupFieldListInner = forwardRef(function ChipGroupFieldListInner(

@@ -1,13 +1,12 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { ComboInput } from ".";
 import { MaterialIcon } from "../../Icons/MaterialIcon";
 import { IconButton } from "../../Buttons/IconButton";
 import { Input } from "../Atoms/Input";
 import { NumberField } from "../NumberField";
-import { FieldInput } from "../Field/FieldInput";
 import { Group } from "@components/Layout/Group";
 import { Text } from "@components/Typography/Text";
-import { RenderPropsArgTypes } from "@sb/helpers";
+import { LoadingArgTypes, RenderPropsArgTypes } from "@sb/helpers";
 
 export default {
   title: "Fields/ComboInput",
@@ -21,18 +20,7 @@ export default {
       control: "select",
       options: ["left", "right", "both"],
     },
-    isLoading: {
-      control: "boolean",
-      table: {
-        category: "Field State",
-      },
-    },
-    loadingLabel: {
-      control: "text",
-      table: {
-        category: "Field State",
-      },
-    },
+    ...LoadingArgTypes,
   },
 } as Meta<typeof ComboInput>;
 
@@ -74,7 +62,7 @@ export const NumberFieldWithButtons: Story = {
   render: (args) => (
     <NumberField>
       <ComboInput {...args}>
-        <FieldInput />
+        <Input />
         <Group>
           <IconButton slot="decrement" icon="remove" variant="ghost" />
           <IconButton slot="increment" icon="add" variant="ghost" />

@@ -1,24 +1,22 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { Checkmark } from ".";
-import { RenderPropsArgTypes } from "@sb/helpers";
-import { getCssProps } from "@sb/cssprops";
+import { RenderStylePropsArgTypes } from "@sb/helpers";
+import { animation } from "@styles/theme/component";
 
 export default {
   title: "Animations/Checkmark",
   component: Checkmark,
   parameters: {
     layout: "centered",
-    cssprops: getCssProps("Animations"),
+    cssprops: { animation },
   },
   argTypes: {
-    ...RenderPropsArgTypes,
+    ...RenderStylePropsArgTypes,
   },
 } as Meta<typeof Checkmark>;
 
 type Story = StoryObj<typeof Checkmark>;
 
 export const Primary: Story = {
-  args: {
-    size: "medium",
-  },
+  args: {},
 };

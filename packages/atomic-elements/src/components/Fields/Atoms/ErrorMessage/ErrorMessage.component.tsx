@@ -17,7 +17,12 @@ export const StyledErrorMessage = styled.p`
 
 export interface ErrorMessageProps
   extends ElementWrapperProps<React.HTMLAttributes<HTMLParagraphElement>> {
+  /** Element or component to render as.
+   * @default "p"
+   */
   as?: React.ElementType;
+  /** Whether the error is shown. Nothing renders unless this is true.
+   * Set automatically when used inside a Field. */
   isInvalid?: boolean;
 }
 

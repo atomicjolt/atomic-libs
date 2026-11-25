@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { ButtonGroup } from ".";
 import { Button } from "../Button";
 import { IconButton } from "../IconButton";
@@ -8,6 +8,7 @@ import {
   FlexArgTypes,
   FlexItemArgTypes,
   LayoutArgTypes,
+  LoadingArgTypes,
   RenderPropsArgTypes,
 } from "@sb/helpers";
 
@@ -21,10 +22,21 @@ const meta: Meta<typeof ButtonGroup> = {
     ...RenderPropsArgTypes,
     ...LayoutArgTypes,
     ...FlexArgTypes,
+    ...LoadingArgTypes,
+    $direction: {
+      ...FlexArgTypes.$direction,
+      table: {
+        ...FlexArgTypes.$direction?.table,
+        defaultValue: { summary: '"row"' },
+      },
+    },
     isDisabled: {
       control: "boolean",
       description:
         "Disables all of the buttons in the group. Can be overridden by the individual buttons.",
+      table: {
+        category: "State",
+      },
     },
     variant: {
       control: "select",
@@ -33,6 +45,7 @@ const meta: Meta<typeof ButtonGroup> = {
       options: [
         "primary",
         "secondary",
+        "link",
         "error",
         "success",
         "inverted",
@@ -40,6 +53,36 @@ const meta: Meta<typeof ButtonGroup> = {
         "border",
         "ghost",
       ],
+    },
+    isMerged: {
+      control: "boolean",
+      description:
+        "Visually joins the buttons into one control: removes the gap between them and the borders and corner radii where they meet.",
+    },
+    size: {
+      control: "select",
+      options: ["small", "medium", "large", "full", "auto"],
+      description:
+        "Sets the size for all of the buttons in the group. Can be overridden by the individual buttons.",
+    },
+    isLoading: {
+      control: "boolean",
+      description:
+        "Puts all of the buttons in the group in their loading state. Can be overridden by the individual buttons.",
+      table: {
+        category: "State",
+      },
+    },
+    icon: {
+      control: "text",
+      description:
+        "Material icon passed down to each IconButton in the group. Can be overridden by the individual buttons.",
+    },
+    iconVariant: {
+      control: "select",
+      options: ["default", "outlined", "round", "sharp", "two-tone"],
+      description:
+        "Material icon set passed down to each IconButton in the group. Can be overridden by the individual buttons.",
     },
   },
 };
@@ -57,9 +100,6 @@ export const Primary: Story = {
   ),
   args: {
     $gap: "5",
-    $direction: "row",
-    isMerged: false,
-    isDisabled: false,
   },
 };
 

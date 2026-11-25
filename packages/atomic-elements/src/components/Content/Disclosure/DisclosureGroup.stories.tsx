@@ -1,23 +1,30 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { Disclosure, DisclosureGroup } from ".";
 import { Flex } from "../../Layout/Flex";
 import { RenderPropsArgTypes } from "@sb/helpers";
-import { fn } from "@storybook/test";
+import { fn } from "storybook/test";
 
 export default {
   title: "Content/Disclosure/DisclosureGroup",
   component: DisclosureGroup,
   argTypes: {
-    ...RenderPropsArgTypes,
+    // DisclosureGroup renders no element of its own, so it takes no
+    // className or style.
+    children: RenderPropsArgTypes.children,
     allowsMultipleExpanded: {
       type: "boolean",
       description: "Allow multiple panels to be expanded at once",
+      table: { defaultValue: { summary: "false" } },
     },
     defaultExpandedKeys: {
+      control: "multi-select",
+      options: ["d1", "d2"],
       description:
         "Keys of the panels that are expanded by default (uncontrolled)",
     },
     expandedKeys: {
+      control: "multi-select",
+      options: ["d1", "d2"],
       description: "Keys of the panels that are expanded (controlled)",
     },
     onExpandedChange: {
@@ -36,7 +43,6 @@ type Story = StoryObj<typeof DisclosureGroup>;
 
 export const Primary: Story = {
   args: {
-    allowsMultipleExpanded: false,
     onExpandedChange: fn(),
     children: [
       <Flex key="flex" $direction="column" $gap="10px">
@@ -64,5 +70,19 @@ export const Primary: Story = {
         </Disclosure>
       </Flex>,
     ],
+  },
+};
+
+export const AllowsMultipleExpanded: Story = {
+  args: {
+    ...Primary.args,
+    allowsMultipleExpanded: true,
+  },
+};
+
+export const DefaultExpandedKeys: Story = {
+  args: {
+    ...Primary.args,
+    defaultExpandedKeys: ["d2"],
   },
 };

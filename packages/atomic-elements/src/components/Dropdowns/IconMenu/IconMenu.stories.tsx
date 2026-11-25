@@ -1,5 +1,6 @@
-import { Meta, StoryObj } from "@storybook/react";
-import { getCssProps } from "@sb/cssprops";
+import { Meta, StoryObj } from "@storybook/react-vite";
+import { AriaLabelArgTypes } from "@sb/helpers";
+import { button, dropdown, menu } from "@styles/theme/component";
 import { IconMenu } from ".";
 import { Item, MaterialIcon, Section } from "../../";
 
@@ -8,19 +9,30 @@ const meta: Meta<typeof IconMenu> = {
   component: IconMenu,
   parameters: {
     layout: "centered",
-    cssprops: getCssProps("Dropdown", "Menu", "Button"),
+    cssprops: { dropdown, menu, button },
   },
   argTypes: {
     buttonVariant: {
       control: "select",
       options: [
+        "border",
+        "ghost",
         "primary",
         "secondary",
+        "link",
         "error",
         "success",
         "inverted",
         "content",
       ],
+      description: "Variant of the trigger button.",
+      table: { defaultValue: { summary: '"border"' } },
+    },
+    icon: {
+      table: { defaultValue: { summary: '"more_vert"' } },
+    },
+    size: {
+      table: { defaultValue: { summary: '"medium"' } },
     },
     iconVariant: {
       control: "select",
@@ -28,6 +40,18 @@ const meta: Meta<typeof IconMenu> = {
     },
     children: {
       control: false,
+    },
+    "aria-label": {
+      ...AriaLabelArgTypes["aria-label"],
+      description:
+        "Accessible label for the icon-only trigger button and the menu.",
+    },
+    onAction: {
+      action: "onAction",
+      description: "Called with the key of the item the user selects.",
+      table: {
+        category: "Events",
+      },
     },
     onClose: {
       description: "Callback for when the menu is closed.",
@@ -63,7 +87,7 @@ type Story = StoryObj<typeof IconMenu>;
 
 export const Primary: Story = {
   args: {
-    icon: "more_vert",
+    "aria-label": "More options",
     children: [
       <Item id="item1" key="item1" onAction={() => alert("Item 1")}>
         Item 1

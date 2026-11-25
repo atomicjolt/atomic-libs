@@ -49,7 +49,7 @@ export const CheckBoxLabel = styled.span<DirectionProps>`
   }
 `;
 
-export const CheckboxWrapper = styled.div<DirectionProps>`
+export const CheckBoxWrapper = styled.div<DirectionProps>`
   ${mixins.ToggleInputLike(CheckBoxLabel)}
 
   &[data-selected] ${CheckBoxLabel}, &[data-indeterminate] ${CheckBoxLabel} {

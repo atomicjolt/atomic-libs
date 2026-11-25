@@ -3,7 +3,7 @@ import { AriaTextFieldProps } from "@react-aria/textfield";
 import classNames from "classnames";
 import { AriaProps, FieldInputProps, HasVariant } from "../../../types";
 import { StyledTextField } from "../Inputs.styles";
-import { FieldInput } from "../../Fields";
+import { Input } from "../../Fields";
 import { FloatingFieldInputWrapper } from "../../Internal/FloatingFieldInputWrapper";
 
 type Variants = "default" | "floating";
@@ -13,7 +13,11 @@ export interface TextInputProps
     FieldInputProps,
     HasVariant<Variants> {}
 
-/** TextInput component. */
+/**
+ * A single-line text input with a label, help text and error message.
+ * Forwards a `ref` to the input element. Use `TextAreaInput` for multi-line
+ * text and `NumberInput` for numbers.
+ */
 export const TextInput = React.forwardRef(function TextInput(
   props: TextInputProps,
   ref: React.Ref<HTMLInputElement>
@@ -44,7 +48,7 @@ export const TextInput = React.forwardRef(function TextInput(
         message={message}
         error={error}
       >
-        <FieldInput ref={ref} />
+        <Input ref={ref} />
       </FloatingFieldInputWrapper>
     </StyledTextField>
   );

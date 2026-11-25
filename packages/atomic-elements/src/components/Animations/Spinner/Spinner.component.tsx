@@ -6,7 +6,9 @@ import {
 export interface SpinnerProps
   extends Omit<ProgressCircleProps, "isIndeterminate"> {}
 
-/** Spinner Component */
+/** An indeterminate `ProgressCircle` styled as a loading spinner.
+ * Give it an `aria-label` (or `aria-labelledby`) so screen readers can
+ * announce it. */
 export function Spinner(props: SpinnerProps) {
   return (
     <ProgressCircle

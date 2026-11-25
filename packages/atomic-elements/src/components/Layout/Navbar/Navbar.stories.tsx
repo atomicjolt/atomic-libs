@@ -1,8 +1,8 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { Button } from "@components/Buttons/Button";
 import { IconButton } from "@components/Buttons/IconButton";
 import { Flex } from "@components/Layout/Flex";
-import { LayoutArgTypes, RenderPropsArgTypes } from "@sb/helpers";
+import { FlexArgTypes, LayoutArgTypes, RenderPropsArgTypes } from "@sb/helpers";
 import { Navbar } from ".";
 
 export default {
@@ -11,6 +11,11 @@ export default {
   argTypes: {
     ...RenderPropsArgTypes,
     ...LayoutArgTypes,
+    ...FlexArgTypes,
+    $gap: {
+      ...FlexArgTypes.$gap,
+      table: { defaultValue: { summary: '"1"' } },
+    },
   },
 } as Meta<typeof Navbar>;
 

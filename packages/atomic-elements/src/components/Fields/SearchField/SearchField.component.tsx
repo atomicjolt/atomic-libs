@@ -25,12 +25,21 @@ export interface SearchFieldProps
     Omit<AriaProps<AriaSearchFieldProps>, "placeholder">,
     LoadingProps {}
 
-/** SearchField component - provides the foundation for search functionality */
+/** SearchField component - provides the foundation for search functionality.
+ * Buttons inside it can use `slot="submit"` to submit the search, or
+ * `slot="clear"` to clear it.
+ */
 export const SearchField = React.forwardRef<HTMLDivElement, SearchFieldProps>(
   function SearchField(props, ref) {
     [props, ref] = useContextProps(SearchFieldContext, props, ref);
-    const { isDisabled, isRequired, isReadOnly, name, isLoading, loadingLabel } =
-      props;
+    const {
+      isDisabled,
+      isRequired,
+      isReadOnly,
+      name,
+      isLoading,
+      loadingLabel,
+    } = props;
 
     const inputRef = useRef<HTMLInputElement>(null);
     const state = useSearchFieldState(props);
@@ -39,6 +48,7 @@ export const SearchField = React.forwardRef<HTMLDivElement, SearchFieldProps>(
       labelProps,
       descriptionProps,
       errorMessageProps,
+      clearButtonProps,
       isInvalid,
     } = useSearchField(
       {
@@ -69,6 +79,8 @@ export const SearchField = React.forwardRef<HTMLDivElement, SearchFieldProps>(
       readOnly: isReadOnly,
       name,
       ref: inputRef,
+      isLoading,
+      loadingLabel,
     };
 
     return (
@@ -79,10 +91,7 @@ export const SearchField = React.forwardRef<HTMLDivElement, SearchFieldProps>(
             [FieldInputContext.Provider, inputCtx],
             [FieldMessageContext.Provider, descriptionProps],
             [FieldErrorContext.Provider, { ...errorMessageProps, isInvalid }],
-            [
-              ComboInputContext.Provider,
-              { inputRef, isLoading, loadingLabel },
-            ],
+            [ComboInputContext.Provider, { inputRef, isLoading, loadingLabel }],
             [
               ButtonContext.Provider,
               {
@@ -92,6 +101,8 @@ export const SearchField = React.forwardRef<HTMLDivElement, SearchFieldProps>(
                     onPress: () => props.onSubmit?.(state.value),
                     "aria-label": t("search"),
                   },
+                  // Clears the field and calls onClear, like Escape does.
+                  clear: clearButtonProps,
                 },
               },
             ],

@@ -1,3 +1,4 @@
+import { filterDOMProps } from "@react-aria/utils";
 import { forwardRef, useMemo } from "react";
 import { useProgressBar, AriaProgressBarProps } from "@react-aria/progress";
 import { RenderStyleProps, SuggestStrings } from "../../../types";
@@ -14,18 +15,30 @@ import {
 
 export interface ProgressCircleProps
   extends RenderStyleProps<never>,
-    AriaProgressBarProps {
+    // No visible label is rendered, so name the circle with aria-label or
+    // aria-labelledby instead.
+    Omit<AriaProgressBarProps, "label"> {
   /** Whether or not to display a label in the center of the circle representing the value */
   showValueLabel?: boolean;
-  /** The width and height of the progress circle */
+  /** The width and height of the progress circle
+   * @default "60"
+   */
   $size?: string;
-  /** The width of the track */
+  /** The width of the track
+   * @default "10"
+   */
   $trackWidth?: "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10";
-  /** The color of the background */
+  /** The color of the background
+   * @default "var(--progress-circle-bg-clr)"
+   */
   $bg?: SuggestStrings<Color>;
-  /** The color of the track */
+  /** The color of the track
+   * @default "var(--progress-circle-track-clr)"
+   */
   $trackColor?: SuggestStrings<Color>;
-  /** The color indicating the amount of progress */
+  /** The color indicating the amount of progress
+   * @default "var(--progress-circle-indicator-clr)"
+   */
   $indicatorColor?: SuggestStrings<Color>;
   /** The linecap of the progress indicator */
   $linecap?: "round" | "butt";
@@ -51,7 +64,9 @@ export const ProgressCircle = forwardRef<HTMLElement, ProgressCircleProps>(
       ...rest
     } = props;
 
-    const { progressBarProps } = useProgressBar(props);
+    // Strip any label from untyped callers: useProgressBar would point
+    // aria-labelledby at a label element this component never renders.
+    const { progressBarProps } = useProgressBar({ ...props, label: undefined });
 
     const radius = 16;
 
@@ -84,7 +99,9 @@ export const ProgressCircle = forwardRef<HTMLElement, ProgressCircleProps>(
         viewBox="0 0 44 44"
         {...progressBarProps}
         {...renderProps}
-        {...rest}
+        // The rest are react-aria progress props, already handled by
+        // useProgressBar; only pass on valid DOM props (id, data-*).
+        {...filterDOMProps(rest)}
       >
         <ProgressCircleBackground cx="22" cy="22" r={radius} $fill={$bg} />
         <ProgressCircleTrack

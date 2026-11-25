@@ -1,13 +1,19 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { Banner } from ".";
-import { getCssProps } from "@sb/cssprops";
+import { banner } from "@styles/theme/component";
 import { RenderPropsArgTypes } from "@sb/helpers";
 
 export default {
   title: "Banners/Banner",
   component: Banner,
+  subcomponents: {
+    "Banner.Content": Banner.Content,
+    "Banner.Icon": Banner.Icon,
+    "Banner.IconButton": Banner.IconButton,
+    "Banner.Button": Banner.Button,
+  },
   parameters: {
-    cssprops: getCssProps("Banner"),
+    cssprops: { banner },
   },
   argTypes: {
     ...RenderPropsArgTypes,
@@ -52,9 +58,9 @@ export const WithButton: Story = {
   args: {
     ...Primary.args,
     children: [
-      <Banner.Icon icon="info" />,
-      <Banner.Content>This is a banner</Banner.Content>,
-      <Banner.Button>Click Me</Banner.Button>,
+      <Banner.Icon key="icon" icon="info" />,
+      <Banner.Content key="content">This is a banner</Banner.Content>,
+      <Banner.Button key="action">Click Me</Banner.Button>,
     ],
   },
 };

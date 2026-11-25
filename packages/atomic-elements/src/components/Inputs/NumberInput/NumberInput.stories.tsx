@@ -1,21 +1,30 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { NumberInput } from ".";
-import { TextInputControls } from "@sb/helpers";
-import { getCssProps } from "@sb/cssprops";
-import { fn } from "@storybook/test";
+import { TextInputControls, LoadingArgTypes } from "@sb/helpers";
+import { input } from "@styles/theme/component";
+import { fn } from "storybook/test";
 
 const meta: Meta<typeof NumberInput> = {
   title: "Inputs/User Input/NumberInput",
   component: NumberInput,
   parameters: {
     layout: "centered",
-    cssprops: getCssProps("Input"),
+    cssprops: { input },
   },
   argTypes: {
     ...TextInputControls,
+    ...LoadingArgTypes,
     variant: {
       options: ["default", "floating"],
       description: "Variant of the input",
+      table: {
+        defaultValue: { summary: '"default"' },
+      },
+    },
+    size: {
+      table: {
+        defaultValue: { summary: '"medium"' },
+      },
     },
     formatOptions: {
       control: "object",
@@ -32,8 +41,16 @@ const meta: Meta<typeof NumberInput> = {
     defaultValue: {
       control: "number",
       description: "Initial value of the input when uncontrolled",
+    },
+    step: {
+      control: "number",
+      description:
+        "Amount the value changes by when using the increment and decrement buttons or arrow keys",
+    },
+    onChange: {
+      description: "Called with the new number when the value changes",
       table: {
-        category: "Common",
+        category: "Events",
       },
     },
   },
@@ -46,7 +63,6 @@ type Story = StoryObj<typeof NumberInput>;
 export const Primary: Story = {
   args: {
     onChange: fn(),
-    size: "medium",
     label: "Number input",
   },
 };
@@ -88,6 +104,21 @@ export const FormatAsUnit: Story = {
       style: "unit",
       unit: "mile-per-hour",
     },
+  },
+};
+
+export const Floating: Story = {
+  args: {
+    ...Primary.args,
+    variant: "floating",
+  },
+};
+
+export const WithError: Story = {
+  args: {
+    ...Primary.args,
+    isInvalid: true,
+    error: "Please enter a valid number",
   },
 };
 

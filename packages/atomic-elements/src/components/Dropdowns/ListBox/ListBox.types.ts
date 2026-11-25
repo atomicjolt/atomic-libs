@@ -4,6 +4,8 @@ import { ExtendedSize, RenderStyleProps } from "../../../types";
 export interface ListBoxProps<T>
   extends AriaListBoxProps<T>,
     RenderStyleProps<never> {
-  /** The size of the listbox */
+  /** The size of the listbox
+   * @default "medium"
+   */
   size?: ExtendedSize;
 }

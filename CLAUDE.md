@@ -52,6 +52,8 @@ npx changeset version
 npx changeset publish
 ```
 
+A pre-push hook rejects branches without a changeset. When a change doesn't affect any published package (docs, CI, tooling, etc.), don't create an empty changeset; push with `git push --no-verify` instead.
+
 ### Component and Package Scaffolding
 ```bash
 # Create new component in atomic-elements

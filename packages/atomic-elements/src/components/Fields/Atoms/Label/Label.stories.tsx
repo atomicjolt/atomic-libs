@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { Label } from ".";
 
 export default {
@@ -6,6 +6,9 @@ export default {
   component: Label,
   parameters: {
     layout: "centered",
+  },
+  argTypes: {
+    as: { control: false },
   },
 } as Meta<typeof Label>;
 

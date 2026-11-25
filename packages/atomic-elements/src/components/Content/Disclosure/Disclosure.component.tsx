@@ -1,3 +1,4 @@
+import { setDisplayName } from "@utils/displayName";
 import React, { forwardRef, useContext, useRef } from "react";
 import { useDisclosure } from "@react-aria/disclosure";
 import { useId } from "@react-aria/utils";
@@ -35,7 +36,16 @@ interface DisclosureRenderProps {
 export interface DisclosureProps
   extends StatelyDisclosureProps,
     RenderBaseProps<DisclosureRenderProps> {
+  /**
+   * Identifies the disclosure. Inside a DisclosureGroup, this is the key used
+   * in `expandedKeys` / `defaultExpandedKeys`. Generated when omitted.
+   */
   id?: string;
+  /**
+   * Whether the disclosure is disabled: its trigger can't be pressed, so the
+   * panel can't be expanded or collapsed.
+   * @default false
+   */
   isDisabled?: boolean;
 }
 
@@ -46,7 +56,7 @@ type ForwardedDisclosure = {
   Trigger: typeof DisclosureTrigger;
 };
 
-/** A disclosure is a collapisble section of content. It is composed of a trigger
+/** A disclosure is a collapsible section of content. It is composed of a trigger
  * and a panel. The trigger is a button that controls the visibility of the panel.
  */
 export const Disclosure = forwardRef<HTMLDivElement, DisclosureProps>(
@@ -144,7 +154,7 @@ const DisclosurePanel = forwardRef<HTMLDivElement, DisclosurePanelProps>(
   }
 );
 
-DisclosurePanel.displayName = "Disclosure.Panel";
+setDisplayName(DisclosurePanel, "Disclosure.Panel");
 Disclosure.Panel = DisclosurePanel;
 
 interface DisclosureTriggerIcons {
@@ -159,6 +169,7 @@ const DefaultDisclosureTriggerIcons: DisclosureTriggerIcons = {
 
 interface DisclosureTriggerProps extends Omit<ButtonProps, "children"> {
   children?: React.ReactNode;
+  /** @default { expanded: "expand_less", collapsed: "expand_more" } */
   icons?: Partial<DisclosureTriggerIcons>;
 }
 
@@ -183,7 +194,7 @@ const DisclosureTrigger = forwardRef<HTMLButtonElement, DisclosureTriggerProps>(
   }
 );
 
-DisclosureTrigger.displayName = "Disclosure.Trigger";
+setDisplayName(DisclosureTrigger, "Disclosure.Trigger");
 Disclosure.Trigger = DisclosureTrigger;
 
 export interface DisclosureGroupProps extends StatelyDisclosureGroupProps {

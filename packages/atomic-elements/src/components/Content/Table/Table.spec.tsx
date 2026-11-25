@@ -88,51 +88,45 @@ describe("Table", () => {
     ]);
   });
 
-  it(
-    "should survive an unrelated sibling re-render without hanging",
-    () => {
-      // Regression test: buildHeaderRows used to mutate colSpan/nextKey/etc.
-      // directly on the live column node objects shared with the collection's
-      // own structural keyMap. That corrupted the tree on any re-render once
-      // columns were nested, causing an unbounded loop.
-      function Harness() {
-        const [count, setCount] = useState(0);
-        return (
-          <div>
-            <Button onPress={() => setCount((c) => c + 1)}>
-              Count: {count}
-            </Button>
-            <Table aria-label="table">
-              <Table.Header>
-                <Table.Column title="Name">
-                  <Table.Column id="first" isRowHeader>
-                    First Name
-                  </Table.Column>
-                  <Table.Column id="last">Last Name</Table.Column>
+  it("should survive an unrelated sibling re-render without hanging", () => {
+    // Regression test: buildHeaderRows used to mutate colSpan/nextKey/etc.
+    // directly on the live column node objects shared with the collection's
+    // own structural keyMap. That corrupted the tree on any re-render once
+    // columns were nested, causing an unbounded loop.
+    function Harness() {
+      const [count, setCount] = useState(0);
+      return (
+        <div>
+          <Button onPress={() => setCount((c) => c + 1)}>Count: {count}</Button>
+          <Table aria-label="table">
+            <Table.Header>
+              <Table.Column title="Name">
+                <Table.Column id="first" isRowHeader>
+                  First Name
                 </Table.Column>
-                <Table.Column id="age">Age</Table.Column>
-              </Table.Header>
-              <Table.Body>
-                <Table.Row>
-                  <Table.Cell>Jane</Table.Cell>
-                  <Table.Cell>Doe</Table.Cell>
-                  <Table.Cell>30</Table.Cell>
-                </Table.Row>
-              </Table.Body>
-            </Table>
-          </div>
-        );
-      }
+                <Table.Column id="last">Last Name</Table.Column>
+              </Table.Column>
+              <Table.Column id="age">Age</Table.Column>
+            </Table.Header>
+            <Table.Body>
+              <Table.Row>
+                <Table.Cell>Jane</Table.Cell>
+                <Table.Cell>Doe</Table.Cell>
+                <Table.Cell>30</Table.Cell>
+              </Table.Row>
+            </Table.Body>
+          </Table>
+        </div>
+      );
+    }
 
-      const { getByText } = render(<Harness />);
-      const button = getByText(/Count:/);
-      fireEvent.click(button);
-      fireEvent.click(button);
+    const { getByText } = render(<Harness />);
+    const button = getByText(/Count:/);
+    fireEvent.click(button);
+    fireEvent.click(button);
 
-      expect(getByText("Count: 2")).toBeTruthy();
-    },
-    10000
-  );
+    expect(getByText("Count: 2")).toBeTruthy();
+  }, 10000);
 
   it("keeps grouped header rows aligned with their leaf columns when a nested sub-group is toggled", () => {
     // Regression test for #267: buildHeaderRows names each placeholder

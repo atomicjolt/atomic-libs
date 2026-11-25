@@ -1,13 +1,25 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { MaterialIcon } from ".";
-import { getCssProps } from "@sb/cssprops";
 
 const meta: Meta<typeof MaterialIcon> = {
   title: "Icons/MaterialIcon",
   component: MaterialIcon,
   parameters: {
     layout: "centered",
-    cssprops: getCssProps("Icon"),
+  },
+  argTypes: {
+    size: {
+      description: "Size of the icon",
+      table: { defaultValue: { summary: '"medium"' } },
+    },
+    isDisabled: {
+      description: "Applies disabled styling (`data-disabled`)",
+      table: { defaultValue: { summary: "false" } },
+    },
+    isFocusable: {
+      description: "Makes the icon focusable",
+      table: { defaultValue: { summary: "false" } },
+    },
   },
 };
 

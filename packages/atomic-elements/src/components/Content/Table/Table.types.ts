@@ -11,7 +11,6 @@ import {
 } from "@react-types/shared";
 
 import {
-  ExtendedSize,
   Key,
   MaterialIcons,
   RenderBaseProps,
@@ -25,6 +24,10 @@ export interface LoadingProps {
    * @selector [data-loading]
    */
   isLoading?: boolean;
+  /** Label announced to screen readers while loading
+   * @default "Loading" (translated)
+   */
+  loadingLabel?: string;
   /** The number of rows to render when loading
    * @default 10
    */
@@ -67,8 +70,8 @@ export interface TableProps<T>
     SearchProps,
     RenderBaseProps<never>,
     Expandable {
-  /** Whether the table allows expandable rows.
-   * When it's `false`, rows cannot have nested rows.
+  /** Not implemented yet: setting it to `true` throws. Kept for a future
+   * row-nesting feature.
    */
   allowsExpandableRows?: boolean;
 
@@ -77,14 +80,18 @@ export interface TableProps<T>
 
   children?: React.ReactNode;
 
+  /** Keeps the first column (the row header) fixed in place while the
+   * table scrolls horizontally.
+   * @selector [data-sticky]
+   */
   isSticky?: boolean;
-
-  size?: ExtendedSize;
 
   id?: string;
 
   /** Table makes use of <Table.Bottom> to attach
-   * additional content to the bottom of the table */
+   * additional content to the bottom of the table
+   * @default false
+   */
   hasBottom?: boolean;
 
   /** Whether the table rows have alternating background colors
@@ -92,12 +99,16 @@ export interface TableProps<T>
    */
   striped?: "even" | "odd";
 
-  /** Icon set used for sorting and searching */
+  /** Icon set used for sorting and searching. Icons you pass are merged
+   * over the defaults.
+   * @default { sortAscending: "arrow_drop_down", sortDescending: "arrow_drop_up", sortNeutral: "swap_vert", searchOpen: "search", searchClose: "close" }
+   */
   icons?: Partial<TableColumnIcons>;
 
   /** Determines the visibility of the column's sort controls
    * - "always" shows sort controls regardless of sorting state
    * - "selected" shows sort controls only when the column is currently sorted
+   * @default "selected"
    */
   sortVisibility?: "always" | "selected";
 }
@@ -132,15 +143,15 @@ export interface TableColumnIcons {
 }
 
 export interface TableOptions {
-  /** Whether the table allows expandable rows.
-   * When it's `false`, rows cannot have nested rows.
+  /** Not implemented yet: setting it to `true` throws. Kept for a future
+   * row-nesting feature.
    */
   allowsExpandableRows?: boolean;
 
   /** The selection behavior for the table. */
   selectionBehavior?: SelectionBehavior;
 
-  /**  */
+  /** Whether rows can be selected, and how many at once. */
   selectionMode?: SelectionMode;
 
   /** Whether the table is in a sticky state */

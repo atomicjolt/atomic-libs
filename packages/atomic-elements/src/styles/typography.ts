@@ -2,16 +2,27 @@ import { SuggestStrings } from "../types";
 import { inScale, NumericScaleValue } from "./scale";
 
 export interface TypographyProps {
+  /** Font size: a scale step, which also sets line height and letter spacing, or any CSS size. */
   $size?: SuggestStrings<NumericScaleValue>;
+  /** Letter spacing: a scale step or CSS value. Overrides the one set by `$size`. */
   $letterSpacing?: SuggestStrings<NumericScaleValue>;
+  /** Line height: a scale step or CSS value. Overrides the one set by `$size`. */
   $lineHeight?: SuggestStrings<NumericScaleValue>;
+  /** Font weight, from the theme's font weights. */
   $weight?: "light" | "regular" | "medium" | "bold";
+  /** Horizontal text alignment (text-align). */
   $align?: "left" | "center" | "right" | "justify";
+  /** How text wraps: `nowrap` keeps it on one line; `pretty` and `balanced` set CSS text-wrap. */
   $wrap?: "nowrap" | "pretty" | "balanced";
+  /** Keep the text on one line and cut it off with an ellipsis. */
   $truncate?: boolean;
+  /** Text decoration (text-decoration). */
   $decoration?: SuggestStrings<"none" | "underline">;
   /** Clamp the text content after this number of lines */
-  $clamp?: SuggestStrings<"1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10">;
+  $clamp?: SuggestStrings<
+    "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10"
+  >;
+  /** Text transform (text-transform). */
   $transform?:
     | "uppercase"
     | "lowercase"
@@ -22,20 +33,29 @@ export interface TypographyProps {
 }
 
 export function typography(props: TypographyProps) {
-  const { $weight, $align, $wrap, $truncate, $decoration, $transform, $clamp } = props;
+  const { $weight, $align, $wrap, $truncate, $decoration, $transform, $clamp } =
+    props;
 
   return {
     ...resolveSize(props),
     fontFamily: "var(--font-family)",
     fontWeight: $weight && `var(--font-weight-${$weight})`,
     textAlign: $align,
-    whiteSpace: $truncate ? "nowrap" : $wrap,
+    whiteSpace: $truncate || $wrap === "nowrap" ? "nowrap" : undefined,
+    textWrap: textWrapValue($wrap),
     textOverflow: $truncate ? "ellipsis" : undefined,
     overflow: $truncate ? "hidden" : undefined,
     textDecoration: $decoration,
     textTransform: $transform,
     ...clampLines($clamp),
   };
+}
+
+/** `pretty` and `balanced` set text-wrap; `nowrap` is handled by white-space. */
+function textWrapValue(wrap: TypographyProps["$wrap"]) {
+  if (wrap === "pretty") return "pretty";
+  if (wrap === "balanced") return "balance";
+  return undefined;
 }
 
 typography.defaults = (defaults: TypographyProps) => (props: TypographyProps) =>
@@ -71,7 +91,6 @@ function resolveSize(props: TypographyProps) {
 
   return styles;
 }
-
 
 function clampLines(lines?: string) {
   if (!lines) {

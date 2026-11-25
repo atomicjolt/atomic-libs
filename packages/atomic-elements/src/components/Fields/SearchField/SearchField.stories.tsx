@@ -1,5 +1,5 @@
-import { Meta, StoryObj } from "@storybook/react";
-import { fn } from "@storybook/test";
+import { Meta, StoryObj } from "@storybook/react-vite";
+import { fn } from "storybook/test";
 import { SearchField } from ".";
 import { Label } from "../Atoms/Label";
 import { Message } from "../Atoms/Message";
@@ -7,7 +7,11 @@ import { Input } from "../Atoms/Input";
 import { ErrorMessage } from "../Atoms/ErrorMessage";
 import { ComboInput } from "../ComboInput";
 import { IconButton } from "../../Buttons/IconButton";
-import { FieldStateControls, RenderPropsArgTypes } from "@sb/helpers";
+import {
+  FieldStateControls,
+  RenderPropsArgTypes,
+  LoadingArgTypes,
+} from "@sb/helpers";
 
 export default {
   title: "Fields/SearchField",
@@ -17,12 +21,15 @@ export default {
   },
   argTypes: {
     ...FieldStateControls,
+    ...LoadingArgTypes,
     ...RenderPropsArgTypes,
     defaultValue: {
       control: "text",
+      description: "Initial search text (uncontrolled)",
     },
     value: {
       control: "text",
+      description: "Search text (controlled)",
     },
     onChange: {
       action: "onChange",
@@ -35,6 +42,14 @@ export default {
       action: "onSubmit",
       description:
         "Handler that is called when the search is submitted. Either by clicking on a submit button or pressing the Enter key.",
+      table: {
+        category: "Events",
+      },
+    },
+    onClear: {
+      action: "onClear",
+      description:
+        "Handler that is called when the field is cleared, with Escape or a clear-slot button.",
       table: {
         category: "Events",
       },
@@ -88,10 +103,10 @@ export const WithAdditionalAction: Story = {
       <ComboInput key="combo" padding="both">
         <Input key="input" />
         <IconButton
+          slot="clear"
           key="clear-button"
           icon="close"
           variant="content"
-          aria-label="clear search"
         />
         <IconButton
           slot="submit"

@@ -1,5 +1,5 @@
-import { Meta, StoryObj } from "@storybook/react";
-import { getCssProps } from "@sb/cssprops";
+import { Meta, StoryObj } from "@storybook/react-vite";
+import { card } from "@styles/theme/component";
 import { Divider } from "../Divider";
 import { Text } from "../../Typography/Text";
 import { IconButton } from "@components/Buttons/IconButton";
@@ -10,7 +10,15 @@ export default {
   title: "Content/Card",
   component: Card,
   parameters: {
-    cssprops: getCssProps("Card"),
+    cssprops: { card },
+  },
+  argTypes: {
+    $bg: {
+      table: { defaultValue: { summary: '"var(--card-bg-clr)"' } },
+    },
+    $p: {
+      table: { defaultValue: { summary: '"var(--card-padding)"' } },
+    },
   },
   subcomponents: {
     "Card.Header": Card.Header,
@@ -116,14 +124,14 @@ export const WithActions: Story = {
   args: {
     ...Primary.args,
     children: [
-      <Card.Header $justify="space-between">
+      <Card.Header key="header" $justify="space-between">
         <Card.Title>Card Title</Card.Title>
         <Flex $gap="2">
-          <IconButton icon="add" />
-          <IconButton icon="delete" />
+          <IconButton icon="add" aria-label="Add" />
+          <IconButton icon="delete" aria-label="Delete" />
         </Flex>
       </Card.Header>,
-      <Card.Panel>
+      <Card.Panel key="panel">
         <Text $size="3">Here is some content within a panel</Text>
       </Card.Panel>,
     ],

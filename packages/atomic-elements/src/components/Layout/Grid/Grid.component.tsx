@@ -14,6 +14,7 @@ export interface GridProps
   as?: "div" | "span";
 }
 
+/** Component to create CSS grid layouts */
 export const Grid = forwardRef<HTMLDivElement, GridProps>(function Grid(
   props,
   ref

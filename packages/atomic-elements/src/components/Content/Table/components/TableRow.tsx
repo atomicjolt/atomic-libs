@@ -9,7 +9,7 @@ import { useFocusRing } from "@hooks/useFocusRing";
 import { useRenderProps } from "@hooks/useRenderProps";
 import { useCollectionRenderer } from "@hooks/useCollectionRenderer";
 import { DEFAULT_SLOT } from "@hooks/useSlottedContext";
-import { CheckBox, CheckBoxContext } from "@components/Inputs/Checkbox";
+import { CheckBox, CheckBoxContext } from "@components/Inputs/CheckBox";
 import { TableStateContext } from "../Table.context";
 import { StyledRow } from "../Table.styles";
 import { TableCell } from "./TableCell";

@@ -1,5 +1,5 @@
 import React from "react";
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import {
   ToolTip,
   ToolTipProps,
@@ -10,23 +10,22 @@ import {
 import { Button } from "../../Buttons/Button";
 import { TextInput } from "../../Inputs/TextInput";
 import { MaterialIcon } from "../../Icons/MaterialIcon";
-import { getCssProps } from "@sb/cssprops";
+import { tooltip } from "@styles/theme/component";
 
-const meta: Meta<ToolTipProps & ToolTipTriggerProps> = {
+// `target` is a story-only arg: the element rendered as the tooltip's target.
+type ToolTipStoryArgs = ToolTipProps &
+  ToolTipTriggerProps & { target: React.ReactElement<any> };
+
+const meta: Meta<ToolTipStoryArgs> = {
   title: "Overlays/ToolTip",
   component: ToolTip,
+  subcomponents: { ToolTipTrigger, ToolTipTarget },
   tags: ["!autodocs"],
   parameters: {
     layout: "centered",
-    cssprops: getCssProps("Tooltip"),
+    cssprops: { tooltip },
   },
   argTypes: {
-    // @ts-ignore
-    size: {
-      table: {
-        disable: true,
-      },
-    },
     target: {
       table: {
         disable: true,
@@ -39,33 +38,41 @@ const meta: Meta<ToolTipProps & ToolTipTriggerProps> = {
     },
     trigger: {
       description:
-        "By default, open for both focus and hover. Can be set to only open on focus",
+        "By default, open for both focus and hover. Can be set to only open on focus. Set on `ToolTipTrigger`.",
       control: "select",
       options: ["focus", null],
     },
     delay: {
       control: "number",
-      description: "Delay in milliseconds before the tooltip appears",
+      description:
+        "Delay in milliseconds before the tooltip appears. Set on `ToolTipTrigger`.",
+      table: { defaultValue: { summary: "0" } },
     },
     closeDelay: {
       control: "number",
-      description: "Delay in milliseconds before the tooltip disappears",
+      description:
+        "Delay in milliseconds before the tooltip disappears. Set on `ToolTipTrigger`.",
+      table: { defaultValue: { summary: "0" } },
     },
     defaultOpen: {
       control: "boolean",
-      description: "Whether the tooltip should be open by default",
+      description:
+        "Whether the tooltip should be open by default. Set on `ToolTipTrigger`.",
     },
     isDisabled: {
       control: "boolean",
-      description: "Whether the tooltip should be disabled",
+      description:
+        "Whether the tooltip should be disabled. Set on `ToolTipTrigger`.",
     },
     isOpen: {
       control: "boolean",
-      description: "Control the open state of the tooltip manually",
+      description:
+        "Control the open state of the tooltip manually. Set on `ToolTipTrigger`.",
     },
     onOpenChange: {
       action: "onOpenChange",
-      description: "Callback for when the tooltip open state changes",
+      description:
+        "Callback for when the tooltip open state changes. Set on `ToolTipTrigger`.",
       table: {
         category: "Events",
       },
@@ -73,15 +80,14 @@ const meta: Meta<ToolTipProps & ToolTipTriggerProps> = {
     offset: {
       control: "number",
       description: "The offset of the tooltip from the trigger",
+      table: { defaultValue: { summary: "2" } },
     },
   },
 };
 
 export default meta;
 
-type Story = StoryObj<
-  ToolTipProps & ToolTipTriggerProps & { target: React.ReactElement<any> }
->;
+type Story = StoryObj<ToolTipStoryArgs>;
 
 export const Primary: Story = {
   render: (args) => {
@@ -116,7 +122,6 @@ export const Primary: Story = {
     target: <Button>Hover Me</Button>,
     // @ts-ignore
     children: "This is the tooltip content",
-    delay: 0,
   },
 };
 

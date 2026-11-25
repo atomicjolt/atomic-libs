@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { ErrorMessage } from ".";
 
 export default {
@@ -6,6 +6,12 @@ export default {
   component: ErrorMessage,
   parameters: {
     layout: "centered",
+  },
+  argTypes: {
+    as: { control: false },
+    size: {
+      table: { defaultValue: { summary: '"medium"' } },
+    },
   },
 } as Meta<typeof ErrorMessage>;
 

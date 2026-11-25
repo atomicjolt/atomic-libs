@@ -1,3 +1,4 @@
+import { setDisplayName } from "@utils/displayName";
 import { forwardRef } from "react";
 import classNames from "classnames";
 import { RenderBaseProps } from "../../../types";
@@ -39,8 +40,13 @@ const NavbarRoot = forwardRef<HTMLDivElement, NavbarProps>(function Navbar(
   );
 });
 
-NavbarRoot.displayName = "Navbar";
+setDisplayName(NavbarRoot, "Navbar");
 
+/**
+ * A horizontal bar for page-level navigation. Lay it out with
+ * `Navbar.Section`s, and use `Navbar.BackButton`, `Navbar.Title` and
+ * `Navbar.Subtitle` inside them.
+ */
 export const Navbar = NavbarRoot as typeof NavbarRoot & {
   BackButton: typeof NavbarBackButton;
   Section: typeof NavbarSection;
@@ -49,6 +55,7 @@ export const Navbar = NavbarRoot as typeof NavbarRoot & {
 };
 
 interface NavbarBackButtonProps extends Omit<IconButtonProps, "icon"> {
+  /** @default "arrow_back" */
   icon?: IconButtonProps["icon"];
 }
 
@@ -74,10 +81,15 @@ const NavbarBackButton = forwardRef<HTMLButtonElement, NavbarBackButtonProps>(
   }
 );
 
-NavbarBackButton.displayName = "Navbar.BackButton";
+setDisplayName(NavbarBackButton, "Navbar.BackButton");
 Navbar.BackButton = NavbarBackButton;
 
 interface NavbarSectionProps extends FlexProps {
+  /**
+   * Aligns the section's content: `left` to the start, `right` to the end,
+   * `center` to the center.
+   * @default "left"
+   */
   side?: "left" | "right" | "center";
 }
 
@@ -104,7 +116,7 @@ const NavbarSection = forwardRef<HTMLDivElement, NavbarSectionProps>(
   }
 );
 
-NavbarSection.displayName = "Navbar.Section";
+setDisplayName(NavbarSection, "Navbar.Section");
 Navbar.Section = NavbarSection;
 
 interface NavbarTitleProps extends HeadingProps {}
@@ -125,7 +137,7 @@ const NavbarTitle = forwardRef<HTMLHeadingElement, NavbarTitleProps>(
   }
 );
 
-NavbarTitle.displayName = "Navbar.Title";
+setDisplayName(NavbarTitle, "Navbar.Title");
 Navbar.Title = NavbarTitle;
 
 interface NavbarSubtitleProps extends HeadingProps {}
@@ -155,5 +167,5 @@ const NavbarSubtitle = forwardRef<HTMLHeadingElement, NavbarSubtitleProps>(
   }
 );
 
-NavbarSubtitle.displayName = "Navbar.Subtitle";
+setDisplayName(NavbarSubtitle, "Navbar.Subtitle");
 Navbar.Subtitle = NavbarSubtitle;

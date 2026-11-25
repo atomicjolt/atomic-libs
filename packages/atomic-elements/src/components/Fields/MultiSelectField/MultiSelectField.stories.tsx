@@ -1,12 +1,12 @@
-import { Meta, StoryObj } from "@storybook/react";
-import { InputControls } from "@sb/helpers";
+import { Meta, StoryObj } from "@storybook/react-vite";
+import { FieldStateControls } from "@sb/helpers";
 import { MultiSelectField } from ".";
-import { getCssProps } from "@sb/cssprops";
-import { FieldLabel } from "../Field/FieldLabel";
-import { FieldMessage } from "../Field/FieldMessage";
+import { dropdown, listbox } from "@styles/theme/component";
+import { Label } from "../Atoms/Label";
+import { Message } from "../Atoms/Message";
 import { Popover } from "@components/Overlays/Popover";
 import { ListBox } from "@components/Dropdowns/ListBox";
-import { FieldErrorMessage } from "../Field/FieldError";
+import { ErrorMessage } from "../Atoms/ErrorMessage";
 import { Item } from "@components/Collection";
 import { Button } from "@components/Buttons/Button";
 import { MaterialIcon } from "@components/Icons/MaterialIcon";
@@ -16,15 +16,20 @@ export default {
   component: MultiSelectField,
   parameters: {
     layout: "centered",
-    cssprops: getCssProps("Dropdown", "Listbox"),
+    cssprops: { dropdown, listbox },
   },
   argTypes: {
-    ...InputControls,
+    // Not InputControls: MultiSelectField has no label / error / message props
+    // (they're child components) and doesn't use placeholder.
+    ...FieldStateControls,
+    size: {
+      table: { defaultValue: { summary: '"medium"' } },
+    },
     selectedKeys: {
       control: "multi-select",
       description:
         "Control the value of the selected keys in a controlled component",
-      options: ["val1", "val2", "val3"],
+      options: ["1", "2", "3"],
     },
     defaultSelectedKeys: {
       control: false,
@@ -40,7 +45,7 @@ export default {
     },
     defaultOpen: {
       control: "boolean",
-      description: "Control the inital state of the menu",
+      description: "Control the initial state of the menu",
     },
     onOpenChange: {
       control: false,
@@ -66,8 +71,8 @@ type Story = StoryObj<typeof MultiSelectField>;
 export const Default: Story = {
   args: {
     children: [
-      <FieldLabel key="label">Select an item</FieldLabel>,
-      <FieldMessage key="message">Choose an item from the list</FieldMessage>,
+      <Label key="label">Select an item</Label>,
+      <Message key="message">Choose an item from the list</Message>,
       <Button key="button" variant="dropdown">
         Select Items
         <MaterialIcon icon="arrow_drop_down" style={{ marginLeft: "auto" }} />
@@ -79,7 +84,7 @@ export const Default: Story = {
           <Item id="3">Item 3</Item>
         </ListBox>
       </Popover>,
-      <FieldErrorMessage key="error">Something went wrong</FieldErrorMessage>,
+      <ErrorMessage key="error">Something went wrong</ErrorMessage>,
     ],
   },
 };

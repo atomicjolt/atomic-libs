@@ -9,7 +9,7 @@ import {
   useCachedChildren,
 } from "@react-aria/collections";
 
-import { CheckBox, CheckBoxContext } from "@components/Inputs/Checkbox";
+import { CheckBox, CheckBoxContext } from "@components/Inputs/CheckBox";
 import { DEFAULT_SLOT } from "@hooks/useSlottedContext";
 
 import { TableState } from "../Table.types";

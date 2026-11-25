@@ -1,19 +1,19 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { List } from ".";
 import { MarginArgTypes, RenderPropsArgTypes } from "@sb/helpers";
 import { Text } from "../../Typography/Text";
 import { Flex } from "../../Layout/Flex";
 import { View } from "@components/Layout/View";
 import { IconButton } from "@components/Buttons/IconButton";
-import { CheckBox } from "@components/Inputs/Checkbox";
-import { getCssProps } from "@sb/cssprops";
+import { CheckBox } from "@components/Inputs/CheckBox";
+import { list } from "@styles/theme/component";
 
 export default {
   title: "Content/List",
   component: List,
   subcomponents: { "List.Item": List.Item },
   parameters: {
-    cssprops: getCssProps("List"),
+    cssprops: { list },
   },
   argTypes: {
     ...RenderPropsArgTypes,
@@ -71,8 +71,8 @@ export const WithActions: Story = {
               adipiscing elit.
             </Text>
           </View>
-          <IconButton icon="edit" variant="ghost" />
-          <IconButton icon="close" variant="ghost" />
+          <IconButton icon="edit" variant="ghost" aria-label="Edit" />
+          <IconButton icon="close" variant="ghost" aria-label="Remove" />
         </Flex>
       </List.Item>,
       <List.Item key="5">
@@ -86,8 +86,8 @@ export const WithActions: Story = {
               consectetur adipiscing elit.
             </Text>
           </View>
-          <IconButton icon="edit" variant="ghost" />
-          <IconButton icon="close" variant="ghost" />
+          <IconButton icon="edit" variant="ghost" aria-label="Edit" />
+          <IconButton icon="close" variant="ghost" aria-label="Remove" />
         </Flex>
       </List.Item>,
       <List.Item key="6">
@@ -101,8 +101,8 @@ export const WithActions: Story = {
               adipiscing elit.
             </Text>
           </View>
-          <IconButton icon="edit" variant="ghost" />
-          <IconButton icon="close" variant="ghost" />
+          <IconButton icon="edit" variant="ghost" aria-label="Edit" />
+          <IconButton icon="close" variant="ghost" aria-label="Remove" />
         </Flex>
       </List.Item>,
     ],

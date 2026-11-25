@@ -1,29 +1,25 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
+import { LoadingArgTypes } from "@sb/helpers";
 import { ToggleSwitch } from ".";
-import { getCssProps } from "@sb/cssprops";
+import { toggle } from "@styles/theme/component";
 
 const meta: Meta<typeof ToggleSwitch> = {
   title: "Inputs/Choose State/ToggleSwitch",
   component: ToggleSwitch,
   parameters: {
     layout: "centered",
-    cssprops: getCssProps("Toggle"),
+    cssprops: { toggle },
   },
   argTypes: {
-    isLoading: {
-      control: "boolean",
-      table: {
-        category: "Field State",
-      },
-    },
-    loadingLabel: {
+    ...LoadingArgTypes,
+    children: {
       control: "text",
-      table: {
-        category: "Field State",
-      },
+      description: "Label rendered next to the switch",
     },
     onChange: {
       control: false,
+      description:
+        "Called with the new selected state when the switch is toggled",
       table: {
         category: "Events",
       },
@@ -47,6 +43,27 @@ type Story = StoryObj<typeof ToggleSwitch>;
 export const Primary: Story = {
   args: {
     children: "Toggle switch",
+  },
+};
+
+export const Selected: Story = {
+  args: {
+    ...Primary.args,
+    defaultSelected: true,
+  },
+};
+
+export const Disabled: Story = {
+  args: {
+    ...Primary.args,
+    isDisabled: true,
+  },
+};
+
+export const ChildrenOnRight: Story = {
+  args: {
+    ...Primary.args,
+    childrenPosition: "right",
   },
 };
 

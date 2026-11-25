@@ -1,3 +1,4 @@
+import { setDisplayName } from "@utils/displayName";
 import React, { forwardRef, useContext, useRef, type JSX } from "react";
 import {
   AriaTabPanelProps,
@@ -59,7 +60,7 @@ export const Tabs = forwardRef(function Tabs<T extends object>(
   );
 }) as unknown as ForwardedTabs;
 
-Tabs.displayName = "Tabs";
+setDisplayName(Tabs, "Tabs");
 
 interface TabsInnerProps<T> extends TabsProps<T> {
   collection: BaseCollection<T>;
@@ -104,7 +105,7 @@ function TabList<T extends object>(props: TabListProps<T>) {
   return <TabListInner {...props} />;
 }
 
-TabList.displayName = "Tabs.List";
+setDisplayName(TabList, "Tabs.List");
 Tabs.List = TabList;
 
 function TabListInner<T extends object>(props: TabListProps<T>) {
@@ -159,8 +160,7 @@ function Tab<T extends object>(
 }
 
 const TabWrapper = createLeafComponent("item", Tab);
-// @ts-expect-error
-TabWrapper.displayName = "Tabs.Tab";
+setDisplayName(TabWrapper, "Tabs.Tab");
 Tabs.Tab = TabWrapper;
 
 interface TabPanelProps extends AriaTabPanelProps {
@@ -196,6 +196,5 @@ function TabPanelInner(
 }
 
 const TabPanel = createHideableComponent(TabPanelInner);
-// @ts-expect-error
-TabPanel.displayName = "Tabs.Panel";
+setDisplayName(TabPanel, "Tabs.Panel");
 Tabs.Panel = TabPanel;

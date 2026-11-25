@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { Grid } from ".";
 import { LayoutArgTypes, RenderPropsArgTypes } from "@sb/helpers";
 import { SpacingSteps } from "@styles/spacing";
@@ -7,14 +7,34 @@ import { View } from "../View";
 export default {
   title: "Layouts/Grid",
   component: Grid,
+  parameters: {
+    primaryStyleProps: [
+      "$columns",
+      "$rows",
+      "$areas",
+      "$flow",
+      "$gap",
+      "$gapX",
+      "$gapY",
+      "$align",
+      "$justify",
+      "$display",
+    ],
+  },
 
   argTypes: {
     ...RenderPropsArgTypes,
     ...LayoutArgTypes,
+    $display: {
+      control: "select",
+      options: ["grid", "inline-grid", "none"],
+      description: "CSS display value of the grid container.",
+      table: { defaultValue: { summary: '"grid"' } },
+    },
     $columns: {
       control: "text",
       description:
-        "The number of columns in the grid. Can be a scale step ( 1 - 9) or any valid CSS value.",
+        "The number of columns in the grid. Can be a scale step (1 - 9) or any valid CSS value.",
     },
     $rows: {
       control: "text",
@@ -27,32 +47,29 @@ export default {
         "The names of the grid areas. Each name is separated by a space.",
     },
     $flow: {
-      control: {
-        type: "select",
-        options: ["row", "column", "dense", "row-dense", "column-dense"],
-      },
-      description: "The direction of the grid",
+      control: "select",
+      options: ["row", "column", "dense", "row-dense", "column-dense"],
+      description:
+        "How auto-placed items flow into the grid (grid-auto-flow). The `-dense` values also back-fill earlier gaps.",
     },
     $align: {
-      control: {
-        type: "select",
-        options: ["start", "end", "center", "stretch", "baseline"],
-      },
-      description: "The alignment of the grid. ",
+      control: "select",
+      options: ["start", "end", "center", "stretch", "baseline"],
+      description:
+        "How items are aligned within their grid areas (align-items).",
     },
     $justify: {
-      control: {
-        type: "select",
-        options: [
-          "start",
-          "end",
-          "center",
-          "space-between",
-          "space-around",
-          "space-evenly",
-        ],
-      },
-      description: "The justification of the grid.",
+      control: "select",
+      options: [
+        "start",
+        "end",
+        "center",
+        "space-between",
+        "space-around",
+        "space-evenly",
+      ],
+      description:
+        "How the grid's tracks are distributed along the inline axis (justify-content).",
     },
     $gap: {
       control: "select",

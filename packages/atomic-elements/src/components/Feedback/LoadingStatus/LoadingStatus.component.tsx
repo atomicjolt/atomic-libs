@@ -4,8 +4,13 @@ import { ErrorBanner } from "../../Banners/DismissableBanner";
 import { ErrorStateProps, LoaderPlacement } from "../Loader/Loader.types";
 import { LoaderProps } from "../Loader";
 import { useLoading } from "../Loading";
+import { useTranslations } from "@hooks/useTranslations";
 
 export interface LoadingStatusProps<T> {
+  /** Content rendered when not loading and there's no error.
+   * Must be a function `(data) => node` when `data` is provided.
+   * @default null
+   */
   readonly children?: React.ReactNode | ((data: T) => React.ReactNode);
 
   /**
@@ -18,25 +23,45 @@ export interface LoadingStatusProps<T> {
   /** Fallback if data is null */
   readonly fallback?: React.ReactNode;
 
-  /** Loading status, when true, a loading state will be rendered */
+  /** Loading status, when true, a loading state will be rendered.
+   * When omitted, falls back to the loading state of the nearest `<Loading>` ancestor.
+   * @default the ambient `Loading` state, or `false` if there is none
+   */
   readonly isLoading?: boolean;
 
-  /** Optional message to display beneath the loading animation */
+  /** Label announced to screen readers while loading.
+   * Only used when `renderLoading` is a component, not an element.
+   * @default the ambient `Loading` label, or "Loading" (translated)
+   */
+  readonly loadingLabel?: string;
+
+  /** Optional message to display beneath the loading animation.
+   * Only used when `renderLoading` is a component, not an element.
+   * @default null
+   */
   readonly loadingMessage?: React.ReactNode;
 
-  /** Placement of the loader */
+  /** Placement of the loader
+   * @default "center"
+   */
   readonly loadingPlacement?: LoaderPlacement;
 
   /** Direction of the loader and message placement */
   readonly loadingOrientation?: "horizontal" | "vertical";
 
-  /** Customize what is rendered when in a loading state */
+  /** Customize what is rendered when in a loading state
+   * @default ThreeDotLoader
+   */
   readonly renderLoading?: React.ReactNode | React.ComponentType<LoaderProps>;
 
-  /** An error. When present, an error state will be rendered */
+  /** An error. When present, an error state will be rendered
+   * @default null
+   */
   readonly error?: React.ReactNode;
 
-  /** Customize what is rendered when in an error state */
+  /** Customize what is rendered when in an error state
+   * @default an `ErrorBanner` containing the `error`
+   */
   readonly renderError?: React.ReactNode | React.ComponentType<ErrorStateProps>;
 }
 
@@ -65,7 +90,8 @@ export function LoadingStatus<T>(
     fallback,
   } = props;
 
-  const { isLoading = false } = useLoading(props);
+  const { isLoading = false, loadingLabel } = useLoading(props);
+  const t = useTranslations();
 
   if (error) {
     return typeof ErrorComp === "function" ? (
@@ -79,6 +105,7 @@ export function LoadingStatus<T>(
     return typeof Loading === "function" ? (
       <Loading
         isLoading={isLoading}
+        aria-label={loadingLabel ?? t("loading")}
         message={loadingMessage}
         placement={loadingPlacement}
         orientation={loadingOrientation}

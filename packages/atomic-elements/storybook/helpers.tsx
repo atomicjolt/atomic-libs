@@ -1,46 +1,72 @@
-import { ArgTypes } from "@storybook/react";
+import { ArgTypes } from "@storybook/react-vite";
 import { createGlobalStyle } from "styled-components";
 import { PressEvents } from "@react-aria/interactions";
 import { OverlayTriggerProps } from "react-stately";
-import { Item, View } from "../../packages/atomic-elements/src/components";
-import { SpacingSteps } from "../../packages/atomic-elements/src/styles/spacing";
-import { ScaleSteps } from "../../packages/atomic-elements/src/styles/scale";
+import { Item, View } from "../src/components";
+import { SpacingSteps } from "../src/styles/spacing";
+import { ScaleSteps } from "../src/styles/scale";
+
+/*
+ * Props-table categories, in display order. Keep to this set so every
+ * component's docs group props the same way (see docs/storybook-audit.md, G7):
+ * - no category: the component's own key props (variant, size, value, label…)
+ * - "State": isDisabled, isReadOnly, isRequired, isInvalid, isLoading
+ * - "Selection": selection props on collection components
+ * - "Helper Text": label / description / error text on fields
+ * - "Events": on* callbacks
+ * - "Accessibility": aria-* props
+ * - "Render Props": className, style, children
+ * Style ($) props are shown separately, in a collapsed section.
+ */
 
 export const FieldStateControls: ArgTypes = {
   isDisabled: {
     control: "boolean",
+    description: "Whether the field is disabled and can't be interacted with.",
     table: {
-      category: "Field State",
+      category: "State",
     },
   },
   isRequired: {
     control: "boolean",
+    description: "Whether a value is required before the form is submitted.",
     table: {
-      category: "Field State",
+      category: "State",
     },
   },
   isInvalid: {
     control: "boolean",
+    description: "Whether the current value is invalid. Shows the error state.",
     table: {
-      category: "Field State",
+      category: "State",
     },
   },
   isReadOnly: {
     control: "boolean",
+    description: "Whether the value can be selected but not changed.",
     table: {
-      category: "Field State",
+      category: "State",
     },
   },
+};
+
+/**
+ * Loading props. Only for components that implement a loading state; many
+ * accept these props through FieldInputProps but ignore them.
+ */
+export const LoadingArgTypes: ArgTypes = {
   isLoading: {
     control: "boolean",
+    description: "Whether the component shows its loading state.",
     table: {
-      category: "Field State",
+      category: "State",
     },
   },
   loadingLabel: {
     control: "text",
+    description: "Label announced to screen readers while loading.",
     table: {
-      category: "Field State",
+      category: "State",
     },
   },
 };
@@ -49,33 +75,32 @@ export const InputControls: ArgTypes = {
   ...FieldStateControls,
   label: {
     control: "text",
+    description: "Label shown with the field.",
     table: {
       category: "Helper Text",
     },
   },
   error: {
     control: "text",
+    description: "Error message, shown when the field is invalid.",
     table: {
       category: "Helper Text",
     },
   },
   message: {
     control: "text",
+    description: "Help text shown with the field.",
     table: {
       category: "Helper Text",
     },
   },
   placeholder: {
     control: "text",
-    table: {
-      category: "Common",
-    },
+    description: "Text shown when the field is empty.",
   },
   name: {
     control: "text",
-    table: {
-      category: "Common",
-    },
+    description: "Name of the field, submitted with form data.",
   },
 };
 
@@ -83,36 +108,43 @@ export const TextInputControls: ArgTypes = {
   ...InputControls,
   autoFocus: {
     control: "boolean",
-    table: {
-      category: "Common",
-    },
+    description: "Whether the field is focused when it first renders.",
   },
   defaultValue: {
     control: false,
-    description: "Set the initial value of an uncontrolled input",
-    table: {
-      category: "Common",
-    },
+    description: "Initial value of an uncontrolled field.",
   },
 };
 
 export const PlacementArgType = {
   placement: {
     control: "select",
+    // Every value of react-aria's Placement type.
     options: [
       "bottom",
       "bottom start",
       "bottom end",
+      "bottom left",
+      "bottom right",
       "top",
       "top start",
       "top end",
+      "top left",
+      "top right",
       "left",
-      "left start",
-      "left end",
+      "left top",
+      "left bottom",
       "right",
-      "right start",
-      "right end",
+      "right top",
+      "right bottom",
+      "start",
+      "start top",
+      "start bottom",
+      "end",
+      "end top",
+      "end bottom",
     ],
+    description: "Where the overlay is placed relative to its trigger.",
   },
 };
 
@@ -129,7 +161,7 @@ export const MultiSelectionArgTypes: ArgTypes = {
     control: "select",
     options: ["replace", "toggle"],
     description:
-      "Controls how the selection changes in `selectionMode` is `multiple`. `replace` will replace the current selection with the new selection. `toggle` will add or remove the new selection from the current selection.",
+      "Controls how the selection changes when `selectionMode` is `multiple`. `replace` will replace the current selection with the new selection. `toggle` will add or remove the new selection from the current selection.",
     table: {
       category: "Selection",
     },
@@ -159,7 +191,7 @@ export const MultiSelectionArgTypes: ArgTypes = {
     },
   },
   onSelectionChange: {
-    event: "onSelectionChange",
+    action: "onSelectionChange",
     description: "Called when the selection changes",
     table: {
       category: "Selection",
@@ -239,7 +271,8 @@ export const FocusEventsArgTypes: ArgTypes = {
   },
   onFocusChange: {
     action: "onFocusChange",
-    description: "Callback for when the input is focused",
+    description:
+      "Callback for when the focus state changes. Receives `isFocused`.",
     table: {
       category: "Events",
     },
@@ -260,13 +293,15 @@ export const OverlayTriggerArgTypes: Record<keyof OverlayTriggerProps, object> =
     onOpenChange: {
       action: "onOpenChange",
       description: "Callback when the overlay open state changes",
+      table: {
+        category: "Events",
+      },
     },
   };
 
 export const AriaLabelArgTypes: ArgTypes = {
   "aria-label": {
     control: "text",
-    defaultValue: "",
     description: "A label for the current element",
     table: {
       category: "Accessibility",
@@ -274,7 +309,6 @@ export const AriaLabelArgTypes: ArgTypes = {
   },
   "aria-labelledby": {
     control: "text",
-    defaultValue: "",
     description:
       "The id of the element that serves as the label for the element",
     table: {
@@ -283,7 +317,6 @@ export const AriaLabelArgTypes: ArgTypes = {
   },
   "aria-describedby": {
     control: "text",
-    defaultValue: "",
     description:
       "The id of the element that serves as a description for the element",
     table: {
@@ -292,7 +325,6 @@ export const AriaLabelArgTypes: ArgTypes = {
   },
   "aria-details": {
     control: "text",
-    defaultValue: "",
     description:
       "The id of the element that serves as a details for the element",
     table: {
@@ -602,7 +634,7 @@ export const FlexItemArgTypes: ArgTypes = {
       category: "Flex Item",
     },
   },
-  $flexAlgin: {
+  $flexAlign: {
     control: "select",
     options: ["auto", "start", "end", "center", "baseline", "stretch"],
     description: "Align Self",
@@ -610,9 +642,23 @@ export const FlexItemArgTypes: ArgTypes = {
       category: "Flex Item",
     },
   },
+  $flexOrder: {
+    control: "text",
+    description: "Order",
+    table: {
+      category: "Flex Item",
+    },
+  },
 };
 
 export const GridItemArgTypes: ArgTypes = {
+  $gridArea: {
+    control: "text",
+    description: "Grid Area",
+    table: {
+      category: "Grid",
+    },
+  },
   $gridRow: {
     control: "text",
     description: "Grid Row",
@@ -718,7 +764,6 @@ export const TypographyArgTypes: ArgTypes = {
       "none",
       "full-width",
       "full-size-kana",
-      "math-auto",
     ],
     description: "Controls the text transformation.",
   },
@@ -759,6 +804,8 @@ export const FlexArgTypes: ArgTypes = {
       "space-between",
       "space-around",
       "space-evenly",
+      "left",
+      "right",
     ],
   },
   $align: {
