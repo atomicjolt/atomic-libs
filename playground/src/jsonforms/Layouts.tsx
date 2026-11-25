@@ -1,18 +1,7 @@
-import React, { useState } from "react";
-import { JsonForms } from "@jsonforms/react";
-import type { JsonSchema, UISchemaElement } from "@jsonforms/core";
-import {
-  atomicCells,
-  atomicRenderers,
-  atomicTranslateError,
-  createAtomicAjv,
-  devAtomicRenderers,
-} from "@atomicjolt/jsonforms";
-import { Demo, DemoPage, Json } from "../components/Demo";
-
-const ajv = createAtomicAjv();
-const renderers = [...atomicRenderers, ...devAtomicRenderers];
-const i18n = { translateError: atomicTranslateError };
+import React from "react";
+import type { JsonSchema } from "@jsonforms/core";
+import { Demo, DemoPage } from "../components/Demo";
+import { Example } from "./Example";
 
 const schema: JsonSchema = {
   type: "object",
@@ -164,32 +153,12 @@ const examples: { title: string; description: React.ReactNode; uischema: object 
   },
 ];
 
-function Example({ uischema }: { uischema: object }) {
-  const [data, setData] = useState({});
-
-  return (
-    <div className="pg-split pg-stretch">
-      <JsonForms
-        schema={schema}
-        uischema={uischema as UISchemaElement}
-        data={data}
-        renderers={renderers}
-        cells={atomicCells}
-        ajv={ajv}
-        i18n={i18n}
-        onChange={({ data }) => setData(data)}
-      />
-      <Json value={uischema} />
-    </div>
-  );
-}
-
 export function Layouts() {
   return (
     <DemoPage>
       {examples.map(({ title, description, uischema }) => (
         <Demo key={title} title={title} description={description}>
-          <Example uischema={uischema} />
+          <Example schema={schema} uischema={uischema} />
         </Demo>
       ))}
     </DemoPage>

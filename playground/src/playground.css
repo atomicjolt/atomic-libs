@@ -266,3 +266,15 @@ body {
   font-size: 2rem;
   padding: 0.4rem 0.8rem;
 }
+
+.pg-example__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  min-width: 0;
+}
+
+.pg-example__state {
+  border-top: 1px solid var(--border-clr);
+  padding-top: 1.2rem;
+}

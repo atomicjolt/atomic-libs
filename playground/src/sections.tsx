@@ -17,6 +17,7 @@ import { FormDemo as HookFormDemo } from "./forms/FormDemo";
 import { FormDemo } from "./jsonforms/FormDemo";
 import { Sandbox } from "./jsonforms/Sandbox";
 import { Layouts } from "./jsonforms/Layouts";
+import { Rules } from "./jsonforms/Rules";
 
 export interface Page {
   id: string;
@@ -56,6 +57,7 @@ export const sections: Section[] = [
     pages: [
       { id: "form", label: "useJsonForm", component: FormDemo },
       { id: "layouts", label: "Layouts", component: Layouts },
+      { id: "rules", label: "Rules", component: Rules },
       { id: "sandbox", label: "Sandbox", component: Sandbox },
     ],
   },
