@@ -104,6 +104,13 @@ values without sentinel keys.
 `VerticalLayout` → `Flex` column with gap; `HorizontalLayout` → `Flex` row; `Group` →
 `View` + `Heading`; `Label` → `Text`. One shared helper dispatches child elements.
 
+`Group` options: `headingLevel` (`"h1"`–`"h6"`, default `"h2"`; invalid values fall back)
+and `headingSize` (an atomic-elements scale step, default `"5"`). Neither material nor
+vanilla makes this configurable.
+
+`Label` renders as `Text` (a `div`, size `"3"`). Options map onto `Text`: `size`, `weight`,
+`color`, `align`, `wrap`, `as` (`"div"` | `"p"` | `"span"`), and `props` for anything else.
+
 ## Dev renderers
 
 `devAtomicRenderers` holds a rank-0 fallback that renders the path, schema type and
