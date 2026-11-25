@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { Button, SortDescriptor, Table, Text } from "../elements";
+import { Button, SortDescriptor, Table, Text } from "@atomicjolt/atomic-elements";
 
 export default function Tables() {
-  const [value, setValue] = useState(0);
   return (
     <div style={{ padding: "16px" }}>
       <RegularTable />

@@ -1,30 +1,12 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import path from "path";
 
-// https://vitejs.dev/config/
+// The playground uses the built packages (`npm run build --workspaces`), the
+// same way an app would. Rebuild a package to see changes to it here.
 export default defineConfig({
   root: "playground",
   plugins: [react()],
   resolve: {
-    alias: {
-      "@components": path.resolve(
-        __dirname,
-        "../packages/atomic-elements/src/components"
-      ),
-      "@hooks": path.resolve(
-        __dirname,
-        "../packages/atomic-elements/src/hooks"
-      ),
-      "@styles": path.resolve(
-        __dirname,
-        "../packages/atomic-elements/src/styles"
-      ),
-      "@utils": path.resolve(
-        __dirname,
-        "../packages/atomic-elements/src/utils"
-      ),
-      "@sb": path.resolve(__dirname, "../.storybook/utils"),
-    },
+    dedupe: ["react", "react-dom", "styled-components"],
   },
 });
