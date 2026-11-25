@@ -63,33 +63,43 @@ app overrides a renderer by registering its own at a higher rank.
 
 ## Controls
 
-| Schema / UI schema | Component |
-|---|---|
-| `string` | `TextField` |
-| `string` + `options.multi` | `TextField` with `FieldTextArea` |
-| `number` / `integer` | `NumberField` |
-| `boolean` | `CheckBox` |
-| `boolean` + `options.toggle` | `ToggleSwitch` |
-| `enum` / `oneOf` const | `CustomSelect` |
-| …+ `options.format: "radio"` | `RadioGroup` |
-| …+ `options.autocomplete` | `ComboBox` |
-| array of enum | `MultiSelect` |
-| `format: date` | `DatePicker` |
-| `format: time` | `TimeInput` |
+| Schema / UI schema | Component | Stored value |
+|---|---|---|
+| `string` | `TextField` | string |
+| `string` + `options.multi` | `TextField` with `FieldTextArea` | string |
+| `number` / `integer` | `NumberInput` (integers format with 0 decimals) | number |
+| `boolean` | `CheckBox` | boolean |
+| `boolean` + `options.toggle` | `ToggleSwitch` | boolean |
+| `enum` / `oneOf` const | `CustomSelect` | the option value |
+| …+ `options.format: "radio"` | `RadioGroup` | the option value |
+| …+ `options.autocomplete` | `ComboBox` | the option value |
+| array, `uniqueItems`, items `enum` / `oneOf` | `MultiSelect` | array of option values |
+| `format: date` | `DatePicker` | `YYYY-MM-DD` |
+| `format: time` | `TimeInput` | `HH:mm:ss` |
+| `format: date-time` | `DatePicker`, minute granularity | ISO instant (UTC) |
 
-Controls compose the `*Field` root with `FieldLabel`, `FieldInput`, `FieldMessage`
-(description) and `FieldErrorMessage`. Cells use the same root with `FieldInput` only and
-an `aria-label`. Checkbox, toggle and radio have built-in labels; their cells pass
-`aria-label`.
+The text control composes `TextField` with `FieldLabel`, `FieldInput`, `FieldMessage`
+and `FieldErrorMessage`. The other controls use the high-level inputs, whose `label`,
+`message` and `error` props are optional. Cells use the same inputs with an `aria-label`
+(the schema title, or the path) and no help text. Cells exist for text, number, boolean,
+select, date, time and date-time; radio, combobox and multi-select fall back to the
+select cell or have none.
+
+Enum options are keyed by index, so `null`, numbers, booleans and objects all work as
+values without sentinel keys.
+
+atomic-elements' `CheckBox` and `Radio` render their text in a `<span>` that doesn't
+name the input. The checkbox and radio controls pass `aria-label` until that's fixed.
 
 ### Value rules
 
 - Clearing a field stores `undefined`, never `""`. Number inputs store `undefined` for
-  empty / NaN.
+  empty / NaN, and a multi-select with nothing selected stores `undefined`, not `[]`.
 - `integer` schemas store integers; `number` schemas keep decimals.
 - Select options whose value is `null` use a sentinel key internally and store `null`.
 - A read-only form (`readonly` / `enabled: false`) renders inputs with `isReadOnly`, so
-  text stays selectable and the field isn't greyed out.
+  text stays selectable and the field isn't greyed out. `ToggleSwitch` has no read-only
+  state, so a read-only toggle is disabled.
 - `uischema.options.props` is spread onto the field, as in skipper.
 
 ## Layouts

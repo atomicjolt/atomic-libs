@@ -12,6 +12,18 @@ import {
   FormMultiSelect,
   FormTextField,
   FormNumberField,
+  FormSearchInput,
+  FormSearchField,
+  FormDateInput,
+  FormDateField,
+  FormDatePicker,
+  FormTimeInput,
+  FormFileInput,
+  FormSelectField,
+  FormMultiSelectField,
+  FormComboBoxField,
+  FormChipGroup,
+  FormChipGroupField,
 } from "./inputs";
 import { FormProvider } from "./FormProvider";
 import {
@@ -80,6 +92,18 @@ Form.RadioGroup = FormRadioGroup;
 Form.Radio = AtomicElementsRadio;
 Form.ComboBox = FormComboBox;
 Form.MultiSelect = FormMultiSelect;
+Form.SearchInput = FormSearchInput;
+Form.SearchField = FormSearchField;
+Form.DateInput = FormDateInput;
+Form.DateField = FormDateField;
+Form.DatePicker = FormDatePicker;
+Form.TimeInput = FormTimeInput;
+Form.FileInput = FormFileInput;
+Form.SelectField = FormSelectField;
+Form.MultiSelectField = FormMultiSelectField;
+Form.ComboBoxField = FormComboBoxField;
+Form.ChipGroup = FormChipGroup;
+Form.ChipGroupField = FormChipGroupField;
 Form.SubmitButton = SubmitButton;
 Form.Input = Input;
 Form.Label = Label;

@@ -20,16 +20,53 @@ const initialSchema = {
   properties: {
     title: { type: "string", title: "Title" },
     notes: { type: "string", title: "Notes" },
-    tags: { type: "array", items: { type: "string" } },
+    count: { type: "integer", title: "Count", minimum: 0 },
+    price: { type: "number", title: "Price" },
+    active: { type: "boolean", title: "Active" },
+    published: { type: "boolean", title: "Published" },
+    color: { type: "string", title: "Color", enum: ["red", "green", "blue"] },
+    size: {
+      title: "Size",
+      oneOf: [
+        { const: "s", title: "Small" },
+        { const: "m", title: "Medium" },
+        { const: "l", title: "Large" },
+      ],
+    },
+    country: { type: "string", title: "Country", enum: ["Canada", "Mexico", "United States"] },
+    tags: {
+      type: "array",
+      title: "Tags",
+      uniqueItems: true,
+      items: { type: "string", enum: ["news", "travel", "gaming"] },
+    },
+    due: { type: "string", format: "date", title: "Due date" },
+    at: { type: "string", format: "time", title: "Time" },
+    when: { type: "string", format: "date-time", title: "Date and time" },
+    attachments: { type: "array", items: { type: "string" } },
   },
 };
+
+const control = (property: string, options?: object) => ({
+  type: "Control",
+  scope: `#/properties/${property}`,
+  ...(options && { options }),
+});
 
 const initialUiSchema = {
   type: "VerticalLayout",
   elements: [
-    { type: "Control", scope: "#/properties/title" },
-    { type: "Control", scope: "#/properties/notes", options: { multi: true } },
-    { type: "Control", scope: "#/properties/tags" },
+    control("title"),
+    control("notes", { multi: true }),
+    { type: "HorizontalLayout", elements: [control("count"), control("price")] },
+    { type: "HorizontalLayout", elements: [control("active"), control("published", { toggle: true })] },
+    control("color"),
+    control("size", { format: "radio" }),
+    control("country", { autocomplete: true }),
+    control("tags"),
+    { type: "HorizontalLayout", elements: [control("due"), control("at")] },
+    control("when"),
+    control("attachments"),
   ],
 };
 

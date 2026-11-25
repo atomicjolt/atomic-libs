@@ -1,6 +1,6 @@
 {
   "extends": "../../tsconfig.json",
-  "include": ["lib"],
+  "include": ["lib", "vitest.setup.ts"],
   "compilerOptions": {
     "module": "esnext",
     "moduleResolution": "bundler"

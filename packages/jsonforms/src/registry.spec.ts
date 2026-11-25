@@ -5,6 +5,7 @@ import type {
   UISchemaElement,
 } from "@jsonforms/core";
 import { atomicRenderers, devAtomicRenderers } from "./registry";
+import * as C from "./controls";
 import { AtomicTextControl } from "./controls";
 import {
   AtomicGroupLayout,
@@ -37,6 +38,29 @@ describe("renderer selection", () => {
   it.each([
     ["string", control({ type: "string" }), AtomicTextControl],
     ["string + multi", control({ type: "string" }, { multi: true }), AtomicTextControl],
+    ["number", control({ type: "number" }), C.AtomicNumberControl],
+    ["integer", control({ type: "integer" }), C.AtomicNumberControl],
+    ["boolean", control({ type: "boolean" }), C.AtomicCheckBoxControl],
+    ["boolean + toggle", control({ type: "boolean" }, { toggle: true }), C.AtomicToggleControl],
+    ["enum", control({ type: "string", enum: ["a"] }), C.AtomicEnumSelectControl],
+    ["enum + radio", control({ type: "string", enum: ["a"] }, { format: "radio" }), C.AtomicEnumRadioControl],
+    ["enum + autocomplete", control({ type: "string", enum: ["a"] }, { autocomplete: true }), C.AtomicEnumComboBoxControl],
+    ["oneOf", control({ oneOf: [{ const: "a" }] }), C.AtomicOneOfSelectControl],
+    ["oneOf + radio", control({ oneOf: [{ const: "a" }] }, { format: "radio" }), C.AtomicOneOfRadioControl],
+    ["oneOf + autocomplete", control({ oneOf: [{ const: "a" }] }, { autocomplete: true }), C.AtomicOneOfComboBoxControl],
+    [
+      "unique array of enum",
+      control({ type: "array", uniqueItems: true, items: { type: "string", enum: ["a"] } }),
+      C.AtomicMultiSelectControl,
+    ],
+    [
+      "unique array of oneOf",
+      control({ type: "array", uniqueItems: true, items: { oneOf: [{ const: 1 }] } }),
+      C.AtomicMultiSelectControl,
+    ],
+    ["date", control({ type: "string", format: "date" }), C.AtomicDateControl],
+    ["time", control({ type: "string", format: "time" }), C.AtomicTimeControl],
+    ["date-time", control({ type: "string", format: "date-time" }), C.AtomicDateTimeControl],
   ])("%s → expected control", (_, { uischema, schema }, expected) => {
     expect(winner(atomicRenderers, uischema, schema)).toBe(expected);
   });
@@ -49,6 +73,11 @@ describe("renderer selection", () => {
   ])("%s → expected layout", (type, expected) => {
     const uischema = { type, elements: [] } as UISchemaElement;
     expect(winner(atomicRenderers, uischema, {})).toBe(expected);
+  });
+
+  it("doesn't claim arrays that aren't unique enums", () => {
+    const { uischema, schema } = control({ type: "array", items: { type: "string", enum: ["a"] } });
+    expect(winner(atomicRenderers, uischema, schema)).toBeUndefined();
   });
 
   it("falls back only when nothing else matches", () => {
