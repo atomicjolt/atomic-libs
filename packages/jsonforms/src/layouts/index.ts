@@ -10,4 +10,10 @@ export {
   atomicLabelRendererTester,
   type AtomicLabelOptions,
 } from "./AtomicLabelRenderer";
+export {
+  default as AtomicCardLayout,
+  atomicCardLayoutTester,
+  type AtomicCardLayoutOptions,
+  type CardLayout,
+} from "./AtomicCardLayout";
 export { AtomicLayoutRenderer, type AtomicLayoutRendererProps } from "./AtomicLayoutRenderer";

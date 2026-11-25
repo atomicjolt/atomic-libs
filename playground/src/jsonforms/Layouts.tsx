@@ -85,6 +85,57 @@ const examples: { title: string; description: React.ReactNode; uischema: object 
     },
   },
   {
+    title: "Card",
+    description: (
+      <>
+        A <code>Card</code> element renders an atomic-elements Card. The label becomes the card
+        title (an <code>h2</code> by default; <code>headingLevel</code> and{" "}
+        <code>headingSize</code> work as on Group).
+      </>
+    ),
+    uischema: {
+      type: "Card",
+      label: "Contact",
+      elements: [
+        { type: "HorizontalLayout", elements: [control("first"), control("last")] },
+        control("email"),
+      ],
+    },
+  },
+  {
+    title: "Card panels",
+    description: (
+      <>
+        <code>options.panels</code> gives each element its own panel: <code>"stack"</code> stacks
+        them, <code>"columns"</code> puts them side by side. Nest layouts to group fields within a
+        panel.
+      </>
+    ),
+    uischema: {
+      type: "Card",
+      label: "Profile",
+      options: { panels: "columns" },
+      elements: [
+        {
+          type: "VerticalLayout",
+          elements: [
+            { type: "Label", text: "Name", options: { weight: "bold" } },
+            control("first"),
+            control("last"),
+          ],
+        },
+        {
+          type: "VerticalLayout",
+          elements: [
+            { type: "Label", text: "Address", options: { weight: "bold" } },
+            control("street"),
+            control("city"),
+          ],
+        },
+      ],
+    },
+  },
+  {
     title: "Label",
     description: "A Label element renders plain text, for intros or help between controls.",
     uischema: {

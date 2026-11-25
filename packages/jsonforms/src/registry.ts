@@ -4,6 +4,8 @@ import type {
 } from "@jsonforms/core";
 import * as C from "./controls";
 import {
+  AtomicCardLayout,
+  atomicCardLayoutTester,
   AtomicGroupLayout,
   atomicGroupLayoutTester,
   AtomicHorizontalLayout,
@@ -38,6 +40,7 @@ export const atomicRenderers: JsonFormsRendererRegistryEntry[] = [
   { tester: atomicVerticalLayoutTester, renderer: AtomicVerticalLayout },
   { tester: atomicHorizontalLayoutTester, renderer: AtomicHorizontalLayout },
   { tester: atomicGroupLayoutTester, renderer: AtomicGroupLayout },
+  { tester: atomicCardLayoutTester, renderer: AtomicCardLayout },
   { tester: atomicLabelRendererTester, renderer: AtomicLabelRenderer },
 ];
 

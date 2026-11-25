@@ -8,6 +8,7 @@ import { atomicRenderers, devAtomicRenderers } from "./registry";
 import * as C from "./controls";
 import { AtomicTextControl } from "./controls";
 import {
+  AtomicCardLayout,
   AtomicGroupLayout,
   AtomicHorizontalLayout,
   AtomicLabelRenderer,
@@ -69,6 +70,7 @@ describe("renderer selection", () => {
     ["VerticalLayout", AtomicVerticalLayout],
     ["HorizontalLayout", AtomicHorizontalLayout],
     ["Group", AtomicGroupLayout],
+    ["Card", AtomicCardLayout],
     ["Label", AtomicLabelRenderer],
   ])("%s → expected layout", (type, expected) => {
     const uischema = { type, elements: [] } as UISchemaElement;

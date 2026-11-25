@@ -108,6 +108,12 @@ values without sentinel keys.
 and `headingSize` (an atomic-elements scale step, default `"5"`). Neither material nor
 vanilla makes this configurable.
 
+`Card` (a custom UI schema type: `{ type: "Card", label?, elements, options? }`) renders an
+atomic-elements `Card`. The label renders as a `Heading` styled like `Card.Title` (size
+`"3"`, bold), with the same `headingLevel` / `headingSize` options as Group, since
+`Card.Title` is plain text. `options.panels`: `"single"` (default, one panel), `"stack"`
+or `"columns"` (one panel per element).
+
 `Label` renders as `Text` (a `div`, size `"3"`). Options map onto `Text`: `size`, `weight`,
 `color`, `align`, `wrap`, `as` (`"div"` | `"p"` | `"span"`), and `props` for anything else.
 
