@@ -23,7 +23,7 @@ function Color(props: { isRequired?: string }) {
           <Form.Item id="blue">Blue</Form.Item>
         </ListBox>
       </Popover>
-      <Form.ErrorMessage>Color is required</Form.ErrorMessage>
+      <Form.ErrorMessage />
     </Form.SelectField>
   );
 }

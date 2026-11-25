@@ -68,9 +68,9 @@ export function TimeInput<T extends TimeValue>(props: TimeInputProps<T>) {
         ))}
       </ComboInput>
 
-      {isInvalid && error && (
-        <ErrorMessage {...errorMessageProps}>{error}</ErrorMessage>
-      )}
+      <ErrorMessage {...errorMessageProps} isInvalid={isInvalid}>
+        {error}
+      </ErrorMessage>
     </TimeInputWrapper>
   );
 }

@@ -39,7 +39,7 @@ describe("Form.DateField", () => {
       <Form.DateField name="start" isRequired="Pick a start date">
         <Form.Label>Start date</Form.Label>
         <Segments />
-        <Form.ErrorMessage>Pick a start date</Form.ErrorMessage>
+        <Form.ErrorMessage />
       </Form.DateField>
     );
 

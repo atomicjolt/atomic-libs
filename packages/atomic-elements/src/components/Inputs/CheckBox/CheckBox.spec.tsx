@@ -35,6 +35,29 @@ describe("CheckBox", () => {
     });
   });
 
+  describe("Accessibility", () => {
+    it("is named by its label text", () => {
+      render(<CheckBox message="Help">Accept terms</CheckBox>);
+      expect(screen.getByRole("checkbox", { name: "Accept terms" })).toBeTruthy();
+    });
+
+    it("is described by its message and error", () => {
+      render(
+        <CheckBox message="Help" error="Bad" isInvalid>
+          Accept terms
+        </CheckBox>
+      );
+      expect(
+        screen.getByRole("checkbox", { name: "Accept terms", description: "Help Bad" })
+      ).toBeTruthy();
+    });
+
+    it("keeps an explicit aria-label", () => {
+      render(<CheckBox aria-label="Explicit">Accept terms</CheckBox>);
+      expect(screen.getByRole("checkbox", { name: "Explicit" })).toBeTruthy();
+    });
+  });
+
   describe("Behavior", () => {
     it("should toggle checkbox state on click", () => {
       render(<CheckBox />);

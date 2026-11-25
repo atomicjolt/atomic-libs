@@ -25,6 +25,7 @@ import {
   FormChipGroup,
   FormChipGroupField,
 } from "./inputs";
+import { FormErrorMessage } from "./FormErrorMessage";
 import { FormProvider } from "./FormProvider";
 import {
   Radio as AtomicElementsRadio,
@@ -33,7 +34,6 @@ import {
   Input,
   Label,
   Message,
-  ErrorMessage,
 } from "@atomicjolt/atomic-elements";
 import { SubmitButton } from "./SubmitButton";
 
@@ -108,7 +108,7 @@ Form.SubmitButton = SubmitButton;
 Form.Input = Input;
 Form.Label = Label;
 Form.Message = Message;
-Form.ErrorMessage = ErrorMessage;
+Form.ErrorMessage = FormErrorMessage;
 /** @deprecated Use `Form.Input`. */
 Form.FieldInput = Input;
 /** @deprecated Use `Form.Label`. */
@@ -116,4 +116,4 @@ Form.FieldLabel = Label;
 /** @deprecated Use `Form.Message`. */
 Form.FieldMessage = Message;
 /** @deprecated Use `Form.ErrorMessage`. */
-Form.FieldErrorMessage = ErrorMessage;
+Form.FieldErrorMessage = FormErrorMessage;

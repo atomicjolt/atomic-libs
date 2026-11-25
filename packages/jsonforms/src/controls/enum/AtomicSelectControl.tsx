@@ -59,8 +59,7 @@ export function AtomicRadioControl(props: EnumControlProps) {
       {...fieldProps}
     >
       {options.map((option, index) => (
-        // aria-label: atomic-elements' Radio text doesn't name the input (see AtomicCheckBoxControl).
-        <Radio key={index} value={String(index)} aria-label={option.label}>
+        <Radio key={index} value={String(index)}>
           {option.label}
         </Radio>
       ))}

@@ -2,6 +2,7 @@ import { ChipGroupField } from "@atomicjolt/atomic-elements";
 import type { ChipGroupFieldProps } from "@atomicjolt/atomic-elements";
 import { FormInputProps } from "../../types";
 import { useFormField } from "../../hooks/useFormField";
+import { withFieldError } from "../FormErrorMessage";
 import { selectionToValue } from "./selection";
 
 export interface FormChipGroupFieldProps
@@ -25,6 +26,11 @@ export function FormChipGroupField(props: FormChipGroupFieldProps) {
   return (
     <ChipGroupField
       {...fieldProps}
+      // Lets a child <Form.ErrorMessage /> show the validation message.
+      children={withFieldError(
+        (fieldProps as { children?: unknown }).children,
+        (fieldProps as { error?: string }).error
+      ) as any}
       selectedKeys={inputProps.value ?? []}
       onSelectionChange={(v) => inputProps.onChange(selectionToValue(v))}
     />

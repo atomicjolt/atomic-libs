@@ -12,7 +12,7 @@ function Tags(props: { isRequired?: string }) {
         <Form.Item id="a">Alpha</Form.Item>
         <Form.Item id="b">Beta</Form.Item>
       </ChipGroupField.List>
-      <Form.ErrorMessage>Pick a tag</Form.ErrorMessage>
+      <Form.ErrorMessage />
     </Form.ChipGroupField>
   );
 }

@@ -12,7 +12,7 @@ export const StyledLoadingCheckbox = styled(SkeletonLoader)<DirectionProps>`
   ${direction({ ltr: "left: 2px;", rtl: "right: 2px;" })}
 `;
 
-export const CheckBoxLabel = styled.span<DirectionProps>`
+export const CheckBoxLabel = styled.label<DirectionProps>`
   ${mixins.Regular}
   display: inline-block;
   cursor: pointer;

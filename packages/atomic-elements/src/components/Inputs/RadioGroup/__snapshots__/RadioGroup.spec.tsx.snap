@@ -17,54 +17,60 @@ exports[`matches snapshot 1`] = `
       Label
     </legend>
     <div
-      class="sc-gKkgUA jZDuSw aje-radio"
+      class="sc-gKkgUA jiORyJ aje-radio"
       data-selected="true"
     >
       <input
         checked=""
         class="sc-ezjgic bKLnNL"
+        id="react-aria-:r6:"
         name="radiogroup"
         tabindex="0"
         type="radio"
         value="opt1"
       />
-      <span
+      <label
         class="sc-jSppWd crseom aje-checkbox__label"
+        for="react-aria-:r6:"
       >
         Option 1
-      </span>
+      </label>
     </div>
     <div
-      class="sc-gKkgUA jZDuSw aje-radio"
+      class="sc-gKkgUA jiORyJ aje-radio"
     >
       <input
         class="sc-ezjgic bKLnNL"
+        id="react-aria-:r9:"
         name="radiogroup"
         tabindex="-1"
         type="radio"
         value="opt2"
       />
-      <span
+      <label
         class="sc-jSppWd crseom aje-checkbox__label"
+        for="react-aria-:r9:"
       >
         Option 2
-      </span>
+      </label>
     </div>
     <div
-      class="sc-gKkgUA jZDuSw aje-radio"
+      class="sc-gKkgUA jiORyJ aje-radio"
     >
       <input
         class="sc-ezjgic bKLnNL"
+        id="react-aria-:rc:"
         name="radiogroup"
         tabindex="-1"
         type="radio"
         value="opt3"
       />
-      <span
+      <label
         class="sc-jSppWd crseom aje-checkbox__label"
+        for="react-aria-:rc:"
       >
         Option 3
-      </span>
+      </label>
     </div>
   </fieldset>
 </DocumentFragment>

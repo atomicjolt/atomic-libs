@@ -1,10 +1,11 @@
-import { useRef } from "react";
+import React, { useRef } from "react";
 import {
   useDatePicker,
   AriaDatePickerProps,
   DateValue,
 } from "@react-aria/datepicker";
-import { filterDOMProps } from "@react-aria/utils";
+import { useDialog, AriaDialogProps } from "@react-aria/dialog";
+import { filterDOMProps, mergeProps } from "@react-aria/utils";
 import { useDatePickerState } from "react-stately";
 import { useRenderProps } from "@hooks";
 import { fieldStatusSelectors } from "@hooks/useRenderProps";
@@ -37,13 +38,18 @@ export function DatePicker<T extends DateValue>(props: DatePickerProps<T>) {
   const state = useDatePickerState(props);
   const ref = useRef(null);
   const {
+    groupProps,
     labelProps,
     fieldProps,
     buttonProps,
+    dialogProps,
     calendarProps,
     errorMessageProps,
     descriptionProps,
   } = useDatePicker(props, state, ref);
+
+  // react-aria puts the caller's id on the group, so keep it off the wrapper.
+  const { id: _id, ...domProps } = filterDOMProps(props);
 
   const {
     size = "medium",
@@ -64,7 +70,7 @@ export function DatePicker<T extends DateValue>(props: DatePickerProps<T>) {
 
   return (
     <>
-      <div {...filterDOMProps(props)} {...renderProps}>
+      <div {...domProps} {...renderProps}>
         <DateField
           {...fieldProps}
           size={size}
@@ -78,7 +84,11 @@ export function DatePicker<T extends DateValue>(props: DatePickerProps<T>) {
         >
           <Label {...labelProps}>{label}</Label>
           {message && <Message {...descriptionProps}>{message}</Message>}
+          {/* The group holds the segments and the calendar button. Its ref drives
+              keyboard navigation between segments and anchors the popover. */}
           <ComboInput
+            {...groupProps}
+            ref={ref}
             padding="both"
             isLoading={isLoading}
             loadingLabel={loadingLabel}
@@ -90,7 +100,6 @@ export function DatePicker<T extends DateValue>(props: DatePickerProps<T>) {
               icon="today"
               variant="content"
               style={{ marginLeft: "auto" }}
-              ref={ref}
               {...buttonProps}
             />
           </ComboInput>
@@ -106,26 +115,42 @@ export function DatePicker<T extends DateValue>(props: DatePickerProps<T>) {
           variant="datepicker"
           offset={15}
         >
-          <Calendar {...calendarProps} size={calendarSize}>
-            <Flex $justify="space-between" $align="center">
-              <IconButton
-                icon="chevron_left"
-                variant="ghost"
-                slot="previous-month"
-              />
-              <Calendar.Title />
-              <IconButton
-                icon="chevron_right"
-                variant="ghost"
-                slot="next-month"
-              />
-            </Flex>
-            <Calendar.Grid>
-              {(date) => <Calendar.Cell date={date} />}
-            </Calendar.Grid>
-          </Calendar>
+          <DatePickerDialog {...dialogProps}>
+            <Calendar {...calendarProps} size={calendarSize}>
+              <Flex $justify="space-between" $align="center">
+                <IconButton
+                  icon="chevron_left"
+                  variant="ghost"
+                  slot="previous-month"
+                />
+                <Calendar.Title />
+                <IconButton
+                  icon="chevron_right"
+                  variant="ghost"
+                  slot="next-month"
+                />
+              </Flex>
+              <Calendar.Grid>
+                {(date) => <Calendar.Cell date={date} />}
+              </Calendar.Grid>
+            </Calendar>
+          </DatePickerDialog>
         </Popover>
       </OverlayTriggerStateContext.Provider>
     </>
+  );
+}
+
+/** The calendar popup's dialog element, labelled by the picker. */
+function DatePickerDialog(
+  props: AriaDialogProps & { children: React.ReactNode }
+) {
+  const ref = useRef<HTMLDivElement>(null);
+  const { dialogProps } = useDialog(props, ref);
+
+  return (
+    <div {...mergeProps(dialogProps, { id: props.id })} ref={ref}>
+      {props.children}
+    </div>
   );
 }

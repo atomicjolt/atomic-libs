@@ -20,7 +20,7 @@ function Fruit(props: { isRequired?: string; allowsCustomValue?: boolean }) {
           <Form.Item id="cherry">Cherry</Form.Item>
         </ListBox>
       </Popover>
-      <Form.ErrorMessage>Pick a fruit</Form.ErrorMessage>
+      <Form.ErrorMessage />
     </Form.ComboBoxField>
   );
 }

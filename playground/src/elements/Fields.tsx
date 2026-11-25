@@ -177,7 +177,7 @@ export default function Fields() {
             </ChipGroup>
           </Demo>
 
-          <Demo title="FileInput" wide>
+          <Demo title="FileInput">
             <FileInput label="Choose a file…" file={file} onChange={setFile} {...messages} {...editable} />
           </Demo>
 

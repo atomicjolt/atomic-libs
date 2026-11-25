@@ -88,9 +88,6 @@ select cell or have none.
 Enum options are keyed by index, so `null`, numbers, booleans and objects all work as
 values without sentinel keys.
 
-atomic-elements' `CheckBox` and `Radio` render their text in a `<span>` that doesn't
-name the input. The checkbox and radio controls pass `aria-label` until that's fixed.
-
 ### Value rules
 
 - Clearing a field stores `undefined`, never `""`. Number inputs store `undefined` for

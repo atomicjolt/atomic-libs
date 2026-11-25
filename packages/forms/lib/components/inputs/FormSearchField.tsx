@@ -6,6 +6,7 @@ import {
   PatternValidators,
 } from "../../types";
 import { useFormField } from "../../hooks/useFormField";
+import { withFieldError } from "../FormErrorMessage";
 
 export interface FormSearchFieldProps
   extends FormInputProps<SearchFieldProps, SearchFieldProps["value"]>,
@@ -18,5 +19,10 @@ export function FormSearchField(props: FormSearchFieldProps) {
     SearchFieldProps["value"]
   >(props);
 
-  return <SearchField {...fieldProps} {...inputProps} />;
+  return <SearchField {...fieldProps}
+      // Lets a child <Form.ErrorMessage /> show the validation message.
+      children={withFieldError(
+        (fieldProps as { children?: unknown }).children,
+        (fieldProps as { error?: string }).error
+      ) as any} {...inputProps} />;
 }

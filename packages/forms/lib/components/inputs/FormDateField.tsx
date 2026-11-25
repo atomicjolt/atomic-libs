@@ -2,6 +2,7 @@ import { DateField } from "@atomicjolt/atomic-elements";
 import type { DateFieldProps } from "@atomicjolt/atomic-elements";
 import { DateValue, FormInputProps } from "../../types";
 import { useFormField } from "../../hooks/useFormField";
+import { withFieldError } from "../FormErrorMessage";
 
 export interface FormDateFieldProps
   extends FormInputProps<DateFieldProps<DateValue>, DateFieldProps<DateValue>["value"]> {}
@@ -15,5 +16,10 @@ export function FormDateField(props: FormDateFieldProps) {
     DateFieldProps<DateValue>["value"]
   >(props);
 
-  return <DateField {...fieldProps} {...inputProps} />;
+  return <DateField {...fieldProps}
+      // Lets a child <Form.ErrorMessage /> show the validation message.
+      children={withFieldError(
+        (fieldProps as { children?: unknown }).children,
+        (fieldProps as { error?: string }).error
+      ) as any} {...inputProps} />;
 }

@@ -16,7 +16,7 @@ function Toppings(props: { isRequired?: string }) {
           <Form.Item id="peppers">Peppers</Form.Item>
         </ListBox>
       </Popover>
-      <Form.ErrorMessage>Pick a topping</Form.ErrorMessage>
+      <Form.ErrorMessage />
     </Form.MultiSelectField>
   );
 }

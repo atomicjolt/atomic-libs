@@ -115,7 +115,7 @@ export const ToggleInputLike = (element: Interpolation<any>) => {
       outline: none;
     }
 
-    &[data-invalid] span::before {
+    &[data-invalid] ${element}::before {
       border-color: var(--error-clr-hover);
     }
   `;

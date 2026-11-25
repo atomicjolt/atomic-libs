@@ -7,7 +7,6 @@ exports[`DatePicker > matches snapshots > 24 hour cycle 1`] = `
   >
     <div
       class="sc-iJSMbW bCpHEf aje-datefield is-medium"
-      id="react-aria-:ra6:"
       style="min-width: var(--size-x);"
     >
       <label
@@ -23,7 +22,11 @@ exports[`DatePicker > matches snapshots > 24 hour cycle 1`] = `
         Select a date
       </p>
       <div
+        aria-describedby="react-aria-:raa:"
+        aria-labelledby="react-aria-:ra8:"
         class="sc-ivKqQM fgRdsU aje-combo-input"
+        id="react-aria-:ra7:"
+        role="group"
       >
         <div
           class="sc-giQkEn flCHxB aje-input__date-segments"
@@ -180,7 +183,6 @@ exports[`DatePicker > matches snapshots > day granularity 1`] = `
   >
     <div
       class="sc-iJSMbW bCpHEf aje-datefield is-medium"
-      id="react-aria-:r27:"
       style="min-width: var(--size-x);"
     >
       <label
@@ -196,7 +198,11 @@ exports[`DatePicker > matches snapshots > day granularity 1`] = `
         Select a date
       </p>
       <div
+        aria-describedby="react-aria-:r2b:"
+        aria-labelledby="react-aria-:r29:"
         class="sc-ivKqQM fgRdsU aje-combo-input"
+        id="react-aria-:r28:"
+        role="group"
       >
         <div
           class="sc-giQkEn flCHxB aje-input__date-segments"
@@ -314,7 +320,6 @@ exports[`DatePicker > matches snapshots > default variant 1`] = `
   >
     <div
       class="sc-iJSMbW bCpHEf aje-datefield is-medium"
-      id="react-aria-:r2:"
       style="min-width: var(--size-x);"
     >
       <label
@@ -330,7 +335,11 @@ exports[`DatePicker > matches snapshots > default variant 1`] = `
         Select a date
       </p>
       <div
+        aria-describedby="react-aria-:r6:"
+        aria-labelledby="react-aria-:r4:"
         class="sc-ivKqQM fgRdsU aje-combo-input"
+        id="react-aria-:r3:"
+        role="group"
       >
         <div
           class="sc-giQkEn flCHxB aje-input__date-segments"
@@ -450,7 +459,6 @@ exports[`DatePicker > matches snapshots > disabled state 1`] = `
     <div
       class="sc-iJSMbW bCpHEf aje-datefield is-medium"
       data-disabled="true"
-      id="react-aria-:r6j:"
       style="min-width: var(--size-x);"
     >
       <label
@@ -466,7 +474,12 @@ exports[`DatePicker > matches snapshots > disabled state 1`] = `
         Select a date
       </p>
       <div
+        aria-describedby="react-aria-:r6n:"
+        aria-disabled="true"
+        aria-labelledby="react-aria-:r6l:"
         class="sc-ivKqQM fgRdsU aje-combo-input"
+        id="react-aria-:r6k:"
+        role="group"
       >
         <div
           class="sc-giQkEn flCHxB aje-input__date-segments"
@@ -572,7 +585,6 @@ exports[`DatePicker > matches snapshots > hour granularity 1`] = `
   >
     <div
       class="sc-iJSMbW bCpHEf aje-datefield is-medium"
-      id="react-aria-:r2u:"
       style="min-width: var(--size-x);"
     >
       <label
@@ -588,7 +600,11 @@ exports[`DatePicker > matches snapshots > hour granularity 1`] = `
         Select a date
       </p>
       <div
+        aria-describedby="react-aria-:r32:"
+        aria-labelledby="react-aria-:r30:"
         class="sc-ivKqQM fgRdsU aje-combo-input"
+        id="react-aria-:r2v:"
+        role="group"
       >
         <div
           class="sc-giQkEn flCHxB aje-input__date-segments"
@@ -773,7 +789,6 @@ exports[`DatePicker > matches snapshots > invalid state 1`] = `
     <div
       class="sc-iJSMbW bCpHEf aje-datefield is-medium"
       data-invalid="true"
-      id="react-aria-:r8o:"
       style="min-width: var(--size-x);"
     >
       <label
@@ -789,7 +804,11 @@ exports[`DatePicker > matches snapshots > invalid state 1`] = `
         Select a date
       </p>
       <div
+        aria-describedby="react-aria-:r8s: react-aria-:r8t:"
+        aria-labelledby="react-aria-:r8q:"
         class="sc-ivKqQM fgRdsU aje-combo-input"
+        id="react-aria-:r8p:"
+        role="group"
       >
         <div
           class="sc-giQkEn flCHxB aje-input__date-segments"
@@ -918,7 +937,6 @@ exports[`DatePicker > matches snapshots > large calendar size 1`] = `
   >
     <div
       class="sc-iJSMbW bCpHEf aje-datefield is-medium"
-      id="react-aria-:reo:"
       style="min-width: var(--size-x);"
     >
       <label
@@ -934,7 +952,11 @@ exports[`DatePicker > matches snapshots > large calendar size 1`] = `
         Select a date
       </p>
       <div
+        aria-describedby="react-aria-:res:"
+        aria-labelledby="react-aria-:req:"
         class="sc-ivKqQM fgRdsU aje-combo-input"
+        id="react-aria-:rep:"
+        role="group"
       >
         <div
           class="sc-giQkEn flCHxB aje-input__date-segments"
@@ -1052,7 +1074,6 @@ exports[`DatePicker > matches snapshots > large size 1`] = `
   >
     <div
       class="sc-iJSMbW bCpHEf aje-datefield is-large"
-      id="react-aria-:rcj:"
       style="min-width: var(--size-x);"
     >
       <label
@@ -1068,7 +1089,11 @@ exports[`DatePicker > matches snapshots > large size 1`] = `
         Select a date
       </p>
       <div
+        aria-describedby="react-aria-:rcn:"
+        aria-labelledby="react-aria-:rcl:"
         class="sc-ivKqQM fgRdsU aje-combo-input"
+        id="react-aria-:rck:"
+        role="group"
       >
         <div
           class="sc-giQkEn flCHxB aje-input__date-segments"
@@ -1186,7 +1211,6 @@ exports[`DatePicker > matches snapshots > medium calendar size 1`] = `
   >
     <div
       class="sc-iJSMbW bCpHEf aje-datefield is-medium"
-      id="react-aria-:re1:"
       style="min-width: var(--size-x);"
     >
       <label
@@ -1202,7 +1226,11 @@ exports[`DatePicker > matches snapshots > medium calendar size 1`] = `
         Select a date
       </p>
       <div
+        aria-describedby="react-aria-:re5:"
+        aria-labelledby="react-aria-:re3:"
         class="sc-ivKqQM fgRdsU aje-combo-input"
+        id="react-aria-:re2:"
+        role="group"
       >
         <div
           class="sc-giQkEn flCHxB aje-input__date-segments"
@@ -1320,7 +1348,6 @@ exports[`DatePicker > matches snapshots > medium size 1`] = `
   >
     <div
       class="sc-iJSMbW bCpHEf aje-datefield is-medium"
-      id="react-aria-:rbs:"
       style="min-width: var(--size-x);"
     >
       <label
@@ -1336,7 +1363,11 @@ exports[`DatePicker > matches snapshots > medium size 1`] = `
         Select a date
       </p>
       <div
+        aria-describedby="react-aria-:rc0:"
+        aria-labelledby="react-aria-:rbu:"
         class="sc-ivKqQM fgRdsU aje-combo-input"
+        id="react-aria-:rbt:"
+        role="group"
       >
         <div
           class="sc-giQkEn flCHxB aje-input__date-segments"
@@ -1454,7 +1485,6 @@ exports[`DatePicker > matches snapshots > minimal props 1`] = `
   >
     <div
       class="sc-iJSMbW bCpHEf aje-datefield is-medium"
-      id="react-aria-:rib:"
       style="min-width: var(--size-x);"
     >
       <label
@@ -1462,7 +1492,10 @@ exports[`DatePicker > matches snapshots > minimal props 1`] = `
         id="react-aria-:rii:"
       />
       <div
+        aria-labelledby="react-aria-:ric:"
         class="sc-ivKqQM fgRdsU aje-combo-input"
+        id="react-aria-:ric:"
+        role="group"
       >
         <div
           class="sc-giQkEn flCHxB aje-input__date-segments"
@@ -1578,7 +1611,6 @@ exports[`DatePicker > matches snapshots > minute granularity 1`] = `
   >
     <div
       class="sc-iJSMbW bCpHEf aje-datefield is-medium"
-      id="react-aria-:r41:"
       style="min-width: var(--size-x);"
     >
       <label
@@ -1594,7 +1626,11 @@ exports[`DatePicker > matches snapshots > minute granularity 1`] = `
         Select a date
       </p>
       <div
+        aria-describedby="react-aria-:r45:"
+        aria-labelledby="react-aria-:r43:"
         class="sc-ivKqQM fgRdsU aje-combo-input"
+        id="react-aria-:r42:"
+        role="group"
       >
         <div
           class="sc-giQkEn flCHxB aje-input__date-segments"
@@ -1806,7 +1842,6 @@ exports[`DatePicker > matches snapshots > readonly state 1`] = `
     <div
       class="sc-iJSMbW bCpHEf aje-datefield is-medium"
       data-readonly="true"
-      id="react-aria-:r81:"
       style="min-width: var(--size-x);"
     >
       <label
@@ -1822,7 +1857,11 @@ exports[`DatePicker > matches snapshots > readonly state 1`] = `
         Select a date
       </p>
       <div
+        aria-describedby="react-aria-:r85:"
+        aria-labelledby="react-aria-:r83:"
         class="sc-ivKqQM fgRdsU aje-combo-input"
+        id="react-aria-:r82:"
+        role="group"
       >
         <div
           class="sc-giQkEn flCHxB aje-input__date-segments"
@@ -1933,7 +1972,6 @@ exports[`DatePicker > matches snapshots > required state 1`] = `
     <div
       class="sc-iJSMbW bCpHEf aje-datefield is-medium"
       data-required="true"
-      id="react-aria-:r7a:"
       style="min-width: var(--size-x);"
     >
       <label
@@ -1949,7 +1987,11 @@ exports[`DatePicker > matches snapshots > required state 1`] = `
         Select a date
       </p>
       <div
+        aria-describedby="react-aria-:r7e:"
+        aria-labelledby="react-aria-:r7c:"
         class="sc-ivKqQM fgRdsU aje-combo-input"
+        id="react-aria-:r7b:"
+        role="group"
       >
         <div
           class="sc-giQkEn flCHxB aje-input__date-segments"
@@ -2070,7 +2112,6 @@ exports[`DatePicker > matches snapshots > second granularity 1`] = `
   >
     <div
       class="sc-iJSMbW bCpHEf aje-datefield is-medium"
-      id="react-aria-:r58:"
       style="min-width: var(--size-x);"
     >
       <label
@@ -2086,7 +2127,11 @@ exports[`DatePicker > matches snapshots > second granularity 1`] = `
         Select a date
       </p>
       <div
+        aria-describedby="react-aria-:r5c:"
+        aria-labelledby="react-aria-:r5a:"
         class="sc-ivKqQM fgRdsU aje-combo-input"
+        id="react-aria-:r59:"
+        role="group"
       >
         <div
           class="sc-giQkEn flCHxB aje-input__date-segments"
@@ -2323,7 +2368,6 @@ exports[`DatePicker > matches snapshots > small calendar size 1`] = `
   >
     <div
       class="sc-iJSMbW bCpHEf aje-datefield is-medium"
-      id="react-aria-:rda:"
       style="min-width: var(--size-x);"
     >
       <label
@@ -2339,7 +2383,11 @@ exports[`DatePicker > matches snapshots > small calendar size 1`] = `
         Select a date
       </p>
       <div
+        aria-describedby="react-aria-:rde:"
+        aria-labelledby="react-aria-:rdc:"
         class="sc-ivKqQM fgRdsU aje-combo-input"
+        id="react-aria-:rdb:"
+        role="group"
       >
         <div
           class="sc-giQkEn flCHxB aje-input__date-segments"
@@ -2457,7 +2505,6 @@ exports[`DatePicker > matches snapshots > small size 1`] = `
   >
     <div
       class="sc-iJSMbW bCpHEf aje-datefield is-small"
-      id="react-aria-:rb5:"
       style="min-width: var(--size-x);"
     >
       <label
@@ -2473,7 +2520,11 @@ exports[`DatePicker > matches snapshots > small size 1`] = `
         Select a date
       </p>
       <div
+        aria-describedby="react-aria-:rb9:"
+        aria-labelledby="react-aria-:rb7:"
         class="sc-ivKqQM fgRdsU aje-combo-input"
+        id="react-aria-:rb6:"
+        role="group"
       >
         <div
           class="sc-giQkEn flCHxB aje-input__date-segments"
@@ -2591,7 +2642,6 @@ exports[`DatePicker > matches snapshots > with default value 1`] = `
   >
     <div
       class="sc-iJSMbW bCpHEf aje-datefield is-medium"
-      id="react-aria-:r1g:"
       style="min-width: var(--size-x);"
     >
       <label
@@ -2607,7 +2657,11 @@ exports[`DatePicker > matches snapshots > with default value 1`] = `
         Select a date
       </p>
       <div
+        aria-describedby="react-aria-description-1 react-aria-:r1k:"
+        aria-labelledby="react-aria-:r1i:"
         class="sc-ivKqQM fgRdsU aje-combo-input"
+        id="react-aria-:r1h:"
+        role="group"
       >
         <div
           class="sc-giQkEn flCHxB aje-input__date-segments"
@@ -2722,7 +2776,6 @@ exports[`DatePicker > matches snapshots > with leading zeros 1`] = `
   >
     <div
       class="sc-iJSMbW bCpHEf aje-datefield is-medium"
-      id="react-aria-:r9f:"
       style="min-width: var(--size-x);"
     >
       <label
@@ -2738,7 +2791,11 @@ exports[`DatePicker > matches snapshots > with leading zeros 1`] = `
         Select a date
       </p>
       <div
+        aria-describedby="react-aria-:r9j:"
+        aria-labelledby="react-aria-:r9h:"
         class="sc-ivKqQM fgRdsU aje-combo-input"
+        id="react-aria-:r9g:"
+        role="group"
       >
         <div
           class="sc-giQkEn flCHxB aje-input__date-segments"
@@ -2856,7 +2913,6 @@ exports[`DatePicker > matches snapshots > with min and max values 1`] = `
   >
     <div
       class="sc-iJSMbW bCpHEf aje-datefield is-medium"
-      id="react-aria-:rff:"
       style="min-width: var(--size-x);"
     >
       <label
@@ -2872,7 +2928,11 @@ exports[`DatePicker > matches snapshots > with min and max values 1`] = `
         Select a date
       </p>
       <div
+        aria-describedby="react-aria-:rfj:"
+        aria-labelledby="react-aria-:rfh:"
         class="sc-ivKqQM fgRdsU aje-combo-input"
+        id="react-aria-:rfg:"
+        role="group"
       >
         <div
           class="sc-giQkEn flCHxB aje-input__date-segments"
@@ -2990,7 +3050,6 @@ exports[`DatePicker > matches snapshots > with value 1`] = `
   >
     <div
       class="sc-iJSMbW bCpHEf aje-datefield is-medium"
-      id="react-aria-:rp:"
       style="min-width: var(--size-x);"
     >
       <label
@@ -3006,7 +3065,11 @@ exports[`DatePicker > matches snapshots > with value 1`] = `
         Select a date
       </p>
       <div
+        aria-describedby="react-aria-description-0 react-aria-:rt:"
+        aria-labelledby="react-aria-:rr:"
         class="sc-ivKqQM fgRdsU aje-combo-input"
+        id="react-aria-:rq:"
+        role="group"
       >
         <div
           class="sc-giQkEn flCHxB aje-input__date-segments"
@@ -3121,7 +3184,6 @@ exports[`DatePicker > matches snapshots > without error 1`] = `
   >
     <div
       class="sc-iJSMbW bCpHEf aje-datefield is-medium"
-      id="react-aria-:rhk:"
       style="min-width: var(--size-x);"
     >
       <label
@@ -3137,7 +3199,11 @@ exports[`DatePicker > matches snapshots > without error 1`] = `
         Select a date
       </p>
       <div
+        aria-describedby="react-aria-:rho:"
+        aria-labelledby="react-aria-:rhm:"
         class="sc-ivKqQM fgRdsU aje-combo-input"
+        id="react-aria-:rhl:"
+        role="group"
       >
         <div
           class="sc-giQkEn flCHxB aje-input__date-segments"
@@ -3255,7 +3321,6 @@ exports[`DatePicker > matches snapshots > without label 1`] = `
   >
     <div
       class="sc-iJSMbW bCpHEf aje-datefield is-medium"
-      id="react-aria-:rg6:"
       style="min-width: var(--size-x);"
     >
       <label
@@ -3269,7 +3334,11 @@ exports[`DatePicker > matches snapshots > without label 1`] = `
         Select a date
       </p>
       <div
+        aria-describedby="react-aria-:rga:"
+        aria-labelledby="react-aria-:rg7:"
         class="sc-ivKqQM fgRdsU aje-combo-input"
+        id="react-aria-:rg7:"
+        role="group"
       >
         <div
           class="sc-giQkEn flCHxB aje-input__date-segments"
@@ -3387,7 +3456,6 @@ exports[`DatePicker > matches snapshots > without message 1`] = `
   >
     <div
       class="sc-iJSMbW bCpHEf aje-datefield is-medium"
-      id="react-aria-:rgt:"
       style="min-width: var(--size-x);"
     >
       <label
@@ -3397,7 +3465,10 @@ exports[`DatePicker > matches snapshots > without message 1`] = `
         Date Picker
       </label>
       <div
+        aria-labelledby="react-aria-:rgv:"
         class="sc-ivKqQM fgRdsU aje-combo-input"
+        id="react-aria-:rgu:"
+        role="group"
       >
         <div
           class="sc-giQkEn flCHxB aje-input__date-segments"

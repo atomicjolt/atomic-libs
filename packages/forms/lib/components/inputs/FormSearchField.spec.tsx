@@ -22,7 +22,7 @@ describe("Form.SearchField", () => {
       <Form.SearchField name="query" isRequired="Enter a query">
         <Form.Label>Search</Form.Label>
         <Form.Input />
-        <Form.ErrorMessage>Enter a query</Form.ErrorMessage>
+        <Form.ErrorMessage />
       </Form.SearchField>
     );
 

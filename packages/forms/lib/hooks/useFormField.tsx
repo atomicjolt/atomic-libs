@@ -75,6 +75,8 @@ export function useFormField<P, V>(
     },
     // @ts-expect-error
     fieldProps: {
+      // So native form submission and autofill see the field.
+      name: field.name,
       isRequired: ![undefined, false].includes(isRequired as any),
       isDisabled,
       isInvalid: fieldState.invalid,

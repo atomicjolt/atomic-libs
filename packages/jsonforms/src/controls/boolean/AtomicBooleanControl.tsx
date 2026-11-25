@@ -20,9 +20,6 @@ export function AtomicCheckBoxControl(props: ControlProps) {
   return (
     <CheckBox
       id={id}
-      // atomic-elements' CheckBox renders its text in a <span>, which doesn't
-      // name the input; aria-label does.
-      aria-label={label}
       isSelected={data === true}
       onChange={(value: boolean) => handleChange(path, value)}
       message={helpText.message}
