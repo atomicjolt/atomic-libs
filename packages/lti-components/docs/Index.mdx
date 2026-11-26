@@ -1,0 +1,47 @@
+---
+sidebar_position: 1
+---
+
+# Introduction
+
+`@atomicjolt/lti-components` contains React components for LTI 1.3 front ends. It currently exports one
+component, `LtiLaunchCheck`. It wraps your app and renders it only after `@atomicjolt/lti-client` has
+verified the launch state.
+
+## Installation
+
+```bash
+npm install @atomicjolt/lti-components
+```
+
+Peer dependencies: `react`, `react-dom` (16–19) and `@atomicjolt/lti-client` (`^2.7.1`).
+
+## What's in it
+
+- `LtiLaunchCheck` – calls `ltiLaunch` from `@atomicjolt/lti-client` with the `LaunchSettings` you pass as `stateValidation`. It renders `children` once the state is verified. It shows an "Invalid request" message if validation fails, or a "Validation timed out" message if there is no result after 2 seconds. If `stateValidation.stateVerified` is already `true` (for example, because the server already found a valid state cookie), it renders `children` straight away.
+
+The error markup uses plain class names (`aj-launch-error`, `aj-title`, `aj-text`, `aj-error`) and a Material
+Icons Outlined glyph. No styles are included, so style these classes in your app.
+
+## Usage
+
+```tsx
+import { createRoot } from 'react-dom/client';
+import { LtiLaunchCheck } from '@atomicjolt/lti-components';
+import type { LaunchSettings } from '@atomicjolt/lti-client';
+import App from './App';
+
+// Rendered into the launch page by your server
+const launchSettings = (window as any).LAUNCH_SETTINGS as LaunchSettings;
+
+createRoot(document.getElementById('root')!).render(
+  <LtiLaunchCheck stateValidation={launchSettings}>
+    <App />
+  </LtiLaunchCheck>
+);
+```
+
+## Related packages
+
+- [`@atomicjolt/lti-client`](/lti-client/) – provides `ltiLaunch` and the `LaunchSettings` type this component relies on.
+- [`@atomicjolt/lti-server`](/lti-server/) – handles the server side of the launch.

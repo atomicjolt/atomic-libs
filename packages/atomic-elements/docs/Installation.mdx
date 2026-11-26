@@ -2,79 +2,171 @@
 sidebar_position: 2
 ---
 
-# Install
+# Installation
 
-```
-$ npm install --save @atomicjolt/atomic-elements
-```
+This page takes you from an empty React app to a rendered component.
 
-```
-$ yarn add @atomicjolt/atomic-elements
-```
+## 1. Install the package
 
-## Setup
-
-At the root of your application, you should include the following components:
-
-```tsx
-import { ElementsProvider } from "@atomicjolt/atomic-elements";
-
-const App = () => (
-  <ElementsProvider>
-    <YourApp />
-  </ElementsProvider>
-);
+```bash
+npm install @atomicjolt/atomic-elements
 ```
 
-### ElementsProvider
+```bash
+yarn add @atomicjolt/atomic-elements
+```
 
-The `ElementsProvider` component is a context provider that makes the theme available to all components in the tree.
-It also provides a way to override the default theme.
+The only peer dependencies are `react` and `react-dom` (18 or 19). styled-components, React Aria
+and React Stately are regular dependencies and are installed for you.
 
+:::tip
+Install `@atomicjolt/atomic-elements@3.8.0` or later. Earlier 3.x releases had loosely pinned
+React Aria dependencies that can break `Table`. See [Migrating](./Migrating.mdx#peer-dependency-versions-react-aria--react-stately).
+:::
 
-### Fonts
+## 2. Load the fonts
 
-Atomic Elements makes use of the following Fonts by default:
+The components expect these fonts on the page. The library does not load them for you.
 
-- [Lato](https://fonts.google.com/specimen/Lato?query=lato) (Text Font)
-- [Material Icons](https://fonts.google.com/icons) (For the [`MaterialIcon`](/docs/atoms-materialicon--overview) component & any other components that make use of an icon)
-- [Material Symbols](https://fonts.google.com/icons) (Only needed if you want to use the [`MaterialSybmol`](/docs/atoms-materialsymbol--overview) component)
+| Font | Needed for |
+| --- | --- |
+| [Lato](https://fonts.google.com/specimen/Lato) | All text (the default `font-family` token) |
+| [Material Icons](https://fonts.google.com/icons?icon.set=Material+Icons) | [`MaterialIcon`](https://atomicjolt.github.io/atomic-libs/storybook/?path=/docs/elements-icons-materialicon--overview), `IconButton`, and every component that draws an icon (selects, date pickers, banners, ...) |
+| [Material Symbols](https://fonts.google.com/icons) | Only the [`MaterialSymbol`](https://atomicjolt.github.io/atomic-libs/storybook/?path=/docs/elements-icons-materialsymbol--overview) component |
 
-
-
-#### Loading Fonts
-
-You can load the fonts from anywhere, but here is an example of how you might load them from Google Fonts.
+Loading them from Google Fonts in your HTML `<head>`:
 
 ```html
-<!-- Lato is the default text font, you should only need these variants.
-You could load a different text-font if you wanted -->
+<!-- Lato: light, regular and bold. The browser picks the nearest loaded
+     weight for the theme's font-weight tokens (200/400/500/700). -->
 <link
-  href="https://fonts.googleapis.com/css2?family=Lato:wght@200;400;700&display=swap"
+  href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"
   rel="stylesheet"
 />
 
-<!-- Material Icons -->
+<!-- Material Icons (filled). Required. -->
 <link
   href="https://fonts.googleapis.com/icon?family=Material+Icons"
   rel="stylesheet"
 />
 
-<!-- The default is filled, you only need any of these if you actually intend to use them -->
+<!-- Optional: only if you use <MaterialIcon iconVariant="outlined" | "round" | "sharp" | "two-tone" /> -->
 <link
-  href="https://fonts.googleapis.com/icon?family=Material+Icons%7CMaterial+Icons+Outlined"
+  href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
   rel="stylesheet"
 />
+
+<!-- Optional: only if you use <MaterialSymbol /> (its default variant is "outlined") -->
 <link
-  href="https://fonts.googleapis.com/icon?family=Material+Icons%7CMaterial+Icons+Round"
-  rel="stylesheet"
-/>
-<link
-  href="https://fonts.googleapis.com/icon?family=Material+Icons%7CMaterial+Icons+Sharp"
-  rel="stylesheet"
-/>
-<link
-  href="https://fonts.googleapis.com/icon?family=Material+Icons%7CMaterial+Icons+Two+Tone"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
   rel="stylesheet"
 />
 ```
+
+To use a different text font, load it instead and change the `font-family` token in your
+[theme](./Theme/Typography.mdx#font-family-and-weights).
+
+## 3. Wrap your app in `ElementsProvider`
+
+Render one `ElementsProvider` at the root of your app. It writes the theme's CSS variables to the
+page, places component styles in a [CSS layer](./Guides/Customization/CSSLayers.mdx), and manages
+the [color scheme](./Theme/ColorSchemes.mdx). Components rendered outside it have no theme
+variables, so they lose their colors, sizes and spacing.
+
+```tsx title="src/main.tsx"
+import { createRoot } from "react-dom/client";
+import { ElementsProvider } from "@atomicjolt/atomic-elements";
+import { App } from "./App";
+
+createRoot(document.getElementById("root")!).render(
+  <ElementsProvider applyDefaultStyles>
+    <App />
+  </ElementsProvider>
+);
+```
+
+### `ElementsProvider` props
+
+| Prop | Default | Description |
+| --- | --- | --- |
+| `theme` | `defaultTheme` | A theme from [`createTheme`](./Theme/Intro.mdx). |
+| `applyDefaultStyles` | `false` | Adds a small set of global styles. See below. |
+| `layerName` | `"elements"` | Name of the CSS `@layer` that holds component styles. `null` turns layering off. See [CSS Layers](./Guides/Customization/CSSLayers.mdx). |
+| `colorScheme` | | Controlled color scheme: `"light"`, `"dark"`, another scheme in your theme, or `"system"`. |
+| `defaultColorScheme` | `"light"` | Starting color scheme when `colorScheme` isn't set. |
+| `onColorSchemeChange` | | Called when `useColorScheme().setColorScheme` changes the scheme. |
+
+The color scheme props are covered in [Color Schemes](./Theme/ColorSchemes.mdx).
+
+:::warning One provider per page
+The color scheme is set on `<html>`, so mount a single `ElementsProvider` at the root. Nested
+providers ignore their color scheme props, and side-by-side providers log a warning.
+:::
+
+### What `applyDefaultStyles` does
+
+It adds these global rules:
+
+- `html { font-size: 10px }`, so `1rem` is 10px.
+- `font-family: var(--font-family)` and font smoothing on `html`.
+- `box-sizing: border-box` on every element.
+- Hides the focus outline for mouse focus (`:focus:not(:focus-visible)`), keeping it for keyboard focus.
+- In a dark (or any non-`light`) color scheme, sets the `<body>` background and text color from the theme.
+
+:::warning Component sizes assume a 10px root font size
+Component styles use `rem` units written for `1rem = 10px` (for example, button text is
+`1.6rem`, or 16px). If you don't use `applyDefaultStyles`, set the root size yourself or
+components will render about 60% larger:
+
+```css
+html {
+  font-size: 10px; /* or 62.5% */
+}
+```
+:::
+
+If your app already has a CSS reset and sets the root font size, you can leave
+`applyDefaultStyles` off and add only what you need.
+
+## 4. Render a component
+
+```tsx title="src/App.tsx"
+import { useState } from "react";
+import { Button, Flex, Text, TextInput } from "@atomicjolt/atomic-elements";
+
+export function App() {
+  const [name, setName] = useState("");
+
+  return (
+    <Flex $direction="column" $gap="3" $p="4" $maxWidth="400px">
+      <TextInput
+        label="Your name"
+        message="As it appears in your LMS profile"
+        value={name}
+        onChange={setName}
+        size="full"
+      />
+      <Button onPress={() => alert(`Hello, ${name || "stranger"}`)}>
+        Say hello
+      </Button>
+      <Text $color="text-clr-secondary">You typed: {name}</Text>
+    </Flex>
+  );
+}
+```
+
+A few conventions to know up front:
+
+- **Events follow React Aria.** Buttons use `onPress`, not `onClick`. Inputs call `onChange` with
+  the **value**, not a DOM event.
+- **Boolean states use `is*` names:** `isDisabled`, `isRequired`, `isInvalid`, `isReadOnly`, `isLoading`.
+- **Props starting with `$` are style props** (`$gap`, `$p`, `$color`). They map to CSS and accept
+  theme tokens. See [Layout and style props](./Guides/Layout.mdx).
+- **Errors show only when the field is invalid.** `error="..."` is displayed when `isInvalid` is true.
+
+## Next steps
+
+- Browse the components in [Storybook](https://atomicjolt.github.io/atomic-libs/storybook/).
+- [Customize the theme](./Theme/Intro.mdx) or add a [dark mode toggle](./Theme/ColorSchemes.mdx#letting-users-switch).
+- Building forms? Read the [Fields introduction](./Guides/Fields/FieldsIntro.mdx).
+- Writing tests? See the [jsdom shims](./Migrating.mdx#testing) that overlay components need.

@@ -1,0 +1,283 @@
+---
+sidebar_position: 3
+---
+
+# Components
+
+Every form component hangs off `Form` (`Form.TextInput`, `Form.SelectField`, ...). Each input wraps the
+atomic-elements component of the same name, takes all of that component's props, plus:
+
+- `name` (required): the react-hook-form field name. It's also set as the native `name` attribute, so
+  autofill and native form submission see the field.
+- Validation props (`isRequired`, `validate`, and where they make sense `minLength`, `pattern`, ...). See [Validations](./Validations.mdx).
+- `defaultValue`, `deps` and `shouldUnregister` from react-hook-form's [register options](https://react-hook-form.com/docs/useform/register).
+
+The value, change handler, `isInvalid`, `error` and `isRequired` are filled in for you, so don't pass
+`value`/`onChange` yourself.
+
+## All-in-one inputs vs. composed fields
+
+atomic-elements offers two styles of input, and the forms package wraps both.
+
+**All-in-one inputs** (`Form.TextInput`, `Form.Select`, `Form.DatePicker`, ...) render the label, the
+input, the description and the error message for you. Configure them with props like `label`, `message`
+and `placeholder`. The validation message appears automatically.
+
+```tsx
+<Form.TextInput
+  name="email"
+  label="Email"
+  message="We'll never share it."
+  isRequired="Email is required"
+/>
+```
+
+**Composed fields** (`Form.TextField`, `Form.NumberField` and every other `Form.*Field`) render only what
+you put inside them. Use them when you need a custom layout: an icon or button next to the input, the
+description below the input, a custom dropdown trigger, and so on. Build the field from parts such as
+`Form.Label`, `Form.Input`, `Form.Message` and `Form.ErrorMessage`.
+
+Inside a composed field, `<Form.ErrorMessage />` **with no children** shows the field's validation
+message. Give it children to show your own text instead.
+
+```tsx
+<Form.TextField name="title" isRequired="Title is required">
+  <Form.Label>Title</Form.Label>
+  <Form.Input />
+  <Form.Message>Shown on the course card.</Form.Message>
+  <Form.ErrorMessage />
+</Form.TextField>
+```
+
+:::tip
+A composed field without a `<Form.ErrorMessage />` still marks itself invalid, but the message isn't
+shown anywhere. Include one whenever the field has validation rules.
+:::
+
+## Component reference
+
+### Text and numbers
+
+| Component | Style | Wraps | Stored value |
+| --- | --- | --- | --- |
+| `Form.TextInput` | all-in-one | `TextInput` | `string` |
+| `Form.TextField` | composed | `TextField` | `string` |
+| `Form.TextAreaInput` | all-in-one | `TextAreaInput` | `string` |
+| `Form.SearchInput` | all-in-one | `SearchInput` | `string` |
+| `Form.SearchField` | composed | `SearchField` | `string` |
+| `Form.NumberInput` | all-in-one | `NumberInput` | `number` |
+| `Form.NumberField` | composed | `NumberField` | `number` |
+
+```tsx
+<Form.TextAreaInput name="bio" label="Bio" maxLength={{ value: 500, message: "500 characters max" }} />
+<Form.SearchInput name="query" label="Search" />
+
+<Form.NumberField name="points" minValue={{ value: 0, message: "Can't be negative" }}>
+  <Form.Label>Points</Form.Label>
+  <Form.Input />
+  <Form.ErrorMessage />
+</Form.NumberField>
+```
+
+### Booleans
+
+| Component | Style | Wraps | Stored value |
+| --- | --- | --- | --- |
+| `Form.CheckBox` | all-in-one | `CheckBox` | `boolean` |
+| `Form.ToggleSwitch` | all-in-one | `ToggleSwitch` | `boolean` |
+
+Their children are the label.
+
+```tsx
+<Form.CheckBox name="terms" isRequired="You must accept the terms">
+  I accept the terms
+</Form.CheckBox>
+<Form.ToggleSwitch name="newsletter">Send me the newsletter</Form.ToggleSwitch>
+```
+
+### Choosing from a list
+
+| Component | Style | Wraps | Stored value |
+| --- | --- | --- | --- |
+| `Form.Select` | all-in-one | `Select` (native `<select>`) | the selected `<option>`'s `value` |
+| `Form.CustomSelect` | all-in-one | `CustomSelect` | selected `Key` |
+| `Form.SelectField` | composed | `SelectField` | selected `Key`, or `null` |
+| `Form.ComboBox` | all-in-one | `ComboBox` | selected `Key` (typed text with `allowsCustomValue`) |
+| `Form.ComboBoxField` | composed | `ComboBoxField` | selected `Key` or `null` (typed text with `allowsCustomValue`) |
+| `Form.MultiSelect` | all-in-one | `MultiSelect` | array of `Key`s |
+| `Form.MultiSelectField` | composed | `MultiSelectField` | array of `Key`s (or `"all"`) |
+| `Form.RadioGroup` | all-in-one | `RadioGroup` | the selected `Form.Radio`'s `value` |
+| `Form.ChipGroup` | all-in-one | `ChipGroup` | array of `Key`s (or `"all"`) |
+| `Form.ChipGroupField` | composed | `ChipGroupField` | array of `Key`s (or `"all"`) |
+
+Collection components take `Form.Item` (and `Form.Section`) children; the item `id` is the key that gets stored.
+
+```tsx
+<Form.Select name="term" label="Term">
+  <option value="fall">Fall</option>
+  <option value="spring">Spring</option>
+</Form.Select>
+
+<Form.CustomSelect name="role" label="Role" placeholder="Choose a role">
+  <Form.Item id="teacher">Teacher</Form.Item>
+  <Form.Item id="student">Student</Form.Item>
+</Form.CustomSelect>
+
+<Form.ComboBox name="fruit" label="Fruit">
+  <Form.Item id="apple">Apple</Form.Item>
+  <Form.Item id="banana">Banana</Form.Item>
+</Form.ComboBox>
+
+<Form.MultiSelect name="toppings" label="Toppings">
+  <Form.Item id="cheese">Cheese</Form.Item>
+  <Form.Item id="olives">Olives</Form.Item>
+</Form.MultiSelect>
+
+<Form.RadioGroup name="plan" label="Plan">
+  <Form.Radio value="free">Free</Form.Radio>
+  <Form.Radio value="pro">Pro</Form.Radio>
+</Form.RadioGroup>
+```
+
+`Form.ChipGroup` and `Form.ChipGroupField` default to `selectionMode="multiple"`. With
+`selectionMode="single"` the value is still an array (of at most one key).
+
+```tsx
+<Form.ChipGroup name="interests" label="Interests">
+  <Form.Item id="news">News</Form.Item>
+  <Form.Item id="sports">Sports</Form.Item>
+</Form.ChipGroup>
+```
+
+The composed selection fields render a trigger and popover you assemble from atomic-elements parts:
+
+```tsx
+import { Button, ListBox, Popover, SelectField, ChipGroupField } from "@atomicjolt/atomic-elements";
+
+<Form.SelectField name="color" isRequired="Pick a color">
+  <Form.Label>Color</Form.Label>
+  <Button variant="dropdown">
+    <SelectField.Value placeholder="Pick a color" />
+  </Button>
+  <Popover>
+    <ListBox>
+      <Form.Item id="red">Red</Form.Item>
+      <Form.Item id="green">Green</Form.Item>
+    </ListBox>
+  </Popover>
+  <Form.ErrorMessage />
+</Form.SelectField>
+
+<Form.ComboBoxField name="fruit">
+  <Form.Label>Fruit</Form.Label>
+  <Form.Input />
+  <Popover>
+    <ListBox>
+      <Form.Item id="apple">Apple</Form.Item>
+      <Form.Item id="banana">Banana</Form.Item>
+    </ListBox>
+  </Popover>
+  <Form.ErrorMessage />
+</Form.ComboBoxField>
+
+<Form.ChipGroupField name="tags" selectionMode="single">
+  <Form.Label>Tag</Form.Label>
+  <ChipGroupField.List>
+    <Form.Item id="bug">Bug</Form.Item>
+    <Form.Item id="feature">Feature</Form.Item>
+  </ChipGroupField.List>
+  <Form.ErrorMessage />
+</Form.ChipGroupField>
+```
+
+`Form.MultiSelectField` is built the same way as `Form.SelectField` (a `Button` trigger, `Popover` and `ListBox`).
+
+### Dates, times and files
+
+| Component | Style | Wraps | Stored value |
+| --- | --- | --- | --- |
+| `Form.DateInput` | all-in-one | `DateInput` | `DateValue` or `null` |
+| `Form.DatePicker` | all-in-one | `DatePicker` (input + calendar popover) | `DateValue` or `null` |
+| `Form.DateField` | composed | `DateField` | `DateValue` or `null` |
+| `Form.TimeInput` | all-in-one | `TimeInput` | `TimeValue` or `null` |
+| `Form.FileInput` | all-in-one | `FileInput` | `File` or `null` |
+
+```tsx
+import { ComboInput, DateField } from "@atomicjolt/atomic-elements";
+
+<Form.DatePicker name="startDate" label="Start date" isRequired="Pick a start date" />
+<Form.DateInput name="birthday" label="Birthday" />
+<Form.TimeInput name="meetingTime" label="Meeting time" />
+<Form.FileInput name="avatar" label="Avatar" acceptedFileTypes={["image/*"]} />
+
+<Form.DateField name="dueDate">
+  <Form.Label>Due date</Form.Label>
+  <ComboInput padding="both">
+    <DateField.Segments>
+      {(_, index) => <DateField.Segment key={index} index={index} />}
+    </DateField.Segments>
+  </ComboInput>
+  <Form.ErrorMessage />
+</Form.DateField>
+```
+
+## Stored values
+
+Values are stored exactly as the underlying component produces them; nothing is converted to strings.
+
+- **Dates and times** are [`@internationalized/date`](https://react-spectrum.adobe.com/internationalized/date/)
+  objects: `CalendarDate` / `CalendarDateTime` / `ZonedDateTime` for dates, `Time` for times. Convert
+  them yourself when submitting (e.g. `value?.toString()` gives an ISO string), and pass the same kind of
+  object as a default (`parseDate("2025-01-15")`, `new Time(9, 30)`). The `DateValue` and `TimeValue`
+  types are exported from `@atomicjolt/forms`.
+- **Multi-selections** are arrays of keys (`["cheese", "olives"]`), never `Set`s, so they serialize
+  cleanly and can be used directly as `defaultValues`.
+- **Single selections** are the selected item's `Key` (its `id`).
+- **Files** are the browser's `File` object.
+
+```tsx
+import { parseDate, Time } from "@internationalized/date";
+import { Form } from "@atomicjolt/forms";
+import type { DateValue, TimeValue } from "@atomicjolt/forms";
+
+interface Meeting {
+  day: DateValue | null;
+  start: TimeValue | null;
+  attendees: string[];
+}
+
+<Form<Meeting>
+  onSubmit={(data) => api.createMeeting({ ...data, day: data.day?.toString() })}
+  defaultValues={{ day: parseDate("2025-01-15"), start: new Time(9, 30), attendees: [] }}
+>
+  {/* ... */}
+</Form>
+```
+
+## Building blocks
+
+These are re-exported from atomic-elements so composed fields can be built from `Form.*` alone:
+
+| Component | Use |
+| --- | --- |
+| `Form.Label` | Field label (`Label`) |
+| `Form.Input` | The text input inside `Form.TextField`, `Form.NumberField`, `Form.SearchField` and `Form.ComboBoxField` (`Input`) |
+| `Form.Message` | Description text (`Message`) |
+| `Form.ErrorMessage` | Error text. Shows the field's validation message when it has no children (inside a composed field). |
+| `Form.Item` | A collection item (`Item`) |
+| `Form.Section` | A group of collection items (`Section`) |
+| `Form.Radio` | A radio option for `Form.RadioGroup` (`Radio`) |
+| `Form.SubmitButton` | A `Button` with `type="submit"` |
+
+`Form.FieldInput`, `Form.FieldLabel`, `Form.FieldMessage` and `Form.FieldErrorMessage` are deprecated
+aliases of `Form.Input`, `Form.Label`, `Form.Message` and `Form.ErrorMessage`.
+
+## Exports
+
+```ts
+import { Form, FormProvider } from "@atomicjolt/forms";
+```
+
+Each component's props type is exported as `Form<Name>Props`, e.g. `FormTextInputProps`,
+`FormSelectFieldProps`, `FormChipGroupProps` (plus `FormProps`, `FormProviderProps` and
+`SubmitButtonProps`), along with the `DateValue` and `TimeValue` types.

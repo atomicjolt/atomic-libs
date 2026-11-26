@@ -1,55 +1,124 @@
+---
+sidebar_position: 5
+---
+
 # Accessibility
 
+Atomic Elements components are built on [React Aria](https://react-spectrum.adobe.com/react-aria/),
+which handles the parts of accessibility that are easy to get wrong: ARIA roles and states,
+keyboard interaction, focus management, and linking labels, descriptions and errors to their
+inputs. This page covers what the library does for you, what it needs from you, and how to make
+screen reader announcements.
 
-## Aria Announcements
+## What the components handle
 
-Atomic Elements implementation of live announcements is mostly implemented to be compatible with: [react-aria-live](https://github.com/AlmeroSteyn/react-aria-live) which we used previously.
+- **Labelling.** A field's `label` (or `<Label>`) is linked to its input. `message` and `error`
+  are linked with `aria-describedby`, and `isInvalid` sets `aria-invalid`. `CheckBox` and `Radio`
+  render their text in a real `<label>`, with `message` and `error` outside it as the description.
+- **Keyboard interaction.** Selects, menus, list boxes, tabs, tables, date fields and calendars
+  follow the [ARIA Authoring Practices](https://www.w3.org/WAI/ARIA/apg/) keyboard patterns:
+  arrow keys, Home/End, type-ahead, Escape to close.
+- **Focus.** `Modal` keeps focus inside it while open, and overlays (modals, popovers, menus)
+  return focus to the element that opened them when they close. Focus rings show for keyboard focus, not mouse clicks.
+- **Grouping.** `DatePicker` exposes its segments and calendar button as a labelled `group`, and
+  its calendar popup as a labelled `dialog`. `RadioGroup` renders a `<fieldset>` with its label as
+  the `<legend>`.
+- **Loading states.** Components with `isLoading` announce `loadingLabel` (default "Loading")
+  instead of their content, and `Table.Body` marks itself busy while loading.
+- **Press events.** `onPress` works consistently for mouse, touch, keyboard and screen readers,
+  which `onClick` alone does not.
 
-### `LiveAnnouncer`
+## What you need to provide
 
-The `LiveAnnouncer` components provides a context to the rest of your application to announce messages to screen readers. It is used in conjunction with the `useAnnouncer` hook.
+| Situation | What to do |
+| --- | --- |
+| A field with no visible label | Pass `aria-label` (or `aria-labelledby` pointing at visible text). |
+| `IconButton`, or any button with only an icon | Pass `aria-label`: `<IconButton icon="delete" aria-label="Delete assignment" />`. |
+| A collection `Item` with icons or other markup | Pass `textValue` with a plain-text version. See [Collections](./Collections.mdx#accessibility). |
+| `ProgressCircle`, standalone loaders | Pass `aria-label`, or `aria-labelledby` pointing at visible text. |
+| A `Modal` | `Modal` doesn't add a dialog role or name itself. Pass `role="dialog"` (or `"alertdialog"`) and `aria-labelledby` pointing at the `id` of its `Modal.Title`. |
+| Headings | Use `Heading as="h2"` etc. to match the page outline; size it with `$size`, not by picking a different level. |
+| Navigation vs. actions | Use `href` for navigation and `onPress` for actions. See [Links and routing](./Routing.mdx). |
+| Errors | Put the reason in `error` and set `isInvalid`; color alone isn't enough. |
 
-```jsx
-import { LiveAnnouncer, useAnnouncer } from "@atomicjolt/atomic-elements";
+Each component's Storybook page notes any props it needs for accessibility.
 
-function Example() {
-  const { announcePolite } = useAnnouncer();
+## Focus styles
 
-  return (
-    <div>
-      <button onClick={() => announcePolite("Hello World")}>
-        Announce Hello World
-      </button>
-    </div>
-  );
+Components draw keyboard focus rings with the `outline` token (built from `outline-width`,
+`outline-style` and `outline-clr`); inputs use `border-clr-focus` for their focused border. If you use
+`applyDefaultStyles`, the provider also hides the browser's default outline for mouse focus
+(`:focus:not(:focus-visible)`) while keeping it for keyboard focus. If you restyle components, keep
+a visible focus indicator.
+
+## Color contrast
+
+Every text and background pair the components use in the default theme's `light` and `dark` color
+schemes meets WCAG AA. If you change palette or semantic tokens in your theme, check the contrast
+of your new values.
+
+## Screen reader announcements
+
+Use announcements to tell screen reader users about changes that don't move focus: "Saved",
+"3 results", "Upload failed". The API is compatible with
+[react-aria-live](https://github.com/AlmeroSteyn/react-aria-live), which Atomic Jolt apps used
+before.
+
+### `useAnnouncer`
+
+```tsx
+import { Button, useAnnouncer } from "@atomicjolt/atomic-elements";
+
+function SaveButton({ onSave }: { onSave: () => Promise<void> }) {
+  const { announcePolite, announceAssertive } = useAnnouncer();
+
+  const save = async () => {
+    try {
+      await onSave();
+      announcePolite("Changes saved");
+    } catch {
+      announceAssertive("Saving failed. Try again.");
+    }
+  };
+
+  return <Button onPress={save}>Save</Button>;
 }
+```
 
-function App() {
-  return (
-    <LiveAnnouncer>
-      <Example />
-    </LiveAnnouncer>
-  );
-}
+| Function | Description |
+| --- | --- |
+| `announcePolite(message, timeout?)` | Announced when the screen reader is idle. Use for most updates. |
+| `announceAssertive(message, timeout?)` | Interrupts the screen reader. Use only for urgent messages such as errors. |
+| `clearPoliteAnnouncements()` / `clearAssertiveAnnouncements()` | Clear pending announcements. |
+
+`timeout` is how long, in milliseconds, the message stays in the live region.
+
+`useAnnouncer` works without a provider. `LiveAnnouncer` is still exported, so code written for
+react-aria-live that wraps the app in `<LiveAnnouncer>` keeps working:
+
+```tsx
+import { LiveAnnouncer } from "@atomicjolt/atomic-elements";
+
+<LiveAnnouncer>
+  <App />
+</LiveAnnouncer>
 ```
 
 ### `withAnnouncer`
 
-The `withAnnouncer` HOC provides a way to access the context of the `LiveAnnouncer` component in a class component.
+`withAnnouncer` passes the same functions as props, for class components:
 
-```jsx
+```tsx
 import { withAnnouncer } from "@atomicjolt/atomic-elements";
 
-class Example extends React.Component {
+class Example extends React.Component<{ announcePolite: (message: string) => void }> {
   render() {
     const { announcePolite } = this.props;
 
     return (
-      <div>
-        <button onClick={() => announcePolite("Hello World")}>
-          Announce Hello World
-        </button>
-      </div>
+      <button onClick={() => announcePolite("Hello World")}>
+        Announce Hello World
+      </button>
     );
   }
 }
@@ -59,14 +128,22 @@ export default withAnnouncer(Example);
 
 ### `LiveMessage`
 
-The `LiveMessage` component will announce it's `message` prop to screen readers when it is rendered.
+`LiveMessage` announces its `message` prop when it renders and whenever `message` changes. It
+renders nothing visible.
 
-```jsx
+```tsx
 import { LiveMessage } from "@atomicjolt/atomic-elements";
 
-function Example() {
-  return <LiveMessage message="Hello World" />;
-}
+<LiveMessage message={`${results.length} results`} />
+<LiveMessage message={error} assertive />
 ```
 
-> **Note**: The `LiveMessage` component is mostly just for compatabiltiy with the for mentioned package. It is recommended to use the `useAnnouncer` hook instead.
+| Prop | Default | Description |
+| --- | --- | --- |
+| `message` | | The text to announce. |
+| `polite` | `true` | Announce politely. |
+| `assertive` | `false` | Announce assertively. Takes precedence over `polite`. |
+| `timeout` | | Milliseconds the message stays in the live region. |
+
+`LiveMessage` exists mainly for compatibility with react-aria-live. In new code, call
+`useAnnouncer` from the event handler that causes the change.

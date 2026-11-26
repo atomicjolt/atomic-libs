@@ -4,23 +4,42 @@ sidebar_position: 1
 
 # Introduction
 
-The `@atomicjolt/lti-client` package provides a streamlined interface for handling LTI (Learning Tools Interoperability) launches and communications in client-side JavaScript applications.
-
-## Features
-
-- Handle OIDC-compliant LTI 1.3 launch flows
-- Support for deep linking launches
-- Names and roles provisioning service integration
-- Assignment and grades service support
-- Post-message communication utilities
-- Platform storage integration
+`@atomicjolt/lti-client` is the browser half of an LTI 1.3 tool. It runs the client-side steps of the
+OIDC launch (including the [platform storage](https://www.imsglobal.org/spec/lti-cs-oidc/v0p1) fallback
+for browsers that block third-party cookies), reads common facts out of an LTI ID token, and talks to the
+LMS over the [LTI postMessage APIs](https://www.imsglobal.org/spec/lti-cs-pm/v0p1).
 
 ## Installation
 
 ```bash
-npm i @atomicjolt/lti-client
+npm install @atomicjolt/lti-client
 ```
 
+Peer dependencies: `@atomicjolt/lti-types`, `i18next` and `i18next-browser-languagedetector` (used to
+translate the launch's error and cookie messages into Spanish and French).
+
 ```bash
-yarn add @atomicjolt/lti-client
+npm install @atomicjolt/lti-types i18next i18next-browser-languagedetector
 ```
+
+## What's in it
+
+| Export | What it does | Docs |
+| --- | --- | --- |
+| `initOIDCLaunch` | Runs on the OIDC init page: saves the launch `state` (cookie or platform storage) and continues to the platform. | [OIDC Launch](./OIDCLaunch.mdx) |
+| `ltiLaunch` | Runs on the launch page: confirms the `state` saved during init. | [OIDC Launch](./OIDCLaunch.mdx) |
+| `isDeepLinkLaunch`, `isNamesAndRolesLaunch`, `isAssignmentAndGradesLaunch`, `clientId`, `lmsHost`, `lmsUrl` | Read an `IdToken`. | [ID Token Helpers](./IdTokenHelpers.mdx) |
+| `PostMessageClient` | Send LTI postMessage requests and await the platform's response. | [PostMessageClient](./PostMessage/PostMessageClient.mdx) |
+| `PlatformStorage` | Read and write LTI platform storage (`lti.get_data` / `lti.put_data`). | [Platform Storage](./PostMessage/PlatformStorage.mdx) |
+| `ResizeIframe` | Ask the platform to resize the tool's iframe (`lti.frameResize`). | [Resize Iframe](./PostMessage/ResizeIframe.mdx) |
+| `PostMessageError`, `PostMessageErrorType` | The error thrown by the postMessage classes. | [PostMessageClient](./PostMessage/PostMessageClient.mdx#errors) |
+
+Types: `InitSettings`, `LaunchSettings`, `LTIStorageParams`, `RedirectSettings`, `Capability`,
+`PostMessageClientOptions`, and the postMessage request/response types (`PostMessageRequest`,
+`PostMessageResponse`, `PostMessageCapability`, ...).
+
+## Related packages
+
+- [`@atomicjolt/lti-server`](/lti-server/) builds the `InitSettings` and launch settings on the server.
+- [`@atomicjolt/lti-components`](/lti-components/) wraps `ltiLaunch` in a React component (`LtiLaunchCheck`).
+- [`@atomicjolt/lti-types`](/lti-types/) provides the `IdToken` type and claim constants.

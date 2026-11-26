@@ -1,8 +1,11 @@
 ---
-sidebar_position: 4
+sidebar_position: 6
 ---
 
 # Migrating
+
+Upgrade notes for breaking and behavior-changing releases. For every change, see the
+[changelog](https://github.com/atomicjolt/atomic-libs/blob/main/packages/atomic-elements/CHANGELOG.md).
 
 ## Migrating from v2 to v3
 
@@ -26,8 +29,8 @@ If you were using `CssGlobalDefaults` before, you can add the `applyDefaultStyle
 
 ### Collection Components
 
-Collection Components have migrated to a new API internally. Most things will continue to work,
-but all collection item `key` props will need to be replaced with `id` props.
+Collection components have moved to a new API internally. Most things keep working, but every
+collection item's `key` prop must be replaced with an `id` prop. See [Collections](./Guides/Collections.mdx).
 
 ```tsx
 // Before
@@ -46,7 +49,7 @@ but all collection item `key` props will need to be replaced with `id` props.
 
 ### Flex Component
 
-The Flex component has recieved an updated set of props to match the other new Layout components.
+The Flex component has received an updated set of props to match the other new Layout components.
 
 ```tsx
 // Before
@@ -70,7 +73,7 @@ The Flex component has recieved an updated set of props to match the other new L
 </Flex>
 ```
 
-Reference [Storybook](https://atomicjolt.github.io/atomic-libs/storybook/?path=/docs/layouts-flex--overview) for the full set of props
+See [Layout and style props](./Guides/Layout.mdx) and [Storybook](https://atomicjolt.github.io/atomic-libs/storybook/?path=/docs/elements-layouts-flex--overview) for the full set of props.
 
 ### Calendar Component
 
@@ -157,12 +160,16 @@ A couple of things to watch for:
 - The old `info` slot (a node rendered inside the tab list, e.g. for a badge or counter next to the tabs) has been removed. Render that content yourself as a sibling of `Tabs.List` instead.
 - `onSelectionChange`'s `key` argument is now typed as possibly `null`. Guard against it if your handler expects a non-null key.
 
-### RadioGroup
+### RadioGroup and CheckBox
 
-`RadioGroup`'s markup changed in a couple of ways that mostly matter if you have CSS targeting it directly:
+`RadioGroup`, `Radio` and `CheckBox` markup changed in ways that mostly matter if you have CSS
+targeting them directly:
 
-- The group's `<legend>` no longer gets an `aje-radio-group__label` class — it renders as a bare `<legend>`. Target the element directly, or pass your own `className`.
-- Each `Radio` row (`.aje-radio`) is now a plain `<div>`, not a `<label>`. The label semantics — and the `.aje-checkbox__label` class — live on an inner wrapper instead. If your styling relied on the whole row being one clickable `<label>`, stretch a hit area over the row yourself:
+- The group's `<legend>` no longer gets an `aje-radio-group__label` class; it renders as a bare `<legend>`. Target the element directly, or pass your own `className`.
+- Each `Radio` row (`.aje-radio`) is now a plain `<div>`, not a `<label>`. The text is in an inner `<label class="aje-checkbox__label">` tied to the input. `CheckBox` follows the same pattern: its text is in a `<label>` tied to the input.
+- `message` and `error` render outside that `<label>` and are linked to the input with `aria-describedby`, so they're read as the input's description rather than as part of its name.
+
+If your styling relied on the whole row being one clickable `<label>`, stretch a hit area over the row yourself:
 
 ```css
 .aje-radio {
@@ -180,6 +187,41 @@ A couple of things to watch for:
 As of `3.7.0`, component styles ship inside an `@layer elements` layer, so plain (unlayered) CSS in your app now wins the cascade automatically, regardless of specificity. This makes overriding component styles much easier, but it can also flip the outcome of app CSS you already had.
 
 In particular, any existing unlayered rule that used to lose a specificity fight against a component's own styles now wins outright. A common example is a broad link reset like `a, a:link, a:visited { color: inherit; }` — this will now override the text color of a `Button` rendered as a link (`as="a"`, or with an `href`). Audit selectors like this against components after upgrading, and scope them more narrowly if needed.
+
+### Custom themes and color schemes (3.12.0)
+
+`3.12.0` added [color schemes](./Theme/ColorSchemes.mdx). Themes created with `createTheme` keep
+working, with two exceptions:
+
+- **Semantic color tokens moved into color schemes.** Tokens such as `accent-clr`,
+  `background-clr` and `text-clr` are now defined per scheme, and scheme values win over shared
+  `variables`. A theme that set one of them in `variables` no longer has any effect; move it under
+  `colorSchemes.light` (and `colorSchemes.dark` if you support dark mode). Palette shades
+  (`primary500`, ...), spacing, fonts and component tokens can stay in `variables`.
+
+  ```ts
+  // Before
+  createTheme({
+    base: defaultTheme,
+    variables: { "accent-clr": "#3b5bdb" },
+  });
+
+  // After
+  createTheme({
+    base: defaultTheme,
+    colorSchemes: {
+      light: { variables: { "accent-clr": "#3b5bdb" } },
+    },
+  });
+  ```
+
+- **Theme helpers were removed.** `createTheme` no longer takes `cssVarsSelector` or
+  `cssVarPrefix`, and the theme object no longer has `getVar`, `getVarName`, `getVarValue` or
+  `resolvedVariables`. Variables are always defined on `:root` without a prefix; use
+  `var(--token-name)` directly.
+
+Some semantic tokens were also renamed in `3.12.0`. The old names still work until the next
+major; see [Deprecated names](./Theme/Intro.mdx#deprecated-names).
 
 ### Peer Dependency Versions (react-aria / react-stately)
 

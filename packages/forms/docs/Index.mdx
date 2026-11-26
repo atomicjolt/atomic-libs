@@ -1,39 +1,72 @@
+---
+sidebar_position: 1
+---
+
 # Introduction
 
-`@atomicjolt/forms` is a package that provides a set of React hooks and components to help manage form state and validation.
+`@atomicjolt/forms` connects [react-hook-form](https://react-hook-form.com/) to the inputs in
+`@atomicjolt/atomic-elements`. You render a `<Form>`, drop in `Form.*` inputs with a `name`, and get
+form state, validation and error display without wiring `register`/`Controller` by hand.
 
-At it's core the library is a wrapper / integration of [react-hook-form](https://react-hook-form.com/)
-and `@atomicjolt/atomic-elements`. It exposes form components that wrap Atomic Elements components and
-integrates them with react-hook-form. You are then able to build your own custom form components just as you would
-with react-hook-form.
+- Every `Form.*` input is an atomic-elements component registered with react-hook-form under its `name`.
+- Validation rules are props on the input (`isRequired`, `minLength`, `pattern`, `validate`, ...).
+- Validation errors are shown by the input itself (or by `<Form.ErrorMessage />` in a composed field).
+- Because it's plain react-hook-form underneath, `useFormContext`, `useWatch`, `useController` and friends all work.
 
+:::tip
+For forms generated from a JSON Schema, see [`@atomicjolt/jsonforms`](/jsonforms).
+:::
 
-# Installation
+## Installation
 
 ```bash
 npm install @atomicjolt/forms
 ```
 
-# Usage
+`react-hook-form` (7.47+), `@atomicjolt/atomic-elements`, `react` and `react-dom` are peer dependencies,
+so install them too if your app doesn't already have them:
 
-```tsx
-import { Form } from '@atomicjolt/forms';
-import { Button } from '@atomicjolt/atomic-elements';
-
-const MyForm = () => {
-   const onSubmit = (data) => {
-     console.log(data);
-     // { firstName: "John", lastName: "Doe", age: 21 }
-   }
-
-   return (
-      <Form onSubmit={onSubmit}>
-         <Form.TextInput name="firstName" label="First Name" />
-         <Form.TextInput name="lastName" label="Last Name" />
-         <Form.NumberInput name="age" label="Age" />
-         <Button type="submit">Submit</Button>
-      </Form>
-   )
-};
+```bash
+npm install react-hook-form @atomicjolt/atomic-elements
 ```
 
+## Quick start
+
+```tsx
+import { Form } from "@atomicjolt/forms";
+
+interface Signup {
+  firstName: string;
+  lastName: string;
+  age?: number;
+}
+
+export function SignupForm() {
+  const onSubmit = (data: Signup) => {
+    console.log(data);
+    // { firstName: "John", lastName: "Doe", age: 21 }
+  };
+
+  return (
+    <Form onSubmit={onSubmit}>
+      <Form.TextInput
+        name="firstName"
+        label="First Name"
+        isRequired="First name is required"
+      />
+      <Form.TextInput name="lastName" label="Last Name" />
+      <Form.NumberInput name="age" label="Age" />
+      <Form.SubmitButton>Submit</Form.SubmitButton>
+    </Form>
+  );
+}
+```
+
+`onSubmit` is only called once every field passes validation. Until then, each failing input is marked
+invalid and shows its message.
+
+## Where to next
+
+- [Usage](./Usage.mdx): `Form` props, default values, `FormProvider`, and building custom inputs.
+- [Components](./Components.mdx): every `Form.*` component, the value each one stores, and composed fields vs. all-in-one inputs.
+- [Validations](./Validations.mdx): the validation props and how errors are displayed.

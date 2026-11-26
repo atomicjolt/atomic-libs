@@ -1,0 +1,213 @@
+---
+sidebar_position: 2
+title: Layout and style props
+---
+
+import { Example } from '../components/Example';
+import { View, Flex, Grid, Group, Button, Input, Text } from '@atomicjolt/atomic-elements';
+
+# Layout and style props
+
+Atomic Elements has a few layout components for building page structure without writing CSS, and a
+shared set of **style props** (props whose names start with `$`) for spacing, sizing and color.
+
+| Component | Use for |
+| --- | --- |
+| `View` | A plain box (`div` or `span`) with spacing, size, position and background props |
+| `Flex` | A flexbox container |
+| `Grid` | A CSS grid container |
+| `Group` | Joining controls together, visually and as an ARIA `group` |
+| `Card` | A bordered surface for related content, with `Card.Header`, `Card.Title`, `Card.Panel`, `Card.Stack`, `Card.Columns`, `Card.Grid` |
+| `ScrollArea` | A scroll container with styled scrollbars |
+| `Navbar` | An app header bar with title, subtitle and back button |
+
+See [Storybook](https://atomicjolt.github.io/atomic-libs/storybook/?path=/docs/elements-layouts-view--overview)
+for each component's full props.
+
+## View
+
+`View` is the basic building block: a `div` (or `span` with `as="span"`) that accepts every layout
+style prop plus `$bg` and `$display`.
+
+<Example>
+  <Example.Rendered>
+    <View $width="100px" $height="100px" $bg="accent-clr" />
+  </Example.Rendered>
+  <Example.Code>
+    ```tsx
+    <View $width="100px" $height="100px" $bg="accent-clr" />
+    ```
+  </Example.Code>
+</Example>
+
+## Flex
+
+`Flex` is a `display: flex` container. Its own props set the direction, alignment, wrapping and gap;
+it also accepts every layout style prop.
+
+| Prop | CSS | Values |
+| --- | --- | --- |
+| `$direction` | `flex-direction` | `"row"`, `"column"`, `"row-reverse"`, `"column-reverse"` |
+| `$align` | `align-items` | `"start"`, `"end"`, `"center"`, `"baseline"`, `"stretch"` |
+| `$justify` | `justify-content` | `"start"`, `"end"`, `"center"`, `"space-between"`, `"space-around"`, `"space-evenly"` |
+| `$wrap` | `flex-wrap` | `"nowrap"`, `"wrap"`, `"wrap-reverse"` |
+| `$gap`, `$gapX`, `$gapY` | `gap`, `column-gap`, `row-gap` | A spacing step `"0"`…`"9"` or any CSS length |
+| `$display` | `display` | `"flex"` (default), `"inline-flex"`, `"none"` |
+
+<Example>
+  <Example.Rendered>
+    <Flex $direction="row" $gap="3">
+      <View $width="100px" $height="100px" $bg="primary400" />
+      <View $width="100px" $height="100px" $bg="primary500" />
+      <View $width="100px" $height="100px" $bg="primary600" />
+    </Flex>
+  </Example.Rendered>
+  <Example.Code>
+    ```tsx
+    <Flex $direction="row" $gap="3">
+      <View $width="100px" $height="100px" $bg="primary400" />
+      <View $width="100px" $height="100px" $bg="primary500" />
+      <View $width="100px" $height="100px" $bg="primary600" />
+    </Flex>
+    ```
+  </Example.Code>
+</Example>
+
+A common pattern, a toolbar with a title on the left and actions on the right:
+
+```tsx
+<Flex $align="center" $justify="space-between" $gap="3">
+  <Heading as="h2" $size="5">Assignments</Heading>
+  <Flex $gap="2">
+    <Button variant="secondary">Import</Button>
+    <Button>New assignment</Button>
+  </Flex>
+</Flex>
+```
+
+To size or align an individual child, use the flex-item style props (`$flexGrow`, `$flexShrink`,
+`$flexBasis`, `$flexAlign`, `$flexOrder`) on a `View`, `Flex` or `Grid` child:
+
+```tsx
+<Flex $gap="3">
+  <View $flexBasis="240px" $flexShrink="0">Sidebar</View>
+  <View $flexGrow="1">Main content</View>
+</Flex>
+```
+
+## Grid
+
+`Grid` is a `display: grid` container. `$columns` and `$rows` take either a number, which creates
+that many equal tracks (`repeat(N, minmax(0, 1fr))`), or any `grid-template-*` value.
+
+| Prop | CSS |
+| --- | --- |
+| `$columns` | `grid-template-columns` (`"1"`…`"9"` for equal columns, or e.g. `"200px 1fr"`) |
+| `$rows` | `grid-template-rows` (same rules as `$columns`) |
+| `$areas` | `grid-template-areas` |
+| `$flow` | `grid-auto-flow`: `"row"`, `"column"`, `"dense"`, `"row-dense"`, `"column-dense"` |
+| `$align`, `$justify` | `align-items`, `justify-content` |
+| `$gap`, `$gapX`, `$gapY` | `gap`, `column-gap`, `row-gap` |
+
+<Example>
+  <Example.Rendered>
+    <Grid $columns="3" $gap="3">
+      <View $height="100px" $bg="primary400" />
+      <View $height="100px" $bg="primary500" />
+      <View $height="100px" $bg="primary600" />
+      <View $height="100px" $bg="primary400" />
+      <View $height="100px" $bg="primary500" />
+      <View $height="100px" $bg="primary600" />
+    </Grid>
+  </Example.Rendered>
+  <Example.Code>
+    ```tsx
+    <Grid $columns="3" $gap="3">
+      <View $height="100px" $bg="primary400" />
+      <View $height="100px" $bg="primary500" />
+      <View $height="100px" $bg="primary600" />
+      <View $height="100px" $bg="primary400" />
+      <View $height="100px" $bg="primary500" />
+      <View $height="100px" $bg="primary600" />
+    </Grid>
+    ```
+  </Example.Code>
+</Example>
+
+Children can be placed with the grid-item style props (`$gridColumn`, `$gridRow`, `$gridArea`, and
+the `-Start` / `-End` variants):
+
+```tsx
+<Grid $columns="240px 1fr" $rows="auto 1fr" $gap="4" $height="100vh">
+  <View $gridColumn="1 / -1">Header</View>
+  <View>Sidebar</View>
+  <View>Main content</View>
+</Grid>
+```
+
+## Group
+
+`Group` lays its children out in a row (it accepts `Flex` props) and gives them `role="group"`.
+With `isMerged`, it joins them into one control, removing the gap and the borders and corner radii
+where they meet.
+
+<Example>
+  <Example.Rendered>
+      <Group isMerged aria-label="Sign in">
+        <Input placeholder="Username" aria-label="Username" />
+        <Input placeholder="Password" aria-label="Password" type="password" />
+        <Button>Login</Button>
+      </Group>
+  </Example.Rendered>
+  <Example.Code>
+    ```tsx
+    <Group isMerged aria-label="Sign in">
+      <Input placeholder="Username" aria-label="Username" />
+      <Input placeholder="Password" aria-label="Password" type="password" />
+      <Button>Login</Button>
+    </Group>
+    ```
+  </Example.Code>
+</Example>
+
+Inside a field, `Group` is how you attach a button to an input; see the
+[Fields introduction](./Fields/FieldsIntro.mdx#inputs-with-buttons).
+
+## Style props
+
+Style props are props whose names start with `$`. They are turned into CSS on the component's own
+element, so you can adjust spacing or size without a wrapper or a stylesheet. The `$` prefix keeps
+them separate from DOM attributes and component props.
+
+### Values
+
+- **Spacing props** take a step on the [spacing scale](../Theme/Spacing.mdx) as a string
+  (`$p="4"` is `padding: var(--space-4)`) or any CSS length (`$p="10px"`).
+- **Color props** take a [color token](../Theme/Intro.mdx#color-tokens) name
+  (`$bg="background-clr-subtle"` is `background: var(--background-clr-subtle)`) or any CSS color.
+  Token names follow the active color scheme; raw colors don't.
+- **Everything else** is passed through as a CSS value (`$width="50%"`, `$position="sticky"`).
+
+### Reference
+
+| Group | Props | Accepted by |
+| --- | --- | --- |
+| Padding | `$p`, `$px`, `$py`, `$pt`, `$pr`, `$pb`, `$pl` | `View`, `Flex`, `Grid`, `Group`, `Modal`, `Navbar` |
+| Margin | `$m`, `$mx`, `$my`, `$mt`, `$mr`, `$mb`, `$ml` | The above, plus `Text`, `Heading`, `Strong`, `Em`, `Link`, `List` |
+| Size | `$width`, `$minWidth`, `$maxWidth`, `$height`, `$minHeight`, `$maxHeight` | `View`, `Flex`, `Grid`, `Group`, `Modal`, `Navbar`, `Text`, `Heading` |
+| Position | `$position`, `$top`, `$right`, `$bottom`, `$left` | `View`, `Flex`, `Grid`, `Group`, `Modal`, `Navbar` |
+| Overflow | `$overflow`, `$overflowX`, `$overflowY` | `View`, `Flex`, `Grid`, `Group`, `Modal`, `Navbar` |
+| Flex item | `$flexGrow`, `$flexShrink`, `$flexBasis`, `$flexAlign`, `$flexOrder` | `View`, `Flex`, `Grid`, `Group`, `Modal`, `Navbar` |
+| Grid item | `$gridArea`, `$gridColumn`, `$gridColumnStart`, `$gridColumnEnd`, `$gridRow`, `$gridRowStart`, `$gridRowEnd` | `View`, `Flex`, `Grid`, `Group`, `Modal`, `Navbar` |
+| Color | `$bg` | `View` |
+| Color | `$color` | `Text`, `Heading`, `Strong`, `Em`, `Link` |
+| Typography | `$size`, `$weight`, `$align`, ... | `Text`, `Heading`, `Link` (see [Typography](../Theme/Typography.mdx)) |
+
+`$px` / `$py` set both sides of an axis; a more specific prop (`$pt`) wins over them. Storybook
+lists the style props each component accepts under **Style props** on its Overview page.
+
+### When to use CSS instead
+
+Style props are for layout: spacing, sizing and placement. For anything with states (hover,
+focus), media queries, or styles repeated across many elements, write CSS with `className` and use
+the theme's [CSS variables](../Theme/Intro.mdx#using-tokens-in-your-own-css).

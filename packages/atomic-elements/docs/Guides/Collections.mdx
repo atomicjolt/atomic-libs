@@ -1,224 +1,225 @@
-import {
-  CustomSelect,
-  Item,
-  Section,
-  ElementsProvider,
-} from "@atomicjolt/atomic-elements";
+---
+sidebar_position: 3
+---
+
+import { CustomSelect, Item, Section } from "@atomicjolt/atomic-elements";
 import { Example } from "../components/Example";
 
-# Collection Components
+# Collections
 
-## Introduction
+Many components display a list of items: `CustomSelect`, `MultiSelect`, `ComboBox`, `ListBox`,
+`Menu` and `IconMenu`. They all describe their items the same way, using the
+[React Aria collection API](https://react-spectrum.adobe.com/react-stately/collections.html):
+`<Item>` and `<Section>` elements, or an `items` array with a render function.
 
-[From React Aria Docs](https://react-spectrum.adobe.com/react-stately/collections.html):
+`Item` and `Section` only describe the data. Each component decides how to render them, so the
+same markup works in a select, a menu or a list box. `Table` and `Tabs` are built on the same
+collection system but use their own part components (`Table.Row`, `Tabs.Tab`); see their Storybook
+pages.
 
-> There are many components that display a collection of items of some kind. For example, lists, menus, selects, tables, trees, and grids. These collections can usually be navigated with the keyboard using arrow keys, and many have some form of selection. Many support loading data asynchronously, updating that data over time, virtualized scrolling for performance with large collections, and more.
+## Static collections
+
+When the items are known ahead of time, write them as children:
+
+<Example>
+  <Example.Rendered>
+    <CustomSelect label="Student">
+      <Item id="david">David</Item>
+      <Item id="sam">Sam</Item>
+      <Item id="jane">Jane</Item>
+    </CustomSelect>
+  </Example.Rendered>
+  <Example.Code>
+    ```tsx
+    <CustomSelect label="Student">
+      <Item id="david">David</Item>
+      <Item id="sam">Sam</Item>
+      <Item id="jane">Jane</Item>
+    </CustomSelect>
+    ```
+  </Example.Code>
+</Example>
+
+### Item IDs
+
+Give every item a unique `id`. It identifies the item in selection props and is what event
+handlers receive:
+
+```tsx
+const [student, setStudent] = useState<Key | null>("sam");
+
+<CustomSelect
+  label="Student"
+  selectedKey={student}
+  onSelectionChange={setStudent}
 >
-> There are many ways one could design an API for components like this: JSX children, a list of option objects, or a datasource object. Selection, and other states like disabled, could be passed in to each item, or as a top-level prop. Each of these has various tradeoffs. This page describes how we do it in React Spectrum, and covers some of these tradeoffs in detail.
+  <Item id="david">David</Item>
+  <Item id="sam">Sam</Item>
+  <Item id="jane">Jane</Item>
+</CustomSelect>
+```
 
-## What is the Collection API?
+Components that allow several selections, such as `MultiSelect`, use `selectedKeys` /
+`onSelectionChange` with a set of ids instead. Menus call `onAction(id)` when an item is chosen.
 
-It is a unified approach for building component that display a collection of items.
-It is designed to be flexible and powerful, and to support a wide variety of use cases.
-It is used by components that render a collection of items, such as `Menu`, `ListBox`, `Combobox`, `Table`, and `Tabs`
-
-## Static Collections
-
-When the component's items are known statically, you can define them using the JSX children of the component:
-
-<Example>
-  <Example.Rendered>
-    <CustomSelect>
-      <Item id="david">David</Item>
-      <Item id="sam">Sam</Item>
-      <Item id="jane">Jane</Item>
-    </CustomSelect>
-  </Example.Rendered>
-  <Example.Code>
-    ```jsx
-    <CustomSelect>
-      <Item id="david">David</Item>
-      <Item id="sam">Sam</Item>
-      <Item id="jane">Jane</Item>
-    </CustomSelect>
-    ```
-  </Example.Code>
-</Example>
-
-### Collection IDs
-
-Each element in a collection should have a unique id prop. This is used to identify the item in the collection. It is what the event handler will receive when an item is selected.
-
-<Example>
-  <Example.Rendered>
-    <CustomSelect>
-      <Item id="david">David</Item>
-      <Item id="sam">Sam</Item>
-      <Item id="jane">Jane</Item>
-    </CustomSelect>
-  </Example.Rendered>
-  <Example.Code>
-    ```jsx
-    <CustomSelect>
-      <Item id="david">David</Item>
-      <Item id="sam">Sam</Item>
-      <Item id="jane">Jane</Item>
-    </CustomSelect>
-    ```
-  </Example.Code>
-</Example>
+:::note Upgrading from v2
+Items used to be identified by React's `key` prop. Use `id` instead; see
+[Migrating](../Migrating.mdx#collection-components).
+:::
 
 ### Sections
 
-Sections or groups of items can be constructed by wrapping the items as needed.
+Group items by wrapping them in `<Section>`:
 
 <Example>
   <Example.Rendered>
-    <CustomSelect>
+    <CustomSelect label="Participant">
       <Section title="People">
-        <Item>David</Item>
-        <Item>Sam</Item>
-        <Item>Jane</Item>
+        <Item id="david">David</Item>
+        <Item id="sam">Sam</Item>
+        <Item id="jane">Jane</Item>
       </Section>
       <Section title="Animals">
-        <Item>Aardvark</Item>
-        <Item>Kangaroo</Item>
-        <Item>Snake</Item>
+        <Item id="aardvark">Aardvark</Item>
+        <Item id="kangaroo">Kangaroo</Item>
+        <Item id="snake">Snake</Item>
       </Section>
     </CustomSelect>
   </Example.Rendered>
   <Example.Code>
-    ```jsx
-    <CustomSelect>
+    ```tsx
+    <CustomSelect label="Participant">
       <Section title="People">
-        <Item>David</Item>
-        <Item>Sam</Item>
-        <Item>Jane</Item>
+        <Item id="david">David</Item>
+        <Item id="sam">Sam</Item>
+        <Item id="jane">Jane</Item>
       </Section>
       <Section title="Animals">
-        <Item>Aardvark</Item>
-        <Item>Kangaroo</Item>
-        <Item>Snake</Item>
+        <Item id="aardvark">Aardvark</Item>
+        <Item id="kangaroo">Kangaroo</Item>
+        <Item id="snake">Snake</Item>
       </Section>
     </CustomSelect>
     ```
   </Example.Code>
 </Example>
 
-The `<Item>` and `<Section>` components are used across multiple collection components to ensure a consistent interface.
-They define the data for the items and sections, while the rendering, visual appearance, and behavior are implemented by each individual collection component (e.g., Menu or ListBox).
+## Dynamic collections
 
-## Dynamic Collections
+When the items come from data, pass the array as `items` and a render function as the child:
 
-When the items are not known statically, you can use the `items` prop to provide an array of items.
-Then the child of the component must be a function that takes an item and returns the JSX for that item.
+```tsx
+const [animals, setAnimals] = useState([
+  { id: "aardvark", name: "Aardvark" },
+  { id: "kangaroo", name: "Kangaroo" },
+  { id: "snake", name: "Snake" },
+]);
 
-<Example>
-  <Example.Code>
-    ```jsx
-    let [animals, setAnimals] = useState([
-      { id: "aardvark", name: "Aardvark" },
-      { id: "kangaroo", name: "Kangaroo" },
-      { id: "snake",  name: "Snake" },
-    ]);
+<CustomSelect label="Animal" items={animals}>
+  {(animal) => <Item id={animal.id}>{animal.name}</Item>}
+</CustomSelect>
+```
 
-    <CustomSelect items={animals}>
-      {(item) => <Item>{item.name}</Item>}
-    </CustomSelect>
-    ```
+:::warning `items` must be objects
+The collection caches rendered items in a `WeakMap` keyed by the item, and a `WeakMap` only
+accepts objects. An array of strings throws:
 
-  </Example.Code>
-</Example>
-
-:::warning
-
-The `items` prop must receive a list of **objects**. If you try to do something like this:
-
-```jsx
+```tsx
+// Throws
 <CustomSelect items={["David", "Sam", "Jane"]}>
   {(item) => <Item id={item}>{item}</Item>}
 </CustomSelect>
 ```
 
-You will get an error. This is because internally the elements in `items` are used as the keys to a `WeakMap` which only accepts objects as keys.
+Map the strings to objects first: `names.map((name) => ({ id: name, name }))`.
 :::
 
-### Why not array map?
+### Why not `array.map`?
 
-You may be wondering why we didn't use `animals.map` in this example. In fact, you can do this if you want and it will work, but it will not be as performant.
+Mapping the array to children also works:
 
-<Example>
-  <Example.Code>
-    ```jsx
-    let [animals, setAnimals] = useState([
-      { id: "aardvark", name: "Aardvark" },
-      { id: "kangaroo", name: "Kangaroo" },
-      { id: "snake",  name: "Snake" },
-    ]);
+```tsx
+<CustomSelect label="Animal">
+  {animals.map((animal) => (
+    <Item key={animal.id} id={animal.id}>
+      {animal.name}
+    </Item>
+  ))}
+</CustomSelect>
+```
 
-    <CustomSelect>
-      {animals.map((item) => (
-        <Item id={item.id}>{item.name}</Item>
-      ))}
-    </CustomSelect>
-    ```
+With `items` and a render function, though, the collection caches each rendered item and only
+re-renders the items whose objects changed. That matters for large or frequently updated lists.
 
-  </Example.Code>
-</Example>
+### Sections in dynamic collections
 
-By using the `items` prop and a render function, we can optimize performance by caching the rendered results of each item. This avoids unnecessary re-rendering of the entire collection when only a single item changes. This optimization is particularly beneficial for large collections.
+Sections take their own `items` and render function:
 
-### Sections
+```tsx
+const sections = [
+  {
+    name: "People",
+    items: [{ name: "David" }, { name: "Sam" }, { name: "Jane" }],
+  },
+  {
+    name: "Animals",
+    items: [{ name: "Aardvark" }, { name: "Kangaroo" }, { name: "Snake" }],
+  },
+];
 
-Sections can also be used within dynamic collections.
+<CustomSelect label="Participant" items={sections}>
+  {(section) => (
+    <Section id={section.name} title={section.name} items={section.items}>
+      {(item) => <Item id={item.name}>{item.name}</Item>}
+    </Section>
+  )}
+</CustomSelect>
+```
 
-<Example>
-  <Example.Code>
-    ```jsx
-    let [sections, setSections] = useState([
-      {
-        name: "People",
-        items: [{ name: "David" }, { name: "Sam" }, { name: "Jane" }],
-      },
-      {
-        name: "Animals",
-        items: [{ name: "Aardvark" }, { name: "Kangaroo" }, { name: "Snake" }],
-      },
-    ]);
+### Managing list data
 
-    <CustomSelect items={sections}>
-      {(section) => (
-        <Section id={section.name} title={section.name} items={section.items}>
-          {(item) => <Item id={item.name}>{item.name}</Item>}
-        </Section>
-      )}
-    </CustomSelect>
-    ```
+For lists that change (adding, removing, filtering, loading more), Atomic Elements re-exports React
+Stately's data hooks: `useListData`, `useAsyncList` and `useTreeData`. They keep the item array,
+selection and filter text together:
 
-  </Example.Code>
-</Example>
+```tsx
+import { CustomSelect, Item, useListData } from "@atomicjolt/atomic-elements";
 
-## Accessibility Considerations
+const list = useListData({
+  initialItems: [
+    { id: "aardvark", name: "Aardvark" },
+    { id: "kangaroo", name: "Kangaroo" },
+  ],
+});
 
-When rendering non plain-text content in `Item`, it is important to add a `textValue` prop to the `Item` component. This is used to provide a textual representation of the item to assistive technologies.
+// Later: list.append({ id: "snake", name: "Snake" }); list.remove("aardvark");
 
-<Example>
-  <Example.Code>
-    ```jsx
-    <CustomSelect>
-      <Item id="1" textValue="Add">
-        <MaterialIcon icon="add" />
-        Add
-      </Item>
-      <Item id="3" textValue="Edit">
-        <MaterialIcon icon="edit" />
-        Edit
-      </Item>
-      <Item id="2" textValue="Delete">
-        <MaterialIcon icon="delete" />
-        Delete
-      </Item>
-    </CustomSelect>
-    ```
-  </Example.Code>
-</Example>
+<CustomSelect label="Animal" items={list.items}>
+  {(animal) => <Item id={animal.id}>{animal.name}</Item>}
+</CustomSelect>
+```
+
+See the [React Stately docs](https://react-spectrum.adobe.com/react-stately/useListData.html) for
+their full APIs.
+
+## Accessibility
+
+When an item contains more than plain text (an icon, a badge, formatting), add `textValue` with a
+plain-text version. It's used for type-ahead and read by screen readers:
+
+```tsx
+<Menu>
+  <Item id="add" textValue="Add">
+    <MaterialIcon icon="add" />
+    Add
+  </Item>
+  <Item id="edit" textValue="Edit">
+    <MaterialIcon icon="edit" />
+    Edit
+  </Item>
+  <Item id="delete" textValue="Delete">
+    <MaterialIcon icon="delete" />
+    Delete
+  </Item>
+</Menu>
+```

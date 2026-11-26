@@ -1,21 +1,35 @@
+---
+sidebar_position: 1
+---
+
 # `useMount`
 
-Run `callback` after the initial render of the component.
+Runs `callback` once, after the component's first render. Equivalent to `useEffect(callback, [])`.
 
-### Parameters
+```ts
+function useMount(callback: EffectCallback): void;
+```
 
-- `callback` (function): The function to run after the initial render.
+## Parameters
 
-### Example
+- `callback`: the function to run. Like an effect, it may return a cleanup function, which runs when the
+  component unmounts. It only sees the props and state from the first render.
 
-```jsx
-import { useMount } from '@atomicjolt/hooks';
+## Example
 
-function MyComponent() {
+```tsx
+import { useMount } from "@atomicjolt/hooks";
+
+function Page() {
   useMount(() => {
-    console.log('Mounted!');
+    analytics.track("page_viewed");
   });
 
-  return <div>My Component</div>;
+  return <div>My page</div>;
 }
 ```
+
+:::note
+In development under `<StrictMode>`, React mounts components twice, so the callback (and its cleanup)
+runs twice.
+:::

@@ -1,12 +1,24 @@
 ---
-title: ErrorBoundary
+sidebar_position: 7
+title: Error boundaries
 ---
 
-import { ErrorBoundary } from "@atomicjolt/atomic-elements";
+# Error boundaries
 
-# ErrorBoundary
+`ErrorBoundary` catches errors thrown while rendering its children and shows fallback UI in their
+place, so one broken widget doesn't blank the whole page. It is a standard React
+[error boundary](https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary)
+with a `fallback` prop, reset support and an `onError` hook.
 
-The `ErrorBoundary` component provides a way to catch JavaScript errors in your component tree and display fallback UI instead of crashing the entire application.
+| Prop | Description |
+| --- | --- |
+| `fallback` (required) | What to render on error: a React node, or `(error, reset) => ReactNode`. |
+| `onError` | `(error, errorInfo) => void`, called when an error is caught. Use it for reporting. |
+| `resetKeys` | An array of values. When any of them changes, the boundary clears the error and renders its children again. |
+| `onReset` | Called whenever the boundary resets. |
+
+Wrap independent regions of a page (a sidebar, a grade table, a chart) in their own boundary,
+rather than relying on one at the root.
 
 ## Basic Usage
 
@@ -38,7 +50,7 @@ function App() {
         <div>
           <h2>Oops! Something went wrong</h2>
           <p>Error: {error.message}</p>
-          <button onClick={reset}>Try again</button>
+          <Button onPress={reset}>Try again</Button>
         </div>
       )}
     >
@@ -52,7 +64,7 @@ function App() {
 
 The `resetKeys` prop allows the ErrorBoundary to automatically reset when certain values change. This is useful for resetting the error state when the conditions that caused the error are no longer present.
 
-When any value in the `resetKeys` array changes (using strict equality `!==` comparison), the ErrorBoundary will:
+When any value in the `resetKeys` array changes (compared with `!==`), the boundary will:
 
 1. Clear the error state
 2. Call the `onReset` callback (if provided)
@@ -99,18 +111,18 @@ function AppWithManualReset() {
         <div>
           <h2>Component Error</h2>
           <p>{error.message}</p>
-          <button
-            onClick={() =>
-              // Manually reset the error boundary  state
-              reset();
+          <Button
+            onPress={() => {
+              setShouldThrow(false); // fix the cause first...
+              reset(); // ...then clear the error and render the children again
             }}
           >
-            Fix and Retry
-          </button>
+            Fix and retry
+          </Button>
         </div>
       )}
     >
-      <BuggyComponent />
+      <BuggyComponent shouldThrow={shouldThrow} />
     </ErrorBoundary>
   );
 }
@@ -154,6 +166,9 @@ function MonitoredApp() {
 
 ## Limitations
 
-- Error boundaries only catch errors in child components, not in the error boundary itself
-- Error boundaries don't catch errors in event handlers - use try/catch for those
-- Error boundaries don't catch errors in async code - handle Promise rejections separately
+- Error boundaries only catch errors in their children, not in the boundary itself or its `fallback`.
+- They don't catch errors in event handlers. Use `try`/`catch` there.
+- They don't catch errors in async code (promises, timers). Handle rejections where they happen,
+  or store the error in state and throw it during render to hand it to the boundary.
+- The `reset` passed to `fallback` re-renders the same children. If the error will happen again,
+  change the conditions first (for example with `resetKeys`).

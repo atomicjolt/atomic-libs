@@ -1,82 +1,202 @@
+---
+sidebar_position: 1
+---
+
 # Theming
 
-Atomic Elements provides a flexible and powerful theming system that allows you to customize the look and feel of your application. This document will guide you through the basics of creating and using themes in Atomic Elements.
+Every color, font, size and spacing value in Atomic Elements is a **token**: a named value that
+`ElementsProvider` writes to the page as a CSS custom property. `accent-clr` becomes
+`--accent-clr`, `space-3` becomes `--space-3`, and so on. Components read these variables, so
+changing a token restyles every component that uses it.
 
-## Creating a Theme
+You can change tokens in two ways:
 
-To create a theme, you can use the `createTheme` function provided by the library. This function takes an object with your custom variables and returns a theme object.
+- **In a theme**, with `createTheme`. Use this for app-wide branding.
+- **In CSS**, by setting the custom property. Use this for one-off overrides, or to restyle a
+  single area of the page.
 
-```typescript
+## Creating a theme
+
+`createTheme` takes:
+
+| Option | Description |
+| --- | --- |
+| `base` | A theme to extend. Pass `defaultTheme` to keep every token you don't override. |
+| `variables` | Tokens shared by every color scheme: palette shades, spacing, fonts, sizes, component tokens. |
+| `colorSchemes` | Per-scheme tokens, keyed by scheme name (`light`, `dark`, or your own). Semantic color tokens go here. See [Color Schemes](./ColorSchemes.mdx). |
+
+```ts title="src/theme.ts"
 import { createTheme, defaultTheme } from "@atomicjolt/atomic-elements";
 
-const myTheme = createTheme({
+export const theme = createTheme({
   base: defaultTheme,
+  variables: {
+    "font-family": '"Inter", sans-serif',
+    radius: "8px",
+  },
   colorSchemes: {
     light: {
       variables: {
-        "accent-clr": "#3498db",
-        "accent-clr-hover": "#2ecc71",
+        "accent-clr": "hsl(262, 60%, 45%)",
+        "accent-clr-hover": "hsl(262, 60%, 38%)",
       },
     },
   },
 });
 ```
 
-## Using the Theme
+:::warning Always pass `base: defaultTheme`
+Without a `base`, the theme contains only the tokens you list and components lose the rest of
+their styles.
+:::
 
-Once you have created a theme, you can use the `ElementsProvider` component to apply it to your application. The `ElementsProvider` component accepts a `theme` prop where you can pass your custom theme.
+## Using the theme
+
+Pass the theme to `ElementsProvider`:
 
 ```tsx
-import { ElementsProvider } from "@components/ElementsProvider";
-import { myTheme } from "./path-to-your-theme";
+import { ElementsProvider } from "@atomicjolt/atomic-elements";
+import { theme } from "./theme";
 
 function App() {
   return (
-    <ElementsProvider theme={myTheme}>
-      {/* Your application components */}
+    <ElementsProvider theme={theme} applyDefaultStyles>
+      {/* Your application */}
     </ElementsProvider>
   );
 }
 ```
 
-## CSS Variables
+Create the theme once, at module level, rather than inside a component, so it isn't rebuilt on
+every render.
 
-Each variable declared in the theme becomes accessible as a CSS variable. You can use these variables in your stylesheets to apply the theme to your components.
+## Using tokens in your own CSS
+
+Every token is available as a CSS variable, so your own styles can follow the theme and the
+active color scheme:
 
 ```css
-.my-component {
-  background-color: var(--accent-clr);
-  color: var(--text-clr-on-accent);
+.course-card {
+  background-color: var(--background-clr-raised);
+  color: var(--text-clr);
+  border: var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-4);
+  box-shadow: var(--shadow-md);
 }
 ```
 
-## Color Tokens
+Components' [style props](../Guides/Layout.mdx#style-props) accept token names directly:
+`<View $bg="background-clr-subtle" $p="4" />`.
+
+## Overriding tokens with CSS
+
+Because tokens are plain custom properties, you can set them in CSS instead of in a theme. Your
+CSS wins over the theme's without any extra specificity, because the theme's variables are
+written inside the library's [CSS layer](../Guides/Customization/CSSLayers.mdx):
+
+```css
+/* Restyle every primary button in the admin area */
+.admin-area {
+  --accent-clr-fill: hsl(0, 0%, 20%);
+  --accent-clr-fill-hover: hsl(0, 0%, 10%);
+}
+```
+
+Setting a color token on `:root` in your own CSS also works, but it applies in every color scheme,
+dark included. For per-scheme values, use `colorSchemes` in the theme, or scope the rule with
+`[data-color-scheme="dark"]`.
+
+## Referencing other tokens
+
+A token value can refer to another token with `{token-name}`. It's written out as
+`var(--token-name)`, so it follows the other token as it changes, including across color schemes:
+
+```ts
+const theme = createTheme({
+  base: defaultTheme,
+  variables: {
+    // Buttons get rounder corners than the rest of the UI
+    "btn-border-radius": "{space-3}",
+    // With a fallback, used if the referenced token isn't defined
+    "card-padding": "{space-5:24px}",
+  },
+});
+```
+
+`createTheme` throws if a reference points to a token that doesn't exist and has no fallback.
+The `variableAlias("radius")` helper builds the same `{radius}` string with type checking on the
+name.
+
+## Color tokens
 
 Color tokens come in three layers. Each layer only references the one below it:
 
-1. **Palette** — raw color scales such as `neutral50`…`neutral900`, `primary100`…`primary900`, and the `error`, `warning` and `success` scales. These hold literal values.
-2. **Semantic** — what a color is _for_: `background-clr`, `text-clr-secondary`, `border-clr`, `accent-clr-hover`, `error-clr-subtle`, and so on. Semantic tokens reference palette shades.
-3. **Component** — per-component tokens such as `btn-bg-clr` or `chip-text-clr`. Component tokens and component styles only reference semantic tokens.
+1. **Palette**: raw color scales such as `neutral50`…`neutral900`, `primary100`…`primary900`, and
+   the `error`, `warning` and `success` scales. These hold literal values and are shared by every
+   color scheme.
+2. **Semantic**: what a color is _for_: `background-clr`, `text-clr-secondary`, `border-clr`,
+   `accent-clr-hover`, `error-clr-subtle`, and so on. Semantic tokens reference palette shades,
+   and each color scheme maps them differently.
+3. **Component**: per-component tokens such as `btn-bg-clr` or `chip-text-clr`. Component tokens
+   and component styles only reference semantic tokens. Storybook lists each component's tokens
+   on its Overview page.
 
-To restyle the library, override **semantic** tokens. Color tokens belong to a color scheme, so set them under `colorSchemes.light` (and `colorSchemes.dark` if you support it); see [Color Schemes](./ColorSchemes.mdx#overriding-colors). Overriding a palette shade in shared `variables` still works, since palette shades are shared.
+### Which layer to override
+
+| Goal | Override |
+| --- | --- |
+| Rebrand the accent color in both light and dark | The `primary100`…`primary900` palette shades, in shared `variables`. Both schemes pick shades from this scale, so one change covers both. |
+| Change what a color is used for (e.g. a darker page background) | Semantic tokens, under each scheme in `colorSchemes`. |
+| Restyle one component | Its component tokens (e.g. `btn-border-radius`), in `variables` or in CSS. |
+
+Semantic color tokens belong to a color scheme, so set them under `colorSchemes.light` (and
+`colorSchemes.dark` if you support it). Setting one in shared `variables` has no effect. See
+[Overriding colors](./ColorSchemes.mdx#overriding-colors).
+
+```ts
+// Rebrand: swap the primary scale. Light and dark follow automatically.
+const theme = createTheme({
+  base: defaultTheme,
+  variables: {
+    primary100: "hsl(262, 90%, 95%)",
+    primary200: "hsl(262, 85%, 88%)",
+    primary300: "hsl(262, 80%, 78%)",
+    primary400: "hsl(262, 75%, 66%)",
+    primary500: "hsl(262, 70%, 56%)",
+    primary600: "hsl(262, 65%, 48%)",
+    primary700: "hsl(262, 60%, 42%)",
+    primary800: "hsl(262, 60%, 34%)",
+    primary900: "hsl(262, 60%, 26%)",
+  },
+});
+```
+
+Check contrast after changing the palette: in the light scheme `accent-clr` is `primary700`
+(text and links on a light background); in the dark scheme it is `primary400`.
 
 ### Semantic tokens
 
 | Group | Tokens |
 | --- | --- |
-| Surfaces | `background-clr`, `background-clr-subtle`, `background-clr-hover`, `background-clr-subtle-hover`, `background-clr-active`, `background-clr-strong`, `background-clr-raised`, `background-clr-inverted`, `backdrop-clr` |
+| Surfaces | `background-clr`, `background-clr-subtle`, `background-clr-hover`, `background-clr-subtle-hover`, `background-clr-active`, `background-clr-strong`, `background-clr-disabled`, `background-clr-raised`, `background-clr-inverted`, `backdrop-clr` |
 | Text & icons | `text-clr`, `text-clr-secondary`, `text-clr-disabled`, `text-clr-inverted`, `text-clr-on-accent`, `icon-clr-secondary`, `indicator-clr` |
 | Borders | `border-clr`, `border-clr-strong`, `border-clr-focus`, `outline-clr` |
-| Accent | `accent-clr`, `accent-clr-hover`, `accent-clr-subtle`, `accent-clr-subtle-hover` |
-| Status (solid) | `error-clr`, `warning-clr`, `success-clr`, `info-clr-fill`, each with `-hover` and `-active` |
+| Accent | `accent-clr`, `accent-clr-hover`, `accent-clr-fill`, `accent-clr-fill-hover`, `accent-clr-subtle`, `accent-clr-subtle-hover` |
+| Status (solid) | `error-clr`, `warning-clr`, `success-clr`, each with `-hover`, `-active`, `-fill` and `-fill-hover`; `info-clr-fill`, `info-clr-fill-hover`, `info-clr-fill-active`, `info-clr-icon` |
 | Status (subtle) | `error-`, `warning-`, `success-`, `info-` `clr-subtle`, plus `-subtle-hover`, `-subtle-active`, `-subtle-border`, `-subtle-text` |
 | Effects | `shadow-sm`, `shadow-md`, `shadow-lg` |
 
-`text-clr-on-accent` is for text and icons on accent or solid status fills (buttons, selected items). `text-clr-inverted` is only for content on `background-clr-inverted` (tooltips).
+- `accent-clr` is for accent text, links and icons. `accent-clr-fill` is for solid backgrounds
+  behind `text-clr-on-accent` (primary buttons, selected items, checked controls). The same goes
+  for the status `-clr` and `-clr-fill` tokens.
+- `text-clr-on-accent` is for text and icons on accent or solid status fills.
+- `text-clr-inverted` is only for content on `background-clr-inverted` (tooltips).
 
 ### Deprecated names
 
-These still work, and overriding them still reaches components, but they will be removed in the next major version:
+These still work, and overriding them still reaches components, but they will be removed in the
+next major version:
 
 | Deprecated | Use instead |
 | --- | --- |
@@ -88,3 +208,12 @@ These still work, and overriding them still reaches components, but they will be
 | `error-clr-alt`, `warning-clr-alt`, `success-clr-alt` | `error-clr-hover`, `warning-clr-hover`, `success-clr-hover` |
 | `info-clr` | `info-clr-subtle` (or `info-clr-fill` for a solid fill) |
 | `info-clr-alt` | `info-clr-subtle-hover` |
+
+## Other token groups
+
+- [Typography](./Typography.mdx): `font-family`, `font-weight-*`, and the `font-size-*`,
+  `line-height-*` and `letter-spacing-*` scales.
+- [Spacing](./Spacing.mdx): the `space-0`…`space-9` scale.
+- Borders and sizes: `radius`, `border-width`, `border` (a composite of width, style and
+  `border-clr`), `outline`, and `size-{sm,md,lg,full}-{x,y}`, the widths and heights behind
+  components' `size` prop.

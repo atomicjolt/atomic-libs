@@ -1,0 +1,92 @@
+---
+sidebar_position: 1
+---
+
+# Introduction
+
+`@atomicjolt/lti-server` contains the server-side half of an LTI 1.3 tool. It covers OIDC login initiation,
+ID token verification and validation, JWKS and key management, dynamic registration, and the LTI Advantage
+services (Assignment and Grade Services, Names and Role Provisioning). It uses only Web-standard APIs
+(`fetch`, `crypto`, `URL`) plus [`jose`](https://github.com/panva/jose), so it runs in Node and in edge
+runtimes such as Cloudflare Workers. For a full example, see
+[atomic-lti-worker](https://github.com/atomicjolt/atomic-lti-worker).
+
+## Installation
+
+```bash
+npm install @atomicjolt/lti-server
+```
+
+It depends on `jose` and `@atomicjolt/lti-client`. `lti-client` provides the browser scripts that your server's
+HTML responses load during the launch.
+
+## What's in it
+
+**Launch flow**
+
+- `buildInit` – builds the OIDC state, the platform redirect URL and the `InitSettings` for `lti-client`'s `initOIDCLaunch`.
+- `validateNonce` – checks the stored OIDC state against the ID token's nonce and the 10-minute launch window.
+- `validateIdTokenContents` – checks the required LTI claims and returns a list of error messages.
+- `IdTokenWrapper` – typed getters over an `IdToken`, such as `contextId`, `isInstructor`, `isDeepLink`, `lineItemsUrl` and `canvasCourseId`.
+- `getLtiStorageParams`, `buildOIDCState`, `buildResponse`, `relaunchInitUrl` – lower-level helpers that `buildInit` uses.
+
+**Keys and JWTs**
+
+- `generateKeySet`, `keySetsToJwks` – generate RS256 key pairs and publish them as a JWKS.
+- `fetchRemoteJwks`, `verifyJwtUsingJwks` – fetch a platform's JWKS and verify an ID token against it.
+- `signJwt`, `verifyJwt`, `getKid`, `getIss` – general JWT helpers.
+
+**LTI Advantage services**
+
+- `requestServiceToken` – exchanges a signed client assertion for a platform access token.
+- `createScore`, `sendScore` – post scores (AGS).
+- `listLineItems`, `showLineItem`, `createLineItem`, `updateLineItem`, `deleteLineItem` – manage line items (AGS).
+- `listResults`, `showResult` – read results (AGS).
+- `fetchMemberships`, `parseLinkHeader` – page through course memberships (NRPS).
+
+**Dynamic registration**
+
+- `buildToolConfiguration`, `createMessage`, `getCustomParameters` – build the tool configuration you send to the platform.
+
+**Types and test helpers**
+
+- `Platform`, `OIDCState`, `KeySet`, `LTIRequestBody` and other shared types, plus `IdToken` (re-exported from `@atomicjolt/lti-types`).
+- `TEST_ID_TOKEN`, `genJwt` – fixtures for testing your launch handlers.
+
+## Usage
+
+Verifying an LTI launch (phase 3 of the flow):
+
+```ts
+import {
+  fetchRemoteJwks,
+  verifyJwtUsingJwks,
+  validateIdTokenContents,
+  validateNonce,
+  IdTokenWrapper,
+  type IdToken,
+  type OIDCState,
+} from '@atomicjolt/lti-server';
+
+export async function handleLaunch(idToken: string, oidcState: OIDCState, requestUrl: string) {
+  const jwks = await fetchRemoteJwks('https://sso.canvaslms.com/api/lti/security/jwks');
+  const { verified, token, error } = await verifyJwtUsingJwks(jwks, idToken);
+  if (!verified) throw new Error(`Invalid ID token: ${error}`);
+
+  const errors = validateIdTokenContents(token as IdToken, requestUrl, true);
+  if (errors.length > 0) throw new Error(errors.join(', '));
+
+  await validateNonce(oidcState, token as IdToken);
+
+  const launch = new IdTokenWrapper(token as IdToken);
+  return { userId: launch.userId, contextId: launch.contextId, isInstructor: launch.isInstructor };
+}
+```
+
+`verifyJwtUsingJwks` checks the signature and expiry only. Check `iss` and `aud` against your registered
+platform and client ID yourself.
+
+## Related packages
+
+- [`@atomicjolt/lti-client`](/lti-client/) – the browser side of the launch (`initOIDCLaunch`, `ltiLaunch`).
+- [`@atomicjolt/lti-types`](/lti-types/) – the claim constants and `IdToken` types used throughout.

@@ -1,40 +1,67 @@
+---
+sidebar_position: 3
+---
+
 import { Example } from '../components/Example';
 import { TypographyScaleTable } from '../components/TypographyScaleTable';
-import { Heading, Text, Em, Strong, Flex, ElementsProvider } from '@atomicjolt/atomic-elements';
-
-<ElementsProvider />
+import { Heading, Text, Em, Strong, Flex } from '@atomicjolt/atomic-elements';
 
 # Typography
 
-## Overview
+Atomic Elements has a small set of typography components that draw their sizes, weights and colors
+from the theme, so text stays consistent across an app.
 
-Typography is the art and technique of arranging type to make written language legible, readable, and appealing when displayed. The arrangement of type involves selecting typefaces, point sizes, line lengths, line-spacing, and letter-spacing, and adjusting the space between pairs of letters.
+| Component | Renders | Use for |
+| --- | --- | --- |
+| `Text` | `<span>` (or `div`, `p`, `label` via `as`) | Body text, captions, inline text |
+| `Heading` | `<h1>` (or `h2`…`h6` via `as`) | Section headings |
+| `Strong` | `<strong>` | Bold emphasis inside text |
+| `Em` | `<em>` | Italic emphasis inside text |
+| `Link` | `<a>` | Inline links (see [Routing](../Guides/Routing.mdx)) |
 
-Atomic Elements exposes some opionated typographic components to make building your application easier.
+## Text and Heading
 
-## Base Components
+`Text` and `Heading` share the same style props:
 
-The two base components are `Text` and `Heading`.
-These component share props for `size`, `weight`,
-`color`, `align`, and `transform`.
+| Prop | Values |
+| --- | --- |
+| `$size` | A scale step `"1"`…`"9"`, or any CSS font size |
+| `$weight` | `"light"`, `"regular"`, `"medium"`, `"bold"` |
+| `$color` | A color token (`"text-clr-secondary"`, `"accent-clr"`, ...) or any CSS color |
+| `$align` | `"left"`, `"center"`, `"right"`, `"justify"` |
+| `$transform` | `text-transform` values, e.g. `"uppercase"` |
+| `$wrap` | `"nowrap"`, `"pretty"`, `"balanced"` |
+| `$truncate` | Keep to one line and cut off with an ellipsis |
+| `$clamp` | Cut off after this many lines, `"1"`…`"10"` |
+| `$lineHeight`, `$letterSpacing` | A scale step or CSS value; overrides the one `$size` sets |
+| `$decoration` | `text-decoration` value, e.g. `"underline"` |
+
+They also accept margin props (`$m`, `$mt`, `$mb`, ...) and width/height props. See
+[style props](../Guides/Layout.mdx#style-props).
 
 <Example>
   <Example.Rendered>
-    <Heading as="h2">Heading component</Heading>
-    <Text>Text component</Text>
+    <Heading as="h2" $size="6">Course settings</Heading>
+    <Text as="p" $color="text-clr-secondary">Changes apply to every section of this course.</Text>
   </Example.Rendered>
   <Example.Code>
     ```tsx
-    <Heading as="h2">Heading component</Heading>
-    <Text>Text component</Text>
+    <Heading as="h2" $size="6">Course settings</Heading>
+    <Text as="p" $color="text-clr-secondary">
+      Changes apply to every section of this course.
+    </Text>
     ```
   </Example.Code>
 </Example>
 
-### Formatting Components
+:::tip Semantic level vs. visual size
+`as` on `Heading` sets the semantic level (`h1`…`h6`); it does not change the size. Pick the level
+that matches the page outline, then set the size with `$size`.
+:::
 
-There are also some formatting components that can be used to format text in a specific way.
+### Formatting components
 
+`Strong` and `Em` add emphasis inside text.
 
 <Example>
   <Example.Rendered>
@@ -49,10 +76,10 @@ There are also some formatting components that can be used to format text in a s
   </Example.Code>
 </Example>
 
+## Type scale
 
-### Typographic Scale
-
-The system is based on a 9-step `$size` scale. Each size step configures a line height, font size, and letter spacing.
+`$size` takes a step on a 9-step scale. Each step sets the font size, line height and letter
+spacing together.
 
 <TypographyScaleTable />
 
@@ -76,11 +103,7 @@ The system is based on a 9-step `$size` scale. Each size step configures a line 
       <Text $size="1">The quick brown fox jumps over the lazy dog.</Text>
       <Text $size="2">The quick brown fox jumps over the lazy dog.</Text>
       <Text $size="3">The quick brown fox jumps over the lazy dog.</Text>
-      <Text $size="4">The quick brown fox jumps over the lazy dog.</Text>
-      <Text $size="5">The quick brown fox jumps over the lazy dog.</Text>
-      <Text $size="6">The quick brown fox jumps over the lazy dog.</Text>
-      <Text $size="7">The quick brown fox jumps over the lazy dog.</Text>
-      <Text $size="8">The quick brown fox jumps over the lazy dog.</Text>
+      {/* ... */}
       <Text $size="9">The quick brown fox jumps over the lazy dog.</Text>
     </Flex>
     ```
@@ -88,56 +111,51 @@ The system is based on a 9-step `$size` scale. Each size step configures a line 
 </Example>
 
 :::info
-The `$size` prop also accepts any valid CSS unit value which will be used as the font-size instead of drawing from the theme.
-When using a custom value, you will want to configure the `$letterSpacing` and `$lineHeight` values separately.
+`$size` also accepts any CSS size (`"1.5rem"`, `"22px"`), used as the font size instead of a scale
+step. A custom size doesn't set line height or letter spacing, so set `$lineHeight` and
+`$letterSpacing` yourself if you need them.
 :::
 
 ## Customizing
 
-### Font Scale
+### Type scale
 
-The font scale is configured in the theme
+The scale is made of `font-size-N`, `line-height-N` and `letter-spacing-N` tokens (N = 1…9) in the
+theme:
 
-```tsx
-import { createTheme, defaultTheme, ElementsProvider } from '@atomicjolt/atomic-elements';
+```ts
+import { createTheme, defaultTheme } from "@atomicjolt/atomic-elements";
 
 const theme = createTheme({
-  variables: {
-    "font-size-1": "1rem",
-    "font-size-2": "1.25rem",
-    //...
-    "letter-spacing-1": "0.01em",
-    "letter-spacing-2": "0.02em",
-    //...
-    "line-height-1": "15px",
-    "line-height-2": "16px",
-    //...
-  },
   base: defaultTheme,
-})
-
+  variables: {
+    "font-size-1": "13px",
+    "line-height-1": "18px",
+    "letter-spacing-1": "0em",
+    // ...
+  },
+});
 ```
 
-### Font Family & Weights
+### Font family and weights
 
-By default, Atomic Elements makes use of the following Fonts
+The default text font is [Lato](https://fonts.google.com/specimen/Lato), and icons use
+[Material Icons](https://fonts.google.com/icons). Your app has to load both; see
+[Installation](../Installation.mdx#2-load-the-fonts).
 
-- [Lato](https://fonts.google.com/specimen/Lato?query=lato) (Text Font)
-- [Material Icons](https://fonts.google.com/icons) (For the [`MaterialIcon`](https://atomicjolt.github.io/atomic-libs/storybook/?path=/docs/icons-materialicon--overview) component & any other components that make use of an icon)
-- [Material Symbols](https://fonts.google.com/icons) (Only needed if you want to use the [`MaterialSybmol`](https://atomicjolt.github.io/atomic-libs/storybook/?path=/docs/icons-materialsymbol--overview) component)
+The font family and the four weights `$weight` maps to are theme tokens. Token values are strings:
 
-The font-family is configured in the theme
-
-```tsx
-import { createTheme, defaultTheme, ElementsProvider } from '@atomicjolt/atomic-elements';
+```ts
+import { createTheme, defaultTheme } from "@atomicjolt/atomic-elements";
 
 const theme = createTheme({
-  variables: {
-    "font-family": "Arial, sans-serif",
-    "font-weight-light": 200,
-    "font-weight-normal": 400,
-    "font-weight-bold": 700,
-  },
   base: defaultTheme,
-})
+  variables: {
+    "font-family": '"Inter", Arial, sans-serif',
+    "font-weight-light": "300",
+    "font-weight-regular": "400",
+    "font-weight-medium": "500",
+    "font-weight-bold": "700",
+  },
+});
 ```

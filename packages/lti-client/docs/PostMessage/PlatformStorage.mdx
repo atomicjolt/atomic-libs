@@ -1,67 +1,64 @@
-# Platform Storage
+---
+sidebar_position: 2
+---
 
-A utility for interacting with the [Platform Storage as specififed by the LTI spec](https://www.imsglobal.org/spec/lti-pm-s/v0p1)
+# PlatformStorage
 
-## Getting Started
+`PlatformStorage` reads and writes key/value data stored by the LMS, as defined by the
+[LTI Client Side postMessage Storage](https://www.imsglobal.org/spec/lti-pm-s/v0p1) spec
+(`lti.get_data` / `lti.put_data`). It's useful when the browser blocks your tool's own cookies and
+storage inside the LMS iframe.
 
-Create a new storage handler:
+## Setup
 
-```typescript
-const client = new PostMessageClient({
-  origin: "https://platform.example.com",
-});
+```ts
+import { PostMessageClient, PlatformStorage } from "@atomicjolt/lti-client";
+
+const client = new PostMessageClient({ origin: "https://canvas.instructure.com" });
 const storage = new PlatformStorage(client);
 ```
 
-## Basic Operations
+The client argument is optional; without it a `PostMessageClient` with default options (origin `"*"`) is created.
 
-First, check if the platform supports storage:
+## Methods
 
-```typescript
-const supported = await storage.isSupported();
-if (!supported) {
-  console.warn("Platform storage not available");
-  return;
-}
-```
+| Method | Description |
+| --- | --- |
+| `isSupported(): Promise<boolean>` | `true` if the platform's capabilities include both `lti.get_data` and `lti.put_data`. |
+| `get(key): Promise<string \| null>` | The stored value, or `null` if the platform reports `key_not_found`. |
+| `set(key, value): Promise<void>` | Stores `value` under `key`. |
+| `remove(key): Promise<void>` | Removes `key` (sends `lti.put_data` with `value: null`). |
 
-### Storing Data
+Values come back as strings, so serialize anything else yourself.
 
-```typescript
-await storage.set("user-preference", "dark-mode");
-```
+## Example
 
-### Retrieving Data
-
-```typescript
-// Get a value (returns null if not found)
-const preference = await storage.get("user-preference");
-
-// Handle missing data
-const settings = await storage.get("user-settings");
-if (settings === null) {
-  console.log("No settings found");
+```ts
+if (!(await storage.isSupported())) {
+  console.warn("Platform storage isn't available");
 } else {
-  const parsed = JSON.parse(settings);
-  console.log("User settings:", parsed);
+  await storage.set("settings", JSON.stringify({ theme: "dark" }));
+
+  const stored = await storage.get("settings");
+  const settings = stored === null ? {} : JSON.parse(stored);
+
+  await storage.remove("settings");
 }
 ```
 
-### Removing Data
+## Errors
 
-```typescript
-// Remove a stored value
-await storage.remove("user-preference");
-```
+Every method rejects with a [`PostMessageError`](./PostMessageClient.mdx#errors) on a timeout or an
+error response (other than `key_not_found` from `get`, which resolves `null`).
 
-## Error Handling
+```ts
+import { PostMessageError } from "@atomicjolt/lti-client";
 
-```typescript
 try {
   await storage.set("my-key", "my-value");
 } catch (error) {
-  if (error.response?.error?.code === "storage_full") {
-    console.error("Storage quota exceeded");
+  if (error instanceof PostMessageError && error.response?.error?.code === "storage_full") {
+    console.error("Platform storage is full");
   } else {
     console.error("Storage operation failed:", error);
   }

@@ -1,12 +1,18 @@
+---
+sidebar_position: 4
+---
+
 import { Example } from "../components/Example";
 import { SpacingScaleTable } from "../components/SpacingScaleTable";
 import { View, Flex, Text } from "@atomicjolt/atomic-elements";
 
 # Spacing
 
-## Space Scale
+## Space scale
 
-Spacing values are derived from a 10-step scale, which is used for props like `margin`, `padding`, and `gap`. The scale is based on powers of two, which allows for a consistent and predictable spacing system.
+Spacing comes from a 10-step scale, `space-0` to `space-9`. Steps 1 to 4 go up in 4px increments
+for tight UI spacing (inside controls, between related items); steps 5 to 9 grow faster for
+spacing between sections.
 
 <Example>
   <Example.Rendered>
@@ -57,26 +63,43 @@ Spacing values are derived from a 10-step scale, which is used for props like `m
 
 <SpacingScaleTable />
 
+## Using the scale
+
+Spacing [style props](../Guides/Layout.mdx#style-props) (`$p`, `$px`, `$mt`, `$gap`, ...) take a
+step number as a string, and also accept any CSS length:
+
+```tsx
+// gap: var(--space-3); padding: var(--space-5)
+<Flex $gap="3" $p="5">
+  {/* margin-top: var(--space-2) */}
+  <View $mt="2" />
+  {/* any other value is used as-is */}
+  <View $mt="10px" />
+</Flex>
+```
+
+In your own CSS, use the variables directly: `padding: var(--space-4);`.
+
 ## Customizing
 
-Spacing is configured in the theme
+The steps are theme tokens. Override any of them in `variables`:
 
 ```tsx
 import { createTheme, defaultTheme } from "@atomicjolt/atomic-elements";
 
 const theme = createTheme({
-  variables: {
-    "space-0": "0",
-    "space-1": "0.25rem",
-    "space-2": "0.5rem",
-    "space-3": "1rem",
-    "space-4": "2rem",
-    "space-5": "4rem",
-    "space-6": "8rem",
-    "space-7": "16rem",
-    "space-8": "32rem",
-    "space-9": "64rem",
-  },
   base: defaultTheme,
+  variables: {
+    // A roomier layout: widen the larger steps
+    "space-5": "32px",
+    "space-6": "48px",
+    "space-7": "64px",
+    "space-8": "80px",
+    "space-9": "96px",
+  },
 });
 ```
+
+Changing a step changes every style prop and `var(--space-N)` that uses it. Most component
+padding is set by component tokens instead (for example `btn-padding-horiz`), so changing the
+scale doesn't resize buttons or inputs.

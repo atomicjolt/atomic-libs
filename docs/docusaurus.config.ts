@@ -64,6 +64,51 @@ const config: Config = {
     [
       "@docusaurus/plugin-content-docs",
       {
+        id: "atomic-fuel",
+        path: "../packages/atomic-fuel/docs",
+        routeBasePath: "atomic-fuel",
+        sidebarPath: require.resolve("./sidebars.ts"),
+      },
+    ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "lti-types",
+        path: "../packages/lti-types/docs",
+        routeBasePath: "lti-types",
+        sidebarPath: require.resolve("./sidebars.ts"),
+      },
+    ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "lti-server",
+        path: "../packages/lti-server/docs",
+        routeBasePath: "lti-server",
+        sidebarPath: require.resolve("./sidebars.ts"),
+      },
+    ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "lti-components",
+        path: "../packages/lti-components/docs",
+        routeBasePath: "lti-components",
+        sidebarPath: require.resolve("./sidebars.ts"),
+      },
+    ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "canvas-docs-types",
+        path: "../packages/canvas-docs-types/docs",
+        routeBasePath: "canvas-docs-types",
+        sidebarPath: require.resolve("./sidebars.ts"),
+      },
+    ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
         id: "lti-client",
         path: "../packages/lti-client/docs",
         routeBasePath: "lti-client",
@@ -113,6 +158,11 @@ const config: Config = {
               activeBasePath: "hooks",
               label: "@atomicjolt/hooks",
             },
+            {
+              to: "atomic-fuel/",
+              activeBasePath: "atomic-fuel",
+              label: "@atomicjolt/atomic-fuel",
+            },
           ],
         },
         {
@@ -126,9 +176,29 @@ const config: Config = {
               activeBasePath: "lti-client",
             },
             {
+              to: "lti-server/",
+              activeBasePath: "lti-server",
+              label: "@atomicjolt/lti-server",
+            },
+            {
+              to: "lti-components/",
+              activeBasePath: "lti-components",
+              label: "@atomicjolt/lti-components",
+            },
+            {
+              to: "lti-types/",
+              activeBasePath: "lti-types",
+              label: "@atomicjolt/lti-types",
+            },
+            {
               label: "@atomicjolt/canvas-client",
               to: "canvas-client/",
               activeBasePath: "canvas-client",
+            },
+            {
+              to: "canvas-docs-types/",
+              activeBasePath: "canvas-docs-types",
+              label: "@atomicjolt/canvas-docs-types",
             },
           ],
         },

@@ -6,41 +6,68 @@ sidebar_position: 1
 
 # Introduction
 
-`@atomicjolt/hooks` is a collection of React hooks that can be used to simplify common tasks in React applications.
-The hooks are designed to be simple to use and easy to understand. The hooks are also designed to be composable,
-so you can use them together to create more complex behavior.
+`@atomicjolt/hooks` is a small collection of React hooks for common state and lifecycle chores. Each hook
+is a thin, dependency-free wrapper around React's built-in hooks.
 
 ## Installation
-
-To install `@atomicjolt/hooks` run the following command:
 
 ```bash
 npm install @atomicjolt/hooks
 ```
 
-or
+`react` (16 or later) is a peer dependency.
 
-```bash
-yarn add @atomicjolt/hooks
-```
+## What's included
+
+**State**
+
+| Hook | Use it to |
+| --- | --- |
+| [`useBool`](./Hooks/useBool.mdx) | Hold a boolean with `toggle` and `set` helpers. |
+| [`useDefaultState`](./Hooks/useDefaultState.mdx) | Hold state that can be reverted to its initial value. |
+| [`useValidatedState`](./Hooks/useValidatedState.mdx) | Reject state updates that fail a validator, and keep the error. |
+| [`useDebouncedState`](./Hooks/useDebouncedState.mdx) | Get a copy of a changing value that only updates once it settles. |
+| [`useLocalStorage`](./Hooks/useLocalStorage.mdx) | Keep state in `localStorage`. |
+| [`useSessionStorage`](./Hooks/useSessionStorage.mdx) | Keep state in `sessionStorage`. |
+
+**Lifecycle**
+
+| Hook | Use it to |
+| --- | --- |
+| [`useMount`](./Hooks/Lifecycle/useMount.mdx) | Run a callback after the first render. |
+| [`useUnmount`](./Hooks/Lifecycle/useUnmount.mdx) | Run a callback when the component unmounts. |
+| [`useRender`](./Hooks/Lifecycle/useRender.mdx) | Run a callback after every render. |
+| [`useRenderCount`](./Hooks/Lifecycle/useRenderCount.mdx) | Count renders (handy when debugging). |
+
+**Constructors** (build your own hooks)
+
+| Function | Use it to |
+| --- | --- |
+| [`makeContext`](./Constructors/makeContext.mdx) | Create a context provider and its hook in one call. |
+| [`makeStorageHook`](./Constructors/makeStorageHook.mdx) | Create a storage-backed state hook with custom serialization or key prefix. |
 
 ## Usage
 
-To use a hook, import it from `@atomicjolt/hooks` and call it in your component.
+Import a hook and call it in a component:
 
 ```tsx
-import { useDefaultState } from '@atomicjolt/hooks';
+import { useDefaultState } from "@atomicjolt/hooks";
 
-function MyComponent() {
-  const [state, setState, revert] = useDefaultState(0);
+function Counter() {
+  const [count, setCount, revert] = useDefaultState(0);
 
   return (
     <div>
-      <p>State: {state}</p>
-      <button onClick={() => setState(5)}>Set state to 5</button>
-      <button onClick={revert}>Revert state</button>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount((c) => c + 1)}>Increment</button>
+      <button onClick={revert}>Reset</button>
     </div>
   );
 }
 ```
 
+:::tip
+`useLocalStorage` and `useSessionStorage` are created when the package is imported, using the global
+`localStorage` and `sessionStorage`. Importing `@atomicjolt/hooks` therefore throws a `ReferenceError`
+wherever those globals aren't defined (typically server-side rendering, or tests without jsdom).
+:::

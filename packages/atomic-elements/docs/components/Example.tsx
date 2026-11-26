@@ -34,7 +34,8 @@ Example.Rendered = function ExampleRendered(props: ExampleProps) {
   const { style = {}, children } = props;
   return (
     <div className="example__rendered" style={style}>
-      {children}
+      {/* Scales components to app size; see .example__app-scale in custom.css */}
+      <div className="example__app-scale">{children}</div>
     </div>
   );
 };

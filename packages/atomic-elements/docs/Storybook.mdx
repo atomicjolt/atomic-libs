@@ -4,21 +4,41 @@ sidebar_position: 3
 
 # Using Storybook
 
-<a href="https://atomicjolt.github.io/atomic-libs/storybook/" target="_blank">Storybook Site</a>
+<a href="https://atomicjolt.github.io/atomic-libs/storybook/" target="_blank">Open Storybook</a>
 
-Storybook is a tool for UI development. It makes development faster and easier by isolating components.
-This allows you to work on one component at a time. You can develop entire UIs without needing to start up
-a complex dev stack, force certain data into your database, or navigate around your application.
+[Storybook](https://storybook.js.org/) is the component reference for Atomic Elements. Every
+exported component has a page there with live examples you can edit, and a full list of its props.
+These docs cover the concepts that span components; Storybook covers each component in detail.
 
-## Hiearchy
+## How it's organized
 
-Storybook is organized into components. Each component is made up of documentation and one or more stories.
+The sidebar has one section per package: **Elements** for `@atomicjolt/atomic-elements`, and
+**JSON Forms** for `@atomicjolt/jsonforms`. Inside **Elements**, components are grouped by
+category: Layouts, Typography, Content, Inputs, Buttons, Overlays, Dropdowns, Fields, and so on.
 
-<img src="/atomic-libs/img/storybook-hiearchy.png" alt="Storybook Hiearchy" />
+Each component has an **Overview** page followed by one or more **stories**. A story is the
+component rendered with one specific set of props, such as "Disabled" or "With error".
+
+<img src="/atomic-libs/img/storybook-hiearchy.png" alt="The Storybook sidebar: a component with its Overview page and stories beneath it" />
+
+## What's on an Overview page
+
+From top to bottom:
+
+1. **Description**: what the component is for, taken from its doc comment.
+2. **Primary example**: the main story, with a **Show code** button that prints copyable JSX.
+3. **Props**: every prop with its type, default and description. Event handlers are listed under
+   _Events_.
+4. **Style props**: for components that accept `$`-prefixed [style props](./Guides/Layout.mdx).
+5. **CSS variables**: the component tokens the component reads (for example `--btn-bg-clr`), with
+   their default values. Override these to restyle a component; see
+   [Variants](./Guides/Customization/Variants.mdx).
+6. **Stories**: the remaining examples.
 
 ## Controls
 
-Controls are ways that you can interact with your component.
+Controls let you change a component's props and see the result immediately. They're the quickest
+way to check what a prop does.
 
 <video
   src="/atomic-libs/video/addon-controls-demo-optimized.mp4"
@@ -26,13 +46,16 @@ Controls are ways that you can interact with your component.
   width="100%"
   loop
   autoPlay
+  muted
 />
 
-Reference the [Storybook docs on how to develop controls](https://storybook.js.org/docs/react/essentials/controls)
+See the [Storybook docs on Controls](https://storybook.js.org/docs/essentials/controls).
 
 ## Actions
 
-Actions are used to observe data emitted by event handlers in components.
+Actions log the calls a component makes to its event handlers (`onPress`, `onChange`,
+`onSelectionChange`, ...), including the arguments. Use them to see exactly what a handler
+receives.
 
 <video
   src="/atomic-libs/video/addon-actions-demo-optimized.mp4"
@@ -40,7 +63,25 @@ Actions are used to observe data emitted by event handlers in components.
   width="100%"
   loop
   autoPlay
+  muted
 />
 
-[Storybook docs on Actions](https://storybook.js.org/docs/react/essentials/actions)
+See the [Storybook docs on Actions](https://storybook.js.org/docs/essentials/actions).
 
+## Color scheme toolbar
+
+The toolbar has a **Color scheme** switch (Light / Dark). It sets the scheme on the
+`ElementsProvider` that wraps every story, so you can check a component in both
+[color schemes](./Theme/ColorSchemes.mdx).
+
+## Running Storybook locally
+
+From the root of the `atomic-libs` repository:
+
+```bash
+npm install
+npm run storybook:dev
+```
+
+Stories live next to each component, as `ComponentName.stories.tsx` in
+`packages/atomic-elements/src/components/`.

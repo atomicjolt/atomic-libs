@@ -5,7 +5,8 @@
 }
 
 .navbar-storybook-link svg path {
-  fill: #fff;
+  /* Follow the navbar's link color so the icon shows in light and dark mode. */
+  fill: var(--ifm-navbar-link-color);
   transition: fill 0.3s ease;
 }
 
@@ -14,7 +15,8 @@
 }
 
 .navbar-github-link svg path {
-  fill: #fff;
+  /* Follow the navbar's link color so the icon shows in light and dark mode. */
+  fill: var(--ifm-navbar-link-color);
   transition: fill 0.3s ease;
 }
 
@@ -35,6 +37,31 @@
   padding: 20px;
   border-bottom: 2px solid #646363;
   overflow-x: auto;
+}
+
+/*
+ * atomic-elements sizes everything in rem and expects apps to set
+ * html { font-size: 10px } (ElementsProvider's applyDefaultStyles does).
+ * The docs keep the browser's 16px root, so live examples would render 1.6x
+ * too big. `zoom` scales them back to app size, layout included.
+ */
+.example__app-scale {
+  zoom: 0.625; /* 10px / 16px */
+  font-size: 1.6rem; /* body text size in apps (16px after zoom) */
+}
+
+/*
+ * Popovers (selects, menus, date picker calendars), tooltips and modals
+ * render in <body>, outside the example, so they need their own scaling.
+ * Popovers and tooltips are positioned with px offsets, so scale their
+ * contents rather than the positioned box (zooming the box would scale its
+ * position too). Modals are centered by their overlay, so the box itself
+ * can scale.
+ */
+.aje-popover > *,
+.aje-tooltip > *,
+.aje-modal {
+  zoom: 0.625;
 }
 
 .example__code * {

@@ -1,0 +1,87 @@
+---
+sidebar_position: 1
+---
+
+# Introduction
+
+`@atomicjolt/atomic-fuel` is the shared front-end plumbing for Atomic Jolt's Redux-based LTI apps. It provides
+a preconfigured Redux store, API middleware that attaches the app's JWT and CSRF token to requests, JWT refresh,
+`postMessage` helpers for talking to the LMS, and a few small React components.
+
+Use it in apps built on the Atomic Jolt Redux and Rails starter, which expect `api_url`, `csrf_token` and a JWT
+to be passed in from the server. For LTI 1.3 launch handling without Redux, see `@atomicjolt/lti-client`.
+
+## Installation
+
+```bash
+npm install @atomicjolt/atomic-fuel
+```
+
+Peer dependencies: `react`, `react-dom`, `redux`, `react-redux`, `lodash` and `superagent`.
+The Apollo components also depend on `@apollo/client` v3, which is installed with the package.
+
+## What's in it
+
+**Redux store and middleware**
+
+- `configureStore(initialState, rootReducer, middleware)` – creates a store with the given middleware applied.
+- `ApiMiddleware` / `apiRequest` – turns any action with a `method` and `url` into an API request, then dispatches `<TYPE>_DONE` with the response.
+- `postMessageMiddleware` – sends actions that have `postMessage: true` to the parent window, and dispatches messages received back as `POST_MESSAGE_RECIEVED` actions.
+
+**Reducers and actions**
+
+- `settingsReducer`, `getInitialSettings` – read-only settings (for example `api_url`, `csrf_token`) passed in from the server.
+- `jwtReducer`, `refreshJwtAction`, `jwtLoader` – store the JWT and refresh it periodically (every 23 hours by default).
+- `errorReducer`, `modalReducer` and their actions (`addErrorAction`, `clearErrorsAction`, `openModalAction`, `closeModalAction`).
+
+**API and communication**
+
+- `Api` – static `get`, `post`, `put` and `del` methods built on superagent.
+- `useGet`, `usePost`, `usePut`, `useDelete` – React hooks that call `Api` using `settings` and `jwt` from the Redux store.
+- `Communicator`, `postMessage`, `broadcastMessage`, `broadcastRawMessage` – helpers for sending and receiving `postMessage` messages across iframes.
+
+**React components and utilities**
+
+- `AtomicjoltLoader`, `InlineError`, `GqlStatus` – loading, error and GraphQL status displays.
+- `IframeResizeWrapper`, `iframeResizeHandler` – tell the LMS to resize the iframe to fit your content.
+- `AtomicQuery`, `AtomicMutation` – Apollo `Query` and `Mutation` wrappers with built-in loading and error states.
+- `SettingsContext`, `withSettings`, `modalDecorator` – helpers for passing settings and modal state into components.
+- `isLtiInstructor`, `isLtiAdmin` – check LTI 1.1 role URNs.
+
+## Usage
+
+```js
+import { combineReducers } from 'redux';
+import {
+  configureStore,
+  ApiMiddleware,
+  settingsReducer,
+  jwtReducer,
+  errorReducer,
+  getInitialSettings,
+  jwtLoader,
+} from '@atomicjolt/atomic-fuel';
+
+const rootReducer = combineReducers({
+  settings: settingsReducer,
+  jwt: jwtReducer,
+  errors: errorReducer,
+});
+
+const store = configureStore(
+  { settings: getInitialSettings(window.DEFAULT_SETTINGS), jwt: window.DEFAULT_JWT },
+  rootReducer,
+  [ApiMiddleware],
+);
+
+// Refresh the JWT before it expires
+jwtLoader(store.dispatch, window.DEFAULT_SETTINGS.user_id);
+```
+
+The API middleware and the `use*` hooks read `state.settings` and `state.jwt`. Your root reducer must use
+those keys.
+
+## Related packages
+
+- [`@atomicjolt/lti-client`](/lti-client/) – the newer client-side LTI 1.3 launch library.
+- [`@atomicjolt/atomic-elements`](/elements/) – the current React component library.

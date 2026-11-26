@@ -4,52 +4,80 @@ sidebar_position: 1
 
 # Introduction
 
-Atomic Elements is a set of fundemental React components for use within [Atomic Jolt](https://atomicjolt.com).
+`@atomicjolt/atomic-elements` is Atomic Jolt's React component library: buttons, inputs, selects,
+date pickers, tables, modals, layout primitives and the design tokens behind them. It is the shared
+UI layer for Atomic Jolt apps, so an app built with it looks and behaves like the others.
 
-Atomic Elements is built on top of the [React Aria](https://react-spectrum.adobe.com/react-aria/index.html) library,
-which provides a set of hooks and components for building accessible UIs.
+The components are built on [React Aria](https://react-spectrum.adobe.com/react-aria/index.html) and
+[React Stately](https://react-spectrum.adobe.com/react-stately/index.html), which supply keyboard
+handling, focus management, ARIA semantics and internationalization. Styling uses
+[styled-components](https://styled-components.com/) and CSS custom properties, so every color, size
+and spacing value can be changed from a theme or from plain CSS.
+
+```tsx
+import { ElementsProvider, Button, TextInput } from "@atomicjolt/atomic-elements";
+
+export function App() {
+  return (
+    <ElementsProvider applyDefaultStyles>
+      <TextInput label="Course name" />
+      <Button onPress={() => alert("Saved")}>Save</Button>
+    </ElementsProvider>
+  );
+}
+```
+
+## Where to find what
+
+The documentation is split across two sites:
+
+| Site | Use it for |
+| --- | --- |
+| **These docs** | Setup, theming, and guides on concepts that span many components: fields and forms, layout and style props, collections, routing, accessibility, localization. |
+| **[Storybook](https://atomicjolt.github.io/atomic-libs/storybook/)** | Reference for each component: live examples, every prop with its type and default, and the CSS variables it reads. |
+
+If you want to know _how a component's props work_, go to Storybook. If you want to know _how the
+pieces fit together_, stay here.
+
+## Where to start
+
+1. **[Installation](./Installation.mdx)**: install the package, load the fonts and wrap your app
+   in `ElementsProvider`.
+2. **[Using Storybook](./Storybook.mdx)**: how the component reference is organized.
+3. **[Theming](./Theme/Intro.mdx)**: change colors, fonts and spacing, and support dark mode
+   with [color schemes](./Theme/ColorSchemes.mdx).
+4. **[Fields introduction](./Guides/Fields/FieldsIntro.mdx)**: the two ways to build form
+   inputs, and when to reach for [`@atomicjolt/forms`](/forms).
+5. **[Layout and style props](./Guides/Layout.mdx)**: `View`, `Flex`, `Grid` and the `$`-prefixed
+   style props.
+
+Upgrading from v2? Read [Migrating](./Migrating.mdx).
+
+## Principles
+
+- **Consistency.** Apps share the same inputs, buttons and modals instead of each keeping its own
+  slightly different copy. Moving between Atomic Jolt codebases should feel familiar.
+- **Fix it once.** A bug fix or improvement lands in one package, and every app picks it up by
+  updating the dependency.
+- **Accessible by default.** Components handle labelling, focus and keyboard interaction for you.
+  When a component needs something from you to be accessible (for example an `aria-label` on an
+  icon-only button), its Storybook page says so. See [Accessibility](./Guides/Accessibility.mdx).
+
+## Related packages
+
+- [`@atomicjolt/forms`](/forms): form state and validation (react-hook-form) wired to these inputs.
+- [`@atomicjolt/jsonforms`](/jsonforms): forms generated from a JSON Schema, rendered with these
+  components.
 
 ## Links
 
 - <a href="https://atomicjolt.github.io/atomic-libs/storybook/" target="_blank">Storybook</a>
-- [Source Code](https://github.com/atomicjolt/atomic-elements)
-- [NPM Package](https://www.npmjs.com/package/@atomicjolt/atomic-elements)
-
-## Goals
-
-### Consistency
-
-To maintain consistency across our applications, it is imperative that they all utilize the same fundamental
-components, including inputs, buttons, modals, and more. Presently, each of these applications has its own
-implementations of these components, each with slightly varying approaches and objectives.
-This library is designed to replace these disparate components with versatile alternatives that can
-seamlessly adapt to any context. This streamlining process is aimed at facilitating the transition for developers
-when moving between different applications.
-
-Moreover, this site will act as a "single source of truth" for understanding the
-utilization of these components within any application where they are employed.
-
-### Efficiency
-
-Given that many components are duplicated across several applications, redundant
-effort has been expended in their creation. Even when a component was initially
-copied from one application to another, any subsequent updates to the component
-can be a significant inconvenience, necessitating changes in multiple locations.
-By centralizing these components within a library, updates need to be made only
-once, and every application can subsequently integrate the updated dependency as needed.
-
-### Accessibility
-
-Atomic Elements is committed to ensuring that every single one of its components
-is fully accessible. This not only benefits users with accessibility needs but
-also relieves developers from the burden of constantly ensuring accessibility on
-their own. Whenever a component requires specific properties for accessibility
-purposes, these requirements will be meticulously documented within the
-component's accompanying documentation.
+- [Source code](https://github.com/atomicjolt/atomic-libs/tree/main/packages/atomic-elements)
+- [Changelog](https://github.com/atomicjolt/atomic-libs/blob/main/packages/atomic-elements/CHANGELOG.md)
+- [npm package](https://www.npmjs.com/package/@atomicjolt/atomic-elements)
 
 ## Built with Atomic Elements
 
 - [Atomic Assessments](https://github.com/atomicjolt/learnosity)
 - [Atomic Registrar](https://github.com/atomicjolt/atomic-registrar)
 - [Atomic Author](https://github.com/atomicjolt/atomic-author)
-- [Atomic Form](/forms)

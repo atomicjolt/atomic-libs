@@ -1,23 +1,44 @@
-## `useDefaultState`
+---
+sidebar_position: 2
+---
 
-A `setState` wrapper to "reset" your state back to default values.
+# `useDefaultState`
 
-### Parameters
+`useState` plus a `revert` function that resets the state to its initial value.
 
-- `initialState` - The initial state to store.
+```ts
+function useDefaultState<T>(
+  initialState: T | (() => T)
+): [state: T, setState: Dispatch<SetStateAction<T>>, revert: () => void];
+```
 
-### Returns
+## Parameters
 
-An array of:
-- The state value.
-- A function to update the state.
-- A function to revert the state back to its initial value.
+- `initialState`: the initial value, or a function that returns it. Like `useState`, only the value from
+  the first render is used; passing a different `initialState` later doesn't change what `revert` resets to.
 
-### Example
+## Returns
+
+- `state`: the current value.
+- `setState`: React's state setter; accepts a value or an updater function.
+- `revert`: resets `state` to the initial value.
+
+## Example
 
 ```tsx
-const [state, setState, revert] = useDefaultState(0);
+import { useDefaultState } from "@atomicjolt/hooks";
 
-setState(5); // state will be updated to 5
-revert(); // state will be reverted back to 0
+function Filters() {
+  const [filters, setFilters, resetFilters] = useDefaultState({ status: "all", query: "" });
+
+  return (
+    <div>
+      <input
+        value={filters.query}
+        onChange={(e) => setFilters((f) => ({ ...f, query: e.target.value }))}
+      />
+      <button onClick={resetFilters}>Clear filters</button>
+    </div>
+  );
+}
 ```

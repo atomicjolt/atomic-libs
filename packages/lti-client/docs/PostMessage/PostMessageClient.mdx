@@ -4,105 +4,113 @@ sidebar_position: 1
 
 # PostMessageClient
 
-The PostMessage Client helps you communicate with LTI platforms using the browser's postMessage API. This guide will show you how to set up and use the client effectively.
+`PostMessageClient` sends [LTI postMessage](https://www.imsglobal.org/spec/lti-cs-pm/v0p1) requests from
+your tool (running in the LMS's iframe or a window it opened) to the platform, and resolves with the
+platform's matching `*.response` message. [`PlatformStorage`](./PlatformStorage.mdx) and
+[`ResizeIframe`](./ResizeIframe.mdx) are built on it.
 
-## Getting Started
+## Creating a client
 
-First, create a new PostMessage client:
+```ts
+import { PostMessageClient } from "@atomicjolt/lti-client";
 
-```typescript
 const client = new PostMessageClient({
-  // The platform's origin - can use "*" during development
-  origin: "https://platform.example.com",
-  // How long to wait for responses (in ms)
+  origin: "https://canvas.instructure.com",
   timeout: 5000,
 });
 ```
 
-## Sending Messages
+| Option | Type | Default | Description |
+| --- | --- | --- | --- |
+| `origin` | `string` | `"*"` | The platform's origin. Used as the target origin of outgoing messages, and only responses from this origin are accepted. With `"*"`, responses from any origin (except `"null"`) are accepted. |
+| `targetFrame` | `Window \| string \| null` | `null` | Where to send messages. A `Window` is used as-is; a string names a frame in the parent window (`"_parent"` means the parent itself). With `null`, the frame is taken from the platform's `lti.capabilities` response for the message's subject, falling back to the parent. |
+| `timeout` | `number` | `2000` | Milliseconds to wait for a response. |
 
-The most common operation is sending messages to the platform. Here's how:
+Every option can also be overridden per request (see [`send`](#send)).
 
-```typescript
+:::tip
+Use a specific `origin` in production. `"*"` accepts a response from any page that knows the subject and
+message ID.
+:::
+
+## `send`
+
+```ts
+send<Request extends PostMessageRequest, Response extends PostMessageResponse>(
+  payload: Request,
+  options?: Partial<PostMessageClientOptions>
+): Promise<Response>;
+```
+
+Posts `payload` to the target frame and waits for a message whose `subject` is
+`` `${payload.subject}.response` `` and whose `message_id` matches. Give every request a unique
+`message_id`; [`messageId`](#messageid) generates one.
+
+```ts
+const response = await client.send({
+  subject: "lti.get_data",
+  message_id: client.messageId("lti.get_data", "theme"),
+  key: "theme",
+});
+```
+
+Override options for a single request:
+
+```ts
+await client.send(payload, { timeout: 10_000, targetFrame: "post_message_forwarding" });
+```
+
+## Errors
+
+`send` rejects with a `PostMessageError`:
+
+| `error.type` | When | Useful fields |
+| --- | --- | --- |
+| `PostMessageErrorType.Timeout` (`"timeout"`) | No response arrived within `timeout`. | `error.payload`: the request |
+| `PostMessageErrorType.ResponseError` (`"response_error"`) | The platform responded with an `error`. | `error.response.error.code`, `error.response.error.message` |
+
+```ts
+import { PostMessageError, PostMessageErrorType } from "@atomicjolt/lti-client";
+
 try {
-  const response = await client.send({
-    subject: "lti.example",
-    message_id: client.messageId("lti.example"),
-    // Add any other data for the request
-    resource_id: "12345",
-  });
-
-  // Handle the response
-  console.log(response);
+  await client.send(payload);
 } catch (error) {
-  if (error.type === "timeout") {
-    // Handle timeout
-    console.error("Platform did not respond in time");
+  if (error instanceof PostMessageError && error.type === PostMessageErrorType.Timeout) {
+    console.error("The platform didn't respond in time");
+  } else if (error instanceof PostMessageError) {
+    console.error("Platform error:", error.response?.error?.code, error.response?.error?.message);
   } else {
-    // Handle other errors
-    console.error("Platform returned an error:", error.message);
+    throw error;
   }
 }
 ```
 
-## Working with Capabilities
+## Capabilities
 
-Before sending messages, you might want to check what the platform supports:
+The platform lists the message subjects it supports in response to `lti.capabilities`.
 
-```typescript
-// Get all capabilities
+```ts
+// All supported messages: [{ subject: "lti.get_data", frame: "post_message_forwarding" }, ...]
 const capabilities = await client.getCapabilities();
-console.log(
-  "Platform supports:",
-  capabilities.map((c) => c.subject)
-);
 
-// Check for specific capability
+// One capability, or null if the platform doesn't support it
 const putData = await client.getCapability("lti.put_data");
 if (putData) {
-  // Platform supports deep linking
-  console.log("Platform Storage configuration:", putData);
+  console.log("Platform storage is handled by frame:", putData.frame);
 }
 ```
 
-## Advanced Usage
+`getCapabilities` always asks the parent window (or `window.opener`) with origin `"*"`, regardless of the
+client's options.
 
-### Custom Target Frames
+## `messageId`
 
-In most cases, the `PostMessageClient` can identify which frame to send messages to.
-However, you can specify a custom target frame if needed:
-
-```typescript
-const client = new PostMessageClient({
-  targetFrame: window.parent, // or window reference
-  origin: "https://platform.example.com",
-});
+```ts
+messageId(subject: string, ...parts: string[]): string;
 ```
 
-### Message IDs
+Builds a message ID from the subject, any extra parts and a random suffix:
 
-Messages that are part of the official LTI spec requires a unique message ID for each request. You can generate one easily:
-
-```typescript
-const messageId = client.messageId("subject", "grade", "user123");
-// Results in something like: "subject-grade-user123-a1b2c3"
+```ts
+client.messageId("lti.get_data", "theme"); // "lti.get_data-theme-k3j9x2a1b"
 ```
-
-### Timeouts
-
-Adjust timeout per request:
-
-```typescript
-// Longer timeout for this specific request
-const response = await client.send(payload, {
-  timeout: 10000, // 10 seconds
-});
-```
-
-## Best Practices
-
-1. Always use appropriate timeouts for your use case
-2. Check platform capabilities before sending messages
-3. Implement proper error handling
-4. Use specific origins in production (avoid "\*")
-5. Generate unique message IDs for each request
