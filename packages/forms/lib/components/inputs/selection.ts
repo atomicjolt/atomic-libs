@@ -7,5 +7,5 @@ export function selectionToValue(
 ): Key[] | "all" | undefined {
   if (selection === undefined) return undefined;
   if (selection === "all") return "all";
-  return [...selection];
+  return Array.from(selection);
 }

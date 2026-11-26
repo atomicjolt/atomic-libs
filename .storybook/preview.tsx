@@ -98,14 +98,19 @@ const preview: Preview = {
     options: {
       storySort: {
         order: [
-          "Layouts",
-          "Typography",
-          "Content",
-          "Inputs",
-          "Buttons",
-          "Overlays",
-          "Dropdowns",
-          "Fields",
+          "Elements",
+          [
+            "Layouts",
+            "Typography",
+            "Content",
+            "Inputs",
+            "Buttons",
+            "Overlays",
+            "Dropdowns",
+            "Fields",
+          ],
+          "JSON Forms",
+          ["useJsonForm", "Controls", "Layouts", "Rules"],
         ],
       },
     },

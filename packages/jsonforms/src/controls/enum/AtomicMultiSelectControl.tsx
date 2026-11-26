@@ -30,7 +30,7 @@ export function AtomicMultiSelectControl(props: MultiEnumProps) {
 
   const onSelectionChange = (keys: "all" | Iterable<Key>) => {
     const values =
-      keys === "all" ? options.map((option) => option.value) : [...keys].map((key) => valueOf(options, key));
+      keys === "all" ? options.map((option) => option.value) : Array.from(keys, (key) => valueOf(options, key));
     handleChange(path, values.length > 0 ? values : undefined);
   };
 

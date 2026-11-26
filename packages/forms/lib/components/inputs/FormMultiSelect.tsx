@@ -22,7 +22,7 @@ export function FormMultiSelect<T extends object>(
       selectedKeys={inputProps.value}
       onSelectionChange={(v) => {
         if (v instanceof Set) {
-          inputProps.onChange([...v]);
+          inputProps.onChange(Array.from(v));
         } else {
           inputProps.onChange(v);
         }

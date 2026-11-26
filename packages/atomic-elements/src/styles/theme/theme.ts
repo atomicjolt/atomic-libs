@@ -75,13 +75,16 @@ export function createTheme(props: CreateThemeProps): Theme {
   };
 
   // Merge schemes per name; `light` always exists and is the base.
-  const schemeNames = [
-    ...new Set([
+  // Array.from rather than [...new Set()]: bundlers that transpile spread
+  // in "loose" mode (e.g. Docusaurus's Babel) turn that into
+  // [].concat(set), an array holding the Set itself.
+  const schemeNames = Array.from(
+    new Set([
       "light",
       ...Object.keys(baseSchemes),
       ...Object.keys(colorSchemes),
-    ]),
-  ];
+    ])
+  );
 
   const schemes: Record<string, ColorScheme> = {};
 

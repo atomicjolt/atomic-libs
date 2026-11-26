@@ -1,0 +1,88 @@
+---
+sidebar_position: 5
+---
+
+# Customizing
+
+## Override or add a renderer
+
+JSON Forms picks the renderer whose tester returns the highest rank. The atomic renderers use low
+ranks (1 to 5), so yours wins with a higher one:
+
+```tsx
+import { rankWith, and, schemaTypeIs, optionIs } from "@jsonforms/core";
+import { withJsonFormsControlProps } from "@jsonforms/react";
+import { atomicRenderers, useControlProps } from "@atomicjolt/jsonforms";
+
+function ColorControl(props) {
+  const { helpText, fieldProps } = useControlProps(props);
+  if (!props.visible) return null;
+  return (
+    <ColorPicker
+      value={props.data}
+      onChange={(value) => props.handleChange(props.path, value)}
+      {...helpText}
+      {...fieldProps}
+    />
+  );
+}
+
+const renderers = [
+  ...atomicRenderers,
+  {
+    tester: rankWith(10, and(schemaTypeIs("string"), optionIs("format", "color"))),
+    renderer: withJsonFormsControlProps(ColorControl),
+  },
+];
+```
+
+`useControlProps` turns JSON Forms' control props into atomic-elements field props:
+- `helpText`: `label`, `message` (the description) and `error`.
+- `fieldProps`: `isRequired`, `isReadOnly`, `isInvalid`, plus `options.props`.
+
+Store `undefined` when the field is cleared, so it behaves like the built-in controls.
+
+## Reuse the built-in components
+
+Each renderer's bare component, without its JSON Forms wrapper, is in `Unwrapped`. Wrap it
+yourself to build a variant. Use the same JSON Forms wrapper the original uses: select, radio and
+combobox controls get their options from `withJsonFormsEnumProps` (for `enum`) or
+`withJsonFormsOneOfEnumProps` (for `oneOf`):
+
+```tsx
+import { rankWith, and, isEnumControl } from "@jsonforms/core";
+import { withJsonFormsEnumProps } from "@jsonforms/react";
+import { Unwrapped } from "@atomicjolt/jsonforms";
+
+// A select with a "manage options" link under it (options.manageUrl).
+function ManagedSelect(props) {
+  return (
+    <>
+      <Unwrapped.AtomicSelectControl {...props} />
+      <Link href={props.uischema.options.manageUrl}>Manage options</Link>
+    </>
+  );
+}
+
+const managedSelect = {
+  tester: rankWith(10, and(isEnumControl, (uischema) => !!uischema.options?.manageUrl)),
+  renderer: withJsonFormsEnumProps(ManagedSelect),
+};
+```
+
+## Layouts
+
+The built-in layouts are deliberately plain. Register your own for `VerticalLayout`, `Group` and
+the rest at a higher rank to match your app. `AtomicLayoutRenderer` dispatches a list of child
+elements in a row or column and is a useful starting point.
+
+## Development fallback
+
+Add `devAtomicRenderers` in development. It renders a dashed note for any element no renderer
+matches, showing its type, scope and schema type, so gaps in a schema are obvious:
+
+```ts
+const renderers = import.meta.env.DEV
+  ? [...atomicRenderers, ...devAtomicRenderers]
+  : atomicRenderers;
+```

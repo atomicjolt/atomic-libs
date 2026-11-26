@@ -1,0 +1,93 @@
+---
+sidebar_position: 3
+---
+
+# Validation
+
+All validation runs on the form data, top-down: the schema, then any custom rules, then server
+errors. Controls never report errors themselves.
+
+## The AJV instance
+
+`createAtomicAjv()` builds on JSON Forms' own AJV setup (with `useDefaults: true`) and works around
+two problems:
+
+- **Large `oneOf` lists:** AJV can overflow the stack validating a `oneOf` with very many options
+  ([jsonforms#2271](https://github.com/eclipsesource/jsonforms/issues/2271)). Above 50 options,
+  `oneOf` isn't validated; the UI only offers listed options anyway.
+- **Empty enums:** an `enum: []` (for example, options that haven't loaded yet) counts as no
+  constraint instead of a schema error. This turns off AJV's meta-schema check, so AJV won't report
+  malformed schemas.
+
+Create it once (module level or `useMemo`); a new instance recompiles every schema. Add formats
+and keywords when creating it:
+
+```ts
+const ajv = createAtomicAjv({
+  formats: {
+    // Validate a string field with `format: "slug"`
+    slug: (value: string) => /^[a-z0-9-]+$/.test(value),
+  },
+  keywords: [/* ajv KeywordDefinitions */],
+});
+```
+
+## Error messages
+
+`atomicTranslateError` turns AJV's messages into user-facing text: "Required", "Must be a number",
+"Must be at least 3 characters", and so on. `useJsonForm` uses it by default. To change a message,
+pass an `i18n.translate` function: keys `error.<keyword>` (like `error.required`) win over the
+defaults.
+
+## Custom rules: `validate`
+
+For rules the schema can't express, such as comparing two fields, pass `validate` to
+`useJsonForm`. Build errors with `fieldError`, which takes a dotted or `/` path:
+
+```ts
+const validate = (data) =>
+  data.end && data.start && data.end < data.start
+    ? [fieldError("end", "Must be after the start date")]
+    : [];
+```
+
+## Server errors
+
+Pass errors from your API as `serverErrors`. Each shows on its field until that field's value
+changes:
+
+```ts
+const [serverErrors, setServerErrors] = useState([]);
+
+const form = useJsonForm({
+  schema,
+  data,
+  serverErrors,
+  onSubmit: async (data) => {
+    const response = await save(data);
+    if (response.errors) {
+      setServerErrors(response.errors.map((e) => fieldError(e.field, e.message)));
+    }
+  },
+});
+```
+
+## Values that aren't valid yet
+
+A field that can't hold a valid value, such as JSON text that doesn't parse, writes what the user
+typed into the data. The schema type no longer matches, so AJV reports it and submit stays blocked,
+without any special wiring.
+
+## Hidden fields are still validated
+
+Rules only change the UI. JSON Forms validates the whole data object, including fields a rule hides,
+so a hidden field that's `required` at the top level blocks the form. Make the requirement
+conditional with `if` / `then`, matching the rule (see "Rules and Validation" in
+[Storybook](https://atomicjolt.github.io/atomic-libs/storybook/?path=/docs/json-forms-rules--overview)):
+
+```json
+{
+  "if": { "properties": { "employed": { "const": true } }, "required": ["employed"] },
+  "then": { "required": ["employer"] }
+}
+```

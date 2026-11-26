@@ -1,11 +1,46 @@
 import { fileURLToPath } from "node:url";
+import { mergeConfig } from "vite";
 import type { StorybookConfig } from "@storybook/react-vite";
 
 const config: StorybookConfig = {
+  // Each package gets its own section in the sidebar.
   stories: [
-    "../packages/atomic-elements/**/*.stories.@(js|jsx|ts|tsx)",
-    "../packages/atomic-elements/src/**/*.mdx",
+    {
+      directory: "../packages/atomic-elements",
+      files: "**/*.stories.@(js|jsx|ts|tsx)",
+      titlePrefix: "Elements",
+    },
+    {
+      // Only src/: atomic-elements/docs holds Docusaurus pages.
+      directory: "../packages/atomic-elements/src",
+      files: "**/*.mdx",
+      titlePrefix: "Elements",
+    },
+    {
+      directory: "../packages/jsonforms/src/stories",
+      files: "**/*.@(mdx|stories.@(js|jsx|ts|tsx))",
+      titlePrefix: "JSON Forms",
+    },
   ],
+
+  async viteFinal(config) {
+    return mergeConfig(config, {
+      resolve: {
+        alias: [
+          // Other packages import the built `@atomicjolt/atomic-elements`.
+          // Point them at its source, so Storybook has one copy of the
+          // library (one ElementsProvider/theme context) and picks up
+          // changes without a rebuild.
+          {
+            find: /^@atomicjolt\/atomic-elements$/,
+            replacement: fileURLToPath(
+              new URL("../packages/atomic-elements/src/index.ts", import.meta.url)
+            ),
+          },
+        ],
+      },
+    });
+  },
 
   addons: ["@storybook/addon-links", "@storybook/addon-docs"],
 
