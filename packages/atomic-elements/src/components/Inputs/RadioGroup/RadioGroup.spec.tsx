@@ -30,3 +30,19 @@ test("swaps between options", () => {
   );
   expect(screen.getByDisplayValue<HTMLInputElement>("opt2").checked).toBe(true);
 });
+
+test("each radio is named by its label text", () => {
+  render(Wrapper("opt1"));
+  expect(screen.getByRole("radio", { name: "Option 2" })).toBeTruthy();
+});
+
+test("a radio is described by its message", () => {
+  render(
+    <RadioGroup label="Label">
+      <Radio value="a" message="More info">
+        A
+      </Radio>
+    </RadioGroup>
+  );
+  expect(screen.getByRole("radio", { name: "A", description: "More info" })).toBeTruthy();
+});

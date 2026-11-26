@@ -16,7 +16,7 @@ export const StyledLoadingOption = styled(SkeletonLoader)`
   display: block;
 `;
 
-export const RadioLabel = styled.span<DirectionProps>`
+export const RadioLabel = styled.label<DirectionProps>`
   ${mixins.Regular}
   display: inline-block;
   cursor: pointer;

@@ -3,14 +3,120 @@ body,
 #root {
   height: 100%;
 }
-.padder {
-  padding-top: 1.5rem;
+body {
+  margin: 0;
+  background: var(--background-clr);
+  color: var(--text-clr);
 }
 
-.playground-toolbar {
+/* Shell */
+.pg {
   display: flex;
-  justify-content: flex-end;
-  padding: 0 1.5rem 1rem;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.pg-header {
+  display: flex;
+  align-items: center;
+  gap: 2.4rem;
+  padding: 1.2rem 2.4rem;
+  border-bottom: 1px solid var(--border-clr);
+}
+
+.pg-title {
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+
+.pg-nav {
+  display: flex;
+  gap: 0.4rem;
+  flex: 1;
+}
+
+.pg-subnav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0.8rem 2.4rem;
+  background: var(--background-clr-subtle);
+  border-bottom: 1px solid var(--border-clr);
+}
+
+.pg-nav__link {
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  color: var(--text-clr-secondary);
+  text-decoration: none;
+  font-size: 1.4rem;
+}
+
+.pg-nav__link:hover {
+  background: var(--background-clr-hover);
+  color: var(--text-clr);
+}
+
+.pg-nav__link--active {
+  color: var(--accent-clr);
+  font-weight: 700;
+}
+
+.pg-main {
+  flex: 1;
+  padding: 2.4rem;
+}
+
+/* JSON Forms pages */
+.pg-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 2.4rem;
+  align-items: start;
+}
+
+.pg-panel {
+  border: 1px solid var(--border-clr);
+  border-radius: 8px;
+  padding: 1.6rem;
+  min-width: 0;
+}
+
+.pg-code {
+  margin: 0;
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 1.2rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.pg-editor {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 24rem;
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 1.2rem;
+  padding: 0.8rem;
+  border: 1px solid var(--border-clr);
+  border-radius: 6px;
+  background: var(--background-clr);
+  color: var(--text-clr);
+  resize: vertical;
+}
+
+.pg-editor[aria-invalid="true"] {
+  border-color: var(--error-clr);
+}
+
+.pg-error {
+  color: var(--error-clr);
+  font-size: 1.2rem;
+}
+
+@media (max-width: 900px) {
+  .pg-split {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
 .aje-tip {
@@ -55,4 +161,120 @@ body,
   place-content: center;
   height: 200%;
   width: 200%;
+}
+
+/* Demo blocks */
+.pg-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.pg-demo {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.pg-demo__description {
+  color: var(--text-clr-secondary);
+}
+
+.pg-demo__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.2rem;
+  min-width: 0;
+}
+
+.pg-demo__body > * {
+  max-width: 100%;
+}
+
+/* For children that should span the demo (dividers, accordions). */
+.pg-demo--wide {
+  grid-column: span 2;
+}
+
+@media (max-width: 720px) {
+  .pg-demo--wide {
+    grid-column: auto;
+  }
+}
+
+.pg-stretch {
+  align-self: stretch;
+}
+
+.pg-inverted {
+  display: inline-flex;
+  padding: 0.4rem;
+  border-radius: 6px;
+  background: var(--background-clr-inverted);
+}
+
+.pg-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.pg-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(32rem, 1fr));
+  gap: 2.4rem;
+  align-items: start;
+}
+
+.pg-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.6rem;
+  padding: 1.2rem 1.6rem;
+  border: 1px solid var(--border-clr);
+  border-radius: 8px;
+  background: var(--background-clr);
+}
+
+.pg-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.6rem;
+}
+
+.pg-table {
+  font-size: 1.4rem;
+}
+
+.pg-table th {
+  text-align: start;
+  padding: 0.4rem 2.4rem 0.4rem 0;
+  color: var(--text-clr-secondary);
+  font-weight: 400;
+}
+
+.pg-popover {
+  background-color: var(--background-clr-inverted);
+  color: var(--text-clr-inverted);
+  width: var(--trigger-width);
+  font-size: 2rem;
+  padding: 0.4rem 0.8rem;
+}
+
+.pg-example__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  min-width: 0;
+}
+
+.pg-example__state {
+  border-top: 1px solid var(--border-clr);
+  padding-top: 1.2rem;
 }

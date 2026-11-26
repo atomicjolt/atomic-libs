@@ -1,5 +1,6 @@
 import { describe, test, expect } from 'vitest';
-import { render } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { parseDate, now, getLocalTimeZone } from '@internationalized/date';
 import { DatePicker } from '.';
 import { freezeTime } from '../../../../test/freezeTime';
@@ -151,6 +152,35 @@ describe('DatePicker', () => {
     test('minimal props', () => {
       const result = render(<DatePicker />);
       expect(result.asFragment()).toMatchSnapshot();
+    });
+  });
+
+  describe('accessibility', () => {
+    const duplicateIds = (container: HTMLElement) => {
+      const counts: Record<string, number> = {};
+      container.querySelectorAll('[id]').forEach((el) => {
+        counts[el.id] = (counts[el.id] ?? 0) + 1;
+      });
+      return Object.keys(counts).filter((id) => counts[id] > 1);
+    };
+
+    test('the segments and calendar button form a group named by the label', () => {
+      render(<DatePicker label="Due" message="Pick a day" />);
+      const group = screen.getByRole('group', { name: 'Due', description: /Pick a day/ });
+      expect(within(group).getByRole('button', { name: /Calendar/ })).toBeInTheDocument();
+    });
+
+    test('ids are unique, including a caller-supplied id', () => {
+      const { container } = render(<DatePicker id="due" label="Due" message="m" error="e" isInvalid />);
+      expect(duplicateIds(container)).toEqual([]);
+      expect(container.querySelectorAll('#due')).toHaveLength(1);
+    });
+
+    test('the calendar popup is a labelled dialog', async () => {
+      render(<DatePicker label="Due" />);
+      await userEvent.click(screen.getByRole('button', { name: /Calendar/ }));
+      const dialog = await screen.findByRole('dialog', { name: /Due/ });
+      expect(within(dialog).getByRole('grid')).toBeInTheDocument();
     });
   });
 });

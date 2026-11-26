@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.json",
+  "include": ["src"],
+  "exclude": ["src/**/*.spec.tsx", "src/**/*.spec.ts", "src/testing", "src/stories"],
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "declarationDir": "./dist/types",
+    "module": "esnext",
+    "moduleResolution": "bundler"
+  }
+}

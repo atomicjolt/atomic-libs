@@ -1,0 +1,69 @@
+---
+sidebar_position: 4
+---
+
+# Options reference
+
+Every renderer reads `uischema.options`. Option names follow JSON Forms' material renderers where
+they overlap, so existing UI schemas carry over.
+
+## Which control renders
+
+| Schema | UI schema options | Renders | Stores |
+|---|---|---|---|
+| `type: "string"` | | TextField | string |
+| `type: "string"` | `multi: true` | TextField with a textarea | string |
+| `type: "number"` / `"integer"` | | NumberInput (integers have no decimals) | number |
+| `type: "boolean"` | | CheckBox | boolean |
+| `type: "boolean"` | `toggle: true` | ToggleSwitch | boolean |
+| `enum`, or `oneOf` of `const`s | | CustomSelect | the option's value |
+| `enum` / `oneOf` | `format: "radio"` | RadioGroup | the option's value |
+| `enum` / `oneOf` | `autocomplete: true` | ComboBox | the option's value |
+| `type: "array"`, `uniqueItems: true`, `enum` / `oneOf` items | | MultiSelect | array of values |
+| `format: "date"` | | DatePicker | `YYYY-MM-DD` |
+| `format: "time"` | | TimeInput | `HH:mm:ss` |
+| `format: "date-time"` | | DatePicker, to the minute | ISO instant (UTC) |
+
+## All controls
+
+| Option | |
+|---|---|
+| `props` | Any props for the underlying atomic-elements component, e.g. `{ "placeholder": "e.g. Ada" }`. Applied last. |
+
+Shared behavior:
+
+- **Empty values:** clearing a field stores `undefined`, never `""`. A multi-select with nothing
+  selected stores `undefined`.
+- **Read-only:** a read-only form, or a `DISABLE` rule, renders inputs read-only rather than greyed
+  out. ToggleSwitch has no read-only state, so it's disabled.
+- **Labels:** the label comes from the UI schema `label`, then the schema `title`. The schema
+  `description` shows under the field.
+
+## Group
+
+| Option | Default | |
+|---|---|---|
+| `headingLevel` | `"h2"` | Element for the label: `"h1"`–`"h6"`. Anything else falls back to `"h2"`. |
+| `headingSize` | `"5"` | Size of the label (an atomic-elements scale step). |
+
+## Card
+
+A custom UI schema type: `{ "type": "Card", "label": "…", "elements": [...], "options": {...} }`.
+
+| Option | Default | |
+|---|---|---|
+| `panels` | `"single"` | `"single"`: every element in one panel. `"stack"`: one panel per element, stacked. `"columns"`: one panel per element, side by side. |
+| `headingLevel` | `"h2"` | As on Group. |
+| `headingSize` | `"3"` | As on Group (the size of `Card.Title`). |
+
+## Label
+
+| Option | Default | |
+|---|---|---|
+| `size` | `"3"` | Font size: a scale step or CSS size. |
+| `weight` | | `"light"`, `"regular"`, `"medium"` or `"bold"`. |
+| `color` | | A theme token (e.g. `"text-clr-secondary"`) or any CSS color. |
+| `align` | | `"left"`, `"center"`, `"right"` or `"justify"`. |
+| `wrap` | | `"pretty"`, `"balanced"` or `"nowrap"`. |
+| `as` | `"div"` | `"div"`, `"p"` or `"span"`. |
+| `props` | | Any other `Text` props. Applied last. |

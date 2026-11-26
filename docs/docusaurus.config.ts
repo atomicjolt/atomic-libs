@@ -55,6 +55,15 @@ const config: Config = {
     [
       "@docusaurus/plugin-content-docs",
       {
+        id: "jsonforms",
+        path: "../packages/jsonforms/docs",
+        routeBasePath: "jsonforms",
+        sidebarPath: require.resolve("./sidebars.ts"),
+      },
+    ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
         id: "lti-client",
         path: "../packages/lti-client/docs",
         routeBasePath: "lti-client",
@@ -93,6 +102,11 @@ const config: Config = {
               to: "forms/",
               activeBasePath: "forms",
               label: "@atomicjolt/forms",
+            },
+            {
+              to: "jsonforms/",
+              activeBasePath: "jsonforms",
+              label: "@atomicjolt/jsonforms",
             },
             {
               to: "hooks/",

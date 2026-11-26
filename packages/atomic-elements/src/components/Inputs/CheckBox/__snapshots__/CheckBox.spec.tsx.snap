@@ -3,15 +3,17 @@
 exports[`CheckBox > Snapshots > should match snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-iJSMbW izvJDr aje-checkbox"
+    class="sc-giQkEn jUkVnX aje-checkbox"
   >
     <input
       class="sc-ivKqQM cvosQy"
+      id="react-aria-:r0:"
       tabindex="0"
       type="checkbox"
     />
-    <span
-      class="sc-llQYOh iiGobg"
+    <label
+      class="sc-iJSMbW lbBIxX"
+      for="react-aria-:r0:"
     />
   </div>
 </DocumentFragment>

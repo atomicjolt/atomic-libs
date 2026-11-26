@@ -95,4 +95,18 @@ describe("DateField", () => {
       expect(result.asFragment()).toMatchSnapshot();
     });
   });
+
+  test("a caller-supplied id is used once", () => {
+    const { container } = render(
+      <DateField id="start">
+        <Label>Date</Label>
+        <ComboInput>
+          <DateField.Segments>
+            {(_, index) => <DateField.Segment key={index} index={index} />}
+          </DateField.Segments>
+        </ComboInput>
+      </DateField>
+    );
+    expect(container.querySelectorAll("#start")).toHaveLength(1);
+  });
 });

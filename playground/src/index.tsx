@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDom from "react-dom/client";
+import { ElementsProvider } from "@atomicjolt/atomic-elements";
 
-import Playground from "./Playground";
-import { ElementsProvider } from "../../packages/atomic-elements/src";
+import { App } from "./App";
 
 const rootElement = document.getElementById("root");
 const root = ReactDom.createRoot(rootElement!);
@@ -10,7 +10,7 @@ const root = ReactDom.createRoot(rootElement!);
 root.render(
   <React.StrictMode>
     <ElementsProvider applyDefaultStyles>
-      <Playground />
+      <App />
     </ElementsProvider>
   </React.StrictMode>
 );

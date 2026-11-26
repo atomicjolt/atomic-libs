@@ -78,3 +78,13 @@ export const HiddenInput = styled.input`
   width: 0.01rem;
   position: absolute;
 `;
+
+/** Message / error text under a checkbox or radio label, lined up with the
+ * label text. Kept outside the <label> so it isn't part of the input's name. */
+export const ToggleHelpText = styled.div<{
+  $rtl?: boolean;
+  $prefix: "checkbox" | "radio";
+}>`
+  ${({ $rtl, $prefix }) =>
+    `${$rtl ? "padding-right" : "padding-left"}: calc(var(--${$prefix}-size) + var(--${$prefix}-label-spacing));`}
+`;

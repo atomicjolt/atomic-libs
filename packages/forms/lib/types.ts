@@ -10,6 +10,7 @@ import {
   ValidationRule,
   ValidationValue,
 } from "react-hook-form";
+import type { DateInput, TimeInput } from "@atomicjolt/atomic-elements";
 
 export type FormError =
   | FieldError
@@ -74,3 +75,16 @@ export type SizeValidators<T extends ValidationValue = number> = {
 export type PatternValidators = {
   pattern?: ValidationRule<RegExp>;
 };
+
+// atomic-elements doesn't re-export the `@internationalized/date` value types,
+// so derive them from its date/time components. `Parameters` on a generic
+// function instantiates its type parameter with the constraint, which gives
+// us `DateValue` and `TimeValue` without depending on react-aria directly.
+
+/** A date value from `@internationalized/date`
+ * (`CalendarDate`, `CalendarDateTime` or `ZonedDateTime`) */
+export type DateValue = NonNullable<Parameters<typeof DateInput>[0]["value"]>;
+
+/** A time value from `@internationalized/date`
+ * (`Time`, `CalendarDateTime` or `ZonedDateTime`) */
+export type TimeValue = NonNullable<Parameters<typeof TimeInput>[0]["value"]>;

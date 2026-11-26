@@ -1,9 +1,10 @@
 import { useContext, useRef } from "react";
 import { AriaRadioProps, useRadio } from "@react-aria/radio";
 import { useLocale } from "@react-aria/i18n";
+import { useId } from "@react-aria/utils";
 
 import { HelpMessageProps, RenderBaseProps } from "../../../types";
-import { HiddenInput } from "../Inputs.styles";
+import { HiddenInput, ToggleHelpText } from "../Inputs.styles";
 import { RadioGroupContext } from "./context";
 import { RadioLabel, RadioWrapper } from "./RadioGroup.styles";
 import { ErrorMessage, Message } from "../../Fields";
@@ -38,6 +39,19 @@ export function Radio(props: RadioProps) {
   );
   const { direction } = useLocale();
 
+  // The <label> names the input through htmlFor; message and error describe it.
+  const inputId = useId(inputProps.id);
+  const messageId = useId();
+  const errorId = useId();
+  const describedBy =
+    [
+      inputProps["aria-describedby"],
+      message ? messageId : undefined,
+      error ? errorId : undefined,
+    ]
+      .filter(Boolean)
+      .join(" ") || undefined;
+
   const renderProps = useRenderProps({
     componentClassName: "aje-radio",
     ...props,
@@ -51,16 +65,29 @@ export function Radio(props: RadioProps) {
 
   return (
     <RadioWrapper $rtl={direction === "rtl"} {...renderProps}>
-      <HiddenInput {...inputProps} />
+      <HiddenInput
+        {...inputProps}
+        id={inputId}
+        aria-describedby={describedBy}
+      />
       <RadioLabel
         {...labelProps}
+        htmlFor={inputId}
         className="aje-checkbox__label"
         $rtl={direction === "rtl"}
       >
         {renderProps.children}
-        {message && <Message>{message}</Message>}
-        {error && <ErrorMessage>{error}</ErrorMessage>}
       </RadioLabel>
+      {(message || error) && (
+        <ToggleHelpText $prefix="radio" $rtl={direction === "rtl"}>
+          {message && <Message id={messageId}>{message}</Message>}
+          {error && (
+            <ErrorMessage id={errorId} isInvalid>
+              {error}
+            </ErrorMessage>
+          )}
+        </ToggleHelpText>
+      )}
     </RadioWrapper>
   );
 }

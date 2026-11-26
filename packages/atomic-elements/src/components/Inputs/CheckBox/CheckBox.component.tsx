@@ -2,6 +2,7 @@ import React from "react";
 import { useToggleState } from "react-stately";
 import { AriaCheckboxProps, useCheckbox } from "@react-aria/checkbox";
 import { useLocale } from "@react-aria/i18n";
+import { useId } from "@react-aria/utils";
 import {
   AriaProps,
   FieldStatusProps,
@@ -9,7 +10,7 @@ import {
   LoadingProps,
   RenderBaseProps,
 } from "../../../types";
-import { HiddenInput } from "../Inputs.styles";
+import { HiddenInput, ToggleHelpText } from "../Inputs.styles";
 import {
   CheckBoxLabel,
   CheckBoxWrapper,
@@ -69,6 +70,20 @@ export const CheckBox = React.forwardRef<HTMLInputElement, CheckBoxProps>(
 
     const { isLoading, loadingLabel } = useLoading(props);
 
+    // The <label> names the input through htmlFor; message and error describe it.
+    const inputId = useId(inputProps.id);
+    const messageId = useId();
+    const errorId = useId();
+    const showError = isInvalid && !!error;
+    const describedBy =
+      [
+        inputProps["aria-describedby"],
+        message ? messageId : undefined,
+        showError ? errorId : undefined,
+      ]
+        .filter(Boolean)
+        .join(" ") || undefined;
+
     const renderProps = useRenderProps({
       componentClassName: "aje-checkbox",
       values: {
@@ -97,12 +112,18 @@ export const CheckBox = React.forwardRef<HTMLInputElement, CheckBoxProps>(
       <CheckBoxWrapper $rtl={direction === "rtl"} {...renderProps}>
         <HiddenInput
           {...inputProps}
+          id={inputId}
+          aria-describedby={describedBy}
           ref={ref}
           aria-checked={ariaChecked}
           name={name}
           disabled={isLoading || inputProps.disabled}
         />
-        <CheckBoxLabel {...labelProps} $rtl={direction === "rtl"}>
+        <CheckBoxLabel
+          {...labelProps}
+          htmlFor={inputId}
+          $rtl={direction === "rtl"}
+        >
           {isLoading && (
             <StyledLoadingCheckbox
               $rtl={direction === "rtl"}
@@ -120,9 +141,17 @@ export const CheckBox = React.forwardRef<HTMLInputElement, CheckBoxProps>(
           )}
           {renderProps.children}
           {isRequired && <RequiredMarker />}
-          {message && <Message>{message}</Message>}
-          {isInvalid && error && <ErrorMessage isInvalid>{error}</ErrorMessage>}
         </CheckBoxLabel>
+        {(message || showError) && (
+          <ToggleHelpText $prefix="checkbox" $rtl={direction === "rtl"}>
+            {message && <Message id={messageId}>{message}</Message>}
+            {showError && (
+              <ErrorMessage id={errorId} isInvalid>
+                {error}
+              </ErrorMessage>
+            )}
+          </ToggleHelpText>
+        )}
       </CheckBoxWrapper>
     );
   }

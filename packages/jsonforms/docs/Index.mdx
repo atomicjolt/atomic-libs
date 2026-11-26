@@ -1,0 +1,91 @@
+---
+sidebar_position: 1
+---
+
+# Introduction
+
+`@atomicjolt/jsonforms` provides [JSON Forms](https://jsonforms.io) renderers built on `@atomicjolt/atomic-elements`. Describe a form
+with a JSON Schema (the data) and a UI schema (the layout), and it renders with atomic-elements
+inputs, labels and errors.
+
+## Install
+
+```sh
+npm install @atomicjolt/jsonforms @jsonforms/core @jsonforms/react @atomicjolt/atomic-elements
+```
+
+`@jsonforms/core`, `@jsonforms/react` (3.8+), `@atomicjolt/atomic-elements` and `react` are peer
+dependencies.
+
+## The quickest setup: `useJsonForm`
+
+`useJsonForm` holds the form's data and errors, wires up the atomic renderers and validation, and
+gives you `submit` and `reset`. Spread its `props` onto `<JsonForms>`:
+
+```tsx
+import { JsonForms } from "@jsonforms/react";
+import { Button } from "@atomicjolt/atomic-elements";
+import { useJsonForm } from "@atomicjolt/jsonforms";
+
+// Keep schemas stable: define them outside the component, or memoize them.
+const schema = {
+  type: "object",
+  required: ["name"],
+  properties: { name: { type: "string", title: "Name" } },
+};
+
+function ProfileForm({ profile, save }) {
+  const form = useJsonForm({ schema, data: profile, onSubmit: save });
+
+  return (
+    <>
+      <JsonForms {...form.props} />
+      <Button onPress={form.submit}>Save</Button>
+    </>
+  );
+}
+```
+
+Errors stay hidden until the first submit attempt. See [useJsonForm](./UseJsonForm.mdx) for everything it returns.
+
+## Without the hook
+
+Use the pieces directly when you manage state yourself:
+
+```tsx
+import {
+  atomicRenderers,
+  atomicCells,
+  createAtomicAjv,
+  atomicTranslateError,
+} from "@atomicjolt/jsonforms";
+
+const ajv = createAtomicAjv(); // create once
+
+<JsonForms
+  schema={schema}
+  uischema={uischema}
+  data={data}
+  renderers={atomicRenderers}
+  cells={atomicCells}
+  ajv={ajv}
+  i18n={{ translateError: atomicTranslateError }}
+  onChange={({ data, errors }) => setData(data)}
+/>;
+```
+
+## What's in the box
+
+- **Controls** for text, number, boolean, enums (select, radio, combobox), multi-select, date,
+  time and date-time. Try them in [Storybook](https://atomicjolt.github.io/atomic-libs/storybook/?path=/docs/json-forms-controls--overview); every option is in the
+  [Options reference](./OptionsReference.mdx).
+- **Cells**, bare inputs for tables, for most of those types.
+- **Layouts:** Vertical, Horizontal, Group, Card and Label. See [Layouts in Storybook](https://atomicjolt.github.io/atomic-libs/storybook/?path=/docs/json-forms-layouts--overview).
+- **Validation:** an AJV setup that handles a few JSON Forms edge cases, user-facing error
+  messages, custom rules and server errors. See [Validation](./Validation.mdx).
+- **`devAtomicRenderers`:** a fallback that flags any element no renderer matches. Add it in
+  development: `[...atomicRenderers, ...devAtomicRenderers]`.
+
+Rules (showing, hiding and disabling elements from the data) have live examples in
+[Storybook](https://atomicjolt.github.io/atomic-libs/storybook/?path=/docs/json-forms-rules--overview). JSON Forms' own docs cover schemas, UI schemas and rules in depth:
+[jsonforms.io/docs](https://jsonforms.io/docs).

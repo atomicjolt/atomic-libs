@@ -6,6 +6,7 @@ import {
   PatternValidators,
 } from "../../types";
 import { useFormField } from "../../hooks/useFormField";
+import { withFieldError } from "../FormErrorMessage";
 
 export interface FormTextFieldProps
   extends FormInputProps<TextFieldProps, TextFieldProps["value"]>,
@@ -18,5 +19,10 @@ export function FormTextField(props: FormTextFieldProps) {
     TextFieldProps["value"]
   >(props);
 
-  return <TextField {...fieldProps} {...inputProps} />;
+  return <TextField {...fieldProps}
+      // Lets a child <Form.ErrorMessage /> show the validation message.
+      children={withFieldError(
+        (fieldProps as { children?: unknown }).children,
+        (fieldProps as { error?: string }).error
+      ) as any} {...inputProps} />;
 }

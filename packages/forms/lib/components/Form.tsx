@@ -12,7 +12,20 @@ import {
   FormMultiSelect,
   FormTextField,
   FormNumberField,
+  FormSearchInput,
+  FormSearchField,
+  FormDateInput,
+  FormDateField,
+  FormDatePicker,
+  FormTimeInput,
+  FormFileInput,
+  FormSelectField,
+  FormMultiSelectField,
+  FormComboBoxField,
+  FormChipGroup,
+  FormChipGroupField,
 } from "./inputs";
+import { FormErrorMessage } from "./FormErrorMessage";
 import { FormProvider } from "./FormProvider";
 import {
   Radio as AtomicElementsRadio,
@@ -21,7 +34,6 @@ import {
   Input,
   Label,
   Message,
-  ErrorMessage,
 } from "@atomicjolt/atomic-elements";
 import { SubmitButton } from "./SubmitButton";
 
@@ -80,11 +92,23 @@ Form.RadioGroup = FormRadioGroup;
 Form.Radio = AtomicElementsRadio;
 Form.ComboBox = FormComboBox;
 Form.MultiSelect = FormMultiSelect;
+Form.SearchInput = FormSearchInput;
+Form.SearchField = FormSearchField;
+Form.DateInput = FormDateInput;
+Form.DateField = FormDateField;
+Form.DatePicker = FormDatePicker;
+Form.TimeInput = FormTimeInput;
+Form.FileInput = FormFileInput;
+Form.SelectField = FormSelectField;
+Form.MultiSelectField = FormMultiSelectField;
+Form.ComboBoxField = FormComboBoxField;
+Form.ChipGroup = FormChipGroup;
+Form.ChipGroupField = FormChipGroupField;
 Form.SubmitButton = SubmitButton;
 Form.Input = Input;
 Form.Label = Label;
 Form.Message = Message;
-Form.ErrorMessage = ErrorMessage;
+Form.ErrorMessage = FormErrorMessage;
 /** @deprecated Use `Form.Input`. */
 Form.FieldInput = Input;
 /** @deprecated Use `Form.Label`. */
@@ -92,4 +116,4 @@ Form.FieldLabel = Label;
 /** @deprecated Use `Form.Message`. */
 Form.FieldMessage = Message;
 /** @deprecated Use `Form.ErrorMessage`. */
-Form.FieldErrorMessage = ErrorMessage;
+Form.FieldErrorMessage = FormErrorMessage;

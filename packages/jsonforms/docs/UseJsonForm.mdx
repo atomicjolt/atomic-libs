@@ -1,0 +1,56 @@
+---
+sidebar_position: 2
+---
+
+# useJsonForm
+
+Holds a form's data and errors, validates it, and handles submit and reset. It has no context and
+no provider: spread `form.props` onto `<JsonForms>`, and use the rest anywhere, such as a save
+button in a page header.
+
+Try it in [Storybook](https://atomicjolt.github.io/atomic-libs/storybook/?path=/docs/json-forms-usejsonform--overview): submit with the email empty, enter an
+`@example.com` address (a custom rule), or simulate a server error and then edit the name.
+
+```tsx
+const form = useJsonForm({
+  schema, // required
+  uischema,
+  data: initialData, // reset() returns to this
+  onSubmit: (data) => save(data), // only called when valid
+  validate, // optional: (data) => ErrorObject[]
+  serverErrors, // optional: ErrorObject[]
+});
+
+<JsonForms {...form.props} />;
+```
+
+## Options
+
+| Option | |
+|---|---|
+| `schema`, `uischema` | The form. **Must be referentially stable**: JSON Forms re-initializes, and AJV recompiles, when they change. Define them outside the component or memoize them. |
+| `data` | Initial data. `reset()` returns to it. Changing it later doesn't reload the form; remount with a `key` to load new data. |
+| `onSubmit(data)` | Called by `submit()` when the form is valid. |
+| `validate(data)` | Extra rules, such as cross-field checks. Return errors built with `fieldError(path, message)`. |
+| `serverErrors` | Errors from your API. Each one disappears once its field changes. |
+| `ajv` | Defaults to a shared `createAtomicAjv()`. Must be stable. |
+| `renderers`, `cells` | Default to `atomicRenderers` / `atomicCells`. |
+| `readonly`, `i18n`, `config` | Passed to `<JsonForms>`. `i18n.translateError` defaults to `atomicTranslateError`. |
+
+## Result
+
+| Field | |
+|---|---|
+| `props` | Spread onto `<JsonForms>`. |
+| `data` | The current data. While a field holds something invalid, it can briefly differ from your type. `onSubmit` never receives invalid data. |
+| `errors` | Schema, `validate` and server errors together. |
+| `isValid`, `isDirty` | `isDirty` compares to the initial data. |
+| `submit()` | Calls `onSubmit` if valid; otherwise shows every error. |
+| `reset()` | Restores the initial data and hides errors again. |
+
+## Behavior to know
+
+- Errors are hidden (`ValidateAndHide`) until the first failed submit, then shown
+  (`ValidateAndShow`). `reset()` hides them again.
+- JSON Forms reports changes with a 10ms delay, so `data` and `errors` trail keystrokes slightly.
+  The hook validates the initial data itself, so a fresh form isn't treated as valid.

@@ -5,6 +5,7 @@
     "packages/atomic-elements",
     "packages/atomic-fuel",
     "packages/hooks",
+    "packages/jsonforms",
     "packages/forms",
     "packages/lti-types",
     "packages/lti-client",
@@ -53,7 +54,8 @@
     "tsx": "^4.19.2",
     "typescript": "^6.0.0",
     "vite-plugin-dts": "4.5.3",
-    "vitest": "^5.0.0"
+    "vitest": "^5.0.0",
+    "wouter": "^3.13.0"
   },
   "overrides": {
     "react-json-view-lite": "2.4.1",

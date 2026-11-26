@@ -97,8 +97,12 @@ export function DateField<T extends DateValue>(props: DateFieldProps<T>) {
     fieldProps,
   };
 
+  // `id` belongs to the segments element (it arrives there through
+  // fieldProps), so keep it off the wrapper to avoid a duplicate id.
+  const { id: _id, ...domProps } = filterDOMProps(props);
+
   return (
-    <StyledField {...renderProps} {...filterDOMProps(props)} ref={ref}>
+    <StyledField {...renderProps} {...domProps} ref={ref}>
       <Provider
         values={[
           [FieldLabelContext.Provider, labelProps],
