@@ -1,38 +1,55 @@
+---
+sidebar_position: 6
+---
+
 # `useSessionStorage`
 
-The `useSessionStorage` hook allows you to manage a `sessionStorage` value as a React state value. Setting the value will also write it to `sessionStorage`. Upon a reload, if the `key` exists in `sessionStorage`, the value will be loaded and used as the initial state, instead of `initialState`.
+State that is also saved to `sessionStorage`. It works exactly like
+[`useLocalStorage`](./useLocalStorage.mdx), but the value lasts only for the browser tab's session.
+
+```ts
+function useSessionStorage<T>(
+  key: string,
+  initialState: T
+): [state: T, setState: (value: T) => void, remove: () => void];
+```
 
 :::tip
-If you'd like to configure how the value is serialized and deserialized, you can use
-[makeStorageHook](../Constructors/makeStorageHook.mdx) to build your own hook.
+To change how values are serialized, or to prefix keys, build your own hook with
+[`makeStorageHook`](../Constructors/makeStorageHook.mdx).
 :::
 
 ## Parameters
 
-- `key` (string): A unique key to set and access the value with.
-- `initialState` (any): Initial state value.
+- `key`: the `sessionStorage` key.
+- `initialState`: used when nothing is stored under `key`.
 
 ## Returns
 
-An array containing:
-- The state value.
-- The state setter function (which will also set the value in `sessionStorage`).
-- A function to remove the value from `sessionStorage`. This does not change the value held in state.
+- `state`: the current value.
+- `setState`: sets the state and writes it (JSON-encoded) to `sessionStorage`. Takes a value only, not an updater function.
+- `remove`: deletes the key from `sessionStorage`. The value held in state is unchanged.
 
-## Usage
+## Example
 
-```jsx
-import { useSessionStorage } from '@atomicjolt/hooks';
+```tsx
+import { useSessionStorage } from "@atomicjolt/hooks";
 
-function Component() {
-  const [value, setValue, removeValue] = useSessionStorage('myKey', 'defaultValue');
+function DraftComment() {
+  const [draft, setDraft, clearDraft] = useSessionStorage("commentDraft", "");
 
   return (
-    <div>
-      <p>{value}</p>
-      <button onClick={() => setValue('newValue')}>Set Value</button>
-      <button onClick={removeValue}>Remove Value</button>
-    </div>
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        postComment(draft);
+        setDraft("");
+        clearDraft(); // after setDraft, which would write "" back to storage
+      }}
+    >
+      <textarea value={draft} onChange={(e) => setDraft(e.target.value)} />
+      <button type="submit">Post</button>
+    </form>
   );
 }
 ```

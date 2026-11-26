@@ -1,28 +1,44 @@
+---
+sidebar_position: 1
+---
+
 # `makeContext`
 
-Creates a React context and an associated context hook.
+Creates a React context and returns its provider together with a hook that reads it, so you don't have
+to export the context object itself.
+
+```ts
+function makeContext<T>(defaultValue: T): [Provider: React.Provider<T>, useValue: () => T];
+```
 
 ## Parameters
 
-- `defaultValue` - The default value for the context.
+- `defaultValue`: the value the hook returns when there's no provider above the component.
 
 ## Returns
 
-A tuple containing:
-- The context provider.
-- The context hook.
+- `Provider`: the context's `Provider`. Pass the current value with its `value` prop.
+- `useValue`: a hook that returns the nearest provider's value (or `defaultValue`).
 
 ## Example
 
 ```tsx
-const [MyContextProvider, useMyContext] = makeContext('default value');
+import { makeContext } from "@atomicjolt/hooks";
 
-const MyComponent = () => {
-  const value = useMyContext();
-  return <div>{value}</div>;
-};
+type Theme = "light" | "dark";
 
-<MyContextProvider>
-  <MyComponent />
-</MyContextProvider>
+export const [ThemeProvider, useTheme] = makeContext<Theme>("light");
+
+function ThemedButton() {
+  const theme = useTheme();
+  return <button className={`btn-${theme}`}>Save</button>;
+}
+
+function App() {
+  return (
+    <ThemeProvider value="dark">
+      <ThemedButton />
+    </ThemeProvider>
+  );
+}
 ```

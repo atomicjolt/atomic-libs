@@ -1,7 +1,13 @@
+---
+sidebar_position: 2
+---
+
 # CSS Layers
 
-Atomic Elements supports wrapping all component styles in a [CSS `@layer`](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer),
-giving you explicit control over how library styles interact with your own CSS.
+Atomic Elements puts all of its styles, including the theme's CSS variables, in a
+[CSS `@layer`](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer) named `elements`. This
+gives you explicit control over how library styles interact with your own CSS, and means your own
+unlayered CSS always wins.
 
 ## Why use CSS layers?
 
@@ -10,26 +16,24 @@ adding extra selectors, using `!important`, or relying on source order. CSS laye
 styles in a lower-priority layer are always overridden by styles outside any layer, regardless of specificity.
 
 ```css
-/* Without layers: this might not win due to specificity */
-.my-button {
-  background: blue;
-}
-
-/* With layers: this always wins, no specificity tricks needed */
+/* What the library ships (simplified): a fairly specific selector, inside the layer */
 @layer elements {
-  .aje-btn {
-    background: red;
+  .sc-a1b2c3.aje-btn--primary {
+    --btn-bg-clr: var(--accent-clr-fill);
   }
 }
+
+/* Your CSS, for <Button className="my-button">: a single class, outside any layer.
+   It wins, despite lower specificity. */
 .my-button {
-  background: blue;
-} /* beats @layer elements unconditionally */
+  --btn-bg-clr: darkslateblue;
+}
 ```
 
-## Enabling layers
+## Default behavior
 
-By default, `ElementsProvider` wraps all component styles in an `@layer elements` block.
-No configuration is needed — just use `ElementsProvider` as normal:
+Layering is on by default. `ElementsProvider` wraps every style rule it injects in
+`@layer elements`, with no configuration needed:
 
 ```tsx
 import { ElementsProvider } from "@atomicjolt/atomic-elements";
@@ -92,13 +96,22 @@ This means you can override component styles with ordinary CSS rules, even ones 
 ## Browser support
 
 `@layer` is supported in all modern browsers (Chrome 99+, Firefox 97+, Safari 15.4+).
-For applications that need to support older browsers, the layer wrapping will cause all
-component styles to be ignored in those browsers, since unsupported at-rules are skipped.
-If you need to support older browsers, do not use the `layerName` prop — disable the feature
-by passing null or an empty string:
+In older browsers the whole `@layer` block is skipped as an unknown at-rule, so components would
+render unstyled.
+If you need to support older browsers, turn layering off by passing `null` or an empty string as
+`layerName`:
 
 ```tsx
 <ElementsProvider layerName={null}>
   <YourApp />
 </ElementsProvider>
 ```
+
+With layering off, component styles compete on specificity again, so overrides need selectors
+more specific than the library's (see [Variants](./Variants.mdx#changing-a-built-in-variant)).
+
+## Upgrading from before 3.7.0
+
+Before `3.7.0`, component styles were unlayered. Turning layers on can change the outcome of app
+CSS that used to lose to component styles, such as a broad `a { color: inherit; }` reset now
+overriding a link-styled `Button`. See [Migrating](../../Migrating.mdx#styling-with-css-layers).

@@ -1,56 +1,94 @@
-import { Button, ElementsProvider } from "@atomicjolt/atomic-elements";
+---
+sidebar_position: 4
+---
+
+import { Button, Link } from "@atomicjolt/atomic-elements";
 import { Example } from "../components/Example";
 
-# Routing
+# Links and routing
 
-<ElementsProvider />
+Several components render as a link when you give them an `href`. They then accept the usual
+anchor props (`href`, `target`, `rel`, `download`, ...) and keep their own styling.
 
-Several components in Atomic Elements support being rendered as an anchor tag.
-This allows you to use the component as a link. When rendered as a link, each component supports the same props as an anchor tag such
-as `href`, `target`, and `rel`.
+| Component | With `href` |
+| --- | --- |
+| `Link` | An inline text link |
+| `Button`, `IconButton` | A link styled as a button |
+| `Tabs.Tab` | A tab that navigates (for tabs that map to routes) |
+| `Item` in a `Menu` / `IconMenu` | A menu item that navigates |
+| `Chip` | A chip that navigates |
 
 ## Example
 
-The `Button` component can be rendered as an anchor tag by setting the `href` props.
-
 <Example>
   <Example.Rendered>
-    <Button href="https://atomicjolt.com" target="_blank">Atomic Jolt</Button>
+    <Button href="https://atomicjolt.com" target="_blank" rel="noopener">Atomic Jolt</Button>
+    {" "}
+    <Link href="https://atomicjolt.com" target="_blank" rel="noopener">atomicjolt.com</Link>
   </Example.Rendered>
   <Example.Code>
-    ```jsx
-    <Button href="https://atomicjolt.com" target="_blank">
+    ```tsx
+    <Button href="https://atomicjolt.com" target="_blank" rel="noopener">
       Atomic Jolt
     </Button>
+
+    <Link href="https://atomicjolt.com" target="_blank" rel="noopener">
+      atomicjolt.com
+    </Link>
     ```
   </Example.Code>
 </Example>
 
-The `Button` component will render as an anchor tag with the `href` attribute set to `https://atomicjolt.com`.
+`Button` renders an `<a>` whenever `href` is set. Use a link (`href`) for navigation and a button
+(`onPress`) for actions; screen reader users hear the difference.
 
-## Client Side Routing
+## Client-side routing
 
-By default, links perform native browser navigation. However, if your application supports client-side routing, you can
-use the `RouterProvider` component to integrate with your routing library of choice.
+By default, links do a full browser navigation. If your app uses a client-side router, wrap it in
+`RouterProvider` so every link above navigates through your router instead. `RouterProvider` takes:
 
-Note that links to external sites or links with any other value for target except `target="_self"` attribute will always perform native browser navigation.
+- `navigate(path)`: your router's navigate function.
+- `useHref(path)` (optional): converts a router path into a real URL for the `href` attribute, for
+  example to add your router's base path.
 
-<Example>
-  <Example.Code>
-    ```jsx
-    import { RouterProvider } from "@atomicjolt/atomic-elements";
-    import { useNavigate, useHref } from "your-router";
+With React Router, render it inside the router so its hooks are available:
 
-    function App() {
-      const navigate = useNavigate();
+```tsx
+import { BrowserRouter, useHref, useNavigate } from "react-router-dom";
+import { ElementsProvider, RouterProvider } from "@atomicjolt/atomic-elements";
 
-      return (
-        <RouterProvider navigate={navigate} useHref={useHref}>
-          {/* ... */}
-        </RouterProvider>
-      );
-    }
-    ```
-  </Example.Code>
-</Example>
+function ElementsRouter({ children }: { children: React.ReactNode }) {
+  const navigate = useNavigate();
 
+  return (
+    <RouterProvider navigate={navigate} useHref={useHref}>
+      {children}
+    </RouterProvider>
+  );
+}
+
+export function Root() {
+  return (
+    <ElementsProvider applyDefaultStyles>
+      <BrowserRouter>
+        <ElementsRouter>
+          <App />
+        </ElementsRouter>
+      </BrowserRouter>
+    </ElementsProvider>
+  );
+}
+```
+
+Now `<Button href="/courses/42">` navigates without a page reload.
+
+Links still use native browser navigation when:
+
+- the `href` points to another origin,
+- `target` is set to anything other than `"_self"`,
+- `download` is set, or
+- the user opens the link in a new tab or window (modifier-click, middle-click).
+
+`RouterProvider` is React Aria's; see
+[React Aria's routing guide](https://react-spectrum.adobe.com/react-aria/routing.html) for other
+routers and for typing router options.

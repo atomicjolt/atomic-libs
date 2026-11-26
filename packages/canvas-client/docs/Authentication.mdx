@@ -2,54 +2,63 @@
 sidebar_position: 2
 ---
 
-# Canvas Authentication
+# Authentication
 
-## CanvasAuthenticationForm
+## `CanvasAuthenticationForm`
 
-A component for handling Canvas LMS authentication.
+Renders a `<form method="post">` that sends the user to your server's Canvas OAuth endpoint. Each entry
+in `settings` becomes a hidden input, so the server receives whatever it needs to resume the launch
+(for example the launch state or a token). Use it with `autoSubmit` to redirect immediately, or with your
+own submit button to explain why the user is being sent to Canvas first.
 
 ```tsx
 import { CanvasAuthenticationForm } from "@atomicjolt/canvas-client";
 
-function App() {
+function AuthorizeCanvas({ launchToken }: { launchToken: string }) {
   return (
     <CanvasAuthenticationForm
-      action="/oauth/callback"
-      settings={{ client_id: "12345" }}
+      action="/canvas/oauth/start"
+      settings={{ launch_token: launchToken, return_to: "/dashboard" }}
       autoSubmit
     />
   );
 }
 ```
 
+This renders, and submits on mount:
+
+```html
+<form action="/canvas/oauth/start" method="post">
+  <input type="hidden" name="launch_token" value="…" />
+  <input type="hidden" name="return_to" value="/dashboard" />
+</form>
+```
+
 ### Props
 
-The `CanvasAuthenticationForm` component accepts the following props:
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `action` | `string` | | URL the form posts to. Required. |
+| `settings` | `Record<string, any>` | `{}` | One hidden input per entry. Object and array values are JSON-encoded. |
+| `autoSubmit` | `boolean` | `false` | Submit the form as soon as it mounts. |
+| `children` | `ReactNode` | | Rendered inside the form, after the hidden inputs (e.g. a submit button). |
 
-- `action: string` - URL to submit the form to
-- `settings?: Record<string, any>` - Additional settings to include as hidden input fields
-- `autoSubmit?: boolean` - Whether to auto-submit the form on render (default: false)
-- `children?: ReactNode` - Children elements to include in the form
+Any other `<form>` attribute (`target`, `className`, `method`, ...) is passed through to the form element.
 
-The component also accepts all standard HTML form attributes.
+### Asking before redirecting
 
-### Custom Prompt
-
-If you'd like to provide a custom prompt before the user is redirected to the authentication page, you need to handle submission yourself
+Leave `autoSubmit` off and put a submit button inside the form:
 
 ```tsx
 import { CanvasAuthenticationForm } from "@atomicjolt/canvas-client";
 
-function App() {
+function AuthorizePrompt({ launchToken }: { launchToken: string }) {
   return (
     <div>
-      <h1>Custom Authentication</h1>
-      <p>
-        Please click the button below to authenticate this app to work with
-        Canvas
-      </p>
-      <CanvasAuthenticationForm action="/oauth/callback">
-        <button type="submit">Authenticate</button>
+      <h1>Connect to Canvas</h1>
+      <p>This tool needs permission to read your courses. You'll come straight back here afterwards.</p>
+      <CanvasAuthenticationForm action="/canvas/oauth/start" settings={{ launch_token: launchToken }}>
+        <button type="submit">Authorize</button>
       </CanvasAuthenticationForm>
     </div>
   );

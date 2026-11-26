@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 # Color Schemes
 
 Atomic Elements ships two color schemes, `light` and `dark`. A color scheme swaps the
@@ -62,7 +66,7 @@ storage, your server, a per-user LTI setting). There are two ways to wire it up:
   calls `onColorSchemeChange`; save the value and pass it back in.
 
   ```tsx
-  const [scheme, setScheme] = useState(savedPreference ?? "light");
+  const [scheme, setScheme] = useState(() => loadPreference() ?? "light");
 
   <ElementsProvider
     colorScheme={scheme}
@@ -71,10 +75,24 @@ storage, your server, a per-user LTI setting). There are two ways to wire it up:
       savePreference(next);
     }}
   >
+    <App />
+  </ElementsProvider>
   ```
 
 - **The provider owns the value:** pass `defaultColorScheme` as the starting value. The
   provider tracks changes itself and still calls `onColorSchemeChange` so you can save them.
+
+  ```tsx
+  <ElementsProvider
+    defaultColorScheme={localStorage.getItem("color-scheme") ?? "system"}
+    onColorSchemeChange={(next) => localStorage.setItem("color-scheme", next)}
+  >
+    <App />
+  </ElementsProvider>
+  ```
+
+An unknown scheme name logs a warning and falls back to `light`, so a stale saved value can't
+break the page.
 
 ## The page background
 

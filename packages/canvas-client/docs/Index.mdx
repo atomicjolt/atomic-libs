@@ -4,9 +4,47 @@ sidebar_position: 1
 
 # Introduction
 
-The `@atomicjolt/canvas-client` package provides React components and utilities for working with Canvas LMS iframes.
+`@atomicjolt/canvas-client` holds small React helpers for tools that run inside Canvas LMS: a form for
+sending the user into your server's Canvas OAuth flow, and utilities that keep the Canvas iframe sized to
+your content.
 
-## Features
+## Installation
 
-- [Canvas Authentication](./Authentication.mdx) - Components and utilities for handling Canvas LMS authentication
-- [Resize Handling](./ResizeHandling.mdx) - Tools for managing iframe resizing in Canvas
+```bash
+npm install @atomicjolt/canvas-client
+```
+
+Peer dependencies: `react` and `react-dom` (18 or 19), and
+[`@atomicjolt/lti-client`](/lti-client/) (used to send resize messages to Canvas).
+
+```bash
+npm install @atomicjolt/lti-client
+```
+
+## What's in it
+
+| Export | Kind | Use it to | Docs |
+| --- | --- | --- | --- |
+| `CanvasAuthenticationForm` | component | POST hidden settings to your server to start Canvas OAuth, automatically or on a button click. | [Authentication](./Authentication.mdx) |
+| `ResizeIframe` | component | Wrap your app so the Canvas iframe follows the content's height. | [Resize Handling](./ResizeHandling.mdx) |
+| `useResizeHandler` | hook | Run `watchForResize` for the lifetime of a component. | [Resize Handling](./ResizeHandling.mdx#useresizehandler) |
+| `watchForResize` | function | Watch the DOM for changes and report new heights (framework-free). | [Resize Handling](./ResizeHandling.mdx#watchforresize) |
+
+Types: `CanvasAuthenticationFormProps`, `ResizeIframeProps`, `WatchForResizeOptions`.
+
+## Quick start
+
+```tsx
+import { ResizeIframe } from "@atomicjolt/canvas-client";
+
+export function App() {
+  return (
+    <ResizeIframe>
+      <CourseDashboard />
+    </ResizeIframe>
+  );
+}
+```
+
+As the dashboard renders more content, `ResizeIframe` asks Canvas (via `lti.frameResize`) to grow the
+iframe so the tool doesn't get its own scrollbar.

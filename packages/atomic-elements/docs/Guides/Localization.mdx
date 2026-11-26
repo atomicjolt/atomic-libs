@@ -1,19 +1,147 @@
+---
+sidebar_position: 6
+---
+
 # Localization
 
-Atomic Elements components are designed to work with multiple languages and locales. The components are built to be easily localized, and we provide a number of tools to help you do so.
+Atomic Elements formats dates, times and numbers for the user's locale, and lays out some
+components right-to-left for RTL languages. The locale comes from the browser by default, and you
+can set it with `LocaleProvider`.
 
 :::note
-
-Localization support for components is currently in-progress. If you need better support for localization in a component please [open an issue](https://github.com/atomicjolt/atomic-libs/issues/new)
-
+Localization support is still in progress. The library's own built-in strings are English only for
+now (see [Built-in strings](#built-in-strings)). If a component needs better localization support,
+please [open an issue](https://github.com/atomicjolt/atomic-libs/issues/new).
 :::
 
-## Customizing the Locale
+## Setting the locale
 
-By default, the locale is determined by the user's browser settings. You can override this by wrapping your component in a `LocaleProvider` and setting the `locale` prop.
+By default the locale is the browser's language (`navigator.language`), and it updates if that
+changes. To set it yourself, for example from the LMS launch, wrap your app in `LocaleProvider`
+with a [BCP 47](https://www.ietf.org/rfc/bcp/bcp47.txt) language tag:
 
-```jsx
-import { LocaleProvider } from "@atomicjolt/atomic-elements";
+```tsx
+import { ElementsProvider, LocaleProvider } from "@atomicjolt/atomic-elements";
 
-<LocaleProvider locale="en">{/* Your app here */}</LocaleProvider>;
+function Root({ locale }: { locale: string }) {
+  return (
+    <ElementsProvider applyDefaultStyles>
+      <LocaleProvider locale={locale}>
+        <App />
+      </LocaleProvider>
+    </ElementsProvider>
+  );
+}
+
+// e.g. <Root locale="es-MX" />
 ```
+
+In an LTI launch, the user's locale is usually in the launch's
+`https://purl.imsglobal.org/spec/lti/claim/launch_presentation` claim (`locale`).
+
+`LocaleProvider` is React Aria's [`I18nProvider`](https://react-spectrum.adobe.com/react-aria/I18nProvider.html)
+under another name, so React Aria hooks in your own code see the same locale.
+
+## What the locale affects
+
+| Area | Components | Behavior |
+| --- | --- | --- |
+| Dates and times | `DateInput`, `DatePicker`, `DateField`, `TimeInput`, `Calendar` | Segment order and separators (`MM/DD/YYYY` vs `DD.MM.YYYY`), 12/24-hour time, month and weekday names, first day of the week |
+| Numbers | `NumberInput`, `NumberField` | Decimal and group separators when displaying and parsing input, plus currency, percent and unit formats from `formatOptions` |
+| Formatting | `FormatDate`, `FormatNumber` | Output follows `Intl.DateTimeFormat` / `Intl.NumberFormat` for the locale |
+| Direction | `CheckBox`, `Radio` | Box and label positions flip in RTL locales |
+| Accessibility strings | Many | Labels React Aria provides, such as a date segment's name or "Clear search", are translated |
+
+The provider doesn't set `dir` on your page. For RTL languages, set `<html dir="rtl">` yourself.
+
+## Formatting values
+
+`FormatDate` and `FormatNumber` take a `value` and any
+[`Intl.DateTimeFormat`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#options)
+or [`Intl.NumberFormat`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#options)
+option as props:
+
+```tsx
+import { FormatDate, FormatNumber } from "@atomicjolt/atomic-elements";
+
+<FormatDate value={assignment.dueAt} dateStyle="medium" timeStyle="short" />
+// en-US: "Mar 4, 2026, 11:59 PM"   de-DE: "04.03.2026, 23:59"
+
+<FormatNumber value={0.875} style="percent" />
+// en-US: "88%"   fr-FR: "88 %"
+
+<FormatNumber value={score} fallback="Not graded" />
+```
+
+They render `fallback` when `value` is `null` or `undefined`. Pass a function as `children` to
+use the formatted string in your own markup:
+
+```tsx
+<FormatDate value={submittedAt} dateStyle="long">
+  {(formatted) => <Text $color="text-clr-secondary">Submitted {formatted}</Text>}
+</FormatDate>
+```
+
+`FormatDuration` formats a number of seconds as a duration. It does not use the locale.
+
+To format values in your own code, use the hooks the library re-exports from React Aria:
+`useDateFormatter`, `useNumberFormatter` and `useListFormatter`. They return `Intl` formatters
+for the current locale, cached between renders:
+
+```tsx
+import { useNumberFormatter } from "@atomicjolt/atomic-elements";
+
+function Points({ value }: { value: number }) {
+  const formatter = useNumberFormatter({ maximumFractionDigits: 1 });
+  return <>{formatter.format(value)} pts</>;
+}
+```
+
+## Date values
+
+Date and time components use [`@internationalized/date`](https://react-spectrum.adobe.com/internationalized/date/)
+values (`CalendarDate`, `CalendarDateTime`, `ZonedDateTime`, `Time`) rather than JavaScript
+`Date`s. They avoid time zone bugs and support non-Gregorian calendars. Add the package to your
+app to create and convert them:
+
+```bash
+npm install @internationalized/date
+```
+
+```tsx
+import {
+  CalendarDate,
+  getLocalTimeZone,
+  parseDate,
+  today,
+} from "@internationalized/date";
+import { DatePicker } from "@atomicjolt/atomic-elements";
+
+const [dueDate, setDueDate] = useState<CalendarDate | null>(
+  parseDate("2026-03-04")
+);
+
+<DatePicker
+  label="Due date"
+  value={dueDate}
+  onChange={setDueDate}
+  minValue={today(getLocalTimeZone())}
+/>
+
+// To send to your API:
+dueDate?.toString(); // "2026-03-04"
+```
+
+## Built-in strings
+
+A few components contain their own text: the "Loading" label, the "Select an option" placeholder,
+and the accessible labels on table expand/collapse, banner dismiss, search and navbar back
+buttons. These are
+English only. Most of them can be replaced with a prop, so pass translated text from your app's
+i18n library where it matters:
+
+| Text | Prop |
+| --- | --- |
+| "Loading" | `loadingLabel` on the component that is loading |
+| "Select an option" | `placeholder` on `CustomSelect` / `SelectField.Value` |
+| "Items selected" | `selectionPlaceholder` on `MultiSelect` |

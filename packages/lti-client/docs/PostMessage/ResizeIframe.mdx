@@ -1,63 +1,56 @@
-# Resizing LTI Frames
+---
+sidebar_position: 3
+---
 
-The ResizeIframe utility helps you dynamically adjust the height of your LTI tool within the platform's iframe.
+# ResizeIframe
 
-## Getting Started
+`ResizeIframe` asks the platform to change the height of the iframe your tool is running in, using the
+`lti.frameResize` postMessage. Canvas and Brightspace support it; check `isSupported()` on other platforms.
 
-Create a new resize handler:
+:::tip
+In a React app, [`@atomicjolt/canvas-client`](/canvas-client/ResizeHandling)'s `ResizeIframe` component
+watches the page and calls this class for you whenever the content height changes.
+:::
 
-```typescript
-const client = new PostMessageClient({
-  origin: "https://platform.example.com",
-});
+## Setup
+
+```ts
+import { PostMessageClient, ResizeIframe } from "@atomicjolt/lti-client";
+
+const client = new PostMessageClient({ origin: "https://platform.example.com" });
 const resizer = new ResizeIframe(client);
 ```
 
-## Basic Usage
+The client argument is optional; without it a `PostMessageClient` with default options is created.
 
-Before using the resize functionality, check if the platform supports it:
+## Methods
 
-```typescript
-const supported = await resizer.isSupported();
-if (supported) {
-  // Resize to specific height (in pixels)
-  await resizer.resize(500);
-}
-```
+| Method | Description |
+| --- | --- |
+| `isSupported(): Promise<boolean>` | `true` if the platform's capabilities include `lti.frameResize`. |
+| `resize(height: number): Promise<void>` | Requests a frame height, in pixels. |
 
-## Practical Examples
+`resize` waits for the platform's `lti.frameResize.response` like any other
+[`send`](./PostMessageClient.mdx#send), so it rejects with a timeout `PostMessageError` if the platform
+applies the resize without replying. Catch the error if you don't need confirmation.
 
-### Auto-resize on Content Change
+## Examples
 
-```typescript
-function setupAutoResize() {
-  const observer = new ResizeObserver(async (entries) => {
-    const height = entries[0].contentRect.height;
-    await resizer.resize(height);
-  });
+Resize once after content loads:
 
-  observer.observe(document.body);
-}
-```
-
-### Resize After Loading Content
-
-```typescript
-async function loadAndResize() {
-  // Load your content
+```ts
+if (await resizer.isSupported()) {
   await loadContent();
-
-  // Get the current document height
-  const height = document.documentElement.scrollHeight;
-
-  // Resize the frame
-  await resizer.resize(height);
+  await resizer.resize(document.documentElement.scrollHeight);
 }
 ```
 
-## Supported Platforms
+Keep the frame sized to the page:
 
-The following platforms support the ResizeIframe functionality:
+```ts
+const observer = new ResizeObserver(() => {
+  resizer.resize(document.documentElement.scrollHeight).catch(() => {});
+});
 
-- Canvas
-- Brigthspace
+observer.observe(document.body);
+```

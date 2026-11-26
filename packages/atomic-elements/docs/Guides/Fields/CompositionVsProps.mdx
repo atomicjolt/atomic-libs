@@ -1,80 +1,27 @@
-import { Button, TextInput, ElementsProvider, TextField, Label, Message, Input, ErrorMessage, Group } from "@atomicjolt/atomic-elements";
+---
+sidebar_position: 2
+title: Composition vs. props
+---
+
+import { Button, TextInput, TextField, Label, Message, Input, ErrorMessage, Group } from "@atomicjolt/atomic-elements";
 import { Example } from "../../components/Example";
 
-# Composition vs Props API
+# Composition vs. props
 
-<ElementsProvider />
+Most inputs in Atomic Elements come in two forms. `TextField` and `TextInput`, for example, both
+render a labelled text input:
 
-You may have noticed that Atomic Elements has two APIs for building forms. For example, there are the
-`TextField` and `TextInput` components, both of which render a text input field.
+- `TextField` is a **composition** component. You render its parts (`Label`, `Input`, `Message`,
+  `ErrorMessage`) as children, in whatever order and layout you want.
+- `TextInput` is a **props** component. It is built on `TextField`, renders the parts in a fixed
+  layout, and takes their content as props (`label`, `message`, `error`).
 
-The distinction is that `TextField` is part of the composition API, while `TextInput` is a wrapper around
-`TextField` that provides a more specific layout and customization via props. This allows developers to choose
-the approach that best fits their needs, whether they require more control over the layout or prefer a more
-straightforward, opinionated component.
-
-## Composition API
-
-The composition API is designed to be flexible and to support a wide variety of use cases.
-With this API, you are in control of the markup and layout of the field, while the `TextField`
-component handles the details of managing the input and accessibility. This approach is particularly
-useful when you need to create custom form fields that do not fit the standard patterns provided by
-the props API.
-
-For example, you could use the `TextField` component to create a field with a message below the input,
-rather than above. This level of customization allows you to tailor the user interface to better match
-your application's design requirements:
-
-<Example>
-  <Example.Rendered>
-    <TextField value="" onChange={() => {}}>
-      <Label>Label</Label>
-      <Input />
-      <Message>Message</Message>
-    </TextField>
-  </Example.Rendered>
-  <Example.Code>
-    ```jsx
-    <TextField value="" onChange={() => {}}>
-      <Label>Label</Label>
-      <Input />
-      <Message>Message</Message>
-    </TextField>
-    ```
-  </Example.Code>
-</Example>
-
-Or you could use the `TextField` component to create a field with a button and input.
-
-<Example>
-  <Example.Rendered>
-    <TextField value="" onChange={() => {}}>
-      <Label>Label</Label>
-      <Message>Message</Message>
-      <Group isMerged>
-        <Input />
-        <Button variant="border">Save</Button>
-      </Group>
-    </TextField>
-  </Example.Rendered>
-  <Example.Code>
-    ```jsx
-    <TextField value="" onChange={() => {}}>
-      <Label>Label</Label>
-      <Message>Message</Message>
-      <Group isMerged>
-        <Input />
-        <Button variant="border">Save</Button>
-      </Group>
-    </TextField>
-    ```
-  </Example.Code>
-</Example>
+Both have the same accessibility behavior. The difference is how much of the markup you control.
 
 ## Props API
 
-The props API is designed to be more specific and to provide a more opinionated layout and customization.
-For example, the `TextInput` component is a wrapper around `TextField` that provides a more specific layout and customization is handled via props. This makes it easier to quickly create form fields with a consistent look and feel, without having to manually manage the layout and markup.
+The props API covers the common case in one line. It also offers layout options the composition
+API would make you build yourself, such as the `floating` label variant.
 
 <Example>
   <Example.Rendered>
@@ -85,20 +32,75 @@ For example, the `TextInput` component is a wrapper around `TextField` that prov
     />
   </Example.Rendered>
   <Example.Code>
-    ```jsx
-    <TextInput
-      label="Label"
-      message="Message"
-      size="full"
-    />
+    ```tsx
+    <TextInput label="Label" message="Message" />
     ```
   </Example.Code>
 </Example>
 
+## Composition API
+
+With the composition API, `TextField` manages the value and the ARIA wiring between the parts, and
+you control the markup. For example, put the message below the input instead of above it:
+
+<Example>
+  <Example.Rendered>
+    <TextField>
+      <Label>Label</Label>
+      <Input />
+      <Message>Message</Message>
+    </TextField>
+  </Example.Rendered>
+  <Example.Code>
+    ```tsx
+    <TextField>
+      <Label>Label</Label>
+      <Input />
+      <Message>Message</Message>
+    </TextField>
+    ```
+  </Example.Code>
+</Example>
+
+Or attach a button to the input:
+
+<Example>
+  <Example.Rendered>
+    <TextField>
+      <Label>Label</Label>
+      <Message>Message</Message>
+      <Group isMerged>
+        <Input />
+        <Button variant="border">Save</Button>
+      </Group>
+    </TextField>
+  </Example.Rendered>
+  <Example.Code>
+    ```tsx
+    <TextField>
+      <Label>Label</Label>
+      <Message>Message</Message>
+      <Group isMerged>
+        <Input />
+        <Button variant="border">Save</Button>
+      </Group>
+    </TextField>
+    ```
+  </Example.Code>
+</Example>
+
+## Which to choose
+
+| | Props API | Composition API |
+| --- | --- | --- |
+| Examples | `TextInput`, `NumberInput`, `CustomSelect`, `DatePicker` | `TextField`, `NumberField`, `SelectField`, `DateField` |
+| Markup and layout | Fixed | Yours |
+| Label, help text, error | `label`, `message`, `error` props | `<Label>`, `<Message>`, `<ErrorMessage>` children |
+| Extra elements (buttons, icons) inside the field | Not supported | Any, with `Group` or `ComboInput` |
+| Floating label variant | `variant="floating"` | Build it yourself |
+| Used by `@atomicjolt/forms` | `Form.TextInput`, `Form.NumberInput`, ... | Composed fields with `Form.ErrorMessage` |
+
 :::tip
-
-In general, you will probably want to reach for the props API first. It is more opinionated and will likely cover most use cases.
-However, if you need more control over the layout and appearance of the field, the composition API is there for you.
-
+Start with the props API. It covers most forms and keeps them consistent. Switch to the
+composition API for a field that needs a layout the props API doesn't offer.
 :::
-

@@ -1,0 +1,68 @@
+---
+sidebar_position: 1
+---
+
+# Introduction
+
+`@atomicjolt/lti-types` contains TypeScript types, enums and constants for the LTI 1.3 and LTI Advantage
+specifications. Use it to type ID tokens, claims and service payloads, and to avoid typing out long claim
+URLs by hand. It has no runtime dependencies. Besides the type definitions, it exports only plain string
+constants and enums.
+
+## Installation
+
+```bash
+npm install @atomicjolt/lti-types
+```
+
+There are no peer dependencies.
+
+## What's in it
+
+**Claim and scope constants**
+
+- Claim keys such as `MESSAGE_TYPE`, `ROLES_CLAIM`, `CONTEXT_CLAIM`, `RESOURCE_LINK_CLAIM`, `DEEP_LINKING_CLAIM`, `AGS_CLAIM`, `NAMES_AND_ROLES_CLAIM` and `CUSTOM_CLAIM`.
+- LTI Advantage scopes: `AGS_SCOPE_LINE_ITEM`, `AGS_SCOPE_SCORE`, `AGS_SCOPE_RESULT`, `NAMES_AND_ROLES_SCOPE`, `ALL_SCOPES` and others.
+- Canvas endpoints and extensions: `CANVAS_PUBLIC_JWKS_URL`, `CANVAS_AUTH_TOKEN_URL`, `CANVAS_OIDC_URL`, their `CANVAS_BETA_*` versions, `CANVAS_PRIVACY_LEVEL` and others.
+
+**Enums**
+
+- `MessageTypes` – `LtiResourceLinkRequest`, `LtiDeepLinkingRequest`, `LtiDeepLinkingResponse`.
+- `Roles` – every system, institution and context role URI in the LTI 1.3 spec.
+- `LtiVersions`, `DocumentTargets`, `AcceptTypes`, `AGSScopes`, `MemberStatus`.
+
+**Launch types**
+
+- `IdToken` – the decoded LTI 1.3 ID token, keyed by the claim constants above.
+- Claim types: `ResourceLinkClaim`, `ContextClaim`, `LaunchPresentationClaim`, `DeepLinkingClaim`, `AGSClaim`, `NamesAndRolesClaim`, `LISClaim`, `ToolPlatformClaim`.
+
+**Dynamic registration and services**
+
+- `PlatformConfiguration`, `ToolConfiguration`, `LtiToolConfiguration`, `LtiMessage`, `RegistrationConfiguration` – payloads for LTI Dynamic Registration.
+- `Member`, `MembershipContainer`, `Context` – responses from the Names and Role Provisioning Service.
+
+## Usage
+
+```ts
+import {
+  IdToken,
+  MessageTypes,
+  Roles,
+  MESSAGE_TYPE,
+  ROLES_CLAIM,
+  CONTEXT_CLAIM,
+} from '@atomicjolt/lti-types';
+
+function describeLaunch(token: IdToken) {
+  const isDeepLink = token[MESSAGE_TYPE] === MessageTypes.LtiDeepLinkingRequest;
+  const isInstructor = token[ROLES_CLAIM].includes(Roles.InstructorContextRole);
+  const courseTitle = token[CONTEXT_CLAIM]?.title;
+
+  return { isDeepLink, isInstructor, courseTitle };
+}
+```
+
+## Related packages
+
+- [`@atomicjolt/lti-client`](/lti-client/) and [`@atomicjolt/lti-server`](/lti-server/) use these types for launches, deep linking and LTI Advantage services.
+- [`@atomicjolt/lti-server`](/lti-server/) also re-exports `IdToken` for convenience.

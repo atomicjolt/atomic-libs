@@ -1,38 +1,77 @@
+---
+sidebar_position: 3
+---
 
 # Version Management
 
-This repo uses [changesets](https://github.com/changesets/changesets/tree/main) for managing versions. To publish a new version of a package, follow these steps:
+Package versions and changelogs are managed with [Changesets](https://github.com/changesets/changesets).
+Each change to a published package comes with a small markdown file in `.changeset/` that says which
+packages it affects, how big the version bump is, and what to put in the changelog. At release time those
+files are turned into version bumps and `CHANGELOG.md` entries.
 
-### Create a new changeset
+## Adding a changeset
 
-Each time that you make meaningful changes to a package, you should create a new changeset. To do this, run the following command:
+On your branch, after making the change:
+
 ```bash
 npx changeset
 ```
 
-This will guide you through the process of creating a new changeset.
+The prompt asks which packages changed, whether each is a `major`, `minor` or `patch` change, and for a
+summary. It writes a file like `.changeset/forms-new-input-wrappers.md`:
 
-Once you have created a changeset, you can view it by running the following command:
+```md
+---
+"@atomicjolt/forms": minor
+---
+
+Add form wrappers for the rest of the atomic-elements inputs and fields: `Form.SearchInput`, ...
+```
+
+The summary becomes the changelog entry, so write it for people using the package. Commit the file with
+your change. You can edit it by hand (or rename it) before merging.
+
+Check what's pending, and the bumps it will produce, with:
+
 ```bash
 npx changeset status
 ```
 
-### Version
+| Bump | Use for |
+| --- | --- |
+| `patch` | Bug fixes and internal changes that don't affect the API. |
+| `minor` | New, backwards-compatible features (new components, props, exports). |
+| `major` | Breaking changes (removed or renamed exports, changed behavior, raised peer dependency majors). |
 
-To publish a new version of a package, run the following command:
+### Changes that don't need one
 
-```bash
-npx changeset version
-```
-This will consume all of the changesets that have been created and bump the versions of the packages accordingly.
-Additionally, it will write changelog entries for each package.
-
-### Publish
-
-To publish the new versions of the packages, run the following command:
+Changes that don't affect any published package (docs, CI, the playground, repo tooling) don't need a
+changeset; don't add an empty one. The changeset pre-push hook rejects branches that don't add a file to
+`.changeset/` compared to `origin/main`, so push those branches with:
 
 ```bash
-npx changeset publish
+git push --no-verify
 ```
 
-This will loop through all of the packages and publish any that have a newer version than what is on NPM.
+## Releasing
+
+Releases are cut from `main`.
+
+1. **Version.** Consume all pending changesets, bump package versions, write `CHANGELOG.md` entries, and
+   bump internal dependents where needed:
+
+   ```bash
+   npx changeset version
+   ```
+
+   Review and commit the result (`.changeset` is configured with `commit: false`, so nothing is committed for you).
+
+2. **Publish.** Build, then publish every package whose version isn't on npm yet:
+
+   ```bash
+   npm run build --workspaces
+   npx changeset publish
+   ```
+
+   Packages are published with public access. `changeset publish` also creates a git tag per published
+   package; push them with `git push --follow-tags`.

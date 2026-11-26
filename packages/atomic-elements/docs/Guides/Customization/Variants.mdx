@@ -1,25 +1,26 @@
-import { Button, TextInput, ElementsProvider } from "@atomicjolt/atomic-elements";
+---
+sidebar_position: 1
+---
+
+import { Button, TextInput } from "@atomicjolt/atomic-elements";
 import { Example } from "../../components/Example";
 
 # Variants
 
-<ElementsProvider />
+Many components take a `variant` prop that picks a preset style or layout. There are two kinds:
 
-Some components in Atomic Elements have what we call _variants_.
-A component variant is a preset configuration of a component that changes it's appearance or behavior in some way. There are two types of variants:
+- **Visual variants** change only the CSS. They're implemented with CSS custom properties, so you
+  can restyle them or add your own without touching the library.
+- **Structural variants** change the component's markup, such as a floating label. They're built
+  into the component and can't be added from outside.
 
-- **Visual Variants** only modify the visual presentation for a component via CSS. These can be easily modified / additional ones may be added.
-- **Semantic Variants** modify the actual structure of a component's markup. These need to be added to the code explicitly. Note that any component that
-  has semantic variants can also have visual variants
+## Visual variants
 
-## Visual Variants
-
-Visual variants are variants that only modify the visual appearance of a component. For example, the button component has several visual variants built-in that you can use:
+`Button` (and `IconButton`) has these built-in visual variants:
 
 <Example>
   <Example.Rendered
       style={{
-        "--btn-font-size": "16px",
         display: "flex",
         gap: "10px",
         flexWrap: "wrap"
@@ -32,10 +33,11 @@ Visual variants are variants that only modify the visual appearance of a compone
     <Button variant="border">border</Button>
     <Button variant="link">link</Button>
     <Button variant="ghost">ghost</Button>
+    <Button variant="content">content</Button>
     <Button variant="inverted">inverted</Button>
   </Example.Rendered>
   <Example.Code>
-    ```jsx
+    ```tsx
     <Button variant="primary">primary</Button>
     <Button variant="secondary">secondary</Button>
     <Button variant="success">success</Button>
@@ -43,14 +45,33 @@ Visual variants are variants that only modify the visual appearance of a compone
     <Button variant="border">border</Button>
     <Button variant="link">link</Button>
     <Button variant="ghost">ghost</Button>
+    <Button variant="content">content</Button>
     <Button variant="inverted">inverted</Button>
     ```
   </Example.Code>
 </Example>
 
-### Creating new visual variants
+`primary` is the default. A variant adds a class to the component's root element,
+`aje-<component>--<variant>` (for buttons, `aje-btn--primary`), and that class sets the
+component's tokens:
 
-variants are implemented using css custom properties, so you can easily create new variants by adding new css declarations.
+```css
+/* The library's primary variant, simplified */
+.aje-btn--primary {
+  --btn-text-clr: var(--text-clr-on-accent);
+  --btn-bg-clr: var(--accent-clr-fill);
+  --btn-hover-text-clr: var(--btn-text-clr);
+  --btn-hover-bg-clr: var(--accent-clr-fill-hover);
+}
+```
+
+Each component's tokens are listed under **CSS variables** on its
+[Storybook](https://atomicjolt.github.io/atomic-libs/storybook/?path=/docs/elements-buttons-button--overview)
+page.
+
+### Adding a visual variant
+
+`variant` accepts any string, so a new variant is just CSS for a new class:
 
 ```css
 .aje-btn--purple {
@@ -60,12 +81,10 @@ variants are implemented using css custom properties, so you can easily create n
   --btn-hover-text-clr: white;
 }
 ```
-and then, you can use it like this:
 
 <Example>
   <Example.Rendered
       style={{
-        "--btn-font-size": "16px",
         "--btn-bg-clr": "purple",
         "--btn-text-clr": "white",
         "--btn-hover-bg-clr": "rgb(179, 13, 179)",
@@ -75,62 +94,63 @@ and then, you can use it like this:
     <Button variant="purple">purple!</Button>
   </Example.Rendered>
   <Example.Code>
-    ```jsx
+    ```tsx
     <Button variant="purple">purple!</Button>
     ```
   </Example.Code>
 </Example>
 
-### modify built in variants
+Use tokens rather than fixed colors where you can (`var(--success-clr-fill)` rather than `green`),
+so the variant follows the theme and works in the dark [color scheme](../../Theme/ColorSchemes.mdx).
 
-you can also modify the built-in variants if you want different defaults, but you need to be aware of css specificity rules to get it to work properly. by default,
-the selector that applies the styles to each of the variants has higher specificity than just `.aje-btn--primary` for example. so, you need to make sure your selector
-is more specific than the built-in one. for example:
+### Changing a built-in variant
+
+Override the same class. Component styles live in a [CSS layer](./CSSLayers.mdx), so a plain rule
+in your own stylesheet wins without any extra specificity:
 
 ```css
-/* this won't override the built in styles */
 .aje-btn--primary {
-  --btn-bg-clr: blue;
-  --btn-text-clr: white;
-  --btn-hover-bg-clr: rgb(179, 13, 179);
-  --btn-hover-text-clr: white;
-}
-
-/* this will */
-#root .aje-btn--primary {
-  --btn-bg-clr: blue;
-  --btn-text-clr: white;
-  --btn-hover-bg-clr: rgb(179, 13, 179);
-  --btn-hover-text-clr: white;
+  --btn-bg-clr: hsl(220, 70%, 40%);
+  --btn-hover-bg-clr: hsl(220, 70%, 32%);
 }
 ```
 
-## semantic variants
+To change it everywhere, prefer changing the tokens the variant reads instead (here
+`accent-clr-fill` and `accent-clr-fill-hover`) in your [theme](../../Theme/Intro.mdx); that also
+updates every other component that uses them.
 
-semantic variants are variants that modify the actual structure of a component's markup. for example, the `textinput` component has two semantic variants built-in: `default` and `floating`.
-these variants need to be implemented in a component explicitly.
+:::note
+If you turned layering off with `layerName={null}`, the library's selectors are more specific than
+a single class, and you'll need a more specific selector (for example `.my-app .aje-btn--primary`)
+to override them.
+:::
+
+## Structural variants
+
+Structural variants change the markup. For example, the input components have a `floating`
+variant, where the label sits inside the input and moves up when it has a value:
 
 <Example>
   <Example.Rendered>
-    <TextInput variant="default" label="default variant" size="full" />
+    <TextInput variant="default" label="Default variant" size="full" />
     <br />
-    <TextInput variant="floating" label="floating variant" size="full" />
+    <TextInput variant="floating" label="Floating variant" size="full" />
   </Example.Rendered>
   <Example.Code>
-    ```jsx
-    <TextInput variant="default" label="default variant" size="full" />
-    <br />
-    <TextInput variant="floating" label="floating variant" size="full" />
+    ```tsx
+    <TextInput variant="default" label="Default variant" />
+    <TextInput variant="floating" label="Floating variant" />
     ```
   </Example.Code>
 </Example>
 
-if you're interested in adding a new semantic variant to a component, you can look at the source code for the `textinput` component to see how it's done.
+These components support `variant="floating"`:
 
-the following components have semantic variants built in:
+- `TextInput`
+- `NumberInput`
+- `CustomSelect`
+- `ComboBox`
+- `MultiSelect`
 
-- `textinput`
-- `numberinput`
-- `searchinput`
-- `customselect`
-- `combobox`
+For a layout that no variant provides, build the field yourself with the
+[composition API](../Fields/CompositionVsProps.mdx).

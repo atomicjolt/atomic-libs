@@ -1,0 +1,55 @@
+---
+sidebar_position: 3
+---
+
+# ID Token Helpers
+
+Small functions that read facts out of a decoded LTI 1.3 ID token. They take the `IdToken` type from
+[`@atomicjolt/lti-types`](/lti-types/).
+
+```ts
+import {
+  isDeepLinkLaunch,
+  isAssignmentAndGradesLaunch,
+  isNamesAndRolesLaunch,
+  clientId,
+  lmsHost,
+  lmsUrl,
+} from "@atomicjolt/lti-client";
+```
+
+| Function | Returns |
+| --- | --- |
+| `isDeepLinkLaunch(idToken)` | `true` if the message type is `LtiDeepLinkingRequest`. |
+| `isAssignmentAndGradesLaunch(idToken)` | `true` if the token has the Assignment and Grade Services (AGS) endpoint claim. |
+| `isNamesAndRolesLaunch(idToken)` | Intended to be `true` when the token has a Names and Role Provisioning Services claim (see the caution below). |
+| `clientId(idToken)` | The tool's client ID: `azp` when there are several audiences, otherwise the first audience (`auds[0]`), otherwise `aud`. |
+| `lmsHost(idToken)` | The platform's return URL: `deep_link_return_url` from the deep linking claim for deep linking launches, otherwise `return_url` from the launch presentation claim. `null` if missing. |
+| `lmsUrl(idToken)` | `` `https://${lmsHost(idToken)}` `` |
+
+## Example
+
+```ts
+import type { IdToken } from "@atomicjolt/lti-types";
+import { isDeepLinkLaunch, isAssignmentAndGradesLaunch, clientId } from "@atomicjolt/lti-client";
+
+function describeLaunch(idToken: IdToken) {
+  if (isDeepLinkLaunch(idToken)) {
+    return "Show the content picker";
+  }
+
+  return {
+    clientId: clientId(idToken),
+    canGrade: isAssignmentAndGradesLaunch(idToken),
+  };
+}
+```
+
+:::caution
+- `isNamesAndRolesLaunch` compares the claim's `service_versions` array to a constant array with `===`,
+  so it currently always returns `false`. Check the claim yourself until that's fixed:
+  `idToken[NAMES_AND_ROLES_CLAIM]?.service_versions?.includes("2.0")`.
+- `lmsHost` returns a full return URL (including `https://`) when the platform sends one, so `lmsUrl`
+  can produce `https://https://…`, or `https://null` when the URL is missing. Parse the return URL with
+  `new URL(...)` if you need the platform's origin.
+:::

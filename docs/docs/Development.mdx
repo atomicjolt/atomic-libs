@@ -1,23 +1,80 @@
+---
+sidebar_position: 2
+---
 
 # Development
 
-To get started with development, follow these steps:
+This repo is an npm workspaces monorepo. Every package lives in `packages/`, and the root `package.json`
+holds the shared tooling (TypeScript, Vitest, Storybook, Docusaurus, Changesets).
+
+## Setup
+
+Use the Node version in `.tool-versions` (currently 24), then:
 
 ```bash
-# Install Dependencies
+# Install dependencies for every package
 npm install
 
-# Build all packages
+# Build every package
 npm run build --workspaces
-
-# Run the playground
-npm run playground
 ```
 
-## Testing
+Build before running tests or the playground: packages import each other through their built `dist`
+output, so a stale build means stale code.
 
-To run tests for all packages, use the following command:
+## Tests
+
+Tests use [Vitest](https://vitest.dev/) with jsdom and React Testing Library.
 
 ```bash
-npm run test --workspaces
+# Every package (--if-present skips packages without a test script, as CI does)
+npm run test --workspaces --if-present
+
+# One package
+npm run test --workspace @atomicjolt/atomic-elements
+
+# Watch mode (packages with a test:watch script: atomic-elements, forms, jsonforms)
+npm run test:watch --workspace @atomicjolt/forms
+
+# Update snapshots (atomic-elements, atomic-fuel, canvas-client)
+npm run test:update --workspace @atomicjolt/atomic-elements
 ```
+
+CI (`.github/workflows/test.yml`) runs the build, the tests and the docs build on every pull request to
+`main`.
+
+## Playground, Storybook and docs
+
+| Command | What it runs |
+| --- | --- |
+| `npm run playground` | The Vite playground in `playground/`, for trying packages together in a real app. |
+| `npm run storybook:dev` | Storybook on port 6006, with stories for atomic-elements and jsonforms. |
+| `npm run docs:start` | This Docusaurus site, with live reload. |
+| `npm run docs:build` | Builds Docusaurus and Storybook into `docs/build/`. |
+| `npm run docs:serve` | Serves the built site locally. |
+
+The docs for each package live in that package's `docs/` folder (e.g. `packages/forms/docs/`) and are
+registered as a docs plugin in `docs/docusaurus.config.ts`. Pushing to `main` deploys the site to GitHub
+Pages.
+
+## Scaffolding
+
+```bash
+# New atomic-elements component in packages/atomic-elements/src/components
+npm run scaffold:component
+
+# New package in packages/
+npm run scaffold:package
+```
+
+Components are generated with the standard file layout (`Name.component.tsx`, `Name.styles.ts`,
+`Name.context.ts`, `Name.stories.tsx`, `Name.spec.tsx`, `index.tsx`). A new package comes with a
+`docs/Index.mdx`; add the package to the root `package.json` `workspaces` list and its docs folder to
+`docs/docusaurus.config.ts`.
+
+## Making a change
+
+1. Branch from `main`.
+2. Make your change, with tests.
+3. If it affects a published package, add a changeset (`npx changeset`); see [Version Management](./VersionManagement.mdx).
+4. Push and open a pull request against `main`.

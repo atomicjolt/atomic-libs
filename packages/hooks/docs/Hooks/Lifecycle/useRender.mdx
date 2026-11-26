@@ -1,21 +1,30 @@
+---
+sidebar_position: 3
+---
+
 # `useRender`
 
-Run `callback` on every render of the component.
+Runs `callback` after every render. Equivalent to `useEffect(callback)` with no dependency array.
 
-### Parameters
+```ts
+function useRender(callback: EffectCallback): void;
+```
 
-- `callback` (function): The function to run after the initial render.
+## Parameters
 
-### Example
+- `callback`: the function to run after each render. It may return a cleanup function, which runs
+  before the next call and on unmount.
 
-```jsx
-import { useRender } from '@atomicjolt/hooks';
+## Example
 
-function MyComponent() {
+```tsx
+import { useRender } from "@atomicjolt/hooks";
+
+function Chart({ data }: { data: number[] }) {
   useRender(() => {
-    console.log('Rendered!');
+    console.log("Chart rendered with", data.length, "points");
   });
 
-  return <div>My Component</div>;
+  return <svg>{/* ... */}</svg>;
 }
 ```

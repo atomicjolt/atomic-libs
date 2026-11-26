@@ -1,39 +1,55 @@
+---
+sidebar_position: 5
+---
+
 # `useLocalStorage`
 
-The `useLocalStorage` hook allows you to manage a `localStorage` value as a React state value. Setting the value will also write it to `localStorage`. Upon a reload, if the `key` exists in `localStorage`, the value will be loaded and used as the initial state, instead of `initialState`.
+State that is also saved to `localStorage`. Setting the value writes it (JSON-encoded) under `key`; on
+the next mount, a stored value for `key` is used instead of `initialState`, so it survives reloads.
+
+```ts
+function useLocalStorage<T>(
+  key: string,
+  initialState: T
+): [state: T, setState: (value: T) => void, remove: () => void];
+```
 
 :::tip
-If you'd like to configure how the value is serialized and deserialized, you can use
-[makeStorageHook](../Constructors/makeStorageHook.mdx) to build your own hook.
+To change how values are serialized, or to prefix keys, build your own hook with
+[`makeStorageHook`](../Constructors/makeStorageHook.mdx).
 :::
-
 
 ## Parameters
 
-- `key` (string): A unique key to set and access the value with.
-- `initialState` (any): Initial state value.
+- `key`: the `localStorage` key.
+- `initialState`: used when nothing is stored under `key`. It isn't written to storage until you call `setState`.
 
 ## Returns
 
-An array containing:
-- The state value.
-- The state setter function (which will also set the value in `localStorage`).
-- A function to remove the value from `localStorage`. This does not change the value held in state.
+- `state`: the current value.
+- `setState`: sets the state and writes it to `localStorage`. It takes a value only, not an updater function.
+- `remove`: deletes the key from `localStorage`. The value held in state is unchanged.
 
-## Usage
+## Example
 
-```jsx
-import { useLocalStorage } from '@atomicjolt/hooks';
+```tsx
+import { useLocalStorage } from "@atomicjolt/hooks";
 
-function Component() {
-  const [value, setValue, removeValue] = useLocalStorage('myKey', 'defaultValue');
+function SidebarToggle() {
+  const [collapsed, setCollapsed, forget] = useLocalStorage("sidebarCollapsed", false);
 
   return (
     <div>
-      <p>{value}</p>
-      <button onClick={() => setValue('newValue')}>Set Value</button>
-      <button onClick={removeValue}>Remove Value</button>
+      <button onClick={() => setCollapsed(!collapsed)}>
+        {collapsed ? "Expand" : "Collapse"} sidebar
+      </button>
+      <button onClick={forget}>Forget preference</button>
     </div>
   );
 }
 ```
+
+:::note
+Values are read once, when the component mounts. Other components (or tabs) using the same key don't
+update when the value changes.
+:::

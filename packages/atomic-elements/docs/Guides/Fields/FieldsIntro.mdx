@@ -1,30 +1,105 @@
 ---
 sidebar_position: 1
+title: Fields introduction
 ---
 
-import { Button, Group, IconButton, TextInput, ElementsProvider, TextField, Label, Message, Input, ErrorMessage, ComboInput } from "@atomicjolt/atomic-elements";
+import { Button, Group, IconButton, TextInput, TextField, Label, Message, Input, ErrorMessage, ComboInput, CheckBox } from "@atomicjolt/atomic-elements";
 import { Example } from "../../components/Example";
 
-# Fields Introduction
+# Fields introduction
 
-<ElementsProvider />
+Atomic Elements gives you two ways to build a form input. Both handle labelling, help text, error
+messages and their ARIA wiring for you.
 
-The "Fields" API is Atomic Elements composition API for building interactive forms. It is designed to be composable and flexible, giving you a lot of control over the look and feel of your inputs, while still providing the necessary accessibility features.
+- **Input components** (`TextInput`, `CustomSelect`, `DatePicker`, ...) take `label`, `message` and
+  `error` as props and render a fixed layout. Reach for these first.
+- **Field components** (`TextField`, `SelectField`, ...) are composed from parts you place
+  yourself: `<Label>`, `<Input>`, `<Message>`, `<ErrorMessage>`. Use them when you need a layout
+  the input components don't offer.
 
-For example, the `TextField` components handles the details of managing the input and accessibility, while you provide the semantic structure of the field.
+[Composition vs. props](./CompositionVsProps.mdx) compares the two in more detail.
 
 <Example>
   <Example.Rendered>
-    <TextField size="large">
+    <TextInput label="Course name" message="Shown to students" size="full" />
+  </Example.Rendered>
+  <Example.Code>
+    ```tsx
+    <TextInput label="Course name" message="Shown to students" />
+    ```
+  </Example.Code>
+</Example>
+
+## Which component to use
+
+| Input type | Input component (props) | Field component (composition) |
+| --- | --- | --- |
+| Single-line text | `TextInput` | `TextField` |
+| Multi-line text | `TextAreaInput` | `TextField` with `<TextArea>` |
+| Number | `NumberInput` | `NumberField` |
+| Search | `SearchInput` | `SearchField` |
+| Select one | `CustomSelect` (styled), `Select` (native `<select>`) | `SelectField` |
+| Select many | `MultiSelect` | `MultiSelectField` |
+| Autocomplete | `ComboBox` | `ComboBoxField` |
+| Date | `DateInput`, `DatePicker` (with calendar popup) | `DateField` |
+| Time | `TimeInput` | |
+| Checkbox / switch | `CheckBox`, `ToggleSwitch` | |
+| Radio buttons | `RadioGroup` with `Radio` | |
+| File | `FileInput` | |
+| Chips | | `ChipGroupField` |
+| Anything else | | `Field` (you manage the input's state) |
+
+Each component's props are listed in
+[Storybook](https://atomicjolt.github.io/atomic-libs/storybook/?path=/docs/elements-inputs-user-input-textinput--overview).
+
+## Shared props
+
+Input and field components share these props:
+
+| Prop | Description |
+| --- | --- |
+| `label` | Visible label. Input components only; field components use a `<Label>` child. If there's no visible label, pass `aria-label`. |
+| `message` | Help text shown with the input and announced as its description. |
+| `error` | Error text. **Shown only when `isInvalid` is true.** |
+| `isInvalid` | Marks the field invalid: shows `error` and sets `aria-invalid`. |
+| `isRequired`, `isDisabled`, `isReadOnly` | Field states. Each also adds a `data-required`, `data-disabled` or `data-readonly` attribute you can style. |
+| `value` / `defaultValue` / `onChange` | Controlled or uncontrolled value. `onChange` receives the **value**, not a DOM event. |
+| `name` | Name submitted with a native `<form>`. |
+| `size` | Width: `"small"`, `"medium"`, `"large"`, `"auto"` or `"full"`. |
+| `isLoading` / `loadingLabel` | Shows a loading state. A `<Loading>` provider sets this for everything inside it. |
+
+```tsx
+const [email, setEmail] = useState("");
+const isInvalid = email !== "" && !email.includes("@");
+
+<TextInput
+  label="Email"
+  type="email"
+  value={email}
+  onChange={setEmail}
+  isRequired
+  isInvalid={isInvalid}
+  error="Enter a valid email address"
+/>
+```
+
+## Composing a field
+
+A field component manages the input's state and accessibility, and passes the right props to each
+part through context. You decide which parts to render and in what order.
+
+<Example>
+  <Example.Rendered>
+    <TextField size="large" isInvalid>
       <Label>Name</Label>
-      <Message className="sb-unstyled">Enter your name</Message>
+      <Message>Enter your name</Message>
       <Input />
-      <ErrorMessage>Invalid name</ErrorMessage>
+      <ErrorMessage>Name is required</ErrorMessage>
     </TextField>
   </Example.Rendered>
   <Example.Code>
-    ```jsx
-    import React, { useState } from "react";
+    ```tsx
+    import { useState } from "react";
     import {
       TextField,
       Label,
@@ -33,15 +108,15 @@ For example, the `TextField` components handles the details of managing the inpu
       Input,
     } from "@atomicjolt/atomic-elements";
 
-    function MyComponent() {
-      const [name, setName] = useState("John Doe");
+    function NameField() {
+      const [name, setName] = useState("");
 
       return (
-        <TextField value={name} onChange={setName}>
+        <TextField value={name} onChange={setName} isInvalid={name === ""}>
           <Label>Name</Label>
           <Message>Enter your name</Message>
           <Input />
-          <ErrorMessage>Invalid name</ErrorMessage>
+          <ErrorMessage>Name is required</ErrorMessage>
         </TextField>
       );
     }
@@ -49,61 +124,174 @@ For example, the `TextField` components handles the details of managing the inpu
   </Example.Code>
 </Example>
 
-## Group Fields & Buttons
+The parts are:
 
-Because you are defining the markup for the field, you can customize the layout and appearance of the field to suit your needs.
-For example, you can use the `Group` component to create a field with a button and input:
+| Part | Alias | Renders |
+| --- | --- | --- |
+| `Label` | `FieldLabel` | The `<label>`, linked to the input |
+| `Input` | `FieldInput` | The `<input>` |
+| `TextArea` | `FieldTextArea` | A `<textarea>`, in place of `Input` |
+| `Message` | `FieldMessage` | Help text, linked with `aria-describedby` |
+| `ErrorMessage` | `FieldErrorMessage` | Error text, rendered only when the field is invalid |
+| `ComboInput` | | A wrapper that draws several elements as one input box |
+
+The `Field*` names are aliases for the same components. Use whichever reads better in your code.
+
+:::note
+`ErrorMessage` renders nothing unless the field's `isInvalid` is true, so you can leave it in the
+tree permanently.
+:::
+
+### Inputs with buttons
+
+Because you write the markup, you can put other elements next to the input. Wrap them in a
+[`Group`](../Layout.mdx#group) with `isMerged` to join them visually:
 
 <Example>
   <Example.Rendered>
     <TextField size="large">
-      <Label>Name</Label>
-      <Message className="sb-unstyled">Enter your name</Message>
+      <Label>Invite by email</Label>
       <Group isMerged>
         <Input />
-        <Button variant="primary">Save</Button>
+        <Button variant="border">Send</Button>
       </Group>
-      <ErrorMessage>Invalid name</ErrorMessage>
     </TextField>
   </Example.Rendered>
   <Example.Code>
-    ```jsx
-    <TextField size="large">
-      <Label>Name</Label>
-      <Message>Enter your name</Message>
+    ```tsx
+    <TextField>
+      <Label>Invite by email</Label>
       <Group isMerged>
         <Input />
-        <Button variant="border">Save</Button>
+        <Button variant="border">Send</Button>
       </Group>
-      <ErrorMessage>Invalid name</ErrorMessage>
     </TextField>
     ```
   </Example.Code>
 </Example>
 
-## ComboInput
+### ComboInput
 
-The `ComboInput` component wraps multiple elements into a single visual input. This is useful for creating complex inputs, such as a date picker or a search input.
+`ComboInput` draws an input and other elements (usually icon buttons) inside a single input border.
+`padding` adds inner padding on the `"left"`, `"right"` or `"both"` sides, next to the text.
 
 <Example>
   <Example.Rendered>
-    <TextField size="large">
+    <TextField size="large" aria-label="Search courses">
       <ComboInput padding="left">
-        <Input placeholder="Search" />
-        <IconButton icon="search" variant="ghost" />
+        <Input placeholder="Search courses" />
+        <IconButton icon="search" variant="ghost" aria-label="Search" />
       </ComboInput>
-      <ErrorMessage>Invalid name</ErrorMessage>
     </TextField>
   </Example.Rendered>
   <Example.Code>
-    ```jsx
-    <TextField size="large">
+    ```tsx
+    <TextField aria-label="Search courses">
       <ComboInput padding="left">
-        <Input placeholder="search" />
-        <IconButton icon="search" variant="ghost" />
+        <Input placeholder="Search courses" />
+        <IconButton icon="search" variant="ghost" aria-label="Search" />
       </ComboInput>
-      <ErrorMessage>Invalid name</ErrorMessage>
     </TextField>
     ```
   </Example.Code>
 </Example>
+
+### Slots
+
+Some field components give special behavior to buttons placed inside them, picked by the button's
+`slot` prop:
+
+| Field | Slot | Behavior |
+| --- | --- | --- |
+| `SearchField` | `slot="submit"` | Calls `onSubmit` with the current value, and gets a "search" label |
+| `SearchField` | `slot="clear"` | Clears the field, calls `onClear`, and gets a "Clear search" label |
+
+`NumberField` provides its own buttons instead, `NumberField.IncrementButton` and
+`NumberField.DecrementButton`, and `SelectField` provides `SelectField.Value` to show the selected
+item:
+
+```tsx
+<NumberField minValue={0} maxValue={10}>
+  <Label>Attempts allowed</Label>
+  <Group isMerged>
+    <NumberField.DecrementButton icon="remove" />
+    <Input />
+    <NumberField.IncrementButton icon="add" />
+  </Group>
+</NumberField>
+
+<SelectField>
+  <Label>Grading scheme</Label>
+  <Button variant="dropdown">
+    <SelectField.Value placeholder="Choose a scheme" />
+    <MaterialIcon icon="arrow_drop_down" />
+  </Button>
+  <Popover>
+    <ListBox>
+      <Item id="points">Points</Item>
+      <Item id="percent">Percentage</Item>
+      <Item id="letter">Letter grade</Item>
+    </ListBox>
+  </Popover>
+</SelectField>
+```
+
+Storybook has a working example of each field component under **Fields**.
+
+## Checkboxes and radio buttons
+
+`CheckBox` and `Radio` take their label as `children`, and render it in a real `<label>` tied to
+the input. `message` and `error` are rendered outside the label and linked to the input with
+`aria-describedby`, so screen readers read the label as the name and the message as the
+description.
+
+<Example>
+  <Example.Rendered>
+    <CheckBox message="Students can see grades as soon as they're entered">
+      Show grades to students
+    </CheckBox>
+  </Example.Rendered>
+  <Example.Code>
+    ```tsx
+    <CheckBox
+      isSelected={showGrades}
+      onChange={setShowGrades}
+      message="Students can see grades as soon as they're entered"
+    >
+      Show grades to students
+    </CheckBox>
+    ```
+  </Example.Code>
+</Example>
+
+`RadioGroup` takes a `label` prop, rendered as the group's `<legend>`:
+
+```tsx
+<RadioGroup label="Submission type" value={type} onChange={setType}>
+  <Radio value="online">Online</Radio>
+  <Radio value="paper">On paper</Radio>
+</RadioGroup>
+```
+
+## Building forms
+
+Atomic Elements components are form _controls_: they don't track form state or run validation
+rules across fields. For that, use [`@atomicjolt/forms`](/forms), which connects these components
+to [react-hook-form](https://react-hook-form.com/):
+
+```tsx
+import { Form } from "@atomicjolt/forms";
+
+<Form onSubmit={(data) => save(data)}>
+  <Form.TextInput name="title" label="Title" isRequired="A title is required" />
+  <Form.NumberInput name="points" label="Points" />
+  <Form.SubmitButton>Save</Form.SubmitButton>
+</Form>
+```
+
+Each `Form.*` input is the matching atomic-elements component, registered under its `name`, with
+validation errors passed to its `error` prop for you. For forms generated from a JSON Schema, see
+[`@atomicjolt/jsonforms`](/jsonforms).
+
+If you manage state yourself, the components work like any controlled React input: pass `value`
+and `onChange`, compute `isInvalid`, and pass the message as `error`.

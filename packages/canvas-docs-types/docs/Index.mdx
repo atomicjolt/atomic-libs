@@ -1,0 +1,65 @@
+---
+sidebar_position: 1
+---
+
+# Introduction
+
+`@atomicjolt/canvas-docs-types` contains TypeScript definitions for the Swagger 1.2 JSON that describes the
+Canvas REST API, published at `https://canvas.instructure.com/doc/api`. Use it when you fetch, parse or index
+the Canvas API documentation itself. For example, you might build embeddings of Canvas API operations for
+search or AI tooling. These are not types for Canvas API responses.
+
+## Installation
+
+```bash
+npm install @atomicjolt/canvas-docs-types
+```
+
+There are no dependencies or peer dependencies.
+
+## What's in it
+
+**Constants**
+
+- `CANVAS_API_DOCS_BASE_URL` – `https://canvas.instructure.com/doc/api`.
+- `CANVAS_API_DIRECTORY_PATH` – `/api-docs.json`, the directory that lists every API resource.
+
+**Swagger documents**
+
+- `CanvasApiDirectory`, `CanvasApiEndpoint` – the top-level directory and its entries.
+- `CanvasApiSchema` – one resource's document (for example `/courses.json`), with its endpoints and models.
+- `ApiEndpoint`, `Operation`, `Parameter` – endpoints, their HTTP operations and their parameters.
+- `ModelDefinition`, `PropertyDefinition` – the response models the docs describe.
+
+**Derived types**
+
+- `CanvasApiEmbeddingDocument` – a flattened record of one operation (`path`, `nickname`, and the operation as a JSON string), for storing in a vector index.
+
+## Usage
+
+```ts
+import {
+  CANVAS_API_DOCS_BASE_URL,
+  CANVAS_API_DIRECTORY_PATH,
+  type CanvasApiDirectory,
+  type CanvasApiSchema,
+  type CanvasApiEmbeddingDocument,
+} from '@atomicjolt/canvas-docs-types';
+
+async function loadCanvasOperations(): Promise<CanvasApiEmbeddingDocument[]> {
+  const directory: CanvasApiDirectory = await fetch(
+    `${CANVAS_API_DOCS_BASE_URL}${CANVAS_API_DIRECTORY_PATH}`
+  ).then((r) => r.json());
+
+  const docs: CanvasApiEmbeddingDocument[] = [];
+  for (const api of directory.apis) {
+    const schema: CanvasApiSchema = await fetch(`${CANVAS_API_DOCS_BASE_URL}${api.path}`).then((r) => r.json());
+    for (const endpoint of schema.apis) {
+      for (const operation of endpoint.operations) {
+        docs.push({ path: endpoint.path, nickname: operation.nickname, operation: JSON.stringify(operation) });
+      }
+    }
+  }
+  return docs;
+}
+```

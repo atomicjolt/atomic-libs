@@ -1,34 +1,41 @@
+---
+sidebar_position: 1
+---
+
 # `useBool`
 
-`useBool` is a hook that provides a boolean state and a set of functions to manipulate it.
+A `useState` wrapper for booleans that adds a stable `toggle` function. Handy for open/closed,
+shown/hidden and on/off state.
+
+```ts
+function useBool(
+  initialState?: boolean | (() => boolean)
+): [value: boolean, toggle: () => void, set: Dispatch<SetStateAction<boolean>>];
+```
 
 ## Parameters
 
-- `initialState` (optional): The initial value of the boolean state. Default is `false`.
+- `initialState` (optional): the starting value, or a function that returns it. Defaults to `false`.
 
 ## Returns
 
-An array with the following elements:
+- `value`: the current boolean.
+- `toggle`: flips the value. Its identity is stable across renders, so it's safe to pass to memoized children.
+- `set`: React's state setter; accepts a boolean or an updater function.
 
-- `bool`: The boolean state.
-- `toggle`: A function that toggles the boolean state.
-- `setBool`: A function that sets the boolean state.
-
-## Usage
-
+## Example
 
 ```tsx
 import { useBool } from "@atomicjolt/hooks";
 
-export function UseBoolExample() {
-  const [bool, toggle, setBool] = useBool();
+function Details() {
+  const [isOpen, toggle, setOpen] = useBool();
 
   return (
     <div>
-      <p>{bool ? "True" : "False"}</p>
-      <button onClick={toggle}>Toggle</button>
-      <button onClick={() => setBool(true)}>Set True</button>
-      <button onClick={() => setBool(false)}>Set False</button>
+      <button onClick={toggle}>{isOpen ? "Hide" : "Show"} details</button>
+      <button onClick={() => setOpen(false)}>Close</button>
+      {isOpen && <p>Here are the details.</p>}
     </div>
   );
 }

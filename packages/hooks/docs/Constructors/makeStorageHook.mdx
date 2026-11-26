@@ -1,51 +1,78 @@
+---
+sidebar_position: 2
+---
+
 # `makeStorageHook`
 
-`makeStorageHook` is a factory function that creates custom hooks for managing state with web storage (`localStorage` or `sessionStorage`). The created hooks synchronize the state with the specified storage, allowing the state to persist across page reloads.
+Builds a storage-backed state hook like [`useLocalStorage`](../Hooks/useLocalStorage.mdx) (which is
+literally `makeStorageHook(localStorage)`). Use it to change how values are serialized, to namespace keys
+with a prefix, or to back the hook with your own storage object.
+
+```ts
+function makeStorageHook<Stored = string>(
+  storage: {
+    getItem(key: string): Stored;
+    setItem(key: string, value: Stored): void;
+    removeItem(key: string): void;
+  },
+  options?: {
+    prepare?: (value: any) => Stored; // default: JSON.stringify
+    parse?: (stored: Stored) => any;  // default: JSON.parse
+    prefix?: string;                  // default: ""
+  }
+): <T>(key: string, initialState: T) => [state: T, setState: (value: T) => void, remove: () => void];
+```
 
 ## Parameters
 
-- `storage`: An object implementing the `StorageInterface` with methods `getItem`, `setItem`, and `removeItem`.
-- `options` (optional): An object with optional parameters:
-  - `prepare`: A function to encode the data as a string to store. Defaults to `JSON.stringify`.
-  - `parse`: A function to decode a value retrieved from storage. Defaults to `JSON.parse`.
-  - `prefix` (optional): A string to prefix all the keys with.
+- `storage`: anything with `getItem`, `setItem` and `removeItem`: `localStorage`, `sessionStorage`, or your own object.
+- `options` (optional):
+  - `prepare`: converts a value into what gets stored. Defaults to `JSON.stringify`.
+  - `parse`: converts a stored value back. Defaults to `JSON.parse`.
+  - `prefix`: prepended to every key, e.g. `"myApp:"`.
 
 ## Returns
 
-An array containing:
-- The state value.
-- The state setter function (which will also set the value in the specified storage).
-- A function to remove the value from the specified storage. This does not change the value held in state.
+A hook with the same signature as `useLocalStorage`: call it with a `key` and an `initialState`, and it
+returns `[state, setState, remove]`. A stored value for the key is used instead of `initialState` when
+the component mounts (falsy stored values such as `""` are ignored). `setState` takes a value only, not an
+updater function. `remove` deletes the key from storage without changing the state.
 
-### Example
+## Examples
+
+Namespace every key for your app:
 
 ```tsx
-import { makeStorageHook } from '@atomicjolt/hooks';
+import { makeStorageHook } from "@atomicjolt/hooks";
 
-const useCustomStorage = makeStorageHook(localStorage);
+const useAppStorage = makeStorageHook(localStorage, { prefix: "gradebook:" });
 
-function MyComponent() {
-  const [value, setValue, removeValue] = useCustomStorage('myKey', 'value');
-
-  return (
-    <div>
-      <p>{value.default}</p>
-      <button onClick={() => setValue('value')}>Set Value</button>
-      <button onClick={removeValue}>Remove Value</button>
-    </div>
-  );
+function ColumnPicker() {
+  // Stored under "gradebook:columns"
+  const [columns, setColumns] = useAppStorage("columns", ["name", "score"]);
+  // ...
 }
 ```
 
-And you can customize the serialization and deserialization of the data:
+Store dates as ISO strings:
 
 ```tsx
-import { makeStorageHook } from '@atomicjolt/hooks';
+const useDateStorage = makeStorageHook(localStorage, {
+  prepare: (date: Date) => date.toISOString(),
+  parse: (stored) => new Date(stored),
+});
 
-const useNumberStorage= makeStorageHook(localStorage, {
-  // Convert your data into a string to store
-  prepare: (data) => data.toString(),
-  // Convert the stored string back into your data
-  parse: (data) => parseInt(data, 10),
+const [lastVisit, setLastVisit] = useDateStorage("lastVisit", new Date());
+```
+
+Back it with your own store (here, an in-memory `Map` that lasts until the page reloads):
+
+```tsx
+const memory = new Map<string, string>();
+
+const useMemoryStorage = makeStorageHook({
+  getItem: (key) => memory.get(key) ?? "",
+  setItem: (key, value) => memory.set(key, value),
+  removeItem: (key) => memory.delete(key),
 });
 ```

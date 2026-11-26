@@ -1,14 +1,27 @@
+---
+sidebar_position: 4
+---
+
 # `useRenderCount`
 
-Returns the number of times the component has been rendered.
+Returns how many times the component has rendered **before** the current render: `0` on the first
+render, `1` on the second, and so on. Mostly useful when debugging unexpected re-renders.
 
-### Example
+```ts
+function useRenderCount(): number;
+```
 
-```jsx
-import { useRenderCount } from '@atomicjolt/hooks';
+The count is kept in a ref and incremented in an effect, so it never causes a re-render itself.
 
-function MyComponent() {
-  const renderCount = useRenderCount();
-  return <div>Rendered {renderCount} times</div>;
+## Example
+
+```tsx
+import { useRenderCount } from "@atomicjolt/hooks";
+
+function Row({ item }: { item: Item }) {
+  const renders = useRenderCount();
+  console.log(`Row ${item.id} has rendered ${renders + 1} times`);
+
+  return <li>{item.name}</li>;
 }
 ```

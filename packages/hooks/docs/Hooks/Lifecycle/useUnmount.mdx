@@ -1,20 +1,30 @@
+---
+sidebar_position: 2
+---
+
 # `useUnmount`
 
-Run `callback` when the component is being unmounted.
+Runs `callback` when the component unmounts. Equivalent to `useEffect(() => callback, [])`.
 
-### Parameters
+```ts
+function useUnmount(callback: () => void): void;
+```
 
-- `callback` (function): The function to run after the initial render.
+## Parameters
 
-### Example
+- `callback`: the function to run on unmount. It's captured on the first render, so it only sees the
+  props and state from that render; read anything newer through a ref.
 
-```jsx
-import { useUnmount } from '@atomicjolt/hooks';
+## Example
 
-function MyComponent() {
+```tsx
+import { useUnmount } from "@atomicjolt/hooks";
+
+function Editor() {
   useUnmount(() => {
-    console.log('Unmounting!');
+    console.log("Editor closed");
   });
 
-  return <div>My Component</div>;
+  return <div>Editor</div>;
 }
+```

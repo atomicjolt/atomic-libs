@@ -1,131 +1,151 @@
+---
+sidebar_position: 4
+---
+
 # Validations
 
-Each component supports a set of pre-defined validations that can be passed in as props.
+Validation rules are props on each input. They map onto react-hook-form's
+[validation rules](https://react-hook-form.com/docs/useform/register#options), renamed to match
+atomic-elements' prop names and only offered on inputs where they make sense.
 
-These props essentially match the API of the [`react-hook-form` register() function](https://react-hook-form.com/docs/useform/register),
-but they're only exposed on the components that make sense. For example, the `Form.TextInput` component supports
-the `minLength` and `maxLength` props, and the `Form.NumberInput` component supports the `minValue` and `maxValue` props, but not vice versa.
+| Prop | react-hook-form rule | Available on |
+| --- | --- | --- |
+| `isRequired` | `required` | every input |
+| `validate` | `validate` | every input |
+| `minLength` / `maxLength` | `minLength` / `maxLength` | `TextInput`, `TextField`, `TextAreaInput`, `SearchInput`, `SearchField`, `Select` |
+| `pattern` | `pattern` | the inputs above, plus `NumberInput` and `NumberField` |
+| `minValue` / `maxValue` | `min` / `max` | `NumberInput`, `NumberField` |
 
-```jsx
-import { Form  } from '@atomicjolt/forms';
+Each rule takes either the bare value or `{ value, message }`. `isRequired` also accepts the message
+string directly, which both makes the field required and sets the message:
 
-const MyForm = () => {
-   const onSubmit = (data) => {
-     console.log(data);
-   }
-
-   const isEmail = (value: string) => {
-        if (!value) {
-            return "Email is required";
-        }
-        if (!value.includes("@")) {
-            return "Email must be valid";
-        }
-        return true;
-    }
-
-   return (
-      <Form onSubmit={onSubmit}>
-         <Form.TextInput
-            name="firstName"
-            label="First Name"
-            minLength={{ value: 3, message: "Name must be 3 characters or longer" }}
-            isRequired="First names is required"
-         />
-         <Form.TextInput
-            name="lastName"
-            label="Last Name"
-            isRequired="Last name is Required"
-         />
-         <Form.NumberInput
-            name="age"
-            label="Age"
-            minValue={{ value: 13, message: "You must be 13 or older to sign up" }}
-         />
-         <Form.SubmitButton>Submit</Form.SubmitButton>
-      </Form>
-   )
-};
-```
-Attempting to submit the above form without valid data will result in the related error
-messages being displayed below each input & the form will not submit.
-
-## Custom Validations
-
-You can also pass in a custom validation function to the `validate` prop.
-
-```jsx
-import { Form } from '@atomicjolt/forms';
-
-const MyForm = () => {
-   const onSubmit = (data) => {
-     console.log(data);
-   }
-
-   const isEmail = (value: string) => {
-        if (!value) {
-            return "Email is required";
-        }
-        if (!value.includes("@")) {
-            return "Email must be valid";
-        }
-        return true;
-    }
-
-   return (
-      <Form onSubmit={onSubmit}>
-         <Form.TextInput name="firstName" label="First Name" />
-         <Form.TextInput name="lastName" label="Last Name" />
-         <Form.TextInput name="email" label="Email" validate={isEmail} />
-         <Form.SubmitButton>Submit</Form.SubmitButton>
-      </Form>
-   )
-};
+```tsx
+<Form.TextInput name="name" label="Name" isRequired="Name is required" />
+<Form.TextInput name="code" label="Code" pattern={{ value: /^[A-Z]{3}$/, message: "Three capital letters" }} />
+<Form.NumberInput name="age" label="Age" minValue={{ value: 13, message: "You must be 13 or older" }} />
 ```
 
-### Multiple Validations
+:::tip
+Always give a message. A rule without one (e.g. `isRequired` or `minLength={3}`) still blocks submission and
+marks the input invalid, but there's no text to display.
+:::
 
-If you have multiple validations, you can also pass in an object
+A field with `isRequired` also gets atomic-elements' `isRequired` styling. "Empty" follows
+react-hook-form: `""`, `null`/`undefined`, an empty array, and `false` (so a required `Form.CheckBox` must
+be checked) all fail `isRequired`.
 
-```jsx
-import { Form } from '@atomicjolt/forms';
+## When errors show
 
-const MyForm = () => {
-   const onSubmit = (data) => {
-     console.log(data);
-   }
+By default react-hook-form validates on submit, then re-validates a field each time it changes. Change
+this with the `mode` and `reValidateMode` props on `Form` (e.g. `mode="onBlur"`).
 
-   const isEmail = (value) => {
-      if (!value) {
-         return "Email is required";
-      }
-      if (!value.includes("@")) {
-         return "Email must be valid";
-      }
-      return true;
-   }
+All-in-one inputs show their error message automatically. In a composed field (`Form.TextField`,
+`Form.SelectField`, ...), add `<Form.ErrorMessage />` where the message should appear; with no children
+it shows the field's current validation message. See [Components](./Components.mdx#all-in-one-inputs-vs-composed-fields).
 
-   const isDomainEmail = (value) => {
-      if (!value) {
-         return "Email is required";
-      }
-      if (!value.includes("@domain.com")) {
-         return "Email must be from domain.com";
-      }
-      return true;
-   }
+```tsx
+<Form.TextField name="title" isRequired="Title is required" maxLength={{ value: 80, message: "80 characters max" }}>
+  <Form.Label>Title</Form.Label>
+  <Form.Input />
+  <Form.ErrorMessage />
+</Form.TextField>
+```
 
-   return (
-        <Form onSubmit={onSubmit}>
-            <Form.TextInput name="firstName" label="First Name" />
-            <Form.TextInput name="lastName" label="Last Name" />
-            <Form.TextInput
-                name="email"
-                label="Email"
-                validate={{ isEmail, isDomainEmail }}
-            />
-            <Form.SubmitButton>Submit</Form.SubmitButton>
-        </Form>
-   )
-};
+Errors set with react-hook-form's `setError` (e.g. from a server response) are displayed the same way.
+
+## Example
+
+```tsx
+import { Form } from "@atomicjolt/forms";
+
+function SignupForm() {
+  return (
+    <Form onSubmit={(data) => console.log(data)}>
+      <Form.TextInput
+        name="firstName"
+        label="First Name"
+        isRequired="First name is required"
+        minLength={{ value: 3, message: "Name must be 3 characters or longer" }}
+      />
+      <Form.TextInput name="lastName" label="Last Name" isRequired="Last name is required" />
+      <Form.NumberInput
+        name="age"
+        label="Age"
+        minValue={{ value: 13, message: "You must be 13 or older to sign up" }}
+      />
+      <Form.SubmitButton>Submit</Form.SubmitButton>
+    </Form>
+  );
+}
+```
+
+Submitting this form with invalid data shows each message under its input, and `onSubmit` isn't called.
+
+## Custom validation
+
+`validate` takes a function that receives the field's value (and all form values as a second argument)
+and returns `true` when valid, or an error message string when not.
+
+```tsx
+const isEmail = (value: string) => value.includes("@") || "Email must be valid";
+
+<Form.TextInput name="email" label="Email" isRequired="Email is required" validate={isEmail} />
+```
+
+Validators can be `async`, e.g. to check availability against an API.
+
+### Multiple validators
+
+Pass an object to run several named validators. The first one to fail supplies the message.
+
+```tsx
+const isEmail = (value: string) => value.includes("@") || "Email must be valid";
+const isSchoolEmail = (value: string) =>
+  value.endsWith("@school.edu") || "Use your school.edu address";
+
+<Form.TextInput
+  name="email"
+  label="Email"
+  isRequired="Email is required"
+  validate={{ isEmail, isSchoolEmail }}
+/>
+```
+
+### Validating against other fields
+
+The second argument is every form value, which is handy for confirmation fields. `deps` lists fields to
+re-validate whenever this one changes, so editing the password re-checks the confirmation.
+
+```tsx
+<Form.TextInput
+  name="password"
+  label="Password"
+  type="password"
+  isRequired="Password is required"
+  deps={["confirmPassword"]}
+/>
+<Form.TextInput
+  name="confirmPassword"
+  label="Confirm password"
+  type="password"
+  validate={(value, values) => value === values.password || "Passwords don't match"}
+/>
+```
+
+### Dates and times
+
+Date and time inputs store `@internationalized/date` objects, which react-hook-form's `min`/`max` rules
+don't understand, so check ranges with `validate` and the object's `compare` method:
+
+```tsx
+import { getLocalTimeZone, today } from "@internationalized/date";
+
+<Form.DatePicker
+  name="dueDate"
+  label="Due date"
+  isRequired="Pick a due date"
+  validate={(value) =>
+    !value || value.compare(today(getLocalTimeZone())) >= 0 || "Due date can't be in the past"
+  }
+/>
 ```

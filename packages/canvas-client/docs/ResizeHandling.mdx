@@ -4,9 +4,30 @@ sidebar_position: 3
 
 # Resize Handling
 
-## Component API
+Canvas renders LTI tools in a fixed-height iframe. These helpers watch your page for changes and tell
+Canvas the new content height, so the iframe grows and shrinks with the content instead of scrolling.
 
-A React component that automatically handles resizing an iframe embedded in Canvas content.
+There are three layers; use the highest one that fits:
+
+1. [`ResizeIframe`](#resizeiframe): a component that measures its children and sends `lti.frameResize` for you.
+2. [`useResizeHandler`](#useresizehandler): a hook around `watchForResize` for custom measuring or reporting.
+3. [`watchForResize`](#watchforresize): the framework-free watcher.
+
+## How heights are detected
+
+`watchForResize` re-measures when:
+
+- anything in the document changes (a `MutationObserver` on `document.documentElement` watching
+  children, attributes and text in the whole tree), and
+- the window is resized, and
+- with `observeImages` (the default), an image whose attributes changed (such as a new `src`) finishes loading.
+
+It calls `onResize` only when the measured height differs from the last height reported. It doesn't
+measure when it starts; the first report happens on the first change.
+
+## `ResizeIframe`
+
+Wrap your app (or the part of the page that grows):
 
 ```tsx
 import { ResizeIframe } from "@atomicjolt/canvas-client";
@@ -14,58 +35,90 @@ import { ResizeIframe } from "@atomicjolt/canvas-client";
 function App() {
   return (
     <ResizeIframe>
-      <div>Your content here</div>
+      <CourseDashboard />
     </ResizeIframe>
   );
 }
 ```
 
-#### Props
+`ResizeIframe` renders its children followed by an empty marker `<div id="content-measuring-stick">`.
+The content height is that marker's `offsetTop`, i.e. everything above it. By default each new height
+is sent to Canvas with [`lti-client`'s `ResizeIframe`](/lti-client/PostMessage/ResizeIframe)
+(`lti.frameResize`).
 
-- `getHeight?: () => number` - Optional function to calculate the content height
-- `onResize?: (height: number) => void` - Optional callback when resize occurs
-- `observeImages?: boolean` - Whether to watch for image loads
-- `children?: React.ReactNode` - Content to render
+### Props
 
-## Hook API
-
-A React hook that manages iframe resizing logic.
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `children` | `ReactNode` | | The content to measure. |
+| `getHeight` | `(height: number) => number` | | Adjusts the measured height, e.g. to add padding. Receives the default measurement. |
+| `onResize` | `(height: number) => void` | sends `lti.frameResize` | Replaces the default resize request, e.g. to log or to use a different message. |
+| `observeImages` | `boolean` | `true` | Also re-measure when images finish loading. |
 
 ```tsx
+<ResizeIframe getHeight={(height) => height + 32}>
+  <CourseDashboard />
+</ResizeIframe>
+```
+
+## `useResizeHandler`
+
+```ts
+function useResizeHandler(options: WatchForResizeOptions): void;
+```
+
+Starts `watchForResize` when the component mounts and stops it on unmount. It restarts whenever
+`getHeight`, `onResize` or `observeImages` change, so keep the functions stable with `useCallback` (or
+define them outside the component).
+
+```tsx
+import { useCallback } from "react";
 import { useResizeHandler } from "@atomicjolt/canvas-client";
+import { ResizeIframe as FrameResizer } from "@atomicjolt/lti-client";
 
-function Component() {
-  useResizeHandler({
-    getHeight: () => document.body.scrollHeight,
-    onResize: (height) => console.log("New height:", height),
-    observeImages: true,
-  });
+const resizer = new FrameResizer();
+const getHeight = () => document.documentElement.scrollHeight;
 
-  return <div>Content</div>;
+function Layout({ children }: { children: React.ReactNode }) {
+  const onResize = useCallback((height: number) => {
+    resizer.resize(height).catch(() => {});
+  }, []);
+
+  useResizeHandler({ getHeight, onResize });
+
+  return <main>{children}</main>;
 }
 ```
 
-## Core API
+## `watchForResize`
 
-A utility function that watches for DOM changes and triggers resize events.
-
-```tsx
-import { watchForResize } from "@atomicjolt/canvas-client";
-
-const cleanup = watchForResize({
-  getHeight: () => document.body.scrollHeight,
-  onResize: (height) => console.log("Height changed:", height),
-  observeImages: true,
-});
-
-// Call cleanup when done
-cleanup();
+```ts
+function watchForResize(options: WatchForResizeOptions): () => void;
 ```
 
-#### Options
+The underlying watcher. Returns a cleanup function that disconnects the observer and removes all listeners.
 
-The `watchForResize` function accepts an options object with the following properties:
+```ts
+import { watchForResize } from "@atomicjolt/canvas-client";
 
-- `getHeight: () => number` - Function that returns the current height
-- `onResize: (height: number) => void` - Callback function when height changes
-- `observeImages?: boolean` - Whether to watch for image loads (default: true)
+const stop = watchForResize({
+  getHeight: () => document.documentElement.scrollHeight,
+  onResize: (height) => console.log("New height:", height),
+});
+
+// later
+stop();
+```
+
+### `WatchForResizeOptions`
+
+| Option | Type | Default | Description |
+| --- | --- | --- | --- |
+| `getHeight` | `() => number` | | Returns the height the iframe should be. Required. |
+| `onResize` | `(height: number) => void` | | Called with each new height. Required. |
+| `observeImages` | `boolean` | `true` | Also re-measure when images finish loading. |
+
+:::note
+The last reported height is shared by every watcher on the page, so running more than one watcher at a
+time can suppress reports. Use a single `ResizeIframe` (or watcher) per page.
+:::

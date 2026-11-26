@@ -1,112 +1,168 @@
+---
+sidebar_position: 2
+---
+
 # Usage
 
-`@atomicjolt/forms` is a package that provides a set of React hooks and components to help manage form state and validation.
-
 :::tip
-At it's core the library is a wrapper / integration of [react-hook-form](https://react-hook-form.com/), so I would
-recommend reading the documentation for `react-hook-form` to get a better understanding of how the library works.
+`@atomicjolt/forms` is a thin layer over [react-hook-form](https://react-hook-form.com/). Anything you know
+about react-hook-form (modes, `useWatch`, `setError`, resolvers, ...) applies here.
 :::
 
-## Default Values
+## The `Form` component
 
-Provide default values by passing in an object to the `defaultValues` prop on the `Form` component.
-The keys of the object should match the `name` prop of the form components.
+`Form` calls `useForm()` for you, provides the form context, and renders a `<form noValidate>` whose
+submit handler is `handleSubmit(onSubmit)`.
 
-```jsx
-import { Form  } from '@atomicjolt/forms';
+| Prop | Type | Description |
+| --- | --- | --- |
+| `onSubmit` | `(data: TFieldValues) => void` | Called with the form values once validation passes. Required. |
+| `children` | `ReactNode` | The form's contents. Required. |
+| ...rest | [`UseFormProps`](https://react-hook-form.com/docs/useform) | Every other prop is passed to `useForm()`: `defaultValues`, `values`, `mode`, `reValidateMode`, `resolver`, `criteriaMode`, `shouldUnregister`, etc. |
 
-const MyForm = () => {
-   const onSubmit = (data) => {
-     console.log(data);
-     // { firstName: "John", lastName: "Doe", age: 21 }
-   }
+Pass a type argument to get typed values in `onSubmit`:
 
-   return (
-      <Form onSubmit={onSubmit} defaultValues={{ age: 20 }}>
-         <Form.TextInput name="firstName" label="First Name" defaultValue="John" />
-         <Form.TextInput name="lastName" label="Last Name" />
-         <Form.NumberInput name="age" label="Age" />
-         <Form.Submitbutton>Submit</Form.SubmitButton>
-      </Form>
-   )
-};
+```tsx
+<Form<Signup> onSubmit={(data) => save(data)}>{/* ... */}</Form>
 ```
 
-## Submitting the Form
+The browser's native validation is disabled (`noValidate`); validation is done by react-hook-form using
+the rules on each input (see [Validations](./Validations.mdx)).
 
-To submit the form, you simply need to include a button with `type="submit"` inside the `Form` component.
+## Default values
 
-```jsx
-import { Form } from '@atomicjolt/forms';
+Pass `defaultValues` to `Form`; keys match the inputs' `name` props. An individual input can also take a
+`defaultValue` prop, which is used when `defaultValues` doesn't provide one.
 
-const MyForm = () => {
-   const onSubmit = (data) => {
-     console.log(data);
-   }
+```tsx
+import { Form } from "@atomicjolt/forms";
 
-   return (
-      <Form onSubmit={onSubmit}>
-         <Form.TextInput name="firstName" label="First Name" />
-         <Form.TextInput name="lastName" label="Last Name" />
-         <Form.NumberInput name="age" label="Age" />
-         <button type="submit">Submit</button>
-      </Form>
-   )
-};
+function ProfileForm() {
+  return (
+    <Form
+      onSubmit={(data) => console.log(data)}
+      // { firstName: "John", lastName: "", age: 20 } if submitted untouched
+      defaultValues={{ lastName: "", age: 20 }}
+    >
+      <Form.TextInput name="firstName" label="First Name" defaultValue="John" />
+      <Form.TextInput name="lastName" label="Last Name" />
+      <Form.NumberInput name="age" label="Age" />
+      <Form.SubmitButton>Submit</Form.SubmitButton>
+    </Form>
+  );
+}
 ```
 
-## FormProvider
+Some inputs read their initial value from their own atomic-elements prop instead of `defaultValue`:
+`Form.CheckBox` uses `defaultSelected`, the single-select inputs use `defaultSelectedKey`, and the
+multi-select inputs use `defaultSelectedKeys`. Setting the value in the form's `defaultValues` works for
+every input, so prefer that.
 
-If you want to use the `useForm` hook from `react-hook-form` directly, you can use the `FormProvider` component to pass the form methods down to your form components.
+:::tip
+Values that aren't strings or numbers are stored as-is: dates are `@internationalized/date` objects, file
+inputs store a `File`, and multi-selections are arrays of keys. Provide defaults in the same shape, e.g.
+`defaultValues={{ start: parseDate("2025-01-15"), tags: ["news"] }}`. See [Components](./Components.mdx#stored-values).
+:::
 
-```jsx
-import { useForm } from 'react-hook-form';
-import { FormProvider, Form } from '@atomicjolt/forms';
+## Submitting
 
-const MyForm = () => {
-   const methods = useForm();
+`Form.SubmitButton` is an atomic-elements `Button` with `type="submit"`; it accepts every other `Button`
+prop (`variant`, `size`, `isDisabled`, ...). Any `type="submit"` button inside the form works too.
 
-   const onSubmit = (data) => {
-     console.log(data);
-   }
-
-   return (
-      <FormProvider onSubmit={onSubmit} {...methods}>
-         <Form.TextInput name="firstName" label="First Name" />
-         <Form.TextInput name="lastName" label="Last Name" />
-         <Form.NumberInput name="age" label="Age" />
-         <Form.SubmitButton>Submit</Form.SubmitButton>
-      </FormProvider>
-   )
-};
+```tsx
+<Form onSubmit={onSubmit}>
+  <Form.TextInput name="email" label="Email" />
+  <Form.SubmitButton variant="primary">Save</Form.SubmitButton>
+</Form>
 ```
 
-## Custom Components
+## Reading form state inside the form
 
-It's simple to build your own custom form components using the `useFormContext` hook from `react-hook-form`.
+Inside a `Form`, use react-hook-form's hooks directly:
 
-```jsx
-import { useFormContext } from 'react-hook-form';
+```tsx
+import { useFormContext, useWatch } from "react-hook-form";
+import { Form } from "@atomicjolt/forms";
 
-const MyForm = () => {
-   const onSubmit = (data) => {
-     console.log(data);
-   }
-
-   return (
-      <Form onSubmit={onSubmit}>
-         <Form.TextInput name="firstName" label="First Name" />
-         <Form.TextInput name="lastName" label="Last Name" />
-         <CustomInput />
-      </Form>
-   )
+function SaveButton() {
+  const { formState } = useFormContext();
+  return <Form.SubmitButton isDisabled={formState.isSubmitting}>Save</Form.SubmitButton>;
 }
 
-const CustomInput = () => {
-   const { register } = useFormContext();
+function Greeting() {
+  const name = useWatch({ name: "name" });
+  return <p>Hello, {name || "stranger"}</p>;
+}
+```
 
-   return (
-      <input {...register("nestedInput")} />
-   )
+## `FormProvider`: calling `useForm` yourself
+
+When you need the form methods outside the form's children (to `reset` after saving, call `setError` with a
+server response, etc.), call `useForm()` yourself and pass the result to `FormProvider` with `onSubmit`.
+`FormProvider` renders the same `<form noValidate>` that `Form` does.
+
+```tsx
+import { useForm } from "react-hook-form";
+import { Form, FormProvider } from "@atomicjolt/forms";
+
+function EditCourse({ course }: { course: Course }) {
+  const methods = useForm<Course>({ defaultValues: course });
+
+  const onSubmit = async (data: Course) => {
+    const result = await saveCourse(data);
+    if (result.error) {
+      methods.setError("name", { message: result.error });
+    } else {
+      methods.reset(data);
+    }
+  };
+
+  return (
+    <FormProvider onSubmit={onSubmit} {...methods}>
+      <Form.TextInput name="name" label="Course name" isRequired="Name is required" />
+      <Form.SubmitButton>Save</Form.SubmitButton>
+    </FormProvider>
+  );
+}
+```
+
+## Custom inputs
+
+Any component inside a `Form` can register itself with react-hook-form. For a quick, uncontrolled native
+input, use `register`:
+
+```tsx
+import { useFormContext } from "react-hook-form";
+
+function NicknameInput() {
+  const { register } = useFormContext();
+  return <input {...register("nickname")} />;
+}
+```
+
+For a controlled component (such as another atomic-elements input), use `useController` and map its
+`field`/`fieldState` onto the component's props, which is what the built-in `Form.*` inputs do:
+
+```tsx
+import { useController } from "react-hook-form";
+import { Slider } from "./Slider";
+
+function FormSlider({ name, label }: { name: string; label: string }) {
+  const { field, fieldState } = useController({
+    name,
+    rules: { min: { value: 1, message: "Pick at least 1" } },
+  });
+
+  return (
+    <Slider
+      label={label}
+      name={field.name}
+      value={field.value}
+      onChange={field.onChange}
+      onBlur={field.onBlur}
+      isInvalid={fieldState.invalid}
+      error={fieldState.error?.message}
+    />
+  );
 }
 ```

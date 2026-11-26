@@ -1,23 +1,47 @@
-## `useDebouncedState`
+---
+sidebar_position: 4
+---
 
-A hook that debounces updates to a state value.
-If a new value is set before the delay has elapsed, the timer is reset.
+# `useDebouncedState`
 
-### Parameters
+Returns a debounced copy of a value that changes often (typically a prop or another piece of state). The
+returned state only updates once `value` has stopped changing for `delay` milliseconds; each new `value`
+restarts the timer.
 
-- `value` - The state value.
-- `delay` - The debounce delay in milliseconds.
+```ts
+function useDebouncedState<T>(
+  value: T,
+  delay: number
+): [debounced: T | undefined, setDebounced: Dispatch<SetStateAction<T | undefined>>];
+```
 
-### Returns
+## Parameters
 
-An array of:
-- The debounced state value.
-- State setter function.
+- `value`: the value to debounce. Pass the live value on every render.
+- `delay`: how long `value` must stay unchanged, in milliseconds, before the debounced copy updates.
 
-### Example
+## Returns
+
+- `debounced`: starts as the first `value`, then follows `value` after each `delay` of quiet.
+- `setDebounced`: sets the debounced copy immediately, without waiting. The next change to `value` will
+  overwrite it again after `delay`.
+
+## Example
+
+Search as the user types, but only query the API once they pause:
 
 ```tsx
-const [state, setState] = useDebouncedState('initial', 500);
+import { useEffect, useState } from "react";
+import { useDebouncedState } from "@atomicjolt/hooks";
 
-setState('new value'); // state will be updated to 'new value' after 500ms
+function CourseSearch() {
+  const [query, setQuery] = useState("");
+  const [debouncedQuery] = useDebouncedState(query, 300);
+
+  useEffect(() => {
+    if (debouncedQuery) searchCourses(debouncedQuery);
+  }, [debouncedQuery]);
+
+  return <input value={query} onChange={(e) => setQuery(e.target.value)} />;
+}
 ```
